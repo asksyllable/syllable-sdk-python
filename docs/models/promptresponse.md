@@ -1,0 +1,22 @@
+# PromptResponse
+
+A prompt defines the behavior of an agent by delivering instructions to the LLM about how the
+agent should behave. A prompt can be linked to one or more agents. A prompt can also be linked to
+tools to allow an agent using it to use those tools.
+
+
+## Fields
+
+| Field                                                          | Type                                                           | Required                                                       | Description                                                    | Example                                                        |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| `name`                                                         | *str*                                                          | :heavy_check_mark:                                             | The prompt name                                                |                                                                |
+| `type`                                                         | *str*                                                          | :heavy_check_mark:                                             | The type of the prompt                                         |                                                                |
+| `llm_config`                                                   | [models.PromptLlmConfig](../models/promptllmconfig.md)         | :heavy_check_mark:                                             | N/A                                                            |                                                                |
+| `id`                                                           | *int*                                                          | :heavy_check_mark:                                             | The prompt ID                                                  |                                                                |
+| `last_updated`                                                 | *Nullable[str]*                                                | :heavy_check_mark:                                             | The last updated date of the prompt                            |                                                                |
+| `description`                                                  | *OptionalNullable[str]*                                        | :heavy_minus_sign:                                             | The description of the prompt                                  |                                                                |
+| `context`                                                      | *OptionalNullable[str]*                                        | :heavy_minus_sign:                                             | The prompt text                                                |                                                                |
+| `tools`                                                        | List[*str*]                                                    | :heavy_minus_sign:                                             | Names of the tools to which the prompt has access              |                                                                |
+| `edit_comments`                                                | *OptionalNullable[str]*                                        | :heavy_minus_sign:                                             | The comments for the most recent edit to the prompt            |                                                                |
+| `last_updated_by`                                              | *OptionalNullable[str]*                                        | :heavy_minus_sign:                                             | Email address of the user who most recently updated the prompt | user@email.com                                                 |
+| `agent_count`                                                  | *OptionalNullable[int]*                                        | :heavy_minus_sign:                                             | The number of agents using the prompt                          |                                                                |

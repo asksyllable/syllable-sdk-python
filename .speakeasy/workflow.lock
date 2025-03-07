@@ -1,0 +1,38 @@
+speakeasyVersion: 1.513.2
+sources:
+    SyllableSDK:
+        sourceNamespace: syllable-sdk
+        sourceRevisionDigest: sha256:8e059a6ae5a7fc753fcc329734adf064b5a9b9f86fadacc3d9a0c46ceb529776
+        sourceBlobDigest: sha256:9638d447c9e77c96e5677dac4cd8c4aa16c1b603aad6e5b523e0e28a96d56444
+        tags:
+            - latest
+            - 0.0.2
+targets:
+    syllable-sdk:
+        source: SyllableSDK
+        sourceNamespace: syllable-sdk
+        sourceRevisionDigest: sha256:8e059a6ae5a7fc753fcc329734adf064b5a9b9f86fadacc3d9a0c46ceb529776
+        sourceBlobDigest: sha256:9638d447c9e77c96e5677dac4cd8c4aa16c1b603aad6e5b523e0e28a96d56444
+        codeSamplesNamespace: syllable-sdk-python-code-samples
+        codeSamplesRevisionDigest: sha256:b6583727c534af8c83a246742804d9ac2f1830875307ba270682c3bdb5eef4f0
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        SyllableSDK:
+            inputs:
+                - location: openapi.yaml
+            overlays:
+                - location: .speakeasy/speakeasy-modifications-overlay.yaml
+            registry:
+                location: registry.speakeasyapi.dev/actiumhealth/actiumhealth/syllable-sdk
+    targets:
+        syllable-sdk:
+            target: python
+            source: SyllableSDK
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/actiumhealth/actiumhealth/syllable-sdk-python-code-samples
+                labelOverride:
+                    fixedValue: Python (SDK)
+                blocking: false

@@ -1,0 +1,12 @@
+# InsightToolInput
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `name`                                                                             | *str*                                                                              | :heavy_check_mark:                                                                 | Human readable name of Insight Tool                                                |
+| `description`                                                                      | *str*                                                                              | :heavy_check_mark:                                                                 | Text description of Insight Tool                                                   |
+| `version`                                                                          | *int*                                                                              | :heavy_check_mark:                                                                 | Version number of Insight Tool                                                     |
+| `tool_arguments`                                                                   | [models.InsightToolInputToolArguments](../models/insighttoolinputtoolarguments.md) | :heavy_check_mark:                                                                 | Arguments for Insight Tool                                                         |
+| `insight_tool_definition_id`                                                       | *int*                                                                              | :heavy_check_mark:                                                                 | Unique ID for Insight Tool Definition                                              |
