@@ -12,6 +12,9 @@ targets:
     syllable-sdk:
         target: python
         source: SyllableSDK
+        publish:
+            pypi:
+                token: $pypi_token
         codeSamples:
             registry:
                 location: registry.speakeasyapi.dev/actiumhealth/actiumhealth/syllable-sdk-python-code-samples
