@@ -1,0 +1,11 @@
+# PromptLlmConfig
+
+
+## Fields
+
+| Field                                                                 | Type                                                                  | Required                                                              | Description                                                           | Example                                                               |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `provider`                                                            | [Optional[models.PromptLlmProvider]](../models/promptllmprovider.md)  | :heavy_minus_sign:                                                    | LLM API provider.                                                     |                                                                       |
+| `model`                                                               | *Optional[str]*                                                       | :heavy_minus_sign:                                                    | Name of the model. Must match the deployment name in Azure AI Studio. | gpt-4o                                                                |
+| `version`                                                             | *OptionalNullable[str]*                                               | :heavy_minus_sign:                                                    | Optional model version.                                               | 2024-05-13                                                            |
+| `api_version`                                                         | *OptionalNullable[str]*                                               | :heavy_minus_sign:                                                    | Version of the API. (Currently only used for Azure OpenAI.)           | 2024-06-01                                                            |

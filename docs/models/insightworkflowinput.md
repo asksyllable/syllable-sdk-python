@@ -1,0 +1,12 @@
+# InsightWorkflowInput
+
+
+## Fields
+
+| Field                                                                                | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `name`                                                                               | *str*                                                                                | :heavy_check_mark:                                                                   | Human readable name of Insight Workflow                                              |
+| `description`                                                                        | *str*                                                                                | :heavy_check_mark:                                                                   | Text description of Insight Workflow                                                 |
+| `insight_tool_ids`                                                                   | List[*int*]                                                                          | :heavy_check_mark:                                                                   | List of Insight Tool IDs                                                             |
+| `conditions`                                                                         | [models.InsightWorkflowInputConditions](../models/insightworkflowinputconditions.md) | :heavy_check_mark:                                                                   | Conditions for Insight Workflow                                                      |
+| `status`                                                                             | *str*                                                                                | :heavy_check_mark:                                                                   | Status of the Insight Workflow                                                       |

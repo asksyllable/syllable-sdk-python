@@ -1,0 +1,1190 @@
+lockVersion: 2.0.0
+id: a3e2761c-0979-427e-b940-b6de6c04cc0d
+management:
+  docChecksum: 1bc095b532f6a99ab33ecc724378de68
+  docVersion: 0.0.2
+  speakeasyVersion: 1.513.2
+  generationVersion: 2.545.2
+  releaseVersion: 0.1.0
+  configChecksum: 770c6182137cc89da00e59c1cfca8b82
+features:
+  python:
+    additionalDependencies: 1.0.0
+    constsAndDefaults: 1.0.5
+    core: 5.12.2
+    defaultEnabledRetries: 0.2.0
+    deprecations: 3.0.2
+    devContainers: 3.0.0
+    downloadStreams: 1.0.1
+    enumUnions: 0.1.0
+    envVarSecurityUsage: 0.3.2
+    flatRequests: 1.0.1
+    flattening: 3.1.1
+    globalSecurity: 3.0.3
+    globalSecurityCallbacks: 1.0.0
+    globalSecurityFlattening: 1.0.0
+    globalServerURLs: 3.1.0
+    groups: 3.0.0
+    ignores: 3.0.1
+    methodArguments: 1.0.2
+    nameOverrides: 3.0.1
+    nullables: 1.0.1
+    responseFormat: 1.0.1
+    retries: 3.0.2
+    sdkHooks: 1.0.1
+    unions: 3.0.4
+generatedFiles:
+  - .devcontainer/README.md
+  - .devcontainer/devcontainer.json
+  - .devcontainer/setup.sh
+  - .gitattributes
+  - .python-version
+  - .vscode/settings.json
+  - USAGE.md
+  - docs/models/action.md
+  - docs/models/agentcreate.md
+  - docs/models/agentdeleterequest.md
+  - docs/models/agentgetbyidrequest.md
+  - docs/models/agentlanguage.md
+  - docs/models/agentlistrequest.md
+  - docs/models/agentproperties.md
+  - docs/models/agentresponse.md
+  - docs/models/agentsttprovider.md
+  - docs/models/agenttooldefaults.md
+  - docs/models/agenttoolfielddefault.md
+  - docs/models/agentupdate.md
+  - docs/models/agentvoice.md
+  - docs/models/agentvoicedisplayname.md
+  - docs/models/agentvoicegender.md
+  - docs/models/agentvoicemodel.md
+  - docs/models/agentvoicevarname.md
+  - docs/models/agentwaitsound.md
+  - docs/models/attributes.md
+  - docs/models/availabletarget.md
+  - docs/models/availabletargetproperties.md
+  - docs/models/availabletargetsrequest.md
+  - docs/models/channel.md
+  - docs/models/channelproperties.md
+  - docs/models/channelservices.md
+  - docs/models/channelslistrequest.md
+  - docs/models/channeltargetcreaterequest.md
+  - docs/models/channeltargetproperties.md
+  - docs/models/channeltargetresponse.md
+  - docs/models/channeltargetscreaterequest.md
+  - docs/models/channeltargetsdeleterequest.md
+  - docs/models/channeltargetsgetbyidrequest.md
+  - docs/models/channeltargetslistrequest.md
+  - docs/models/channeltargetsupdaterequest.md
+  - docs/models/channeltargetupdaterequest.md
+  - docs/models/conversation.md
+  - docs/models/conversationproperties.md
+  - docs/models/conversationslistrequest.md
+  - docs/models/custommessagecreaterequest.md
+  - docs/models/custommessagegetbyidrequest.md
+  - docs/models/custommessageproperties.md
+  - docs/models/custommessageresponse.md
+  - docs/models/custommessagerule.md
+  - docs/models/custommessagesdeleterequest.md
+  - docs/models/custommessageslistrequest.md
+  - docs/models/custommessageupdaterequest.md
+  - docs/models/dashboard.md
+  - docs/models/dashboardproperties.md
+  - docs/models/dashboardresponse.md
+  - docs/models/dashboardtokenresponse.md
+  - docs/models/datasourcecreaterequest.md
+  - docs/models/datasourcedetailresponse.md
+  - docs/models/datasourcemetadataresponse.md
+  - docs/models/datasourceproperties.md
+  - docs/models/datasourcesdeleterequest.md
+  - docs/models/datasourcesgetbyidrequest.md
+  - docs/models/datasourceslistrequest.md
+  - docs/models/datasourceupdaterequest.md
+  - docs/models/dayofweek.md
+  - docs/models/defaults.md
+  - docs/models/directoryworkflowdeleterequest.md
+  - docs/models/event.md
+  - docs/models/eventproperties.md
+  - docs/models/eventslistrequest.md
+  - docs/models/generatesessionrecordingurlsrequest.md
+  - docs/models/httpvalidationerror.md
+  - docs/models/insightstoolupdaterequest.md
+  - docs/models/insightsworkflowgetbyidrequest.md
+  - docs/models/insightsworkflowlistrequest.md
+  - docs/models/insightsworkflowupdaterequest.md
+  - docs/models/insighttooldefinition.md
+  - docs/models/insighttoolgetbyidrequest.md
+  - docs/models/insighttoolinput.md
+  - docs/models/insighttoolinputtoolarguments.md
+  - docs/models/insighttoollistrequest.md
+  - docs/models/insighttooloutput.md
+  - docs/models/insighttooloutputtoolarguments.md
+  - docs/models/insighttoolproperties.md
+  - docs/models/insightworkflowinput.md
+  - docs/models/insightworkflowinputconditions.md
+  - docs/models/insightworkflowoutput.md
+  - docs/models/insightworkflowoutputconditions.md
+  - docs/models/insightworkflowproperties.md
+  - docs/models/internaltool.md
+  - docs/models/languagecode.md
+  - docs/models/languageconfig.md
+  - docs/models/languagegroupagentinfo.md
+  - docs/models/languagegroupcreaterequest.md
+  - docs/models/languagegroupproperties.md
+  - docs/models/languagegroupresponse.md
+  - docs/models/languagegroupsdeleterequest.md
+  - docs/models/languagegroupsgetbyidrequest.md
+  - docs/models/languagegroupslistrequest.md
+  - docs/models/languagegroupupdaterequest.md
+  - docs/models/listresponseagentresponse.md
+  - docs/models/listresponseavailabletarget.md
+  - docs/models/listresponsechannel.md
+  - docs/models/listresponsechanneltargetresponse.md
+  - docs/models/listresponseconversation.md
+  - docs/models/listresponsecustommessageresponse.md
+  - docs/models/listresponsedashboardresponse.md
+  - docs/models/listresponsedatasourcemetadataresponse.md
+  - docs/models/listresponseevent.md
+  - docs/models/listresponseinsighttooloutput.md
+  - docs/models/listresponseinsightworkflowoutput.md
+  - docs/models/listresponselanguagegroupresponse.md
+  - docs/models/listresponsepromptresponse.md
+  - docs/models/listresponseserviceresponse.md
+  - docs/models/listresponsesession.md
+  - docs/models/listresponsesessionlabel.md
+  - docs/models/listresponsetoolresponse.md
+  - docs/models/loc.md
+  - docs/models/orderbydirection.md
+  - docs/models/postgetdashboardrequest.md
+  - docs/models/postlistdashboardrequest.md
+  - docs/models/promptcreaterequest.md
+  - docs/models/prompthistory.md
+  - docs/models/promptllmconfig.md
+  - docs/models/promptllmprovider.md
+  - docs/models/promptproperties.md
+  - docs/models/promptresponse.md
+  - docs/models/promptsdeleterequest.md
+  - docs/models/promptsgetbyidrequest.md
+  - docs/models/promptshistoryrequest.md
+  - docs/models/promptslistrequest.md
+  - docs/models/promptupdaterequest.md
+  - docs/models/response.md
+  - docs/models/security.md
+  - docs/models/servicecreaterequest.md
+  - docs/models/servicedeleterequest.md
+  - docs/models/servicelistrequest.md
+  - docs/models/serviceproperties.md
+  - docs/models/serviceresponse.md
+  - docs/models/servicesgetbyidrequest.md
+  - docs/models/serviceupdaterequest.md
+  - docs/models/session.md
+  - docs/models/sessionaction.md
+  - docs/models/sessionfullsummarygetbyidrequest.md
+  - docs/models/sessiongetbyidrequest.md
+  - docs/models/sessionlabel.md
+  - docs/models/sessionlabelcreate.md
+  - docs/models/sessionlabelgetbyidrequest.md
+  - docs/models/sessionlabelproperties.md
+  - docs/models/sessionlabelslistrequest.md
+  - docs/models/sessionproperties.md
+  - docs/models/sessionrecordingresponse.md
+  - docs/models/sessionrecordingstreamrequest.md
+  - docs/models/sessionslistrequest.md
+  - docs/models/sessionsummarygetbyidrequest.md
+  - docs/models/sessionsummaryresponse.md
+  - docs/models/sessiontext.md
+  - docs/models/sessiontranscriptgetbyidrequest.md
+  - docs/models/sessiontranscriptionresponse.md
+  - docs/models/statictoolparameter.md
+  - docs/models/statictoolparametertype.md
+  - docs/models/targetmodes.md
+  - docs/models/testmessage.md
+  - docs/models/testmessageresponse.md
+  - docs/models/toolagentinfo.md
+  - docs/models/toolargumentlocation.md
+  - docs/models/toolcreaterequest.md
+  - docs/models/tooldefinition.md
+  - docs/models/tooldeleterequest.md
+  - docs/models/tooldetailresponse.md
+  - docs/models/toolfunction.md
+  - docs/models/toolgetbynamerequest.md
+  - docs/models/toolhttpendpoint.md
+  - docs/models/toolhttpmethod.md
+  - docs/models/toollistrequest.md
+  - docs/models/toolparameterdefault.md
+  - docs/models/toolparameters.md
+  - docs/models/toolparametertransform.md
+  - docs/models/toolparametertransformcondition.md
+  - docs/models/toolpromptinfo.md
+  - docs/models/toolproperties.md
+  - docs/models/toolresponse.md
+  - docs/models/toolresultset.md
+  - docs/models/toolupdaterequest.md
+  - docs/models/ttsprovider.md
+  - docs/models/type.md
+  - docs/models/utils/retryconfig.md
+  - docs/models/validationerror.md
+  - docs/sdks/agents/README.md
+  - docs/sdks/channels/README.md
+  - docs/sdks/channelstargets/README.md
+  - docs/sdks/conversations/README.md
+  - docs/sdks/custommessages/README.md
+  - docs/sdks/dashboards/README.md
+  - docs/sdks/datasources/README.md
+  - docs/sdks/events/README.md
+  - docs/sdks/insights/README.md
+  - docs/sdks/insightstools/README.md
+  - docs/sdks/insightsworkflows/README.md
+  - docs/sdks/languagegroups/README.md
+  - docs/sdks/prompts/README.md
+  - docs/sdks/recording/README.md
+  - docs/sdks/services/README.md
+  - docs/sdks/sessionlabels/README.md
+  - docs/sdks/sessions/README.md
+  - docs/sdks/summary/README.md
+  - docs/sdks/syllablesdk/README.md
+  - docs/sdks/targets/README.md
+  - docs/sdks/test/README.md
+  - docs/sdks/tools/README.md
+  - docs/sdks/transcript/README.md
+  - docs/sdks/v1/README.md
+  - docs/sdks/workflows/README.md
+  - poetry.toml
+  - py.typed
+  - pylintrc
+  - pyproject.toml
+  - scripts/prepare_readme.py
+  - scripts/publish.sh
+  - src/syllable_sdk/__init__.py
+  - src/syllable_sdk/_hooks/__init__.py
+  - src/syllable_sdk/_hooks/sdkhooks.py
+  - src/syllable_sdk/_hooks/types.py
+  - src/syllable_sdk/_version.py
+  - src/syllable_sdk/agents.py
+  - src/syllable_sdk/basesdk.py
+  - src/syllable_sdk/channels.py
+  - src/syllable_sdk/channelstargets.py
+  - src/syllable_sdk/conversations.py
+  - src/syllable_sdk/custommessages.py
+  - src/syllable_sdk/dashboards.py
+  - src/syllable_sdk/datasources.py
+  - src/syllable_sdk/events.py
+  - src/syllable_sdk/httpclient.py
+  - src/syllable_sdk/insights.py
+  - src/syllable_sdk/insights_tools.py
+  - src/syllable_sdk/insightstools.py
+  - src/syllable_sdk/insightsworkflows.py
+  - src/syllable_sdk/languagegroups.py
+  - src/syllable_sdk/models/__init__.py
+  - src/syllable_sdk/models/agent_deleteop.py
+  - src/syllable_sdk/models/agent_get_by_idop.py
+  - src/syllable_sdk/models/agent_listop.py
+  - src/syllable_sdk/models/agentcreate.py
+  - src/syllable_sdk/models/agentlanguage.py
+  - src/syllable_sdk/models/agentproperties.py
+  - src/syllable_sdk/models/agentresponse.py
+  - src/syllable_sdk/models/agentsttprovider.py
+  - src/syllable_sdk/models/agenttooldefaults.py
+  - src/syllable_sdk/models/agenttoolfielddefault.py
+  - src/syllable_sdk/models/agentupdate.py
+  - src/syllable_sdk/models/agentvoice.py
+  - src/syllable_sdk/models/agentvoicedisplayname.py
+  - src/syllable_sdk/models/agentvoicegender.py
+  - src/syllable_sdk/models/agentvoicemodel.py
+  - src/syllable_sdk/models/agentvoicevarname.py
+  - src/syllable_sdk/models/agentwaitsound.py
+  - src/syllable_sdk/models/apierror.py
+  - src/syllable_sdk/models/available_targetsop.py
+  - src/syllable_sdk/models/availabletarget.py
+  - src/syllable_sdk/models/availabletargetproperties.py
+  - src/syllable_sdk/models/channel.py
+  - src/syllable_sdk/models/channel_targets_createop.py
+  - src/syllable_sdk/models/channel_targets_deleteop.py
+  - src/syllable_sdk/models/channel_targets_get_by_idop.py
+  - src/syllable_sdk/models/channel_targets_listop.py
+  - src/syllable_sdk/models/channel_targets_updateop.py
+  - src/syllable_sdk/models/channelproperties.py
+  - src/syllable_sdk/models/channels_listop.py
+  - src/syllable_sdk/models/channelservices.py
+  - src/syllable_sdk/models/channeltargetcreaterequest.py
+  - src/syllable_sdk/models/channeltargetproperties.py
+  - src/syllable_sdk/models/channeltargetresponse.py
+  - src/syllable_sdk/models/channeltargetupdaterequest.py
+  - src/syllable_sdk/models/conversation.py
+  - src/syllable_sdk/models/conversationproperties.py
+  - src/syllable_sdk/models/conversations_listop.py
+  - src/syllable_sdk/models/custom_message_get_by_idop.py
+  - src/syllable_sdk/models/custom_messages_deleteop.py
+  - src/syllable_sdk/models/custom_messages_listop.py
+  - src/syllable_sdk/models/custommessagecreaterequest.py
+  - src/syllable_sdk/models/custommessageproperties.py
+  - src/syllable_sdk/models/custommessageresponse.py
+  - src/syllable_sdk/models/custommessagerule.py
+  - src/syllable_sdk/models/custommessageupdaterequest.py
+  - src/syllable_sdk/models/dashboard.py
+  - src/syllable_sdk/models/dashboardproperties.py
+  - src/syllable_sdk/models/dashboardresponse.py
+  - src/syllable_sdk/models/dashboardtokenresponse.py
+  - src/syllable_sdk/models/data_sources_deleteop.py
+  - src/syllable_sdk/models/data_sources_get_by_idop.py
+  - src/syllable_sdk/models/data_sources_listop.py
+  - src/syllable_sdk/models/datasourcecreaterequest.py
+  - src/syllable_sdk/models/datasourcedetailresponse.py
+  - src/syllable_sdk/models/datasourcemetadataresponse.py
+  - src/syllable_sdk/models/datasourceproperties.py
+  - src/syllable_sdk/models/datasourceupdaterequest.py
+  - src/syllable_sdk/models/dayofweek.py
+  - src/syllable_sdk/models/directory_workflow_deleteop.py
+  - src/syllable_sdk/models/event.py
+  - src/syllable_sdk/models/eventproperties.py
+  - src/syllable_sdk/models/events_listop.py
+  - src/syllable_sdk/models/generate_session_recording_urlsop.py
+  - src/syllable_sdk/models/httpvalidationerror.py
+  - src/syllable_sdk/models/insight_tool_get_by_idop.py
+  - src/syllable_sdk/models/insight_tool_listop.py
+  - src/syllable_sdk/models/insights_tool_updateop.py
+  - src/syllable_sdk/models/insights_workflow_get_by_idop.py
+  - src/syllable_sdk/models/insights_workflow_listop.py
+  - src/syllable_sdk/models/insights_workflow_updateop.py
+  - src/syllable_sdk/models/insighttooldefinition.py
+  - src/syllable_sdk/models/insighttoolinput.py
+  - src/syllable_sdk/models/insighttooloutput.py
+  - src/syllable_sdk/models/insighttoolproperties.py
+  - src/syllable_sdk/models/insightworkflowinput.py
+  - src/syllable_sdk/models/insightworkflowoutput.py
+  - src/syllable_sdk/models/insightworkflowproperties.py
+  - src/syllable_sdk/models/internaltool.py
+  - src/syllable_sdk/models/language_groups_deleteop.py
+  - src/syllable_sdk/models/language_groups_get_by_idop.py
+  - src/syllable_sdk/models/language_groups_listop.py
+  - src/syllable_sdk/models/languagecode.py
+  - src/syllable_sdk/models/languageconfig.py
+  - src/syllable_sdk/models/languagegroupagentinfo.py
+  - src/syllable_sdk/models/languagegroupcreaterequest.py
+  - src/syllable_sdk/models/languagegroupproperties.py
+  - src/syllable_sdk/models/languagegroupresponse.py
+  - src/syllable_sdk/models/languagegroupupdaterequest.py
+  - src/syllable_sdk/models/listresponse_agentresponse_.py
+  - src/syllable_sdk/models/listresponse_availabletarget_.py
+  - src/syllable_sdk/models/listresponse_channel_.py
+  - src/syllable_sdk/models/listresponse_channeltargetresponse_.py
+  - src/syllable_sdk/models/listresponse_conversation_.py
+  - src/syllable_sdk/models/listresponse_custommessageresponse_.py
+  - src/syllable_sdk/models/listresponse_dashboardresponse_.py
+  - src/syllable_sdk/models/listresponse_datasourcemetadataresponse_.py
+  - src/syllable_sdk/models/listresponse_event_.py
+  - src/syllable_sdk/models/listresponse_insighttooloutput_.py
+  - src/syllable_sdk/models/listresponse_insightworkflowoutput_.py
+  - src/syllable_sdk/models/listresponse_languagegroupresponse_.py
+  - src/syllable_sdk/models/listresponse_promptresponse_.py
+  - src/syllable_sdk/models/listresponse_serviceresponse_.py
+  - src/syllable_sdk/models/listresponse_session_.py
+  - src/syllable_sdk/models/listresponse_sessionlabel_.py
+  - src/syllable_sdk/models/listresponse_toolresponse_.py
+  - src/syllable_sdk/models/orderbydirection.py
+  - src/syllable_sdk/models/post_get_dashboardop.py
+  - src/syllable_sdk/models/post_list_dashboardop.py
+  - src/syllable_sdk/models/promptcreaterequest.py
+  - src/syllable_sdk/models/prompthistory.py
+  - src/syllable_sdk/models/promptllmconfig.py
+  - src/syllable_sdk/models/promptllmprovider.py
+  - src/syllable_sdk/models/promptproperties.py
+  - src/syllable_sdk/models/promptresponse.py
+  - src/syllable_sdk/models/prompts_deleteop.py
+  - src/syllable_sdk/models/prompts_get_by_idop.py
+  - src/syllable_sdk/models/prompts_historyop.py
+  - src/syllable_sdk/models/prompts_listop.py
+  - src/syllable_sdk/models/promptupdaterequest.py
+  - src/syllable_sdk/models/security.py
+  - src/syllable_sdk/models/service_deleteop.py
+  - src/syllable_sdk/models/service_listop.py
+  - src/syllable_sdk/models/servicecreaterequest.py
+  - src/syllable_sdk/models/serviceproperties.py
+  - src/syllable_sdk/models/serviceresponse.py
+  - src/syllable_sdk/models/services_get_by_idop.py
+  - src/syllable_sdk/models/serviceupdaterequest.py
+  - src/syllable_sdk/models/session.py
+  - src/syllable_sdk/models/session_full_summary_get_by_idop.py
+  - src/syllable_sdk/models/session_get_by_idop.py
+  - src/syllable_sdk/models/session_label_get_by_idop.py
+  - src/syllable_sdk/models/session_labels_listop.py
+  - src/syllable_sdk/models/session_recording_streamop.py
+  - src/syllable_sdk/models/session_summary_get_by_idop.py
+  - src/syllable_sdk/models/session_transcript_get_by_idop.py
+  - src/syllable_sdk/models/sessionaction.py
+  - src/syllable_sdk/models/sessionlabel.py
+  - src/syllable_sdk/models/sessionlabelcreate.py
+  - src/syllable_sdk/models/sessionlabelproperties.py
+  - src/syllable_sdk/models/sessionproperties.py
+  - src/syllable_sdk/models/sessionrecordingresponse.py
+  - src/syllable_sdk/models/sessions_listop.py
+  - src/syllable_sdk/models/sessionsummaryresponse.py
+  - src/syllable_sdk/models/sessiontext.py
+  - src/syllable_sdk/models/sessiontranscriptionresponse.py
+  - src/syllable_sdk/models/statictoolparameter.py
+  - src/syllable_sdk/models/statictoolparametertype.py
+  - src/syllable_sdk/models/targetmodes.py
+  - src/syllable_sdk/models/testmessage.py
+  - src/syllable_sdk/models/testmessageresponse.py
+  - src/syllable_sdk/models/tool_deleteop.py
+  - src/syllable_sdk/models/tool_get_by_nameop.py
+  - src/syllable_sdk/models/tool_listop.py
+  - src/syllable_sdk/models/toolagentinfo.py
+  - src/syllable_sdk/models/toolargumentlocation.py
+  - src/syllable_sdk/models/toolcreaterequest.py
+  - src/syllable_sdk/models/tooldefinition.py
+  - src/syllable_sdk/models/tooldetailresponse.py
+  - src/syllable_sdk/models/toolfunction.py
+  - src/syllable_sdk/models/toolhttpendpoint.py
+  - src/syllable_sdk/models/toolhttpmethod.py
+  - src/syllable_sdk/models/toolparameterdefault.py
+  - src/syllable_sdk/models/toolparametertransform.py
+  - src/syllable_sdk/models/toolparametertransformcondition.py
+  - src/syllable_sdk/models/toolpromptinfo.py
+  - src/syllable_sdk/models/toolproperties.py
+  - src/syllable_sdk/models/toolresponse.py
+  - src/syllable_sdk/models/toolupdaterequest.py
+  - src/syllable_sdk/models/ttsprovider.py
+  - src/syllable_sdk/models/validationerror.py
+  - src/syllable_sdk/prompts.py
+  - src/syllable_sdk/py.typed
+  - src/syllable_sdk/recording.py
+  - src/syllable_sdk/sdk.py
+  - src/syllable_sdk/sdkconfiguration.py
+  - src/syllable_sdk/services.py
+  - src/syllable_sdk/sessionlabels.py
+  - src/syllable_sdk/sessions.py
+  - src/syllable_sdk/summary.py
+  - src/syllable_sdk/targets.py
+  - src/syllable_sdk/test.py
+  - src/syllable_sdk/tools.py
+  - src/syllable_sdk/transcript.py
+  - src/syllable_sdk/types/__init__.py
+  - src/syllable_sdk/types/basemodel.py
+  - src/syllable_sdk/utils/__init__.py
+  - src/syllable_sdk/utils/annotations.py
+  - src/syllable_sdk/utils/enums.py
+  - src/syllable_sdk/utils/eventstreaming.py
+  - src/syllable_sdk/utils/forms.py
+  - src/syllable_sdk/utils/headers.py
+  - src/syllable_sdk/utils/logger.py
+  - src/syllable_sdk/utils/metadata.py
+  - src/syllable_sdk/utils/queryparams.py
+  - src/syllable_sdk/utils/requestbodies.py
+  - src/syllable_sdk/utils/retries.py
+  - src/syllable_sdk/utils/security.py
+  - src/syllable_sdk/utils/serializers.py
+  - src/syllable_sdk/utils/url.py
+  - src/syllable_sdk/utils/values.py
+  - src/syllable_sdk/v1.py
+  - src/syllable_sdk/workflows.py
+examples:
+  agent_list:
+    speakeasy-default-agent-list:
+      parameters:
+        query:
+          limit: 25
+      responses:
+        "200":
+          application/json: {"items": [{"name": "<value>", "type": "ca_v1", "prompt_id": 547272, "custom_message_id": 678317, "timezone": "America/Chicago", "variables": {}, "tool_headers": {"key": "<value>", "key1": "<value>"}, "agent_initiated": false, "stt_provider": "Google STT V2", "wait_sound": "Call Center", "id": 17577, "updated_at": "2025-02-26T06:14:46.641Z", "last_updated_by": "<value>", "prompt": {"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "id": 86140, "last_updated": "<value>", "last_updated_by": "user@email.com"}, "custom_message": {"name": "<value>", "text": "<value>", "rules": [{"description": "as toward uselessly lid covenant safely briefly ugh", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}], "id": 60868, "updated_at": "2023-11-19T07:34:10.466Z", "last_updated_by": "user@email.com", "type": "greeting"}, "channel_targets": [{"agent_id": 747562, "channel_id": 258945, "target": "<value>", "target_mode": "chat", "is_test": false, "id": 96709, "channel_name": "<value>", "updated_at": "2025-01-13T06:48:49.446Z", "last_updated_by": "<value>"}, {"agent_id": 445673, "channel_id": 5229, "target": "<value>", "target_mode": "email", "is_test": false, "id": 956959, "channel_name": "<value>", "updated_at": "2025-05-02T01:42:40.060Z", "last_updated_by": "<value>"}, {"agent_id": 505778, "channel_id": 948614, "target": "<value>", "target_mode": "email", "is_test": false, "id": 20615, "channel_name": "<value>", "updated_at": "2024-05-27T16:21:14.723Z", "last_updated_by": "<value>"}], "tools": [{"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "post", "argument_location": "query"}, "defaults": "<value>"}, "service_id": 29267, "id": 652326, "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2024-03-23T05:46:37.955Z", "last_updated_by": "user@email.com"}, {"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "query"}, "defaults": "<value>"}, "service_id": 406391, "id": 79169, "prompts_info": [{"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2025-12-19T15:02:23.114Z", "last_updated_by": "user@email.com"}, {"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "form"}, "defaults": "<value>"}, "service_id": 212921, "id": 900911, "prompts_info": [{"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2024-04-10T08:18:00.740Z", "last_updated_by": "user@email.com"}], "language_group": {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [], "skip_current_language_in_message": true, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}], "updated_at": "2023-05-16T00:18:50.934Z", "last_updated_by": "user@mail.com"}}, {"name": "<value>", "type": "ca_v1", "prompt_id": 673953, "custom_message_id": 838896, "timezone": "America/New_York", "variables": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "agent_initiated": false, "stt_provider": "Google STT V1", "wait_sound": "Keyboard 2", "id": 751563, "updated_at": "2023-11-01T03:58:06.965Z", "last_updated_by": "<value>", "prompt": {"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "id": 551258, "last_updated": "<value>", "last_updated_by": "user@email.com"}, "custom_message": {"name": "<value>", "text": "<value>", "rules": [{"description": "regarding times uselessly toothpick silently aftermath never", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": false, "text": "Sorry, we're closed today"}], "id": 229841, "updated_at": "2023-06-09T01:19:27.771Z", "last_updated_by": "user@email.com", "type": "greeting"}, "channel_targets": [{"agent_id": 633721, "channel_id": 564653, "target": "<value>", "target_mode": "email", "is_test": false, "id": 791845, "channel_name": "<value>", "updated_at": "2024-09-14T22:44:15.819Z", "last_updated_by": "<value>"}, {"agent_id": 472871, "channel_id": 580639, "target": "<value>", "target_mode": "voice", "is_test": false, "id": 539569, "channel_name": "<value>", "updated_at": "2025-09-07T23:06:08.488Z", "last_updated_by": "<value>"}], "tools": [{"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "post", "argument_location": "form"}, "defaults": "<value>"}, "service_id": 2373, "id": 953565, "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2025-09-24T21:13:12.223Z", "last_updated_by": "user@email.com"}], "language_group": {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [], "skip_current_language_in_message": true, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "updated_at": "2023-01-22T12:19:34.261Z", "last_updated_by": "user@mail.com"}}, {"name": "<value>", "type": "ca_v1", "prompt_id": 537506, "custom_message_id": 173104, "timezone": "America/Chicago", "variables": {"key": "<value>", "key1": "<value>"}, "tool_headers": {"key": "<value>", "key1": "<value>"}, "agent_initiated": false, "stt_provider": "Google STT V1", "wait_sound": "Call Center", "id": 29339, "updated_at": "2024-08-10T21:36:18.548Z", "last_updated_by": "<value>", "prompt": {"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "id": 439898, "last_updated": "<value>", "last_updated_by": "user@email.com"}, "custom_message": {"name": "<value>", "text": "<value>", "rules": [{"description": "hence lowball pish oblong in cute punctually duh how though", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": false, "text": "Sorry, we're closed today"}], "id": 129125, "updated_at": "2025-05-04T14:49:32.580Z", "last_updated_by": "user@email.com", "type": "greeting"}, "channel_targets": [{"agent_id": 269946, "channel_id": 211832, "target": "<value>", "target_mode": "voice", "is_test": false, "id": 835214, "channel_name": "<value>", "updated_at": "2025-07-09T08:01:51.932Z", "last_updated_by": "<value>"}, {"agent_id": 968727, "channel_id": 85212, "target": "<value>", "target_mode": "sms", "is_test": false, "id": 189983, "channel_name": "<value>", "updated_at": "2025-09-05T07:44:59.336Z", "last_updated_by": "<value>"}], "tools": [{"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "form"}, "defaults": "<value>"}, "service_id": 673392, "id": 694160, "prompts_info": [{"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2023-10-13T02:20:02.927Z", "last_updated_by": "user@email.com"}], "language_group": {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [{"language_code": "yue-HK", "voice_provider": "OpenAI", "voice_display_name": "Onyx", "dtmf_code": 1}, {"language_code": "vi-VN", "voice_provider": "Google", "voice_display_name": "Mila", "dtmf_code": 1}, {"language_code": "ko-KR", "voice_provider": "ElevenLabs", "voice_display_name": "Onyx", "dtmf_code": 1}], "skip_current_language_in_message": true, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}], "updated_at": "2023-12-15T04:21:10.429Z", "last_updated_by": "user@mail.com"}}], "page": 343968, "page_size": 716773}
+        "422":
+          application/json: {}
+  agent_create:
+    speakeasy-default-agent-create:
+      requestBody:
+        application/json: {"name": "<value>", "type": "ca_v1", "prompt_id": 486589, "custom_message_id": 638424, "timezone": "America/New_York", "variables": {}, "tool_headers": {"key": "<value>", "key1": "<value>"}, "agent_initiated": false, "stt_provider": "Google STT V2", "wait_sound": "Keyboard 2"}
+      responses:
+        "200":
+          application/json: {"name": "<value>", "type": "ca_v1", "prompt_id": 86, "custom_message_id": 169727, "timezone": "America/New_York", "variables": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "tool_headers": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "agent_initiated": false, "stt_provider": "Google STT V1", "wait_sound": "Call Center", "id": 957409, "updated_at": "2024-01-27T07:05:06.005Z", "last_updated_by": "<value>", "prompt": {"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "id": 259629, "last_updated": "<value>", "last_updated_by": "user@email.com"}, "custom_message": {"name": "<value>", "text": "<value>", "rules": [{"description": "pearl nicely disposer demob", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}], "id": 427887, "updated_at": "2024-10-06T23:48:35.278Z", "last_updated_by": "user@email.com", "type": "greeting"}, "channel_targets": [{"agent_id": 491427, "channel_id": 490420, "target": "<value>", "target_mode": "chat", "is_test": false, "id": 924484, "channel_name": "<value>", "updated_at": "2023-02-19T18:37:18.227Z", "last_updated_by": "<value>"}], "tools": [{"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "path"}, "defaults": {"key": {"transform": {"action": "default", "when": {"key": "key", "value": "value"}}}}}, "service_id": 407833, "id": 101251, "prompts_info": [{"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2025-09-01T12:33:12.040Z", "last_updated_by": "user@email.com"}], "language_group": {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [], "skip_current_language_in_message": false, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "updated_at": "2024-08-15T14:51:09.110Z", "last_updated_by": "user@mail.com"}}
+        "422":
+          application/json: {}
+  agent_update:
+    speakeasy-default-agent-update:
+      requestBody:
+        application/json: {"name": "<value>", "type": "ca_v1", "prompt_id": 857478, "custom_message_id": 597129, "timezone": "America/Chicago", "variables": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "tool_headers": {"key": "<value>", "key1": "<value>"}, "agent_initiated": false, "stt_provider": "Google STT V2", "wait_sound": "Keyboard 2", "id": 54062}
+      responses:
+        "200":
+          application/json: {"name": "<value>", "type": "ca_v1", "prompt_id": 896501, "custom_message_id": 446863, "timezone": "America/Chicago", "variables": {}, "tool_headers": {"key": "<value>", "key1": "<value>"}, "agent_initiated": false, "stt_provider": "Google STT V2", "wait_sound": "Keyboard 2", "id": 302461, "updated_at": "2024-05-23T23:10:45.412Z", "last_updated_by": "<value>", "prompt": {"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "id": 771203, "last_updated": "<value>", "last_updated_by": "user@email.com"}, "custom_message": {"name": "<value>", "text": "<value>", "rules": [{"description": "furthermore graceful hungrily where woot royal", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}, {"description": "ew woot through quantify for certify although save", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": false, "text": "Sorry, we're closed today"}, {"description": "courageously coin highlight", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}], "id": 777454, "updated_at": "2024-11-11T12:17:08.583Z", "last_updated_by": "user@email.com", "type": "greeting"}, "channel_targets": [{"agent_id": 643119, "channel_id": 302363, "target": "<value>", "target_mode": "sms", "is_test": false, "id": 675911, "channel_name": "<value>", "updated_at": "2023-03-13T20:50:30.319Z", "last_updated_by": "<value>"}], "tools": [{"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "query"}, "defaults": {"key": {"transform": {"action": "default", "when": {"key": "key", "value": "value"}}}, "key1": {"transform": {"action": "default", "when": {"key": "key", "value": "value"}}}, "key2": {"transform": {"action": "default", "when": {"key": "key", "value": "value"}}}}}, "service_id": 372087, "id": 527494, "prompts_info": [{"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2025-03-15T16:18:52.369Z", "last_updated_by": "user@email.com"}], "language_group": {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [], "skip_current_language_in_message": false, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "updated_at": "2024-08-11T02:39:15.905Z", "last_updated_by": "user@mail.com"}}
+        "422":
+          application/json: {}
+  agent_get_by_id:
+    speakeasy-default-agent-get-by-id:
+      parameters:
+        path:
+          agent_id: 931598
+      responses:
+        "200":
+          application/json: {"name": "<value>", "type": "ca_v1", "prompt_id": 505057, "custom_message_id": 467619, "timezone": "America/New_York", "variables": {"key": "<value>", "key1": "<value>"}, "tool_headers": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "agent_initiated": false, "stt_provider": "Google STT V2", "wait_sound": "Keyboard 1", "id": 272201, "updated_at": "2024-08-06T14:15:50.659Z", "last_updated_by": "<value>", "prompt": {"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "id": 124252, "last_updated": "<value>", "last_updated_by": "user@email.com"}, "custom_message": {"name": "<value>", "text": "<value>", "rules": [{"description": "scotch poorly because silt frankly", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}, {"description": "pro soulful inquisitively honestly bob construe", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": false, "text": "Sorry, we're closed today"}], "id": 953698, "updated_at": "2024-07-31T14:26:00.397Z", "last_updated_by": "user@email.com", "type": "greeting"}, "channel_targets": [{"agent_id": 309870, "channel_id": 789926, "target": "<value>", "target_mode": "voice", "is_test": false, "id": 656917, "channel_name": "<value>", "updated_at": "2023-04-06T19:32:39.027Z", "last_updated_by": "<value>"}], "tools": [{"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "post", "argument_location": "form"}, "defaults": "<value>"}, "service_id": 689287, "id": 547459, "prompts_info": [{"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2023-08-15T14:49:56.119Z", "last_updated_by": "user@email.com"}], "language_group": {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [{"language_code": "vi-VN", "voice_provider": "ElevenLabs", "voice_display_name": "Laura", "dtmf_code": 1}, {"language_code": "zh-CN", "voice_provider": "OpenAI", "voice_display_name": "Laura", "dtmf_code": 1}], "skip_current_language_in_message": true, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "updated_at": "2023-06-22T09:24:33.546Z", "last_updated_by": "user@mail.com"}}
+        "422":
+          application/json: {}
+  agent_delete:
+    speakeasy-default-agent-delete:
+      parameters:
+        path:
+          agent_id: 545907
+        query:
+          reason: "<value>"
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+  agent_get_available_voices:
+    speakeasy-default-agent-get-available-voices:
+      responses:
+        "200":
+          application/json: [{"provider": "OpenAI", "display_name": "Isabella", "var_name": "wavenet:female/vi-VN-Neural2-A", "gender": "male", "supported_languages": [{"name": "English", "code": "es-US"}, {"name": "English", "code": "zh-CN"}, {"name": "English", "code": "yue-HK"}], "deprecated": false}]
+  send_test_message:
+    speakeasy-default-send-test-message:
+      requestBody:
+        application/json: {"service_name": "<value>", "source": "<value>", "test_id": "<id>", "agent_id": "<id>", "org_name": "<value>", "session_start": false}
+      responses:
+        "200":
+          application/json: {"test_id": "<id>", "agent_id": "<id>"}
+        "422":
+          application/json: {}
+  channels_list:
+    speakeasy-default-channels-list:
+      parameters:
+        query:
+          limit: 25
+      responses:
+        "200":
+          application/json: {"items": [{"name": "<value>", "channel_service": "email", "supported_modes": "[\"chat\",\"voice\"]", "id": 678317}, {"name": "<value>", "channel_service": "sip", "supported_modes": "[\"chat\",\"voice\"]", "id": 229716}, {"name": "<value>", "channel_service": "sip", "supported_modes": "[\"chat\",\"voice\"]", "id": 635532}], "page": 639387, "page_size": 17577}
+        "422":
+          application/json: {}
+  channel_targets_delete:
+    speakeasy-default-channel-targets-delete:
+      parameters:
+        path:
+          channel_id: "<id>"
+        query:
+          target_id: "<id>"
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+  available_targets:
+    speakeasy-default-available-targets:
+      parameters:
+        query:
+          limit: 25
+      responses:
+        "200":
+          application/json: {"items": [{"organization_id": 397275, "channel_id": 270907, "channel_name": "<value>", "target": "<value>"}, {"organization_id": 472435, "channel_id": 214468, "channel_name": "<value>", "target": "<value>"}], "page": 585620, "page_size": 563255}
+        "422":
+          application/json: {}
+  channel_targets_list:
+    speakeasy-default-channel-targets-list:
+      parameters:
+        query:
+          limit: 25
+      responses:
+        "200":
+          application/json: {"items": [{"agent_id": 547272, "channel_id": 678317, "target": "<value>", "target_mode": "voice", "is_test": false, "id": 229716, "channel_name": "<value>", "updated_at": "2023-06-17T12:14:27.999Z", "last_updated_by": "<value>", "agent": {"name": "<value>", "type": "ca_v1", "prompt_id": 635532, "custom_message_id": 639387, "timezone": "America/New_York", "variables": {"key": "<value>", "key1": "<value>"}, "tool_headers": {"key": "<value>", "key1": "<value>"}, "agent_initiated": false, "stt_provider": "Google STT V2", "wait_sound": "Keyboard 1", "id": 509883, "updated_at": "2024-11-25T18:23:24.264Z", "last_updated_by": "<value>", "prompt": {"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "id": 7468, "last_updated": "<value>", "last_updated_by": "user@email.com"}, "custom_message": {"name": "<value>", "text": "<value>", "rules": [{"description": "beautifully comparison now despite er", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}], "id": 692918, "updated_at": "2024-09-14T04:48:08.824Z", "last_updated_by": "user@email.com", "type": "greeting"}, "tools": [{"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "post", "argument_location": "body"}, "defaults": "<value>"}, "service_id": 73973, "id": 836788, "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}], "last_updated": "2024-12-28T19:56:44.465Z", "last_updated_by": "user@email.com"}, {"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "query"}, "defaults": {}}, "service_id": 60868, "id": 294083, "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2023-10-11T19:17:33.283Z", "last_updated_by": "user@email.com"}, {"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "body"}, "defaults": {"key": {"transform": {"action": "default", "when": {"key": "key", "value": "value"}}}}}, "service_id": 5229, "id": 810770, "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2024-07-08T07:59:15.466Z", "last_updated_by": "user@email.com"}], "language_group": {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [{"language_code": "vi-VN", "voice_provider": "OpenAI", "voice_display_name": "Isabella", "dtmf_code": 1}, {"language_code": "vi-VN", "voice_provider": "Google", "voice_display_name": "Onyx", "dtmf_code": 1}, {"language_code": "ko-KR", "voice_provider": "OpenAI", "voice_display_name": "Mark", "dtmf_code": 1}], "skip_current_language_in_message": false, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "updated_at": "2024-03-23T05:46:37.955Z", "last_updated_by": "user@mail.com"}}}, {"agent_id": 41398, "channel_id": 829409, "target": "<value>", "target_mode": "chat", "is_test": false, "id": 406391, "channel_name": "<value>", "updated_at": "2023-03-28T18:28:26.777Z", "last_updated_by": "<value>", "agent": {"name": "<value>", "type": "ca_v1", "prompt_id": 117386, "custom_message_id": 943672, "timezone": "America/Chicago", "variables": {"key": "<value>"}, "tool_headers": {"key": "<value>"}, "agent_initiated": false, "stt_provider": "Google STT V2", "wait_sound": "Call Center", "id": 900911, "updated_at": "2023-02-25T05:24:29.459Z", "last_updated_by": "<value>", "prompt": {"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "id": 625217, "last_updated": "<value>", "last_updated_by": "user@email.com"}, "custom_message": {"name": "<value>", "text": "<value>", "rules": [{"description": "round alongside whoever jump", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": false, "text": "Sorry, we're closed today"}, {"description": "oh what steeple overheard swerve than bicycle", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": false, "text": "Sorry, we're closed today"}], "id": 408575, "updated_at": "2023-09-28T14:04:50.967Z", "last_updated_by": "user@email.com", "type": "greeting"}, "tools": [{"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "query"}, "defaults": {}}, "service_id": 415930, "id": 527743, "prompts_info": [{"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2023-07-09T17:20:28.194Z", "last_updated_by": "user@email.com"}, {"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "post", "argument_location": "path"}, "defaults": "<value>"}, "service_id": 140142, "id": 900213, "prompts_info": [{"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2024-04-27T03:04:42.633Z", "last_updated_by": "user@email.com"}, {"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "query"}, "defaults": "<value>"}, "service_id": 561143, "id": 207713, "prompts_info": [{"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2024-03-30T01:03:36.657Z", "last_updated_by": "user@email.com"}], "language_group": {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [{"language_code": "zh-CN", "voice_provider": "Google", "voice_display_name": "River", "dtmf_code": 1}], "skip_current_language_in_message": true, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "updated_at": "2025-07-14T16:07:38.809Z", "last_updated_by": "user@mail.com"}}}, {"agent_id": 487386, "channel_id": 973913, "target": "<value>", "target_mode": "voice", "is_test": false, "id": 18518, "channel_name": "<value>", "updated_at": "2023-08-05T18:20:08.987Z", "last_updated_by": "<value>", "agent": {"name": "<value>", "type": "ca_v1", "prompt_id": 621450, "custom_message_id": 832756, "timezone": "America/New_York", "variables": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "tool_headers": {"key": "<value>"}, "agent_initiated": false, "stt_provider": "Deepgram Nova 2", "wait_sound": "Keyboard 1", "id": 354965, "updated_at": "2025-06-23T03:47:51.468Z", "last_updated_by": "<value>", "prompt": {"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "id": 565282, "last_updated": "<value>", "last_updated_by": "user@email.com"}, "custom_message": {"name": "<value>", "text": "<value>", "rules": [{"description": "married owlishly which wonderfully CD whoa soap cheerfully", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}, {"description": "and jaggedly aftermath after although while", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}], "id": 476639, "updated_at": "2025-01-19T21:39:50.941Z", "last_updated_by": "user@email.com", "type": "greeting"}, "tools": [{"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "query"}, "defaults": "<value>"}, "service_id": 539944, "id": 387926, "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}], "last_updated": "2025-05-23T21:54:30.697Z", "last_updated_by": "user@email.com"}, {"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "post", "argument_location": "form"}, "defaults": "<value>"}, "service_id": 244842, "id": 727522, "prompts_info": [{"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}], "last_updated": "2023-02-08T12:01:40.965Z", "last_updated_by": "user@email.com"}, {"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "query"}, "defaults": "<value>"}, "service_id": 890478, "id": 940883, "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2025-02-22T01:58:22.710Z", "last_updated_by": "user@email.com"}], "language_group": {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [{"language_code": "th-TH", "voice_provider": "OpenAI", "voice_display_name": "Clara", "dtmf_code": 1}, {"language_code": "es-US", "voice_provider": "OpenAI", "voice_display_name": "Melanie", "dtmf_code": 1}], "skip_current_language_in_message": true, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "updated_at": "2023-06-11T03:56:34.876Z", "last_updated_by": "user@mail.com"}}}], "page": 484602, "page_size": 377133}
+        "422":
+          application/json: {}
+  channel_targets_create:
+    speakeasy-default-channel-targets-create:
+      parameters:
+        path:
+          channel_id: 134365
+      requestBody:
+        application/json: {"agent_id": 486589, "channel_id": 638424, "target": "<value>", "target_mode": "chat", "is_test": false}
+      responses:
+        "200":
+          application/json: {"agent_id": 69025, "channel_id": 796474, "target": "<value>", "target_mode": "email", "is_test": false, "id": 86, "channel_name": "<value>", "updated_at": "2023-07-06T00:30:20.403Z", "last_updated_by": "<value>", "agent": {"name": "<value>", "type": "ca_v1", "prompt_id": 89964, "custom_message_id": 792620, "timezone": "America/New_York", "variables": {"key": "<value>", "key1": "<value>"}, "tool_headers": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "agent_initiated": false, "stt_provider": "Deepgram Nova 2", "wait_sound": "Keyboard 1", "id": 259629, "updated_at": "2023-01-20T11:09:16.789Z", "last_updated_by": "<value>", "prompt": {"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "id": 230313, "last_updated": "<value>", "last_updated_by": "user@email.com"}, "custom_message": {"name": "<value>", "text": "<value>", "rules": [{"description": "approximate though championship", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": false, "text": "Sorry, we're closed today"}], "id": 920994, "updated_at": "2025-05-05T09:53:57.467Z", "last_updated_by": "user@email.com", "type": "greeting"}, "tools": [{"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "form"}, "defaults": {}}, "service_id": 491427, "id": 490420, "prompts_info": [{"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2023-02-19T18:37:18.227Z", "last_updated_by": "user@email.com"}], "language_group": {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [], "skip_current_language_in_message": true, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "updated_at": "2024-07-23T05:13:02.679Z", "last_updated_by": "user@mail.com"}}}
+        "422":
+          application/json: {}
+  channel_targets_get_by_id:
+    speakeasy-default-channel-targets-get-by-id:
+      parameters:
+        path:
+          channel_id: 931598
+          target_id: 505057
+      responses:
+        "200":
+          application/json: {"agent_id": 467619, "channel_id": 33486, "target": "<value>", "target_mode": "sms", "is_test": false, "id": 875515, "channel_name": "<value>", "updated_at": "2024-08-22T04:58:12.943Z", "last_updated_by": "<value>", "agent": {"name": "<value>", "type": "ca_v1", "prompt_id": 823121, "custom_message_id": 272201, "timezone": "America/Chicago", "variables": {}, "tool_headers": {"key": "<value>", "key1": "<value>"}, "agent_initiated": false, "stt_provider": "Google STT V2", "wait_sound": "Keyboard 2", "id": 904189, "updated_at": "2023-08-28T21:10:29.980Z", "last_updated_by": "<value>", "prompt": {"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "id": 554172, "last_updated": "<value>", "last_updated_by": "user@email.com"}, "custom_message": {"name": "<value>", "text": "<value>", "rules": [{"description": "because twist separately", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": false, "text": "Sorry, we're closed today"}, {"description": "furthermore row short majestically list", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}, {"description": "likewise riser opposite manner multicolored", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}], "id": 215979, "updated_at": "2024-08-09T23:52:53.095Z", "last_updated_by": "user@email.com", "type": "greeting"}, "tools": [{"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "query"}, "defaults": "<value>"}, "service_id": 676657, "id": 204411, "prompts_info": [{"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}], "last_updated": "2025-01-19T08:13:34.076Z", "last_updated_by": "user@email.com"}, {"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "post", "argument_location": "form"}, "defaults": "<value>"}, "service_id": 782958, "id": 406330, "prompts_info": [{"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}], "last_updated": "2023-01-05T22:04:49.663Z", "last_updated_by": "user@email.com"}, {"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "post", "argument_location": "body"}, "defaults": "<value>"}, "service_id": 623319, "id": 34048, "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}], "last_updated": "2025-08-06T01:53:31.483Z", "last_updated_by": "user@email.com"}], "language_group": {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [{"language_code": "es-US", "voice_provider": "OpenAI", "voice_display_name": "Charlotte", "dtmf_code": 1}, {"language_code": "en-US", "voice_provider": "ElevenLabs", "voice_display_name": "Charlotte", "dtmf_code": 1}, {"language_code": "es-US", "voice_provider": "ElevenLabs", "voice_display_name": "Laura", "dtmf_code": 1}], "skip_current_language_in_message": true, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}], "updated_at": "2024-08-06T05:37:52.821Z", "last_updated_by": "user@mail.com"}}}
+        "422":
+          application/json: {}
+  channel_targets_update:
+    speakeasy-default-channel-targets-update:
+      parameters:
+        path:
+          channel_id: 627690
+          target_id: 488852
+      requestBody:
+        application/json: {"agent_id": 857478, "channel_id": 597129, "target": "<value>", "target_mode": "chat", "is_test": false, "id": 991464}
+      responses:
+        "200":
+          application/json: {"agent_id": 984008, "channel_id": 54062, "target": "<value>", "target_mode": "email", "is_test": false, "id": 446863, "channel_name": "<value>", "updated_at": "2023-12-08T09:52:54.805Z", "last_updated_by": "<value>", "agent": {"name": "<value>", "type": "ca_v1", "prompt_id": 249440, "custom_message_id": 139579, "timezone": "America/Chicago", "variables": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "tool_headers": {"key": "<value>"}, "agent_initiated": false, "stt_provider": "Google STT V2", "wait_sound": "Keyboard 2", "id": 693508, "updated_at": "2024-03-19T01:46:46.018Z", "last_updated_by": "<value>", "prompt": {"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "id": 33980, "last_updated": "<value>", "last_updated_by": "user@email.com"}, "custom_message": {"name": "<value>", "text": "<value>", "rules": [{"description": "till mild than during meanwhile disapprove finer ha excepting", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": false, "text": "Sorry, we're closed today"}, {"description": "fisherman with duh clamour urgently voluntarily scale", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": false, "text": "Sorry, we're closed today"}, {"description": "please antelope exotic fussy shadowy eggplant as", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}], "id": 219050, "updated_at": "2023-09-27T20:28:57.413Z", "last_updated_by": "user@email.com", "type": "greeting"}, "tools": [{"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "path"}, "defaults": "<value>"}, "service_id": 451776, "id": 253591, "prompts_info": [{"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2024-01-28T09:57:47.188Z", "last_updated_by": "user@email.com"}, {"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "query"}, "defaults": {"key": {"transform": {"action": "default", "when": {"key": "key", "value": "value"}}}}}, "service_id": 462626, "id": 517232, "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2025-04-01T20:29:08.914Z", "last_updated_by": "user@email.com"}, {"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "post", "argument_location": "body"}, "defaults": "<value>"}, "service_id": 22676, "id": 619716, "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}], "last_updated": "2024-05-15T21:36:18.159Z", "last_updated_by": "user@email.com"}], "language_group": {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [{"language_code": "yue-HK", "voice_provider": "ElevenLabs", "voice_display_name": "Charlie", "dtmf_code": 1}], "skip_current_language_in_message": false, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}], "updated_at": "2023-01-25T05:41:04.406Z", "last_updated_by": "user@mail.com"}}}
+        "422":
+          application/json: {}
+  conversations_list:
+    speakeasy-default-conversations-list:
+      parameters:
+        query:
+          limit: 25
+      responses:
+        "200":
+          application/json: {"items": [{"timestamp": "2024-08-22T19:26:20.850Z", "conversation_id": "<id>"}, {"timestamp": "2025-01-13T10:26:00.433Z", "conversation_id": "<id>"}, {"timestamp": "2023-07-14T18:23:27.528Z", "conversation_id": "<id>"}], "page": 229716, "page_size": 152837}
+        "422":
+          application/json: {}
+  data_sources_list:
+    speakeasy-default-data-sources-list:
+      parameters:
+        query:
+          limit: 25
+      responses:
+        "200":
+          application/json: {"items": [{"name": "Rain", "description": "Information about rain.", "labels": ["Weather Info"], "chunk": false, "chunk_delimiter": null, "id": 1, "edit_comments": "Added new info", "updated_at": "2024-08-22T19:26:20.850Z", "last_updated_by": "user@email.com"}, {"name": "Rain", "description": "Information about rain.", "labels": ["Weather Info"], "chunk": false, "chunk_delimiter": null, "id": 1, "edit_comments": "Added new info", "updated_at": "2025-01-13T10:26:00.433Z", "last_updated_by": "user@email.com"}, {"name": "Rain", "description": "Information about rain.", "labels": ["Weather Info"], "chunk": false, "chunk_delimiter": null, "id": 1, "edit_comments": "Added new info", "updated_at": "2023-07-14T18:23:27.528Z", "last_updated_by": "user@email.com"}], "page": 229716, "page_size": 152837}
+        "422":
+          application/json: {}
+  data_sources_create:
+    speakeasy-default-data-sources-create:
+      requestBody:
+        application/json: {"name": "Rain", "description": "Information about rain.", "labels": ["Weather Info"], "chunk": false, "chunk_delimiter": null, "text": "<value>"}
+      responses:
+        "200":
+          application/json: {"name": "Rain", "description": "Information about rain.", "labels": ["Weather Info"], "chunk": false, "chunk_delimiter": null, "id": 1, "edit_comments": "Added new info", "updated_at": "2024-06-17T07:14:55.338Z", "last_updated_by": "user@email.com", "text": "<value>"}
+        "422":
+          application/json: {}
+  data_sources_update:
+    speakeasy-default-data-sources-update:
+      requestBody:
+        application/json: {"name": "Rain", "description": "Information about rain.", "labels": ["Weather Info"], "chunk": false, "chunk_delimiter": null, "id": 1, "edit_comments": "Added new info", "text": "<value>"}
+      responses:
+        "200":
+          application/json: {"name": "Rain", "description": "Information about rain.", "labels": ["Weather Info"], "chunk": false, "chunk_delimiter": null, "id": 1, "edit_comments": "Added new info", "updated_at": "2025-07-28T19:04:48.565Z", "last_updated_by": "user@email.com", "text": "<value>"}
+        "422":
+          application/json: {}
+  data_sources_get_by_id:
+    speakeasy-default-data-sources-get-by-id:
+      parameters:
+        path:
+          data_source_id: 931598
+      responses:
+        "200":
+          application/json: {"name": "Rain", "description": "Information about rain.", "labels": ["Weather Info"], "chunk": false, "chunk_delimiter": null, "id": 1, "edit_comments": "Added new info", "updated_at": "2024-07-07T13:01:26.809Z", "last_updated_by": "user@email.com", "text": "<value>"}
+        "422":
+          application/json: {}
+  data_sources_delete:
+    speakeasy-default-data-sources-delete:
+      parameters:
+        path:
+          data_source_id: 545907
+        query:
+          reason: "<value>"
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+  events_list:
+    speakeasy-default-events-list:
+      parameters:
+        query:
+          limit: 25
+      responses:
+        "200":
+          application/json: {"items": [{"timestamp": "2024-08-22T19:26:20.850Z", "source": "tool-call", "category": "automation", "type": "phone-transfer", "user_id": "+18042221111", "description": "Transfer to phone number +18042221111"}, {"timestamp": "2025-01-13T10:26:00.433Z", "source": "tool-call", "category": "automation", "type": "phone-transfer", "user_id": "+18042221111", "description": "Transfer to phone number +18042221111"}, {"timestamp": "2023-07-14T18:23:27.528Z", "source": "tool-call", "category": "automation", "type": "phone-transfer", "user_id": "+18042221111", "description": "Transfer to phone number +18042221111"}], "page": 229716, "page_size": 152837}
+        "422":
+          application/json: {}
+  insights_workflow_list:
+    speakeasy-default-insights-workflow-list:
+      parameters:
+        query:
+          limit: 25
+      responses:
+        "200":
+          application/json: {"items": [{"name": "<value>", "description": "yuck accountability pish likewise excepting unimpressively quickly", "insight_tool_ids": [918561, 84189, 692918], "conditions": {}, "status": "<value>", "id": 567701, "insight_tools": [{"name": "<value>", "description": "yowza beneath meanwhile synthesise angrily inasmuch irritably finally round", "version": 8211, "tool_arguments": {}, "insight_tool_definition_id": 487446, "id": 751601, "last_updated_by": "<value>"}, {"name": "<value>", "description": "down dramatic damp inasmuch unlined monthly lampoon colligate linear", "version": 580639, "tool_arguments": {}, "insight_tool_definition_id": 212750, "id": 539569, "last_updated_by": "<value>"}, {"name": "<value>", "description": "fund provided although dreary shrill yuck unbalance cuddly ha plumber", "version": 988218, "tool_arguments": {}, "insight_tool_definition_id": 186930, "id": 63622, "last_updated_by": "<value>"}], "last_updated_by": "<value>"}, {"name": "<value>", "description": "duh how though char while beneath while", "insight_tool_ids": [728947, 356375, 372405], "conditions": {}, "status": "<value>", "id": 788480, "insight_tools": [{"name": "<value>", "description": "piglet apud suffice", "version": 811673, "tool_arguments": {}, "insight_tool_definition_id": 110469, "id": 624246, "last_updated_by": "<value>"}], "last_updated_by": "<value>"}, {"name": "<value>", "description": "urgently opposite amnesty tomography how until to onto ouch shrilly", "insight_tool_ids": [291784, 178339], "conditions": {}, "status": "<value>", "id": 955132, "insight_tools": [{"name": "<value>", "description": "sadly icy council meanwhile except following ick verbally drat pillow", "version": 645288, "tool_arguments": {}, "insight_tool_definition_id": 800688, "id": 842638, "last_updated_by": "<value>"}, {"name": "<value>", "description": "right plump address loosely bathhouse nifty for second characterization", "version": 700041, "tool_arguments": {}, "insight_tool_definition_id": 62953, "id": 949845, "last_updated_by": "<value>"}, {"name": "<value>", "description": "upbeat degrease fervently gah boom furthermore hawk improbable beside mmm", "version": 73215, "tool_arguments": {}, "insight_tool_definition_id": 277829, "id": 122417, "last_updated_by": "<value>"}], "last_updated_by": "<value>"}], "page": 32282, "page_size": 764100}
+        "422":
+          application/json: {}
+  insights_workflow_create:
+    speakeasy-default-insights-workflow-create:
+      requestBody:
+        application/json: {"name": "<value>", "description": "yuck vice between gee ugh ha", "insight_tool_ids": [780486, 760259, 219974], "conditions": {}, "status": "<value>"}
+      responses:
+        "200":
+          application/json: {"name": "<value>", "description": "tousle aha while till lazily than", "insight_tool_ids": [497070], "conditions": {}, "status": "<value>", "id": 609755, "insight_tools": [{"name": "<value>", "description": "foodstuffs welcome via deeply writ amid pupil yawningly", "version": 482357, "tool_arguments": {}, "insight_tool_definition_id": 108833, "id": 749299, "last_updated_by": "<value>"}, {"name": "<value>", "description": "apud to per elevator", "version": 70072, "tool_arguments": {}, "insight_tool_definition_id": 547483, "id": 960909, "last_updated_by": "<value>"}], "last_updated_by": "<value>"}
+        "422":
+          application/json: {}
+  insights_workflow_get_by_id:
+    speakeasy-default-insights-workflow-get-by-id:
+      parameters:
+        path:
+          workflow_id: 931598
+      responses:
+        "200":
+          application/json: {"name": "<value>", "description": "before aside airline traditionalism augment since boo", "insight_tool_ids": [], "conditions": {}, "status": "<value>", "id": 921783, "insight_tools": [{"name": "<value>", "description": "gosh deceivingly qua ditch chase if", "version": 789926, "tool_arguments": {}, "insight_tool_definition_id": 142682, "id": 656917, "last_updated_by": "<value>"}, {"name": "<value>", "description": "atop major inasmuch", "version": 676657, "tool_arguments": {}, "insight_tool_definition_id": 204411, "id": 287216, "last_updated_by": "<value>"}], "last_updated_by": "<value>"}
+        "422":
+          application/json: {}
+  insights_workflow_update:
+    speakeasy-default-insights-workflow-update:
+      parameters:
+        path:
+          workflow_id: 265006
+      requestBody:
+        application/json: {"name": "<value>", "description": "awful underneath retention too mobility char innocently dowse restfully", "insight_tool_ids": [], "conditions": {}, "status": "<value>"}
+      responses:
+        "200":
+          application/json: {"name": "<value>", "description": "woot abseil perfumed fisherman", "insight_tool_ids": [784089, 556706], "conditions": {}, "status": "<value>", "id": 463392, "insight_tools": [{"name": "<value>", "description": "lest represent braid", "version": 889660, "tool_arguments": {}, "insight_tool_definition_id": 777292, "id": 504322, "last_updated_by": "<value>"}], "last_updated_by": "<value>"}
+        "422":
+          application/json: {}
+  directory_workflow_delete:
+    speakeasy-default-directory-workflow-delete:
+      parameters:
+        path:
+          workflow_id: 545907
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+  insight_tool_list:
+    speakeasy-default-insight-tool-list:
+      parameters:
+        query:
+          limit: 25
+      responses:
+        "200":
+          application/json: {"items": [{"name": "<value>", "description": "yuck accountability pish likewise excepting unimpressively quickly", "version": 934960, "tool_arguments": {}, "insight_tool_definition_id": 918561, "id": 84189, "last_updated_by": "<value>"}, {"name": "<value>", "description": "briefly ugh fen phew reschedule hammock ick absent", "version": 625217, "tool_arguments": {}, "insight_tool_definition_id": 424586, "id": 185394, "last_updated_by": "<value>"}, {"name": "<value>", "description": "a supposing regarding times", "version": 517221, "tool_arguments": {}, "insight_tool_definition_id": 774578, "id": 162315, "last_updated_by": "<value>"}], "page": 182622, "page_size": 213989}
+        "422":
+          application/json: {}
+  insights_tool_create:
+    speakeasy-default-insights-tool-create:
+      requestBody:
+        application/json: {"name": "<value>", "description": "yuck vice between gee ugh ha", "version": 920994, "tool_arguments": {}, "insight_tool_definition_id": 780486}
+      responses:
+        "200":
+          application/json: {"name": "<value>", "description": "major misjudge yuck forager beneath please shadowy foodstuffs welcome", "version": 282436, "tool_arguments": {}, "insight_tool_definition_id": 164560, "id": 679444, "last_updated_by": "<value>"}
+        "422":
+          application/json: {}
+  insight_tool_get_by_id:
+    speakeasy-default-insight-tool-get-by-id:
+      parameters:
+        path:
+          tool_id: "<id>"
+      responses:
+        "200":
+          application/json: {"name": "<value>", "description": "smog until unto aw loudly within idle pro soulful inquisitively", "version": 922273, "tool_arguments": {}, "insight_tool_definition_id": 156555, "id": 479184, "last_updated_by": "<value>"}
+        "422":
+          application/json: {}
+  insights_tool_update:
+    speakeasy-default-insights-tool-update:
+      parameters:
+        path:
+          tool_id: 198183
+      requestBody:
+        application/json: {"name": "<value>", "description": "awful underneath retention too mobility char innocently dowse restfully", "version": 243447, "tool_arguments": {}, "insight_tool_definition_id": 265006}
+      responses:
+        "200":
+          application/json: {"name": "<value>", "description": "blah intensely fragrant lest ferret", "version": 34036, "tool_arguments": {}, "insight_tool_definition_id": 911620, "id": 118180, "last_updated_by": "<value>"}
+        "422":
+          application/json: {}
+  insight_tool_get_definitions:
+    speakeasy-default-insight-tool-get-definitions:
+      responses:
+        "200":
+          application/json: [{"id": 461751, "name": "<value>", "type": "<value>", "description": "fedora drat about oof pile nerve punctually uh-huh", "tool_parameters": {}, "tool_result_set": {}}, {"id": 662188, "name": "<value>", "type": "<value>", "description": "rear nor wherever", "tool_parameters": {}, "tool_result_set": {}}]
+  custom_messages_list:
+    speakeasy-default-custom-messages-list:
+      parameters:
+        query:
+          limit: 25
+      responses:
+        "200":
+          application/json: {"items": [{"name": "<value>", "text": "<value>", "rules": [{"description": "mmm avalanche jungle unto meanwhile beside tromp worth", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}, {"description": "whenever disk usher yesterday", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": false, "text": "Sorry, we're closed today"}], "id": 767950, "updated_at": "2024-03-21T14:01:55.283Z", "last_updated_by": "user@email.com", "type": "greeting"}, {"name": "<value>", "text": "<value>", "rules": [{"description": "kindheartedly nor fooey a supposing regarding times uselessly", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}], "id": 523166, "updated_at": "2023-12-12T02:49:50.316Z", "last_updated_by": "user@email.com", "type": "greeting"}, {"name": "<value>", "text": "<value>", "rules": [{"description": "creative finally earth that early", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": false, "text": "Sorry, we're closed today"}, {"description": "fund provided although dreary shrill yuck unbalance cuddly ha plumber", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": false, "text": "Sorry, we're closed today"}], "id": 186930, "updated_at": "2023-03-11T17:32:08.709Z", "last_updated_by": "user@email.com", "type": "greeting"}], "page": 608798, "page_size": 310591}
+        "422":
+          application/json: {}
+  custom_messages_create:
+    speakeasy-default-custom-messages-create:
+      requestBody:
+        application/json: {"name": "<value>", "text": "<value>", "rules": [{"description": "delightfully fumigate convection though zowie up bulky electronics", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": false, "text": "Sorry, we're closed today"}, {"description": "yuck forager beneath please shadowy foodstuffs welcome", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}], "type": "greeting"}
+      responses:
+        "200":
+          application/json: {"name": "<value>", "text": "<value>", "rules": [{"description": "brightly sleet where schedule insolence when warming when", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": false, "text": "Sorry, we're closed today"}], "id": 866487, "updated_at": "2023-08-08T06:49:45.892Z", "last_updated_by": "user@email.com", "type": "greeting"}
+        "422":
+          application/json: {}
+  custom_messages_update:
+    speakeasy-default-custom-messages-update:
+      requestBody:
+        application/json: {"name": "<value>", "text": "<value>", "rules": [{"description": "technician eulogise whereas till mild than during", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}, {"description": "qualified cycle woot abseil perfumed fisherman with duh", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}, {"description": "ultimately in likely opera please antelope", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}], "id": 975440, "type": "greeting"}
+      responses:
+        "200":
+          application/json: {"name": "<value>", "text": "<value>", "rules": [{"description": "up vibrant sternly translation scrutinise condense lovingly following and", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}, {"description": "meh when deform thoughtfully", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}, {"description": "while reprimand near construe", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": false, "text": "Sorry, we're closed today"}], "id": 57147, "updated_at": "2024-11-18T10:36:26.431Z", "last_updated_by": "user@email.com", "type": "greeting"}
+        "422":
+          application/json: {}
+  custom_message_get_by_id:
+    speakeasy-default-custom-message-get-by-id:
+      parameters:
+        path:
+          custom_message_id: 931598
+      responses:
+        "200":
+          application/json: {"name": "<value>", "text": "<value>", "rules": [{"description": "obediently markup famously headline unless small", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}, {"description": "orchid promptly burgeon cricket colorful", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "days_of_week": ["mo", "tu", "we", "th", "fr"], "invert": true, "text": "Sorry, we're closed today"}], "id": 500381, "updated_at": "2023-04-06T01:17:32.009Z", "last_updated_by": "user@email.com", "type": "greeting"}
+        "422":
+          application/json: {}
+  custom_messages_delete:
+    speakeasy-default-custom-messages-delete:
+      parameters:
+        path:
+          custom_message_id: 545907
+        query:
+          reason: "<value>"
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+  prompts_list:
+    speakeasy-default-prompts-list:
+      parameters:
+        query:
+          limit: 25
+      responses:
+        "200":
+          application/json: {"items": [{"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "id": 547272, "last_updated": "<value>", "last_updated_by": "user@email.com"}, {"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "id": 678317, "last_updated": "<value>", "last_updated_by": "user@email.com"}, {"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "id": 177706, "last_updated": "<value>", "last_updated_by": "user@email.com"}], "page": 229716, "page_size": 152837}
+        "422":
+          application/json: {}
+  prompts_create:
+    speakeasy-default-prompts-create:
+      requestBody:
+        application/json: {"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "include_default_tools": true}
+      responses:
+        "200":
+          application/json: {"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "id": 486589, "last_updated": "<value>", "last_updated_by": "user@email.com"}
+        "422":
+          application/json: {}
+  prompts_update:
+    speakeasy-default-prompts-update:
+      requestBody:
+        application/json: {"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "id": 857478, "include_default_tools": true}
+      responses:
+        "200":
+          application/json: {"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "id": 597129, "last_updated": "<value>", "last_updated_by": "user@email.com"}
+        "422":
+          application/json: {}
+  prompts_get_by_id:
+    speakeasy-default-prompts-get-by-id:
+      parameters:
+        path:
+          prompt_id: 931598
+      responses:
+        "200":
+          application/json: {"name": "<value>", "type": "<value>", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01"}, "id": 505057, "last_updated": "<value>", "last_updated_by": "user@email.com"}
+        "422":
+          application/json: {}
+  prompts_delete:
+    speakeasy-default-prompts-delete:
+      parameters:
+        path:
+          prompt_id: 545907
+        query:
+          reason: "<value>"
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+  prompts_history:
+    speakeasy-default-prompts-history:
+      parameters:
+        path:
+          prompt_id: 627932
+      responses:
+        "200":
+          application/json: [{"timestamp": "2023-03-05T12:13:59.670Z", "prompt_id": "<id>", "prompt_text": "<value>", "prompt_name": "<value>", "user_email": "<value>"}, {"timestamp": "2025-10-24T07:19:14.525Z", "prompt_id": "<id>", "prompt_text": "<value>", "prompt_name": "<value>", "user_email": "<value>"}]
+        "422":
+          application/json: {}
+  service_list:
+    speakeasy-default-service-list:
+      parameters:
+        query:
+          limit: 25
+      responses:
+        "200":
+          application/json: {"items": [{"name": "<value>", "description": "yuck accountability pish likewise excepting unimpressively quickly", "id": 934960, "last_updated": "2025-10-03T17:49:22.042Z", "last_updated_by": "<value>", "tools": []}, {"name": "<value>", "description": "briefly ugh fen phew reschedule hammock ick absent", "id": 625217, "last_updated": "2024-04-10T08:18:00.740Z", "last_updated_by": "<value>", "tools": []}, {"name": "<value>", "description": "a supposing regarding times", "id": 517221, "last_updated": "2025-04-28T22:29:22.162Z", "last_updated_by": "<value>", "tools": []}], "page": 182622, "page_size": 213989}
+        "422":
+          application/json: {}
+  service_create:
+    speakeasy-default-service-create:
+      requestBody:
+        application/json: {"name": "<value>", "description": "yuck vice between gee ugh ha"}
+      responses:
+        "200":
+          application/json: {"name": "<value>", "description": "bulky electronics through for ick superb nudge embalm simple ouch", "id": 934959, "last_updated": "2025-11-04T18:24:12.442Z", "last_updated_by": "<value>", "tools": ["<value>", "<value>", "<value>"]}
+        "422":
+          application/json: {}
+  service_update:
+    speakeasy-default-service-update:
+      requestBody:
+        application/json: {"name": "<value>", "description": "awful underneath retention too mobility char innocently dowse restfully", "id": 243447}
+      responses:
+        "200":
+          application/json: {"name": "<value>", "description": "belabor past wearily broadside backburn", "id": 967252, "last_updated": "2023-12-24T14:22:27.846Z", "last_updated_by": "<value>", "tools": []}
+        "422":
+          application/json: {}
+  services_get_by_id:
+    speakeasy-default-services-get-by-id:
+      parameters:
+        path:
+          service_id: 931598
+      responses:
+        "200":
+          application/json: {"name": "<value>", "description": "before aside airline traditionalism augment since boo", "id": 139875, "last_updated": "2025-10-07T06:34:53.603Z", "last_updated_by": "<value>", "tools": ["<value>", "<value>"]}
+        "422":
+          application/json: {}
+  service_delete:
+    speakeasy-default-service-delete:
+      parameters:
+        path:
+          service_id: 545907
+        query:
+          reason: "<value>"
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+  session_label_get_by_id:
+    speakeasy-default-session-label-get-by-id:
+      parameters:
+        path:
+          session_label_id: 931598
+      responses:
+        "200":
+          application/json: {"session_id": 505057, "type": "human-rating", "code": "BAD", "user_email": "<value>", "issue_categories": ["Speech transcription (STT)"], "id": 875515, "timestamp": "<value>"}
+        "422":
+          application/json: {}
+  session_label_create:
+    speakeasy-default-session-label-create:
+      requestBody:
+        application/json: {"session_id": 486589, "type": "auto-rating", "code": "BAD", "user_email": "<value>", "issue_categories": ["Silent treatment"]}
+      responses:
+        "200":
+          application/json: {"session_id": 69025, "type": "auto-rating", "code": "GOOD", "user_email": "<value>", "issue_categories": ["Speech transcription (STT)"], "id": 169727, "timestamp": "<value>"}
+        "422":
+          application/json: {}
+  session_labels_list:
+    speakeasy-default-session-labels-list:
+      parameters:
+        query:
+          limit: 25
+      responses:
+        "200":
+          application/json: {"items": [{"session_id": 547272, "type": "human-rating", "code": "BAD", "user_email": "<value>", "issue_categories": ["Speech transcription (STT)"], "id": 152837, "timestamp": "<value>"}, {"session_id": 635532, "type": "auto-rating", "code": "GOOD", "user_email": "<value>", "issue_categories": ["Silent treatment"], "id": 86140, "timestamp": "<value>"}, {"session_id": 68504, "type": "human-rating", "code": "BAD", "user_email": "<value>", "issue_categories": ["Silent treatment"], "id": 7468, "timestamp": "<value>"}], "page": 54607, "page_size": 367745}
+        "422":
+          application/json: {}
+  sessions_list:
+    speakeasy-default-sessions-list:
+      parameters:
+        query:
+          limit: 25
+      responses:
+        "200":
+          application/json: {"items": [{"timestamp": "2024-08-22T19:26:20.850Z", "channel_manager_service": "console", "channel_manager_type": "voice_twilio_v1", "source": "user@email.com"}, {"timestamp": "2023-06-17T12:14:27.999Z", "channel_manager_service": "hedy", "channel_manager_type": "voice_sip_v1", "source": "+18042221111"}, {"timestamp": "2025-02-26T06:14:46.641Z", "channel_manager_service": "console", "channel_manager_type": "voice_twilio_v1", "source": "+18042221111"}], "page": 509883, "page_size": 633911}
+        "422":
+          application/json: {}
+  session_get_by_id:
+    speakeasy-default-session-get-by-id:
+      parameters:
+        path:
+          session_id: "<id>"
+      responses:
+        "200":
+          application/json: {"timestamp": "2025-10-18T00:43:47.367Z", "channel_manager_service": "hedy", "channel_manager_type": "voice_twilio_v1", "source": "+18042221111"}
+        "422":
+          application/json: {}
+  generate_session_recording_urls:
+    speakeasy-default-generate-session-recording-urls:
+      parameters:
+        path:
+          session_id: "<id>"
+      responses:
+        "200":
+          application/json: {}
+        "422":
+          application/json: {}
+  session_recording_stream:
+    speakeasy-default-session-recording-stream:
+      parameters:
+        query:
+          token: "<value>"
+      responses:
+        "200":
+          application/octet-stream: "x-file: example.file"
+        "422":
+          application/json: {}
+  session_transcript_get_by_id:
+    speakeasy-default-session-transcript-get-by-id:
+      parameters:
+        path:
+          session_id: "<id>"
+      responses:
+        "200":
+          application/json: {"session_id": "<id>", "transcription": [{"timestamp": "2024-07-07T13:01:26.809Z", "lang": "unset", "source": "agent"}, {"timestamp": "2024-08-03T14:44:32.694Z", "lang": "es-US", "source": "agent"}, {"timestamp": "2025-06-21T03:22:37.071Z", "lang": "unset", "source": "user"}], "actions": []}
+        "422":
+          application/json: {}
+  session_summary_get_by_id:
+    speakeasy-default-session-summary-get-by-id:
+      parameters:
+        path:
+          session_id: "<id>"
+      responses:
+        "200":
+          application/json: "<id>"
+        "422":
+          application/json: {}
+  session_full_summary_get_by_id:
+    speakeasy-default-session-full-summary-get-by-id:
+      parameters:
+        path:
+          session_id: "<id>"
+      responses:
+        "200":
+          application/json: {}
+        "422":
+          application/json: {}
+  tool_list:
+    speakeasy-default-tool-list:
+      parameters:
+        query:
+          limit: 25
+      responses:
+        "200":
+          application/json: {"items": [{"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "post", "argument_location": "path"}, "defaults": "<value>"}, "service_id": 229716, "id": 152837, "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2023-01-20T06:21:22.156Z", "last_updated_by": "user@email.com"}, {"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "post", "argument_location": "body"}, "defaults": "<value>"}, "service_id": 687960, "id": 509883, "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}], "last_updated": "2023-03-01T20:22:54.911Z", "last_updated_by": "user@email.com"}, {"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "form"}, "defaults": "<value>"}, "service_id": 931165, "id": 567445, "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2023-02-26T15:25:42.165Z", "last_updated_by": "user@email.com"}], "page": 322596, "page_size": 860596}
+        "422":
+          application/json: {}
+  tool_create:
+    speakeasy-default-tool-create:
+      requestBody:
+        application/json: {"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "path"}, "defaults": "<value>"}, "service_id": 134365}
+      responses:
+        "200":
+          application/json: {"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "query"}, "defaults": {}}, "service_id": 169727, "id": 89964, "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2024-10-04T11:56:21.731Z", "last_updated_by": "user@email.com"}
+        "422":
+          application/json: {}
+  tool_update:
+    speakeasy-default-tool-update:
+      requestBody:
+        application/json: {"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "post", "argument_location": "path"}, "defaults": "<value>"}, "service_id": 991464, "id": 627690}
+      responses:
+        "200":
+          application/json: {"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "query"}, "defaults": "<value>"}, "service_id": 896501, "id": 446863, "prompts_info": [{"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}], "last_updated": "2023-06-02T23:29:52.263Z", "last_updated_by": "user@email.com"}
+        "422":
+          application/json: {}
+  tool_get_by_name:
+    speakeasy-default-tool-get-by-name:
+      parameters:
+        path:
+          tool_name: "<value>"
+      responses:
+        "200":
+          application/json: {"name": "Weather Fetcher", "definition": {"tool": {"type": "function", "function": {"name": "weather_fetcher", "description": "Fetches weather data", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "body"}, "defaults": {"key": {"transform": {"action": "default", "when": {"key": "key", "value": "value"}}}}}, "service_id": 658994, "id": 841768, "prompts_info": [{"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2023-10-01T14:29:02.129Z", "last_updated_by": "user@email.com", "fields": ["<value>"]}
+        "422":
+          application/json: {}
+  tool_delete:
+    speakeasy-default-tool-delete:
+      parameters:
+        path:
+          tool_name: "<value>"
+        query:
+          reason: "<value>"
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+  post_list_dashboard:
+    speakeasy-default-post-list-dashboard:
+      parameters:
+        query:
+          limit: 25
+      responses:
+        "200":
+          application/json: {"items": [{"name": "<value>", "display_name": "Daryl_Baumbach33", "rank": 561464, "label": "<value>"}, {"name": "<value>", "display_name": "Deondre5", "rank": 701948, "label": "<value>"}, {"name": "<value>", "display_name": "Esteban79", "rank": 709457, "label": "<value>"}], "page": 393753, "page_size": 834240}
+        "422":
+          application/json: {}
+  post_get_dashboard:
+    speakeasy-default-post-get-dashboard:
+      parameters:
+        query:
+          dashboard_name: "<value>"
+      responses:
+        "200":
+          application/json: {"embedded_id": "<id>", "guest_token": "<value>", "name": "<value>", "display_name": "Arnaldo71", "superset_url": "https://antique-possession.info/", "rank": 298549, "label": "<value>"}
+        "422":
+          application/json: {}
+  post_session_events_dashboard:
+    speakeasy-default-post-session-events-dashboard:
+      responses:
+        "200":
+          application/json: {"embedded_id": "<id>", "guest_token": "<value>", "name": "<value>", "superset_url": "https://black-and-white-forgery.name"}
+  post_session_summary_dashboard:
+    speakeasy-default-post-session-summary-dashboard:
+      responses:
+        "200":
+          application/json: {"embedded_id": "<id>", "guest_token": "<value>", "name": "<value>", "superset_url": "https://white-elevation.org"}
+  post_session_transfers_dashboard:
+    speakeasy-default-post-session-transfers-dashboard:
+      responses:
+        "200":
+          application/json: {"embedded_id": "<id>", "guest_token": "<value>", "name": "<value>", "superset_url": "https://private-deer.biz/"}
+  post_sessions_dashboard:
+    speakeasy-default-post-sessions-dashboard:
+      responses:
+        "200":
+          application/json: {"embedded_id": "<id>", "guest_token": "<value>", "name": "<value>", "superset_url": "https://only-napkin.net"}
+  language_groups_list:
+    speakeasy-default-language-groups-list:
+      parameters:
+        query:
+          limit: 25
+      responses:
+        "200":
+          application/json: {"items": [{"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [{"language_code": "es-US", "voice_provider": "OpenAI", "voice_display_name": "Charlotte", "dtmf_code": 1}, {"language_code": "en-US", "voice_provider": "ElevenLabs", "voice_display_name": "Mark", "dtmf_code": 1}], "skip_current_language_in_message": true, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "updated_at": "2023-04-05T09:49:38.010Z", "last_updated_by": "user@mail.com"}, {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [], "skip_current_language_in_message": false, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "updated_at": "2024-11-25T18:23:24.264Z", "last_updated_by": "user@mail.com"}, {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [], "skip_current_language_in_message": true, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "updated_at": "2024-06-16T08:36:51.636Z", "last_updated_by": "user@mail.com"}], "page": 73227, "page_size": 931165}
+        "422":
+          application/json: {}
+  language_groups_create:
+    speakeasy-default-language-groups-create:
+      requestBody:
+        application/json: {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [{"language_code": "es-US", "voice_provider": "ElevenLabs", "voice_display_name": "Brian", "dtmf_code": 1}], "skip_current_language_in_message": true}
+      responses:
+        "200":
+          application/json: {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [{"language_code": "vi-VN", "voice_provider": "OpenAI", "voice_display_name": "Callum", "dtmf_code": 1}, {"language_code": "yue-HK", "voice_provider": "Google", "voice_display_name": "Roger", "dtmf_code": 1}, {"language_code": "es-US", "voice_provider": "Google", "voice_display_name": "Tara", "dtmf_code": 1}], "skip_current_language_in_message": true, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}], "updated_at": "2023-01-20T11:09:16.789Z", "last_updated_by": "user@mail.com"}
+        "422":
+          application/json: {}
+  language_groups_update:
+    speakeasy-default-language-groups-update:
+      requestBody:
+        application/json: {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [{"language_code": "es-US", "voice_provider": "ElevenLabs", "voice_display_name": "Will", "dtmf_code": 1}, {"language_code": "es-US", "voice_provider": "ElevenLabs", "voice_display_name": "Will", "dtmf_code": 1}, {"language_code": "yue-HK", "voice_provider": "Google", "voice_display_name": "George", "dtmf_code": 1}], "skip_current_language_in_message": true, "id": 1, "edit_comments": "Added Spanish support."}
+      responses:
+        "200":
+          application/json: {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [], "skip_current_language_in_message": true, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "updated_at": "2025-09-02T06:16:41.919Z", "last_updated_by": "user@mail.com"}
+        "422":
+          application/json: {}
+  language_groups_get_by_id:
+    speakeasy-default-language-groups-get-by-id:
+      parameters:
+        path:
+          language_group_id: 931598
+      responses:
+        "200":
+          application/json: {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [{"language_code": "zh-CN", "voice_provider": "OpenAI", "voice_display_name": "Laura", "dtmf_code": 1}, {"language_code": "vi-VN", "voice_provider": "ElevenLabs", "voice_display_name": "Roger", "dtmf_code": 1}], "skip_current_language_in_message": true, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "updated_at": "2023-05-17T04:20:32.887Z", "last_updated_by": "user@mail.com"}
+        "422":
+          application/json: {}
+  language_groups_delete:
+    speakeasy-default-language-groups-delete:
+      parameters:
+        path:
+          language_group_id: 545907
+        query:
+          reason: "<value>"
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+examplesVersion: 1.0.0
+generatedTests: {}

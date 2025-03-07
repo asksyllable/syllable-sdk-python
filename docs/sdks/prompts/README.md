@@ -1,0 +1,284 @@
+# Prompts
+(*prompts*)
+
+## Overview
+
+Operations related to prompts. A prompt defines the behavior of an           agent by delivering instructions to the LLM about how the agent should behave.           A prompt can be linked to one or more agents. A prompt can also be linked to tools to           allow an agent using the prompt to use them.
+
+### Available Operations
+
+* [list](#list) - Prompt List
+* [create](#create) - Create Prompt
+* [update](#update) - Update Prompt
+* [get_by_id](#get_by_id) - Get Prompt By Id
+* [delete](#delete) - Delete Prompt
+* [history](#history) - Get Prompt History
+
+## list
+
+List the existing prompts
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.prompts.list()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `page`                                                                        | *OptionalNullable[int]*                                                       | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `limit`                                                                       | *Optional[int]*                                                               | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `search_fields`                                                               | List[[models.PromptProperties](../../models/promptproperties.md)]             | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `search_field_values`                                                         | List[*str*]                                                                   | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `order_by`                                                                    | [OptionalNullable[models.PromptProperties]](../../models/promptproperties.md) | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `order_by_direction`                                                          | [OptionalNullable[models.OrderByDirection]](../../models/orderbydirection.md) | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `fields`                                                                      | List[[models.PromptProperties](../../models/promptproperties.md)]             | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `start_datetime`                                                              | *OptionalNullable[str]*                                                       | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `end_datetime`                                                                | *OptionalNullable[str]*                                                       | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `retries`                                                                     | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)              | :heavy_minus_sign:                                                            | Configuration to override the default retry behavior of the client.           |
+
+### Response
+
+**[models.ListResponsePromptResponse](../../models/listresponsepromptresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## create
+
+Create a new prompt
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.prompts.create(name="<value>", type_="<value>", llm_config={
+        "version": "2024-05-13",
+        "api_version": "2024-06-01",
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                                                                                                     | Type                                                                                                                                                                                                                                                          | Required                                                                                                                                                                                                                                                      | Description                                                                                                                                                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`                                                                                                                                                                                                                                                        | *str*                                                                                                                                                                                                                                                         | :heavy_check_mark:                                                                                                                                                                                                                                            | The prompt name                                                                                                                                                                                                                                               |
+| `type`                                                                                                                                                                                                                                                        | *str*                                                                                                                                                                                                                                                         | :heavy_check_mark:                                                                                                                                                                                                                                            | The type of the prompt                                                                                                                                                                                                                                        |
+| `llm_config`                                                                                                                                                                                                                                                  | [models.PromptLlmConfig](../../models/promptllmconfig.md)                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                                                                            | N/A                                                                                                                                                                                                                                                           |
+| `description`                                                                                                                                                                                                                                                 | *OptionalNullable[str]*                                                                                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                                                                                                            | The description of the prompt                                                                                                                                                                                                                                 |
+| `context`                                                                                                                                                                                                                                                     | *OptionalNullable[str]*                                                                                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                                                                                                            | The prompt text                                                                                                                                                                                                                                               |
+| `tools`                                                                                                                                                                                                                                                       | List[*str*]                                                                                                                                                                                                                                                   | :heavy_minus_sign:                                                                                                                                                                                                                                            | Names of tools to which the prompt has access                                                                                                                                                                                                                 |
+| `include_default_tools`                                                                                                                                                                                                                                       | *Optional[bool]*                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                            | Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt. |
+| `retries`                                                                                                                                                                                                                                                     | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                            | Configuration to override the default retry behavior of the client.                                                                                                                                                                                           |
+
+### Response
+
+**[models.PromptResponse](../../models/promptresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## update
+
+Update an existing prompt
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.prompts.update(name="<value>", type_="<value>", llm_config={
+        "version": "2024-05-13",
+        "api_version": "2024-06-01",
+    }, id=857478)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                                                                                        | Type                                                                                                                                                                                                                                             | Required                                                                                                                                                                                                                                         | Description                                                                                                                                                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `name`                                                                                                                                                                                                                                           | *str*                                                                                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                                                               | The prompt name                                                                                                                                                                                                                                  |
+| `type`                                                                                                                                                                                                                                           | *str*                                                                                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                                                               | The type of the prompt                                                                                                                                                                                                                           |
+| `llm_config`                                                                                                                                                                                                                                     | [models.PromptLlmConfig](../../models/promptllmconfig.md)                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                                                                               | N/A                                                                                                                                                                                                                                              |
+| `id`                                                                                                                                                                                                                                             | *int*                                                                                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                                                               | The prompt ID                                                                                                                                                                                                                                    |
+| `description`                                                                                                                                                                                                                                    | *OptionalNullable[str]*                                                                                                                                                                                                                          | :heavy_minus_sign:                                                                                                                                                                                                                               | The description of the prompt                                                                                                                                                                                                                    |
+| `context`                                                                                                                                                                                                                                        | *OptionalNullable[str]*                                                                                                                                                                                                                          | :heavy_minus_sign:                                                                                                                                                                                                                               | The prompt text                                                                                                                                                                                                                                  |
+| `tools`                                                                                                                                                                                                                                          | List[*str*]                                                                                                                                                                                                                                      | :heavy_minus_sign:                                                                                                                                                                                                                               | Names of tools to which the prompt has access                                                                                                                                                                                                    |
+| `edit_comments`                                                                                                                                                                                                                                  | *OptionalNullable[str]*                                                                                                                                                                                                                          | :heavy_minus_sign:                                                                                                                                                                                                                               | The comments for the most recent edit to the prompt                                                                                                                                                                                              |
+| `include_default_tools`                                                                                                                                                                                                                          | *Optional[bool]*                                                                                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                                                                                               | Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated. |
+| `retries`                                                                                                                                                                                                                                        | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                                                                                               | Configuration to override the default retry behavior of the client.                                                                                                                                                                              |
+
+### Response
+
+**[models.PromptResponse](../../models/promptresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## get_by_id
+
+Get a prompt by ID
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.prompts.get_by_id(prompt_id=931598)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `prompt_id`                                                         | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.PromptResponse](../../models/promptresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## delete
+
+Delete a prompt
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.prompts.delete(prompt_id=545907, reason="<value>")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `prompt_id`                                                         | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `reason`                                                            | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[Any](../../models/.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## history
+
+Get a prompt by ID
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.prompts.history(prompt_id=627932)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `prompt_id`                                                         | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[List[models.PromptHistory]](../../models/.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
