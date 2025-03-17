@@ -1,0 +1,33 @@
+---
+title: "Create a message"
+---
+
+You can create your greeting message using this sample code.
+
+```javascript
+import { SyllableSDK } from 'syllable-sdk';
+
+const syllableSDK = new SyllableSDK({
+  apiKeyHeader: 'yourkeyhere',
+});
+
+const message = await syllableSDK.customMessages.create({
+  // The name of the message is used to reference it elsewhere in the system, so you should pick something that’s easily identifiable.
+  name: 'Weather greeting',
+  // Default text that will be delivered at the beginning of a conversation with an agent using this message.
+  text: 'Hello! I\’m a weather agent. I can tell you the current weather in any city, or answer general questions about weather. What would you like to know?',
+  // You can also set up a message with time-based rules, so that depending on the timestamp at which the conversation begins, an agent can deliver a different message.
+  // We'll skip this for the tutorial, but if you want to know more, check out the docs linked below.
+  rules: []
+});
+
+console.log(message);
+```
+
+**Before you move on, note the ID of the message that you created, as you'll need it later.**
+
+We now have all the required components to create our agent, which we’ll do in the next step. Click “Create an agent” below to continue the tutorial.
+
+[Full SDK messages docs](/sdk-docs/CustomMessages)
+
+[Console messages docs](/Resources/Messages)

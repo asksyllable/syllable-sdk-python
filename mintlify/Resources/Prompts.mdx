@@ -1,0 +1,91 @@
+---
+title: "Prompts"
+icon: "clipboard-list"
+---
+
+A prompt is a set of written instructions given to an AI [agent](/workspaces/Agents) that details everything the agent does, how it does those things, and what it should and shouldn’t do given certain other conditions. A prompt can be given access to [tools](/Resources/Tools) that enable it to fetch information or execute operations on behalf of the user. Multiple agents can use the same prompt.
+
+### Creating a prompt
+
+To create a prompt, click "Prompts" on the left sidebar. This will take you to a list of the existing prompts for your org. To create a new one, click "New prompt" in the top-right corner.
+
+![](/mintlify/images/create_new_prompt_03_10.jpg)
+
+- **Prompt name**: The name of the prompt is used to reference it elsewhere in Console, so you should pick something that's easily identifiable.
+- **Prompt description (optional)**: This description is displayed for extra context on the prompt list screen.
+- **Model provider**: This is the provider for the LLM that the prompt, and therefore any agents using it, will converse with.
+- **Model**: This is the specific LLM model that the prompt will use.
+- **Tools**: Here we can provide the prompt access to tools.
+- **Content**: This is the actual text of the prompt that will be sent to the LLM at the beginning of the conversation. If you want an agent using the prompt to call the tools you added above, you should explicitly tell it how and when to call them (see below).
+
+### Available models
+
+Here is the list of Syllable-supported LLMs:
+
+| Provider     | Model                 | Version    | API Version |
+| ------------ | --------------------- | ---------- | ----------- |
+| Azure OpenAI | gpt-4o-2024-08-06     | 2024-08-06 | 2024-06-01  |
+| Azure OpenAI | gpt-4o-mini           | 2024-07-18 | 2024-06-01  |
+| Google       | gemini-1.5-pro        | 002        | v1beta      |
+| Google       | gemini-2.0-flash      | 001        | v1beta      |
+| Google       | gemini-2.0-flash-lite | 001        | v1beta      |
+| OpenAI       | gpt-4o                | 2024-08-06 |             |
+| OpenAI       | gpt-4o-mini           | 2024-07-18 |             |
+
+### Prompt writing tips
+
+Writing a good prompt for an AI to follow is the same as writing good instructions for a human to follow. Your instructions should be clear, unambiguous, and explicit. Writing a good prompt for your specific use cases is an iterative process that requires trial and error, testing, and rewriting. 
+
+- **Give the agent a role:** Tell the agent exactly what role you want it to assume, like “You are a conscientious customer service agent who is dedicated to helping callers out with their appointment related requests.”
+- **State the context:** Define the situations when the agent would be used, such as people calling in to manage an appointment, or ask a question about their bill.
+- **State the desired behavior:** Specify how you want the agent to respond to callers, and give examples of how you want it to respond. For example, "Please use phrases like 'Thank you,' 'You're welcome,' and 'How can I assist you?' during the call." and "Keep responses short and to the point to avoid confusion."
+- **Set parameters:** Include specific guidelines about error handling and edge cases, like "Do not give out medical advice or attempt to diagnose any condition, medical or otherwise.” 
+- **Give the prompt access to a tool:** Explicitly mention the name of the tool, its purpose, and usage conditions. For example, “Use the ScheduleNewAppointment tool to schedule new appointments for callers. Only use this tool if the day is on or between Monday-Friday AND the time is between 9am-5pm PST.” 
+
+Here’s an example of a low-quality prompt and an example of a high-quality prompt:
+
+**Example Prompt 1**
+
+`"Reply to a customer who is mad about their late order."`
+
+**Low-quality prompt attributes:**
+
+- Lack of clarity: The instruction is vague and does not specify what to include in the response.
+- Lack of conciseness: Although short, it is too brief to provide meaningful guidance.
+- Irrelevance: The prompt does not guide the LLM on how to address the customer's feelings or the issue.
+- Ambiguousness: The term "mad" is vague, and the prompt does not specify the tone or content required.
+- Lack of explicitness: There are no explicit instructions on what elements the response should contain, leading to potential gaps in the reply.
+
+**Example Prompt 2**
+
+`"As an AI customer service agent, craft a response to a customer who is upset because their order did not arrive on time. Your response should include an apology, an explanation of possible reasons for the delay, a reassurance that the issue will be addressed, and an offer for compensation or a solution. Keep the response professional, empathetic, and concise."`
+
+**High-quality prompt attributes:**
+
+- Clarity: The task is clearly defined with specific elements to include (apology, explanation, reassurance, and offer for compensation).
+- Conciseness: The prompt is direct and to the point, without unnecessary details.
+- Relevance: All instructions are related to addressing the customer’s complaint.
+- Unambiguousness: There is no room for misinterpretation about what the response should contain.
+- Explicitness: Each part of the desired response is explicitly described, ensuring the LLM understands the structure and tone needed.
+
+### The cost of a prompt
+
+Each word and punctuation mark in your prompt counts toward the token limit. Longer prompts and responses use more tokens, increasing the cost. The more concise your instructions, the cheaper (and faster) it will be to run. 
+
+You can estimate the cost of your prompt with OpenAI’s [tokenizer](https://platform.openai.com/tokenizer).
+
+If you have a lot of static information to which the LLM needs to have access, such as the addresses and hours of your business's locations, consider storing it in a [data source](/Resources/DataSources) instead of in your prompt, as this will reduce the number of tokens, and therefore the cost and latency.
+
+#### Other prompt resources
+
+If you’re interested in learning more about how to write effective prompts for your AI Agent, check out some of these resources:
+
+* [https://cloud.google.com/discover/what-is-prompt-engineering](https://cloud.google.com/discover/what-is-prompt-engineering)
+
+* [https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) 
+
+* [https://platform.openai.com/docs/guides/prompt-engineering](https://platform.openai.com/docs/guides/prompt-engineering)
+
+* [https://learnprompting.org/](https://learnprompting.org/)
+
+* [https://www.promptingguide.ai/](https://www.promptingguide.ai/)

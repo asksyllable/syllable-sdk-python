@@ -1,0 +1,31 @@
+---
+title: 'ToolParameterTransform'
+---
+
+A transform to be applied to the value of a tool parameter.
+
+Either `value` or `format` must be set:
+- `value` is any arbitrary value: string, list or dictionary.
+- `format` is a string composed of other parameters or context variables.
+
+## Example Usage
+
+```typescript
+import { ToolParameterTransform } from "syllable-sdk/models/components";
+
+let value: ToolParameterTransform = {
+  when: {
+    key: "key",
+    value: "value",
+  },
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                               | Required                                                                                                                                                                                                                                           | Description                                                                                                                                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action`                                                                                                                                                                                                                                           | [components.Action](/sdk-docs/models/components/action)                                                                                                                                                                                             | FALSE                                                                                                                                                                                                                                 | The action to perform on the tool parameter value: `default` means only set the value (using the `format` field) if the parameter doesn't exist or is empty, `override` means always set the value, and `remove` means remove the parameter value. |
+| `when`                                                                                                                                                                                                                                             | [components.ToolParameterTransformCondition](/sdk-docs/models/components/toolparametertransformcondition)                                                                                                                                           | FALSE                                                                                                                                                                                                                                 | Only apply the transform if the condition is met.                                                                                                                                                                                                  |
+| `value`                                                                                                                                                                                                                                            | *any*                                                                                                                                                                                                                                              | FALSE                                                                                                                                                                                                                                 | The default value to use for the parameter.                                                                                                                                                                                                        |
+| `format`                                                                                                                                                                                                                                           | *string*                                                                                                                                                                                                                                           | FALSE                                                                                                                                                                                                                                 | The string value to use for the parameter. The value will be evaluated with the Python `str.format` method, for example, `Hello, {name}!`                                                                                                          |

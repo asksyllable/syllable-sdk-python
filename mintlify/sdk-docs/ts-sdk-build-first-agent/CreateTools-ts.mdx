@@ -1,0 +1,188 @@
+---
+title: "Create tools"
+---
+
+As mentioned earlier, we're going to need two tools: one to access the data source of general weather information that we just created, and one to query the Open-Meteo API for real-time weather forecasts.
+
+Before we create the tools, we need to create a [service](/sdk-docs/Services) to which we can link them. You can use the sample code below.
+
+```javascript
+import { SyllableSDK } from 'syllable-sdk';
+
+const syllableSDK = new SyllableSDK({
+  apiKeyHeader: 'yourkeyhere',
+});
+
+const service = await syllableSDK.services.create({
+  name: 'Weather Service',
+  description: 'Service for weather information'
+});
+console.log(service);
+```
+
+Note the ID of your service.
+
+Now we'll create a tool to access the data source.
+
+```javascript
+import { SyllableSDK } from 'syllable-sdk';
+import { StaticToolParameterType, ToolArgumentLocation, ToolHttpMethod, Type } from 'syllable-sdk/models/components/index.js';
+
+const syllableSDK = new SyllableSDK({
+  apiKeyHeader: 'yourkeyhere',
+});
+
+const generalWeatherInfoTool = await syllableSDK.tools.create({
+  // The name of the tool is used to reference it elsewhere in the system, including in prompts and
+  // agents, so you should pick something that's easily identifiable.
+  // It shouldn't contain any whitespace.
+  name: 'general_weather_information',
+  // Enter your service ID here so the tool is added to the service.
+  serviceId: yourServiceIdHere,
+  definition: {
+    type: Type.Endpoint,
+    endpoint: {
+      url: 'http://helix-app/v1/search',
+      method: ToolHttpMethod.Post,
+      argumentLocation: ToolArgumentLocation.Body
+    },
+    tool: {
+      type: 'function',
+      function: {
+        name: 'general_weather_information',
+        description: 'Look up general weather information from data sources. Returns an answer and a reference URL. Do not include the reference URL in the spoken response.',
+        parameters: {
+          type: 'object',
+          required: [
+            'question'
+          ],
+          properties: {
+            question: {
+              type: 'string',
+              description: 'A user inquiry about content in the agent\'s documents, e.g., What are the causes of wind?'
+            }
+          }
+        }
+      }
+    },
+    staticParameters: [
+    {
+        name: 'doc',
+        description: 'Data sources to which the tool should have access',
+        required: true,
+        type: StaticToolParameterType.DataSourceList,
+        default: [
+          'weather_facts'
+        ]
+      }
+    ]
+  }
+});
+
+console.log(generalWeatherInfoTool);
+```
+
+This tool will query Helix, Syllable's document management and search service, for an answer to the user's question, using the `weather_facts` data source that we created as its knowledge base.
+
+Now we'll create our second tool, to call the Open-Meteo API.
+
+```javascript
+import { SyllableSDK } from 'syllable-sdk';
+import { ToolArgumentLocation, ToolHttpMethod, Type } from 'syllable-sdk/models/components/index.js';
+
+const syllableSDK = new SyllableSDK({
+  apiKeyHeader: 'yourkeyhere',
+});
+
+const realTimeWeatherTool = await syllableSDK.tools.create({
+  name: 'get_weather',
+  serviceId: yourServiceIdHere,
+  definition: {
+    type: Type.Endpoint,
+    endpoint: {
+      url: 'https://api.open-meteo.com/v1/forecast',
+      method: ToolHttpMethod.Get,
+      argumentLocation: ToolArgumentLocation.Query
+    },
+    tool: {
+      type: 'function',
+      function: {
+        name: 'get_weather',
+        description: 'Get the weather for a city',
+        parameters: {
+          type: 'object',
+          properties: {
+            longitude: {
+              type: 'number',
+              description: 'The longitude of the city'
+            },
+            latitude: {
+              type: 'number',
+              description: 'The latitude of the city'
+            },
+            current: {
+              type: 'string',
+              description: 'information to retrieve from the open-meteo API, comma-separated',
+              default: 'temperature_2m,relative_humidity_2m,precipitation,rain,showers,snowfall'
+            }
+          },
+          required: [
+            'longitude',
+            'latitude',
+            'current'
+          ]
+        }
+      }
+    }
+  }
+});
+
+console.log(realTimeWeatherTool);
+```
+
+Now that we have our two tools, we can make them available to the prompt that we created earlier, so that any agents using that prompt will have access to the tools. We can use the prompts `update` function to accomplish this.
+
+```javascript
+import { SyllableSDK } from 'syllable-sdk';
+import { PromptLlmProvider } from 'syllable-sdk/models/components/index.js';
+
+const syllableSDK = new SyllableSDK({
+  apiKeyHeader: 'yourkeyhere',
+});
+
+const updatedPrompt = await syllableSDK.prompts.update({
+  // If you lost the ID of the prompt you created earlier, you can use the prompts.list function to find it.
+  id: yourPromptIdHere,
+  name: 'Weather Prompt',
+  description: 'Prompt for a weather agent',
+  type: 'prompt_v1',
+  // Update the prompt text to include instructions for when to call the two new tools...
+  context: `You are a weather agent. You can tell the user information about the current weather in a given city, and also answer general weather-related questions.
+
+When asked about information for a city, call "get_weather" with the city information (longitude and latitude). You will reply with the current temperature and relative humidity level based on the response. Using the information on the response, also tell the caller the weather conditions in one simple sentence, like "sunny," or "rainy." If you can't determine the city coordinates with the information given, ask for more information.
+
+When asked a general weather-related question, call "general_weather_information" with the question that the user asked you.
+
+When asked about any other topic, don't answer and instead remind the caller that you are a weather agent. Keep the tone professional, friendly, and clear. You are chatting with a user, so always respond naturally and conversationally. Do not use non-verbal cues, describe system actions, or add any other information.`,
+  // ...and add the tools to the prompt's tools list
+  tools: [
+    'general_weather_information',
+    'get_weather'
+  ],
+  llmConfig: {
+    provider: PromptLlmProvider.OPENAI,
+    model: 'gpt-4o',
+    version: '2024-08-06',
+    apiVersion: null
+  },
+  includeDefaultTools: false
+});
+
+console.log(updatedPrompt);
+```
+
+We have one more step before we're able to create the agent, and that's to add a greeting message for the agent to deliver to the user at the beginning of a conversation. Click "Create a message" below to continue the tutorial.
+
+[Full SDK tools docs](/sdk-docs/Tools)
+
+[Console tools docs](/Resources/Tools)
