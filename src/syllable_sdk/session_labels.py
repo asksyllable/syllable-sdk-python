@@ -9,7 +9,9 @@ from typing import Any, List, Mapping, Optional
 
 
 class SessionLabels(BaseSDK):
-    def get(
+    r"""Operations related to labeling sessions with evaluations of quality and           descriptions of issues the user encountered or other details. For more information, see           [Console docs](https://docs.syllable.ai/workspaces/Sessions)."""
+
+    def get_by_id(
         self,
         *,
         session_label_id: int,
@@ -106,7 +108,7 @@ class SessionLabels(BaseSDK):
             http_res,
         )
 
-    async def get_async(
+    async def get_by_id_async(
         self,
         *,
         session_label_id: int,

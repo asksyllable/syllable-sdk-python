@@ -4,8 +4,6 @@ sources:
     SyllableSDK:
         inputs:
             - location: openapi.yaml
-        overlays:
-            - location: .speakeasy/speakeasy-modifications-overlay.yaml
         registry:
             location: registry.speakeasyapi.dev/actiumhealth/actiumhealth/syllable-sdk
 targets:

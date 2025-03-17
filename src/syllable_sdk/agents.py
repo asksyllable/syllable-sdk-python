@@ -1274,7 +1274,7 @@ class Agents(BaseSDK):
             http_res,
         )
 
-    def get_available_voices(
+    def agent_get_available_voices(
         self,
         *,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -1360,7 +1360,7 @@ class Agents(BaseSDK):
             http_res,
         )
 
-    async def get_available_voices_async(
+    async def agent_get_available_voices_async(
         self,
         *,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,

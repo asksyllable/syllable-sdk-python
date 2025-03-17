@@ -10,7 +10,7 @@ from typing_extensions import deprecated
 
 
 class V1(BaseSDK):
-    def list(
+    def post_list_dashboard(
         self,
         *,
         page: OptionalNullable[int] = UNSET,
@@ -138,7 +138,7 @@ class V1(BaseSDK):
             http_res,
         )
 
-    async def list_async(
+    async def post_list_dashboard_async(
         self,
         *,
         page: OptionalNullable[int] = UNSET,
@@ -266,7 +266,7 @@ class V1(BaseSDK):
             http_res,
         )
 
-    def fetch_info(
+    def post_get_dashboard(
         self,
         *,
         dashboard_name: str,
@@ -368,7 +368,7 @@ class V1(BaseSDK):
             http_res,
         )
 
-    async def fetch_info_async(
+    async def post_get_dashboard_async(
         self,
         *,
         dashboard_name: str,
@@ -473,7 +473,7 @@ class V1(BaseSDK):
     @deprecated(
         "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
     )
-    def session_events(
+    def post_session_events_dashboard(
         self,
         *,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -566,7 +566,7 @@ class V1(BaseSDK):
     @deprecated(
         "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
     )
-    async def session_events_async(
+    async def post_session_events_dashboard_async(
         self,
         *,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -659,7 +659,7 @@ class V1(BaseSDK):
     @deprecated(
         "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
     )
-    def post_session_summary(
+    def post_session_summary_dashboard(
         self,
         *,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -752,7 +752,7 @@ class V1(BaseSDK):
     @deprecated(
         "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
     )
-    async def post_session_summary_async(
+    async def post_session_summary_dashboard_async(
         self,
         *,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -845,7 +845,7 @@ class V1(BaseSDK):
     @deprecated(
         "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
     )
-    def post_session_transfers(
+    def post_session_transfers_dashboard(
         self,
         *,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -938,7 +938,7 @@ class V1(BaseSDK):
     @deprecated(
         "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
     )
-    async def post_session_transfers_async(
+    async def post_session_transfers_dashboard_async(
         self,
         *,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -1031,7 +1031,7 @@ class V1(BaseSDK):
     @deprecated(
         "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
     )
-    def post_sessions(
+    def post_sessions_dashboard(
         self,
         *,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -1124,7 +1124,7 @@ class V1(BaseSDK):
     @deprecated(
         "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
     )
-    async def post_sessions_async(
+    async def post_sessions_dashboard_async(
         self,
         *,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,

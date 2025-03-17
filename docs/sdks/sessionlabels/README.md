@@ -3,13 +3,15 @@
 
 ## Overview
 
+Operations related to labeling sessions with evaluations of quality and           descriptions of issues the user encountered or other details. For more information, see           [Console docs](https://docs.syllable.ai/workspaces/Sessions).
+
 ### Available Operations
 
-* [get](#get) - Get Label By Id
+* [get_by_id](#get_by_id) - Get Label By Id
 * [create](#create) - Create Label
 * [list](#list) - Session Labels List
 
-## get
+## get_by_id
 
 Get Label By Id
 
@@ -24,7 +26,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.session_labels.get(session_label_id=931598)
+    res = ss_client.session_labels.get_by_id(session_label_id=931598)
 
     # Handle response
     print(res)

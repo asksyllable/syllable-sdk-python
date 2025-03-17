@@ -10,7 +10,7 @@ Operations related to service configuration. A service is a collection of       
 * [list](#list) - Service List
 * [create](#create) - Create Service
 * [update](#update) - Update Service
-* [get](#get) - Get Service By Id
+* [get_by_id](#get_by_id) - Get Service By Id
 * [delete](#delete) - Delete Service
 
 ## list
@@ -150,7 +150,7 @@ with SyllableSDK(
 | models.HTTPValidationError | 422                        | application/json           |
 | models.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## get
+## get_by_id
 
 Get a service by its ID
 
@@ -165,7 +165,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.services.get(service_id=931598)
+    res = ss_client.services.get_by_id(service_id=931598)
 
     # Handle response
     print(res)

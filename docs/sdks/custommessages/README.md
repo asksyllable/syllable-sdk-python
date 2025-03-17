@@ -3,12 +3,14 @@
 
 ## Overview
 
+Operations related to custom message configuration.           A custom message is a pre-configured message delivered by an agent as a greeting at the           beginning of a conversation. Multiple agents can use the same custom mesasage. A custom           message has one or more rules defined, which allow for different messages to be           dynamically selected and delivered at runtime based on the current time and either           date or day of the week. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Messages).
+
 ### Available Operations
 
 * [list](#list) - Custom Messages List
 * [create](#create) - Create Custom Message
 * [update](#update) - Update Custom Message
-* [get](#get) - Get Custom Message By Id
+* [get_by_id](#get_by_id) - Get Custom Message By Id
 * [delete](#delete) - Delete Custom Message
 
 ## list
@@ -232,7 +234,7 @@ with SyllableSDK(
 | models.HTTPValidationError | 422                        | application/json           |
 | models.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## get
+## get_by_id
 
 Get the custom message by its ID
 
@@ -247,7 +249,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.custom_messages.get(custom_message_id=931598)
+    res = ss_client.custom_messages.get_by_id(custom_message_id=931598)
 
     # Handle response
     print(res)

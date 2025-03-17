@@ -10,20 +10,17 @@ from syllable_sdk import models, utils
 from syllable_sdk._hooks import SDKHooks
 from syllable_sdk.agents import Agents
 from syllable_sdk.channels import Channels
-from syllable_sdk.channelstargets import ChannelsTargets
 from syllable_sdk.conversations import Conversations
-from syllable_sdk.custommessages import CustomMessages
+from syllable_sdk.custom_messages import CustomMessages
 from syllable_sdk.dashboards import Dashboards
-from syllable_sdk.datasources import DataSources
+from syllable_sdk.data_sources import DataSources
 from syllable_sdk.events import Events
 from syllable_sdk.insights import Insights
-from syllable_sdk.insightstools import InsightsTools
-from syllable_sdk.insightsworkflows import InsightsWorkflows
-from syllable_sdk.languagegroups import LanguageGroups
+from syllable_sdk.language_groups import LanguageGroups
 from syllable_sdk.prompts import Prompts
 from syllable_sdk.services import Services
 from syllable_sdk.session_debug import SessionDebug
-from syllable_sdk.sessionlabels import SessionLabels
+from syllable_sdk.session_labels import SessionLabels
 from syllable_sdk.sessions import Sessions
 from syllable_sdk.tools import Tools
 from syllable_sdk.types import OptionalNullable, UNSET
@@ -62,27 +59,28 @@ class SyllableSDK(BaseSDK):
     conversations: Conversations
     r"""Operations related to conversations.           A conversation is a record of messages between a user and an agent, and is composed of           one or more sessions."""
     data_sources: DataSources
+    r"""Operations related to data sources. A data source is a blob of text that           can be made available to an agent's general info tools to provide more context to the           agent when generating its responses. For more information, see           [Console docs](https://docs.syllable.ai/Resources/DataSources)."""
     events: Events
     r"""Operations related to events. An event represents a specific occurrence           during a session. Currently the API/SDK only supports fetching logged events."""
-    insights_workflows: InsightsWorkflows
     insights: Insights
-    insights_tools: InsightsTools
     custom_messages: CustomMessages
+    r"""Operations related to custom message configuration.           A custom message is a pre-configured message delivered by an agent as a greeting at the           beginning of a conversation. Multiple agents can use the same custom mesasage. A custom           message has one or more rules defined, which allow for different messages to be           dynamically selected and delivered at runtime based on the current time and either           date or day of the week. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Messages)."""
     prompts: Prompts
     r"""Operations related to prompts. A prompt defines the behavior of an           agent by delivering instructions to the LLM about how the agent should behave.           A prompt can be linked to one or more agents. A prompt can also be linked to tools to           allow an agent using the prompt to use them. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Prompts)."""
     services: Services
     r"""Operations related to service configuration. A service is a collection of           tools."""
     session_labels: SessionLabels
+    r"""Operations related to labeling sessions with evaluations of quality and           descriptions of issues the user encountered or other details. For more information, see           [Console docs](https://docs.syllable.ai/workspaces/Sessions)."""
     sessions: Sessions
     r"""Operations related to sessions. A session is a building block of a           conversation. For more information, see           [Console docs](https://docs.syllable.ai/workspaces/Sessions)."""
     session_debug: SessionDebug
     tools: Tools
     r"""Operations related to tool configuration. A tool is a function that an           agent can call to perform actions like accessing databases, making API calls, or           processing data. For an agent to have access to a tool, the prompt associated with that           agent should be linked to the tool and include instructions to use it. For more           information, see [Console docs](https://docs.syllable.ai/Resources/Tools)."""
-    channels_targets: ChannelsTargets
     dashboards: Dashboards
     r"""Operations related to dashboards. Currently the API/SDK           only supports fetching basic information about dashboards."""
     v1: V1
     language_groups: LanguageGroups
+    r"""Operations related to language groups. A language group is a           collection of language, voice, and DTMF configuration that can be linked to an agent to           define the languages and voices it supports. For more information, see           [Console docs](https://docs.syllable.ai/Resources/LanguageGroups)."""
 
     def __init__(
         self,
@@ -187,9 +185,7 @@ class SyllableSDK(BaseSDK):
         self.conversations = Conversations(self.sdk_configuration)
         self.data_sources = DataSources(self.sdk_configuration)
         self.events = Events(self.sdk_configuration)
-        self.insights_workflows = InsightsWorkflows(self.sdk_configuration)
         self.insights = Insights(self.sdk_configuration)
-        self.insights_tools = InsightsTools(self.sdk_configuration)
         self.custom_messages = CustomMessages(self.sdk_configuration)
         self.prompts = Prompts(self.sdk_configuration)
         self.services = Services(self.sdk_configuration)
@@ -197,7 +193,6 @@ class SyllableSDK(BaseSDK):
         self.sessions = Sessions(self.sdk_configuration)
         self.session_debug = SessionDebug(self.sdk_configuration)
         self.tools = Tools(self.sdk_configuration)
-        self.channels_targets = ChannelsTargets(self.sdk_configuration)
         self.dashboards = Dashboards(self.sdk_configuration)
         self.v1 = V1(self.sdk_configuration)
         self.language_groups = LanguageGroups(self.sdk_configuration)

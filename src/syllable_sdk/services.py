@@ -693,7 +693,7 @@ class Services(BaseSDK):
             http_res,
         )
 
-    def get(
+    def get_by_id(
         self,
         *,
         service_id: int,
@@ -792,7 +792,7 @@ class Services(BaseSDK):
             http_res,
         )
 
-    async def get_async(
+    async def get_by_id_async(
         self,
         *,
         service_id: int,

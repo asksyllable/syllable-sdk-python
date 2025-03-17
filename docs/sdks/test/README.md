@@ -7,9 +7,9 @@ Operations for testing agents with live text.           These endpoints allow se
 
 ### Available Operations
 
-* [send_message](#send_message) - Send New Message
+* [send_test_message](#send_test_message) - Send New Message
 
-## send_message
+## send_test_message
 
 Send a new message
 
@@ -24,7 +24,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.agents.test.send_message(service_name="<value>", source="<value>", test_id="<id>", agent_id="<id>", org_name="<value>")
+    res = ss_client.agents.test.send_test_message(service_name="<value>", source="<value>", test_id="<id>", agent_id="<id>", org_name="<value>")
 
     # Handle response
     print(res)

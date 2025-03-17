@@ -1155,7 +1155,7 @@ class Prompts(BaseSDK):
             http_res,
         )
 
-    def history(
+    def prompts_history(
         self,
         *,
         prompt_id: int,
@@ -1254,7 +1254,7 @@ class Prompts(BaseSDK):
             http_res,
         )
 
-    async def history_async(
+    async def prompts_history_async(
         self,
         *,
         prompt_id: int,

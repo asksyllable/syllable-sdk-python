@@ -8,27 +8,29 @@ from syllable_sdk.utils import get_security_from_env
 from typing import Any, List, Mapping, Optional, Union
 
 
-class InsightsWorkflows(BaseSDK):
+class CustomMessages(BaseSDK):
+    r"""Operations related to custom message configuration.           A custom message is a pre-configured message delivered by an agent as a greeting at the           beginning of a conversation. Multiple agents can use the same custom mesasage. A custom           message has one or more rules defined, which allow for different messages to be           dynamically selected and delivered at runtime based on the current time and either           date or day of the week. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Messages)."""
+
     def list(
         self,
         *,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
-        search_fields: Optional[List[models.InsightWorkflowProperties]] = None,
+        search_fields: Optional[List[models.CustomMessageProperties]] = None,
         search_field_values: Optional[List[str]] = None,
-        order_by: OptionalNullable[models.InsightWorkflowProperties] = UNSET,
+        order_by: OptionalNullable[models.CustomMessageProperties] = UNSET,
         order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
-        fields: OptionalNullable[List[models.InsightWorkflowProperties]] = UNSET,
+        fields: OptionalNullable[List[models.CustomMessageProperties]] = UNSET,
         start_datetime: OptionalNullable[str] = UNSET,
         end_datetime: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ListResponseInsightWorkflowOutput:
-        r"""Insight Workflow List
+    ) -> models.ListResponseCustomMessageResponse:
+        r"""Custom Messages List
 
-        List the existing insight_workflows
+        List the existing custom_messages
 
         :param page: The page number from which to start (0-indexed)
         :param limit: The maximum number of items to return
@@ -54,7 +56,7 @@ class InsightsWorkflows(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.InsightsWorkflowListRequest(
+        request = models.CustomMessagesListRequest(
             page=page,
             limit=limit,
             search_fields=search_fields,
@@ -68,7 +70,7 @@ class InsightsWorkflows(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/insights/workflows/",
+            path="/api/v1/custom_messages/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -93,7 +95,7 @@ class InsightsWorkflows(BaseSDK):
         http_res = self.do_request(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="insights_workflow_list",
+                operation_id="custom_messages_list",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -107,7 +109,7 @@ class InsightsWorkflows(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(
-                http_res.text, models.ListResponseInsightWorkflowOutput
+                http_res.text, models.ListResponseCustomMessageResponse
             )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
@@ -139,21 +141,21 @@ class InsightsWorkflows(BaseSDK):
         *,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
-        search_fields: Optional[List[models.InsightWorkflowProperties]] = None,
+        search_fields: Optional[List[models.CustomMessageProperties]] = None,
         search_field_values: Optional[List[str]] = None,
-        order_by: OptionalNullable[models.InsightWorkflowProperties] = UNSET,
+        order_by: OptionalNullable[models.CustomMessageProperties] = UNSET,
         order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
-        fields: OptionalNullable[List[models.InsightWorkflowProperties]] = UNSET,
+        fields: OptionalNullable[List[models.CustomMessageProperties]] = UNSET,
         start_datetime: OptionalNullable[str] = UNSET,
         end_datetime: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ListResponseInsightWorkflowOutput:
-        r"""Insight Workflow List
+    ) -> models.ListResponseCustomMessageResponse:
+        r"""Custom Messages List
 
-        List the existing insight_workflows
+        List the existing custom_messages
 
         :param page: The page number from which to start (0-indexed)
         :param limit: The maximum number of items to return
@@ -179,7 +181,7 @@ class InsightsWorkflows(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.InsightsWorkflowListRequest(
+        request = models.CustomMessagesListRequest(
             page=page,
             limit=limit,
             search_fields=search_fields,
@@ -193,7 +195,7 @@ class InsightsWorkflows(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/insights/workflows/",
+            path="/api/v1/custom_messages/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -218,7 +220,7 @@ class InsightsWorkflows(BaseSDK):
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="insights_workflow_list",
+                operation_id="custom_messages_list",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -232,7 +234,7 @@ class InsightsWorkflows(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(
-                http_res.text, models.ListResponseInsightWorkflowOutput
+                http_res.text, models.ListResponseCustomMessageResponse
             )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
@@ -263,27 +265,28 @@ class InsightsWorkflows(BaseSDK):
         self,
         *,
         name: str,
-        description: str,
-        insight_tool_ids: List[int],
-        conditions: Union[
-            models.InsightWorkflowInputConditions,
-            models.InsightWorkflowInputConditionsTypedDict,
-        ],
-        status: str,
+        text: str,
+        label: OptionalNullable[str] = UNSET,
+        rules: Optional[
+            Union[
+                List[models.CustomMessageRule], List[models.CustomMessageRuleTypedDict]
+            ]
+        ] = None,
+        type_: Optional[str] = "greeting",
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.InsightWorkflowOutput:
-        r"""Create Insight Workflow
+    ) -> models.CustomMessageResponse:
+        r"""Create Custom Message
 
-        Create a new tool in the insights
+        Create a new custom message
 
-        :param name: Human readable name of Insight Workflow
-        :param description: Text description of Insight Workflow
-        :param insight_tool_ids: List of Insight Tool IDs
-        :param conditions: Conditions for Insight Workflow
-        :param status: Status of the Insight Workflow
+        :param name: The name of the custom message
+        :param text: The text of the custom message
+        :param label: The label of the custom message
+        :param rules: Rules for time-specific message variants
+        :param type:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -299,19 +302,19 @@ class InsightsWorkflows(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.InsightWorkflowInput(
+        request = models.CustomMessageCreateRequest(
             name=name,
-            description=description,
-            insight_tool_ids=insight_tool_ids,
-            conditions=utils.get_pydantic_model(
-                conditions, models.InsightWorkflowInputConditions
+            text=text,
+            label=label,
+            rules=utils.get_pydantic_model(
+                rules, Optional[List[models.CustomMessageRule]]
             ),
-            status=status,
+            type=type_,
         )
 
         req = self._build_request(
             method="POST",
-            path="/api/v1/insights/workflows/",
+            path="/api/v1/custom_messages/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -323,7 +326,7 @@ class InsightsWorkflows(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.InsightWorkflowInput
+                request, False, False, "json", models.CustomMessageCreateRequest
             ),
             timeout_ms=timeout_ms,
         )
@@ -339,7 +342,7 @@ class InsightsWorkflows(BaseSDK):
         http_res = self.do_request(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="insights_workflow_create",
+                operation_id="custom_messages_create",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -352,7 +355,7 @@ class InsightsWorkflows(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.InsightWorkflowOutput)
+            return utils.unmarshal_json(http_res.text, models.CustomMessageResponse)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -382,27 +385,28 @@ class InsightsWorkflows(BaseSDK):
         self,
         *,
         name: str,
-        description: str,
-        insight_tool_ids: List[int],
-        conditions: Union[
-            models.InsightWorkflowInputConditions,
-            models.InsightWorkflowInputConditionsTypedDict,
-        ],
-        status: str,
+        text: str,
+        label: OptionalNullable[str] = UNSET,
+        rules: Optional[
+            Union[
+                List[models.CustomMessageRule], List[models.CustomMessageRuleTypedDict]
+            ]
+        ] = None,
+        type_: Optional[str] = "greeting",
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.InsightWorkflowOutput:
-        r"""Create Insight Workflow
+    ) -> models.CustomMessageResponse:
+        r"""Create Custom Message
 
-        Create a new tool in the insights
+        Create a new custom message
 
-        :param name: Human readable name of Insight Workflow
-        :param description: Text description of Insight Workflow
-        :param insight_tool_ids: List of Insight Tool IDs
-        :param conditions: Conditions for Insight Workflow
-        :param status: Status of the Insight Workflow
+        :param name: The name of the custom message
+        :param text: The text of the custom message
+        :param label: The label of the custom message
+        :param rules: Rules for time-specific message variants
+        :param type:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -418,19 +422,19 @@ class InsightsWorkflows(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.InsightWorkflowInput(
+        request = models.CustomMessageCreateRequest(
             name=name,
-            description=description,
-            insight_tool_ids=insight_tool_ids,
-            conditions=utils.get_pydantic_model(
-                conditions, models.InsightWorkflowInputConditions
+            text=text,
+            label=label,
+            rules=utils.get_pydantic_model(
+                rules, Optional[List[models.CustomMessageRule]]
             ),
-            status=status,
+            type=type_,
         )
 
         req = self._build_request_async(
             method="POST",
-            path="/api/v1/insights/workflows/",
+            path="/api/v1/custom_messages/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -442,7 +446,7 @@ class InsightsWorkflows(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.InsightWorkflowInput
+                request, False, False, "json", models.CustomMessageCreateRequest
             ),
             timeout_ms=timeout_ms,
         )
@@ -458,7 +462,7 @@ class InsightsWorkflows(BaseSDK):
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="insights_workflow_create",
+                operation_id="custom_messages_create",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -471,7 +475,7 @@ class InsightsWorkflows(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.InsightWorkflowOutput)
+            return utils.unmarshal_json(http_res.text, models.CustomMessageResponse)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -497,20 +501,34 @@ class InsightsWorkflows(BaseSDK):
             http_res,
         )
 
-    def get(
+    def update(
         self,
         *,
-        workflow_id: int,
+        name: str,
+        text: str,
+        id: int,
+        label: OptionalNullable[str] = UNSET,
+        rules: Optional[
+            Union[
+                List[models.CustomMessageRule], List[models.CustomMessageRuleTypedDict]
+            ]
+        ] = None,
+        type_: Optional[str] = "greeting",
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.InsightWorkflowOutput:
-        r"""Get Insight Workflow By Id
+    ) -> models.CustomMessageResponse:
+        r"""Update Custom Message
 
-        Get a InsightWorkflow by ID.
+        Update a custom message
 
-        :param workflow_id:
+        :param name: The name of the custom message
+        :param text: The text of the custom message
+        :param id: The ID of the custom message
+        :param label: The label of the custom message
+        :param rules: Rules for time-specific message variants
+        :param type:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -526,23 +544,33 @@ class InsightsWorkflows(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.InsightsWorkflowGetByIDRequest(
-            workflow_id=workflow_id,
+        request = models.CustomMessageUpdateRequest(
+            name=name,
+            text=text,
+            label=label,
+            rules=utils.get_pydantic_model(
+                rules, Optional[List[models.CustomMessageRule]]
+            ),
+            id=id,
+            type=type_,
         )
 
         req = self._build_request(
-            method="GET",
-            path="/api/v1/insights/workflows/{workflow_id}",
+            method="PUT",
+            path="/api/v1/custom_messages/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
-            request_body_required=False,
-            request_has_path_params=True,
+            request_body_required=True,
+            request_has_path_params=False,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request, False, False, "json", models.CustomMessageUpdateRequest
+            ),
             timeout_ms=timeout_ms,
         )
 
@@ -557,7 +585,7 @@ class InsightsWorkflows(BaseSDK):
         http_res = self.do_request(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="insights_workflow_get_by_id",
+                operation_id="custom_messages_update",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -570,7 +598,7 @@ class InsightsWorkflows(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.InsightWorkflowOutput)
+            return utils.unmarshal_json(http_res.text, models.CustomMessageResponse)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -596,20 +624,34 @@ class InsightsWorkflows(BaseSDK):
             http_res,
         )
 
-    async def get_async(
+    async def update_async(
         self,
         *,
-        workflow_id: int,
+        name: str,
+        text: str,
+        id: int,
+        label: OptionalNullable[str] = UNSET,
+        rules: Optional[
+            Union[
+                List[models.CustomMessageRule], List[models.CustomMessageRuleTypedDict]
+            ]
+        ] = None,
+        type_: Optional[str] = "greeting",
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.InsightWorkflowOutput:
-        r"""Get Insight Workflow By Id
+    ) -> models.CustomMessageResponse:
+        r"""Update Custom Message
 
-        Get a InsightWorkflow by ID.
+        Update a custom message
 
-        :param workflow_id:
+        :param name: The name of the custom message
+        :param text: The text of the custom message
+        :param id: The ID of the custom message
+        :param label: The label of the custom message
+        :param rules: Rules for time-specific message variants
+        :param type:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -625,13 +667,221 @@ class InsightsWorkflows(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.InsightsWorkflowGetByIDRequest(
-            workflow_id=workflow_id,
+        request = models.CustomMessageUpdateRequest(
+            name=name,
+            text=text,
+            label=label,
+            rules=utils.get_pydantic_model(
+                rules, Optional[List[models.CustomMessageRule]]
+            ),
+            id=id,
+            type=type_,
+        )
+
+        req = self._build_request_async(
+            method="PUT",
+            path="/api/v1/custom_messages/",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request, False, False, "json", models.CustomMessageUpdateRequest
+            ),
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                base_url=base_url or "",
+                operation_id="custom_messages_update",
+                oauth2_scopes=[],
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            error_status_codes=["422", "4XX", "5XX"],
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return utils.unmarshal_json(http_res.text, models.CustomMessageResponse)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
+            )
+            raise models.HTTPValidationError(data=response_data)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
+
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = await utils.stream_to_text_async(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
+
+    def get_by_id(
+        self,
+        *,
+        custom_message_id: int,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.CustomMessageResponse:
+        r"""Get Custom Message By Id
+
+        Get the custom message by its ID
+
+        :param custom_message_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.CustomMessageGetByIDRequest(
+            custom_message_id=custom_message_id,
+        )
+
+        req = self._build_request(
+            method="GET",
+            path="/api/v1/custom_messages/{custom_message_id}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                base_url=base_url or "",
+                operation_id="custom_message_get_by_id",
+                oauth2_scopes=[],
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            error_status_codes=["422", "4XX", "5XX"],
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return utils.unmarshal_json(http_res.text, models.CustomMessageResponse)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
+            )
+            raise models.HTTPValidationError(data=response_data)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
+
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = utils.stream_to_text(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
+
+    async def get_by_id_async(
+        self,
+        *,
+        custom_message_id: int,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.CustomMessageResponse:
+        r"""Get Custom Message By Id
+
+        Get the custom message by its ID
+
+        :param custom_message_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.CustomMessageGetByIDRequest(
+            custom_message_id=custom_message_id,
         )
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/insights/workflows/{workflow_id}",
+            path="/api/v1/custom_messages/{custom_message_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -656,7 +906,7 @@ class InsightsWorkflows(BaseSDK):
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="insights_workflow_get_by_id",
+                operation_id="custom_message_get_by_id",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -669,7 +919,7 @@ class InsightsWorkflows(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.InsightWorkflowOutput)
+            return utils.unmarshal_json(http_res.text, models.CustomMessageResponse)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -698,17 +948,19 @@ class InsightsWorkflows(BaseSDK):
     def delete(
         self,
         *,
-        workflow_id: int,
+        custom_message_id: int,
+        reason: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Any:
-        r"""Delete Insights Workflow
+        r"""Delete Custom Message
 
-        Delete a Insights workflow.
+        Delete custom message by ID
 
-        :param workflow_id:
+        :param custom_message_id:
+        :param reason:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -724,13 +976,14 @@ class InsightsWorkflows(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.DirectoryWorkflowDeleteRequest(
-            workflow_id=workflow_id,
+        request = models.CustomMessagesDeleteRequest(
+            custom_message_id=custom_message_id,
+            reason=reason,
         )
 
         req = self._build_request(
             method="DELETE",
-            path="/api/v1/insights/workflows/{workflow_id}",
+            path="/api/v1/custom_messages/{custom_message_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -755,14 +1008,14 @@ class InsightsWorkflows(BaseSDK):
         http_res = self.do_request(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="directory_workflow_delete",
+                operation_id="custom_messages_delete",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
             ),
             request=req,
-            error_status_codes=["400", "404", "422", "4XX", "500", "5XX"],
+            error_status_codes=["422", "4XX", "5XX"],
             retry_config=retry_config,
         )
 
@@ -774,12 +1027,12 @@ class InsightsWorkflows(BaseSDK):
                 http_res.text, models.HTTPValidationErrorData
             )
             raise models.HTTPValidationError(data=response_data)
-        if utils.match_response(http_res, ["400", "404", "4XX"], "*"):
+        if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.APIError(
                 "API error occurred", http_res.status_code, http_res_text, http_res
             )
-        if utils.match_response(http_res, ["500", "5XX"], "*"):
+        if utils.match_response(http_res, "5XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.APIError(
                 "API error occurred", http_res.status_code, http_res_text, http_res
@@ -797,17 +1050,19 @@ class InsightsWorkflows(BaseSDK):
     async def delete_async(
         self,
         *,
-        workflow_id: int,
+        custom_message_id: int,
+        reason: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Any:
-        r"""Delete Insights Workflow
+        r"""Delete Custom Message
 
-        Delete a Insights workflow.
+        Delete custom message by ID
 
-        :param workflow_id:
+        :param custom_message_id:
+        :param reason:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -823,13 +1078,14 @@ class InsightsWorkflows(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.DirectoryWorkflowDeleteRequest(
-            workflow_id=workflow_id,
+        request = models.CustomMessagesDeleteRequest(
+            custom_message_id=custom_message_id,
+            reason=reason,
         )
 
         req = self._build_request_async(
             method="DELETE",
-            path="/api/v1/insights/workflows/{workflow_id}",
+            path="/api/v1/custom_messages/{custom_message_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -854,14 +1110,14 @@ class InsightsWorkflows(BaseSDK):
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="directory_workflow_delete",
+                operation_id="custom_messages_delete",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
             ),
             request=req,
-            error_status_codes=["400", "404", "422", "4XX", "500", "5XX"],
+            error_status_codes=["422", "4XX", "5XX"],
             retry_config=retry_config,
         )
 
@@ -873,12 +1129,12 @@ class InsightsWorkflows(BaseSDK):
                 http_res.text, models.HTTPValidationErrorData
             )
             raise models.HTTPValidationError(data=response_data)
-        if utils.match_response(http_res, ["400", "404", "4XX"], "*"):
+        if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.APIError(
                 "API error occurred", http_res.status_code, http_res_text, http_res
             )
-        if utils.match_response(http_res, ["500", "5XX"], "*"):
+        if utils.match_response(http_res, "5XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.APIError(
                 "API error occurred", http_res.status_code, http_res_text, http_res

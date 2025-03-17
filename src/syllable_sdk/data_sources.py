@@ -5,30 +5,32 @@ from syllable_sdk import models, utils
 from syllable_sdk._hooks import HookContext
 from syllable_sdk.types import OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, List, Mapping, Optional
 
 
-class CustomMessages(BaseSDK):
+class DataSources(BaseSDK):
+    r"""Operations related to data sources. A data source is a blob of text that           can be made available to an agent's general info tools to provide more context to the           agent when generating its responses. For more information, see           [Console docs](https://docs.syllable.ai/Resources/DataSources)."""
+
     def list(
         self,
         *,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
-        search_fields: Optional[List[models.CustomMessageProperties]] = None,
+        search_fields: Optional[List[models.DataSourceProperties]] = None,
         search_field_values: Optional[List[str]] = None,
-        order_by: OptionalNullable[models.CustomMessageProperties] = UNSET,
+        order_by: OptionalNullable[models.DataSourceProperties] = UNSET,
         order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
-        fields: OptionalNullable[List[models.CustomMessageProperties]] = UNSET,
+        fields: OptionalNullable[List[models.DataSourceProperties]] = UNSET,
         start_datetime: OptionalNullable[str] = UNSET,
         end_datetime: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ListResponseCustomMessageResponse:
-        r"""Custom Messages List
+    ) -> models.ListResponseDataSourceMetadataResponse:
+        r"""List Data Sources
 
-        List the existing custom_messages
+        Fetch metadata about all data sources, not including their text.
 
         :param page: The page number from which to start (0-indexed)
         :param limit: The maximum number of items to return
@@ -54,7 +56,7 @@ class CustomMessages(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CustomMessagesListRequest(
+        request = models.DataSourcesListRequest(
             page=page,
             limit=limit,
             search_fields=search_fields,
@@ -68,7 +70,7 @@ class CustomMessages(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/custom_messages/",
+            path="/api/v1/data_sources/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -93,7 +95,7 @@ class CustomMessages(BaseSDK):
         http_res = self.do_request(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="custom_messages_list",
+                operation_id="data_sources_list",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -107,7 +109,7 @@ class CustomMessages(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(
-                http_res.text, models.ListResponseCustomMessageResponse
+                http_res.text, models.ListResponseDataSourceMetadataResponse
             )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
@@ -139,21 +141,21 @@ class CustomMessages(BaseSDK):
         *,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
-        search_fields: Optional[List[models.CustomMessageProperties]] = None,
+        search_fields: Optional[List[models.DataSourceProperties]] = None,
         search_field_values: Optional[List[str]] = None,
-        order_by: OptionalNullable[models.CustomMessageProperties] = UNSET,
+        order_by: OptionalNullable[models.DataSourceProperties] = UNSET,
         order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
-        fields: OptionalNullable[List[models.CustomMessageProperties]] = UNSET,
+        fields: OptionalNullable[List[models.DataSourceProperties]] = UNSET,
         start_datetime: OptionalNullable[str] = UNSET,
         end_datetime: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ListResponseCustomMessageResponse:
-        r"""Custom Messages List
+    ) -> models.ListResponseDataSourceMetadataResponse:
+        r"""List Data Sources
 
-        List the existing custom_messages
+        Fetch metadata about all data sources, not including their text.
 
         :param page: The page number from which to start (0-indexed)
         :param limit: The maximum number of items to return
@@ -179,7 +181,7 @@ class CustomMessages(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CustomMessagesListRequest(
+        request = models.DataSourcesListRequest(
             page=page,
             limit=limit,
             search_fields=search_fields,
@@ -193,7 +195,7 @@ class CustomMessages(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/custom_messages/",
+            path="/api/v1/data_sources/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -218,7 +220,7 @@ class CustomMessages(BaseSDK):
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="custom_messages_list",
+                operation_id="data_sources_list",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -232,7 +234,7 @@ class CustomMessages(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(
-                http_res.text, models.ListResponseCustomMessageResponse
+                http_res.text, models.ListResponseDataSourceMetadataResponse
             )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
@@ -263,28 +265,26 @@ class CustomMessages(BaseSDK):
         self,
         *,
         name: str,
+        chunk: bool,
         text: str,
-        label: OptionalNullable[str] = UNSET,
-        rules: Optional[
-            Union[
-                List[models.CustomMessageRule], List[models.CustomMessageRuleTypedDict]
-            ]
-        ] = None,
-        type_: Optional[str] = "greeting",
+        description: OptionalNullable[str] = UNSET,
+        labels: Optional[List[str]] = None,
+        chunk_delimiter: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CustomMessageResponse:
-        r"""Create Custom Message
+    ) -> models.DataSourceDetailResponse:
+        r"""Create Data Source
 
-        Create a new custom message
+        Create a new data source.
 
-        :param name: The name of the custom message
-        :param text: The text of the custom message
-        :param label: The label of the custom message
-        :param rules: Rules for time-specific message variants
-        :param type:
+        :param name: The data source name. Must be unique within suborg. Cannot contain whitespace.
+        :param chunk: Whether the content should be split into smaller chunks. (This feature is coming in the future - currently this value will always be treated as False.)
+        :param text: Information that the data source will provide to the agent accessing it.
+        :param description: The description of the data source.
+        :param labels: Searchable labels for the data source. Can be included in agent.prompt_tool_defaults for a given tool to give the agent access to data sources with those labels when calling that tool.
+        :param chunk_delimiter: String that should be treated as delimiter between intended chunks. (This feature is coming in the future - currently this value will always be treated as None.)
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -300,19 +300,18 @@ class CustomMessages(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CustomMessageCreateRequest(
+        request = models.DataSourceCreateRequest(
             name=name,
+            description=description,
+            labels=labels,
+            chunk=chunk,
+            chunk_delimiter=chunk_delimiter,
             text=text,
-            label=label,
-            rules=utils.get_pydantic_model(
-                rules, Optional[List[models.CustomMessageRule]]
-            ),
-            type=type_,
         )
 
         req = self._build_request(
             method="POST",
-            path="/api/v1/custom_messages/",
+            path="/api/v1/data_sources/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -324,7 +323,7 @@ class CustomMessages(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.CustomMessageCreateRequest
+                request, False, False, "json", models.DataSourceCreateRequest
             ),
             timeout_ms=timeout_ms,
         )
@@ -340,7 +339,7 @@ class CustomMessages(BaseSDK):
         http_res = self.do_request(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="custom_messages_create",
+                operation_id="data_sources_create",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -353,7 +352,7 @@ class CustomMessages(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.CustomMessageResponse)
+            return utils.unmarshal_json(http_res.text, models.DataSourceDetailResponse)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -383,28 +382,26 @@ class CustomMessages(BaseSDK):
         self,
         *,
         name: str,
+        chunk: bool,
         text: str,
-        label: OptionalNullable[str] = UNSET,
-        rules: Optional[
-            Union[
-                List[models.CustomMessageRule], List[models.CustomMessageRuleTypedDict]
-            ]
-        ] = None,
-        type_: Optional[str] = "greeting",
+        description: OptionalNullable[str] = UNSET,
+        labels: Optional[List[str]] = None,
+        chunk_delimiter: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CustomMessageResponse:
-        r"""Create Custom Message
+    ) -> models.DataSourceDetailResponse:
+        r"""Create Data Source
 
-        Create a new custom message
+        Create a new data source.
 
-        :param name: The name of the custom message
-        :param text: The text of the custom message
-        :param label: The label of the custom message
-        :param rules: Rules for time-specific message variants
-        :param type:
+        :param name: The data source name. Must be unique within suborg. Cannot contain whitespace.
+        :param chunk: Whether the content should be split into smaller chunks. (This feature is coming in the future - currently this value will always be treated as False.)
+        :param text: Information that the data source will provide to the agent accessing it.
+        :param description: The description of the data source.
+        :param labels: Searchable labels for the data source. Can be included in agent.prompt_tool_defaults for a given tool to give the agent access to data sources with those labels when calling that tool.
+        :param chunk_delimiter: String that should be treated as delimiter between intended chunks. (This feature is coming in the future - currently this value will always be treated as None.)
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -420,19 +417,18 @@ class CustomMessages(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CustomMessageCreateRequest(
+        request = models.DataSourceCreateRequest(
             name=name,
+            description=description,
+            labels=labels,
+            chunk=chunk,
+            chunk_delimiter=chunk_delimiter,
             text=text,
-            label=label,
-            rules=utils.get_pydantic_model(
-                rules, Optional[List[models.CustomMessageRule]]
-            ),
-            type=type_,
         )
 
         req = self._build_request_async(
             method="POST",
-            path="/api/v1/custom_messages/",
+            path="/api/v1/data_sources/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -444,7 +440,7 @@ class CustomMessages(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.CustomMessageCreateRequest
+                request, False, False, "json", models.DataSourceCreateRequest
             ),
             timeout_ms=timeout_ms,
         )
@@ -460,7 +456,7 @@ class CustomMessages(BaseSDK):
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="custom_messages_create",
+                operation_id="data_sources_create",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -473,7 +469,7 @@ class CustomMessages(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.CustomMessageResponse)
+            return utils.unmarshal_json(http_res.text, models.DataSourceDetailResponse)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -503,30 +499,30 @@ class CustomMessages(BaseSDK):
         self,
         *,
         name: str,
-        text: str,
+        chunk: bool,
         id: int,
-        label: OptionalNullable[str] = UNSET,
-        rules: Optional[
-            Union[
-                List[models.CustomMessageRule], List[models.CustomMessageRuleTypedDict]
-            ]
-        ] = None,
-        type_: Optional[str] = "greeting",
+        text: str,
+        description: OptionalNullable[str] = UNSET,
+        labels: Optional[List[str]] = None,
+        chunk_delimiter: OptionalNullable[str] = UNSET,
+        edit_comments: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CustomMessageResponse:
-        r"""Update Custom Message
+    ) -> models.DataSourceDetailResponse:
+        r"""Update Data Source
 
-        Update a custom message
+        Update an existing data source.
 
-        :param name: The name of the custom message
-        :param text: The text of the custom message
-        :param id: The ID of the custom message
-        :param label: The label of the custom message
-        :param rules: Rules for time-specific message variants
-        :param type:
+        :param name: The data source name. Must be unique within suborg. Cannot contain whitespace.
+        :param chunk: Whether the content should be split into smaller chunks. (This feature is coming in the future - currently this value will always be treated as False.)
+        :param id: The data source ID.
+        :param text: Information that the data source will provide to the agent accessing it.
+        :param description: The description of the data source.
+        :param labels: Searchable labels for the data source. Can be included in agent.prompt_tool_defaults for a given tool to give the agent access to data sources with those labels when calling that tool.
+        :param chunk_delimiter: String that should be treated as delimiter between intended chunks. (This feature is coming in the future - currently this value will always be treated as None.)
+        :param edit_comments: The comments for the most recent edit to the data source
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -542,20 +538,20 @@ class CustomMessages(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CustomMessageUpdateRequest(
+        request = models.DataSourceUpdateRequest(
             name=name,
-            text=text,
-            label=label,
-            rules=utils.get_pydantic_model(
-                rules, Optional[List[models.CustomMessageRule]]
-            ),
+            description=description,
+            labels=labels,
+            chunk=chunk,
+            chunk_delimiter=chunk_delimiter,
             id=id,
-            type=type_,
+            edit_comments=edit_comments,
+            text=text,
         )
 
         req = self._build_request(
             method="PUT",
-            path="/api/v1/custom_messages/",
+            path="/api/v1/data_sources/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -567,7 +563,7 @@ class CustomMessages(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.CustomMessageUpdateRequest
+                request, False, False, "json", models.DataSourceUpdateRequest
             ),
             timeout_ms=timeout_ms,
         )
@@ -583,7 +579,7 @@ class CustomMessages(BaseSDK):
         http_res = self.do_request(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="custom_messages_update",
+                operation_id="data_sources_update",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -596,7 +592,7 @@ class CustomMessages(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.CustomMessageResponse)
+            return utils.unmarshal_json(http_res.text, models.DataSourceDetailResponse)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -626,30 +622,30 @@ class CustomMessages(BaseSDK):
         self,
         *,
         name: str,
-        text: str,
+        chunk: bool,
         id: int,
-        label: OptionalNullable[str] = UNSET,
-        rules: Optional[
-            Union[
-                List[models.CustomMessageRule], List[models.CustomMessageRuleTypedDict]
-            ]
-        ] = None,
-        type_: Optional[str] = "greeting",
+        text: str,
+        description: OptionalNullable[str] = UNSET,
+        labels: Optional[List[str]] = None,
+        chunk_delimiter: OptionalNullable[str] = UNSET,
+        edit_comments: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CustomMessageResponse:
-        r"""Update Custom Message
+    ) -> models.DataSourceDetailResponse:
+        r"""Update Data Source
 
-        Update a custom message
+        Update an existing data source.
 
-        :param name: The name of the custom message
-        :param text: The text of the custom message
-        :param id: The ID of the custom message
-        :param label: The label of the custom message
-        :param rules: Rules for time-specific message variants
-        :param type:
+        :param name: The data source name. Must be unique within suborg. Cannot contain whitespace.
+        :param chunk: Whether the content should be split into smaller chunks. (This feature is coming in the future - currently this value will always be treated as False.)
+        :param id: The data source ID.
+        :param text: Information that the data source will provide to the agent accessing it.
+        :param description: The description of the data source.
+        :param labels: Searchable labels for the data source. Can be included in agent.prompt_tool_defaults for a given tool to give the agent access to data sources with those labels when calling that tool.
+        :param chunk_delimiter: String that should be treated as delimiter between intended chunks. (This feature is coming in the future - currently this value will always be treated as None.)
+        :param edit_comments: The comments for the most recent edit to the data source
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -665,20 +661,20 @@ class CustomMessages(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CustomMessageUpdateRequest(
+        request = models.DataSourceUpdateRequest(
             name=name,
-            text=text,
-            label=label,
-            rules=utils.get_pydantic_model(
-                rules, Optional[List[models.CustomMessageRule]]
-            ),
+            description=description,
+            labels=labels,
+            chunk=chunk,
+            chunk_delimiter=chunk_delimiter,
             id=id,
-            type=type_,
+            edit_comments=edit_comments,
+            text=text,
         )
 
         req = self._build_request_async(
             method="PUT",
-            path="/api/v1/custom_messages/",
+            path="/api/v1/data_sources/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -690,7 +686,7 @@ class CustomMessages(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.CustomMessageUpdateRequest
+                request, False, False, "json", models.DataSourceUpdateRequest
             ),
             timeout_ms=timeout_ms,
         )
@@ -706,7 +702,7 @@ class CustomMessages(BaseSDK):
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="custom_messages_update",
+                operation_id="data_sources_update",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -719,7 +715,7 @@ class CustomMessages(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.CustomMessageResponse)
+            return utils.unmarshal_json(http_res.text, models.DataSourceDetailResponse)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -745,20 +741,20 @@ class CustomMessages(BaseSDK):
             http_res,
         )
 
-    def get(
+    def get_by_id(
         self,
         *,
-        custom_message_id: int,
+        data_source_id: int,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CustomMessageResponse:
-        r"""Get Custom Message By Id
+    ) -> models.DataSourceDetailResponse:
+        r"""Get Data Source
 
-        Get the custom message by its ID
+        Fetch a given data source, including its text.
 
-        :param custom_message_id:
+        :param data_source_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -774,13 +770,13 @@ class CustomMessages(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CustomMessageGetByIDRequest(
-            custom_message_id=custom_message_id,
+        request = models.DataSourcesGetByIDRequest(
+            data_source_id=data_source_id,
         )
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/custom_messages/{custom_message_id}",
+            path="/api/v1/data_sources/{data_source_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -805,7 +801,7 @@ class CustomMessages(BaseSDK):
         http_res = self.do_request(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="custom_message_get_by_id",
+                operation_id="data_sources_get_by_id",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -818,7 +814,7 @@ class CustomMessages(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.CustomMessageResponse)
+            return utils.unmarshal_json(http_res.text, models.DataSourceDetailResponse)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -844,20 +840,20 @@ class CustomMessages(BaseSDK):
             http_res,
         )
 
-    async def get_async(
+    async def get_by_id_async(
         self,
         *,
-        custom_message_id: int,
+        data_source_id: int,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CustomMessageResponse:
-        r"""Get Custom Message By Id
+    ) -> models.DataSourceDetailResponse:
+        r"""Get Data Source
 
-        Get the custom message by its ID
+        Fetch a given data source, including its text.
 
-        :param custom_message_id:
+        :param data_source_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -873,13 +869,13 @@ class CustomMessages(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CustomMessageGetByIDRequest(
-            custom_message_id=custom_message_id,
+        request = models.DataSourcesGetByIDRequest(
+            data_source_id=data_source_id,
         )
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/custom_messages/{custom_message_id}",
+            path="/api/v1/data_sources/{data_source_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -904,7 +900,7 @@ class CustomMessages(BaseSDK):
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="custom_message_get_by_id",
+                operation_id="data_sources_get_by_id",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -917,7 +913,7 @@ class CustomMessages(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.CustomMessageResponse)
+            return utils.unmarshal_json(http_res.text, models.DataSourceDetailResponse)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -946,18 +942,18 @@ class CustomMessages(BaseSDK):
     def delete(
         self,
         *,
-        custom_message_id: int,
+        data_source_id: int,
         reason: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Any:
-        r"""Delete Custom Message
+        r"""Delete Data Source
 
-        Delete custom message by ID
+        Delete a given data source.
 
-        :param custom_message_id:
+        :param data_source_id:
         :param reason:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -974,14 +970,14 @@ class CustomMessages(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CustomMessagesDeleteRequest(
-            custom_message_id=custom_message_id,
+        request = models.DataSourcesDeleteRequest(
+            data_source_id=data_source_id,
             reason=reason,
         )
 
         req = self._build_request(
             method="DELETE",
-            path="/api/v1/custom_messages/{custom_message_id}",
+            path="/api/v1/data_sources/{data_source_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1006,7 +1002,7 @@ class CustomMessages(BaseSDK):
         http_res = self.do_request(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="custom_messages_delete",
+                operation_id="data_sources_delete",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -1048,18 +1044,18 @@ class CustomMessages(BaseSDK):
     async def delete_async(
         self,
         *,
-        custom_message_id: int,
+        data_source_id: int,
         reason: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Any:
-        r"""Delete Custom Message
+        r"""Delete Data Source
 
-        Delete custom message by ID
+        Delete a given data source.
 
-        :param custom_message_id:
+        :param data_source_id:
         :param reason:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1076,14 +1072,14 @@ class CustomMessages(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CustomMessagesDeleteRequest(
-            custom_message_id=custom_message_id,
+        request = models.DataSourcesDeleteRequest(
+            data_source_id=data_source_id,
             reason=reason,
         )
 
         req = self._build_request_async(
             method="DELETE",
-            path="/api/v1/custom_messages/{custom_message_id}",
+            path="/api/v1/data_sources/{data_source_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1108,7 +1104,7 @@ class CustomMessages(BaseSDK):
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="custom_messages_delete",
+                operation_id="data_sources_delete",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security

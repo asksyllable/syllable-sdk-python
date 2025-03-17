@@ -9,7 +9,7 @@ from typing import Any, Mapping, Optional
 
 
 class Transcript(BaseSDK):
-    def get(
+    def get_by_id(
         self,
         *,
         session_id: str,
@@ -108,7 +108,7 @@ class Transcript(BaseSDK):
             http_res,
         )
 
-    async def get_async(
+    async def get_by_id_async(
         self,
         *,
         session_id: str,

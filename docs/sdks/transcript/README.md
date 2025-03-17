@@ -5,9 +5,9 @@
 
 ### Available Operations
 
-* [get](#get) - Get Session Transcript By Id
+* [get_by_id](#get_by_id) - Get Session Transcript By Id
 
-## get
+## get_by_id
 
 Get Session Transcript By Id
 
@@ -22,7 +22,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.sessions.transcript.get(session_id="<id>")
+    res = ss_client.sessions.transcript.get_by_id(session_id="<id>")
 
     # Handle response
     print(res)
