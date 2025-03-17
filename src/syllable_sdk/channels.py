@@ -14,7 +14,7 @@ class Channels(BaseSDK):
     r"""Operations related to channel configuration.           A channel is an organization-level point of communication, like a phone number or a web           chat. A channel can be associated with an agent by creating a channel target linking           them."""
 
     targets: Targets
-    r"""Operations related to channel target configuration. A channel target           links a channel to an agent, allowing users to communicate with the agent through that           channel."""
+    r"""Operations related to channel target configuration. A channel target           links a channel to an agent, allowing users to communicate with the agent through that           channel. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Channels)."""
 
     def __init__(self, sdk_config: SDKConfiguration) -> None:
         BaseSDK.__init__(self, sdk_config)
@@ -43,15 +43,15 @@ class Channels(BaseSDK):
     ) -> models.ListResponseChannel:
         r"""Get Channels
 
-        :param page:
-        :param limit:
-        :param search_fields:
-        :param search_field_values:
-        :param order_by:
-        :param order_by_direction:
-        :param fields:
-        :param start_datetime:
-        :param end_datetime:
+        :param page: The page number from which to start (0-indexed)
+        :param limit: The maximum number of items to return
+        :param search_fields: String names of fields to search. Correspond by index to search field values
+        :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
+        :param order_by: The field whose value should be used to order the results
+        :param order_by_direction: The direction in which to order the results
+        :param fields: The fields to include in the response
+        :param start_datetime: The start datetime for filtering results
+        :param end_datetime: The end datetime for filtering results
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -164,15 +164,15 @@ class Channels(BaseSDK):
     ) -> models.ListResponseChannel:
         r"""Get Channels
 
-        :param page:
-        :param limit:
-        :param search_fields:
-        :param search_field_values:
-        :param order_by:
-        :param order_by_direction:
-        :param fields:
-        :param start_datetime:
-        :param end_datetime:
+        :param page: The page number from which to start (0-indexed)
+        :param limit: The maximum number of items to return
+        :param search_fields: String names of fields to search. Correspond by index to search field values
+        :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
+        :param order_by: The field whose value should be used to order the results
+        :param order_by_direction: The direction in which to order the results
+        :param fields: The fields to include in the response
+        :param start_datetime: The start datetime for filtering results
+        :param end_datetime: The end datetime for filtering results
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -285,15 +285,15 @@ class Channels(BaseSDK):
     ) -> models.ListResponseChannelTargetResponse:
         r"""Get Channel Targets
 
-        :param page:
-        :param limit:
-        :param search_fields:
-        :param search_field_values:
-        :param order_by:
-        :param order_by_direction:
-        :param fields:
-        :param start_datetime:
-        :param end_datetime:
+        :param page: The page number from which to start (0-indexed)
+        :param limit: The maximum number of items to return
+        :param search_fields: String names of fields to search. Correspond by index to search field values
+        :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
+        :param order_by: The field whose value should be used to order the results
+        :param order_by_direction: The direction in which to order the results
+        :param fields: The fields to include in the response
+        :param start_datetime: The start datetime for filtering results
+        :param end_datetime: The end datetime for filtering results
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -408,15 +408,15 @@ class Channels(BaseSDK):
     ) -> models.ListResponseChannelTargetResponse:
         r"""Get Channel Targets
 
-        :param page:
-        :param limit:
-        :param search_fields:
-        :param search_field_values:
-        :param order_by:
-        :param order_by_direction:
-        :param fields:
-        :param start_datetime:
-        :param end_datetime:
+        :param page: The page number from which to start (0-indexed)
+        :param limit: The maximum number of items to return
+        :param search_fields: String names of fields to search. Correspond by index to search field values
+        :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
+        :param order_by: The field whose value should be used to order the results
+        :param order_by_direction: The direction in which to order the results
+        :param fields: The fields to include in the response
+        :param start_datetime: The start datetime for filtering results
+        :param end_datetime: The end datetime for filtering results
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds

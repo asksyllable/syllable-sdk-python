@@ -20,7 +20,8 @@ if TYPE_CHECKING:
 
 class ChannelTargetResponseTypedDict(TypedDict):
     r"""A channel target links a channel to an agent, allowing users to communicate with the agent
-    through that channel.
+    through that channel. For more information, see
+    [Console docs](https://docs.syllable.ai/Resources/Channels).
     """
 
     agent_id: int
@@ -43,13 +44,14 @@ class ChannelTargetResponseTypedDict(TypedDict):
     r"""The fallback for the channel target (currently only supported for \"voice\" mode)"""
     is_test: NotRequired[bool]
     r"""Whether the channel target is intended for testing. If true, any sessions created through this target will be labeled as test."""
-    agent: NotRequired[Nullable[AgentResponseTypedDict]]
+    agent: NotRequired[Nullable["AgentResponseTypedDict"]]
     r"""Definition of the agent for the channel target"""
 
 
 class ChannelTargetResponse(BaseModel):
     r"""A channel target links a channel to an agent, allowing users to communicate with the agent
-    through that channel.
+    through that channel. For more information, see
+    [Console docs](https://docs.syllable.ai/Resources/Channels).
     """
 
     agent_id: int
@@ -82,7 +84,7 @@ class ChannelTargetResponse(BaseModel):
     is_test: Optional[bool] = False
     r"""Whether the channel target is intended for testing. If true, any sessions created through this target will be labeled as test."""
 
-    agent: OptionalNullable[AgentResponse] = UNSET
+    agent: OptionalNullable["AgentResponse"] = UNSET
     r"""Definition of the agent for the channel target"""
 
     @model_serializer(mode="wrap")

@@ -20,6 +20,11 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class LanguageGroupResponseTypedDict(TypedDict):
+    r"""A language group is a collection of language, voice, and DTMF configuration that can be
+    linked to an agent to define the languages and voices it supports. For more information, see
+    [Console docs](https://docs.syllable.ai/Resources/LanguageGroups).
+    """
+
     name: str
     r"""The name of the language group."""
     language_configs: List[LanguageConfigTypedDict]
@@ -41,6 +46,11 @@ class LanguageGroupResponseTypedDict(TypedDict):
 
 
 class LanguageGroupResponse(BaseModel):
+    r"""A language group is a collection of language, voice, and DTMF configuration that can be
+    linked to an agent to define the languages and voices it supports. For more information, see
+    [Console docs](https://docs.syllable.ai/Resources/LanguageGroups).
+    """
+
     name: str
     r"""The name of the language group."""
 

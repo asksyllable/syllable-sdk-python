@@ -8,4 +8,5 @@ class PromptLlmProvider(str, Enum):
     r"""LLM API provider."""
 
     AZURE_OPENAI = "azure_openai"
+    GOOGLE = "google"
     OPENAI = "openai"

@@ -440,3 +440,19 @@ actions:
   - target: $["paths"]["/api/v1/language_groups/{language_group_id}"]["delete"]["tags"]
     update:
       - "language_groups"
+
+  - target: $["paths"]["/api/v1/session_debug/sid/{channel_manager_service}/{channel_manager_sid}"]["get"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/session_debug/sid/{channel_manager_service}/{channel_manager_sid}"]["get"]["tags"]
+    update:
+      - "session_debug"
+  - target: $["paths"]["/api/v1/session_debug/session_id/{session_id}"]["get"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/session_debug/session_id/{session_id}"]["get"]["tags"]
+    update:
+      - "session_debug"
+  - target: $["paths"]["/api/v1/session_debug/tool_result/{session_id}/{tool_call_id}"]["get"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/session_debug/tool_result/{session_id}/{tool_call_id}"]["get"]["tags"]
+    update:
+      - "session_debug"

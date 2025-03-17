@@ -3,7 +3,7 @@
 
 ## Overview
 
-Operations related to channel target configuration. A channel target           links a channel to an agent, allowing users to communicate with the agent through that           channel.
+Operations related to channel target configuration. A channel target           links a channel to an agent, allowing users to communicate with the agent through that           channel. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Channels).
 
 ### Available Operations
 

@@ -2,14 +2,14 @@
 
 from .basesdk import BaseSDK
 from .sdkconfiguration import SDKConfiguration
-from syllable_sdk.insights_tools import InsightsTools
+from syllable_sdk.insights_syllablesdk_tools import InsightsSyllableSDKTools
 from syllable_sdk.workflows import Workflows
 
 
 class Insights(BaseSDK):
     workflows: Workflows
     r"""Operations related to insights workflows. An workflow is series of tool           invocations that processes conversation data to extract information and generate reports."""
-    tools: InsightsTools
+    tools: InsightsSyllableSDKTools
     r"""Operations related to insights tools. An insight is a tool that processes           conversation data to extract information and generate reports."""
 
     def __init__(self, sdk_config: SDKConfiguration) -> None:
@@ -19,4 +19,4 @@ class Insights(BaseSDK):
 
     def _init_sdks(self):
         self.workflows = Workflows(self.sdk_configuration)
-        self.tools = InsightsTools(self.sdk_configuration)
+        self.tools = InsightsSyllableSDKTools(self.sdk_configuration)

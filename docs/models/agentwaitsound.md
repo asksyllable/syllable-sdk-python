@@ -7,6 +7,7 @@ Wait sounds supported by agents.
 
 | Name          | Value         |
 | ------------- | ------------- |
+| `NO_SOUND`    | No Sound      |
 | `KEYBOARD_1`  | Keyboard 1    |
 | `KEYBOARD_2`  | Keyboard 2    |
 | `CALL_CENTER` | Call Center   |

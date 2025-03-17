@@ -121,6 +121,14 @@ from .datasourceupdaterequest import (
     DataSourceUpdateRequestTypedDict,
 )
 from .dayofweek import DayOfWeek
+from .dialogmessage import DialogMessage, DialogMessageTypedDict
+from .dialogrole import DialogRole
+from .dialogtoolcall import (
+    DialogToolCall,
+    DialogToolCallToolArguments,
+    DialogToolCallToolArgumentsTypedDict,
+    DialogToolCallTypedDict,
+)
 from .directory_workflow_deleteop import (
     DirectoryWorkflowDeleteRequest,
     DirectoryWorkflowDeleteRequestTypedDict,
@@ -131,6 +139,18 @@ from .events_listop import EventsListRequest, EventsListRequestTypedDict
 from .generate_session_recording_urlsop import (
     GenerateSessionRecordingUrlsRequest,
     GenerateSessionRecordingUrlsRequestTypedDict,
+)
+from .get_session_data_by_session_idop import (
+    GetSessionDataBySessionIDRequest,
+    GetSessionDataBySessionIDRequestTypedDict,
+)
+from .get_session_data_by_sidop import (
+    GetSessionDataBySidRequest,
+    GetSessionDataBySidRequestTypedDict,
+)
+from .get_session_tool_call_result_by_idop import (
+    GetSessionToolCallResultByIDRequest,
+    GetSessionToolCallResultByIDRequestTypedDict,
 )
 from .httpvalidationerror import HTTPValidationError, HTTPValidationErrorData
 from .insight_tool_get_by_idop import (
@@ -334,9 +354,11 @@ from .session_transcript_get_by_idop import (
     SessionTranscriptGetByIDRequestTypedDict,
 )
 from .sessionaction import SessionAction, SessionActionTypedDict
+from .sessiondata import SessionData, SessionDataTypedDict
 from .sessionlabel import SessionLabel, SessionLabelTypedDict
 from .sessionlabelcreate import SessionLabelCreate, SessionLabelCreateTypedDict
 from .sessionlabelproperties import SessionLabelProperties
+from .sessionmessage import SessionMessage, SessionMessageTypedDict
 from .sessionproperties import SessionProperties
 from .sessionrecordingresponse import (
     SessionRecordingResponse,
@@ -392,6 +414,12 @@ from .toolparametertransformcondition import (
 from .toolpromptinfo import ToolPromptInfo, ToolPromptInfoTypedDict
 from .toolproperties import ToolProperties
 from .toolresponse import ToolResponse, ToolResponseTypedDict
+from .toolresultdata import (
+    ToolResult,
+    ToolResultData,
+    ToolResultDataTypedDict,
+    ToolResultTypedDict,
+)
 from .toolupdaterequest import ToolUpdateRequest, ToolUpdateRequestTypedDict
 from .ttsprovider import TtsProvider
 from .validationerror import (
@@ -510,6 +538,13 @@ __all__ = [
     "DayOfWeek",
     "Defaults",
     "DefaultsTypedDict",
+    "DialogMessage",
+    "DialogMessageTypedDict",
+    "DialogRole",
+    "DialogToolCall",
+    "DialogToolCallToolArguments",
+    "DialogToolCallToolArgumentsTypedDict",
+    "DialogToolCallTypedDict",
     "DirectoryWorkflowDeleteRequest",
     "DirectoryWorkflowDeleteRequestTypedDict",
     "Event",
@@ -519,6 +554,12 @@ __all__ = [
     "EventsListRequestTypedDict",
     "GenerateSessionRecordingUrlsRequest",
     "GenerateSessionRecordingUrlsRequestTypedDict",
+    "GetSessionDataBySessionIDRequest",
+    "GetSessionDataBySessionIDRequestTypedDict",
+    "GetSessionDataBySidRequest",
+    "GetSessionDataBySidRequestTypedDict",
+    "GetSessionToolCallResultByIDRequest",
+    "GetSessionToolCallResultByIDRequestTypedDict",
     "HTTPValidationError",
     "HTTPValidationErrorData",
     "InsightToolDefinition",
@@ -654,6 +695,8 @@ __all__ = [
     "Session",
     "SessionAction",
     "SessionActionTypedDict",
+    "SessionData",
+    "SessionDataTypedDict",
     "SessionFullSummaryGetByIDRequest",
     "SessionFullSummaryGetByIDRequestTypedDict",
     "SessionGetByIDRequest",
@@ -667,6 +710,8 @@ __all__ = [
     "SessionLabelTypedDict",
     "SessionLabelsListRequest",
     "SessionLabelsListRequestTypedDict",
+    "SessionMessage",
+    "SessionMessageTypedDict",
     "SessionProperties",
     "SessionRecordingResponse",
     "SessionRecordingResponseTypedDict",
@@ -726,8 +771,12 @@ __all__ = [
     "ToolProperties",
     "ToolResponse",
     "ToolResponseTypedDict",
+    "ToolResult",
+    "ToolResultData",
+    "ToolResultDataTypedDict",
     "ToolResultSet",
     "ToolResultSetTypedDict",
+    "ToolResultTypedDict",
     "ToolUpdateRequest",
     "ToolUpdateRequestTypedDict",
     "TtsProvider",

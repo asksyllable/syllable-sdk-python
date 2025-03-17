@@ -24,6 +24,8 @@ class SessionActionTypedDict(TypedDict):
     r"""Request sent to the tool API, if applicable"""
     tool_result: NotRequired[Nullable[str]]
     r"""Response received from the tool API, if applicable"""
+    tool_error: NotRequired[Nullable[str]]
+    r"""Error received from the tool API, if applicable"""
 
 
 class SessionAction(BaseModel):
@@ -41,10 +43,13 @@ class SessionAction(BaseModel):
     tool_result: OptionalNullable[str] = UNSET
     r"""Response received from the tool API, if applicable"""
 
+    tool_error: OptionalNullable[str] = UNSET
+    r"""Error received from the tool API, if applicable"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["tool_name", "tool_request", "tool_result"]
-        nullable_fields = ["tool_name", "tool_request", "tool_result"]
+        optional_fields = ["tool_name", "tool_request", "tool_result", "tool_error"]
+        nullable_fields = ["tool_name", "tool_request", "tool_result", "tool_error"]
         null_default_fields = []
 
         serialized = handler(self)

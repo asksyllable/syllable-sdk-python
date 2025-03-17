@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 from .promptllmconfig import PromptLlmConfig, PromptLlmConfigTypedDict
+from .toolresponse import ToolResponse, ToolResponseTypedDict
+import pydantic
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -11,13 +13,14 @@ from syllable_sdk.types import (
     UNSET_SENTINEL,
 )
 from typing import List, Optional
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class PromptResponseTypedDict(TypedDict):
     r"""A prompt defines the behavior of an agent by delivering instructions to the LLM about how the
     agent should behave. A prompt can be linked to one or more agents. A prompt can also be linked to
-    tools to allow an agent using it to use those tools.
+    tools to allow an agent using it to use those tools. For more information, see
+    [Console docs](https://docs.syllable.ai/Resources/Prompts).
     """
 
     name: str
@@ -41,12 +44,15 @@ class PromptResponseTypedDict(TypedDict):
     r"""Email address of the user who most recently updated the prompt"""
     agent_count: NotRequired[Nullable[int]]
     r"""The number of agents using the prompt"""
+    tools_full: NotRequired[Nullable[List[ToolResponseTypedDict]]]
+    r"""Tools to which the prompt has access"""
 
 
 class PromptResponse(BaseModel):
     r"""A prompt defines the behavior of an agent by delivering instructions to the LLM about how the
     agent should behave. A prompt can be linked to one or more agents. A prompt can also be linked to
-    tools to allow an agent using it to use those tools.
+    tools to allow an agent using it to use those tools. For more information, see
+    [Console docs](https://docs.syllable.ai/Resources/Prompts).
     """
 
     name: str
@@ -69,7 +75,12 @@ class PromptResponse(BaseModel):
     context: OptionalNullable[str] = UNSET
     r"""The prompt text"""
 
-    tools: Optional[List[str]] = None
+    tools: Annotated[
+        Optional[List[str]],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
+        ),
+    ] = None
     r"""Names of the tools to which the prompt has access"""
 
     edit_comments: OptionalNullable[str] = UNSET
@@ -81,6 +92,9 @@ class PromptResponse(BaseModel):
     agent_count: OptionalNullable[int] = UNSET
     r"""The number of agents using the prompt"""
 
+    tools_full: OptionalNullable[List[ToolResponse]] = UNSET
+    r"""Tools to which the prompt has access"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -90,6 +104,7 @@ class PromptResponse(BaseModel):
             "edit_comments",
             "last_updated_by",
             "agent_count",
+            "tools_full",
         ]
         nullable_fields = [
             "last_updated",
@@ -98,6 +113,7 @@ class PromptResponse(BaseModel):
             "edit_comments",
             "last_updated_by",
             "agent_count",
+            "tools_full",
         ]
         null_default_fields = []
 
