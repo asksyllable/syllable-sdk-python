@@ -46,10 +46,6 @@ assistants, or any other AI-driven solutions, Syllable SDK has got you covered.
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-> [!TIP]
-> To finish publishing your SDK to PyPI you must [run your first generation action](https://www.speakeasy.com/docs/github-setup#step-by-step-guide).
-
-
 > [!NOTE]
 > **Python version upgrade policy**
 >
@@ -62,7 +58,7 @@ The SDK can be installed with either *pip* or *poetry* package managers.
 *PIP* is the default package installer for Python, enabling easy installation and management of packages from PyPI via the command line.
 
 ```bash
-pip install git+https://github.com/asksyllable/syllable-sdk-python.git
+pip install syllable-sdk
 ```
 
 ### Poetry
@@ -70,7 +66,7 @@ pip install git+https://github.com/asksyllable/syllable-sdk-python.git
 *Poetry* is a modern tool that simplifies dependency management and package publishing by using a single `pyproject.toml` file to handle project metadata and dependencies.
 
 ```bash
-poetry add git+https://github.com/asksyllable/syllable-sdk-python.git
+poetry add syllable-sdk
 ```
 
 ### Shell and script usage with `uv`
@@ -123,6 +119,7 @@ Generally, the SDK will work well with most IDEs out of the box. However, when u
 ```python
 # Synchronous Example
 import os
+import syllable_sdk
 from syllable_sdk import SyllableSDK
 
 
@@ -130,7 +127,11 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.agents.list()
+    res = ss_client.agents.list(page=0, search_fields=[
+        syllable_sdk.AgentProperties.NAME,
+    ], search_field_values=[
+        "Some Object Name",
+    ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
 
     # Handle response
     print(res)
@@ -143,6 +144,7 @@ The same SDK client can also be used to make asychronous requests by importing a
 # Asynchronous Example
 import asyncio
 import os
+import syllable_sdk
 from syllable_sdk import SyllableSDK
 
 async def main():
@@ -151,7 +153,11 @@ async def main():
         api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
     ) as ss_client:
 
-        res = await ss_client.agents.list_async()
+        res = await ss_client.agents.list_async(page=0, search_fields=[
+            syllable_sdk.AgentProperties.NAME,
+        ], search_field_values=[
+            "Some Object Name",
+        ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
 
         # Handle response
         print(res)
@@ -174,6 +180,7 @@ This SDK supports the following security scheme globally:
 To authenticate with the API the `api_key_header` parameter must be set when initializing the SDK client instance. For example:
 ```python
 import os
+import syllable_sdk
 from syllable_sdk import SyllableSDK
 
 
@@ -181,7 +188,11 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.agents.list()
+    res = ss_client.agents.list(page=0, search_fields=[
+        syllable_sdk.AgentProperties.NAME,
+    ], search_field_values=[
+        "Some Object Name",
+    ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
 
     # Handle response
     print(res)
@@ -260,10 +271,10 @@ with SyllableSDK(
 ### [insights](docs/sdks/insights/README.md)
 
 
-#### [insights.tools](docs/sdks/insightstools/README.md)
+#### [insights.tools](docs/sdks/insightssyllablesdktools/README.md)
 
-* [create](docs/sdks/insightstools/README.md#create) - Create Insight Tool
-* [get_definitions](docs/sdks/insightstools/README.md#get_definitions) - Get Insight Tool Definitions
+* [create](docs/sdks/insightssyllablesdktools/README.md#create) - Create Insight Tool
+* [get_definitions](docs/sdks/insightssyllablesdktools/README.md#get_definitions) - Get Insight Tool Definitions
 
 #### [insights.workflows](docs/sdks/workflows/README.md)
 
@@ -306,6 +317,12 @@ with SyllableSDK(
 * [update](docs/sdks/services/README.md#update) - Update Service
 * [get](docs/sdks/services/README.md#get) - Get Service By Id
 * [delete](docs/sdks/services/README.md#delete) - Delete Service
+
+### [session_debug](docs/sdks/sessiondebug/README.md)
+
+* [get_session_data_by_sid](docs/sdks/sessiondebug/README.md#get_session_data_by_sid) - Get Session Data By Sid
+* [get_session_data_by_session_id](docs/sdks/sessiondebug/README.md#get_session_data_by_session_id) - Get Session Data By Session Id
+* [get_session_tool_call_result_by_id](docs/sdks/sessiondebug/README.md#get_session_tool_call_result_by_id) - Get Session Tool Call Result By Id
 
 ### [session_labels](docs/sdks/sessionlabels/README.md)
 
@@ -361,6 +378,7 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 To change the default retry strategy for a single API call, simply provide a `RetryConfig` object to the call:
 ```python
 import os
+import syllable_sdk
 from syllable_sdk import SyllableSDK
 from syllable_sdk.utils import BackoffStrategy, RetryConfig
 
@@ -369,7 +387,11 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.agents.list(,
+    res = ss_client.agents.list(page=0, search_fields=[
+        syllable_sdk.AgentProperties.NAME,
+    ], search_field_values=[
+        "Some Object Name",
+    ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z",
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
     # Handle response
@@ -380,6 +402,7 @@ with SyllableSDK(
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `retry_config` optional parameter when initializing the SDK:
 ```python
 import os
+import syllable_sdk
 from syllable_sdk import SyllableSDK
 from syllable_sdk.utils import BackoffStrategy, RetryConfig
 
@@ -389,7 +412,11 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.agents.list()
+    res = ss_client.agents.list(page=0, search_fields=[
+        syllable_sdk.AgentProperties.NAME,
+    ], search_field_values=[
+        "Some Object Name",
+    ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
 
     # Handle response
     print(res)
@@ -422,6 +449,7 @@ When custom error responses are specified for an operation, the SDK may also rai
 
 ```python
 import os
+import syllable_sdk
 from syllable_sdk import SyllableSDK, models
 
 
@@ -431,7 +459,11 @@ with SyllableSDK(
     res = None
     try:
 
-        res = ss_client.agents.list()
+        res = ss_client.agents.list(page=0, search_fields=[
+            syllable_sdk.AgentProperties.NAME,
+        ], search_field_values=[
+            "Some Object Name",
+        ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
 
         # Handle response
         print(res)
@@ -453,6 +485,7 @@ with SyllableSDK(
 The default server can be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
 ```python
 import os
+import syllable_sdk
 from syllable_sdk import SyllableSDK
 
 
@@ -461,7 +494,11 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.agents.list()
+    res = ss_client.agents.list(page=0, search_fields=[
+        syllable_sdk.AgentProperties.NAME,
+    ], search_field_values=[
+        "Some Object Name",
+    ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
 
     # Handle response
     print(res)

@@ -18,14 +18,23 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class DataSourcesListRequestTypedDict(TypedDict):
     page: NotRequired[Nullable[int]]
+    r"""The page number from which to start (0-indexed)"""
     limit: NotRequired[int]
+    r"""The maximum number of items to return"""
     search_fields: NotRequired[List[DataSourceProperties]]
+    r"""String names of fields to search. Correspond by index to search field values"""
     search_field_values: NotRequired[List[str]]
+    r"""Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"""
     order_by: NotRequired[Nullable[DataSourceProperties]]
+    r"""The field whose value should be used to order the results"""
     order_by_direction: NotRequired[Nullable[OrderByDirection]]
+    r"""The direction in which to order the results"""
     fields: NotRequired[Nullable[List[DataSourceProperties]]]
+    r"""The fields to include in the response"""
     start_datetime: NotRequired[Nullable[str]]
+    r"""The start datetime for filtering results"""
     end_datetime: NotRequired[Nullable[str]]
+    r"""The end datetime for filtering results"""
 
 
 class DataSourcesListRequest(BaseModel):
@@ -33,46 +42,55 @@ class DataSourcesListRequest(BaseModel):
         OptionalNullable[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
+    r"""The page number from which to start (0-indexed)"""
 
     limit: Annotated[
         Optional[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = 25
+    r"""The maximum number of items to return"""
 
     search_fields: Annotated[
         Optional[List[DataSourceProperties]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
+    r"""String names of fields to search. Correspond by index to search field values"""
 
     search_field_values: Annotated[
         Optional[List[str]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
+    r"""Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"""
 
     order_by: Annotated[
         OptionalNullable[DataSourceProperties],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
+    r"""The field whose value should be used to order the results"""
 
     order_by_direction: Annotated[
         OptionalNullable[OrderByDirection],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
+    r"""The direction in which to order the results"""
 
     fields: Annotated[
         OptionalNullable[List[DataSourceProperties]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
+    r"""The fields to include in the response"""
 
     start_datetime: Annotated[
         OptionalNullable[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
+    r"""The start datetime for filtering results"""
 
     end_datetime: Annotated[
         OptionalNullable[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
+    r"""The end datetime for filtering results"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

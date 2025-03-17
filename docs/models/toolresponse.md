@@ -3,6 +3,7 @@
 A tool is a function that an agent can call to perform actions like accessing databases,
 making API calls, or processing data. For an agent to have access to a tool, the prompt
 associated with that agent should be linked to the tool and include instructions to use it.
+For more information, see [Console docs](https://docs.syllable.ai/Resources/Tools).
 
 
 ## Fields

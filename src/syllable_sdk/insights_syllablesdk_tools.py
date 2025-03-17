@@ -8,7 +8,7 @@ from syllable_sdk.utils import get_security_from_env
 from typing import Any, List, Mapping, Optional, Union
 
 
-class InsightsTools(BaseSDK):
+class InsightsSyllableSDKTools(BaseSDK):
     r"""Operations related to insights tools. An insight is a tool that processes           conversation data to extract information and generate reports."""
 
     def create(

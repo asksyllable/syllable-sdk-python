@@ -29,7 +29,8 @@ if TYPE_CHECKING:
 class AgentResponseTypedDict(TypedDict):
     r"""When a user interacts with the Syllable system, they do so by communicating with an agent.
     An agent is linked to a prompt, a custom message, and one or more channel targets to define its
-    behavior and capabilities.
+    behavior and capabilities. For more information, see
+    [Console docs](https://docs.syllable.ai/workspaces/Agents).
     """
 
     name: str
@@ -72,7 +73,7 @@ class AgentResponseTypedDict(TypedDict):
     r"""The prompt associated with the agent."""
     custom_message: NotRequired[Nullable[CustomMessageResponseTypedDict]]
     r"""The custom message associated with the agent. Will be delivered as a greeting at the beginning of a conversation."""
-    channel_targets: NotRequired[Nullable[List[ChannelTargetResponseTypedDict]]]
+    channel_targets: NotRequired[Nullable[List["ChannelTargetResponseTypedDict"]]]
     r"""Channel targets associated with the agent"""
     tools: NotRequired[Nullable[List[ToolResponseTypedDict]]]
     r"""Tools associated with the agent"""
@@ -83,7 +84,8 @@ class AgentResponseTypedDict(TypedDict):
 class AgentResponse(BaseModel):
     r"""When a user interacts with the Syllable system, they do so by communicating with an agent.
     An agent is linked to a prompt, a custom message, and one or more channel targets to define its
-    behavior and capabilities.
+    behavior and capabilities. For more information, see
+    [Console docs](https://docs.syllable.ai/workspaces/Agents).
     """
 
     name: str
@@ -151,7 +153,7 @@ class AgentResponse(BaseModel):
     custom_message: OptionalNullable[CustomMessageResponse] = UNSET
     r"""The custom message associated with the agent. Will be delivered as a greeting at the beginning of a conversation."""
 
-    channel_targets: OptionalNullable[List[ChannelTargetResponse]] = UNSET
+    channel_targets: OptionalNullable[List["ChannelTargetResponse"]] = UNSET
     r"""Channel targets associated with the agent"""
 
     tools: OptionalNullable[List[ToolResponse]] = UNSET

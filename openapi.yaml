@@ -25,24 +25,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/AgentProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -50,8 +62,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -59,7 +75,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/AgentProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -67,7 +87,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -76,8 +98,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/AgentProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -85,7 +109,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -93,7 +121,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -262,24 +294,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/ChannelProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -287,8 +331,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -296,7 +344,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/ChannelProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -304,7 +356,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -313,8 +367,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/ChannelProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -322,7 +378,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -330,7 +390,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -384,24 +448,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/ConversationProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -409,8 +485,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -418,7 +498,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/ConversationProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -426,7 +510,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -435,8 +521,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/ConversationProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -444,7 +532,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -452,7 +544,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -482,24 +578,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/DataSourceProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -507,8 +615,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -516,7 +628,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/DataSourceProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -524,7 +640,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -533,8 +651,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/DataSourceProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -542,7 +662,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -550,7 +674,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -686,24 +814,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/EventProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -711,8 +851,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -720,7 +864,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/EventProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -728,7 +876,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -737,8 +887,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/EventProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -746,7 +898,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -754,7 +910,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -784,24 +944,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/InsightWorkflowProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -809,8 +981,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -818,7 +994,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/InsightWorkflowProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -826,7 +1006,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -835,8 +1017,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/InsightWorkflowProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -844,7 +1028,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -852,7 +1040,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -1004,24 +1196,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/InsightToolProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -1029,8 +1233,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -1038,7 +1246,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/InsightToolProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -1046,7 +1258,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -1055,8 +1269,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/InsightToolProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -1064,7 +1280,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -1072,7 +1292,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -1210,24 +1434,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/CustomMessageProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -1235,8 +1471,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -1244,7 +1484,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/CustomMessageProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -1252,7 +1496,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -1261,8 +1507,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/CustomMessageProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -1270,7 +1518,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -1278,7 +1530,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -1415,24 +1671,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/PromptProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -1440,8 +1708,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -1449,7 +1721,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/PromptProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -1457,7 +1733,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -1466,8 +1744,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/PromptProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -1475,7 +1755,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -1483,7 +1767,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -1650,24 +1938,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/ServiceProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -1675,8 +1975,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -1684,7 +1988,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/ServiceProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -1692,7 +2000,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -1701,8 +2011,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/ServiceProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -1710,7 +2022,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -1718,7 +2034,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -1904,24 +2224,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/SessionLabelProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -1929,8 +2261,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -1938,7 +2274,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/SessionLabelProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -1946,7 +2286,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -1955,8 +2297,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/SessionLabelProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -1964,7 +2308,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -1972,7 +2320,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -2001,24 +2353,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/SessionProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -2026,8 +2390,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -2035,7 +2403,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/SessionProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -2043,7 +2415,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -2052,8 +2426,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/SessionProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -2061,7 +2437,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -2069,7 +2449,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -2242,6 +2626,96 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+  "/api/v1/session_debug/sid/{channel_manager_service}/{channel_manager_sid}":
+    get:
+      tags:
+        - "session_debug"
+      summary: "Get Session Data By Sid"
+      operationId: "get_session_data_by_sid"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "channel_manager_service"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            title: "Channel Manager Service"
+        - name: "channel_manager_sid"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            title: "Channel Manager Sid"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/SessionData"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+  "/api/v1/session_debug/session_id/{session_id}":
+    get:
+      tags:
+        - "session_debug"
+      summary: "Get Session Data By Session Id"
+      operationId: "get_session_data_by_session_id"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "session_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Session Id"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/SessionData"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+  "/api/v1/session_debug/tool_result/{session_id}/{tool_call_id}":
+    get:
+      tags:
+        - "session_debug"
+      summary: "Get Session Tool Call Result By Id"
+      operationId: "get_session_tool_call_result_by_id"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "session_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Session Id"
+        - name: "tool_call_id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            title: "Tool Call Id"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/ToolResultData"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
   "/api/v1/tools/":
     get:
       tags:
@@ -2260,24 +2734,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/ToolProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -2285,8 +2771,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -2294,7 +2784,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/ToolProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -2302,7 +2796,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -2311,8 +2807,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/ToolProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -2320,7 +2818,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -2328,7 +2830,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -2465,24 +2971,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/AvailableTargetProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -2490,8 +3008,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -2499,7 +3021,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/AvailableTargetProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -2507,7 +3033,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -2516,8 +3044,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/AvailableTargetProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -2525,7 +3055,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -2533,7 +3067,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -2562,24 +3100,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/ChannelTargetProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -2587,8 +3137,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -2596,7 +3150,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/ChannelTargetProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -2604,7 +3162,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -2613,8 +3173,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/ChannelTargetProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -2622,7 +3184,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -2630,7 +3196,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -2793,24 +3363,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/DirectoryMemberProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -2818,8 +3400,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -2827,7 +3413,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/DirectoryMemberProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -2835,7 +3425,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -2844,8 +3436,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/DirectoryMemberProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -2853,7 +3447,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -2861,7 +3459,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -3071,24 +3673,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/DashboardProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -3096,8 +3710,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -3105,7 +3723,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/DashboardProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -3113,7 +3735,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -3122,8 +3746,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/DashboardProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -3131,7 +3757,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -3139,7 +3769,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -3265,24 +3899,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/BatchProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -3290,8 +3936,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -3299,7 +3949,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/BatchProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -3307,7 +3961,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -3316,8 +3972,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/BatchProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -3325,7 +3983,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -3333,7 +3995,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -3590,24 +4256,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/CampaignProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -3615,8 +4293,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -3624,7 +4306,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/CampaignProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -3632,7 +4318,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -3641,8 +4329,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/CampaignProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -3650,7 +4340,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -3658,7 +4352,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -3783,24 +4481,36 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
+            description: "The page number from which to start (0-indexed)"
+            examples:
+              - 0
             default: 0
             title: "Page"
+          description: "The page number from which to start (0-indexed)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
             default: 25
             title: "Limit"
+          description: "The maximum number of items to return"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/LanguageGroupProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
             default: []
             title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -3808,8 +4518,12 @@ paths:
             type: "array"
             items:
               type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
             default: []
             title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
           in: "query"
           required: false
@@ -3817,7 +4531,11 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/LanguageGroupProperties"}
               - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
             title: "Order By"
+          description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -3825,7 +4543,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
+            description: "The direction in which to order the results"
             title: "Order By Direction"
+          description: "The direction in which to order the results"
         - name: "fields"
           in: "query"
           required: false
@@ -3834,8 +4554,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/LanguageGroupProperties"}
               - type: "null"
+            description: "The fields to include in the response"
             default: []
             title: "Fields"
+          description: "The fields to include in the response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -3843,7 +4565,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
             title: "Start Datetime"
+          description: "The start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -3851,7 +4577,11 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
             title: "End Datetime"
+          description: "The end datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -4071,6 +4801,7 @@ components:
             - type: "null"
           description: "Sound to play while waiting for a response from the LLM."
           examples:
+            - "No Sound"
             - "Keyboard 1"
             - "Keyboard 2"
             - "Call Center"
@@ -4215,6 +4946,7 @@ components:
           title: "Wait Sound"
           description: "Sound to play while waiting for a response from the LLM."
           examples:
+            - "No Sound"
             - "Keyboard 1"
             - "Keyboard 2"
             - "Call Center"
@@ -4275,7 +5007,7 @@ components:
         - "updated_at"
         - "last_updated_by"
       title: "AgentResponse"
-      description: "When a user interacts with the Syllable system, they do so by communicating with an agent.\nAn agent is linked to a prompt, a custom message, and one or more channel targets to define its\nbehavior and capabilities."
+      description: "When a user interacts with the Syllable system, they do so by communicating with an agent.\nAn agent is linked to a prompt, a custom message, and one or more channel targets to define its\nbehavior and capabilities. For more information, see\n[Console docs](https://docs.syllable.ai/workspaces/Agents)."
     "AgentSttProvider":
       type: "string"
       enum:
@@ -4409,6 +5141,7 @@ components:
             - type: "null"
           description: "Sound to play while waiting for a response from the LLM."
           examples:
+            - "No Sound"
             - "Keyboard 1"
             - "Keyboard 2"
             - "Call Center"
@@ -4560,6 +5293,7 @@ components:
     "AgentWaitSound":
       type: "string"
       enum:
+        - "No Sound"
         - "Keyboard 1"
         - "Keyboard 2"
         - "Call Center"
@@ -4813,7 +5547,7 @@ components:
         - "updated_at"
         - "last_updated_by"
       title: "ChannelTargetResponse"
-      description: "A channel target links a channel to an agent, allowing users to communicate with the agent\nthrough that channel."
+      description: "A channel target links a channel to an agent, allowing users to communicate with the agent\nthrough that channel. For more information, see\n[Console docs](https://docs.syllable.ai/Resources/Channels)."
     "ChannelTargetUpdateRequest":
       properties:
         "agent_id":
@@ -5251,7 +5985,7 @@ components:
         - "updated_at"
         - "last_updated_by"
       title: "CustomMessageResponse"
-      description: "A custom message is a pre-configured message delivered by an agent as a greeting at the\nbeginning of a conversation. Multiple agents can use the same custom mesasage. A custom message\nhas one or more rules defined, which allow for different messages to be dynamically selected and\ndelivered at runtime based on the current time and either date or day of the week."
+      description: "A custom message is a pre-configured message delivered by an agent as a greeting at the\nbeginning of a conversation. Multiple agents can use the same custom mesasage. A custom message\nhas one or more rules defined, which allow for different messages to be dynamically selected and\ndelivered at runtime based on the current time and either date or day of the week. For more \ninformation, see [Console docs](https://docs.syllable.ai/Resources/Messages)."
     "CustomMessageRule":
       properties:
         "description":
@@ -5486,7 +6220,7 @@ components:
           title: "Chunk Delimiter"
           description: "String that should be treated as delimiter between intended chunks. (This feature is coming in the future - currently this value will always be treated as None.)"
           examples:
-            - null
+            - ""
         "text":
           type: "string"
           title: "Text"
@@ -5535,7 +6269,7 @@ components:
           title: "Chunk Delimiter"
           description: "String that should be treated as delimiter between intended chunks. (This feature is coming in the future - currently this value will always be treated as None.)"
           examples:
-            - null
+            - ""
         "id":
           type: "integer"
           title: "Id"
@@ -5576,7 +6310,7 @@ components:
         - "last_updated_by"
         - "text"
       title: "DataSourceDetailResponse"
-      description: "Metadata about a data source, along with the text."
+      description: "Metadata about a data source, along with the text. A data source is a blob of text that \ncan be made available to an agent's general info tools to provide more context to the agent when\ngenerating its responses. For more information, see\n[Console docs](https://docs.syllable.ai/Resources/DataSources)."
     "DataSourceMetadataResponse":
       properties:
         "name":
@@ -5615,7 +6349,7 @@ components:
           title: "Chunk Delimiter"
           description: "String that should be treated as delimiter between intended chunks. (This feature is coming in the future - currently this value will always be treated as None.)"
           examples:
-            - null
+            - ""
         "id":
           type: "integer"
           title: "Id"
@@ -5651,7 +6385,7 @@ components:
         - "updated_at"
         - "last_updated_by"
       title: "DataSourceMetadataResponse"
-      description: "Metadata about a data source, not including the text."
+      description: "Metadata about a data source, not including the text. A data source is a blob of text that \ncan be made available to an agent's general info tools to provide more context to the agent when\ngenerating its responses. For more information, see\n[Console docs](https://docs.syllable.ai/Resources/DataSources)."
     "DataSourceProperties":
       type: "string"
       enum:
@@ -5701,7 +6435,7 @@ components:
           title: "Chunk Delimiter"
           description: "String that should be treated as delimiter between intended chunks. (This feature is coming in the future - currently this value will always be treated as None.)"
           examples:
-            - null
+            - ""
         "id":
           type: "integer"
           title: "Id"
@@ -5738,6 +6472,43 @@ components:
         - "sa"
         - "su"
       title: "DayOfWeek"
+    "DialogMessage":
+      properties:
+        "text":
+          type: "string"
+          title: "Text"
+      type: "object"
+      required:
+        - "text"
+      title: "DialogMessage"
+    "DialogRole":
+      type: "string"
+      enum:
+        - "agent"
+        - "user"
+      title: "DialogRole"
+    "DialogToolCall":
+      properties:
+        "toll_call_id":
+          type: "string"
+          title: "Toll Call Id"
+        "tool_name":
+          type: "string"
+          title: "Tool Name"
+        "tool_arguments":
+          type: "object"
+          title: "Tool Arguments"
+        "timestamp":
+          type: "string"
+          format: "date-time"
+          title: "Timestamp"
+      type: "object"
+      required:
+        - "toll_call_id"
+        - "tool_name"
+        - "tool_arguments"
+        - "timestamp"
+      title: "DialogToolCall"
     "DirectoryExtension":
       properties:
         "name":
@@ -6339,6 +7110,7 @@ components:
         - "updated_at"
         - "last_updated_by"
       title: "LanguageGroupResponse"
+      description: "A language group is a collection of language, voice, and DTMF configuration that can be \nlinked to an agent to define the languages and voices it supports. For more information, see \n[Console docs](https://docs.syllable.ai/Resources/LanguageGroups)."
     "LanguageGroupUpdateRequest":
       properties:
         "name":
@@ -7096,7 +7868,7 @@ components:
       description: "Record of a change to a prompt. Values reflect post-change state."
     "PromptLlmConfig":
       properties:
-        "provider": {"$ref": "#/components/schemas/PromptLlmProvider", "description": "Provider of the LLM model.", "default": "azure_openai", "examples": ["azure_openai", "openai"]}
+        "provider": {"$ref": "#/components/schemas/PromptLlmProvider", "description": "Provider of the LLM model.", "default": "azure_openai", "examples": ["azure_openai", "google", "openai"]}
         "model":
           type: "string"
           title: "Model"
@@ -7126,6 +7898,7 @@ components:
       type: "string"
       enum:
         - "azure_openai"
+        - "google"
         - "openai"
       title: "PromptLlmProvider"
       description: "LLM API provider."
@@ -7172,6 +7945,7 @@ components:
           title: "Tools"
           description: "Names of the tools to which the prompt has access"
           default: []
+          deprecated: true
         "llm_config": {"$ref": "#/components/schemas/PromptLlmConfig", "description": "The configuration for the LLM that the prompt uses"}
         "id":
           type: "integer"
@@ -7203,6 +7977,13 @@ components:
             - type: "null"
           title: "Agent Count"
           description: "The number of agents using the prompt"
+        "tools_full":
+          anyOf:
+            - items: {"$ref": "#/components/schemas/ToolResponse"}
+              type: "array"
+            - type: "null"
+          title: "Tools Full"
+          description: "Tools to which the prompt has access"
       type: "object"
       required:
         - "name"
@@ -7211,7 +7992,7 @@ components:
         - "id"
         - "last_updated"
       title: "PromptResponse"
-      description: "A prompt defines the behavior of an agent by delivering instructions to the LLM about how the\nagent should behave. A prompt can be linked to one or more agents. A prompt can also be linked to\ntools to allow an agent using it to use those tools."
+      description: "A prompt defines the behavior of an agent by delivering instructions to the LLM about how the\nagent should behave. A prompt can be linked to one or more agents. A prompt can also be linked to\ntools to allow an agent using it to use those tools. For more information, see\n[Console docs](https://docs.syllable.ai/Resources/Prompts)."
     "PromptUpdateRequest":
       properties:
         "name":
@@ -7524,11 +8305,43 @@ components:
             - type: "null"
           title: "Tool Result"
           description: "Response received from the tool API, if applicable"
+        "tool_error":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Tool Error"
+          description: "Error received from the tool API, if applicable"
       type: "object"
       required:
         - "timestamp"
       title: "SessionAction"
       description: "Information about a given tool invocation as part of a session."
+    "SessionData":
+      properties:
+        "session_id":
+          type: "integer"
+          title: "Session Id"
+        "source":
+          type: "string"
+          title: "Source"
+        "target":
+          type: "string"
+          title: "Target"
+        "is_test":
+          type: "boolean"
+          title: "Is Test"
+        "messages":
+          items: {"$ref": "#/components/schemas/SessionMessage"}
+          type: "array"
+          title: "Messages"
+      type: "object"
+      required:
+        - "session_id"
+        - "source"
+        - "target"
+        - "is_test"
+        - "messages"
+      title: "SessionData"
     "SessionLabel":
       properties:
         "session_id":
@@ -7653,6 +8466,25 @@ components:
         - "issue_categories"
         - "session_id_list"
       title: "SessionLabelProperties"
+    "SessionMessage":
+      properties:
+        "role": {"$ref": "#/components/schemas/DialogRole"}
+        "dialog": {"$ref": "#/components/schemas/DialogMessage"}
+        "tool_calls":
+          items: {"$ref": "#/components/schemas/DialogToolCall"}
+          type: "array"
+          title: "Tool Calls"
+        "timestamp":
+          type: "string"
+          format: "date-time"
+          title: "Timestamp"
+      type: "object"
+      required:
+        - "role"
+        - "dialog"
+        - "tool_calls"
+        - "timestamp"
+      title: "SessionMessage"
     "SessionProperties":
       type: "string"
       enum:
@@ -7768,7 +8600,7 @@ components:
         - "transcription"
         - "actions"
       title: "SessionTranscriptionResponse"
-      description: "Text transcript of a given session."
+      description: "Text transcript of a given session. For more information, see\n[Console docs](https://docs.syllable.ai/workspaces/Sessions)."
     "StaticToolParameter":
       properties:
         "name":
@@ -7842,9 +8674,12 @@ components:
           title: "Agent Id"
           description: "ID of the agent with which the chat is taking place"
         "org_name":
-          type: "string"
+          anyOf:
+            - type: "string"
+            - type: "null"
           title: "Org Name"
-          description: "Name of the organization associated with the agent"
+          description: "Unused: Name of the organization associated with the agent"
+          deprecated: true
         "override_timestamp":
           anyOf:
             - type: "string"
@@ -7862,7 +8697,6 @@ components:
         - "source"
         - "test_id"
         - "agent_id"
-        - "org_name"
       title: "TestMessage"
       description: "Message sent in a test chat with an agent."
     "TestMessageResponse":
@@ -8055,7 +8889,7 @@ components:
         - "last_updated_by"
         - "fields"
       title: "ToolDetailResponse"
-      description: "A tool is a function that an agent can call to perform actions like accessing databases,\nmaking API calls, or processing data. For an agent to have access to a tool, the prompt\nassociated with that agent should be linked to the tool and include instructions to use it."
+      description: "A tool is a function that an agent can call to perform actions like accessing databases,\nmaking API calls, or processing data. For an agent to have access to a tool, the prompt\nassociated with that agent should be linked to the tool and include instructions to use it.\nFor more information, see [Console docs](https://docs.syllable.ai/Resources/Tools)."
     "ToolFunction":
       properties:
         "name":
@@ -8267,7 +9101,20 @@ components:
         - "last_updated"
         - "last_updated_by"
       title: "ToolResponse"
-      description: "A tool is a function that an agent can call to perform actions like accessing databases,\nmaking API calls, or processing data. For an agent to have access to a tool, the prompt\nassociated with that agent should be linked to the tool and include instructions to use it."
+      description: "A tool is a function that an agent can call to perform actions like accessing databases,\nmaking API calls, or processing data. For an agent to have access to a tool, the prompt\nassociated with that agent should be linked to the tool and include instructions to use it.\nFor more information, see [Console docs](https://docs.syllable.ai/Resources/Tools)."
+    "ToolResultData":
+      properties:
+        "tool_name":
+          type: "string"
+          title: "Tool Name"
+        "tool_result":
+          type: "object"
+          title: "Tool Result"
+      type: "object"
+      required:
+        - "tool_name"
+        - "tool_result"
+      title: "ToolResultData"
     "ToolUpdateRequest":
       properties:
         "name":
@@ -8334,21 +9181,21 @@ components:
       name: "Syllable-API-Key"
 tags:
   - name: "agents"
-    description: "Operations related to agent configuration. When a user interacts with the           Syllable system, they do so by communicating with an agent.           An agent is linked to a prompt, a custom message, and one or more channel targets to           define its behavior and capabilities."
+    description: "Operations related to agent configuration. When a user interacts with the           Syllable system, they do so by communicating with an agent.           An agent is linked to a prompt, a custom message, and one or more channel targets to           define its behavior and capabilities. For more information, see           [Console docs](https://docs.syllable.ai/workspaces/Agents)."
   - name: "agents.test"
     description: "Operations for testing agents with live text.           These endpoints allow sending messages to an agent and receiving its responses."
   - name: "channels"
     description: "Operations related to channel configuration.           A channel is an organization-level point of communication, like a phone number or a web           chat. A channel can be associated with an agent by creating a channel target linking           them."
   - name: "channels.targets"
-    description: "Operations related to channel target configuration. A channel target           links a channel to an agent, allowing users to communicate with the agent through that           channel."
+    description: "Operations related to channel target configuration. A channel target           links a channel to an agent, allowing users to communicate with the agent through that           channel. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Channels)."
   - name: "conversations"
     description: "Operations related to conversations.           A conversation is a record of messages between a user and an agent, and is composed of           one or more sessions."
   - name: "custom_messages"
-    description: "Operations related to custom message configuration.           A custom message is a pre-configured message delivered by an agent as a greeting at the           beginning of a conversation. Multiple agents can use the same custom mesasage. A custom           message has one or more rules defined, which allow for different messages to be           dynamically selected and delivered at runtime based on the current time and either           date or day of the week."
+    description: "Operations related to custom message configuration.           A custom message is a pre-configured message delivered by an agent as a greeting at the           beginning of a conversation. Multiple agents can use the same custom mesasage. A custom           message has one or more rules defined, which allow for different messages to be           dynamically selected and delivered at runtime based on the current time and either           date or day of the week. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Messages)."
   - name: "dashboards"
     description: "Operations related to dashboards. Currently the API/SDK           only supports fetching basic information about dashboards."
   - name: "data_sources"
-    description: "Operations related to data sources. A data source is a blob of text that           can be made available to an agent's general info tools to provide more context to the           agent when generating its responses."
+    description: "Operations related to data sources. A data source is a blob of text that           can be made available to an agent's general info tools to provide more context to the           agent when generating its responses. For more information, see           [Console docs](https://docs.syllable.ai/Resources/DataSources)."
   - name: "directory"
     description: "Operations related to directory"
   - name: "events"
@@ -8358,19 +9205,19 @@ tags:
   - name: "insights.workflows"
     description: "Operations related to insights workflows. An workflow is series of tool           invocations that processes conversation data to extract information and generate reports."
   - name: "language_groups"
-    description: "Operations related to language groups. A language group is a           collection of language, voice, and DTMF configuration that can be linked to an agent to           define the languages and voices it supports."
+    description: "Operations related to language groups. A language group is a           collection of language, voice, and DTMF configuration that can be linked to an agent to           define the languages and voices it supports. For more information, see           [Console docs](https://docs.syllable.ai/Resources/LanguageGroups)."
   - name: "outbound.campaigns"
     description: "Operations related to outbound message campaigns"
   - name: "outbound.batches"
     description: "Operations related to outbound campaign batches"
   - name: "prompts"
-    description: "Operations related to prompts. A prompt defines the behavior of an           agent by delivering instructions to the LLM about how the agent should behave.           A prompt can be linked to one or more agents. A prompt can also be linked to tools to           allow an agent using the prompt to use them."
+    description: "Operations related to prompts. A prompt defines the behavior of an           agent by delivering instructions to the LLM about how the agent should behave.           A prompt can be linked to one or more agents. A prompt can also be linked to tools to           allow an agent using the prompt to use them. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Prompts)."
   - name: "services"
     description: "Operations related to service configuration. A service is a collection of           tools."
   - name: "sessions"
-    description: "Operations related to sessions. A session is a building block of a           conversation."
+    description: "Operations related to sessions. A session is a building block of a           conversation. For more information, see           [Console docs](https://docs.syllable.ai/workspaces/Sessions)."
   - name: "session_labels"
-    description: "Operations related to labeling sessions with evaluations of quality and           descriptions of issues the user encountered or other details."
+    description: "Operations related to labeling sessions with evaluations of quality and           descriptions of issues the user encountered or other details. For more information, see           [Console docs](https://docs.syllable.ai/workspaces/Sessions)."
   - name: "tools"
-    description: "Operations related to tool configuration. A tool is a function that an           agent can call to perform actions like accessing databases, making API calls, or           processing data. For an agent to have access to a tool, the prompt associated with that           agent should be linked to the tool and include instructions to use it."
+    description: "Operations related to tool configuration. A tool is a function that an           agent can call to perform actions like accessing databases, making API calls, or           processing data. For an agent to have access to a tool, the prompt associated with that           agent should be linked to the tool and include instructions to use it. For more           information, see [Console docs](https://docs.syllable.ai/Resources/Tools)."
 x-speakeasy-name-override: [{"operationId": ".*_list$", "methodNameOverride": "list"}, {"operationId": ".*_create$", "methodNameOverride": "create"}, {"operationId": ".*_update$", "methodNameOverride": "update"}, {"operationId": ".*_upload$", "methodNameOverride": "upload"}, {"operationId": ".*_delete$", "methodNameOverride": "delete"}, {"operationId": ".*_get_by_id$", "methodNameOverride": "get_by_id"}, {"operationId": ".*_get_by_name$", "methodNameOverride": "get_by_name"}]

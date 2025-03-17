@@ -8,4 +8,5 @@ LLM API provider.
 | Name           | Value          |
 | -------------- | -------------- |
 | `AZURE_OPENAI` | azure_openai   |
+| `GOOGLE`       | google         |
 | `OPENAI`       | openai         |

@@ -22,6 +22,7 @@ from syllable_sdk.insightsworkflows import InsightsWorkflows
 from syllable_sdk.languagegroups import LanguageGroups
 from syllable_sdk.prompts import Prompts
 from syllable_sdk.services import Services
+from syllable_sdk.session_debug import SessionDebug
 from syllable_sdk.sessionlabels import SessionLabels
 from syllable_sdk.sessions import Sessions
 from syllable_sdk.tools import Tools
@@ -55,7 +56,7 @@ class SyllableSDK(BaseSDK):
     """
 
     agents: Agents
-    r"""Operations related to agent configuration. When a user interacts with the           Syllable system, they do so by communicating with an agent.           An agent is linked to a prompt, a custom message, and one or more channel targets to           define its behavior and capabilities."""
+    r"""Operations related to agent configuration. When a user interacts with the           Syllable system, they do so by communicating with an agent.           An agent is linked to a prompt, a custom message, and one or more channel targets to           define its behavior and capabilities. For more information, see           [Console docs](https://docs.syllable.ai/workspaces/Agents)."""
     channels: Channels
     r"""Operations related to channel configuration.           A channel is an organization-level point of communication, like a phone number or a web           chat. A channel can be associated with an agent by creating a channel target linking           them."""
     conversations: Conversations
@@ -68,14 +69,15 @@ class SyllableSDK(BaseSDK):
     insights_tools: InsightsTools
     custom_messages: CustomMessages
     prompts: Prompts
-    r"""Operations related to prompts. A prompt defines the behavior of an           agent by delivering instructions to the LLM about how the agent should behave.           A prompt can be linked to one or more agents. A prompt can also be linked to tools to           allow an agent using the prompt to use them."""
+    r"""Operations related to prompts. A prompt defines the behavior of an           agent by delivering instructions to the LLM about how the agent should behave.           A prompt can be linked to one or more agents. A prompt can also be linked to tools to           allow an agent using the prompt to use them. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Prompts)."""
     services: Services
     r"""Operations related to service configuration. A service is a collection of           tools."""
     session_labels: SessionLabels
     sessions: Sessions
-    r"""Operations related to sessions. A session is a building block of a           conversation."""
+    r"""Operations related to sessions. A session is a building block of a           conversation. For more information, see           [Console docs](https://docs.syllable.ai/workspaces/Sessions)."""
+    session_debug: SessionDebug
     tools: Tools
-    r"""Operations related to tool configuration. A tool is a function that an           agent can call to perform actions like accessing databases, making API calls, or           processing data. For an agent to have access to a tool, the prompt associated with that           agent should be linked to the tool and include instructions to use it."""
+    r"""Operations related to tool configuration. A tool is a function that an           agent can call to perform actions like accessing databases, making API calls, or           processing data. For an agent to have access to a tool, the prompt associated with that           agent should be linked to the tool and include instructions to use it. For more           information, see [Console docs](https://docs.syllable.ai/Resources/Tools)."""
     channels_targets: ChannelsTargets
     dashboards: Dashboards
     r"""Operations related to dashboards. Currently the API/SDK           only supports fetching basic information about dashboards."""
@@ -193,6 +195,7 @@ class SyllableSDK(BaseSDK):
         self.services = Services(self.sdk_configuration)
         self.session_labels = SessionLabels(self.sdk_configuration)
         self.sessions = Sessions(self.sdk_configuration)
+        self.session_debug = SessionDebug(self.sdk_configuration)
         self.tools = Tools(self.sdk_configuration)
         self.channels_targets = ChannelsTargets(self.sdk_configuration)
         self.dashboards = Dashboards(self.sdk_configuration)

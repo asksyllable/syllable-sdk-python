@@ -18,8 +18,8 @@ class Test(BaseSDK):
         source: str,
         test_id: str,
         agent_id: str,
-        org_name: str,
         text: OptionalNullable[str] = UNSET,
+        org_name: OptionalNullable[str] = UNSET,
         override_timestamp: OptionalNullable[str] = UNSET,
         session_start: Optional[bool] = False,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -35,8 +35,8 @@ class Test(BaseSDK):
         :param source: Name of the source of the message, should identify the user, like an email or username
         :param test_id: Channel-manager-side ID of the session (see Session.channel_manager_sid)
         :param agent_id: ID of the agent with which the chat is taking place
-        :param org_name: Name of the organization associated with the agent
         :param text: The text of the message
+        :param org_name: Unused: Name of the organization associated with the agent
         :param override_timestamp: Override for the timestamp of the message
         :param session_start: Whether this message is the start of a new session
         :param retries: Override the default retry configuration for this method
@@ -141,8 +141,8 @@ class Test(BaseSDK):
         source: str,
         test_id: str,
         agent_id: str,
-        org_name: str,
         text: OptionalNullable[str] = UNSET,
+        org_name: OptionalNullable[str] = UNSET,
         override_timestamp: OptionalNullable[str] = UNSET,
         session_start: Optional[bool] = False,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -158,8 +158,8 @@ class Test(BaseSDK):
         :param source: Name of the source of the message, should identify the user, like an email or username
         :param test_id: Channel-manager-side ID of the session (see Session.channel_manager_sid)
         :param agent_id: ID of the agent with which the chat is taking place
-        :param org_name: Name of the organization associated with the agent
         :param text: The text of the message
+        :param org_name: Unused: Name of the organization associated with the agent
         :param override_timestamp: Override for the timestamp of the message
         :param session_start: Whether this message is the start of a new session
         :param retries: Override the default retry configuration for this method

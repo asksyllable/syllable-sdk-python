@@ -9,7 +9,9 @@ from typing_extensions import TypedDict
 
 
 class SessionTranscriptionResponseTypedDict(TypedDict):
-    r"""Text transcript of a given session."""
+    r"""Text transcript of a given session. For more information, see
+    [Console docs](https://docs.syllable.ai/workspaces/Sessions).
+    """
 
     session_id: str
     r"""Internal ID of the session"""
@@ -20,7 +22,9 @@ class SessionTranscriptionResponseTypedDict(TypedDict):
 
 
 class SessionTranscriptionResponse(BaseModel):
-    r"""Text transcript of a given session."""
+    r"""Text transcript of a given session. For more information, see
+    [Console docs](https://docs.syllable.ai/workspaces/Sessions).
+    """
 
     session_id: str
     r"""Internal ID of the session"""

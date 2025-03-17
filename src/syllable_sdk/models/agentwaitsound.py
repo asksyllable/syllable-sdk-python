@@ -7,6 +7,7 @@ from enum import Enum
 class AgentWaitSound(str, Enum):
     r"""Wait sounds supported by agents."""
 
+    NO_SOUND = "No Sound"
     KEYBOARD_1 = "Keyboard 1"
     KEYBOARD_2 = "Keyboard 2"
     CALL_CENTER = "Call Center"

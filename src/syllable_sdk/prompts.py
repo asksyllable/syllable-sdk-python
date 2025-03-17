@@ -9,7 +9,7 @@ from typing import Any, List, Mapping, Optional, Union
 
 
 class Prompts(BaseSDK):
-    r"""Operations related to prompts. A prompt defines the behavior of an           agent by delivering instructions to the LLM about how the agent should behave.           A prompt can be linked to one or more agents. A prompt can also be linked to tools to           allow an agent using the prompt to use them."""
+    r"""Operations related to prompts. A prompt defines the behavior of an           agent by delivering instructions to the LLM about how the agent should behave.           A prompt can be linked to one or more agents. A prompt can also be linked to tools to           allow an agent using the prompt to use them. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Prompts)."""
 
     def list(
         self,
@@ -32,15 +32,15 @@ class Prompts(BaseSDK):
 
         List the existing prompts
 
-        :param page:
-        :param limit:
-        :param search_fields:
-        :param search_field_values:
-        :param order_by:
-        :param order_by_direction:
-        :param fields:
-        :param start_datetime:
-        :param end_datetime:
+        :param page: The page number from which to start (0-indexed)
+        :param limit: The maximum number of items to return
+        :param search_fields: String names of fields to search. Correspond by index to search field values
+        :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
+        :param order_by: The field whose value should be used to order the results
+        :param order_by_direction: The direction in which to order the results
+        :param fields: The fields to include in the response
+        :param start_datetime: The start datetime for filtering results
+        :param end_datetime: The end datetime for filtering results
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -157,15 +157,15 @@ class Prompts(BaseSDK):
 
         List the existing prompts
 
-        :param page:
-        :param limit:
-        :param search_fields:
-        :param search_field_values:
-        :param order_by:
-        :param order_by_direction:
-        :param fields:
-        :param start_datetime:
-        :param end_datetime:
+        :param page: The page number from which to start (0-indexed)
+        :param limit: The maximum number of items to return
+        :param search_fields: String names of fields to search. Correspond by index to search field values
+        :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
+        :param order_by: The field whose value should be used to order the results
+        :param order_by_direction: The direction in which to order the results
+        :param fields: The fields to include in the response
+        :param start_datetime: The start datetime for filtering results
+        :param end_datetime: The end datetime for filtering results
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds

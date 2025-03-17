@@ -15,7 +15,11 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class DataSourceMetadataResponseTypedDict(TypedDict):
-    r"""Metadata about a data source, not including the text."""
+    r"""Metadata about a data source, not including the text. A data source is a blob of text that
+    can be made available to an agent's general info tools to provide more context to the agent when
+    generating its responses. For more information, see
+    [Console docs](https://docs.syllable.ai/Resources/DataSources).
+    """
 
     name: str
     r"""The data source name. Must be unique within suborg. Cannot contain whitespace."""
@@ -38,7 +42,11 @@ class DataSourceMetadataResponseTypedDict(TypedDict):
 
 
 class DataSourceMetadataResponse(BaseModel):
-    r"""Metadata about a data source, not including the text."""
+    r"""Metadata about a data source, not including the text. A data source is a blob of text that
+    can be made available to an agent's general info tools to provide more context to the agent when
+    generating its responses. For more information, see
+    [Console docs](https://docs.syllable.ai/Resources/DataSources).
+    """
 
     name: str
     r"""The data source name. Must be unique within suborg. Cannot contain whitespace."""
