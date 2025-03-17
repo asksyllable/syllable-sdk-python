@@ -11,7 +11,7 @@ from typing import Any, Mapping, Optional
 class Test(BaseSDK):
     r"""Operations for testing agents with live text.           These endpoints allow sending messages to an agent and receiving its responses."""
 
-    def send_message(
+    def send_test_message(
         self,
         *,
         service_name: str,
@@ -134,7 +134,7 @@ class Test(BaseSDK):
             http_res,
         )
 
-    async def send_message_async(
+    async def send_test_message_async(
         self,
         *,
         service_name: str,

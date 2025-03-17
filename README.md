@@ -213,27 +213,24 @@ with SyllableSDK(
 * [update](docs/sdks/agents/README.md#update) - Update Agent
 * [get_by_id](docs/sdks/agents/README.md#get_by_id) - Get Agent By Id
 * [delete](docs/sdks/agents/README.md#delete) - Delete Agent
-* [get_available_voices](docs/sdks/agents/README.md#get_available_voices) - Get Available Agent Voices
+* [agent_get_available_voices](docs/sdks/agents/README.md#agent_get_available_voices) - Get Available Agent Voices
 
 #### [agents.test](docs/sdks/test/README.md)
 
-* [send_message](docs/sdks/test/README.md#send_message) - Send New Message
+* [send_test_message](docs/sdks/test/README.md#send_test_message) - Send New Message
 
 ### [channels](docs/sdks/channels/README.md)
 
 * [list](docs/sdks/channels/README.md#list) - Get Channels
-* [list_targets](docs/sdks/channels/README.md#list_targets) - Get Channel Targets
-* [assign_target](docs/sdks/channels/README.md#assign_target) - Assign A Channel Target
 * [delete](docs/sdks/channels/README.md#delete) - Delete Channel Target
 
 #### [channels.targets](docs/sdks/targets/README.md)
 
-* [get](docs/sdks/targets/README.md#get) - Get A Channel Target
+* [available_targets](docs/sdks/targets/README.md#available_targets) - Available Targets List
+* [list](docs/sdks/targets/README.md#list) - Get Channel Targets
+* [create](docs/sdks/targets/README.md#create) - Assign A Channel Target
+* [get_by_id](docs/sdks/targets/README.md#get_by_id) - Get A Channel Target
 * [update](docs/sdks/targets/README.md#update) - Edit Channel Target
-
-### [channels_targets](docs/sdks/channelstargets/README.md)
-
-* [list_available](docs/sdks/channelstargets/README.md#list_available) - Available Targets List
 
 ### [conversations](docs/sdks/conversations/README.md)
 
@@ -244,24 +241,24 @@ with SyllableSDK(
 * [list](docs/sdks/custommessages/README.md#list) - Custom Messages List
 * [create](docs/sdks/custommessages/README.md#create) - Create Custom Message
 * [update](docs/sdks/custommessages/README.md#update) - Update Custom Message
-* [get](docs/sdks/custommessages/README.md#get) - Get Custom Message By Id
+* [get_by_id](docs/sdks/custommessages/README.md#get_by_id) - Get Custom Message By Id
 * [delete](docs/sdks/custommessages/README.md#delete) - Delete Custom Message
 
 ### [dashboards](docs/sdks/dashboards/README.md)
 
-* [list](docs/sdks/dashboards/README.md#list) - Post List Dashboards
-* [fetch_info](docs/sdks/dashboards/README.md#fetch_info) - Post Fetch Info
-* [~~session_events~~](docs/sdks/dashboards/README.md#session_events) - Post Session Events :warning: **Deprecated**
-* [~~post_session_summary~~](docs/sdks/dashboards/README.md#post_session_summary) - Post Session Summary :warning: **Deprecated**
-* [~~post_session_transfers~~](docs/sdks/dashboards/README.md#post_session_transfers) - Post Session Transfers :warning: **Deprecated**
-* [~~post_sessions~~](docs/sdks/dashboards/README.md#post_sessions) - Post Sessions :warning: **Deprecated**
+* [post_list_dashboard](docs/sdks/dashboards/README.md#post_list_dashboard) - Post List Dashboards
+* [post_get_dashboard](docs/sdks/dashboards/README.md#post_get_dashboard) - Post Fetch Info
+* [~~post_session_events_dashboard~~](docs/sdks/dashboards/README.md#post_session_events_dashboard) - Post Session Events :warning: **Deprecated**
+* [~~post_session_summary_dashboard~~](docs/sdks/dashboards/README.md#post_session_summary_dashboard) - Post Session Summary :warning: **Deprecated**
+* [~~post_session_transfers_dashboard~~](docs/sdks/dashboards/README.md#post_session_transfers_dashboard) - Post Session Transfers :warning: **Deprecated**
+* [~~post_sessions_dashboard~~](docs/sdks/dashboards/README.md#post_sessions_dashboard) - Post Sessions :warning: **Deprecated**
 
 ### [data_sources](docs/sdks/datasources/README.md)
 
 * [list](docs/sdks/datasources/README.md#list) - List Data Sources
 * [create](docs/sdks/datasources/README.md#create) - Create Data Source
 * [update](docs/sdks/datasources/README.md#update) - Update Data Source
-* [get](docs/sdks/datasources/README.md#get) - Get Data Source
+* [get_by_id](docs/sdks/datasources/README.md#get_by_id) - Get Data Source
 * [delete](docs/sdks/datasources/README.md#delete) - Delete Data Source
 
 ### [events](docs/sdks/events/README.md)
@@ -271,27 +268,21 @@ with SyllableSDK(
 ### [insights](docs/sdks/insights/README.md)
 
 
-#### [insights.tools](docs/sdks/insightssyllablesdktools/README.md)
+#### [insights.tools](docs/sdks/insightstools/README.md)
 
-* [create](docs/sdks/insightssyllablesdktools/README.md#create) - Create Insight Tool
-* [get_definitions](docs/sdks/insightssyllablesdktools/README.md#get_definitions) - Get Insight Tool Definitions
+* [list](docs/sdks/insightstools/README.md#list) - Insight Tool List
+* [create](docs/sdks/insightstools/README.md#create) - Create Insight Tool
+* [get_by_id](docs/sdks/insightstools/README.md#get_by_id) - Get Insight Tool By Id
+* [update](docs/sdks/insightstools/README.md#update) - Update Insights Tool
+* [insight_tool_get_definitions](docs/sdks/insightstools/README.md#insight_tool_get_definitions) - Get Insight Tool Definitions
 
 #### [insights.workflows](docs/sdks/workflows/README.md)
 
+* [list](docs/sdks/workflows/README.md#list) - Insight Workflow List
+* [create](docs/sdks/workflows/README.md#create) - Create Insight Workflow
+* [get_by_id](docs/sdks/workflows/README.md#get_by_id) - Get Insight Workflow By Id
 * [update](docs/sdks/workflows/README.md#update) - Update Insights Workflow
-
-### [insights_tools](docs/sdks/insightstools/README.md)
-
-* [list](docs/sdks/insightstools/README.md#list) - Insight Tool List
-* [get](docs/sdks/insightstools/README.md#get) - Get Insight Tool By Id
-* [update](docs/sdks/insightstools/README.md#update) - Update Insights Tool
-
-### [insights_workflows](docs/sdks/insightsworkflows/README.md)
-
-* [list](docs/sdks/insightsworkflows/README.md#list) - Insight Workflow List
-* [create](docs/sdks/insightsworkflows/README.md#create) - Create Insight Workflow
-* [get](docs/sdks/insightsworkflows/README.md#get) - Get Insight Workflow By Id
-* [delete](docs/sdks/insightsworkflows/README.md#delete) - Delete Insights Workflow
+* [delete](docs/sdks/workflows/README.md#delete) - Delete Insights Workflow
 
 ### [language_groups](docs/sdks/languagegroups/README.md)
 
@@ -308,14 +299,14 @@ with SyllableSDK(
 * [update](docs/sdks/prompts/README.md#update) - Update Prompt
 * [get_by_id](docs/sdks/prompts/README.md#get_by_id) - Get Prompt By Id
 * [delete](docs/sdks/prompts/README.md#delete) - Delete Prompt
-* [history](docs/sdks/prompts/README.md#history) - Get Prompt History
+* [prompts_history](docs/sdks/prompts/README.md#prompts_history) - Get Prompt History
 
 ### [services](docs/sdks/services/README.md)
 
 * [list](docs/sdks/services/README.md#list) - Service List
 * [create](docs/sdks/services/README.md#create) - Create Service
 * [update](docs/sdks/services/README.md#update) - Update Service
-* [get](docs/sdks/services/README.md#get) - Get Service By Id
+* [get_by_id](docs/sdks/services/README.md#get_by_id) - Get Service By Id
 * [delete](docs/sdks/services/README.md#delete) - Delete Service
 
 ### [session_debug](docs/sdks/sessiondebug/README.md)
@@ -326,20 +317,20 @@ with SyllableSDK(
 
 ### [session_labels](docs/sdks/sessionlabels/README.md)
 
-* [get](docs/sdks/sessionlabels/README.md#get) - Get Label By Id
+* [get_by_id](docs/sdks/sessionlabels/README.md#get_by_id) - Get Label By Id
 * [create](docs/sdks/sessionlabels/README.md#create) - Create Label
 * [list](docs/sdks/sessionlabels/README.md#list) - Session Labels List
 
 ### [sessions](docs/sdks/sessions/README.md)
 
 * [list](docs/sdks/sessions/README.md#list) - Sessions List
-* [get_full_summary](docs/sdks/sessions/README.md#get_full_summary) - Get Full Session Summary By Id
 * [get_by_id](docs/sdks/sessions/README.md#get_by_id) - Get A Single Session By Id
-* [stream_recording](docs/sdks/sessions/README.md#stream_recording) - Stream Recording
+* [generate_session_recording_urls](docs/sdks/sessions/README.md#generate_session_recording_urls) - Generate Recording Urls
+* [session_recording_stream](docs/sdks/sessions/README.md#session_recording_stream) - Stream Recording
 
-#### [sessions.recording](docs/sdks/recording/README.md)
+#### [sessions.full_summary](docs/sdks/fullsummary/README.md)
 
-* [generate_urls](docs/sdks/recording/README.md#generate_urls) - Generate Recording Urls
+* [get_by_id](docs/sdks/fullsummary/README.md#get_by_id) - Get Full Session Summary By Id
 
 #### [sessions.summary](docs/sdks/summary/README.md)
 
@@ -347,7 +338,7 @@ with SyllableSDK(
 
 #### [sessions.transcript](docs/sdks/transcript/README.md)
 
-* [get](docs/sdks/transcript/README.md#get) - Get Session Transcript By Id
+* [get_by_id](docs/sdks/transcript/README.md#get_by_id) - Get Session Transcript By Id
 
 
 ### [tools](docs/sdks/tools/README.md)
@@ -360,12 +351,12 @@ with SyllableSDK(
 
 ### [v1](docs/sdks/v1/README.md)
 
-* [list](docs/sdks/v1/README.md#list) - Post List Dashboards
-* [fetch_info](docs/sdks/v1/README.md#fetch_info) - Post Fetch Info
-* [~~session_events~~](docs/sdks/v1/README.md#session_events) - Post Session Events :warning: **Deprecated**
-* [~~post_session_summary~~](docs/sdks/v1/README.md#post_session_summary) - Post Session Summary :warning: **Deprecated**
-* [~~post_session_transfers~~](docs/sdks/v1/README.md#post_session_transfers) - Post Session Transfers :warning: **Deprecated**
-* [~~post_sessions~~](docs/sdks/v1/README.md#post_sessions) - Post Sessions :warning: **Deprecated**
+* [post_list_dashboard](docs/sdks/v1/README.md#post_list_dashboard) - Post List Dashboards
+* [post_get_dashboard](docs/sdks/v1/README.md#post_get_dashboard) - Post Fetch Info
+* [~~post_session_events_dashboard~~](docs/sdks/v1/README.md#post_session_events_dashboard) - Post Session Events :warning: **Deprecated**
+* [~~post_session_summary_dashboard~~](docs/sdks/v1/README.md#post_session_summary_dashboard) - Post Session Summary :warning: **Deprecated**
+* [~~post_session_transfers_dashboard~~](docs/sdks/v1/README.md#post_session_transfers_dashboard) - Post Session Transfers :warning: **Deprecated**
+* [~~post_sessions_dashboard~~](docs/sdks/v1/README.md#post_sessions_dashboard) - Post Sessions :warning: **Deprecated**
 
 </details>
 <!-- End Available Resources and Operations [operations] -->

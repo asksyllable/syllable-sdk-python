@@ -12,7 +12,7 @@ Operations related to prompts. A prompt defines the behavior of an           age
 * [update](#update) - Update Prompt
 * [get_by_id](#get_by_id) - Get Prompt By Id
 * [delete](#delete) - Delete Prompt
-* [history](#history) - Get Prompt History
+* [prompts_history](#prompts_history) - Get Prompt History
 
 ## list
 
@@ -248,7 +248,7 @@ with SyllableSDK(
 | models.HTTPValidationError | 422                        | application/json           |
 | models.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## history
+## prompts_history
 
 Get a prompt by ID
 
@@ -263,7 +263,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.prompts.history(prompt_id=627932)
+    res = ss_client.prompts.prompts_history(prompt_id=627932)
 
     # Handle response
     print(res)

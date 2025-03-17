@@ -1,15 +1,15 @@
-# Recording
-(*sessions.recording*)
+# FullSummary
+(*sessions.full_summary*)
 
 ## Overview
 
 ### Available Operations
 
-* [generate_urls](#generate_urls) - Generate Recording Urls
+* [get_by_id](#get_by_id) - Get Full Session Summary By Id
 
-## generate_urls
+## get_by_id
 
-Generate Recording Urls
+Get Full Session Summary By Id
 
 ### Example Usage
 
@@ -22,7 +22,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.sessions.recording.generate_urls(session_id="<id>")
+    res = ss_client.sessions.full_summary.get_by_id(session_id="<id>")
 
     # Handle response
     print(res)
@@ -38,7 +38,7 @@ with SyllableSDK(
 
 ### Response
 
-**[models.SessionRecordingResponse](../../models/sessionrecordingresponse.md)**
+**[models.SessionSummaryResponse](../../models/sessionsummaryresponse.md)**
 
 ### Errors
 

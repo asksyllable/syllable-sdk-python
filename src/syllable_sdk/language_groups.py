@@ -5,30 +5,32 @@ from syllable_sdk import models, utils
 from syllable_sdk._hooks import HookContext
 from syllable_sdk.types import OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
-from typing import Any, List, Mapping, Optional
+from typing import Any, List, Mapping, Optional, Union
 
 
-class DataSources(BaseSDK):
+class LanguageGroups(BaseSDK):
+    r"""Operations related to language groups. A language group is a           collection of language, voice, and DTMF configuration that can be linked to an agent to           define the languages and voices it supports. For more information, see           [Console docs](https://docs.syllable.ai/Resources/LanguageGroups)."""
+
     def list(
         self,
         *,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
-        search_fields: Optional[List[models.DataSourceProperties]] = None,
+        search_fields: Optional[List[models.LanguageGroupProperties]] = None,
         search_field_values: Optional[List[str]] = None,
-        order_by: OptionalNullable[models.DataSourceProperties] = UNSET,
+        order_by: OptionalNullable[models.LanguageGroupProperties] = UNSET,
         order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
-        fields: OptionalNullable[List[models.DataSourceProperties]] = UNSET,
+        fields: OptionalNullable[List[models.LanguageGroupProperties]] = UNSET,
         start_datetime: OptionalNullable[str] = UNSET,
         end_datetime: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ListResponseDataSourceMetadataResponse:
-        r"""List Data Sources
+    ) -> models.ListResponseLanguageGroupResponse:
+        r"""List Language Groups
 
-        Fetch metadata about all data sources, not including their text.
+        Fetch language groups.
 
         :param page: The page number from which to start (0-indexed)
         :param limit: The maximum number of items to return
@@ -54,7 +56,7 @@ class DataSources(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.DataSourcesListRequest(
+        request = models.LanguageGroupsListRequest(
             page=page,
             limit=limit,
             search_fields=search_fields,
@@ -68,7 +70,7 @@ class DataSources(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/data_sources/",
+            path="/api/v1/language_groups/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -93,7 +95,7 @@ class DataSources(BaseSDK):
         http_res = self.do_request(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="data_sources_list",
+                operation_id="language_groups_list",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -107,7 +109,7 @@ class DataSources(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(
-                http_res.text, models.ListResponseDataSourceMetadataResponse
+                http_res.text, models.ListResponseLanguageGroupResponse
             )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
@@ -139,21 +141,21 @@ class DataSources(BaseSDK):
         *,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
-        search_fields: Optional[List[models.DataSourceProperties]] = None,
+        search_fields: Optional[List[models.LanguageGroupProperties]] = None,
         search_field_values: Optional[List[str]] = None,
-        order_by: OptionalNullable[models.DataSourceProperties] = UNSET,
+        order_by: OptionalNullable[models.LanguageGroupProperties] = UNSET,
         order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
-        fields: OptionalNullable[List[models.DataSourceProperties]] = UNSET,
+        fields: OptionalNullable[List[models.LanguageGroupProperties]] = UNSET,
         start_datetime: OptionalNullable[str] = UNSET,
         end_datetime: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ListResponseDataSourceMetadataResponse:
-        r"""List Data Sources
+    ) -> models.ListResponseLanguageGroupResponse:
+        r"""List Language Groups
 
-        Fetch metadata about all data sources, not including their text.
+        Fetch language groups.
 
         :param page: The page number from which to start (0-indexed)
         :param limit: The maximum number of items to return
@@ -179,7 +181,7 @@ class DataSources(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.DataSourcesListRequest(
+        request = models.LanguageGroupsListRequest(
             page=page,
             limit=limit,
             search_fields=search_fields,
@@ -193,7 +195,7 @@ class DataSources(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/data_sources/",
+            path="/api/v1/language_groups/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -218,7 +220,7 @@ class DataSources(BaseSDK):
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="data_sources_list",
+                operation_id="language_groups_list",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -232,7 +234,7 @@ class DataSources(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(
-                http_res.text, models.ListResponseDataSourceMetadataResponse
+                http_res.text, models.ListResponseLanguageGroupResponse
             )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
@@ -263,26 +265,24 @@ class DataSources(BaseSDK):
         self,
         *,
         name: str,
-        chunk: bool,
-        text: str,
+        language_configs: Union[
+            List[models.LanguageConfig], List[models.LanguageConfigTypedDict]
+        ],
+        skip_current_language_in_message: bool,
         description: OptionalNullable[str] = UNSET,
-        labels: Optional[List[str]] = None,
-        chunk_delimiter: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.DataSourceDetailResponse:
-        r"""Create Data Source
+    ) -> models.LanguageGroupResponse:
+        r"""Create Language Group
 
-        Create a new data source.
+        Create a new language group.
 
-        :param name: The data source name. Must be unique within suborg. Cannot contain whitespace.
-        :param chunk: Whether the content should be split into smaller chunks. (This feature is coming in the future - currently this value will always be treated as False.)
-        :param text: Information that the data source will provide to the agent accessing it.
-        :param description: The description of the data source.
-        :param labels: Searchable labels for the data source. Can be included in agent.prompt_tool_defaults for a given tool to give the agent access to data sources with those labels when calling that tool.
-        :param chunk_delimiter: String that should be treated as delimiter between intended chunks. (This feature is coming in the future - currently this value will always be treated as None.)
+        :param name: The name of the language group.
+        :param language_configs: Voice and DTMF configurations for each language in the group.
+        :param skip_current_language_in_message: Whether a message using the language group to generate a language DTMF menu should skip the agent's current language in the menu.
+        :param description: Description of the language group.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -298,18 +298,18 @@ class DataSources(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.DataSourceCreateRequest(
+        request = models.LanguageGroupCreateRequest(
             name=name,
             description=description,
-            labels=labels,
-            chunk=chunk,
-            chunk_delimiter=chunk_delimiter,
-            text=text,
+            language_configs=utils.get_pydantic_model(
+                language_configs, List[models.LanguageConfig]
+            ),
+            skip_current_language_in_message=skip_current_language_in_message,
         )
 
         req = self._build_request(
             method="POST",
-            path="/api/v1/data_sources/",
+            path="/api/v1/language_groups/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -321,7 +321,7 @@ class DataSources(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.DataSourceCreateRequest
+                request, False, False, "json", models.LanguageGroupCreateRequest
             ),
             timeout_ms=timeout_ms,
         )
@@ -337,7 +337,7 @@ class DataSources(BaseSDK):
         http_res = self.do_request(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="data_sources_create",
+                operation_id="language_groups_create",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -350,7 +350,7 @@ class DataSources(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.DataSourceDetailResponse)
+            return utils.unmarshal_json(http_res.text, models.LanguageGroupResponse)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -380,26 +380,24 @@ class DataSources(BaseSDK):
         self,
         *,
         name: str,
-        chunk: bool,
-        text: str,
+        language_configs: Union[
+            List[models.LanguageConfig], List[models.LanguageConfigTypedDict]
+        ],
+        skip_current_language_in_message: bool,
         description: OptionalNullable[str] = UNSET,
-        labels: Optional[List[str]] = None,
-        chunk_delimiter: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.DataSourceDetailResponse:
-        r"""Create Data Source
+    ) -> models.LanguageGroupResponse:
+        r"""Create Language Group
 
-        Create a new data source.
+        Create a new language group.
 
-        :param name: The data source name. Must be unique within suborg. Cannot contain whitespace.
-        :param chunk: Whether the content should be split into smaller chunks. (This feature is coming in the future - currently this value will always be treated as False.)
-        :param text: Information that the data source will provide to the agent accessing it.
-        :param description: The description of the data source.
-        :param labels: Searchable labels for the data source. Can be included in agent.prompt_tool_defaults for a given tool to give the agent access to data sources with those labels when calling that tool.
-        :param chunk_delimiter: String that should be treated as delimiter between intended chunks. (This feature is coming in the future - currently this value will always be treated as None.)
+        :param name: The name of the language group.
+        :param language_configs: Voice and DTMF configurations for each language in the group.
+        :param skip_current_language_in_message: Whether a message using the language group to generate a language DTMF menu should skip the agent's current language in the menu.
+        :param description: Description of the language group.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -415,18 +413,18 @@ class DataSources(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.DataSourceCreateRequest(
+        request = models.LanguageGroupCreateRequest(
             name=name,
             description=description,
-            labels=labels,
-            chunk=chunk,
-            chunk_delimiter=chunk_delimiter,
-            text=text,
+            language_configs=utils.get_pydantic_model(
+                language_configs, List[models.LanguageConfig]
+            ),
+            skip_current_language_in_message=skip_current_language_in_message,
         )
 
         req = self._build_request_async(
             method="POST",
-            path="/api/v1/data_sources/",
+            path="/api/v1/language_groups/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -438,7 +436,7 @@ class DataSources(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.DataSourceCreateRequest
+                request, False, False, "json", models.LanguageGroupCreateRequest
             ),
             timeout_ms=timeout_ms,
         )
@@ -454,7 +452,7 @@ class DataSources(BaseSDK):
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="data_sources_create",
+                operation_id="language_groups_create",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -467,7 +465,7 @@ class DataSources(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.DataSourceDetailResponse)
+            return utils.unmarshal_json(http_res.text, models.LanguageGroupResponse)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -497,30 +495,28 @@ class DataSources(BaseSDK):
         self,
         *,
         name: str,
-        chunk: bool,
+        language_configs: Union[
+            List[models.LanguageConfig], List[models.LanguageConfigTypedDict]
+        ],
+        skip_current_language_in_message: bool,
         id: int,
-        text: str,
         description: OptionalNullable[str] = UNSET,
-        labels: Optional[List[str]] = None,
-        chunk_delimiter: OptionalNullable[str] = UNSET,
         edit_comments: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.DataSourceDetailResponse:
-        r"""Update Data Source
+    ) -> models.LanguageGroupResponse:
+        r"""Update Language Group
 
-        Update an existing data source.
+        Update an existing language group
 
-        :param name: The data source name. Must be unique within suborg. Cannot contain whitespace.
-        :param chunk: Whether the content should be split into smaller chunks. (This feature is coming in the future - currently this value will always be treated as False.)
-        :param id: The data source ID.
-        :param text: Information that the data source will provide to the agent accessing it.
-        :param description: The description of the data source.
-        :param labels: Searchable labels for the data source. Can be included in agent.prompt_tool_defaults for a given tool to give the agent access to data sources with those labels when calling that tool.
-        :param chunk_delimiter: String that should be treated as delimiter between intended chunks. (This feature is coming in the future - currently this value will always be treated as None.)
-        :param edit_comments: The comments for the most recent edit to the data source
+        :param name: The name of the language group.
+        :param language_configs: Voice and DTMF configurations for each language in the group.
+        :param skip_current_language_in_message: Whether a message using the language group to generate a language DTMF menu should skip the agent's current language in the menu.
+        :param id: The ID of the language group to update.
+        :param description: Description of the language group.
+        :param edit_comments: Comments for the most recent edit to the language group.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -536,20 +532,20 @@ class DataSources(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.DataSourceUpdateRequest(
+        request = models.LanguageGroupUpdateRequest(
             name=name,
             description=description,
-            labels=labels,
-            chunk=chunk,
-            chunk_delimiter=chunk_delimiter,
+            language_configs=utils.get_pydantic_model(
+                language_configs, List[models.LanguageConfig]
+            ),
+            skip_current_language_in_message=skip_current_language_in_message,
             id=id,
             edit_comments=edit_comments,
-            text=text,
         )
 
         req = self._build_request(
             method="PUT",
-            path="/api/v1/data_sources/",
+            path="/api/v1/language_groups/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -561,7 +557,7 @@ class DataSources(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.DataSourceUpdateRequest
+                request, False, False, "json", models.LanguageGroupUpdateRequest
             ),
             timeout_ms=timeout_ms,
         )
@@ -577,7 +573,7 @@ class DataSources(BaseSDK):
         http_res = self.do_request(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="data_sources_update",
+                operation_id="language_groups_update",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -590,7 +586,7 @@ class DataSources(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.DataSourceDetailResponse)
+            return utils.unmarshal_json(http_res.text, models.LanguageGroupResponse)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -620,30 +616,28 @@ class DataSources(BaseSDK):
         self,
         *,
         name: str,
-        chunk: bool,
+        language_configs: Union[
+            List[models.LanguageConfig], List[models.LanguageConfigTypedDict]
+        ],
+        skip_current_language_in_message: bool,
         id: int,
-        text: str,
         description: OptionalNullable[str] = UNSET,
-        labels: Optional[List[str]] = None,
-        chunk_delimiter: OptionalNullable[str] = UNSET,
         edit_comments: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.DataSourceDetailResponse:
-        r"""Update Data Source
+    ) -> models.LanguageGroupResponse:
+        r"""Update Language Group
 
-        Update an existing data source.
+        Update an existing language group
 
-        :param name: The data source name. Must be unique within suborg. Cannot contain whitespace.
-        :param chunk: Whether the content should be split into smaller chunks. (This feature is coming in the future - currently this value will always be treated as False.)
-        :param id: The data source ID.
-        :param text: Information that the data source will provide to the agent accessing it.
-        :param description: The description of the data source.
-        :param labels: Searchable labels for the data source. Can be included in agent.prompt_tool_defaults for a given tool to give the agent access to data sources with those labels when calling that tool.
-        :param chunk_delimiter: String that should be treated as delimiter between intended chunks. (This feature is coming in the future - currently this value will always be treated as None.)
-        :param edit_comments: The comments for the most recent edit to the data source
+        :param name: The name of the language group.
+        :param language_configs: Voice and DTMF configurations for each language in the group.
+        :param skip_current_language_in_message: Whether a message using the language group to generate a language DTMF menu should skip the agent's current language in the menu.
+        :param id: The ID of the language group to update.
+        :param description: Description of the language group.
+        :param edit_comments: Comments for the most recent edit to the language group.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -659,20 +653,20 @@ class DataSources(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.DataSourceUpdateRequest(
+        request = models.LanguageGroupUpdateRequest(
             name=name,
             description=description,
-            labels=labels,
-            chunk=chunk,
-            chunk_delimiter=chunk_delimiter,
+            language_configs=utils.get_pydantic_model(
+                language_configs, List[models.LanguageConfig]
+            ),
+            skip_current_language_in_message=skip_current_language_in_message,
             id=id,
             edit_comments=edit_comments,
-            text=text,
         )
 
         req = self._build_request_async(
             method="PUT",
-            path="/api/v1/data_sources/",
+            path="/api/v1/language_groups/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -684,7 +678,7 @@ class DataSources(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.DataSourceUpdateRequest
+                request, False, False, "json", models.LanguageGroupUpdateRequest
             ),
             timeout_ms=timeout_ms,
         )
@@ -700,7 +694,7 @@ class DataSources(BaseSDK):
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="data_sources_update",
+                operation_id="language_groups_update",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -713,7 +707,7 @@ class DataSources(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.DataSourceDetailResponse)
+            return utils.unmarshal_json(http_res.text, models.LanguageGroupResponse)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -739,20 +733,20 @@ class DataSources(BaseSDK):
             http_res,
         )
 
-    def get(
+    def get_by_id(
         self,
         *,
-        data_source_id: int,
+        language_group_id: int,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.DataSourceDetailResponse:
-        r"""Get Data Source
+    ) -> models.LanguageGroupResponse:
+        r"""Get Language Group
 
-        Fetch a given data source, including its text.
+        Fetch a given language group.
 
-        :param data_source_id:
+        :param language_group_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -768,13 +762,13 @@ class DataSources(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.DataSourcesGetByIDRequest(
-            data_source_id=data_source_id,
+        request = models.LanguageGroupsGetByIDRequest(
+            language_group_id=language_group_id,
         )
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/data_sources/{data_source_id}",
+            path="/api/v1/language_groups/{language_group_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -799,7 +793,7 @@ class DataSources(BaseSDK):
         http_res = self.do_request(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="data_sources_get_by_id",
+                operation_id="language_groups_get_by_id",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -812,7 +806,7 @@ class DataSources(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.DataSourceDetailResponse)
+            return utils.unmarshal_json(http_res.text, models.LanguageGroupResponse)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -838,20 +832,20 @@ class DataSources(BaseSDK):
             http_res,
         )
 
-    async def get_async(
+    async def get_by_id_async(
         self,
         *,
-        data_source_id: int,
+        language_group_id: int,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.DataSourceDetailResponse:
-        r"""Get Data Source
+    ) -> models.LanguageGroupResponse:
+        r"""Get Language Group
 
-        Fetch a given data source, including its text.
+        Fetch a given language group.
 
-        :param data_source_id:
+        :param language_group_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -867,13 +861,13 @@ class DataSources(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.DataSourcesGetByIDRequest(
-            data_source_id=data_source_id,
+        request = models.LanguageGroupsGetByIDRequest(
+            language_group_id=language_group_id,
         )
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/data_sources/{data_source_id}",
+            path="/api/v1/language_groups/{language_group_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -898,7 +892,7 @@ class DataSources(BaseSDK):
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="data_sources_get_by_id",
+                operation_id="language_groups_get_by_id",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -911,7 +905,7 @@ class DataSources(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.DataSourceDetailResponse)
+            return utils.unmarshal_json(http_res.text, models.LanguageGroupResponse)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -940,18 +934,18 @@ class DataSources(BaseSDK):
     def delete(
         self,
         *,
-        data_source_id: int,
+        language_group_id: int,
         reason: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Any:
-        r"""Delete Data Source
+        r"""Delete Language Group
 
-        Delete a given data source.
+        Delete a language group.
 
-        :param data_source_id:
+        :param language_group_id:
         :param reason:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -968,14 +962,14 @@ class DataSources(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.DataSourcesDeleteRequest(
-            data_source_id=data_source_id,
+        request = models.LanguageGroupsDeleteRequest(
+            language_group_id=language_group_id,
             reason=reason,
         )
 
         req = self._build_request(
             method="DELETE",
-            path="/api/v1/data_sources/{data_source_id}",
+            path="/api/v1/language_groups/{language_group_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1000,7 +994,7 @@ class DataSources(BaseSDK):
         http_res = self.do_request(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="data_sources_delete",
+                operation_id="language_groups_delete",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -1042,18 +1036,18 @@ class DataSources(BaseSDK):
     async def delete_async(
         self,
         *,
-        data_source_id: int,
+        language_group_id: int,
         reason: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Any:
-        r"""Delete Data Source
+        r"""Delete Language Group
 
-        Delete a given data source.
+        Delete a language group.
 
-        :param data_source_id:
+        :param language_group_id:
         :param reason:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1070,14 +1064,14 @@ class DataSources(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.DataSourcesDeleteRequest(
-            data_source_id=data_source_id,
+        request = models.LanguageGroupsDeleteRequest(
+            language_group_id=language_group_id,
             reason=reason,
         )
 
         req = self._build_request_async(
             method="DELETE",
-            path="/api/v1/data_sources/{data_source_id}",
+            path="/api/v1/language_groups/{language_group_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1102,7 +1096,7 @@ class DataSources(BaseSDK):
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="data_sources_delete",
+                operation_id="language_groups_delete",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security

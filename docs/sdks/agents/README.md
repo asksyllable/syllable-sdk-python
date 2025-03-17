@@ -12,7 +12,7 @@ Operations related to agent configuration. When a user interacts with the       
 * [update](#update) - Update Agent
 * [get_by_id](#get_by_id) - Get Agent By Id
 * [delete](#delete) - Delete Agent
-* [get_available_voices](#get_available_voices) - Get Available Agent Voices
+* [agent_get_available_voices](#agent_get_available_voices) - Get Available Agent Voices
 
 ## list
 
@@ -271,7 +271,7 @@ with SyllableSDK(
 | models.HTTPValidationError | 422                        | application/json           |
 | models.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## get_available_voices
+## agent_get_available_voices
 
 Get available agent voices.
 
@@ -286,7 +286,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.agents.get_available_voices()
+    res = ss_client.agents.agent_get_available_voices()
 
     # Handle response
     print(res)

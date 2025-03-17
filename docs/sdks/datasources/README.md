@@ -3,12 +3,14 @@
 
 ## Overview
 
+Operations related to data sources. A data source is a blob of text that           can be made available to an agent's general info tools to provide more context to the           agent when generating its responses. For more information, see           [Console docs](https://docs.syllable.ai/Resources/DataSources).
+
 ### Available Operations
 
 * [list](#list) - List Data Sources
 * [create](#create) - Create Data Source
 * [update](#update) - Update Data Source
-* [get](#get) - Get Data Source
+* [get_by_id](#get_by_id) - Get Data Source
 * [delete](#delete) - Delete Data Source
 
 ## list
@@ -160,7 +162,7 @@ with SyllableSDK(
 | models.HTTPValidationError | 422                        | application/json           |
 | models.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## get
+## get_by_id
 
 Fetch a given data source, including its text.
 
@@ -175,7 +177,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.data_sources.get(data_source_id=931598)
+    res = ss_client.data_sources.get_by_id(data_source_id=931598)
 
     # Handle response
     print(res)

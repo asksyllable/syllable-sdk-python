@@ -5,40 +5,22 @@ from syllable_sdk import models, utils
 from syllable_sdk._hooks import HookContext
 from syllable_sdk.types import OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
-from typing import Any, List, Mapping, Optional
+from typing import Any, Mapping, Optional
 
 
-class ChannelsTargets(BaseSDK):
-    def list_available(
+class FullSummary(BaseSDK):
+    def get_by_id(
         self,
         *,
-        page: OptionalNullable[int] = UNSET,
-        limit: Optional[int] = 25,
-        search_fields: Optional[List[models.AvailableTargetProperties]] = None,
-        search_field_values: Optional[List[str]] = None,
-        order_by: OptionalNullable[models.AvailableTargetProperties] = UNSET,
-        order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
-        fields: OptionalNullable[List[models.AvailableTargetProperties]] = UNSET,
-        start_datetime: OptionalNullable[str] = UNSET,
-        end_datetime: OptionalNullable[str] = UNSET,
+        session_id: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ListResponseAvailableTarget:
-        r"""Available Targets List
+    ) -> models.SessionSummaryResponse:
+        r"""Get Full Session Summary By Id
 
-        List the available phone numbers
-
-        :param page: The page number from which to start (0-indexed)
-        :param limit: The maximum number of items to return
-        :param search_fields: String names of fields to search. Correspond by index to search field values
-        :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
-        :param order_by: The field whose value should be used to order the results
-        :param order_by_direction: The direction in which to order the results
-        :param fields: The fields to include in the response
-        :param start_datetime: The start datetime for filtering results
-        :param end_datetime: The end datetime for filtering results
+        :param session_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -54,26 +36,18 @@ class ChannelsTargets(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AvailableTargetsRequest(
-            page=page,
-            limit=limit,
-            search_fields=search_fields,
-            search_field_values=search_field_values,
-            order_by=order_by,
-            order_by_direction=order_by_direction,
-            fields=fields,
-            start_datetime=start_datetime,
-            end_datetime=end_datetime,
+        request = models.SessionFullSummaryGetByIDRequest(
+            session_id=session_id,
         )
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/channels/available-targets",
+            path="/api/v1/sessions/full-summary/{session_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
             request_body_required=False,
-            request_has_path_params=False,
+            request_has_path_params=True,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
@@ -93,7 +67,7 @@ class ChannelsTargets(BaseSDK):
         http_res = self.do_request(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="available_targets",
+                operation_id="session_full_summary_get_by_id",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -106,9 +80,7 @@ class ChannelsTargets(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(
-                http_res.text, models.ListResponseAvailableTarget
-            )
+            return utils.unmarshal_json(http_res.text, models.SessionSummaryResponse)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -134,36 +106,18 @@ class ChannelsTargets(BaseSDK):
             http_res,
         )
 
-    async def list_available_async(
+    async def get_by_id_async(
         self,
         *,
-        page: OptionalNullable[int] = UNSET,
-        limit: Optional[int] = 25,
-        search_fields: Optional[List[models.AvailableTargetProperties]] = None,
-        search_field_values: Optional[List[str]] = None,
-        order_by: OptionalNullable[models.AvailableTargetProperties] = UNSET,
-        order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
-        fields: OptionalNullable[List[models.AvailableTargetProperties]] = UNSET,
-        start_datetime: OptionalNullable[str] = UNSET,
-        end_datetime: OptionalNullable[str] = UNSET,
+        session_id: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ListResponseAvailableTarget:
-        r"""Available Targets List
+    ) -> models.SessionSummaryResponse:
+        r"""Get Full Session Summary By Id
 
-        List the available phone numbers
-
-        :param page: The page number from which to start (0-indexed)
-        :param limit: The maximum number of items to return
-        :param search_fields: String names of fields to search. Correspond by index to search field values
-        :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
-        :param order_by: The field whose value should be used to order the results
-        :param order_by_direction: The direction in which to order the results
-        :param fields: The fields to include in the response
-        :param start_datetime: The start datetime for filtering results
-        :param end_datetime: The end datetime for filtering results
+        :param session_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -179,26 +133,18 @@ class ChannelsTargets(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AvailableTargetsRequest(
-            page=page,
-            limit=limit,
-            search_fields=search_fields,
-            search_field_values=search_field_values,
-            order_by=order_by,
-            order_by_direction=order_by_direction,
-            fields=fields,
-            start_datetime=start_datetime,
-            end_datetime=end_datetime,
+        request = models.SessionFullSummaryGetByIDRequest(
+            session_id=session_id,
         )
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/channels/available-targets",
+            path="/api/v1/sessions/full-summary/{session_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
             request_body_required=False,
-            request_has_path_params=False,
+            request_has_path_params=True,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
@@ -218,7 +164,7 @@ class ChannelsTargets(BaseSDK):
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="available_targets",
+                operation_id="session_full_summary_get_by_id",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -231,9 +177,7 @@ class ChannelsTargets(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(
-                http_res.text, models.ListResponseAvailableTarget
-            )
+            return utils.unmarshal_json(http_res.text, models.SessionSummaryResponse)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData

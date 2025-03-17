@@ -5,14 +5,14 @@
 
 ### Available Operations
 
-* [list](#list) - Post List Dashboards
-* [fetch_info](#fetch_info) - Post Fetch Info
-* [~~session_events~~](#session_events) - Post Session Events :warning: **Deprecated**
-* [~~post_session_summary~~](#post_session_summary) - Post Session Summary :warning: **Deprecated**
-* [~~post_session_transfers~~](#post_session_transfers) - Post Session Transfers :warning: **Deprecated**
-* [~~post_sessions~~](#post_sessions) - Post Sessions :warning: **Deprecated**
+* [post_list_dashboard](#post_list_dashboard) - Post List Dashboards
+* [post_get_dashboard](#post_get_dashboard) - Post Fetch Info
+* [~~post_session_events_dashboard~~](#post_session_events_dashboard) - Post Session Events :warning: **Deprecated**
+* [~~post_session_summary_dashboard~~](#post_session_summary_dashboard) - Post Session Summary :warning: **Deprecated**
+* [~~post_session_transfers_dashboard~~](#post_session_transfers_dashboard) - Post Session Transfers :warning: **Deprecated**
+* [~~post_sessions_dashboard~~](#post_sessions_dashboard) - Post Sessions :warning: **Deprecated**
 
-## list
+## post_list_dashboard
 
 METHOD: POST
 URL: /dashboard/list
@@ -31,7 +31,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.v1.list(page=0, search_fields=[
+    res = ss_client.v1.post_list_dashboard(page=0, search_fields=[
         syllable_sdk.DashboardProperties.NAME,
     ], search_field_values=[
         "Some Object Name",
@@ -68,7 +68,7 @@ with SyllableSDK(
 | models.HTTPValidationError | 422                        | application/json           |
 | models.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## fetch_info
+## post_get_dashboard
 
 METHOD: POST
 URL: /dashboard/fetch_info
@@ -86,7 +86,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.v1.fetch_info(dashboard_name="<value>")
+    res = ss_client.v1.post_get_dashboard(dashboard_name="<value>")
 
     # Handle response
     print(res)
@@ -111,7 +111,7 @@ with SyllableSDK(
 | models.HTTPValidationError | 422                        | application/json           |
 | models.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## ~~session_events~~
+## ~~post_session_events_dashboard~~
 
 METHOD: POST
 URL: /dashboard/session_events
@@ -132,7 +132,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.v1.session_events()
+    res = ss_client.v1.post_session_events_dashboard()
 
     # Handle response
     print(res)
@@ -155,7 +155,7 @@ with SyllableSDK(
 | --------------- | --------------- | --------------- |
 | models.APIError | 4XX, 5XX        | \*/\*           |
 
-## ~~post_session_summary~~
+## ~~post_session_summary_dashboard~~
 
 METHOD: POST
 URL: /dashboard/session_summary
@@ -176,7 +176,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.v1.post_session_summary()
+    res = ss_client.v1.post_session_summary_dashboard()
 
     # Handle response
     print(res)
@@ -199,7 +199,7 @@ with SyllableSDK(
 | --------------- | --------------- | --------------- |
 | models.APIError | 4XX, 5XX        | \*/\*           |
 
-## ~~post_session_transfers~~
+## ~~post_session_transfers_dashboard~~
 
 METHOD: POST
 URL: /dashboard/session_transfers
@@ -220,7 +220,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.v1.post_session_transfers()
+    res = ss_client.v1.post_session_transfers_dashboard()
 
     # Handle response
     print(res)
@@ -243,7 +243,7 @@ with SyllableSDK(
 | --------------- | --------------- | --------------- |
 | models.APIError | 4XX, 5XX        | \*/\*           |
 
-## ~~post_sessions~~
+## ~~post_sessions_dashboard~~
 
 METHOD: POST
 URL: /dashboard/sessions
@@ -264,7 +264,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.v1.post_sessions()
+    res = ss_client.v1.post_sessions_dashboard()
 
     # Handle response
     print(res)
