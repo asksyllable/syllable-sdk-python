@@ -1,0 +1,152 @@
+---
+title: 'SessionLabels'
+---
+(*session_labels*)
+
+## Overview
+
+### Available Operations
+
+* [get](#get) - Get Label By Id
+* [create](#create) - Create Label
+* [list](#list) - Session Labels List
+
+## get
+
+Get Label By Id
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.session_labels.get(session_label_id=931598)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `session_label_id`                                                  | *int*                                                               | TRUE                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | FALSE                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.SessionLabel](../../models/sessionlabel.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## create
+
+Create a new label
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.session_labels.create(session_id=486589, type_="auto-rating", code="BAD", user_email="<value>", issue_categories=[
+        "Silent treatment",
+    ])
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `session_id`                                                        | *int*                                                               | TRUE                                                  | The internal ID of the session (see Session.session_id)             |                                                                     |
+| `type`                                                              | *str*                                                               | TRUE                                                  | The type of the label                                               | auto-rating                                                         |
+| `code`                                                              | *str*                                                               | TRUE                                                  | A code describing the quality of the labeled session                | GOOD                                                                |
+| `user_email`                                                        | *str*                                                               | TRUE                                                  | The email of the user who created the label                         |                                                                     |
+| `comments`                                                          | *OptionalNullable[str]*                                             | FALSE                                                  | Comment string describing additional details about the session      |                                                                     |
+| `issue_categories`                                                  | List[*str*]                                                         | FALSE                                                  | Descriptions of issues occurring in the labeled call                | [<br/>"Silent treatment"<br/>]                                      |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | FALSE                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Response
+
+**[models.SessionLabel](../../models/sessionlabel.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## list
+
+Session Labels List
+
+### Example Usage
+
+```python
+import os
+import syllable_sdk
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.session_labels.list(page=0, search_fields=[
+        syllable_sdk.SessionLabelProperties.ISSUE_CATEGORIES,
+    ], search_field_values=[
+        "Some Object Name",
+    ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                              | Type                                                                                                                                                   | Required                                                                                                                                               | Description                                                                                                                                            | Example                                                                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | FALSE                                                                                                                                     | The page number from which to start (0-indexed)                                                                                                        | 0                                                                                                                                                      |
+| `limit`                                                                                                                                                | *Optional[int]*                                                                                                                                        | FALSE                                                                                                                                     | The maximum number of items to return                                                                                                                  | 25                                                                                                                                                     |
+| `search_fields`                                                                                                                                        | List[[models.SessionLabelProperties](../../models/sessionlabelproperties.md)]                                                                          | FALSE                                                                                                                                     | String names of fields to search. Correspond by index to search field values                                                                           | name                                                                                                                                                   |
+| `search_field_values`                                                                                                                                  | List[*str*]                                                                                                                                            | FALSE                                                                                                                                     | Values of fields to search. Correspond by index to search fields. Unless field name contains "list", an individual search field value cannot be a list | Some Object Name                                                                                                                                       |
+| `order_by`                                                                                                                                             | [OptionalNullable[models.SessionLabelProperties]](../../models/sessionlabelproperties.md)                                                              | FALSE                                                                                                                                     | The field whose value should be used to order the results                                                                                              |                                                                                                                                                        |
+| `order_by_direction`                                                                                                                                   | [OptionalNullable[models.OrderByDirection]](../../models/orderbydirection.md)                                                                          | FALSE                                                                                                                                     | The direction in which to order the results                                                                                                            |                                                                                                                                                        |
+| `fields`                                                                                                                                               | List[[models.SessionLabelProperties](../../models/sessionlabelproperties.md)]                                                                          | FALSE                                                                                                                                     | The fields to include in the response                                                                                                                  |                                                                                                                                                        |
+| `start_datetime`                                                                                                                                       | *OptionalNullable[str]*                                                                                                                                | FALSE                                                                                                                                     | The start datetime for filtering results                                                                                                               | 2023-01-01T00:00:00Z                                                                                                                                   |
+| `end_datetime`                                                                                                                                         | *OptionalNullable[str]*                                                                                                                                | FALSE                                                                                                                                     | The end datetime for filtering results                                                                                                                 | 2024-01-01T00:00:00Z                                                                                                                                   |
+| `retries`                                                                                                                                              | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                       | FALSE                                                                                                                                     | Configuration to override the default retry behavior of the client.                                                                                    |                                                                                                                                                        |
+
+### Response
+
+**[models.ListResponseSessionLabel](../../models/listresponsesessionlabel.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |

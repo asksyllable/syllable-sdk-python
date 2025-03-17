@@ -1,0 +1,111 @@
+---
+title: "Web Chat"
+icon: "comments"
+---
+
+The Syllable Web Chat is an embedded, secure web chat application designed for integration on registered third-party domains. It provides seamless communication by maintaining the session across different pages under the same domain. This web chat can be customized to reflect the client's branding and specific needs, ensuring a tailored user experience. You can see the web chat in action by clicking the Syllable logo in the bottom right corner of [our website](https://syllable.ai/).
+
+To properly configure the web chat, the following parameters are required:
+
+* **Domain Address**: The domain where the web chat will be deployed.
+
+* **Client Id**: A unique key that identifies a specific Syllable AI target. For information on how to create a Client Id, please contact Syllable AI support at [support@syllable.ai](mailto:support@syllable.ai).
+
+To register a web chat instance, please reach out to [support@syllable.ai](mailto:support@syllable.ai).
+
+## Installation
+
+You have two options for installing Syllable Web Chat:
+
+#### NPM
+
+To install via NPM, run the following command:
+
+`npm install @syllableai/webchat`
+
+#### CDN
+
+To include the web chat directly from our CDN, use the following script tag. Replace \[VERSION] with the specific version you want to use (e.g., 1.0.0):
+
+`<script async src="https://cdn.syllable.ai/scripts/webchat/syllable-webchat.`**`[VERSION]`**`.min.js" />`
+
+Alternatively, you can use the latest version:
+
+`<script async src="https://cdn.syllable.ai/scripts/webchat/syllable-webchat.latest.min.js" />`
+
+## Usage
+
+You have two options for using Syllable Web Chat. For either method, you should replace 'MY\_CLIENT\_ID'with your valid Client ID.
+
+### NPM using JavaScript or Typescript
+
+```javascript
+import SyllableWebChat from '@syllableai/webchat';
+
+const webChat = new SyllableWebChat({
+  clientId: 'MY_CLIENT_ID'
+});
+webChat.init();
+```
+
+### CDN directly in HTML
+
+Add this script above the HTML `<body>` element:
+
+```javascript
+<script
+  async
+  id="syllable-webchat-script" src="https://cdn.syllable.ai/scripts/webchat/syllable-webchat.latest.min.js"
+/>
+
+<script>
+  const script = document.querySelector('#syllable-webchat-script');
+  script.addEventListener('load', function() {
+    const webChat = new window.SyllableWebChat();
+    webChat.configure({
+      clientId: 'MY_CLIENT_ID'
+    });
+    webChat.init();
+  });
+</script>
+```
+
+### Add Optional Container
+
+Optionally, add a div container to your HTML where the Syllable Web Chat will be rendered (if not specified, Syllable Web Chat will be appended to the bottom of HTML body tag):
+
+`<div id="syllable-webchat-container"></div>`
+
+You may need to adjust the z-index of this div container based on your layout.
+
+## Additional configuration
+
+The Syllable Web Chat can be extensively configured to meet your specific requirements. For additional configuration, please contact Syllable AI support at [support@syllable.ai](mailto:support@syllable.ai). Below are the available parameters that can be customized:
+
+```json
+{
+  "session_timeout_m": 10_080,
+  "header_title": "Company Name",
+  "header_subtitle": "Virtual assistant",
+  "info_text": "Disclaimer: This chat feature is not intended for use in medical emergencies or for medical advice. If you are in need of immediate medical attention, contact your provider or call 911.",
+  "info_button_label": "Close",
+  "info_button_bgcolor": "#1d4f91",
+  "info_button_bgcolor_hover": "#1d4f91",
+  "message_required": "Please type your message",
+  "input_placeholder": "Type your message here...",
+  "header_bgcolor": "#1d4f91",
+  "chat_button_bgcolor": "#1d4f91",
+  "chat_button_bgcolor_hover": "#1d4f91",
+  "chat_button_image_url": "https://cdn.syllable.ai/webchat/...",
+  "header_image_url": "https://cdn.syllable.ai/webchat/...",
+  "chat_agent_bubble_bgcolor": "#C0D5F0",
+  "chat_user_bubble_bgcolor": "#D9DCE1",
+  "chat_error_bubble_bgcolor": "#991A1C",
+  "chat_error_bubble_start_session": "Start a new conversation",
+  "chat_error_bubble_failed_message": "Failed to send message. Please try again or start a new conversation.",
+  "session_expired_label": "Conversation expired",
+  "session_ended_label": "Conversation ended",
+  "start_session_button_label": "Start conversation"
+}
+
+```

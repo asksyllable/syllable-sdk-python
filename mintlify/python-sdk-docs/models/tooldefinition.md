@@ -1,0 +1,17 @@
+---
+title: 'ToolDefinition'
+---
+
+A tool that can be called from an LLM during the conversation. See https://docs.syllable.ai/Resources/Tools.
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `tool`                                                                                             | [models.InternalTool](../models/internaltool.md)                                                   | TRUE                                                                                 | A tool definition to be used by the OpenAI API.                                                    |
+| `type`                                                                                             | [OptionalNullable[models.Type]](../models/type.md)                                                 | FALSE                                                                                 | The action to take when the LLM calls the tool.                                                    |
+| `endpoint`                                                                                         | [OptionalNullable[models.ToolHTTPEndpoint]](../models/toolhttpendpoint.md)                         | FALSE                                                                                 | The configuration for an HTTP API call.                                                            |
+| `defaults`                                                                                         | [OptionalNullable[models.Defaults]](../models/defaults.md)                                         | FALSE                                                                                 | The default values for the parameters of the function/tool call.                                   |
+| `static_parameters`                                                                                | List[[models.StaticToolParameter](../models/statictoolparameter.md)]                               | FALSE                                                                                 | Parameters for the tool whose values should be set at config time (i.e., not provided by the LLM). |
+| `result`                                                                                           | *OptionalNullable[Any]*                                                                            | FALSE                                                                                 | The optional result of the tool call. Only used for `context` tools.                               |

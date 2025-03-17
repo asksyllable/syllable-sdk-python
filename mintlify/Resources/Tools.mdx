@@ -1,0 +1,89 @@
+---
+title: "Tools"
+icon: "screwdriver-wrench"
+---
+
+Tools are functions or APIs the [agent](/workspaces/Agents) can call upon to perform actions like accessing databases or manipulating data. They let your agent schedule an appointment on behalf of your user, request a prescription refill, or do countless other tasks.
+
+The tools list page shows all of the tools currently available to your organization.
+
+![](/mintlify/images/tools_list.jpg)
+
+If you want an agent to reference a specific tool during [sessions](/workspaces/Sessions) with users, then you need to provide those instructions in the prompt. For example, if you want to provide hangup instructions to your agent, it might look something like:
+
+`Before a call ends, make sure to always ask user whether they need anything else. If user doesn’t need anything else, use “hangup” tool.`
+
+### Creating a tool
+
+To create a tool, click the "New tool" button on the top right of the list screen.
+
+![](/mintlify/images/tools_create.jpg)
+
+* **Name**: The name of the tool is used to reference it elsewhere in Console, including in [prompts](/Resources/Prompts) and agents, so you should pick something that's easily identifiable. It shouldn't contain any whitespace.
+
+* **Service**: A service is a grouping of tools. You can select any available service here to add your new tool to that service.
+
+### Tool schema
+
+You define the behavior and capabilities of a tool using the Tool Schema. More details on the structure of the schema are available [here](https://docs.syllable.ai/sdk-docs/models/components/tooldefinition). An example schema to call the [Open-Meteo API](https://open-meteo.com/en/docs) to look up weather information is below. (Note that the value of the "parameters" field must be defined as a JSON Schema per the [OpenAI API](https://platform.openai.com/docs/guides/function-calling).)
+
+```json
+{
+  "type": "endpoint",
+  "endpoint": {
+    "url": "https://api.open-meteo.com/v1/forecast",
+    "method": "get",
+    "argumentLocation": "query"
+  },
+  "tool": {
+    "type": "function",
+    "function": {
+      "name": "get_weather",
+      "description": "Get the weather for a city",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "longitude": {
+            "type": "number",
+            "description": "The longitude of the city"
+          },
+          "latitude": {
+            "type": "number",
+            "description": "The latitude of the city"
+          },
+          "current": {
+            "type": "string",
+            "description": "information to retrieve from the open-meteo API, comma-separated",
+            "default": "temperature_2m,relative_humidity_2m,precipitation,rain,showers,snowfall"
+          }
+        },
+        "required": [
+          "longitude",
+          "latitude",
+          "current"
+        ]
+      }
+    }
+  }
+}
+```
+
+### Static parameters
+
+The "parameters" object in the schema above describes parameters that the LLM should provide when calling the API specified in the tool. In the example above, the LLM is expected to gather the latitude and longitude from the user. However, you may want to also specify configure certain parameters ahead of time, either for all calls to the given tool or at the individual agent level. To accomplish this, you can use the ["staticParameters" configuration option](https://docs.syllable.ai/sdk-docs/models/components/statictoolparameter). For example, if you want to update the `get_weather`tool so that it defaults to fetching temperature information in Fahrenheit instead of Celsius, you can add this configuration to the above definition:
+
+```json
+"staticParameters": [
+  {
+    "name": "temperature_unit",
+    "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit",
+    "required": false,
+    "type": "string",
+    "default": "fahrenheit"
+  }
+]
+```
+
+Note that the `name` of each parameter must match the name of the parameter on the API endpoint side.
+
+Adding a static parameter to a tool enables agents using the tool to override the default value, if any, at the agent level. For more information, see the [Tool Configuration section](/workspaces/ToolConfig).

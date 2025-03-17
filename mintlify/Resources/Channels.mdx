@@ -1,0 +1,28 @@
+---
+title: "Channels"
+icon: "arrows-turn-to-dots"
+---
+
+A channel is how users communicate with an [agent](/workspaces/Agents). Currently there are two channel modes: voice, for phone conversations involving speech-to-text and text-to-speech, and web, for text conversations. As of now, each agent can only support one channel.
+
+### Creating a web channel
+
+Creating a web channel is very simple - just click "Agents" on the left navbar, find and click on your agent, and then start chatting with the agent in the window on the right. A web channel will be automatically created for the agent if one doesn't exist already.
+
+### Creating a voice channel
+
+To create a voice channel, click "Channels" on the left navbar to see a list of all channels in use by your org. Then, click "New channel" on the top right of the screen.
+
+![](/mintlify/images/create_new_channel_03_12_2.jpg)
+
+* **Mode**: Whether the channel will be a voice or a web channel (currently the only option in this UI is "Voice."
+
+* **Channel name**: The name of the organization-level channel that this one will be referencing (select one from the list).
+
+* **Channel target**: The phone number that will be used for the agent (select one from the list). If there are no phone numbers available, please contact **support (at) syllable (dot) ai** to be provided with a phone number. (A phone number self-service feature is coming in the future.)
+
+* **Fallback** **(optional)**: A fallback phone number to be transferred to if the channel target is not available.
+
+* **Agent**: The agent that should use this channel (the agent must have been created before you can associate a channel with it). Only one agent can be associated with a channel, and vice-versa.
+
+* **Test**: Whether or not this is a test channel. If a channel is designated as a test channel, any [sessions](/workspaces/Sessions) that take place on it will be omitted from dashboards, and can also be filtered out from the sessions list screen.

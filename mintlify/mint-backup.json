@@ -1,0 +1,290 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Syllable SDK",
+  "logo": {
+    "light": "/logo/Logo_96px_Black.webp",
+    "dark": "/logo/Logo_96px_White.webp"
+  },
+  "favicon": "/logo/32_32.png",
+  "colors": {
+    "primary": "#5a50f5",
+    "light": "#ff7255",
+    "dark": "#f2f0fe",
+    "anchors": {
+      "from": "#0D9373",
+      "to": "#07C983"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Community",
+      "url": "https://community.syllable.ai/"
+    }
+  ],
+  "primaryTab": {
+    "name": "Home"
+  },
+  "tabs": [
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    },
+    {
+      "name": "SDK Reference",
+      "url": "sdk-docs"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Console",
+    "url": "https://beta.syllable.cloud"
+  },
+  "anchors": [
+    {
+      "name": "API Reference",
+      "openapi": "https://spec.speakeasy.com/actiumhealth/actiumhealth/syllable-sdk-oas-with-code-samples",
+      "url": "api-reference",
+      "icon": "square-terminal"
+    }
+  ],
+  "openapi": "https://spec.speakeasy.com/actiumhealth/actiumhealth/syllable-sdk-oas-with-code-samples",
+  "navigation": [
+    {
+      "group": "Overview",
+      "pages": [
+        "introsyllable/HowSyllableWorks",
+        "introsyllable/KeyFeatures",
+        "introsyllable/LoginSignup"
+      ]
+    },
+    {
+      "group": "Build your first Agent",
+      "pages": [
+        "buildFirstAgent/Overview",
+        "buildFirstAgent/CreatePrompt",
+        "buildFirstAgent/CreateCustomMessage",
+        "buildFirstAgent/CreateChannel",
+        "buildFirstAgent/CreateAgent"
+      ]
+    },
+    {
+      "group": "Workspaces",
+      "pages": [
+        {
+            "group": "Agents",
+            "pages": ["workspaces/Agents", "workspaces/SessionConfig"]
+        },
+        "workspaces/Insights"
+      ]
+    },
+    {
+      "group": "Resources",
+      "pages": [
+        "Resources/res_WritePrompt",
+        "Resources/Tools",
+        "Resources/CustomMessages",
+        "Resources/Channels"
+      ]
+    },
+    {
+      "group": "SDK Reference",
+      "pages": [
+        "sdk-docs/Overview",
+        "sdk-docs/functions",
+        "sdk-docs/runtimes"
+      ]
+    },
+    {
+      "group": "Configuration & Settings",
+      "pages": [
+        "sdk-docs/Agents",
+        "sdk-docs/Prompts",
+        "sdk-docs/CustomMessages",
+        "sdk-docs/Tools",
+        "sdk-docs/Services",
+        "sdk-docs/Channels",
+        "sdk-docs/Targets",
+        "sdk-docs/Directory"
+      ]
+    },
+    {
+      "group": "Insights & Analytics",
+      "pages": [
+        "sdk-docs/Sessions",
+        "sdk-docs/Conversations",
+        "sdk-docs/Transcripts",
+        "sdk-docs/Events",
+        "sdk-docs/SessionLabels"
+      ]
+    },
+    {
+      "group": "Models",
+      "pages": [
+        {
+            "group": "Agent",
+            "pages": [
+              "sdk-docs/models/components/agent",
+              "sdk-docs/models/components/agentcreate",
+              "sdk-docs/models/components/agentupdate",
+              "sdk-docs/models/components/agentvoice",
+              "sdk-docs/models/components/agentvoicevarname",
+              "sdk-docs/models/components/agentproperties",
+              "sdk-docs/models/components/agentresponse",
+              "sdk-docs/models/components/agenttooldefaults",
+              "sdk-docs/models/components/agenttoolfielddefault",
+              "sdk-docs/models/operations/agentdeleterequest",
+              "sdk-docs/models/operations/agentlistrequest",
+              "sdk-docs/models/operations/agentgetbyidrequest"
+            ]
+        },
+        {
+            "group": "Prompt",
+            "pages": [
+              "sdk-docs/models/components/prompt",
+              "sdk-docs/models/components/promptcreate",
+              "sdk-docs/models/components/promptproperties",
+              "sdk-docs/models/components/prompthistory",
+              "sdk-docs/models/components/prompthistoryrequest",
+              "sdk-docs/models/operations/promptupdate",
+              "sdk-docs/models/operations/promptdeleterequest",
+              "sdk-docs/models/operations/promptlistrequest",
+              "sdk-docs/models/operations/promptgetbyidrequest"
+            ]
+        },
+        {
+          "group": "Components",
+          "pages": [
+            "/sdk-docs/models/components/agent",
+            "/sdk-docs/models/components/agentcreate",
+            "/sdk-docs/models/components/agentproperties",
+            "/sdk-docs/models/components/agentresponse",
+            "/sdk-docs/models/components/agenttooldefaults",
+            "/sdk-docs/models/components/agenttoolfielddefault",
+            "/sdk-docs/models/components/agentupdate",
+            "/sdk-docs/models/components/agentvoice",
+            "/sdk-docs/models/components/agentvoicevarname",
+            "/sdk-docs/models/components/attributes",
+            "/sdk-docs/models/components/availabletarget",
+            "/sdk-docs/models/components/availabletargetproperties",
+            "/sdk-docs/models/components/bodydirectorymemberbulkload",
+            "/sdk-docs/models/components/channel",
+            "/sdk-docs/models/components/channelproperties",
+            "/sdk-docs/models/components/channelservices",
+            "/sdk-docs/models/components/channeltarget",
+            "/sdk-docs/models/components/channeltargetcreaterequest",
+            "/sdk-docs/models/components/channeltargetproperties",
+            "/sdk-docs/models/components/channeltargetupdaterequest",
+            "/sdk-docs/models/components/contacttags",
+            "/sdk-docs/models/components/conversation",
+            "/sdk-docs/models/components/conversationproperties",
+            "/sdk-docs/models/components/custommessage",
+            "/sdk-docs/models/components/custommessagecreaterequest",
+            "/sdk-docs/models/components/custommessageproperties",
+            "/sdk-docs/models/components/custommessageresponse",
+            "/sdk-docs/models/components/custommessageupdaterequest",
+            "/sdk-docs/models/components/daochanneltargetagent",
+            "/sdk-docs/models/components/daocustommessagerule",
+            "/sdk-docs/models/components/dayofweek",
+            "/sdk-docs/models/components/definition",
+            "/sdk-docs/models/components/directoryextension",
+            "/sdk-docs/models/components/directorymember",
+            "/sdk-docs/models/components/directorymembercreate",
+            "/sdk-docs/models/components/directorymembercreatecontacttags",
+            "/sdk-docs/models/components/directorymemberproperties",
+            "/sdk-docs/models/components/event",
+            "/sdk-docs/models/components/eventproperties",
+            "/sdk-docs/models/components/filet",
+            "/sdk-docs/models/components/listresponseagentresponse",
+            "/sdk-docs/models/components/listresponseavailabletarget",
+            "/sdk-docs/models/components/listresponsechannel",
+            "/sdk-docs/models/components/listresponsechanneltarget",
+            "/sdk-docs/models/components/listresponseconversation",
+            "/sdk-docs/models/components/listresponsecustommessageresponse",
+            "/sdk-docs/models/components/listresponsedirectorymember",
+            "/sdk-docs/models/components/listresponseevent",
+            "/sdk-docs/models/components/listresponseprompt",
+            "/sdk-docs/models/components/listresponseservice",
+            "/sdk-docs/models/components/listresponsesession",
+            "/sdk-docs/models/components/listresponsesessionlabel",
+            "/sdk-docs/models/components/listresponsetool",
+            "/sdk-docs/models/components/llmconfig",
+            "/sdk-docs/models/components/loc",
+            "/sdk-docs/models/components/numbers",
+            "/sdk-docs/models/components/orderbydirection",
+            "/sdk-docs/models/components/prompt",
+            "/sdk-docs/models/components/promptcreate",
+            "/sdk-docs/models/components/prompthistory",
+            "/sdk-docs/models/components/promptproperties",
+            "/sdk-docs/models/components/promptupdate",
+            "/sdk-docs/models/components/provider",
+            "/sdk-docs/models/components/response",
+            "/sdk-docs/models/components/security",
+            "/sdk-docs/models/components/service",
+            "/sdk-docs/models/components/servicecreate",
+            "/sdk-docs/models/components/serviceproperties",
+            "/sdk-docs/models/components/serviceupdate",
+            "/sdk-docs/models/components/session",
+            "/sdk-docs/models/components/sessionaction",
+            "/sdk-docs/models/components/sessionlabel",
+            "/sdk-docs/models/components/sessionlabelcreate",
+            "/sdk-docs/models/components/sessionlabelproperties",
+            "/sdk-docs/models/components/sessionproperties",
+            "/sdk-docs/models/components/sessionrecordingresponse",
+            "/sdk-docs/models/components/sessiontext",
+            "/sdk-docs/models/components/sessiontranscriptionresponse",
+            "/sdk-docs/models/components/sttprovider",
+            "/sdk-docs/models/components/target",
+            "/sdk-docs/models/components/targetmodes",
+            "/sdk-docs/models/components/testmessage",
+            "/sdk-docs/models/components/testmessageresponse",
+            "/sdk-docs/models/components/tool",
+            "/sdk-docs/models/components/toolcreate",
+            "/sdk-docs/models/components/toolcreatedefinition",
+            "/sdk-docs/models/components/tooldetailresponse",
+            "/sdk-docs/models/components/toolproperties",
+            "/sdk-docs/models/components/toolupdate",
+            "/sdk-docs/models/components/toolupdatedefinition",
+            "/sdk-docs/models/components/validationerror"
+          ]
+        },
+        {
+          "group": "Operations",
+          "pages": [
+            "/sdk-docs/models/operations/agentdeleterequest",
+            "/sdk-docs/models/operations/agentgetbyidrequest",
+            "/sdk-docs/models/operations/agentlistrequest",
+            "/sdk-docs/models/operations/availabletargetsrequest",
+            "/sdk-docs/models/operations/channelslistrequest",
+            "/sdk-docs/models/operations/channeltargetscreaterequest",
+            "/sdk-docs/models/operations/channeltargetsdeleterequest",
+            "/sdk-docs/models/operations/channeltargetsgetbyidrequest",
+            "/sdk-docs/models/operations/channeltargetslistrequest",
+            "/sdk-docs/models/operations/channeltargetsupdaterequest",
+            "/sdk-docs/models/operations/conversationslistrequest",
+            "/sdk-docs/models/operations/custommessagegetbyidrequest",
+            "/sdk-docs/models/operations/custommessagesdeleterequest",
+            "/sdk-docs/models/operations/custommessageslistrequest",
+            "/sdk-docs/models/operations/directorymemberdeleterequest",
+            "/sdk-docs/models/operations/directorymembergetbyidrequest",
+            "/sdk-docs/models/operations/directorymemberlistrequest",
+            "/sdk-docs/models/operations/directorymemberupdaterequest",
+            "/sdk-docs/models/operations/eventslistrequest",
+            "/sdk-docs/models/operations/generatesessionrecordingurlsrequest",
+            "/sdk-docs/models/operations/promptsdeleterequest",
+            "/sdk-docs/models/operations/promptsgetbyidrequest",
+            "/sdk-docs/models/operations/promptshistoryrequest",
+            "/sdk-docs/models/operations/promptslistrequest",
+            "/sdk-docs/models/operations/servicelistrequest",
+            "/sdk-docs/models/operations/sessiongetbyidrequest",
+            "/sdk-docs/models/operations/sessionlabelgetbyidrequest",
+            "/sdk-docs/models/operations/sessionlabelslistrequest",
+            "/sdk-docs/models/operations/sessionrecordingstreamrequest",
+            "/sdk-docs/models/operations/sessionslistrequest",
+            "/sdk-docs/models/operations/sessiontranscriptgetbyidrequest",
+            "/sdk-docs/models/operations/toolgetbynamerequest",
+            "/sdk-docs/models/operations/toollistrequest"
+          ]
+        }
+      ]
+    }
+  ]
+}

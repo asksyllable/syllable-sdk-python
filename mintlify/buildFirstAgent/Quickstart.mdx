@@ -1,0 +1,22 @@
+---
+title: "Start here"
+icon: "play"
+---
+
+A Syllable agent can communicate with users via various channels, respond to their questions, and perform tasks on their behalf. You have control over all aspects of an agent, and can specify their capabilities, their personalities, and all other configuration via the Syllable Console or via code using the [Syllable SDK](https://docs.syllable.ai/sdk-docs/Overview).
+
+In this guide, we're going to use the Syllable Console to create a weather agent. The weather agent will be an assistant that can provide users with real-time weather information and general weather-related knowledge.
+
+We'll be creating the following components:
+
+* A **prompt** contains natural-language instructions for the LLM that detail everything the agent does, how it does those things, and what it shouldn't do. Our prompt will explain to the LLM how it should behave as a weather agent.
+
+* A **data source** is an arbitrary blob of text containing predefined static information. Our data source will contain general information about types of weather and meteorology concepts, so that our agent will be able to tell users about those things if asked.
+
+* A **tool** is a function that an agent can use to carry out actions like calling APIs or looking up information, as part of following the instructions defined in the prompt. We'll need two tools: one to give it access to our data source with the general weather information, and one to give the weather agent the ability to query the [Open-Meteo API](https://open-meteo.com/en/docs) for real-time weather data. We'll be linking these tools to the prompt, so that any agents using the prompt will be able to access them.
+
+* A **message** is a greeting that the agent delivers to the user at the beginning of the conversation. It can be configured to use a different script depending on the date, day of the week, and/or time of the day. Our message will give the user a friendly greeting explaining what the weather agent can do for them.
+
+* The **agent** itself, which links together all the components above.
+
+Click "Create a prompt" below to start the tutorial.

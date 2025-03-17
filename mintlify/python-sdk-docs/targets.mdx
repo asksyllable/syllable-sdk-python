@@ -1,0 +1,103 @@
+---
+title: 'Targets'
+---
+(*channels.targets*)
+
+## Overview
+
+Operations related to channel target configuration. A channel target           links a channel to an agent, allowing users to communicate with the agent through that           channel. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Channels).
+
+### Available Operations
+
+* [get](#get) - Get A Channel Target
+* [update](#update) - Edit Channel Target
+
+## get
+
+Get A Channel Target
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.channels.targets.get(channel_id=931598, target_id=505057)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `channel_id`                                                        | *int*                                                               | TRUE                                                  | N/A                                                                 |
+| `target_id`                                                         | *int*                                                               | TRUE                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | FALSE                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ChannelTargetResponse](../../models/channeltargetresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## update
+
+Update channel target by ID
+
+### Example Usage
+
+```python
+import os
+import syllable_sdk
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.channels.targets.update(channel_id_param=627690, target_id=488852, agent_id=857478, channel_id=597129, target="<value>", target_mode=syllable_sdk.TargetModes.CHAT, id=991464)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                      | Type                                                                                                                           | Required                                                                                                                       | Description                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| `channel_id_param`                                                                                                             | *int*                                                                                                                          | TRUE                                                                                                             | N/A                                                                                                                            |
+| `target_id`                                                                                                                    | *int*                                                                                                                          | TRUE                                                                                                             | N/A                                                                                                                            |
+| `agent_id`                                                                                                                     | *int*                                                                                                                          | TRUE                                                                                                             | The ID of the agent associated with the channel target                                                                         |
+| `channel_id`                                                                                                                   | *int*                                                                                                                          | TRUE                                                                                                             | The ID of the channel associated with the channel target                                                                       |
+| `target`                                                                                                                       | *str*                                                                                                                          | TRUE                                                                                                             | The name of the channel target (must correspond to an organization-level target)                                               |
+| `target_mode`                                                                                                                  | [models.TargetModes](../../models/targetmodes.md)                                                                              | TRUE                                                                                                             | Available modes (communication methods) for channel targets.                                                                   |
+| `id`                                                                                                                           | *int*                                                                                                                          | TRUE                                                                                                             | The ID of the channel target                                                                                                   |
+| `fallback_target`                                                                                                              | *OptionalNullable[str]*                                                                                                        | FALSE                                                                                                             | The fallback for the channel target (currently only supported for "voice" mode)                                                |
+| `is_test`                                                                                                                      | *Optional[bool]*                                                                                                               | FALSE                                                                                                             | Whether the channel target is intended for testing. If true, any sessions created through this target will be labeled as test. |
+| `retries`                                                                                                                      | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                               | FALSE                                                                                                             | Configuration to override the default retry behavior of the client.                                                            |
+
+### Response
+
+**[models.ChannelTargetResponse](../../models/channeltargetresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
