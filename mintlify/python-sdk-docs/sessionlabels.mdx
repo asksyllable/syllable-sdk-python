@@ -5,13 +5,15 @@ title: 'SessionLabels'
 
 ## Overview
 
+Operations related to labeling sessions with evaluations of quality and           descriptions of issues the user encountered or other details. For more information, see           [Console docs](https://docs.syllable.ai/workspaces/Sessions).
+
 ### Available Operations
 
-* [get](#get) - Get Label By Id
+* [get_by_id](#get_by_id) - Get Label By Id
 * [create](#create) - Create Label
 * [list](#list) - Session Labels List
 
-## get
+## get_by_id
 
 Get Label By Id
 
@@ -26,7 +28,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.session_labels.get(session_label_id=931598)
+    res = ss_client.session_labels.get_by_id(session_label_id=931598)
 
     # Handle response
     print(res)
@@ -66,9 +68,15 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.session_labels.create(session_id=486589, type_="auto-rating", code="BAD", user_email="<value>", issue_categories=[
-        "Silent treatment",
-    ])
+    res = ss_client.session_labels.create(request={
+        "session_id": 486589,
+        "type": "auto-rating",
+        "code": "BAD",
+        "user_email": "<value>",
+        "issue_categories": [
+            "Silent treatment",
+        ],
+    })
 
     # Handle response
     print(res)
@@ -77,15 +85,10 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `session_id`                                                        | *int*                                                               | TRUE                                                  | The internal ID of the session (see Session.session_id)             |                                                                     |
-| `type`                                                              | *str*                                                               | TRUE                                                  | The type of the label                                               | auto-rating                                                         |
-| `code`                                                              | *str*                                                               | TRUE                                                  | A code describing the quality of the labeled session                | GOOD                                                                |
-| `user_email`                                                        | *str*                                                               | TRUE                                                  | The email of the user who created the label                         |                                                                     |
-| `comments`                                                          | *OptionalNullable[str]*                                             | FALSE                                                  | Comment string describing additional details about the session      |                                                                     |
-| `issue_categories`                                                  | List[*str*]                                                         | FALSE                                                  | Descriptions of issues occurring in the labeled call                | [<br/>"Silent treatment"<br/>]                                      |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | FALSE                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request`                                                           | [models.SessionLabelCreate](../../models/sessionlabelcreate.md)     | TRUE                                                  | The request object to use for the request.                          |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | FALSE                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 

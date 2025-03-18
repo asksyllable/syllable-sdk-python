@@ -10,9 +10,9 @@ Operations related to sessions. A session is a building block of a           con
 ### Available Operations
 
 * [list](#list) - Sessions List
-* [get_full_summary](#get_full_summary) - Get Full Session Summary By Id
 * [get_by_id](#get_by_id) - Get A Single Session By Id
-* [stream_recording](#stream_recording) - Stream Recording
+* [generate_session_recording_urls](#generate_session_recording_urls) - Generate Recording Urls
+* [session_recording_stream](#session_recording_stream) - Stream Recording
 
 ## list
 
@@ -67,46 +67,6 @@ with SyllableSDK(
 | models.HTTPValidationError | 422                        | application/json           |
 | models.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## get_full_summary
-
-Get Full Session Summary By Id
-
-### Example Usage
-
-```python
-import os
-from syllable_sdk import SyllableSDK
-
-
-with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-) as ss_client:
-
-    res = ss_client.sessions.get_full_summary(session_id="<id>")
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `session_id`                                                        | *str*                                                               | TRUE                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | FALSE                                                  | Configuration to override the default retry behavior of the client. |
-
-### Response
-
-**[models.SessionSummaryResponse](../../models/sessionsummaryresponse.md)**
-
-### Errors
-
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
-
 ## get_by_id
 
 Get A Single Session By Id
@@ -147,7 +107,47 @@ with SyllableSDK(
 | models.HTTPValidationError | 422                        | application/json           |
 | models.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## stream_recording
+## generate_session_recording_urls
+
+Generate Recording Urls
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.sessions.generate_session_recording_urls(session_id="<id>")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `session_id`                                                        | *str*                                                               | TRUE                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | FALSE                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.SessionRecordingResponse](../../models/sessionrecordingresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## session_recording_stream
 
 Stream Recording
 
@@ -162,7 +162,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.sessions.stream_recording(token="<value>")
+    res = ss_client.sessions.session_recording_stream(token="<value>")
 
     # Handle response
     print(res)
