@@ -2,7 +2,7 @@ speakeasyVersion: 1.519.0
 sources:
     SyllableSDK:
         sourceNamespace: syllable-sdk
-        sourceRevisionDigest: sha256:3b4ea534c8af3784fe030211ebc008713e5a3d3408030a4fba83226c08ec60be
+        sourceRevisionDigest: sha256:efd75d0f12f21f580917d50a528584b82c91ee11b7500fcc4a255dbaa79c1e5a
         sourceBlobDigest: sha256:601fe84ebc10eb495259d86c416d5aeb5c66ba688cb3b13e2a9b4f02f66bb0db
         tags:
             - latest
@@ -11,17 +11,20 @@ targets:
     syllable-sdk:
         source: SyllableSDK
         sourceNamespace: syllable-sdk
-        sourceRevisionDigest: sha256:3b4ea534c8af3784fe030211ebc008713e5a3d3408030a4fba83226c08ec60be
+        sourceRevisionDigest: sha256:efd75d0f12f21f580917d50a528584b82c91ee11b7500fcc4a255dbaa79c1e5a
         sourceBlobDigest: sha256:601fe84ebc10eb495259d86c416d5aeb5c66ba688cb3b13e2a9b4f02f66bb0db
         codeSamplesNamespace: syllable-sdk-python-code-samples
-        codeSamplesRevisionDigest: sha256:1b6ffec2aedee7e8c107a0389340dac0b8501a508b03eb7b5fe0525998e666df
+        codeSamplesRevisionDigest: sha256:211cb0b86f1e51668b73b3926b361ab4d6ec5bfd4bac075704404d8b252d3709
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
     sources:
         SyllableSDK:
             inputs:
-                - location: openapi.yaml
+                - location: openapi.json
+            overlays:
+                - location: overlay-remove-V1.yaml
+            output: openapi.yaml
             registry:
                 location: registry.speakeasyapi.dev/actiumhealth/actiumhealth/syllable-sdk
     targets:

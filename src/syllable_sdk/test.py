@@ -3,9 +3,9 @@
 from .basesdk import BaseSDK
 from syllable_sdk import models, utils
 from syllable_sdk._hooks import HookContext
-from syllable_sdk.types import OptionalNullable, UNSET
+from syllable_sdk.types import BaseModel, OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
-from typing import Any, Mapping, Optional
+from typing import Any, Mapping, Optional, Union, cast
 
 
 class Test(BaseSDK):
@@ -14,14 +14,7 @@ class Test(BaseSDK):
     def send_test_message(
         self,
         *,
-        service_name: str,
-        source: str,
-        test_id: str,
-        agent_id: str,
-        text: OptionalNullable[str] = UNSET,
-        org_name: OptionalNullable[str] = UNSET,
-        override_timestamp: OptionalNullable[str] = UNSET,
-        session_start: Optional[bool] = False,
+        request: Union[models.TestMessage, models.TestMessageTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -31,14 +24,7 @@ class Test(BaseSDK):
 
         Send a new message
 
-        :param service_name: Name of the service producing the message
-        :param source: Name of the source of the message, should identify the user, like an email or username
-        :param test_id: Channel-manager-side ID of the session (see Session.channel_manager_sid)
-        :param agent_id: ID of the agent with which the chat is taking place
-        :param text: The text of the message
-        :param org_name: Unused: Name of the organization associated with the agent
-        :param override_timestamp: Override for the timestamp of the message
-        :param session_start: Whether this message is the start of a new session
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -54,16 +40,9 @@ class Test(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.TestMessage(
-            service_name=service_name,
-            source=source,
-            text=text,
-            test_id=test_id,
-            agent_id=agent_id,
-            org_name=org_name,
-            override_timestamp=override_timestamp,
-            session_start=session_start,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.TestMessage)
+        request = cast(models.TestMessage, request)
 
         req = self._build_request(
             method="POST",
@@ -137,14 +116,7 @@ class Test(BaseSDK):
     async def send_test_message_async(
         self,
         *,
-        service_name: str,
-        source: str,
-        test_id: str,
-        agent_id: str,
-        text: OptionalNullable[str] = UNSET,
-        org_name: OptionalNullable[str] = UNSET,
-        override_timestamp: OptionalNullable[str] = UNSET,
-        session_start: Optional[bool] = False,
+        request: Union[models.TestMessage, models.TestMessageTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -154,14 +126,7 @@ class Test(BaseSDK):
 
         Send a new message
 
-        :param service_name: Name of the service producing the message
-        :param source: Name of the source of the message, should identify the user, like an email or username
-        :param test_id: Channel-manager-side ID of the session (see Session.channel_manager_sid)
-        :param agent_id: ID of the agent with which the chat is taking place
-        :param text: The text of the message
-        :param org_name: Unused: Name of the organization associated with the agent
-        :param override_timestamp: Override for the timestamp of the message
-        :param session_start: Whether this message is the start of a new session
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -177,16 +142,9 @@ class Test(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.TestMessage(
-            service_name=service_name,
-            source=source,
-            text=text,
-            test_id=test_id,
-            agent_id=agent_id,
-            org_name=org_name,
-            override_timestamp=override_timestamp,
-            session_start=session_start,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.TestMessage)
+        request = cast(models.TestMessage, request)
 
         req = self._build_request_async(
             method="POST",

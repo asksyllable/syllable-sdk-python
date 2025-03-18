@@ -5,23 +5,20 @@ from .channeltargetupdaterequest import (
     ChannelTargetUpdateRequest,
     ChannelTargetUpdateRequestTypedDict,
 )
-import pydantic
 from syllable_sdk.types import BaseModel
 from syllable_sdk.utils import FieldMetadata, PathParamMetadata, RequestMetadata
 from typing_extensions import Annotated, TypedDict
 
 
 class ChannelTargetsUpdateRequestTypedDict(TypedDict):
-    channel_id_param: int
+    channel_id: int
     target_id: int
     channel_target_update_request: ChannelTargetUpdateRequestTypedDict
 
 
 class ChannelTargetsUpdateRequest(BaseModel):
-    channel_id_param: Annotated[
-        int,
-        pydantic.Field(alias="channel_id"),
-        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
+    channel_id: Annotated[
+        int, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
 
     target_id: Annotated[

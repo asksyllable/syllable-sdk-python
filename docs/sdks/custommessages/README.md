@@ -82,38 +82,42 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.custom_messages.create(name="<value>", text="<value>", rules=[
-        {
-            "description": "delightfully fumigate convection though zowie up bulky electronics",
-            "invert": False,
-            "text": "Sorry, we're closed today",
-            "time_range_start": "09:00",
-            "time_range_end": "17:00",
-            "date_": "2025-01-01",
-            "days_of_week": [
-                syllable_sdk.DayOfWeek.MO,
-                syllable_sdk.DayOfWeek.TU,
-                syllable_sdk.DayOfWeek.WE,
-                syllable_sdk.DayOfWeek.TH,
-                syllable_sdk.DayOfWeek.FR,
-            ],
-        },
-        {
-            "description": "yuck forager beneath please shadowy foodstuffs welcome",
-            "invert": True,
-            "text": "Sorry, we're closed today",
-            "time_range_start": "09:00",
-            "time_range_end": "17:00",
-            "date_": "2025-01-01",
-            "days_of_week": [
-                syllable_sdk.DayOfWeek.MO,
-                syllable_sdk.DayOfWeek.TU,
-                syllable_sdk.DayOfWeek.WE,
-                syllable_sdk.DayOfWeek.TH,
-                syllable_sdk.DayOfWeek.FR,
-            ],
-        },
-    ])
+    res = ss_client.custom_messages.create(request={
+        "name": "<value>",
+        "text": "<value>",
+        "rules": [
+            {
+                "description": "delightfully fumigate convection though zowie up bulky electronics",
+                "invert": False,
+                "text": "Sorry, we're closed today",
+                "time_range_start": "09:00",
+                "time_range_end": "17:00",
+                "date_": "2025-01-01",
+                "days_of_week": [
+                    syllable_sdk.DayOfWeek.MO,
+                    syllable_sdk.DayOfWeek.TU,
+                    syllable_sdk.DayOfWeek.WE,
+                    syllable_sdk.DayOfWeek.TH,
+                    syllable_sdk.DayOfWeek.FR,
+                ],
+            },
+            {
+                "description": "yuck forager beneath please shadowy foodstuffs welcome",
+                "invert": True,
+                "text": "Sorry, we're closed today",
+                "time_range_start": "09:00",
+                "time_range_end": "17:00",
+                "date_": "2025-01-01",
+                "days_of_week": [
+                    syllable_sdk.DayOfWeek.MO,
+                    syllable_sdk.DayOfWeek.TU,
+                    syllable_sdk.DayOfWeek.WE,
+                    syllable_sdk.DayOfWeek.TH,
+                    syllable_sdk.DayOfWeek.FR,
+                ],
+            },
+        ],
+    })
 
     # Handle response
     print(res)
@@ -122,14 +126,10 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `name`                                                              | *str*                                                               | :heavy_check_mark:                                                  | The name of the custom message                                      |
-| `text`                                                              | *str*                                                               | :heavy_check_mark:                                                  | The text of the custom message                                      |
-| `label`                                                             | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The label of the custom message                                     |
-| `rules`                                                             | List[[models.CustomMessageRule](../../models/custommessagerule.md)] | :heavy_minus_sign:                                                  | Rules for time-specific message variants                            |
-| `type`                                                              | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `request`                                                                       | [models.CustomMessageCreateRequest](../../models/custommessagecreaterequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+| `retries`                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                | :heavy_minus_sign:                                                              | Configuration to override the default retry behavior of the client.             |
 
 ### Response
 
@@ -158,53 +158,58 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.custom_messages.update(name="<value>", text="<value>", id=975440, rules=[
-        {
-            "description": "technician eulogise whereas till mild than during",
-            "invert": True,
-            "text": "Sorry, we're closed today",
-            "time_range_start": "09:00",
-            "time_range_end": "17:00",
-            "date_": "2025-01-01",
-            "days_of_week": [
-                syllable_sdk.DayOfWeek.MO,
-                syllable_sdk.DayOfWeek.TU,
-                syllable_sdk.DayOfWeek.WE,
-                syllable_sdk.DayOfWeek.TH,
-                syllable_sdk.DayOfWeek.FR,
-            ],
-        },
-        {
-            "description": "qualified cycle woot abseil perfumed fisherman with duh",
-            "invert": True,
-            "text": "Sorry, we're closed today",
-            "time_range_start": "09:00",
-            "time_range_end": "17:00",
-            "date_": "2025-01-01",
-            "days_of_week": [
-                syllable_sdk.DayOfWeek.MO,
-                syllable_sdk.DayOfWeek.TU,
-                syllable_sdk.DayOfWeek.WE,
-                syllable_sdk.DayOfWeek.TH,
-                syllable_sdk.DayOfWeek.FR,
-            ],
-        },
-        {
-            "description": "ultimately in likely opera please antelope",
-            "invert": True,
-            "text": "Sorry, we're closed today",
-            "time_range_start": "09:00",
-            "time_range_end": "17:00",
-            "date_": "2025-01-01",
-            "days_of_week": [
-                syllable_sdk.DayOfWeek.MO,
-                syllable_sdk.DayOfWeek.TU,
-                syllable_sdk.DayOfWeek.WE,
-                syllable_sdk.DayOfWeek.TH,
-                syllable_sdk.DayOfWeek.FR,
-            ],
-        },
-    ])
+    res = ss_client.custom_messages.update(request={
+        "name": "<value>",
+        "text": "<value>",
+        "id": 975440,
+        "rules": [
+            {
+                "description": "technician eulogise whereas till mild than during",
+                "invert": True,
+                "text": "Sorry, we're closed today",
+                "time_range_start": "09:00",
+                "time_range_end": "17:00",
+                "date_": "2025-01-01",
+                "days_of_week": [
+                    syllable_sdk.DayOfWeek.MO,
+                    syllable_sdk.DayOfWeek.TU,
+                    syllable_sdk.DayOfWeek.WE,
+                    syllable_sdk.DayOfWeek.TH,
+                    syllable_sdk.DayOfWeek.FR,
+                ],
+            },
+            {
+                "description": "qualified cycle woot abseil perfumed fisherman with duh",
+                "invert": True,
+                "text": "Sorry, we're closed today",
+                "time_range_start": "09:00",
+                "time_range_end": "17:00",
+                "date_": "2025-01-01",
+                "days_of_week": [
+                    syllable_sdk.DayOfWeek.MO,
+                    syllable_sdk.DayOfWeek.TU,
+                    syllable_sdk.DayOfWeek.WE,
+                    syllable_sdk.DayOfWeek.TH,
+                    syllable_sdk.DayOfWeek.FR,
+                ],
+            },
+            {
+                "description": "ultimately in likely opera please antelope",
+                "invert": True,
+                "text": "Sorry, we're closed today",
+                "time_range_start": "09:00",
+                "time_range_end": "17:00",
+                "date_": "2025-01-01",
+                "days_of_week": [
+                    syllable_sdk.DayOfWeek.MO,
+                    syllable_sdk.DayOfWeek.TU,
+                    syllable_sdk.DayOfWeek.WE,
+                    syllable_sdk.DayOfWeek.TH,
+                    syllable_sdk.DayOfWeek.FR,
+                ],
+            },
+        ],
+    })
 
     # Handle response
     print(res)
@@ -213,15 +218,10 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `name`                                                              | *str*                                                               | :heavy_check_mark:                                                  | The name of the custom message                                      |
-| `text`                                                              | *str*                                                               | :heavy_check_mark:                                                  | The text of the custom message                                      |
-| `id`                                                                | *int*                                                               | :heavy_check_mark:                                                  | The ID of the custom message                                        |
-| `label`                                                             | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The label of the custom message                                     |
-| `rules`                                                             | List[[models.CustomMessageRule](../../models/custommessagerule.md)] | :heavy_minus_sign:                                                  | Rules for time-specific message variants                            |
-| `type`                                                              | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `request`                                                                       | [models.CustomMessageUpdateRequest](../../models/custommessageupdaterequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+| `retries`                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                | :heavy_minus_sign:                                                              | Configuration to override the default retry behavior of the client.             |
 
 ### Response
 

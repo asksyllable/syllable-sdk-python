@@ -3,9 +3,9 @@
 from .basesdk import BaseSDK
 from syllable_sdk import models, utils
 from syllable_sdk._hooks import HookContext
-from syllable_sdk.types import OptionalNullable, UNSET
+from syllable_sdk.types import BaseModel, OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
-from typing import Any, List, Mapping, Optional
+from typing import Any, List, Mapping, Optional, Union, cast
 
 
 class DataSources(BaseSDK):
@@ -264,12 +264,9 @@ class DataSources(BaseSDK):
     def create(
         self,
         *,
-        name: str,
-        chunk: bool,
-        text: str,
-        description: OptionalNullable[str] = UNSET,
-        labels: Optional[List[str]] = None,
-        chunk_delimiter: OptionalNullable[str] = UNSET,
+        request: Union[
+            models.DataSourceCreateRequest, models.DataSourceCreateRequestTypedDict
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -279,12 +276,7 @@ class DataSources(BaseSDK):
 
         Create a new data source.
 
-        :param name: The data source name. Must be unique within suborg. Cannot contain whitespace.
-        :param chunk: Whether the content should be split into smaller chunks. (This feature is coming in the future - currently this value will always be treated as False.)
-        :param text: Information that the data source will provide to the agent accessing it.
-        :param description: The description of the data source.
-        :param labels: Searchable labels for the data source. Can be included in agent.prompt_tool_defaults for a given tool to give the agent access to data sources with those labels when calling that tool.
-        :param chunk_delimiter: String that should be treated as delimiter between intended chunks. (This feature is coming in the future - currently this value will always be treated as None.)
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -300,14 +292,9 @@ class DataSources(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.DataSourceCreateRequest(
-            name=name,
-            description=description,
-            labels=labels,
-            chunk=chunk,
-            chunk_delimiter=chunk_delimiter,
-            text=text,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.DataSourceCreateRequest)
+        request = cast(models.DataSourceCreateRequest, request)
 
         req = self._build_request(
             method="POST",
@@ -381,12 +368,9 @@ class DataSources(BaseSDK):
     async def create_async(
         self,
         *,
-        name: str,
-        chunk: bool,
-        text: str,
-        description: OptionalNullable[str] = UNSET,
-        labels: Optional[List[str]] = None,
-        chunk_delimiter: OptionalNullable[str] = UNSET,
+        request: Union[
+            models.DataSourceCreateRequest, models.DataSourceCreateRequestTypedDict
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -396,12 +380,7 @@ class DataSources(BaseSDK):
 
         Create a new data source.
 
-        :param name: The data source name. Must be unique within suborg. Cannot contain whitespace.
-        :param chunk: Whether the content should be split into smaller chunks. (This feature is coming in the future - currently this value will always be treated as False.)
-        :param text: Information that the data source will provide to the agent accessing it.
-        :param description: The description of the data source.
-        :param labels: Searchable labels for the data source. Can be included in agent.prompt_tool_defaults for a given tool to give the agent access to data sources with those labels when calling that tool.
-        :param chunk_delimiter: String that should be treated as delimiter between intended chunks. (This feature is coming in the future - currently this value will always be treated as None.)
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -417,14 +396,9 @@ class DataSources(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.DataSourceCreateRequest(
-            name=name,
-            description=description,
-            labels=labels,
-            chunk=chunk,
-            chunk_delimiter=chunk_delimiter,
-            text=text,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.DataSourceCreateRequest)
+        request = cast(models.DataSourceCreateRequest, request)
 
         req = self._build_request_async(
             method="POST",
@@ -498,14 +472,9 @@ class DataSources(BaseSDK):
     def update(
         self,
         *,
-        name: str,
-        chunk: bool,
-        id: int,
-        text: str,
-        description: OptionalNullable[str] = UNSET,
-        labels: Optional[List[str]] = None,
-        chunk_delimiter: OptionalNullable[str] = UNSET,
-        edit_comments: OptionalNullable[str] = UNSET,
+        request: Union[
+            models.DataSourceUpdateRequest, models.DataSourceUpdateRequestTypedDict
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -515,14 +484,7 @@ class DataSources(BaseSDK):
 
         Update an existing data source.
 
-        :param name: The data source name. Must be unique within suborg. Cannot contain whitespace.
-        :param chunk: Whether the content should be split into smaller chunks. (This feature is coming in the future - currently this value will always be treated as False.)
-        :param id: The data source ID.
-        :param text: Information that the data source will provide to the agent accessing it.
-        :param description: The description of the data source.
-        :param labels: Searchable labels for the data source. Can be included in agent.prompt_tool_defaults for a given tool to give the agent access to data sources with those labels when calling that tool.
-        :param chunk_delimiter: String that should be treated as delimiter between intended chunks. (This feature is coming in the future - currently this value will always be treated as None.)
-        :param edit_comments: The comments for the most recent edit to the data source
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -538,16 +500,9 @@ class DataSources(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.DataSourceUpdateRequest(
-            name=name,
-            description=description,
-            labels=labels,
-            chunk=chunk,
-            chunk_delimiter=chunk_delimiter,
-            id=id,
-            edit_comments=edit_comments,
-            text=text,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.DataSourceUpdateRequest)
+        request = cast(models.DataSourceUpdateRequest, request)
 
         req = self._build_request(
             method="PUT",
@@ -621,14 +576,9 @@ class DataSources(BaseSDK):
     async def update_async(
         self,
         *,
-        name: str,
-        chunk: bool,
-        id: int,
-        text: str,
-        description: OptionalNullable[str] = UNSET,
-        labels: Optional[List[str]] = None,
-        chunk_delimiter: OptionalNullable[str] = UNSET,
-        edit_comments: OptionalNullable[str] = UNSET,
+        request: Union[
+            models.DataSourceUpdateRequest, models.DataSourceUpdateRequestTypedDict
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -638,14 +588,7 @@ class DataSources(BaseSDK):
 
         Update an existing data source.
 
-        :param name: The data source name. Must be unique within suborg. Cannot contain whitespace.
-        :param chunk: Whether the content should be split into smaller chunks. (This feature is coming in the future - currently this value will always be treated as False.)
-        :param id: The data source ID.
-        :param text: Information that the data source will provide to the agent accessing it.
-        :param description: The description of the data source.
-        :param labels: Searchable labels for the data source. Can be included in agent.prompt_tool_defaults for a given tool to give the agent access to data sources with those labels when calling that tool.
-        :param chunk_delimiter: String that should be treated as delimiter between intended chunks. (This feature is coming in the future - currently this value will always be treated as None.)
-        :param edit_comments: The comments for the most recent edit to the data source
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -661,16 +604,9 @@ class DataSources(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.DataSourceUpdateRequest(
-            name=name,
-            description=description,
-            labels=labels,
-            chunk=chunk,
-            chunk_delimiter=chunk_delimiter,
-            id=id,
-            edit_comments=edit_comments,
-            text=text,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.DataSourceUpdateRequest)
+        request = cast(models.DataSourceUpdateRequest, request)
 
         req = self._build_request_async(
             method="PUT",

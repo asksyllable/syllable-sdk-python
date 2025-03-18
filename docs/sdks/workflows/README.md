@@ -81,11 +81,17 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.workflows.create(name="<value>", description="yuck vice between gee ugh ha", insight_tool_ids=[
-        780486,
-        760259,
-        219974,
-    ], conditions={}, status="<value>")
+    res = ss_client.insights.workflows.create(request={
+        "name": "<value>",
+        "description": "yuck vice between gee ugh ha",
+        "insight_tool_ids": [
+            780486,
+            760259,
+            219974,
+        ],
+        "conditions": {},
+        "status": "<value>",
+    })
 
     # Handle response
     print(res)
@@ -94,14 +100,10 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `name`                                                                                  | *str*                                                                                   | :heavy_check_mark:                                                                      | Human readable name of Insight Workflow                                                 |
-| `description`                                                                           | *str*                                                                                   | :heavy_check_mark:                                                                      | Text description of Insight Workflow                                                    |
-| `insight_tool_ids`                                                                      | List[*int*]                                                                             | :heavy_check_mark:                                                                      | List of Insight Tool IDs                                                                |
-| `conditions`                                                                            | [models.InsightWorkflowInputConditions](../../models/insightworkflowinputconditions.md) | :heavy_check_mark:                                                                      | Conditions for Insight Workflow                                                         |
-| `status`                                                                                | *str*                                                                                   | :heavy_check_mark:                                                                      | Status of the Insight Workflow                                                          |
-| `retries`                                                                               | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                        | :heavy_minus_sign:                                                                      | Configuration to override the default retry behavior of the client.                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request`                                                           | [models.InsightWorkflowInput](../../models/insightworkflowinput.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
@@ -169,9 +171,15 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.workflows.update(workflow_id=265006, name="<value>", description="awful underneath retention too mobility char innocently dowse restfully", insight_tool_ids=[
+    res = ss_client.insights.workflows.update(workflow_id=265006, insight_workflow_input={
+        "name": "<value>",
+        "description": "awful underneath retention too mobility char innocently dowse restfully",
+        "insight_tool_ids": [
 
-    ], conditions={}, status="<value>")
+        ],
+        "conditions": {},
+        "status": "<value>",
+    })
 
     # Handle response
     print(res)
@@ -180,15 +188,11 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `workflow_id`                                                                           | *int*                                                                                   | :heavy_check_mark:                                                                      | N/A                                                                                     |
-| `name`                                                                                  | *str*                                                                                   | :heavy_check_mark:                                                                      | Human readable name of Insight Workflow                                                 |
-| `description`                                                                           | *str*                                                                                   | :heavy_check_mark:                                                                      | Text description of Insight Workflow                                                    |
-| `insight_tool_ids`                                                                      | List[*int*]                                                                             | :heavy_check_mark:                                                                      | List of Insight Tool IDs                                                                |
-| `conditions`                                                                            | [models.InsightWorkflowInputConditions](../../models/insightworkflowinputconditions.md) | :heavy_check_mark:                                                                      | Conditions for Insight Workflow                                                         |
-| `status`                                                                                | *str*                                                                                   | :heavy_check_mark:                                                                      | Status of the Insight Workflow                                                          |
-| `retries`                                                                               | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                        | :heavy_minus_sign:                                                                      | Configuration to override the default retry behavior of the client.                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `workflow_id`                                                       | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `insight_workflow_input`                                            | [models.InsightWorkflowInput](../../models/insightworkflowinput.md) | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 

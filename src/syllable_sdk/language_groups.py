@@ -3,9 +3,9 @@
 from .basesdk import BaseSDK
 from syllable_sdk import models, utils
 from syllable_sdk._hooks import HookContext
-from syllable_sdk.types import OptionalNullable, UNSET
+from syllable_sdk.types import BaseModel, OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, List, Mapping, Optional, Union, cast
 
 
 class LanguageGroups(BaseSDK):
@@ -264,12 +264,10 @@ class LanguageGroups(BaseSDK):
     def create(
         self,
         *,
-        name: str,
-        language_configs: Union[
-            List[models.LanguageConfig], List[models.LanguageConfigTypedDict]
+        request: Union[
+            models.LanguageGroupCreateRequest,
+            models.LanguageGroupCreateRequestTypedDict,
         ],
-        skip_current_language_in_message: bool,
-        description: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -279,10 +277,7 @@ class LanguageGroups(BaseSDK):
 
         Create a new language group.
 
-        :param name: The name of the language group.
-        :param language_configs: Voice and DTMF configurations for each language in the group.
-        :param skip_current_language_in_message: Whether a message using the language group to generate a language DTMF menu should skip the agent's current language in the menu.
-        :param description: Description of the language group.
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -298,14 +293,9 @@ class LanguageGroups(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.LanguageGroupCreateRequest(
-            name=name,
-            description=description,
-            language_configs=utils.get_pydantic_model(
-                language_configs, List[models.LanguageConfig]
-            ),
-            skip_current_language_in_message=skip_current_language_in_message,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.LanguageGroupCreateRequest)
+        request = cast(models.LanguageGroupCreateRequest, request)
 
         req = self._build_request(
             method="POST",
@@ -379,12 +369,10 @@ class LanguageGroups(BaseSDK):
     async def create_async(
         self,
         *,
-        name: str,
-        language_configs: Union[
-            List[models.LanguageConfig], List[models.LanguageConfigTypedDict]
+        request: Union[
+            models.LanguageGroupCreateRequest,
+            models.LanguageGroupCreateRequestTypedDict,
         ],
-        skip_current_language_in_message: bool,
-        description: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -394,10 +382,7 @@ class LanguageGroups(BaseSDK):
 
         Create a new language group.
 
-        :param name: The name of the language group.
-        :param language_configs: Voice and DTMF configurations for each language in the group.
-        :param skip_current_language_in_message: Whether a message using the language group to generate a language DTMF menu should skip the agent's current language in the menu.
-        :param description: Description of the language group.
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -413,14 +398,9 @@ class LanguageGroups(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.LanguageGroupCreateRequest(
-            name=name,
-            description=description,
-            language_configs=utils.get_pydantic_model(
-                language_configs, List[models.LanguageConfig]
-            ),
-            skip_current_language_in_message=skip_current_language_in_message,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.LanguageGroupCreateRequest)
+        request = cast(models.LanguageGroupCreateRequest, request)
 
         req = self._build_request_async(
             method="POST",
@@ -494,14 +474,10 @@ class LanguageGroups(BaseSDK):
     def update(
         self,
         *,
-        name: str,
-        language_configs: Union[
-            List[models.LanguageConfig], List[models.LanguageConfigTypedDict]
+        request: Union[
+            models.LanguageGroupUpdateRequest,
+            models.LanguageGroupUpdateRequestTypedDict,
         ],
-        skip_current_language_in_message: bool,
-        id: int,
-        description: OptionalNullable[str] = UNSET,
-        edit_comments: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -511,12 +487,7 @@ class LanguageGroups(BaseSDK):
 
         Update an existing language group
 
-        :param name: The name of the language group.
-        :param language_configs: Voice and DTMF configurations for each language in the group.
-        :param skip_current_language_in_message: Whether a message using the language group to generate a language DTMF menu should skip the agent's current language in the menu.
-        :param id: The ID of the language group to update.
-        :param description: Description of the language group.
-        :param edit_comments: Comments for the most recent edit to the language group.
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -532,16 +503,9 @@ class LanguageGroups(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.LanguageGroupUpdateRequest(
-            name=name,
-            description=description,
-            language_configs=utils.get_pydantic_model(
-                language_configs, List[models.LanguageConfig]
-            ),
-            skip_current_language_in_message=skip_current_language_in_message,
-            id=id,
-            edit_comments=edit_comments,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.LanguageGroupUpdateRequest)
+        request = cast(models.LanguageGroupUpdateRequest, request)
 
         req = self._build_request(
             method="PUT",
@@ -615,14 +579,10 @@ class LanguageGroups(BaseSDK):
     async def update_async(
         self,
         *,
-        name: str,
-        language_configs: Union[
-            List[models.LanguageConfig], List[models.LanguageConfigTypedDict]
+        request: Union[
+            models.LanguageGroupUpdateRequest,
+            models.LanguageGroupUpdateRequestTypedDict,
         ],
-        skip_current_language_in_message: bool,
-        id: int,
-        description: OptionalNullable[str] = UNSET,
-        edit_comments: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -632,12 +592,7 @@ class LanguageGroups(BaseSDK):
 
         Update an existing language group
 
-        :param name: The name of the language group.
-        :param language_configs: Voice and DTMF configurations for each language in the group.
-        :param skip_current_language_in_message: Whether a message using the language group to generate a language DTMF menu should skip the agent's current language in the menu.
-        :param id: The ID of the language group to update.
-        :param description: Description of the language group.
-        :param edit_comments: Comments for the most recent edit to the language group.
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -653,16 +608,9 @@ class LanguageGroups(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.LanguageGroupUpdateRequest(
-            name=name,
-            description=description,
-            language_configs=utils.get_pydantic_model(
-                language_configs, List[models.LanguageConfig]
-            ),
-            skip_current_language_in_message=skip_current_language_in_message,
-            id=id,
-            edit_comments=edit_comments,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.LanguageGroupUpdateRequest)
+        request = cast(models.LanguageGroupUpdateRequest, request)
 
         req = self._build_request_async(
             method="PUT",

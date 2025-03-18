@@ -81,7 +81,13 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.tools.create(name="<value>", description="yuck vice between gee ugh ha", version=920994, tool_arguments={}, insight_tool_definition_id=780486)
+    res = ss_client.insights.tools.create(request={
+        "name": "<value>",
+        "description": "yuck vice between gee ugh ha",
+        "version": 920994,
+        "tool_arguments": {},
+        "insight_tool_definition_id": 780486,
+    })
 
     # Handle response
     print(res)
@@ -90,14 +96,10 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `name`                                                                                | *str*                                                                                 | :heavy_check_mark:                                                                    | Human readable name of Insight Tool                                                   |
-| `description`                                                                         | *str*                                                                                 | :heavy_check_mark:                                                                    | Text description of Insight Tool                                                      |
-| `version`                                                                             | *int*                                                                                 | :heavy_check_mark:                                                                    | Version number of Insight Tool                                                        |
-| `tool_arguments`                                                                      | [models.InsightToolInputToolArguments](../../models/insighttoolinputtoolarguments.md) | :heavy_check_mark:                                                                    | Arguments for Insight Tool                                                            |
-| `insight_tool_definition_id`                                                          | *int*                                                                                 | :heavy_check_mark:                                                                    | Unique ID for Insight Tool Definition                                                 |
-| `retries`                                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                      | :heavy_minus_sign:                                                                    | Configuration to override the default retry behavior of the client.                   |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request`                                                           | [models.InsightToolInput](../../models/insighttoolinput.md)         | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
@@ -165,7 +167,13 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.tools.update(tool_id=198183, name="<value>", description="awful underneath retention too mobility char innocently dowse restfully", version=243447, tool_arguments={}, insight_tool_definition_id=265006)
+    res = ss_client.insights.tools.update(tool_id=198183, insight_tool_input={
+        "name": "<value>",
+        "description": "awful underneath retention too mobility char innocently dowse restfully",
+        "version": 243447,
+        "tool_arguments": {},
+        "insight_tool_definition_id": 265006,
+    })
 
     # Handle response
     print(res)
@@ -174,15 +182,11 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `tool_id`                                                                             | *int*                                                                                 | :heavy_check_mark:                                                                    | N/A                                                                                   |
-| `name`                                                                                | *str*                                                                                 | :heavy_check_mark:                                                                    | Human readable name of Insight Tool                                                   |
-| `description`                                                                         | *str*                                                                                 | :heavy_check_mark:                                                                    | Text description of Insight Tool                                                      |
-| `version`                                                                             | *int*                                                                                 | :heavy_check_mark:                                                                    | Version number of Insight Tool                                                        |
-| `tool_arguments`                                                                      | [models.InsightToolInputToolArguments](../../models/insighttoolinputtoolarguments.md) | :heavy_check_mark:                                                                    | Arguments for Insight Tool                                                            |
-| `insight_tool_definition_id`                                                          | *int*                                                                                 | :heavy_check_mark:                                                                    | Unique ID for Insight Tool Definition                                                 |
-| `retries`                                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                      | :heavy_minus_sign:                                                                    | Configuration to override the default retry behavior of the client.                   |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `tool_id`                                                           | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `insight_tool_input`                                                | [models.InsightToolInput](../../models/insighttoolinput.md)         | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 

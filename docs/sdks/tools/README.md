@@ -82,24 +82,28 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.tools.create(name="Weather Fetcher", definition={
-        "tool": {
-            "function": {
-                "name": "weather_fetcher",
-                "description": "Fetches weather data",
-                "parameters": {
+    res = ss_client.tools.create(request={
+        "name": "Weather Fetcher",
+        "definition": {
+            "tool": {
+                "function": {
+                    "name": "weather_fetcher",
+                    "description": "Fetches weather data",
+                    "parameters": {
 
+                    },
                 },
+                "type": "function",
             },
-            "type": "function",
+            "endpoint": {
+                "url": "https://api.example.com",
+                "method": syllable_sdk.ToolHTTPMethod.GET,
+                "argument_location": syllable_sdk.ToolArgumentLocation.PATH,
+            },
+            "defaults": "<value>",
         },
-        "endpoint": {
-            "url": "https://api.example.com",
-            "method": syllable_sdk.ToolHTTPMethod.GET,
-            "argument_location": syllable_sdk.ToolArgumentLocation.PATH,
-        },
-        "defaults": "<value>",
-    }, service_id=134365)
+        "service_id": 134365,
+    })
 
     # Handle response
     print(res)
@@ -108,12 +112,10 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  | Example                                                                                                      |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `name`                                                                                                       | *str*                                                                                                        | :heavy_check_mark:                                                                                           | The name of the tool                                                                                         | Weather Fetcher                                                                                              |
-| `definition`                                                                                                 | [models.ToolDefinition](../../models/tooldefinition.md)                                                      | :heavy_check_mark:                                                                                           | A tool that can be called from an LLM during the conversation. See https://docs.syllable.ai/Resources/Tools. |                                                                                                              |
-| `service_id`                                                                                                 | *int*                                                                                                        | :heavy_check_mark:                                                                                           | The service to which this tool belongs                                                                       |                                                                                                              |
-| `retries`                                                                                                    | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                             | :heavy_minus_sign:                                                                                           | Configuration to override the default retry behavior of the client.                                          |                                                                                                              |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request`                                                           | [models.ToolCreateRequest](../../models/toolcreaterequest.md)       | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
@@ -142,24 +144,29 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.tools.update(name="Weather Fetcher", definition={
-        "tool": {
-            "function": {
-                "name": "weather_fetcher",
-                "description": "Fetches weather data",
-                "parameters": {
+    res = ss_client.tools.update(request={
+        "name": "Weather Fetcher",
+        "definition": {
+            "tool": {
+                "function": {
+                    "name": "weather_fetcher",
+                    "description": "Fetches weather data",
+                    "parameters": {
 
+                    },
                 },
+                "type": "function",
             },
-            "type": "function",
+            "endpoint": {
+                "url": "https://api.example.com",
+                "method": syllable_sdk.ToolHTTPMethod.POST,
+                "argument_location": syllable_sdk.ToolArgumentLocation.PATH,
+            },
+            "defaults": "<value>",
         },
-        "endpoint": {
-            "url": "https://api.example.com",
-            "method": syllable_sdk.ToolHTTPMethod.POST,
-            "argument_location": syllable_sdk.ToolArgumentLocation.PATH,
-        },
-        "defaults": "<value>",
-    }, service_id=991464, id=627690)
+        "service_id": 991464,
+        "id": 627690,
+    })
 
     # Handle response
     print(res)
@@ -168,14 +175,10 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  | Example                                                                                                      |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `name`                                                                                                       | *str*                                                                                                        | :heavy_check_mark:                                                                                           | The name of the tool                                                                                         | Weather Fetcher                                                                                              |
-| `definition`                                                                                                 | [models.ToolDefinition](../../models/tooldefinition.md)                                                      | :heavy_check_mark:                                                                                           | A tool that can be called from an LLM during the conversation. See https://docs.syllable.ai/Resources/Tools. |                                                                                                              |
-| `service_id`                                                                                                 | *int*                                                                                                        | :heavy_check_mark:                                                                                           | The service to which this tool belongs                                                                       |                                                                                                              |
-| `id`                                                                                                         | *int*                                                                                                        | :heavy_check_mark:                                                                                           | The ID of the tool                                                                                           |                                                                                                              |
-| `last_updated_comments`                                                                                      | *OptionalNullable[str]*                                                                                      | :heavy_minus_sign:                                                                                           | Update comments                                                                                              |                                                                                                              |
-| `retries`                                                                                                    | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                             | :heavy_minus_sign:                                                                                           | Configuration to override the default retry behavior of the client.                                          |                                                                                                              |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request`                                                           | [models.ToolUpdateRequest](../../models/toolupdaterequest.md)       | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 

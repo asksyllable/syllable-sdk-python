@@ -3,9 +3,9 @@
 from .basesdk import BaseSDK
 from syllable_sdk import models, utils
 from syllable_sdk._hooks import HookContext
-from syllable_sdk.types import OptionalNullable, UNSET
+from syllable_sdk.types import BaseModel, OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
-from typing import Any, List, Mapping, Optional
+from typing import Any, List, Mapping, Optional, Union, cast
 
 
 class Services(BaseSDK):
@@ -264,8 +264,9 @@ class Services(BaseSDK):
     def create(
         self,
         *,
-        name: str,
-        description: str,
+        request: Union[
+            models.ServiceCreateRequest, models.ServiceCreateRequestTypedDict
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -275,8 +276,7 @@ class Services(BaseSDK):
 
         Create a new service.
 
-        :param name: The name of the service
-        :param description: The description of the service
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -292,10 +292,9 @@ class Services(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.ServiceCreateRequest(
-            name=name,
-            description=description,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.ServiceCreateRequest)
+        request = cast(models.ServiceCreateRequest, request)
 
         req = self._build_request(
             method="POST",
@@ -369,8 +368,9 @@ class Services(BaseSDK):
     async def create_async(
         self,
         *,
-        name: str,
-        description: str,
+        request: Union[
+            models.ServiceCreateRequest, models.ServiceCreateRequestTypedDict
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -380,8 +380,7 @@ class Services(BaseSDK):
 
         Create a new service.
 
-        :param name: The name of the service
-        :param description: The description of the service
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -397,10 +396,9 @@ class Services(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.ServiceCreateRequest(
-            name=name,
-            description=description,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.ServiceCreateRequest)
+        request = cast(models.ServiceCreateRequest, request)
 
         req = self._build_request_async(
             method="POST",
@@ -474,10 +472,9 @@ class Services(BaseSDK):
     def update(
         self,
         *,
-        name: str,
-        description: str,
-        id: int,
-        last_updated_comments: OptionalNullable[str] = UNSET,
+        request: Union[
+            models.ServiceUpdateRequest, models.ServiceUpdateRequestTypedDict
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -487,10 +484,7 @@ class Services(BaseSDK):
 
         Update an existing service.
 
-        :param name: The name of the service
-        :param description: The description of the service
-        :param id: The ID of the service
-        :param last_updated_comments: Update comments
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -506,12 +500,9 @@ class Services(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.ServiceUpdateRequest(
-            name=name,
-            description=description,
-            id=id,
-            last_updated_comments=last_updated_comments,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.ServiceUpdateRequest)
+        request = cast(models.ServiceUpdateRequest, request)
 
         req = self._build_request(
             method="PUT",
@@ -585,10 +576,9 @@ class Services(BaseSDK):
     async def update_async(
         self,
         *,
-        name: str,
-        description: str,
-        id: int,
-        last_updated_comments: OptionalNullable[str] = UNSET,
+        request: Union[
+            models.ServiceUpdateRequest, models.ServiceUpdateRequestTypedDict
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -598,10 +588,7 @@ class Services(BaseSDK):
 
         Update an existing service.
 
-        :param name: The name of the service
-        :param description: The description of the service
-        :param id: The ID of the service
-        :param last_updated_comments: Update comments
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -617,12 +604,9 @@ class Services(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.ServiceUpdateRequest(
-            name=name,
-            description=description,
-            id=id,
-            last_updated_comments=last_updated_comments,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.ServiceUpdateRequest)
+        request = cast(models.ServiceUpdateRequest, request)
 
         req = self._build_request_async(
             method="PUT",

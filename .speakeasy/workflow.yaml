@@ -3,7 +3,10 @@ speakeasyVersion: latest
 sources:
     SyllableSDK:
         inputs:
-            - location: openapi.yaml
+            - location: openapi.json
+        overlays:
+            - location: overlay-remove-V1.yaml
+        output: openapi.yaml
         registry:
             location: registry.speakeasyapi.dev/actiumhealth/actiumhealth/syllable-sdk
 targets:

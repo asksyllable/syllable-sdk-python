@@ -3,9 +3,9 @@
 from .basesdk import BaseSDK
 from syllable_sdk import models, utils
 from syllable_sdk._hooks import HookContext
-from syllable_sdk.types import OptionalNullable, UNSET
+from syllable_sdk.types import BaseModel, OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
-from typing import Any, List, Mapping, Optional
+from typing import Any, List, Mapping, Optional, Union, cast
 
 
 class SessionLabels(BaseSDK):
@@ -208,12 +208,7 @@ class SessionLabels(BaseSDK):
     def create(
         self,
         *,
-        session_id: int,
-        type_: str,
-        code: str,
-        user_email: str,
-        comments: OptionalNullable[str] = UNSET,
-        issue_categories: OptionalNullable[List[str]] = UNSET,
+        request: Union[models.SessionLabelCreate, models.SessionLabelCreateTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -223,12 +218,7 @@ class SessionLabels(BaseSDK):
 
         Create a new label
 
-        :param session_id: The internal ID of the session (see Session.session_id)
-        :param type: The type of the label
-        :param code: A code describing the quality of the labeled session
-        :param user_email: The email of the user who created the label
-        :param comments: Comment string describing additional details about the session
-        :param issue_categories: Descriptions of issues occurring in the labeled call
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -244,14 +234,9 @@ class SessionLabels(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.SessionLabelCreate(
-            session_id=session_id,
-            type=type_,
-            code=code,
-            user_email=user_email,
-            comments=comments,
-            issue_categories=issue_categories,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.SessionLabelCreate)
+        request = cast(models.SessionLabelCreate, request)
 
         req = self._build_request(
             method="POST",
@@ -325,12 +310,7 @@ class SessionLabels(BaseSDK):
     async def create_async(
         self,
         *,
-        session_id: int,
-        type_: str,
-        code: str,
-        user_email: str,
-        comments: OptionalNullable[str] = UNSET,
-        issue_categories: OptionalNullable[List[str]] = UNSET,
+        request: Union[models.SessionLabelCreate, models.SessionLabelCreateTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -340,12 +320,7 @@ class SessionLabels(BaseSDK):
 
         Create a new label
 
-        :param session_id: The internal ID of the session (see Session.session_id)
-        :param type: The type of the label
-        :param code: A code describing the quality of the labeled session
-        :param user_email: The email of the user who created the label
-        :param comments: Comment string describing additional details about the session
-        :param issue_categories: Descriptions of issues occurring in the labeled call
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -361,14 +336,9 @@ class SessionLabels(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.SessionLabelCreate(
-            session_id=session_id,
-            type=type_,
-            code=code,
-            user_email=user_email,
-            comments=comments,
-            issue_categories=issue_categories,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.SessionLabelCreate)
+        request = cast(models.SessionLabelCreate, request)
 
         req = self._build_request_async(
             method="POST",

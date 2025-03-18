@@ -3,9 +3,9 @@
 from .basesdk import BaseSDK
 from syllable_sdk import models, utils
 from syllable_sdk._hooks import HookContext
-from syllable_sdk.types import OptionalNullable, UNSET
+from syllable_sdk.types import BaseModel, OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, List, Mapping, Optional, Union, cast
 
 
 class Tools(BaseSDK):
@@ -260,9 +260,7 @@ class Tools(BaseSDK):
     def create(
         self,
         *,
-        name: str,
-        definition: Union[models.ToolDefinition, models.ToolDefinitionTypedDict],
-        service_id: int,
+        request: Union[models.ToolCreateRequest, models.ToolCreateRequestTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -272,9 +270,7 @@ class Tools(BaseSDK):
 
         Create a new tool
 
-        :param name: The name of the tool
-        :param definition: A tool that can be called from an LLM during the conversation. See https://docs.syllable.ai/Resources/Tools.
-        :param service_id: The service to which this tool belongs
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -290,11 +286,9 @@ class Tools(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.ToolCreateRequest(
-            name=name,
-            definition=utils.get_pydantic_model(definition, models.ToolDefinition),
-            service_id=service_id,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.ToolCreateRequest)
+        request = cast(models.ToolCreateRequest, request)
 
         req = self._build_request(
             method="POST",
@@ -368,9 +362,7 @@ class Tools(BaseSDK):
     async def create_async(
         self,
         *,
-        name: str,
-        definition: Union[models.ToolDefinition, models.ToolDefinitionTypedDict],
-        service_id: int,
+        request: Union[models.ToolCreateRequest, models.ToolCreateRequestTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -380,9 +372,7 @@ class Tools(BaseSDK):
 
         Create a new tool
 
-        :param name: The name of the tool
-        :param definition: A tool that can be called from an LLM during the conversation. See https://docs.syllable.ai/Resources/Tools.
-        :param service_id: The service to which this tool belongs
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -398,11 +388,9 @@ class Tools(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.ToolCreateRequest(
-            name=name,
-            definition=utils.get_pydantic_model(definition, models.ToolDefinition),
-            service_id=service_id,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.ToolCreateRequest)
+        request = cast(models.ToolCreateRequest, request)
 
         req = self._build_request_async(
             method="POST",
@@ -476,11 +464,7 @@ class Tools(BaseSDK):
     def update(
         self,
         *,
-        name: str,
-        definition: Union[models.ToolDefinition, models.ToolDefinitionTypedDict],
-        service_id: int,
-        id: int,
-        last_updated_comments: OptionalNullable[str] = UNSET,
+        request: Union[models.ToolUpdateRequest, models.ToolUpdateRequestTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -490,11 +474,7 @@ class Tools(BaseSDK):
 
         Update an existing tool
 
-        :param name: The name of the tool
-        :param definition: A tool that can be called from an LLM during the conversation. See https://docs.syllable.ai/Resources/Tools.
-        :param service_id: The service to which this tool belongs
-        :param id: The ID of the tool
-        :param last_updated_comments: Update comments
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -510,13 +490,9 @@ class Tools(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.ToolUpdateRequest(
-            name=name,
-            definition=utils.get_pydantic_model(definition, models.ToolDefinition),
-            service_id=service_id,
-            id=id,
-            last_updated_comments=last_updated_comments,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.ToolUpdateRequest)
+        request = cast(models.ToolUpdateRequest, request)
 
         req = self._build_request(
             method="PUT",
@@ -590,11 +566,7 @@ class Tools(BaseSDK):
     async def update_async(
         self,
         *,
-        name: str,
-        definition: Union[models.ToolDefinition, models.ToolDefinitionTypedDict],
-        service_id: int,
-        id: int,
-        last_updated_comments: OptionalNullable[str] = UNSET,
+        request: Union[models.ToolUpdateRequest, models.ToolUpdateRequestTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -604,11 +576,7 @@ class Tools(BaseSDK):
 
         Update an existing tool
 
-        :param name: The name of the tool
-        :param definition: A tool that can be called from an LLM during the conversation. See https://docs.syllable.ai/Resources/Tools.
-        :param service_id: The service to which this tool belongs
-        :param id: The ID of the tool
-        :param last_updated_comments: Update comments
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -624,13 +592,9 @@ class Tools(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.ToolUpdateRequest(
-            name=name,
-            definition=utils.get_pydantic_model(definition, models.ToolDefinition),
-            service_id=service_id,
-            id=id,
-            last_updated_comments=last_updated_comments,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.ToolUpdateRequest)
+        request = cast(models.ToolUpdateRequest, request)
 
         req = self._build_request_async(
             method="PUT",

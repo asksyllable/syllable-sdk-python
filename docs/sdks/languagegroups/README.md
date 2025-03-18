@@ -82,14 +82,19 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.language_groups.create(name="Call Center 1 Languages", language_configs=[
-        {
-            "language_code": syllable_sdk.LanguageCode.ES_US,
-            "voice_provider": syllable_sdk.TtsProvider.ELEVEN_LABS,
-            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.BRIAN,
-            "dtmf_code": 1,
-        },
-    ], skip_current_language_in_message=True, description="Languages spoken by operators at Call Center 1")
+    res = ss_client.language_groups.create(request={
+        "name": "Call Center 1 Languages",
+        "language_configs": [
+            {
+                "language_code": syllable_sdk.LanguageCode.ES_US,
+                "voice_provider": syllable_sdk.TtsProvider.ELEVEN_LABS,
+                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.BRIAN,
+                "dtmf_code": 1,
+            },
+        ],
+        "skip_current_language_in_message": True,
+        "description": "Languages spoken by operators at Call Center 1",
+    })
 
     # Handle response
     print(res)
@@ -98,13 +103,10 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                                                                                         | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       | Example                                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `name`                                                                                                                            | *str*                                                                                                                             | :heavy_check_mark:                                                                                                                | The name of the language group.                                                                                                   | Call Center 1 Languages                                                                                                           |
-| `language_configs`                                                                                                                | List[[models.LanguageConfig](../../models/languageconfig.md)]                                                                     | :heavy_check_mark:                                                                                                                | Voice and DTMF configurations for each language in the group.                                                                     |                                                                                                                                   |
-| `skip_current_language_in_message`                                                                                                | *bool*                                                                                                                            | :heavy_check_mark:                                                                                                                | Whether a message using the language group to generate a language DTMF menu should skip the agent's current language in the menu. |                                                                                                                                   |
-| `description`                                                                                                                     | *OptionalNullable[str]*                                                                                                           | :heavy_minus_sign:                                                                                                                | Description of the language group.                                                                                                | Languages spoken by operators at Call Center 1                                                                                    |
-| `retries`                                                                                                                         | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                  | :heavy_minus_sign:                                                                                                                | Configuration to override the default retry behavior of the client.                                                               |                                                                                                                                   |
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `request`                                                                       | [models.LanguageGroupCreateRequest](../../models/languagegroupcreaterequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+| `retries`                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                | :heavy_minus_sign:                                                              | Configuration to override the default retry behavior of the client.             |
 
 ### Response
 
@@ -133,26 +135,33 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.language_groups.update(name="Call Center 1 Languages", language_configs=[
-        {
-            "language_code": syllable_sdk.LanguageCode.ES_US,
-            "voice_provider": syllable_sdk.TtsProvider.ELEVEN_LABS,
-            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.WILL,
-            "dtmf_code": 1,
-        },
-        {
-            "language_code": syllable_sdk.LanguageCode.ES_US,
-            "voice_provider": syllable_sdk.TtsProvider.ELEVEN_LABS,
-            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.WILL,
-            "dtmf_code": 1,
-        },
-        {
-            "language_code": syllable_sdk.LanguageCode.YUE_HK,
-            "voice_provider": syllable_sdk.TtsProvider.GOOGLE,
-            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.GEORGE,
-            "dtmf_code": 1,
-        },
-    ], skip_current_language_in_message=True, id=1, description="Languages spoken by operators at Call Center 1", edit_comments="Added Spanish support.")
+    res = ss_client.language_groups.update(request={
+        "name": "Call Center 1 Languages",
+        "language_configs": [
+            {
+                "language_code": syllable_sdk.LanguageCode.ES_US,
+                "voice_provider": syllable_sdk.TtsProvider.ELEVEN_LABS,
+                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.WILL,
+                "dtmf_code": 1,
+            },
+            {
+                "language_code": syllable_sdk.LanguageCode.ES_US,
+                "voice_provider": syllable_sdk.TtsProvider.ELEVEN_LABS,
+                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.WILL,
+                "dtmf_code": 1,
+            },
+            {
+                "language_code": syllable_sdk.LanguageCode.YUE_HK,
+                "voice_provider": syllable_sdk.TtsProvider.GOOGLE,
+                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.GEORGE,
+                "dtmf_code": 1,
+            },
+        ],
+        "skip_current_language_in_message": True,
+        "id": 1,
+        "description": "Languages spoken by operators at Call Center 1",
+        "edit_comments": "Added Spanish support.",
+    })
 
     # Handle response
     print(res)
@@ -161,15 +170,10 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                                                                                         | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       | Example                                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `name`                                                                                                                            | *str*                                                                                                                             | :heavy_check_mark:                                                                                                                | The name of the language group.                                                                                                   | Call Center 1 Languages                                                                                                           |
-| `language_configs`                                                                                                                | List[[models.LanguageConfig](../../models/languageconfig.md)]                                                                     | :heavy_check_mark:                                                                                                                | Voice and DTMF configurations for each language in the group.                                                                     |                                                                                                                                   |
-| `skip_current_language_in_message`                                                                                                | *bool*                                                                                                                            | :heavy_check_mark:                                                                                                                | Whether a message using the language group to generate a language DTMF menu should skip the agent's current language in the menu. |                                                                                                                                   |
-| `id`                                                                                                                              | *int*                                                                                                                             | :heavy_check_mark:                                                                                                                | The ID of the language group to update.                                                                                           | 1                                                                                                                                 |
-| `description`                                                                                                                     | *OptionalNullable[str]*                                                                                                           | :heavy_minus_sign:                                                                                                                | Description of the language group.                                                                                                | Languages spoken by operators at Call Center 1                                                                                    |
-| `edit_comments`                                                                                                                   | *OptionalNullable[str]*                                                                                                           | :heavy_minus_sign:                                                                                                                | Comments for the most recent edit to the language group.                                                                          | Added Spanish support.                                                                                                            |
-| `retries`                                                                                                                         | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                  | :heavy_minus_sign:                                                                                                                | Configuration to override the default retry behavior of the client.                                                               |                                                                                                                                   |
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `request`                                                                       | [models.LanguageGroupUpdateRequest](../../models/languagegroupupdaterequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+| `retries`                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                | :heavy_minus_sign:                                                              | Configuration to override the default retry behavior of the client.             |
 
 ### Response
 
