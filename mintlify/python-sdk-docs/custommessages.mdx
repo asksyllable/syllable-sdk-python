@@ -5,12 +5,14 @@ title: 'CustomMessages'
 
 ## Overview
 
+Operations related to custom message configuration.           A custom message is a pre-configured message delivered by an agent as a greeting at the           beginning of a conversation. Multiple agents can use the same custom mesasage. A custom           message has one or more rules defined, which allow for different messages to be           dynamically selected and delivered at runtime based on the current time and either           date or day of the week. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Messages).
+
 ### Available Operations
 
 * [list](#list) - Custom Messages List
 * [create](#create) - Create Custom Message
 * [update](#update) - Update Custom Message
-* [get](#get) - Get Custom Message By Id
+* [get_by_id](#get_by_id) - Get Custom Message By Id
 * [delete](#delete) - Delete Custom Message
 
 ## list
@@ -82,38 +84,42 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.custom_messages.create(name="<value>", text="<value>", rules=[
-        {
-            "description": "delightfully fumigate convection though zowie up bulky electronics",
-            "invert": False,
-            "text": "Sorry, we're closed today",
-            "time_range_start": "09:00",
-            "time_range_end": "17:00",
-            "date_": "2025-01-01",
-            "days_of_week": [
-                syllable_sdk.DayOfWeek.MO,
-                syllable_sdk.DayOfWeek.TU,
-                syllable_sdk.DayOfWeek.WE,
-                syllable_sdk.DayOfWeek.TH,
-                syllable_sdk.DayOfWeek.FR,
-            ],
-        },
-        {
-            "description": "yuck forager beneath please shadowy foodstuffs welcome",
-            "invert": True,
-            "text": "Sorry, we're closed today",
-            "time_range_start": "09:00",
-            "time_range_end": "17:00",
-            "date_": "2025-01-01",
-            "days_of_week": [
-                syllable_sdk.DayOfWeek.MO,
-                syllable_sdk.DayOfWeek.TU,
-                syllable_sdk.DayOfWeek.WE,
-                syllable_sdk.DayOfWeek.TH,
-                syllable_sdk.DayOfWeek.FR,
-            ],
-        },
-    ])
+    res = ss_client.custom_messages.create(request={
+        "name": "<value>",
+        "text": "<value>",
+        "rules": [
+            {
+                "description": "delightfully fumigate convection though zowie up bulky electronics",
+                "invert": False,
+                "text": "Sorry, we're closed today",
+                "time_range_start": "09:00",
+                "time_range_end": "17:00",
+                "date_": "2025-01-01",
+                "days_of_week": [
+                    syllable_sdk.DayOfWeek.MO,
+                    syllable_sdk.DayOfWeek.TU,
+                    syllable_sdk.DayOfWeek.WE,
+                    syllable_sdk.DayOfWeek.TH,
+                    syllable_sdk.DayOfWeek.FR,
+                ],
+            },
+            {
+                "description": "yuck forager beneath please shadowy foodstuffs welcome",
+                "invert": True,
+                "text": "Sorry, we're closed today",
+                "time_range_start": "09:00",
+                "time_range_end": "17:00",
+                "date_": "2025-01-01",
+                "days_of_week": [
+                    syllable_sdk.DayOfWeek.MO,
+                    syllable_sdk.DayOfWeek.TU,
+                    syllable_sdk.DayOfWeek.WE,
+                    syllable_sdk.DayOfWeek.TH,
+                    syllable_sdk.DayOfWeek.FR,
+                ],
+            },
+        ],
+    })
 
     # Handle response
     print(res)
@@ -122,14 +128,10 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `name`                                                              | *str*                                                               | TRUE                                                  | The name of the custom message                                      |
-| `text`                                                              | *str*                                                               | TRUE                                                  | The text of the custom message                                      |
-| `label`                                                             | *OptionalNullable[str]*                                             | FALSE                                                  | The label of the custom message                                     |
-| `rules`                                                             | List[[models.CustomMessageRule](../../models/custommessagerule.md)] | FALSE                                                  | Rules for time-specific message variants                            |
-| `type`                                                              | *Optional[str]*                                                     | FALSE                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | FALSE                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `request`                                                                       | [models.CustomMessageCreateRequest](../../models/custommessagecreaterequest.md) | TRUE                                                              | The request object to use for the request.                                      |
+| `retries`                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                | FALSE                                                              | Configuration to override the default retry behavior of the client.             |
 
 ### Response
 
@@ -158,53 +160,58 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.custom_messages.update(name="<value>", text="<value>", id=975440, rules=[
-        {
-            "description": "technician eulogise whereas till mild than during",
-            "invert": True,
-            "text": "Sorry, we're closed today",
-            "time_range_start": "09:00",
-            "time_range_end": "17:00",
-            "date_": "2025-01-01",
-            "days_of_week": [
-                syllable_sdk.DayOfWeek.MO,
-                syllable_sdk.DayOfWeek.TU,
-                syllable_sdk.DayOfWeek.WE,
-                syllable_sdk.DayOfWeek.TH,
-                syllable_sdk.DayOfWeek.FR,
-            ],
-        },
-        {
-            "description": "qualified cycle woot abseil perfumed fisherman with duh",
-            "invert": True,
-            "text": "Sorry, we're closed today",
-            "time_range_start": "09:00",
-            "time_range_end": "17:00",
-            "date_": "2025-01-01",
-            "days_of_week": [
-                syllable_sdk.DayOfWeek.MO,
-                syllable_sdk.DayOfWeek.TU,
-                syllable_sdk.DayOfWeek.WE,
-                syllable_sdk.DayOfWeek.TH,
-                syllable_sdk.DayOfWeek.FR,
-            ],
-        },
-        {
-            "description": "ultimately in likely opera please antelope",
-            "invert": True,
-            "text": "Sorry, we're closed today",
-            "time_range_start": "09:00",
-            "time_range_end": "17:00",
-            "date_": "2025-01-01",
-            "days_of_week": [
-                syllable_sdk.DayOfWeek.MO,
-                syllable_sdk.DayOfWeek.TU,
-                syllable_sdk.DayOfWeek.WE,
-                syllable_sdk.DayOfWeek.TH,
-                syllable_sdk.DayOfWeek.FR,
-            ],
-        },
-    ])
+    res = ss_client.custom_messages.update(request={
+        "name": "<value>",
+        "text": "<value>",
+        "id": 975440,
+        "rules": [
+            {
+                "description": "technician eulogise whereas till mild than during",
+                "invert": True,
+                "text": "Sorry, we're closed today",
+                "time_range_start": "09:00",
+                "time_range_end": "17:00",
+                "date_": "2025-01-01",
+                "days_of_week": [
+                    syllable_sdk.DayOfWeek.MO,
+                    syllable_sdk.DayOfWeek.TU,
+                    syllable_sdk.DayOfWeek.WE,
+                    syllable_sdk.DayOfWeek.TH,
+                    syllable_sdk.DayOfWeek.FR,
+                ],
+            },
+            {
+                "description": "qualified cycle woot abseil perfumed fisherman with duh",
+                "invert": True,
+                "text": "Sorry, we're closed today",
+                "time_range_start": "09:00",
+                "time_range_end": "17:00",
+                "date_": "2025-01-01",
+                "days_of_week": [
+                    syllable_sdk.DayOfWeek.MO,
+                    syllable_sdk.DayOfWeek.TU,
+                    syllable_sdk.DayOfWeek.WE,
+                    syllable_sdk.DayOfWeek.TH,
+                    syllable_sdk.DayOfWeek.FR,
+                ],
+            },
+            {
+                "description": "ultimately in likely opera please antelope",
+                "invert": True,
+                "text": "Sorry, we're closed today",
+                "time_range_start": "09:00",
+                "time_range_end": "17:00",
+                "date_": "2025-01-01",
+                "days_of_week": [
+                    syllable_sdk.DayOfWeek.MO,
+                    syllable_sdk.DayOfWeek.TU,
+                    syllable_sdk.DayOfWeek.WE,
+                    syllable_sdk.DayOfWeek.TH,
+                    syllable_sdk.DayOfWeek.FR,
+                ],
+            },
+        ],
+    })
 
     # Handle response
     print(res)
@@ -213,15 +220,10 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `name`                                                              | *str*                                                               | TRUE                                                  | The name of the custom message                                      |
-| `text`                                                              | *str*                                                               | TRUE                                                  | The text of the custom message                                      |
-| `id`                                                                | *int*                                                               | TRUE                                                  | The ID of the custom message                                        |
-| `label`                                                             | *OptionalNullable[str]*                                             | FALSE                                                  | The label of the custom message                                     |
-| `rules`                                                             | List[[models.CustomMessageRule](../../models/custommessagerule.md)] | FALSE                                                  | Rules for time-specific message variants                            |
-| `type`                                                              | *Optional[str]*                                                     | FALSE                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | FALSE                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `request`                                                                       | [models.CustomMessageUpdateRequest](../../models/custommessageupdaterequest.md) | TRUE                                                              | The request object to use for the request.                                      |
+| `retries`                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                | FALSE                                                              | Configuration to override the default retry behavior of the client.             |
 
 ### Response
 
@@ -234,7 +236,7 @@ with SyllableSDK(
 | models.HTTPValidationError | 422                        | application/json           |
 | models.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## get
+## get_by_id
 
 Get the custom message by its ID
 
@@ -249,7 +251,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.custom_messages.get(custom_message_id=931598)
+    res = ss_client.custom_messages.get_by_id(custom_message_id=931598)
 
     # Handle response
     print(res)
