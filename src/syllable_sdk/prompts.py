@@ -3,9 +3,9 @@
 from .basesdk import BaseSDK
 from syllable_sdk import models, utils
 from syllable_sdk._hooks import HookContext
-from syllable_sdk.types import OptionalNullable, UNSET
+from syllable_sdk.types import BaseModel, OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, List, Mapping, Optional, Union, cast
 
 
 class Prompts(BaseSDK):
@@ -264,13 +264,7 @@ class Prompts(BaseSDK):
     def create(
         self,
         *,
-        name: str,
-        type_: str,
-        llm_config: Union[models.PromptLlmConfig, models.PromptLlmConfigTypedDict],
-        description: OptionalNullable[str] = UNSET,
-        context: OptionalNullable[str] = UNSET,
-        tools: Optional[List[str]] = None,
-        include_default_tools: Optional[bool] = True,
+        request: Union[models.PromptCreateRequest, models.PromptCreateRequestTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -280,13 +274,7 @@ class Prompts(BaseSDK):
 
         Create a new prompt
 
-        :param name: The prompt name
-        :param type: The type of the prompt
-        :param llm_config:
-        :param description: The description of the prompt
-        :param context: The prompt text
-        :param tools: Names of tools to which the prompt has access
-        :param include_default_tools: Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt.
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -302,15 +290,9 @@ class Prompts(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.PromptCreateRequest(
-            name=name,
-            description=description,
-            type=type_,
-            context=context,
-            tools=tools,
-            llm_config=utils.get_pydantic_model(llm_config, models.PromptLlmConfig),
-            include_default_tools=include_default_tools,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.PromptCreateRequest)
+        request = cast(models.PromptCreateRequest, request)
 
         req = self._build_request(
             method="POST",
@@ -384,13 +366,7 @@ class Prompts(BaseSDK):
     async def create_async(
         self,
         *,
-        name: str,
-        type_: str,
-        llm_config: Union[models.PromptLlmConfig, models.PromptLlmConfigTypedDict],
-        description: OptionalNullable[str] = UNSET,
-        context: OptionalNullable[str] = UNSET,
-        tools: Optional[List[str]] = None,
-        include_default_tools: Optional[bool] = True,
+        request: Union[models.PromptCreateRequest, models.PromptCreateRequestTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -400,13 +376,7 @@ class Prompts(BaseSDK):
 
         Create a new prompt
 
-        :param name: The prompt name
-        :param type: The type of the prompt
-        :param llm_config:
-        :param description: The description of the prompt
-        :param context: The prompt text
-        :param tools: Names of tools to which the prompt has access
-        :param include_default_tools: Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt.
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -422,15 +392,9 @@ class Prompts(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.PromptCreateRequest(
-            name=name,
-            description=description,
-            type=type_,
-            context=context,
-            tools=tools,
-            llm_config=utils.get_pydantic_model(llm_config, models.PromptLlmConfig),
-            include_default_tools=include_default_tools,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.PromptCreateRequest)
+        request = cast(models.PromptCreateRequest, request)
 
         req = self._build_request_async(
             method="POST",
@@ -504,15 +468,7 @@ class Prompts(BaseSDK):
     def update(
         self,
         *,
-        name: str,
-        type_: str,
-        llm_config: Union[models.PromptLlmConfig, models.PromptLlmConfigTypedDict],
-        id: int,
-        description: OptionalNullable[str] = UNSET,
-        context: OptionalNullable[str] = UNSET,
-        tools: Optional[List[str]] = None,
-        edit_comments: OptionalNullable[str] = UNSET,
-        include_default_tools: Optional[bool] = True,
+        request: Union[models.PromptUpdateRequest, models.PromptUpdateRequestTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -522,15 +478,7 @@ class Prompts(BaseSDK):
 
         Update an existing prompt
 
-        :param name: The prompt name
-        :param type: The type of the prompt
-        :param llm_config:
-        :param id: The prompt ID
-        :param description: The description of the prompt
-        :param context: The prompt text
-        :param tools: Names of tools to which the prompt has access
-        :param edit_comments: The comments for the most recent edit to the prompt
-        :param include_default_tools: Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated.
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -546,17 +494,9 @@ class Prompts(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.PromptUpdateRequest(
-            name=name,
-            description=description,
-            type=type_,
-            context=context,
-            tools=tools,
-            llm_config=utils.get_pydantic_model(llm_config, models.PromptLlmConfig),
-            id=id,
-            edit_comments=edit_comments,
-            include_default_tools=include_default_tools,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.PromptUpdateRequest)
+        request = cast(models.PromptUpdateRequest, request)
 
         req = self._build_request(
             method="PUT",
@@ -630,15 +570,7 @@ class Prompts(BaseSDK):
     async def update_async(
         self,
         *,
-        name: str,
-        type_: str,
-        llm_config: Union[models.PromptLlmConfig, models.PromptLlmConfigTypedDict],
-        id: int,
-        description: OptionalNullable[str] = UNSET,
-        context: OptionalNullable[str] = UNSET,
-        tools: Optional[List[str]] = None,
-        edit_comments: OptionalNullable[str] = UNSET,
-        include_default_tools: Optional[bool] = True,
+        request: Union[models.PromptUpdateRequest, models.PromptUpdateRequestTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -648,15 +580,7 @@ class Prompts(BaseSDK):
 
         Update an existing prompt
 
-        :param name: The prompt name
-        :param type: The type of the prompt
-        :param llm_config:
-        :param id: The prompt ID
-        :param description: The description of the prompt
-        :param context: The prompt text
-        :param tools: Names of tools to which the prompt has access
-        :param edit_comments: The comments for the most recent edit to the prompt
-        :param include_default_tools: Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated.
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -672,17 +596,9 @@ class Prompts(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.PromptUpdateRequest(
-            name=name,
-            description=description,
-            type=type_,
-            context=context,
-            tools=tools,
-            llm_config=utils.get_pydantic_model(llm_config, models.PromptLlmConfig),
-            id=id,
-            edit_comments=edit_comments,
-            include_default_tools=include_default_tools,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.PromptUpdateRequest)
+        request = cast(models.PromptUpdateRequest, request)
 
         req = self._build_request_async(
             method="PUT",

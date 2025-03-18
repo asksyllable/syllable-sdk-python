@@ -66,9 +66,15 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.session_labels.create(session_id=486589, type_="auto-rating", code="BAD", user_email="<value>", issue_categories=[
-        "Silent treatment",
-    ])
+    res = ss_client.session_labels.create(request={
+        "session_id": 486589,
+        "type": "auto-rating",
+        "code": "BAD",
+        "user_email": "<value>",
+        "issue_categories": [
+            "Silent treatment",
+        ],
+    })
 
     # Handle response
     print(res)
@@ -77,15 +83,10 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `session_id`                                                        | *int*                                                               | :heavy_check_mark:                                                  | The internal ID of the session (see Session.session_id)             |                                                                     |
-| `type`                                                              | *str*                                                               | :heavy_check_mark:                                                  | The type of the label                                               | auto-rating                                                         |
-| `code`                                                              | *str*                                                               | :heavy_check_mark:                                                  | A code describing the quality of the labeled session                | GOOD                                                                |
-| `user_email`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The email of the user who created the label                         |                                                                     |
-| `comments`                                                          | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | Comment string describing additional details about the session      |                                                                     |
-| `issue_categories`                                                  | List[*str*]                                                         | :heavy_minus_sign:                                                  | Descriptions of issues occurring in the labeled call                | [<br/>"Silent treatment"<br/>]                                      |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request`                                                           | [models.SessionLabelCreate](../../models/sessionlabelcreate.md)     | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 

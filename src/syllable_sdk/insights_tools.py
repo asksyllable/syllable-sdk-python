@@ -3,9 +3,9 @@
 from .basesdk import BaseSDK
 from syllable_sdk import models, utils
 from syllable_sdk._hooks import HookContext
-from syllable_sdk.types import OptionalNullable, UNSET
+from syllable_sdk.types import BaseModel, OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, List, Mapping, Optional, Union, cast
 
 
 class InsightsTools(BaseSDK):
@@ -264,14 +264,7 @@ class InsightsTools(BaseSDK):
     def create(
         self,
         *,
-        name: str,
-        description: str,
-        version: int,
-        tool_arguments: Union[
-            models.InsightToolInputToolArguments,
-            models.InsightToolInputToolArgumentsTypedDict,
-        ],
-        insight_tool_definition_id: int,
+        request: Union[models.InsightToolInput, models.InsightToolInputTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -281,11 +274,7 @@ class InsightsTools(BaseSDK):
 
         Create a new tool in the insights
 
-        :param name: Human readable name of Insight Tool
-        :param description: Text description of Insight Tool
-        :param version: Version number of Insight Tool
-        :param tool_arguments: Arguments for Insight Tool
-        :param insight_tool_definition_id: Unique ID for Insight Tool Definition
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -301,15 +290,9 @@ class InsightsTools(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.InsightToolInput(
-            name=name,
-            description=description,
-            version=version,
-            tool_arguments=utils.get_pydantic_model(
-                tool_arguments, models.InsightToolInputToolArguments
-            ),
-            insight_tool_definition_id=insight_tool_definition_id,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.InsightToolInput)
+        request = cast(models.InsightToolInput, request)
 
         req = self._build_request(
             method="POST",
@@ -383,14 +366,7 @@ class InsightsTools(BaseSDK):
     async def create_async(
         self,
         *,
-        name: str,
-        description: str,
-        version: int,
-        tool_arguments: Union[
-            models.InsightToolInputToolArguments,
-            models.InsightToolInputToolArgumentsTypedDict,
-        ],
-        insight_tool_definition_id: int,
+        request: Union[models.InsightToolInput, models.InsightToolInputTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -400,11 +376,7 @@ class InsightsTools(BaseSDK):
 
         Create a new tool in the insights
 
-        :param name: Human readable name of Insight Tool
-        :param description: Text description of Insight Tool
-        :param version: Version number of Insight Tool
-        :param tool_arguments: Arguments for Insight Tool
-        :param insight_tool_definition_id: Unique ID for Insight Tool Definition
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -420,15 +392,9 @@ class InsightsTools(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.InsightToolInput(
-            name=name,
-            description=description,
-            version=version,
-            tool_arguments=utils.get_pydantic_model(
-                tool_arguments, models.InsightToolInputToolArguments
-            ),
-            insight_tool_definition_id=insight_tool_definition_id,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.InsightToolInput)
+        request = cast(models.InsightToolInput, request)
 
         req = self._build_request_async(
             method="POST",
@@ -701,14 +667,9 @@ class InsightsTools(BaseSDK):
         self,
         *,
         tool_id: int,
-        name: str,
-        description: str,
-        version: int,
-        tool_arguments: Union[
-            models.InsightToolInputToolArguments,
-            models.InsightToolInputToolArgumentsTypedDict,
+        insight_tool_input: Union[
+            models.InsightToolInput, models.InsightToolInputTypedDict
         ],
-        insight_tool_definition_id: int,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -719,11 +680,7 @@ class InsightsTools(BaseSDK):
         Update a InsightTool.
 
         :param tool_id:
-        :param name: Human readable name of Insight Tool
-        :param description: Text description of Insight Tool
-        :param version: Version number of Insight Tool
-        :param tool_arguments: Arguments for Insight Tool
-        :param insight_tool_definition_id: Unique ID for Insight Tool Definition
+        :param insight_tool_input:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -741,14 +698,8 @@ class InsightsTools(BaseSDK):
 
         request = models.InsightsToolUpdateRequest(
             tool_id=tool_id,
-            insight_tool_input=models.InsightToolInput(
-                name=name,
-                description=description,
-                version=version,
-                tool_arguments=utils.get_pydantic_model(
-                    tool_arguments, models.InsightToolInputToolArguments
-                ),
-                insight_tool_definition_id=insight_tool_definition_id,
+            insight_tool_input=utils.get_pydantic_model(
+                insight_tool_input, models.InsightToolInput
             ),
         )
 
@@ -829,14 +780,9 @@ class InsightsTools(BaseSDK):
         self,
         *,
         tool_id: int,
-        name: str,
-        description: str,
-        version: int,
-        tool_arguments: Union[
-            models.InsightToolInputToolArguments,
-            models.InsightToolInputToolArgumentsTypedDict,
+        insight_tool_input: Union[
+            models.InsightToolInput, models.InsightToolInputTypedDict
         ],
-        insight_tool_definition_id: int,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -847,11 +793,7 @@ class InsightsTools(BaseSDK):
         Update a InsightTool.
 
         :param tool_id:
-        :param name: Human readable name of Insight Tool
-        :param description: Text description of Insight Tool
-        :param version: Version number of Insight Tool
-        :param tool_arguments: Arguments for Insight Tool
-        :param insight_tool_definition_id: Unique ID for Insight Tool Definition
+        :param insight_tool_input:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -869,14 +811,8 @@ class InsightsTools(BaseSDK):
 
         request = models.InsightsToolUpdateRequest(
             tool_id=tool_id,
-            insight_tool_input=models.InsightToolInput(
-                name=name,
-                description=description,
-                version=version,
-                tool_arguments=utils.get_pydantic_model(
-                    tool_arguments, models.InsightToolInputToolArguments
-                ),
-                insight_tool_definition_id=insight_tool_definition_id,
+            insight_tool_input=utils.get_pydantic_model(
+                insight_tool_input, models.InsightToolInput
             ),
         )
 

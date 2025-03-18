@@ -5,7 +5,7 @@ from syllable_sdk import models, utils
 from syllable_sdk._hooks import HookContext
 from syllable_sdk.types import OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
-from typing import Any, List, Mapping, Optional
+from typing import Any, List, Mapping, Optional, Union
 
 
 class Targets(BaseSDK):
@@ -510,13 +510,11 @@ class Targets(BaseSDK):
     def create(
         self,
         *,
-        channel_id_param: int,
-        agent_id: int,
         channel_id: int,
-        target: str,
-        target_mode: models.TargetModes,
-        fallback_target: OptionalNullable[str] = UNSET,
-        is_test: Optional[bool] = False,
+        channel_target_create_request: Union[
+            models.ChannelTargetCreateRequest,
+            models.ChannelTargetCreateRequestTypedDict,
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -524,13 +522,8 @@ class Targets(BaseSDK):
     ) -> models.ChannelTargetResponse:
         r"""Assign A Channel Target
 
-        :param channel_id_param:
-        :param agent_id: The ID of the agent associated with the channel target
-        :param channel_id: The ID of the channel associated with the channel target
-        :param target: The name of the channel target (must correspond to an organization-level target)
-        :param target_mode: Available modes (communication methods) for channel targets.
-        :param fallback_target: The fallback for the channel target (currently only supported for \"voice\" mode)
-        :param is_test: Whether the channel target is intended for testing. If true, any sessions created through this target will be labeled as test.
+        :param channel_id:
+        :param channel_target_create_request:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -547,14 +540,9 @@ class Targets(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ChannelTargetsCreateRequest(
-            channel_id_param=channel_id_param,
-            channel_target_create_request=models.ChannelTargetCreateRequest(
-                agent_id=agent_id,
-                channel_id=channel_id,
-                target=target,
-                target_mode=target_mode,
-                fallback_target=fallback_target,
-                is_test=is_test,
+            channel_id=channel_id,
+            channel_target_create_request=utils.get_pydantic_model(
+                channel_target_create_request, models.ChannelTargetCreateRequest
             ),
         )
 
@@ -634,13 +622,11 @@ class Targets(BaseSDK):
     async def create_async(
         self,
         *,
-        channel_id_param: int,
-        agent_id: int,
         channel_id: int,
-        target: str,
-        target_mode: models.TargetModes,
-        fallback_target: OptionalNullable[str] = UNSET,
-        is_test: Optional[bool] = False,
+        channel_target_create_request: Union[
+            models.ChannelTargetCreateRequest,
+            models.ChannelTargetCreateRequestTypedDict,
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -648,13 +634,8 @@ class Targets(BaseSDK):
     ) -> models.ChannelTargetResponse:
         r"""Assign A Channel Target
 
-        :param channel_id_param:
-        :param agent_id: The ID of the agent associated with the channel target
-        :param channel_id: The ID of the channel associated with the channel target
-        :param target: The name of the channel target (must correspond to an organization-level target)
-        :param target_mode: Available modes (communication methods) for channel targets.
-        :param fallback_target: The fallback for the channel target (currently only supported for \"voice\" mode)
-        :param is_test: Whether the channel target is intended for testing. If true, any sessions created through this target will be labeled as test.
+        :param channel_id:
+        :param channel_target_create_request:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -671,14 +652,9 @@ class Targets(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ChannelTargetsCreateRequest(
-            channel_id_param=channel_id_param,
-            channel_target_create_request=models.ChannelTargetCreateRequest(
-                agent_id=agent_id,
-                channel_id=channel_id,
-                target=target,
-                target_mode=target_mode,
-                fallback_target=fallback_target,
-                is_test=is_test,
+            channel_id=channel_id,
+            channel_target_create_request=utils.get_pydantic_model(
+                channel_target_create_request, models.ChannelTargetCreateRequest
             ),
         )
 
@@ -958,15 +934,12 @@ class Targets(BaseSDK):
     def update(
         self,
         *,
-        channel_id_param: int,
-        target_id: int,
-        agent_id: int,
         channel_id: int,
-        target: str,
-        target_mode: models.TargetModes,
-        id: int,
-        fallback_target: OptionalNullable[str] = UNSET,
-        is_test: Optional[bool] = False,
+        target_id: int,
+        channel_target_update_request: Union[
+            models.ChannelTargetUpdateRequest,
+            models.ChannelTargetUpdateRequestTypedDict,
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -976,15 +949,9 @@ class Targets(BaseSDK):
 
         Update channel target by ID
 
-        :param channel_id_param:
+        :param channel_id:
         :param target_id:
-        :param agent_id: The ID of the agent associated with the channel target
-        :param channel_id: The ID of the channel associated with the channel target
-        :param target: The name of the channel target (must correspond to an organization-level target)
-        :param target_mode: Available modes (communication methods) for channel targets.
-        :param id: The ID of the channel target
-        :param fallback_target: The fallback for the channel target (currently only supported for \"voice\" mode)
-        :param is_test: Whether the channel target is intended for testing. If true, any sessions created through this target will be labeled as test.
+        :param channel_target_update_request:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1001,16 +968,10 @@ class Targets(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ChannelTargetsUpdateRequest(
-            channel_id_param=channel_id_param,
+            channel_id=channel_id,
             target_id=target_id,
-            channel_target_update_request=models.ChannelTargetUpdateRequest(
-                agent_id=agent_id,
-                channel_id=channel_id,
-                target=target,
-                target_mode=target_mode,
-                fallback_target=fallback_target,
-                is_test=is_test,
-                id=id,
+            channel_target_update_request=utils.get_pydantic_model(
+                channel_target_update_request, models.ChannelTargetUpdateRequest
             ),
         )
 
@@ -1090,15 +1051,12 @@ class Targets(BaseSDK):
     async def update_async(
         self,
         *,
-        channel_id_param: int,
-        target_id: int,
-        agent_id: int,
         channel_id: int,
-        target: str,
-        target_mode: models.TargetModes,
-        id: int,
-        fallback_target: OptionalNullable[str] = UNSET,
-        is_test: Optional[bool] = False,
+        target_id: int,
+        channel_target_update_request: Union[
+            models.ChannelTargetUpdateRequest,
+            models.ChannelTargetUpdateRequestTypedDict,
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1108,15 +1066,9 @@ class Targets(BaseSDK):
 
         Update channel target by ID
 
-        :param channel_id_param:
+        :param channel_id:
         :param target_id:
-        :param agent_id: The ID of the agent associated with the channel target
-        :param channel_id: The ID of the channel associated with the channel target
-        :param target: The name of the channel target (must correspond to an organization-level target)
-        :param target_mode: Available modes (communication methods) for channel targets.
-        :param id: The ID of the channel target
-        :param fallback_target: The fallback for the channel target (currently only supported for \"voice\" mode)
-        :param is_test: Whether the channel target is intended for testing. If true, any sessions created through this target will be labeled as test.
+        :param channel_target_update_request:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1133,16 +1085,10 @@ class Targets(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ChannelTargetsUpdateRequest(
-            channel_id_param=channel_id_param,
+            channel_id=channel_id,
             target_id=target_id,
-            channel_target_update_request=models.ChannelTargetUpdateRequest(
-                agent_id=agent_id,
-                channel_id=channel_id,
-                target=target,
-                target_mode=target_mode,
-                fallback_target=fallback_target,
-                is_test=is_test,
-                id=id,
+            channel_target_update_request=utils.get_pydantic_model(
+                channel_target_update_request, models.ChannelTargetUpdateRequest
             ),
         )
 

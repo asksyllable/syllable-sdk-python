@@ -3,9 +3,9 @@
 from .basesdk import BaseSDK
 from syllable_sdk import models, utils
 from syllable_sdk._hooks import HookContext
-from syllable_sdk.types import OptionalNullable, UNSET
+from syllable_sdk.types import BaseModel, OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, List, Mapping, Optional, Union, cast
 
 
 class Workflows(BaseSDK):
@@ -264,14 +264,9 @@ class Workflows(BaseSDK):
     def create(
         self,
         *,
-        name: str,
-        description: str,
-        insight_tool_ids: List[int],
-        conditions: Union[
-            models.InsightWorkflowInputConditions,
-            models.InsightWorkflowInputConditionsTypedDict,
+        request: Union[
+            models.InsightWorkflowInput, models.InsightWorkflowInputTypedDict
         ],
-        status: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -281,11 +276,7 @@ class Workflows(BaseSDK):
 
         Create a new tool in the insights
 
-        :param name: Human readable name of Insight Workflow
-        :param description: Text description of Insight Workflow
-        :param insight_tool_ids: List of Insight Tool IDs
-        :param conditions: Conditions for Insight Workflow
-        :param status: Status of the Insight Workflow
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -301,15 +292,9 @@ class Workflows(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.InsightWorkflowInput(
-            name=name,
-            description=description,
-            insight_tool_ids=insight_tool_ids,
-            conditions=utils.get_pydantic_model(
-                conditions, models.InsightWorkflowInputConditions
-            ),
-            status=status,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.InsightWorkflowInput)
+        request = cast(models.InsightWorkflowInput, request)
 
         req = self._build_request(
             method="POST",
@@ -383,14 +368,9 @@ class Workflows(BaseSDK):
     async def create_async(
         self,
         *,
-        name: str,
-        description: str,
-        insight_tool_ids: List[int],
-        conditions: Union[
-            models.InsightWorkflowInputConditions,
-            models.InsightWorkflowInputConditionsTypedDict,
+        request: Union[
+            models.InsightWorkflowInput, models.InsightWorkflowInputTypedDict
         ],
-        status: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -400,11 +380,7 @@ class Workflows(BaseSDK):
 
         Create a new tool in the insights
 
-        :param name: Human readable name of Insight Workflow
-        :param description: Text description of Insight Workflow
-        :param insight_tool_ids: List of Insight Tool IDs
-        :param conditions: Conditions for Insight Workflow
-        :param status: Status of the Insight Workflow
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -420,15 +396,9 @@ class Workflows(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.InsightWorkflowInput(
-            name=name,
-            description=description,
-            insight_tool_ids=insight_tool_ids,
-            conditions=utils.get_pydantic_model(
-                conditions, models.InsightWorkflowInputConditions
-            ),
-            status=status,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.InsightWorkflowInput)
+        request = cast(models.InsightWorkflowInput, request)
 
         req = self._build_request_async(
             method="POST",
@@ -701,14 +671,9 @@ class Workflows(BaseSDK):
         self,
         *,
         workflow_id: int,
-        name: str,
-        description: str,
-        insight_tool_ids: List[int],
-        conditions: Union[
-            models.InsightWorkflowInputConditions,
-            models.InsightWorkflowInputConditionsTypedDict,
+        insight_workflow_input: Union[
+            models.InsightWorkflowInput, models.InsightWorkflowInputTypedDict
         ],
-        status: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -719,11 +684,7 @@ class Workflows(BaseSDK):
         Update a InsightWorkflow.
 
         :param workflow_id:
-        :param name: Human readable name of Insight Workflow
-        :param description: Text description of Insight Workflow
-        :param insight_tool_ids: List of Insight Tool IDs
-        :param conditions: Conditions for Insight Workflow
-        :param status: Status of the Insight Workflow
+        :param insight_workflow_input:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -741,14 +702,8 @@ class Workflows(BaseSDK):
 
         request = models.InsightsWorkflowUpdateRequest(
             workflow_id=workflow_id,
-            insight_workflow_input=models.InsightWorkflowInput(
-                name=name,
-                description=description,
-                insight_tool_ids=insight_tool_ids,
-                conditions=utils.get_pydantic_model(
-                    conditions, models.InsightWorkflowInputConditions
-                ),
-                status=status,
+            insight_workflow_input=utils.get_pydantic_model(
+                insight_workflow_input, models.InsightWorkflowInput
             ),
         )
 
@@ -829,14 +784,9 @@ class Workflows(BaseSDK):
         self,
         *,
         workflow_id: int,
-        name: str,
-        description: str,
-        insight_tool_ids: List[int],
-        conditions: Union[
-            models.InsightWorkflowInputConditions,
-            models.InsightWorkflowInputConditionsTypedDict,
+        insight_workflow_input: Union[
+            models.InsightWorkflowInput, models.InsightWorkflowInputTypedDict
         ],
-        status: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -847,11 +797,7 @@ class Workflows(BaseSDK):
         Update a InsightWorkflow.
 
         :param workflow_id:
-        :param name: Human readable name of Insight Workflow
-        :param description: Text description of Insight Workflow
-        :param insight_tool_ids: List of Insight Tool IDs
-        :param conditions: Conditions for Insight Workflow
-        :param status: Status of the Insight Workflow
+        :param insight_workflow_input:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -869,14 +815,8 @@ class Workflows(BaseSDK):
 
         request = models.InsightsWorkflowUpdateRequest(
             workflow_id=workflow_id,
-            insight_workflow_input=models.InsightWorkflowInput(
-                name=name,
-                description=description,
-                insight_tool_ids=insight_tool_ids,
-                conditions=utils.get_pydantic_model(
-                    conditions, models.InsightWorkflowInputConditions
-                ),
-                status=status,
+            insight_workflow_input=utils.get_pydantic_model(
+                insight_workflow_input, models.InsightWorkflowInput
             ),
         )
 

@@ -5,9 +5,9 @@ from .sdkconfiguration import SDKConfiguration
 from syllable_sdk import models, utils
 from syllable_sdk._hooks import HookContext
 from syllable_sdk.test import Test
-from syllable_sdk.types import Nullable, OptionalNullable, UNSET
+from syllable_sdk.types import BaseModel, OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
-from typing import Any, Dict, List, Mapping, Optional, Union
+from typing import Any, List, Mapping, Optional, Union, cast
 
 
 class Agents(BaseSDK):
@@ -273,25 +273,7 @@ class Agents(BaseSDK):
     def create(
         self,
         *,
-        name: str,
-        type_: str,
-        prompt_id: int,
-        custom_message_id: int,
-        timezone: str,
-        variables: Dict[str, str],
-        tool_headers: Nullable[Dict[str, str]],
-        description: OptionalNullable[str] = UNSET,
-        label: OptionalNullable[str] = UNSET,
-        language_group_id: OptionalNullable[int] = UNSET,
-        prompt_tool_defaults: Optional[
-            Union[
-                List[models.AgentToolDefaults], List[models.AgentToolDefaultsTypedDict]
-            ]
-        ] = None,
-        languages: Optional[List[str]] = None,
-        agent_initiated: Optional[bool] = False,
-        stt_provider: OptionalNullable[models.AgentSttProvider] = UNSET,
-        wait_sound: OptionalNullable[models.AgentWaitSound] = UNSET,
+        request: Union[models.AgentCreate, models.AgentCreateTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -301,21 +283,7 @@ class Agents(BaseSDK):
 
         Create a new agent
 
-        :param name: The agent name
-        :param type: The agent type. Can be an arbitrary string
-        :param prompt_id: ID of the prompt associated with the agent
-        :param custom_message_id: ID of the custom message that should be delivered at the beginning of a conversation with the agent
-        :param timezone: The time zone in which the agent operates
-        :param variables: Custom context variables for the conversation session. Keys should be prefixed with \"vars.\".
-        :param tool_headers: Optional headers to include in tool calls for agent.
-        :param description: The agent description
-        :param label: The agent label
-        :param language_group_id: ID of the language group associated with the agent
-        :param prompt_tool_defaults: User-configured parameter values for the agent's tools
-        :param languages: BCP 47 codes of languages the agent supports
-        :param agent_initiated: Whether the agent initiates conversation with a user after the custom message is delivered
-        :param stt_provider: Speech-to-text provider for the agent.
-        :param wait_sound: Sound to play while waiting for a response from the LLM.
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -331,25 +299,9 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentCreate(
-            name=name,
-            description=description,
-            label=label,
-            type=type_,
-            prompt_id=prompt_id,
-            custom_message_id=custom_message_id,
-            language_group_id=language_group_id,
-            timezone=timezone,
-            prompt_tool_defaults=utils.get_pydantic_model(
-                prompt_tool_defaults, Optional[List[models.AgentToolDefaults]]
-            ),
-            languages=languages,
-            variables=variables,
-            tool_headers=tool_headers,
-            agent_initiated=agent_initiated,
-            stt_provider=stt_provider,
-            wait_sound=wait_sound,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.AgentCreate)
+        request = cast(models.AgentCreate, request)
 
         req = self._build_request(
             method="POST",
@@ -423,25 +375,7 @@ class Agents(BaseSDK):
     async def create_async(
         self,
         *,
-        name: str,
-        type_: str,
-        prompt_id: int,
-        custom_message_id: int,
-        timezone: str,
-        variables: Dict[str, str],
-        tool_headers: Nullable[Dict[str, str]],
-        description: OptionalNullable[str] = UNSET,
-        label: OptionalNullable[str] = UNSET,
-        language_group_id: OptionalNullable[int] = UNSET,
-        prompt_tool_defaults: Optional[
-            Union[
-                List[models.AgentToolDefaults], List[models.AgentToolDefaultsTypedDict]
-            ]
-        ] = None,
-        languages: Optional[List[str]] = None,
-        agent_initiated: Optional[bool] = False,
-        stt_provider: OptionalNullable[models.AgentSttProvider] = UNSET,
-        wait_sound: OptionalNullable[models.AgentWaitSound] = UNSET,
+        request: Union[models.AgentCreate, models.AgentCreateTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -451,21 +385,7 @@ class Agents(BaseSDK):
 
         Create a new agent
 
-        :param name: The agent name
-        :param type: The agent type. Can be an arbitrary string
-        :param prompt_id: ID of the prompt associated with the agent
-        :param custom_message_id: ID of the custom message that should be delivered at the beginning of a conversation with the agent
-        :param timezone: The time zone in which the agent operates
-        :param variables: Custom context variables for the conversation session. Keys should be prefixed with \"vars.\".
-        :param tool_headers: Optional headers to include in tool calls for agent.
-        :param description: The agent description
-        :param label: The agent label
-        :param language_group_id: ID of the language group associated with the agent
-        :param prompt_tool_defaults: User-configured parameter values for the agent's tools
-        :param languages: BCP 47 codes of languages the agent supports
-        :param agent_initiated: Whether the agent initiates conversation with a user after the custom message is delivered
-        :param stt_provider: Speech-to-text provider for the agent.
-        :param wait_sound: Sound to play while waiting for a response from the LLM.
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -481,25 +401,9 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentCreate(
-            name=name,
-            description=description,
-            label=label,
-            type=type_,
-            prompt_id=prompt_id,
-            custom_message_id=custom_message_id,
-            language_group_id=language_group_id,
-            timezone=timezone,
-            prompt_tool_defaults=utils.get_pydantic_model(
-                prompt_tool_defaults, Optional[List[models.AgentToolDefaults]]
-            ),
-            languages=languages,
-            variables=variables,
-            tool_headers=tool_headers,
-            agent_initiated=agent_initiated,
-            stt_provider=stt_provider,
-            wait_sound=wait_sound,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.AgentCreate)
+        request = cast(models.AgentCreate, request)
 
         req = self._build_request_async(
             method="POST",
@@ -573,26 +477,7 @@ class Agents(BaseSDK):
     def update(
         self,
         *,
-        name: str,
-        type_: str,
-        prompt_id: int,
-        custom_message_id: int,
-        timezone: str,
-        variables: Dict[str, str],
-        tool_headers: Nullable[Dict[str, str]],
-        id: int,
-        description: OptionalNullable[str] = UNSET,
-        label: OptionalNullable[str] = UNSET,
-        language_group_id: OptionalNullable[int] = UNSET,
-        prompt_tool_defaults: Optional[
-            Union[
-                List[models.AgentToolDefaults], List[models.AgentToolDefaultsTypedDict]
-            ]
-        ] = None,
-        languages: Optional[List[str]] = None,
-        agent_initiated: Optional[bool] = False,
-        stt_provider: OptionalNullable[models.AgentSttProvider] = UNSET,
-        wait_sound: OptionalNullable[models.AgentWaitSound] = UNSET,
+        request: Union[models.AgentUpdate, models.AgentUpdateTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -602,22 +487,7 @@ class Agents(BaseSDK):
 
         Update an existing agent
 
-        :param name: The agent name
-        :param type: The agent type. Can be an arbitrary string
-        :param prompt_id: ID of the prompt associated with the agent
-        :param custom_message_id: ID of the custom message that should be delivered at the beginning of a conversation with the agent
-        :param timezone: The time zone in which the agent operates
-        :param variables: Custom context variables for the conversation session. Keys should be prefixed with \"vars.\".
-        :param tool_headers: Optional headers to include in tool calls for agent.
-        :param id: The agent ID
-        :param description: The agent description
-        :param label: The agent label
-        :param language_group_id: ID of the language group associated with the agent
-        :param prompt_tool_defaults: User-configured parameter values for the agent's tools
-        :param languages: BCP 47 codes of languages the agent supports
-        :param agent_initiated: Whether the agent initiates conversation with a user after the custom message is delivered
-        :param stt_provider: Speech-to-text provider for the agent.
-        :param wait_sound: Sound to play while waiting for a response from the LLM.
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -633,26 +503,9 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentUpdate(
-            name=name,
-            description=description,
-            label=label,
-            type=type_,
-            prompt_id=prompt_id,
-            custom_message_id=custom_message_id,
-            language_group_id=language_group_id,
-            timezone=timezone,
-            prompt_tool_defaults=utils.get_pydantic_model(
-                prompt_tool_defaults, Optional[List[models.AgentToolDefaults]]
-            ),
-            languages=languages,
-            variables=variables,
-            tool_headers=tool_headers,
-            agent_initiated=agent_initiated,
-            stt_provider=stt_provider,
-            wait_sound=wait_sound,
-            id=id,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.AgentUpdate)
+        request = cast(models.AgentUpdate, request)
 
         req = self._build_request(
             method="PUT",
@@ -726,26 +579,7 @@ class Agents(BaseSDK):
     async def update_async(
         self,
         *,
-        name: str,
-        type_: str,
-        prompt_id: int,
-        custom_message_id: int,
-        timezone: str,
-        variables: Dict[str, str],
-        tool_headers: Nullable[Dict[str, str]],
-        id: int,
-        description: OptionalNullable[str] = UNSET,
-        label: OptionalNullable[str] = UNSET,
-        language_group_id: OptionalNullable[int] = UNSET,
-        prompt_tool_defaults: Optional[
-            Union[
-                List[models.AgentToolDefaults], List[models.AgentToolDefaultsTypedDict]
-            ]
-        ] = None,
-        languages: Optional[List[str]] = None,
-        agent_initiated: Optional[bool] = False,
-        stt_provider: OptionalNullable[models.AgentSttProvider] = UNSET,
-        wait_sound: OptionalNullable[models.AgentWaitSound] = UNSET,
+        request: Union[models.AgentUpdate, models.AgentUpdateTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -755,22 +589,7 @@ class Agents(BaseSDK):
 
         Update an existing agent
 
-        :param name: The agent name
-        :param type: The agent type. Can be an arbitrary string
-        :param prompt_id: ID of the prompt associated with the agent
-        :param custom_message_id: ID of the custom message that should be delivered at the beginning of a conversation with the agent
-        :param timezone: The time zone in which the agent operates
-        :param variables: Custom context variables for the conversation session. Keys should be prefixed with \"vars.\".
-        :param tool_headers: Optional headers to include in tool calls for agent.
-        :param id: The agent ID
-        :param description: The agent description
-        :param label: The agent label
-        :param language_group_id: ID of the language group associated with the agent
-        :param prompt_tool_defaults: User-configured parameter values for the agent's tools
-        :param languages: BCP 47 codes of languages the agent supports
-        :param agent_initiated: Whether the agent initiates conversation with a user after the custom message is delivered
-        :param stt_provider: Speech-to-text provider for the agent.
-        :param wait_sound: Sound to play while waiting for a response from the LLM.
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -786,26 +605,9 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentUpdate(
-            name=name,
-            description=description,
-            label=label,
-            type=type_,
-            prompt_id=prompt_id,
-            custom_message_id=custom_message_id,
-            language_group_id=language_group_id,
-            timezone=timezone,
-            prompt_tool_defaults=utils.get_pydantic_model(
-                prompt_tool_defaults, Optional[List[models.AgentToolDefaults]]
-            ),
-            languages=languages,
-            variables=variables,
-            tool_headers=tool_headers,
-            agent_initiated=agent_initiated,
-            stt_provider=stt_provider,
-            wait_sound=wait_sound,
-            id=id,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.AgentUpdate)
+        request = cast(models.AgentUpdate, request)
 
         req = self._build_request_async(
             method="PUT",

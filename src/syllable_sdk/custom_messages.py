@@ -3,9 +3,9 @@
 from .basesdk import BaseSDK
 from syllable_sdk import models, utils
 from syllable_sdk._hooks import HookContext
-from syllable_sdk.types import OptionalNullable, UNSET
+from syllable_sdk.types import BaseModel, OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, List, Mapping, Optional, Union, cast
 
 
 class CustomMessages(BaseSDK):
@@ -264,15 +264,10 @@ class CustomMessages(BaseSDK):
     def create(
         self,
         *,
-        name: str,
-        text: str,
-        label: OptionalNullable[str] = UNSET,
-        rules: Optional[
-            Union[
-                List[models.CustomMessageRule], List[models.CustomMessageRuleTypedDict]
-            ]
-        ] = None,
-        type_: Optional[str] = "greeting",
+        request: Union[
+            models.CustomMessageCreateRequest,
+            models.CustomMessageCreateRequestTypedDict,
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -282,11 +277,7 @@ class CustomMessages(BaseSDK):
 
         Create a new custom message
 
-        :param name: The name of the custom message
-        :param text: The text of the custom message
-        :param label: The label of the custom message
-        :param rules: Rules for time-specific message variants
-        :param type:
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -302,15 +293,9 @@ class CustomMessages(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CustomMessageCreateRequest(
-            name=name,
-            text=text,
-            label=label,
-            rules=utils.get_pydantic_model(
-                rules, Optional[List[models.CustomMessageRule]]
-            ),
-            type=type_,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.CustomMessageCreateRequest)
+        request = cast(models.CustomMessageCreateRequest, request)
 
         req = self._build_request(
             method="POST",
@@ -384,15 +369,10 @@ class CustomMessages(BaseSDK):
     async def create_async(
         self,
         *,
-        name: str,
-        text: str,
-        label: OptionalNullable[str] = UNSET,
-        rules: Optional[
-            Union[
-                List[models.CustomMessageRule], List[models.CustomMessageRuleTypedDict]
-            ]
-        ] = None,
-        type_: Optional[str] = "greeting",
+        request: Union[
+            models.CustomMessageCreateRequest,
+            models.CustomMessageCreateRequestTypedDict,
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -402,11 +382,7 @@ class CustomMessages(BaseSDK):
 
         Create a new custom message
 
-        :param name: The name of the custom message
-        :param text: The text of the custom message
-        :param label: The label of the custom message
-        :param rules: Rules for time-specific message variants
-        :param type:
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -422,15 +398,9 @@ class CustomMessages(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CustomMessageCreateRequest(
-            name=name,
-            text=text,
-            label=label,
-            rules=utils.get_pydantic_model(
-                rules, Optional[List[models.CustomMessageRule]]
-            ),
-            type=type_,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.CustomMessageCreateRequest)
+        request = cast(models.CustomMessageCreateRequest, request)
 
         req = self._build_request_async(
             method="POST",
@@ -504,16 +474,10 @@ class CustomMessages(BaseSDK):
     def update(
         self,
         *,
-        name: str,
-        text: str,
-        id: int,
-        label: OptionalNullable[str] = UNSET,
-        rules: Optional[
-            Union[
-                List[models.CustomMessageRule], List[models.CustomMessageRuleTypedDict]
-            ]
-        ] = None,
-        type_: Optional[str] = "greeting",
+        request: Union[
+            models.CustomMessageUpdateRequest,
+            models.CustomMessageUpdateRequestTypedDict,
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -523,12 +487,7 @@ class CustomMessages(BaseSDK):
 
         Update a custom message
 
-        :param name: The name of the custom message
-        :param text: The text of the custom message
-        :param id: The ID of the custom message
-        :param label: The label of the custom message
-        :param rules: Rules for time-specific message variants
-        :param type:
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -544,16 +503,9 @@ class CustomMessages(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CustomMessageUpdateRequest(
-            name=name,
-            text=text,
-            label=label,
-            rules=utils.get_pydantic_model(
-                rules, Optional[List[models.CustomMessageRule]]
-            ),
-            id=id,
-            type=type_,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.CustomMessageUpdateRequest)
+        request = cast(models.CustomMessageUpdateRequest, request)
 
         req = self._build_request(
             method="PUT",
@@ -627,16 +579,10 @@ class CustomMessages(BaseSDK):
     async def update_async(
         self,
         *,
-        name: str,
-        text: str,
-        id: int,
-        label: OptionalNullable[str] = UNSET,
-        rules: Optional[
-            Union[
-                List[models.CustomMessageRule], List[models.CustomMessageRuleTypedDict]
-            ]
-        ] = None,
-        type_: Optional[str] = "greeting",
+        request: Union[
+            models.CustomMessageUpdateRequest,
+            models.CustomMessageUpdateRequestTypedDict,
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -646,12 +592,7 @@ class CustomMessages(BaseSDK):
 
         Update a custom message
 
-        :param name: The name of the custom message
-        :param text: The text of the custom message
-        :param id: The ID of the custom message
-        :param label: The label of the custom message
-        :param rules: Rules for time-specific message variants
-        :param type:
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -667,16 +608,9 @@ class CustomMessages(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CustomMessageUpdateRequest(
-            name=name,
-            text=text,
-            label=label,
-            rules=utils.get_pydantic_model(
-                rules, Optional[List[models.CustomMessageRule]]
-            ),
-            id=id,
-            type=type_,
-        )
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.CustomMessageUpdateRequest)
+        request = cast(models.CustomMessageUpdateRequest, request)
 
         req = self._build_request_async(
             method="PUT",

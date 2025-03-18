@@ -5,22 +5,19 @@ from .channeltargetcreaterequest import (
     ChannelTargetCreateRequest,
     ChannelTargetCreateRequestTypedDict,
 )
-import pydantic
 from syllable_sdk.types import BaseModel
 from syllable_sdk.utils import FieldMetadata, PathParamMetadata, RequestMetadata
 from typing_extensions import Annotated, TypedDict
 
 
 class ChannelTargetsCreateRequestTypedDict(TypedDict):
-    channel_id_param: int
+    channel_id: int
     channel_target_create_request: ChannelTargetCreateRequestTypedDict
 
 
 class ChannelTargetsCreateRequest(BaseModel):
-    channel_id_param: Annotated[
-        int,
-        pydantic.Field(alias="channel_id"),
-        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
+    channel_id: Annotated[
+        int, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
 
     channel_target_create_request: Annotated[

@@ -81,7 +81,10 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.services.create(name="<value>", description="yuck vice between gee ugh ha")
+    res = ss_client.services.create(request={
+        "name": "<value>",
+        "description": "yuck vice between gee ugh ha",
+    })
 
     # Handle response
     print(res)
@@ -92,8 +95,7 @@ with SyllableSDK(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `name`                                                              | *str*                                                               | :heavy_check_mark:                                                  | The name of the service                                             |
-| `description`                                                       | *str*                                                               | :heavy_check_mark:                                                  | The description of the service                                      |
+| `request`                                                           | [models.ServiceCreateRequest](../../models/servicecreaterequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -122,7 +124,11 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.services.update(name="<value>", description="awful underneath retention too mobility char innocently dowse restfully", id=243447)
+    res = ss_client.services.update(request={
+        "name": "<value>",
+        "description": "awful underneath retention too mobility char innocently dowse restfully",
+        "id": 243447,
+    })
 
     # Handle response
     print(res)
@@ -133,10 +139,7 @@ with SyllableSDK(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `name`                                                              | *str*                                                               | :heavy_check_mark:                                                  | The name of the service                                             |
-| `description`                                                       | *str*                                                               | :heavy_check_mark:                                                  | The description of the service                                      |
-| `id`                                                                | *int*                                                               | :heavy_check_mark:                                                  | The ID of the service                                               |
-| `last_updated_comments`                                             | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | Update comments                                                     |
+| `request`                                                           | [models.ServiceUpdateRequest](../../models/serviceupdaterequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
