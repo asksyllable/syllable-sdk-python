@@ -46,10 +46,6 @@ assistants, or any other AI-driven solutions, Syllable SDK has got you covered.
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-> [!TIP]
-> To finish publishing your SDK to PyPI you must [run your first generation action](https://www.speakeasy.com/docs/github-setup#step-by-step-guide).
-
-
 > [!NOTE]
 > **Python version upgrade policy**
 >
@@ -62,7 +58,7 @@ The SDK can be installed with either *pip* or *poetry* package managers.
 *PIP* is the default package installer for Python, enabling easy installation and management of packages from PyPI via the command line.
 
 ```bash
-pip install git+https://github.com/asksyllable/syllable-sdk-python.git
+pip install syllable-sdk
 ```
 
 ### Poetry
@@ -70,7 +66,7 @@ pip install git+https://github.com/asksyllable/syllable-sdk-python.git
 *Poetry* is a modern tool that simplifies dependency management and package publishing by using a single `pyproject.toml` file to handle project metadata and dependencies.
 
 ```bash
-poetry add git+https://github.com/asksyllable/syllable-sdk-python.git
+poetry add syllable-sdk
 ```
 
 ### Shell and script usage with `uv`
@@ -123,6 +119,7 @@ Generally, the SDK will work well with most IDEs out of the box. However, when u
 ```python
 # Synchronous Example
 import os
+import syllable_sdk
 from syllable_sdk import SyllableSDK
 
 
@@ -130,7 +127,11 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.agents.list()
+    res = ss_client.agents.list(page=0, search_fields=[
+        syllable_sdk.AgentProperties.NAME,
+    ], search_field_values=[
+        "Some Object Name",
+    ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
 
     # Handle response
     print(res)
@@ -143,6 +144,7 @@ The same SDK client can also be used to make asychronous requests by importing a
 # Asynchronous Example
 import asyncio
 import os
+import syllable_sdk
 from syllable_sdk import SyllableSDK
 
 async def main():
@@ -151,7 +153,11 @@ async def main():
         api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
     ) as ss_client:
 
-        res = await ss_client.agents.list_async()
+        res = await ss_client.agents.list_async(page=0, search_fields=[
+            syllable_sdk.AgentProperties.NAME,
+        ], search_field_values=[
+            "Some Object Name",
+        ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
 
         # Handle response
         print(res)
@@ -174,6 +180,7 @@ This SDK supports the following security scheme globally:
 To authenticate with the API the `api_key_header` parameter must be set when initializing the SDK client instance. For example:
 ```python
 import os
+import syllable_sdk
 from syllable_sdk import SyllableSDK
 
 
@@ -181,7 +188,11 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.agents.list()
+    res = ss_client.agents.list(page=0, search_fields=[
+        syllable_sdk.AgentProperties.NAME,
+    ], search_field_values=[
+        "Some Object Name",
+    ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
 
     # Handle response
     print(res)
@@ -202,27 +213,24 @@ with SyllableSDK(
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/agents/README.md#update) - Update Agent
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/agents/README.md#get_by_id) - Get Agent By Id
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/agents/README.md#delete) - Delete Agent
-* [get_available_voices](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/agents/README.md#get_available_voices) - Get Available Agent Voices
+* [agent_get_available_voices](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/agents/README.md#agent_get_available_voices) - Get Available Agent Voices
 
 #### [agents.test](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/test/README.md)
 
-* [send_message](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/test/README.md#send_message) - Send New Message
+* [send_test_message](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/test/README.md#send_test_message) - Send New Message
 
 ### [channels](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md)
 
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#list) - Get Channels
-* [list_targets](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#list_targets) - Get Channel Targets
-* [assign_target](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#assign_target) - Assign A Channel Target
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#delete) - Delete Channel Target
 
 #### [channels.targets](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/targets/README.md)
 
-* [get](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/targets/README.md#get) - Get A Channel Target
+* [available_targets](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/targets/README.md#available_targets) - Available Targets List
+* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/targets/README.md#list) - Get Channel Targets
+* [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/targets/README.md#create) - Assign A Channel Target
+* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/targets/README.md#get_by_id) - Get A Channel Target
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/targets/README.md#update) - Edit Channel Target
-
-### [channels_targets](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channelstargets/README.md)
-
-* [list_available](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channelstargets/README.md#list_available) - Available Targets List
 
 ### [conversations](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/conversations/README.md)
 
@@ -233,24 +241,24 @@ with SyllableSDK(
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/custommessages/README.md#list) - Custom Messages List
 * [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/custommessages/README.md#create) - Create Custom Message
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/custommessages/README.md#update) - Update Custom Message
-* [get](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/custommessages/README.md#get) - Get Custom Message By Id
+* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/custommessages/README.md#get_by_id) - Get Custom Message By Id
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/custommessages/README.md#delete) - Delete Custom Message
 
 ### [dashboards](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/dashboards/README.md)
 
-* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/dashboards/README.md#list) - Post List Dashboards
-* [fetch_info](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/dashboards/README.md#fetch_info) - Post Fetch Info
-* [~~session_events~~](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/dashboards/README.md#session_events) - Post Session Events :warning: **Deprecated**
-* [~~post_session_summary~~](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/dashboards/README.md#post_session_summary) - Post Session Summary :warning: **Deprecated**
-* [~~post_session_transfers~~](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/dashboards/README.md#post_session_transfers) - Post Session Transfers :warning: **Deprecated**
-* [~~post_sessions~~](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/dashboards/README.md#post_sessions) - Post Sessions :warning: **Deprecated**
+* [post_list_dashboard](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/dashboards/README.md#post_list_dashboard) - Post List Dashboards
+* [post_get_dashboard](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/dashboards/README.md#post_get_dashboard) - Post Fetch Info
+* [~~post_session_events_dashboard~~](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/dashboards/README.md#post_session_events_dashboard) - Post Session Events :warning: **Deprecated**
+* [~~post_session_summary_dashboard~~](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/dashboards/README.md#post_session_summary_dashboard) - Post Session Summary :warning: **Deprecated**
+* [~~post_session_transfers_dashboard~~](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/dashboards/README.md#post_session_transfers_dashboard) - Post Session Transfers :warning: **Deprecated**
+* [~~post_sessions_dashboard~~](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/dashboards/README.md#post_sessions_dashboard) - Post Sessions :warning: **Deprecated**
 
 ### [data_sources](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/datasources/README.md)
 
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/datasources/README.md#list) - List Data Sources
 * [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/datasources/README.md#create) - Create Data Source
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/datasources/README.md#update) - Update Data Source
-* [get](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/datasources/README.md#get) - Get Data Source
+* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/datasources/README.md#get_by_id) - Get Data Source
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/datasources/README.md#delete) - Delete Data Source
 
 ### [events](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/events/README.md)
@@ -262,25 +270,19 @@ with SyllableSDK(
 
 #### [insights.tools](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md)
 
+* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#list) - Insight Tool List
 * [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#create) - Create Insight Tool
-* [get_definitions](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#get_definitions) - Get Insight Tool Definitions
+* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#get_by_id) - Get Insight Tool By Id
+* [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#update) - Update Insights Tool
+* [insight_tool_get_definitions](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#insight_tool_get_definitions) - Get Insight Tool Definitions
 
 #### [insights.workflows](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md)
 
+* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#list) - Insight Workflow List
+* [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#create) - Create Insight Workflow
+* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#get_by_id) - Get Insight Workflow By Id
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#update) - Update Insights Workflow
-
-### [insights_tools](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md)
-
-* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#list) - Insight Tool List
-* [get](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#get) - Get Insight Tool By Id
-* [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#update) - Update Insights Tool
-
-### [insights_workflows](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightsworkflows/README.md)
-
-* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightsworkflows/README.md#list) - Insight Workflow List
-* [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightsworkflows/README.md#create) - Create Insight Workflow
-* [get](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightsworkflows/README.md#get) - Get Insight Workflow By Id
-* [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightsworkflows/README.md#delete) - Delete Insights Workflow
+* [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#delete) - Delete Insights Workflow
 
 ### [language_groups](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/languagegroups/README.md)
 
@@ -297,32 +299,38 @@ with SyllableSDK(
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/prompts/README.md#update) - Update Prompt
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/prompts/README.md#get_by_id) - Get Prompt By Id
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/prompts/README.md#delete) - Delete Prompt
-* [history](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/prompts/README.md#history) - Get Prompt History
+* [prompts_history](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/prompts/README.md#prompts_history) - Get Prompt History
 
 ### [services](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/services/README.md)
 
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/services/README.md#list) - Service List
 * [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/services/README.md#create) - Create Service
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/services/README.md#update) - Update Service
-* [get](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/services/README.md#get) - Get Service By Id
+* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/services/README.md#get_by_id) - Get Service By Id
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/services/README.md#delete) - Delete Service
+
+### [session_debug](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/sessiondebug/README.md)
+
+* [get_session_data_by_sid](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/sessiondebug/README.md#get_session_data_by_sid) - Get Session Data By Sid
+* [get_session_data_by_session_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/sessiondebug/README.md#get_session_data_by_session_id) - Get Session Data By Session Id
+* [get_session_tool_call_result_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/sessiondebug/README.md#get_session_tool_call_result_by_id) - Get Session Tool Call Result By Id
 
 ### [session_labels](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/sessionlabels/README.md)
 
-* [get](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/sessionlabels/README.md#get) - Get Label By Id
+* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/sessionlabels/README.md#get_by_id) - Get Label By Id
 * [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/sessionlabels/README.md#create) - Create Label
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/sessionlabels/README.md#list) - Session Labels List
 
 ### [sessions](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/sessions/README.md)
 
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/sessions/README.md#list) - Sessions List
-* [get_full_summary](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/sessions/README.md#get_full_summary) - Get Full Session Summary By Id
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/sessions/README.md#get_by_id) - Get A Single Session By Id
-* [stream_recording](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/sessions/README.md#stream_recording) - Stream Recording
+* [generate_session_recording_urls](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/sessions/README.md#generate_session_recording_urls) - Generate Recording Urls
+* [session_recording_stream](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/sessions/README.md#session_recording_stream) - Stream Recording
 
-#### [sessions.recording](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/recording/README.md)
+#### [sessions.full_summary](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/fullsummary/README.md)
 
-* [generate_urls](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/recording/README.md#generate_urls) - Generate Recording Urls
+* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/fullsummary/README.md#get_by_id) - Get Full Session Summary By Id
 
 #### [sessions.summary](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/summary/README.md)
 
@@ -330,7 +338,7 @@ with SyllableSDK(
 
 #### [sessions.transcript](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/transcript/README.md)
 
-* [get](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/transcript/README.md#get) - Get Session Transcript By Id
+* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/transcript/README.md#get_by_id) - Get Session Transcript By Id
 
 
 ### [tools](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/tools/README.md)
@@ -343,12 +351,12 @@ with SyllableSDK(
 
 ### [v1](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md)
 
-* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md#list) - Post List Dashboards
-* [fetch_info](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md#fetch_info) - Post Fetch Info
-* [~~session_events~~](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md#session_events) - Post Session Events :warning: **Deprecated**
-* [~~post_session_summary~~](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md#post_session_summary) - Post Session Summary :warning: **Deprecated**
-* [~~post_session_transfers~~](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md#post_session_transfers) - Post Session Transfers :warning: **Deprecated**
-* [~~post_sessions~~](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md#post_sessions) - Post Sessions :warning: **Deprecated**
+* [post_list_dashboard](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md#post_list_dashboard) - Post List Dashboards
+* [post_get_dashboard](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md#post_get_dashboard) - Post Fetch Info
+* [~~post_session_events_dashboard~~](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md#post_session_events_dashboard) - Post Session Events :warning: **Deprecated**
+* [~~post_session_summary_dashboard~~](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md#post_session_summary_dashboard) - Post Session Summary :warning: **Deprecated**
+* [~~post_session_transfers_dashboard~~](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md#post_session_transfers_dashboard) - Post Session Transfers :warning: **Deprecated**
+* [~~post_sessions_dashboard~~](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md#post_sessions_dashboard) - Post Sessions :warning: **Deprecated**
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -361,6 +369,7 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 To change the default retry strategy for a single API call, simply provide a `RetryConfig` object to the call:
 ```python
 import os
+import syllable_sdk
 from syllable_sdk import SyllableSDK
 from syllable_sdk.utils import BackoffStrategy, RetryConfig
 
@@ -369,7 +378,11 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.agents.list(,
+    res = ss_client.agents.list(page=0, search_fields=[
+        syllable_sdk.AgentProperties.NAME,
+    ], search_field_values=[
+        "Some Object Name",
+    ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z",
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
     # Handle response
@@ -380,6 +393,7 @@ with SyllableSDK(
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `retry_config` optional parameter when initializing the SDK:
 ```python
 import os
+import syllable_sdk
 from syllable_sdk import SyllableSDK
 from syllable_sdk.utils import BackoffStrategy, RetryConfig
 
@@ -389,7 +403,11 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.agents.list()
+    res = ss_client.agents.list(page=0, search_fields=[
+        syllable_sdk.AgentProperties.NAME,
+    ], search_field_values=[
+        "Some Object Name",
+    ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
 
     # Handle response
     print(res)
@@ -422,6 +440,7 @@ When custom error responses are specified for an operation, the SDK may also rai
 
 ```python
 import os
+import syllable_sdk
 from syllable_sdk import SyllableSDK, models
 
 
@@ -431,7 +450,11 @@ with SyllableSDK(
     res = None
     try:
 
-        res = ss_client.agents.list()
+        res = ss_client.agents.list(page=0, search_fields=[
+            syllable_sdk.AgentProperties.NAME,
+        ], search_field_values=[
+            "Some Object Name",
+        ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
 
         # Handle response
         print(res)
@@ -453,6 +476,7 @@ with SyllableSDK(
 The default server can be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
 ```python
 import os
+import syllable_sdk
 from syllable_sdk import SyllableSDK
 
 
@@ -461,7 +485,11 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.agents.list()
+    res = ss_client.agents.list(page=0, search_fields=[
+        syllable_sdk.AgentProperties.NAME,
+    ], search_field_values=[
+        "Some Object Name",
+    ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
 
     # Handle response
     print(res)
