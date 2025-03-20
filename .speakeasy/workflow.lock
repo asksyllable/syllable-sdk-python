@@ -2,7 +2,7 @@ speakeasyVersion: 1.521.1
 sources:
     SyllableSDK:
         sourceNamespace: syllable-sdk
-        sourceRevisionDigest: sha256:670f958e8f105e8ec132dc2faef6ac063d329358c31138018715686f8c73dc38
+        sourceRevisionDigest: sha256:1765938d8ce1930fad46bc5fe562ccee0a485b9e19980d9ec1c3ea0cd73f1238
         sourceBlobDigest: sha256:601fe84ebc10eb495259d86c416d5aeb5c66ba688cb3b13e2a9b4f02f66bb0db
         tags:
             - latest
@@ -11,10 +11,10 @@ targets:
     syllable-sdk:
         source: SyllableSDK
         sourceNamespace: syllable-sdk
-        sourceRevisionDigest: sha256:670f958e8f105e8ec132dc2faef6ac063d329358c31138018715686f8c73dc38
+        sourceRevisionDigest: sha256:1765938d8ce1930fad46bc5fe562ccee0a485b9e19980d9ec1c3ea0cd73f1238
         sourceBlobDigest: sha256:601fe84ebc10eb495259d86c416d5aeb5c66ba688cb3b13e2a9b4f02f66bb0db
-        codeSamplesNamespace: syllable-sdk-python-code-samples
-        codeSamplesRevisionDigest: sha256:24acca393ffce68c2916c80efc5929150225405faa14910dbf7e64e8fc5be4aa
+        codeSamplesNamespace: syllable-python-sdk-oas-code-samples
+        codeSamplesRevisionDigest: sha256:0f884f9a041cc75c8d208d1a059ebf001b59ffb822e9c14975e1d1aeadcad561
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -37,7 +37,7 @@ workflow:
             codeSamples:
                 output: codeSamples.yaml
                 registry:
-                    location: registry.speakeasyapi.dev/actiumhealth/actiumhealth/syllable-sdk-python-code-samples
+                    location: registry.speakeasyapi.dev/actiumhealth/actiumhealth/syllable-python-sdk-oas-code-samples
                 labelOverride:
                     fixedValue: Python (SDK)
                 blocking: false
