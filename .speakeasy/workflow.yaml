@@ -8,7 +8,7 @@ sources:
             - location: overlay-remove-V1.yaml
         output: openapi.yaml
         registry:
-            location: registry.speakeasyapi.dev/actiumhealth/actiumhealth/syllable-sdk
+            location: registry.speakeasyapi.dev/actiumhealth/actiumhealth/syllable-sdk-oas
 targets:
     syllable-sdk:
         target: python
