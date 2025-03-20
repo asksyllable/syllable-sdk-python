@@ -1,0 +1,1726 @@
+overlay: 1.0.0
+info:
+  title: CodeSamples overlay for python target
+  version: 0.0.0
+actions:
+  - target: $["paths"]["/api/v1/agents/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.agents.list(page=0, search_fields=[
+                    syllable_sdk.AgentProperties.NAME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/agents/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.agents.create(request={
+                    "name": "<value>",
+                    "type": "ca_v1",
+                    "prompt_id": 486589,
+                    "custom_message_id": 638424,
+                    "timezone": "America/New_York",
+                    "variables": {
+
+                    },
+                    "tool_headers": {
+                        "key": "<value>",
+                    },
+                    "stt_provider": syllable_sdk.AgentSttProvider.DEEPGRAM_NOVA_2,
+                    "wait_sound": syllable_sdk.AgentWaitSound.CALL_CENTER,
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/agents/"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.agents.update(request={
+                    "name": "<value>",
+                    "type": "ca_v1",
+                    "prompt_id": 857478,
+                    "custom_message_id": 597129,
+                    "timezone": "America/New_York",
+                    "variables": {
+                        "key": "<value>",
+                        "key1": "<value>",
+                        "key2": "<value>",
+                    },
+                    "tool_headers": {
+                        "key": "<value>",
+                        "key1": "<value>",
+                    },
+                    "stt_provider": syllable_sdk.AgentSttProvider.GOOGLE_STT_V2,
+                    "wait_sound": syllable_sdk.AgentWaitSound.CALL_CENTER,
+                    "id": 54062,
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/agents/test/messages"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.agents.test.send_test_message(request={
+                    "service_name": "<value>",
+                    "source": "<value>",
+                    "test_id": "<id>",
+                    "agent_id": "<id>",
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/agents/voices/available"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.agents.agent_get_available_voices()
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/agents/{agent_id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.agents.delete(agent_id=545907, reason="<value>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/agents/{agent_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.agents.get_by_id(agent_id=931598)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/channels/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.channels.list(page=0, search_fields=[
+                    syllable_sdk.ChannelProperties.NAME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/channels/available-targets"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.channels.targets.available_targets(page=0, search_fields=[
+                    syllable_sdk.AvailableTargetProperties.CHANNEL_NAME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/channels/targets"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.channels.targets.list(page=0, search_fields=[
+                    syllable_sdk.ChannelTargetProperties.FALLBACK_TARGET,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/channels/{channel_id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.channels.delete(channel_id="<id>", target_id="<id>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/channels/{channel_id}/targets"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.channels.targets.create(channel_id=134365, channel_target_create_request={
+                    "agent_id": 486589,
+                    "channel_id": 638424,
+                    "target": "<value>",
+                    "target_mode": syllable_sdk.TargetModes.CHAT,
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/channels/{channel_id}/targets/{target_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.channels.targets.get_by_id(channel_id=931598, target_id=505057)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/channels/{channel_id}/targets/{target_id}"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.channels.targets.update(channel_id=627690, target_id=488852, channel_target_update_request={
+                    "agent_id": 857478,
+                    "channel_id": 597129,
+                    "target": "<value>",
+                    "target_mode": syllable_sdk.TargetModes.CHAT,
+                    "id": 991464,
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/conversations/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.conversations.list(page=0, search_fields=[
+                    syllable_sdk.ConversationProperties.LLM_MODEL,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/custom_messages/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.custom_messages.list(page=0, search_fields=[
+                    syllable_sdk.CustomMessageProperties.NAME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/custom_messages/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.custom_messages.create(request={
+                    "name": "<value>",
+                    "text": "<value>",
+                    "rules": [
+                        {
+                            "description": "delightfully fumigate convection though zowie up bulky electronics",
+                            "time_range_start": "09:00",
+                            "time_range_end": "17:00",
+                            "date_": "2025-01-01",
+                            "days_of_week": [
+                                syllable_sdk.DayOfWeek.MO,
+                                syllable_sdk.DayOfWeek.TU,
+                                syllable_sdk.DayOfWeek.WE,
+                                syllable_sdk.DayOfWeek.TH,
+                                syllable_sdk.DayOfWeek.FR,
+                            ],
+                            "invert": False,
+                            "text": "Sorry, we're closed today",
+                        },
+                        {
+                            "description": "yuck forager beneath please shadowy foodstuffs welcome",
+                            "time_range_start": "09:00",
+                            "time_range_end": "17:00",
+                            "date_": "2025-01-01",
+                            "days_of_week": [
+                                syllable_sdk.DayOfWeek.MO,
+                                syllable_sdk.DayOfWeek.TU,
+                                syllable_sdk.DayOfWeek.WE,
+                                syllable_sdk.DayOfWeek.TH,
+                                syllable_sdk.DayOfWeek.FR,
+                            ],
+                            "invert": True,
+                            "text": "Sorry, we're closed today",
+                        },
+                    ],
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/custom_messages/"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.custom_messages.update(request={
+                    "name": "<value>",
+                    "text": "<value>",
+                    "rules": [
+                        {
+                            "description": "technician eulogise whereas till mild than during",
+                            "time_range_start": "09:00",
+                            "time_range_end": "17:00",
+                            "date_": "2025-01-01",
+                            "days_of_week": [
+                                syllable_sdk.DayOfWeek.MO,
+                                syllable_sdk.DayOfWeek.TU,
+                                syllable_sdk.DayOfWeek.WE,
+                                syllable_sdk.DayOfWeek.TH,
+                                syllable_sdk.DayOfWeek.FR,
+                            ],
+                            "invert": True,
+                            "text": "Sorry, we're closed today",
+                        },
+                        {
+                            "description": "qualified cycle woot abseil perfumed fisherman with duh",
+                            "time_range_start": "09:00",
+                            "time_range_end": "17:00",
+                            "date_": "2025-01-01",
+                            "days_of_week": [
+                                syllable_sdk.DayOfWeek.MO,
+                                syllable_sdk.DayOfWeek.TU,
+                                syllable_sdk.DayOfWeek.WE,
+                                syllable_sdk.DayOfWeek.TH,
+                                syllable_sdk.DayOfWeek.FR,
+                            ],
+                            "invert": True,
+                            "text": "Sorry, we're closed today",
+                        },
+                        {
+                            "description": "ultimately in likely opera please antelope",
+                            "time_range_start": "09:00",
+                            "time_range_end": "17:00",
+                            "date_": "2025-01-01",
+                            "days_of_week": [
+                                syllable_sdk.DayOfWeek.MO,
+                                syllable_sdk.DayOfWeek.TU,
+                                syllable_sdk.DayOfWeek.WE,
+                                syllable_sdk.DayOfWeek.TH,
+                                syllable_sdk.DayOfWeek.FR,
+                            ],
+                            "invert": True,
+                            "text": "Sorry, we're closed today",
+                        },
+                    ],
+                    "id": 975440,
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/custom_messages/{custom_message_id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.custom_messages.delete(custom_message_id=545907, reason="<value>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/custom_messages/{custom_message_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.custom_messages.get_by_id(custom_message_id=931598)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/dashboards/fetch_info"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.dashboards.post_get_dashboard(dashboard_name="<value>")
+
+                # Handle response
+                print(res)
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.v1.post_get_dashboard(dashboard_name="<value>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/dashboards/list"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.dashboards.post_list_dashboard(page=0, search_fields=[
+                    syllable_sdk.DashboardProperties.NAME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.v1.post_list_dashboard(page=0, search_fields=[
+                    syllable_sdk.DashboardProperties.NAME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/data_sources/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.data_sources.list(page=0, search_fields=[
+                    syllable_sdk.DataSourceProperties.NAME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/data_sources/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.data_sources.create(request={
+                    "name": "Rain",
+                    "description": "Information about rain.",
+                    "labels": [
+                        "Weather Info",
+                    ],
+                    "chunk": False,
+                    "chunk_delimiter": "",
+                    "text": "<value>",
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/data_sources/"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.data_sources.update(request={
+                    "name": "Rain",
+                    "description": "Information about rain.",
+                    "labels": [
+                        "Weather Info",
+                    ],
+                    "chunk": False,
+                    "chunk_delimiter": "",
+                    "id": 1,
+                    "edit_comments": "Added new info",
+                    "text": "<value>",
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/data_sources/{data_source_id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.data_sources.delete(data_source_id=545907, reason="<value>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/data_sources/{data_source_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.data_sources.get_by_id(data_source_id=931598)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/events/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.events.list(page=0, search_fields=[
+                    syllable_sdk.EventProperties.USER_ID,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/tool-definitions"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.tools.insight_tool_get_definitions()
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/tools"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.tools.list(page=0, search_fields=[
+                    syllable_sdk.InsightToolProperties.NAME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/tools"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.tools.create(request={
+                    "name": "<value>",
+                    "description": "yuck vice between gee ugh ha",
+                    "version": 920994,
+                    "tool_arguments": {},
+                    "insight_tool_definition_id": 780486,
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/tools/{tool_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.tools.get_by_id(tool_id="<id>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/tools/{tool_id}"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.tools.update(tool_id=198183, insight_tool_input={
+                    "name": "<value>",
+                    "description": "awful underneath retention too mobility char innocently dowse restfully",
+                    "version": 243447,
+                    "tool_arguments": {},
+                    "insight_tool_definition_id": 265006,
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/workflows/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.workflows.list(page=0, search_fields=[
+                    syllable_sdk.InsightWorkflowProperties.NAME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/workflows/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.workflows.create(request={
+                    "name": "<value>",
+                    "description": "yuck vice between gee ugh ha",
+                    "insight_tool_ids": [
+                        780486,
+                        760259,
+                        219974,
+                    ],
+                    "conditions": {},
+                    "status": "<value>",
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/workflows/{workflow_id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.workflows.delete(workflow_id=545907)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/workflows/{workflow_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.workflows.get_by_id(workflow_id=931598)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/workflows/{workflow_id}"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.workflows.update(workflow_id=265006, insight_workflow_input={
+                    "name": "<value>",
+                    "description": "awful underneath retention too mobility char innocently dowse restfully",
+                    "insight_tool_ids": [
+
+                    ],
+                    "conditions": {},
+                    "status": "<value>",
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/language_groups/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.language_groups.list(page=0, search_fields=[
+                    syllable_sdk.LanguageGroupProperties.NAME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/language_groups/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.language_groups.create(request={
+                    "name": "Call Center 1 Languages",
+                    "description": "Languages spoken by operators at Call Center 1",
+                    "language_configs": [
+                        {
+                            "language_code": syllable_sdk.LanguageCode.ES_US,
+                            "voice_provider": syllable_sdk.TtsProvider.ELEVEN_LABS,
+                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.BRIAN,
+                            "dtmf_code": 1,
+                        },
+                    ],
+                    "skip_current_language_in_message": True,
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/language_groups/"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.language_groups.update(request={
+                    "name": "Call Center 1 Languages",
+                    "description": "Languages spoken by operators at Call Center 1",
+                    "language_configs": [
+                        {
+                            "language_code": syllable_sdk.LanguageCode.ES_US,
+                            "voice_provider": syllable_sdk.TtsProvider.ELEVEN_LABS,
+                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.WILL,
+                            "dtmf_code": 1,
+                        },
+                        {
+                            "language_code": syllable_sdk.LanguageCode.ES_US,
+                            "voice_provider": syllable_sdk.TtsProvider.ELEVEN_LABS,
+                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.WILL,
+                            "dtmf_code": 1,
+                        },
+                        {
+                            "language_code": syllable_sdk.LanguageCode.YUE_HK,
+                            "voice_provider": syllable_sdk.TtsProvider.GOOGLE,
+                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.GEORGE,
+                            "dtmf_code": 1,
+                        },
+                    ],
+                    "skip_current_language_in_message": True,
+                    "id": 1,
+                    "edit_comments": "Added Spanish support.",
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/language_groups/{language_group_id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.language_groups.delete(language_group_id=545907, reason="<value>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/language_groups/{language_group_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.language_groups.get_by_id(language_group_id=931598)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/prompts/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.prompts.list(page=0, search_fields=[
+                    syllable_sdk.PromptProperties.NAME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/prompts/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.prompts.create(request={
+                    "name": "<value>",
+                    "type": "<value>",
+                    "llm_config": {
+                        "version": "2024-05-13",
+                        "api_version": "2024-06-01",
+                    },
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/prompts/"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.prompts.update(request={
+                    "name": "<value>",
+                    "type": "<value>",
+                    "llm_config": {
+                        "version": "2024-05-13",
+                        "api_version": "2024-06-01",
+                    },
+                    "id": 857478,
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/prompts/{prompt_id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.prompts.delete(prompt_id=545907, reason="<value>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/prompts/{prompt_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.prompts.get_by_id(prompt_id=931598)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/prompts/{prompt_id}/history"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.prompts.prompts_history(prompt_id=627932)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/services/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.services.list(page=0, search_fields=[
+                    syllable_sdk.ServiceProperties.NAME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/services/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.services.create(request={
+                    "name": "<value>",
+                    "description": "yuck vice between gee ugh ha",
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/services/"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.services.update(request={
+                    "name": "<value>",
+                    "description": "awful underneath retention too mobility char innocently dowse restfully",
+                    "id": 243447,
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/services/{service_id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.services.delete(service_id=545907, reason="<value>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/services/{service_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.services.get_by_id(service_id=931598)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/session_debug/session_id/{session_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.session_debug.get_session_data_by_session_id(session_id=744354)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/session_debug/sid/{channel_manager_service}/{channel_manager_sid}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.session_debug.get_session_data_by_sid(channel_manager_service="<value>", channel_manager_sid="<id>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/session_debug/tool_result/{session_id}/{tool_call_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.session_debug.get_session_tool_call_result_by_id(session_id=187795, tool_call_id="<id>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/session_labels/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.session_labels.list(page=0, search_fields=[
+                    syllable_sdk.SessionLabelProperties.ISSUE_CATEGORIES,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/session_labels/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.session_labels.create(request={
+                    "session_id": 486589,
+                    "type": "human-rating",
+                    "code": "OK",
+                    "user_email": "<value>",
+                    "issue_categories": [
+                        "Silent treatment",
+                    ],
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/session_labels/{session_label_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.session_labels.get_by_id(session_label_id=931598)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/sessions/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.sessions.list(page=0, search_fields=[
+                    syllable_sdk.SessionProperties.TARGET,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/sessions/full-summary/{session_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.sessions.full_summary.get_by_id(session_id="<id>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/sessions/recording/stream"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.sessions.session_recording_stream(token="<value>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/sessions/recording/{session_id}"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.sessions.generate_session_recording_urls(session_id="<id>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/sessions/summary/{session_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.sessions.summary.get_by_id(session_id="<id>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/sessions/transcript/{session_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.sessions.transcript.get_by_id(session_id="<id>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/sessions/{session_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.sessions.get_by_id(session_id="<id>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/tools/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.tools.list(page=0, search_fields=[
+                    syllable_sdk.ToolProperties.NAME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/tools/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.tools.create(request={
+                    "name": "Weather Fetcher",
+                    "definition": {
+                        "tool": {
+                            "type": "function",
+                            "function": {
+                                "name": "weather_fetcher",
+                                "description": "Fetches weather data",
+                                "parameters": {
+
+                                },
+                            },
+                        },
+                        "endpoint": {
+                            "url": "https://api.example.com",
+                            "method": syllable_sdk.ToolHTTPMethod.GET,
+                            "argument_location": syllable_sdk.ToolArgumentLocation.PATH,
+                        },
+                        "defaults": "<value>",
+                    },
+                    "service_id": 134365,
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/tools/"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.tools.update(request={
+                    "name": "Weather Fetcher",
+                    "definition": {
+                        "tool": {
+                            "type": "function",
+                            "function": {
+                                "name": "weather_fetcher",
+                                "description": "Fetches weather data",
+                                "parameters": {
+
+                                },
+                            },
+                        },
+                        "endpoint": {
+                            "url": "https://api.example.com",
+                            "method": syllable_sdk.ToolHTTPMethod.POST,
+                            "argument_location": syllable_sdk.ToolArgumentLocation.PATH,
+                        },
+                        "defaults": "<value>",
+                    },
+                    "service_id": 991464,
+                    "id": 627690,
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/tools/{tool_name}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.tools.delete(tool_name="<value>", reason="<value>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/tools/{tool_name}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.tools.get_by_name(tool_name="<value>")
+
+                # Handle response
+                print(res)

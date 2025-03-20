@@ -1,8 +1,8 @@
-speakeasyVersion: 1.519.0
+speakeasyVersion: 1.521.1
 sources:
     SyllableSDK:
         sourceNamespace: syllable-sdk
-        sourceRevisionDigest: sha256:efd75d0f12f21f580917d50a528584b82c91ee11b7500fcc4a255dbaa79c1e5a
+        sourceRevisionDigest: sha256:670f958e8f105e8ec132dc2faef6ac063d329358c31138018715686f8c73dc38
         sourceBlobDigest: sha256:601fe84ebc10eb495259d86c416d5aeb5c66ba688cb3b13e2a9b4f02f66bb0db
         tags:
             - latest
@@ -11,10 +11,10 @@ targets:
     syllable-sdk:
         source: SyllableSDK
         sourceNamespace: syllable-sdk
-        sourceRevisionDigest: sha256:efd75d0f12f21f580917d50a528584b82c91ee11b7500fcc4a255dbaa79c1e5a
+        sourceRevisionDigest: sha256:670f958e8f105e8ec132dc2faef6ac063d329358c31138018715686f8c73dc38
         sourceBlobDigest: sha256:601fe84ebc10eb495259d86c416d5aeb5c66ba688cb3b13e2a9b4f02f66bb0db
         codeSamplesNamespace: syllable-sdk-python-code-samples
-        codeSamplesRevisionDigest: sha256:211cb0b86f1e51668b73b3926b361ab4d6ec5bfd4bac075704404d8b252d3709
+        codeSamplesRevisionDigest: sha256:24acca393ffce68c2916c80efc5929150225405faa14910dbf7e64e8fc5be4aa
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -35,6 +35,7 @@ workflow:
                 pypi:
                     token: $pypi_token
             codeSamples:
+                output: codeSamples.yaml
                 registry:
                     location: registry.speakeasyapi.dev/actiumhealth/actiumhealth/syllable-sdk-python-code-samples
                 labelOverride:

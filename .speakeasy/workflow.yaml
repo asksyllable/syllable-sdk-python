@@ -17,6 +17,7 @@ targets:
             pypi:
                 token: $pypi_token
         codeSamples:
+            output: codeSamples.yaml
             registry:
                 location: registry.speakeasyapi.dev/actiumhealth/actiumhealth/syllable-sdk-python-code-samples
             labelOverride:
