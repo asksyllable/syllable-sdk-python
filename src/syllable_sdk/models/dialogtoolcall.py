@@ -15,14 +15,14 @@ class DialogToolCallToolArguments(BaseModel):
 
 
 class DialogToolCallTypedDict(TypedDict):
-    toll_call_id: str
+    tool_call_id: str
     tool_name: str
     tool_arguments: DialogToolCallToolArgumentsTypedDict
     timestamp: datetime
 
 
 class DialogToolCall(BaseModel):
-    toll_call_id: str
+    tool_call_id: str
 
     tool_name: str
 

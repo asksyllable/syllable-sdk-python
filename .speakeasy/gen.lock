@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 5eb3534c73559426b06ecf4c72dfe5c9
+  docChecksum: a8e629d0440998d761d306fb6d4328fc
   docVersion: 0.0.2
-  speakeasyVersion: 1.521.1
-  generationVersion: 2.558.5
-  releaseVersion: 0.3.4
-  configChecksum: 29b88d525f7ceb04466b51320906fb1d
+  speakeasyVersion: 1.522.0
+  generationVersion: 2.559.0
+  releaseVersion: 0.3.5
+  configChecksum: a3988e7ffe53321e41ea12d55eb77832
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -1297,7 +1297,7 @@ examples:
           channel_manager_sid: "<id>"
       responses:
         "200":
-          application/json: {"session_id": 566255, "source": "<value>", "target": "<value>", "is_test": false, "messages": [{"role": "user", "dialog": {"text": "<value>"}, "tool_calls": [{"toll_call_id": "<id>", "tool_name": "<value>", "tool_arguments": {}, "timestamp": "2023-06-28T21:47:54.446Z"}, {"toll_call_id": "<id>", "tool_name": "<value>", "tool_arguments": {}, "timestamp": "2024-02-29T20:33:59.841Z"}, {"toll_call_id": "<id>", "tool_name": "<value>", "tool_arguments": {}, "timestamp": "2024-05-22T13:39:07.091Z"}], "timestamp": "2025-09-26T02:05:35.369Z"}, {"role": "user", "dialog": {"text": "<value>"}, "tool_calls": [{"toll_call_id": "<id>", "tool_name": "<value>", "tool_arguments": {}, "timestamp": "2024-10-10T08:22:23.622Z"}], "timestamp": "2024-04-11T07:26:12.392Z"}]}
+          application/json: {"session_id": 566255, "source": "<value>", "target": "<value>", "is_test": false, "messages": [{"role": "user", "dialog": {"text": "<value>"}, "tool_calls": [{"tool_call_id": "<id>", "tool_name": "<value>", "tool_arguments": {}, "timestamp": "2023-06-28T21:47:54.446Z"}, {"tool_call_id": "<id>", "tool_name": "<value>", "tool_arguments": {}, "timestamp": "2024-02-29T20:33:59.841Z"}, {"tool_call_id": "<id>", "tool_name": "<value>", "tool_arguments": {}, "timestamp": "2024-05-22T13:39:07.091Z"}], "timestamp": "2025-09-26T02:05:35.369Z"}, {"role": "user", "dialog": {"text": "<value>"}, "tool_calls": [{"tool_call_id": "<id>", "tool_name": "<value>", "tool_arguments": {}, "timestamp": "2024-10-10T08:22:23.622Z"}], "timestamp": "2024-04-11T07:26:12.392Z"}]}
         "422":
           application/json: {}
   get_session_data_by_session_id:

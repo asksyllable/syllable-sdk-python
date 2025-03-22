@@ -5985,7 +5985,7 @@ components:
         - "updated_at"
         - "last_updated_by"
       title: "CustomMessageResponse"
-      description: "A custom message is a pre-configured message delivered by an agent as a greeting at the\nbeginning of a conversation. Multiple agents can use the same custom mesasage. A custom message\nhas one or more rules defined, which allow for different messages to be dynamically selected and\ndelivered at runtime based on the current time and either date or day of the week. For more \ninformation, see [Console docs](https://docs.syllable.ai/Resources/Messages)."
+      description: "A custom message is a pre-configured message delivered by an agent as a greeting at the\nbeginning of a conversation. Multiple agents can use the same custom mesasage. A custom message\nhas one or more rules defined, which allow for different messages to be dynamically selected and\ndelivered at runtime based on the current time and either date or day of the week. For more\ninformation, see [Console docs](https://docs.syllable.ai/Resources/Messages)."
     "CustomMessageRule":
       properties:
         "description":
@@ -6310,7 +6310,7 @@ components:
         - "last_updated_by"
         - "text"
       title: "DataSourceDetailResponse"
-      description: "Metadata about a data source, along with the text. A data source is a blob of text that \ncan be made available to an agent's general info tools to provide more context to the agent when\ngenerating its responses. For more information, see\n[Console docs](https://docs.syllable.ai/Resources/DataSources)."
+      description: "Metadata about a data source, along with the text. A data source is a blob of text that\ncan be made available to an agent's general info tools to provide more context to the agent when\ngenerating its responses. For more information, see\n[Console docs](https://docs.syllable.ai/Resources/DataSources)."
     "DataSourceMetadataResponse":
       properties:
         "name":
@@ -6385,7 +6385,7 @@ components:
         - "updated_at"
         - "last_updated_by"
       title: "DataSourceMetadataResponse"
-      description: "Metadata about a data source, not including the text. A data source is a blob of text that \ncan be made available to an agent's general info tools to provide more context to the agent when\ngenerating its responses. For more information, see\n[Console docs](https://docs.syllable.ai/Resources/DataSources)."
+      description: "Metadata about a data source, not including the text. A data source is a blob of text that\ncan be made available to an agent's general info tools to provide more context to the agent when\ngenerating its responses. For more information, see\n[Console docs](https://docs.syllable.ai/Resources/DataSources)."
     "DataSourceProperties":
       type: "string"
       enum:
@@ -6489,9 +6489,9 @@ components:
       title: "DialogRole"
     "DialogToolCall":
       properties:
-        "toll_call_id":
+        "tool_call_id":
           type: "string"
-          title: "Toll Call Id"
+          title: "Tool Call Id"
         "tool_name":
           type: "string"
           title: "Tool Name"
@@ -6504,7 +6504,7 @@ components:
           title: "Timestamp"
       type: "object"
       required:
-        - "toll_call_id"
+        - "tool_call_id"
         - "tool_name"
         - "tool_arguments"
         - "timestamp"
@@ -7110,7 +7110,7 @@ components:
         - "updated_at"
         - "last_updated_by"
       title: "LanguageGroupResponse"
-      description: "A language group is a collection of language, voice, and DTMF configuration that can be \nlinked to an agent to define the languages and voices it supports. For more information, see \n[Console docs](https://docs.syllable.ai/Resources/LanguageGroups)."
+      description: "A language group is a collection of language, voice, and DTMF configuration that can be\nlinked to an agent to define the languages and voices it supports. For more information, see\n[Console docs](https://docs.syllable.ai/Resources/LanguageGroups)."
     "LanguageGroupUpdateRequest":
       properties:
         "name":
