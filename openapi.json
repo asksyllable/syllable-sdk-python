@@ -11377,7 +11377,10 @@
           "text": {
             "type": "string",
             "title": "Text",
-            "description": "Dialog message text"
+            "description": "Dialog message text",
+            "examples": [
+              "Tell me about Syllable.ai!"
+            ]
           }
         },
         "type": "object",
@@ -11400,22 +11403,36 @@
           "tool_call_id": {
             "type": "string",
             "title": "Tool Call Id",
-            "description": "Tool call ID"
+            "description": "Tool call ID",
+            "examples": [
+              "call_arbitrary_id"
+            ]
           },
           "tool_name": {
             "type": "string",
             "title": "Tool Name",
-            "description": "Tool name"
+            "description": "Tool name",
+            "examples": [
+              "general_information_web"
+            ]
           },
           "tool_arguments": {
             "title": "Tool Arguments",
-            "description": "Tool arguments"
+            "description": "Tool arguments",
+            "examples": [
+              {
+                "question": "Tell me about Syllable.ai!"
+              }
+            ]
           },
           "timestamp": {
             "type": "string",
             "format": "date-time",
             "title": "Timestamp",
-            "description": "Tool call timestamp"
+            "description": "Tool call timestamp",
+            "examples": [
+              "2024-06-19T00:00:00"
+            ]
           }
         },
         "type": "object",
@@ -15169,22 +15186,34 @@
           "session_id": {
             "type": "integer",
             "title": "Session Id",
-            "description": "Session ID"
+            "description": "Session ID",
+            "examples": [
+              "123"
+            ]
           },
           "source": {
             "type": "string",
             "title": "Source",
-            "description": "Session source"
+            "description": "Session source",
+            "examples": [
+              "+1234567890"
+            ]
           },
           "target": {
             "type": "string",
             "title": "Target",
-            "description": "Session target"
+            "description": "Session target",
+            "examples": [
+              "+1239876543"
+            ]
           },
           "is_test": {
             "type": "boolean",
             "title": "Is Test",
-            "description": "Is test session"
+            "description": "Is test session",
+            "examples": [
+              false
+            ]
           },
           "messages": {
             "items": {
@@ -15409,7 +15438,11 @@
         "properties": {
           "role": {
             "$ref": "#/components/schemas/DialogRole",
-            "description": "Dialog role"
+            "description": "Dialog role",
+            "examples": [
+              "agent",
+              "user"
+            ]
           },
           "dialog": {
             "$ref": "#/components/schemas/DialogMessage",
@@ -15427,7 +15460,10 @@
             "type": "string",
             "format": "date-time",
             "title": "Timestamp",
-            "description": "Message timestamp"
+            "description": "Message timestamp",
+            "examples": [
+              "2024-06-19T00:00:00"
+            ]
           }
         },
         "type": "object",
@@ -16606,11 +16642,19 @@
           "tool_name": {
             "type": "string",
             "title": "Tool Name",
-            "description": "Tool name"
+            "description": "Tool name",
+            "examples": [
+              "general_information_web"
+            ]
           },
           "tool_result": {
             "title": "Tool Result",
-            "description": "Tool result data"
+            "description": "Tool result data",
+            "examples": [
+              {
+                "answer": "Syllable is a platform for building and managing AI voice agents..."
+              }
+            ]
           }
         },
         "type": "object",
