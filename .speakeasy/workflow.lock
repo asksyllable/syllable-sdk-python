@@ -1,21 +1,21 @@
-speakeasyVersion: 1.521.1
+speakeasyVersion: 1.524.0
 sources:
     SyllableSDK:
         sourceNamespace: syllable-sdk-oas
-        sourceRevisionDigest: sha256:f7395ac1efeea7b0b9b6c547a09093307389b8d577ced334ba51815a02c67dbf
-        sourceBlobDigest: sha256:601fe84ebc10eb495259d86c416d5aeb5c66ba688cb3b13e2a9b4f02f66bb0db
+        sourceRevisionDigest: sha256:c65bdaaa59bae3057fd08a2937f9afc1d24fa3f75af317f0dd244752c78ff875
+        sourceBlobDigest: sha256:02314270e3ff5787077f339eadc65bc193c96ead4bc75be1a8c1b02ba4649e73
         tags:
             - latest
-            - speakeasy-sdk-regen-1742510744
+            - speakeasy-sdk-regen-1742863584
             - 0.0.2
 targets:
     syllable-sdk:
         source: SyllableSDK
         sourceNamespace: syllable-sdk-oas
-        sourceRevisionDigest: sha256:f7395ac1efeea7b0b9b6c547a09093307389b8d577ced334ba51815a02c67dbf
-        sourceBlobDigest: sha256:601fe84ebc10eb495259d86c416d5aeb5c66ba688cb3b13e2a9b4f02f66bb0db
-        codeSamplesNamespace: syllable-python-sdk-oas-code-samples
-        codeSamplesRevisionDigest: sha256:a681b563b88876d8b3e5127a1074b440433e62df398501f4121a6622ce975095
+        sourceRevisionDigest: sha256:c65bdaaa59bae3057fd08a2937f9afc1d24fa3f75af317f0dd244752c78ff875
+        sourceBlobDigest: sha256:02314270e3ff5787077f339eadc65bc193c96ead4bc75be1a8c1b02ba4649e73
+        codeSamplesNamespace: code-samples-python-sdk-syllable-sdk-oas-code-samples
+        codeSamplesRevisionDigest: sha256:8217e2ed374dccc8aa14c409681eed54706ff7e461fcf6293ae3834c468d59f0
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -27,7 +27,7 @@ workflow:
                 - location: overlay-remove-V1.yaml
             output: openapi.yaml
             registry:
-                location: registry.speakeasyapi.dev/actiumhealth/actiumhealth/syllable-sdk-oas
+                location: registry.speakeasyapi.dev/syllable/syllable/syllable-sdk-oas
     targets:
         syllable-sdk:
             target: python
@@ -38,7 +38,7 @@ workflow:
             codeSamples:
                 output: codeSamples.yaml
                 registry:
-                    location: registry.speakeasyapi.dev/actiumhealth/actiumhealth/syllable-python-sdk-oas-code-samples
+                    location: registry.speakeasyapi.dev/syllable/syllable/code-samples-python-sdk-syllable-sdk-oas-code-samples
                 labelOverride:
                     fixedValue: Python (SDK)
                 blocking: false
