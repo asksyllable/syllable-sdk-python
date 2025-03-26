@@ -1,5 +1,7 @@
 # ChannelProperties
 
+Names of channel fields supported for filtering/sorting on list endpoint.
+
 
 ## Values
 

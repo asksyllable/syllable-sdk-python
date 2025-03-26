@@ -1,5 +1,7 @@
 # LanguageGroupProperties
 
+Names of language group fields supported for filtering/sorting on list endpoint.
+
 
 ## Values
 

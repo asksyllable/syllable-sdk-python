@@ -1,5 +1,7 @@
 # ServiceProperties
 
+Names of service fields supported for filtering/sorting on list endpoint.
+
 
 ## Values
 

@@ -44,7 +44,7 @@ with SyllableSDK(
 
 | Parameter                                                                                                                                              | Type                                                                                                                                                   | Required                                                                                                                                               | Description                                                                                                                                            | Example                                                                                                                                                |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-indexed)                                                                                                        | 0                                                                                                                                                      |
+| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-based)                                                                                                          | 0                                                                                                                                                      |
 | `limit`                                                                                                                                                | *Optional[int]*                                                                                                                                        | :heavy_minus_sign:                                                                                                                                     | The maximum number of items to return                                                                                                                  | 25                                                                                                                                                     |
 | `search_fields`                                                                                                                                        | List[[models.DataSourceProperties](../../models/datasourceproperties.md)]                                                                              | :heavy_minus_sign:                                                                                                                                     | String names of fields to search. Correspond by index to search field values                                                                           | name                                                                                                                                                   |
 | `search_field_values`                                                                                                                                  | List[*str*]                                                                                                                                            | :heavy_minus_sign:                                                                                                                                     | Values of fields to search. Correspond by index to search fields. Unless field name contains "list", an individual search field value cannot be a list | Some Object Name                                                                                                                                       |
@@ -84,7 +84,13 @@ with SyllableSDK(
     res = ss_client.data_sources.create(request={
         "name": "Rain",
         "chunk": False,
-        "text": "<value>",
+        "text": ("The following are names and addresses of pizza shops.\n"
+        "\n"
+        "Cool Pizza, 123 Main St.\n"
+        "\n"
+        "Really Good Pizza, 456 Water St.\n"
+        "\n"
+        "The Best Pizza, 789 Circle Dr."),
         "description": "Information about rain.",
         "labels": [
             "Weather Info",
@@ -134,7 +140,13 @@ with SyllableSDK(
         "name": "Rain",
         "chunk": False,
         "id": 1,
-        "text": "<value>",
+        "text": ("The following are names and addresses of pizza shops.\n"
+        "\n"
+        "Cool Pizza, 123 Main St.\n"
+        "\n"
+        "Really Good Pizza, 456 Water St.\n"
+        "\n"
+        "The Best Pizza, 789 Circle Dr."),
         "description": "Information about rain.",
         "labels": [
             "Weather Info",

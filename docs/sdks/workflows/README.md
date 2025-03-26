@@ -44,7 +44,7 @@ with SyllableSDK(
 
 | Parameter                                                                                                                                              | Type                                                                                                                                                   | Required                                                                                                                                               | Description                                                                                                                                            | Example                                                                                                                                                |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-indexed)                                                                                                        | 0                                                                                                                                                      |
+| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-based)                                                                                                          | 0                                                                                                                                                      |
 | `limit`                                                                                                                                                | *Optional[int]*                                                                                                                                        | :heavy_minus_sign:                                                                                                                                     | The maximum number of items to return                                                                                                                  | 25                                                                                                                                                     |
 | `search_fields`                                                                                                                                        | List[[models.InsightWorkflowProperties](../../models/insightworkflowproperties.md)]                                                                    | :heavy_minus_sign:                                                                                                                                     | String names of fields to search. Correspond by index to search field values                                                                           | name                                                                                                                                                   |
 | `search_field_values`                                                                                                                                  | List[*str*]                                                                                                                                            | :heavy_minus_sign:                                                                                                                                     | Values of fields to search. Correspond by index to search fields. Unless field name contains "list", an individual search field value cannot be a list | Some Object Name                                                                                                                                       |
@@ -82,15 +82,13 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.insights.workflows.create(request={
-        "name": "<value>",
-        "description": "yuck vice between gee ugh ha",
+        "name": "summary-workflow",
+        "description": "Default workflow - generates a summary of the call",
         "insight_tool_ids": [
-            780486,
-            760259,
-            219974,
+            1,
         ],
         "conditions": {},
-        "status": "<value>",
+        "status": "ACTIVE",
     })
 
     # Handle response
@@ -172,13 +170,13 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.insights.workflows.update(workflow_id=265006, insight_workflow_input={
-        "name": "<value>",
-        "description": "awful underneath retention too mobility char innocently dowse restfully",
+        "name": "summary-workflow",
+        "description": "Default workflow - generates a summary of the call",
         "insight_tool_ids": [
-
+            1,
         ],
         "conditions": {},
-        "status": "<value>",
+        "status": "ACTIVE",
     })
 
     # Handle response

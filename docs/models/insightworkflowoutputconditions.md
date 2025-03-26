@@ -1,6 +1,6 @@
 # InsightWorkflowOutputConditions
 
-Conditions for Insight Workflow
+Conditions for insight workflow to trigger on a given call recording.
 
 
 ## Fields

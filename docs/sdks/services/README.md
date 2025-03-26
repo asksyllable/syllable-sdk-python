@@ -44,7 +44,7 @@ with SyllableSDK(
 
 | Parameter                                                                                                                                              | Type                                                                                                                                                   | Required                                                                                                                                               | Description                                                                                                                                            | Example                                                                                                                                                |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-indexed)                                                                                                        | 0                                                                                                                                                      |
+| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-based)                                                                                                          | 0                                                                                                                                                      |
 | `limit`                                                                                                                                                | *Optional[int]*                                                                                                                                        | :heavy_minus_sign:                                                                                                                                     | The maximum number of items to return                                                                                                                  | 25                                                                                                                                                     |
 | `search_fields`                                                                                                                                        | List[[models.ServiceProperties](../../models/serviceproperties.md)]                                                                                    | :heavy_minus_sign:                                                                                                                                     | String names of fields to search. Correspond by index to search field values                                                                           | name                                                                                                                                                   |
 | `search_field_values`                                                                                                                                  | List[*str*]                                                                                                                                            | :heavy_minus_sign:                                                                                                                                     | Values of fields to search. Correspond by index to search fields. Unless field name contains "list", an individual search field value cannot be a list | Some Object Name                                                                                                                                       |
@@ -82,8 +82,8 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.services.create(request={
-        "name": "<value>",
-        "description": "yuck vice between gee ugh ha",
+        "name": "Weather tools",
+        "description": "Service containing tools for fetching weather information",
     })
 
     # Handle response
@@ -125,9 +125,10 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.services.update(request={
-        "name": "<value>",
-        "description": "awful underneath retention too mobility char innocently dowse restfully",
-        "id": 243447,
+        "name": "Weather tools",
+        "description": "Service containing tools for fetching weather information",
+        "id": 1,
+        "last_updated_comments": "Updated description to correct typo",
     })
 
     # Handle response

@@ -1,11 +1,11 @@
 # SessionSummaryResponse
 
-Summary for a given session.
+AI summary information for a given session.
 
 
 ## Fields
 
-| Field                         | Type                          | Required                      | Description                   |
-| ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- |
-| `summary`                     | *OptionalNullable[str]*       | :heavy_minus_sign:            | The AI summary of the session |
-| `rating`                      | *OptionalNullable[str]*       | :heavy_minus_sign:            | The AI rating of the session  |
+| Field                                                                                                         | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   | Example                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `summary`                                                                                                     | *OptionalNullable[str]*                                                                                       | :heavy_minus_sign:                                                                                            | The AI summary of the session                                                                                 | The customer service agent successfully assisted the caller with their inquiry and the call ended positively. |
+| `rating`                                                                                                      | *OptionalNullable[str]*                                                                                       | :heavy_minus_sign:                                                                                            | The AI rating of the session                                                                                  | Good                                                                                                          |

@@ -1,6 +1,6 @@
 # ToolResultSet
 
-Result key/types for Insight Tool Definition
+Result key/types for insight tool definition
 
 
 ## Fields
