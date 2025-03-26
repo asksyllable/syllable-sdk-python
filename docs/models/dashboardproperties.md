@@ -1,5 +1,7 @@
 # DashboardProperties
 
+Names of dashboard fields supported for filtering/sorting on list endpoint.
+
 
 ## Values
 

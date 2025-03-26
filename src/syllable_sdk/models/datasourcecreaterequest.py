@@ -14,12 +14,14 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class DataSourceCreateRequestTypedDict(TypedDict):
+    r"""Request model to create a data source."""
+
     name: str
     r"""The data source name. Must be unique within suborg. Cannot contain whitespace."""
     chunk: bool
     r"""Whether the content should be split into smaller chunks. (This feature is coming in the future - currently this value will always be treated as False.)"""
     text: str
-    r"""Information that the data source will provide to the agent accessing it."""
+    r"""Information that the data source will provide to the agent accessing it. It is recommended to include a sentence at the beginning providing context to the LLM for the information in the data source."""
     description: NotRequired[Nullable[str]]
     r"""The description of the data source."""
     labels: NotRequired[List[str]]
@@ -29,6 +31,8 @@ class DataSourceCreateRequestTypedDict(TypedDict):
 
 
 class DataSourceCreateRequest(BaseModel):
+    r"""Request model to create a data source."""
+
     name: str
     r"""The data source name. Must be unique within suborg. Cannot contain whitespace."""
 
@@ -36,7 +40,7 @@ class DataSourceCreateRequest(BaseModel):
     r"""Whether the content should be split into smaller chunks. (This feature is coming in the future - currently this value will always be treated as False.)"""
 
     text: str
-    r"""Information that the data source will provide to the agent accessing it."""
+    r"""Information that the data source will provide to the agent accessing it. It is recommended to include a sentence at the beginning providing context to the LLM for the information in the data source."""
 
     description: OptionalNullable[str] = UNSET
     r"""The description of the data source."""

@@ -1,5 +1,7 @@
 # PromptProperties
 
+Names of prompt fields supported for filtering/sorting on list endpoint.
+
 
 ## Values
 

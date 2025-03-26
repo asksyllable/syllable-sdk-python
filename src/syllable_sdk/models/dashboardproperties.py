@@ -5,6 +5,8 @@ from enum import Enum
 
 
 class DashboardProperties(str, Enum):
+    r"""Names of dashboard fields supported for filtering/sorting on list endpoint."""
+
     ID = "id"
     NAME = "name"
     DISPLAY_NAME = "display_name"

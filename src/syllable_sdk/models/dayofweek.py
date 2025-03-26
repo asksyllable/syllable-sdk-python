@@ -5,6 +5,8 @@ from enum import Enum
 
 
 class DayOfWeek(str, Enum):
+    r"""Available options for day of the week for use in message rules."""
+
     MO = "mo"
     TU = "tu"
     WE = "we"

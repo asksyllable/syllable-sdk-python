@@ -7,38 +7,42 @@ from typing_extensions import TypedDict
 
 
 class InsightWorkflowInputConditionsTypedDict(TypedDict):
-    r"""Conditions for Insight Workflow"""
+    r"""Conditions for insight workflow to trigger on a given call recording."""
 
 
 class InsightWorkflowInputConditions(BaseModel):
-    r"""Conditions for Insight Workflow"""
+    r"""Conditions for insight workflow to trigger on a given call recording."""
 
 
 class InsightWorkflowInputTypedDict(TypedDict):
+    r"""Request model to create/update an insight workflow."""
+
     name: str
-    r"""Human readable name of Insight Workflow"""
+    r"""Human-readable name of insight workflow"""
     description: str
-    r"""Text description of Insight Workflow"""
+    r"""Text description of insight workflow"""
     insight_tool_ids: List[int]
-    r"""List of Insight Tool IDs"""
+    r"""List of IDs of insight tools used in the workflow"""
     conditions: InsightWorkflowInputConditionsTypedDict
-    r"""Conditions for Insight Workflow"""
+    r"""Conditions for insight workflow to trigger on a given call recording."""
     status: str
-    r"""Status of the Insight Workflow"""
+    r"""Status of the insight workflow"""
 
 
 class InsightWorkflowInput(BaseModel):
+    r"""Request model to create/update an insight workflow."""
+
     name: str
-    r"""Human readable name of Insight Workflow"""
+    r"""Human-readable name of insight workflow"""
 
     description: str
-    r"""Text description of Insight Workflow"""
+    r"""Text description of insight workflow"""
 
     insight_tool_ids: List[int]
-    r"""List of Insight Tool IDs"""
+    r"""List of IDs of insight tools used in the workflow"""
 
     conditions: InsightWorkflowInputConditions
-    r"""Conditions for Insight Workflow"""
+    r"""Conditions for insight workflow to trigger on a given call recording."""
 
     status: str
-    r"""Status of the Insight Workflow"""
+    r"""Status of the insight workflow"""

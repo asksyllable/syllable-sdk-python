@@ -5,6 +5,8 @@ from enum import Enum
 
 
 class ChannelProperties(str, Enum):
+    r"""Names of channel fields supported for filtering/sorting on list endpoint."""
+
     ID = "id"
     NAME = "name"
     CHANNEL_SERVICE = "channel_service"

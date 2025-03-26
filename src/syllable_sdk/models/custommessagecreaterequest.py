@@ -15,23 +15,28 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class CustomMessageCreateRequestTypedDict(TypedDict):
+    r"""Request model to create a custom message."""
+
     name: str
     r"""The name of the custom message"""
     text: str
-    r"""The text of the custom message"""
+    r"""The default message that the agent will deliver if no rules are set or no rules match the current timestamp."""
     label: NotRequired[Nullable[str]]
     r"""The label of the custom message"""
     rules: NotRequired[List[CustomMessageRuleTypedDict]]
     r"""Rules for time-specific message variants"""
     type: NotRequired[str]
+    r"""Type of the custom message (must be \"greeting\" for now)"""
 
 
 class CustomMessageCreateRequest(BaseModel):
+    r"""Request model to create a custom message."""
+
     name: str
     r"""The name of the custom message"""
 
     text: str
-    r"""The text of the custom message"""
+    r"""The default message that the agent will deliver if no rules are set or no rules match the current timestamp."""
 
     label: OptionalNullable[str] = UNSET
     r"""The label of the custom message"""
@@ -40,6 +45,7 @@ class CustomMessageCreateRequest(BaseModel):
     r"""Rules for time-specific message variants"""
 
     type: Optional[str] = "greeting"
+    r"""Type of the custom message (must be \"greeting\" for now)"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

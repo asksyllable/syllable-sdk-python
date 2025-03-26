@@ -45,7 +45,7 @@ with SyllableSDK(
 
 | Parameter                                                                                                                                              | Type                                                                                                                                                   | Required                                                                                                                                               | Description                                                                                                                                            | Example                                                                                                                                                |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-indexed)                                                                                                        | 0                                                                                                                                                      |
+| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-based)                                                                                                          | 0                                                                                                                                                      |
 | `limit`                                                                                                                                                | *Optional[int]*                                                                                                                                        | :heavy_minus_sign:                                                                                                                                     | The maximum number of items to return                                                                                                                  | 25                                                                                                                                                     |
 | `search_fields`                                                                                                                                        | List[[models.PromptProperties](../../models/promptproperties.md)]                                                                                      | :heavy_minus_sign:                                                                                                                                     | String names of fields to search. Correspond by index to search field values                                                                           | name                                                                                                                                                   |
 | `search_field_values`                                                                                                                                  | List[*str*]                                                                                                                                            | :heavy_minus_sign:                                                                                                                                     | Values of fields to search. Correspond by index to search fields. Unless field name contains "list", an individual search field value cannot be a list | Some Object Name                                                                                                                                       |
@@ -83,12 +83,17 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.prompts.create(request={
-        "name": "<value>",
-        "type": "<value>",
+        "name": "Weather Agent Prompt",
+        "type": "prompt_v1",
         "llm_config": {
             "version": "2024-05-13",
             "api_version": "2024-06-01",
         },
+        "description": "Prompt for a weather agent.",
+        "context": "You are a weather agent. Answer the user's questions about weather and nothing else.",
+        "tools": [
+            "summary, hangup",
+        ],
     })
 
     # Handle response
@@ -130,13 +135,19 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.prompts.update(request={
-        "name": "<value>",
-        "type": "<value>",
+        "name": "Weather Agent Prompt",
+        "type": "prompt_v1",
         "llm_config": {
             "version": "2024-05-13",
             "api_version": "2024-06-01",
         },
-        "id": 857478,
+        "id": 1,
+        "description": "Prompt for a weather agent.",
+        "context": "You are a weather agent. Answer the user's questions about weather and nothing else.",
+        "tools": [
+            "summary, hangup",
+        ],
+        "edit_comments": "Updated prompt text to include requirement to not answer questions that aren't about weather.",
     })
 
     # Handle response

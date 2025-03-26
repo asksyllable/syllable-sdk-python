@@ -1,5 +1,7 @@
 # AgentProperties
 
+Names of agent fields supported for filtering/sorting on list endpoint.
+
 
 ## Values
 

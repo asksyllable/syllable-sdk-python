@@ -45,7 +45,7 @@ with SyllableSDK(
 
 | Parameter                                                                                                                                              | Type                                                                                                                                                   | Required                                                                                                                                               | Description                                                                                                                                            | Example                                                                                                                                                |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-indexed)                                                                                                        | 0                                                                                                                                                      |
+| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-based)                                                                                                          | 0                                                                                                                                                      |
 | `limit`                                                                                                                                                | *Optional[int]*                                                                                                                                        | :heavy_minus_sign:                                                                                                                                     | The maximum number of items to return                                                                                                                  | 25                                                                                                                                                     |
 | `search_fields`                                                                                                                                        | List[[models.AgentProperties](../../models/agentproperties.md)]                                                                                        | :heavy_minus_sign:                                                                                                                                     | String names of fields to search. Correspond by index to search field values                                                                           | name                                                                                                                                                   |
 | `search_field_values`                                                                                                                                  | List[*str*]                                                                                                                                            | :heavy_minus_sign:                                                                                                                                     | Values of fields to search. Correspond by index to search fields. Unless field name contains "list", an individual search field value cannot be a list | Some Object Name                                                                                                                                       |
@@ -84,18 +84,31 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.agents.create(request={
-        "name": "<value>",
+        "name": "Weather agent",
         "type": "ca_v1",
-        "prompt_id": 486589,
-        "custom_message_id": 638424,
+        "prompt_id": 1,
+        "custom_message_id": 1,
         "timezone": "America/New_York",
         "variables": {
-
+            "vars.location_name": "Main Street Pizza",
         },
         "tool_headers": {
-            "key": "<value>",
-            "key1": "<value>",
+            "Authorization": "Basic sometoken",
         },
+        "description": "Agent for answering questions about weather.",
+        "label": "Information",
+        "language_group_id": 1,
+        "prompt_tool_defaults": [
+            {
+                "tool_name": "get_weather",
+                "default_values": [
+                    {
+                        "field_name": "temperature_unit",
+                        "default_value": "fahrenheit",
+                    },
+                ],
+            },
+        ],
         "stt_provider": syllable_sdk.AgentSttProvider.GOOGLE_STT_V2,
         "wait_sound": syllable_sdk.AgentWaitSound.KEYBOARD_1,
     })
@@ -140,21 +153,32 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.agents.update(request={
-        "name": "<value>",
+        "name": "Weather agent",
         "type": "ca_v1",
-        "prompt_id": 857478,
-        "custom_message_id": 597129,
+        "prompt_id": 1,
+        "custom_message_id": 1,
         "timezone": "America/Chicago",
         "variables": {
-            "key": "<value>",
-            "key1": "<value>",
-            "key2": "<value>",
+            "vars.location_name": "Main Street Pizza",
         },
         "tool_headers": {
-            "key": "<value>",
-            "key1": "<value>",
+            "Authorization": "Basic sometoken",
         },
-        "id": 54062,
+        "id": 1,
+        "description": "Agent for answering questions about weather.",
+        "label": "Information",
+        "language_group_id": 1,
+        "prompt_tool_defaults": [
+            {
+                "tool_name": "get_weather",
+                "default_values": [
+                    {
+                        "field_name": "temperature_unit",
+                        "default_value": "fahrenheit",
+                    },
+                ],
+            },
+        ],
         "stt_provider": syllable_sdk.AgentSttProvider.GOOGLE_STT_V2,
         "wait_sound": syllable_sdk.AgentWaitSound.KEYBOARD_1,
     })

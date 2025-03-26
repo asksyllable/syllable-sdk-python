@@ -19,21 +19,22 @@ if TYPE_CHECKING:
 
 
 class ChannelTargetResponseTypedDict(TypedDict):
-    r"""A channel target links a channel to an agent, allowing users to communicate with the agent
+    r"""Response model for channel target operations.
+    A channel target links a channel to an agent, allowing users to communicate with the agent
     through that channel. For more information, see
     [Console docs](https://docs.syllable.ai/Resources/Channels).
     """
 
     agent_id: int
-    r"""The ID of the agent associated with the channel target"""
+    r"""The internal ID of the agent associated with the channel target"""
     channel_id: int
-    r"""The ID of the channel associated with the channel target"""
+    r"""The internal ID of the channel associated with the channel target"""
     target: str
-    r"""The name of the channel target (must correspond to an organization-level target)"""
+    r"""The name of the channel target. Must correspond to an organization-level target (available targets can be fetched from `/channels/available-targets`)."""
     target_mode: TargetModes
     r"""Available modes (communication methods) for channel targets."""
     id: int
-    r"""The ID of the channel target"""
+    r"""The internal ID of the channel target"""
     channel_name: str
     r"""The name of the channel associated with the channel target"""
     updated_at: datetime
@@ -43,31 +44,32 @@ class ChannelTargetResponseTypedDict(TypedDict):
     fallback_target: NotRequired[Nullable[str]]
     r"""The fallback for the channel target (currently only supported for \"voice\" mode)"""
     is_test: NotRequired[bool]
-    r"""Whether the channel target is intended for testing. If true, any sessions created through this target will be labeled as test."""
+    r"""Whether the channel target is intended for testing. If true, any sessions created through this target will be labeled as a test session (i.e., will not be included in dashboard data and can easily be filtered out in the Sessions screen in the SyllableConsole)."""
     agent: NotRequired[Nullable["AgentResponseTypedDict"]]
-    r"""Definition of the agent for the channel target"""
+    r"""Definition of the agent with which the channel target is associated."""
 
 
 class ChannelTargetResponse(BaseModel):
-    r"""A channel target links a channel to an agent, allowing users to communicate with the agent
+    r"""Response model for channel target operations.
+    A channel target links a channel to an agent, allowing users to communicate with the agent
     through that channel. For more information, see
     [Console docs](https://docs.syllable.ai/Resources/Channels).
     """
 
     agent_id: int
-    r"""The ID of the agent associated with the channel target"""
+    r"""The internal ID of the agent associated with the channel target"""
 
     channel_id: int
-    r"""The ID of the channel associated with the channel target"""
+    r"""The internal ID of the channel associated with the channel target"""
 
     target: str
-    r"""The name of the channel target (must correspond to an organization-level target)"""
+    r"""The name of the channel target. Must correspond to an organization-level target (available targets can be fetched from `/channels/available-targets`)."""
 
     target_mode: TargetModes
     r"""Available modes (communication methods) for channel targets."""
 
     id: int
-    r"""The ID of the channel target"""
+    r"""The internal ID of the channel target"""
 
     channel_name: str
     r"""The name of the channel associated with the channel target"""
@@ -82,10 +84,10 @@ class ChannelTargetResponse(BaseModel):
     r"""The fallback for the channel target (currently only supported for \"voice\" mode)"""
 
     is_test: Optional[bool] = False
-    r"""Whether the channel target is intended for testing. If true, any sessions created through this target will be labeled as test."""
+    r"""Whether the channel target is intended for testing. If true, any sessions created through this target will be labeled as a test session (i.e., will not be included in dashboard data and can easily be filtered out in the Sessions screen in the SyllableConsole)."""
 
     agent: OptionalNullable["AgentResponse"] = UNSET
-    r"""Definition of the agent for the channel target"""
+    r"""Definition of the agent with which the channel target is associated."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

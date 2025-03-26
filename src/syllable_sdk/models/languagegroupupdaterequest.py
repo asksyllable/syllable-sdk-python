@@ -15,12 +15,14 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class LanguageGroupUpdateRequestTypedDict(TypedDict):
+    r"""Request model to update an existing language group."""
+
     name: str
     r"""The name of the language group."""
     language_configs: List[LanguageConfigTypedDict]
     r"""Voice and DTMF configurations for each language in the group."""
     skip_current_language_in_message: bool
-    r"""Whether a message using the language group to generate a language DTMF menu should skip the agent's current language in the menu."""
+    r"""Whether a custom message using the language group to generate a language DTMF menu should skip the agent's current language in the menu."""
     id: int
     r"""The ID of the language group to update."""
     description: NotRequired[Nullable[str]]
@@ -30,6 +32,8 @@ class LanguageGroupUpdateRequestTypedDict(TypedDict):
 
 
 class LanguageGroupUpdateRequest(BaseModel):
+    r"""Request model to update an existing language group."""
+
     name: str
     r"""The name of the language group."""
 
@@ -37,7 +41,7 @@ class LanguageGroupUpdateRequest(BaseModel):
     r"""Voice and DTMF configurations for each language in the group."""
 
     skip_current_language_in_message: bool
-    r"""Whether a message using the language group to generate a language DTMF menu should skip the agent's current language in the menu."""
+    r"""Whether a custom message using the language group to generate a language DTMF menu should skip the agent's current language in the menu."""
 
     id: int
     r"""The ID of the language group to update."""

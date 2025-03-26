@@ -5,6 +5,8 @@ from enum import Enum
 
 
 class ServiceProperties(str, Enum):
+    r"""Names of service fields supported for filtering/sorting on list endpoint."""
+
     ID = "id"
     NAME = "name"
     DESCRIPTION = "description"

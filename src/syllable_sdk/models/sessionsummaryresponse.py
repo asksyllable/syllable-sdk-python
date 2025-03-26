@@ -13,7 +13,7 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class SessionSummaryResponseTypedDict(TypedDict):
-    r"""Summary for a given session."""
+    r"""AI summary information for a given session."""
 
     summary: NotRequired[Nullable[str]]
     r"""The AI summary of the session"""
@@ -22,7 +22,7 @@ class SessionSummaryResponseTypedDict(TypedDict):
 
 
 class SessionSummaryResponse(BaseModel):
-    r"""Summary for a given session."""
+    r"""AI summary information for a given session."""
 
     summary: OptionalNullable[str] = UNSET
     r"""The AI summary of the session"""

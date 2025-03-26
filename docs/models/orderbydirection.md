@@ -1,5 +1,7 @@
 # OrderByDirection
 
+The direction in which to order list results, either ascending or descending.
+
 
 ## Values
 

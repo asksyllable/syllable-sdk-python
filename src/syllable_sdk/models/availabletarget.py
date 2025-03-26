@@ -7,20 +7,36 @@ from typing_extensions import TypedDict
 
 
 class AvailableTargetTypedDict(TypedDict):
+    r"""An available organization-level channel target (i.e., one for which a channel target has not
+    been created in the current suborg).
+    """
+
     organization_id: int
+    r"""Internal ID of the org with which the target is associated."""
     channel_id: int
+    r"""Internal ID of the channel with which the target is associated."""
     channel_name: Nullable[str]
+    r"""Name of the channel with which the target is associated."""
     target: str
+    r"""Org-level target."""
 
 
 class AvailableTarget(BaseModel):
+    r"""An available organization-level channel target (i.e., one for which a channel target has not
+    been created in the current suborg).
+    """
+
     organization_id: int
+    r"""Internal ID of the org with which the target is associated."""
 
     channel_id: int
+    r"""Internal ID of the channel with which the target is associated."""
 
     channel_name: Nullable[str]
+    r"""Name of the channel with which the target is associated."""
 
     target: str
+    r"""Org-level target."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -44,7 +44,7 @@ with SyllableSDK(
 
 | Parameter                                                                                                                                              | Type                                                                                                                                                   | Required                                                                                                                                               | Description                                                                                                                                            | Example                                                                                                                                                |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-indexed)                                                                                                        | 0                                                                                                                                                      |
+| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-based)                                                                                                          | 0                                                                                                                                                      |
 | `limit`                                                                                                                                                | *Optional[int]*                                                                                                                                        | :heavy_minus_sign:                                                                                                                                     | The maximum number of items to return                                                                                                                  | 25                                                                                                                                                     |
 | `search_fields`                                                                                                                                        | List[[models.InsightToolProperties](../../models/insighttoolproperties.md)]                                                                            | :heavy_minus_sign:                                                                                                                                     | String names of fields to search. Correspond by index to search field values                                                                           | name                                                                                                                                                   |
 | `search_field_values`                                                                                                                                  | List[*str*]                                                                                                                                            | :heavy_minus_sign:                                                                                                                                     | Values of fields to search. Correspond by index to search fields. Unless field name contains "list", an individual search field value cannot be a list | Some Object Name                                                                                                                                       |
@@ -82,11 +82,11 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.insights.tools.create(request={
-        "name": "<value>",
-        "description": "yuck vice between gee ugh ha",
-        "version": 920994,
+        "name": "summary-tool",
+        "description": "Default tool - generates a summary of the call",
+        "version": 1,
         "tool_arguments": {},
-        "insight_tool_definition_id": 780486,
+        "insight_tool_definition_id": 1,
     })
 
     # Handle response
@@ -168,11 +168,11 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.insights.tools.update(tool_id=198183, insight_tool_input={
-        "name": "<value>",
-        "description": "awful underneath retention too mobility char innocently dowse restfully",
-        "version": 243447,
+        "name": "summary-tool",
+        "description": "Default tool - generates a summary of the call",
+        "version": 1,
         "tool_arguments": {},
-        "insight_tool_definition_id": 265006,
+        "insight_tool_definition_id": 1,
     })
 
     # Handle response

@@ -13,17 +13,21 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class ServiceUpdateRequestTypedDict(TypedDict):
+    r"""Request model to update an existing service."""
+
     name: str
     r"""The name of the service"""
     description: str
     r"""The description of the service"""
     id: int
-    r"""The ID of the service"""
+    r"""The internal ID of the service"""
     last_updated_comments: NotRequired[Nullable[str]]
-    r"""Update comments"""
+    r"""Free text providing comment about what was updated"""
 
 
 class ServiceUpdateRequest(BaseModel):
+    r"""Request model to update an existing service."""
+
     name: str
     r"""The name of the service"""
 
@@ -31,10 +35,10 @@ class ServiceUpdateRequest(BaseModel):
     r"""The description of the service"""
 
     id: int
-    r"""The ID of the service"""
+    r"""The internal ID of the service"""
 
     last_updated_comments: OptionalNullable[str] = UNSET
-    r"""Update comments"""
+    r"""Free text providing comment about what was updated"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

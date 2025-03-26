@@ -17,11 +17,11 @@ class DashboardTokenResponseTypedDict(TypedDict):
     display_name: str
     r"""Display name of the dashboard"""
     superset_url: str
-    r"""Superset URL of the dashboard"""
+    r"""Base Superset URL of the dashboard"""
     rank: int
-    r"""Dashboard importance, 0 is the highest"""
+    r"""Dashboard importance (0 is the highest)"""
     label: str
-    r"""Dashboard label.  Typically report or dashboard"""
+    r"""Dashboard label. Typically \"report\" or \"dashboard\" """
 
 
 class DashboardTokenResponse(BaseModel):
@@ -40,10 +40,10 @@ class DashboardTokenResponse(BaseModel):
     r"""Display name of the dashboard"""
 
     superset_url: str
-    r"""Superset URL of the dashboard"""
+    r"""Base Superset URL of the dashboard"""
 
     rank: int
-    r"""Dashboard importance, 0 is the highest"""
+    r"""Dashboard importance (0 is the highest)"""
 
     label: str
-    r"""Dashboard label.  Typically report or dashboard"""
+    r"""Dashboard label. Typically \"report\" or \"dashboard\" """

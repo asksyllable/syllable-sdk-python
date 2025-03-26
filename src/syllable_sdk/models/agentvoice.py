@@ -8,8 +8,8 @@ from .agentvoicemodel import AgentVoiceModel
 from .agentvoicevarname import AgentVoiceVarName
 from .ttsprovider import TtsProvider
 from syllable_sdk.types import BaseModel
-from typing import List, Optional
-from typing_extensions import NotRequired, TypedDict
+from typing import List
+from typing_extensions import TypedDict
 
 
 class AgentVoiceTypedDict(TypedDict):
@@ -23,12 +23,12 @@ class AgentVoiceTypedDict(TypedDict):
     r"""The variable name of an agent voice (used when procesing messages)."""
     gender: AgentVoiceGender
     r"""Gender for an agent voice."""
+    model: AgentVoiceModel
+    r"""Model for an agent voice."""
     supported_languages: List[AgentLanguageTypedDict]
     r"""Languages supported by the voice"""
     deprecated: bool
     r"""Whether the voice is deprecated and should not be used"""
-    model: NotRequired[AgentVoiceModel]
-    r"""Model for an agent voice."""
 
 
 class AgentVoice(BaseModel):
@@ -46,11 +46,11 @@ class AgentVoice(BaseModel):
     gender: AgentVoiceGender
     r"""Gender for an agent voice."""
 
+    model: AgentVoiceModel
+    r"""Model for an agent voice."""
+
     supported_languages: List[AgentLanguage]
     r"""Languages supported by the voice"""
 
     deprecated: bool
     r"""Whether the voice is deprecated and should not be used"""
-
-    model: Optional[AgentVoiceModel] = None
-    r"""Model for an agent voice."""

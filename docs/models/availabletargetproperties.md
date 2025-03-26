@@ -1,5 +1,7 @@
 # AvailableTargetProperties
 
+Names of target fields supported for filtering/sorting on available targets list endpoint.
+
 
 ## Values
 

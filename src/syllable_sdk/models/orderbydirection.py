@@ -5,5 +5,7 @@ from enum import Enum
 
 
 class OrderByDirection(str, Enum):
+    r"""The direction in which to order list results, either ascending or descending."""
+
     ASC = "asc"
     DESC = "desc"
