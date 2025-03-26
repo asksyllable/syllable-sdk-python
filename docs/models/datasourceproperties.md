@@ -1,5 +1,7 @@
 # DataSourceProperties
 
+Names of data source fields supported for filtering/sorting on list endpoint.
+
 
 ## Values
 

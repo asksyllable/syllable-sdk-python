@@ -44,7 +44,7 @@ with SyllableSDK(
 
 | Parameter                                                                                                                                              | Type                                                                                                                                                   | Required                                                                                                                                               | Description                                                                                                                                            | Example                                                                                                                                                |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-indexed)                                                                                                        | 0                                                                                                                                                      |
+| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-based)                                                                                                          | 0                                                                                                                                                      |
 | `limit`                                                                                                                                                | *Optional[int]*                                                                                                                                        | :heavy_minus_sign:                                                                                                                                     | The maximum number of items to return                                                                                                                  | 25                                                                                                                                                     |
 | `search_fields`                                                                                                                                        | List[[models.ToolProperties](../../models/toolproperties.md)]                                                                                          | :heavy_minus_sign:                                                                                                                                     | String names of fields to search. Correspond by index to search field values                                                                           | name                                                                                                                                                   |
 | `search_field_values`                                                                                                                                  | List[*str*]                                                                                                                                            | :heavy_minus_sign:                                                                                                                                     | Values of fields to search. Correspond by index to search fields. Unless field name contains "list", an individual search field value cannot be a list | Some Object Name                                                                                                                                       |
@@ -87,22 +87,32 @@ with SyllableSDK(
         "definition": {
             "tool": {
                 "function": {
-                    "name": "weather_fetcher",
-                    "description": "Fetches weather data",
+                    "name": "get_weather",
+                    "description": "Get the weather for a city",
                     "parameters": {
 
                     },
                 },
                 "type": "function",
             },
+            "type": syllable_sdk.Type.ENDPOINT,
             "endpoint": {
                 "url": "https://api.example.com",
                 "method": syllable_sdk.ToolHTTPMethod.GET,
                 "argument_location": syllable_sdk.ToolArgumentLocation.PATH,
             },
             "defaults": "<value>",
+            "static_parameters": [
+                {
+                    "name": "temperature_unit",
+                    "required": True,
+                    "type": syllable_sdk.StaticToolParameterType.STRING,
+                    "description": "Whether the temperature information should be fetched in celsius or fahrenheit.",
+                    "default": "fahrenheit",
+                },
+            ],
         },
-        "service_id": 134365,
+        "service_id": 1,
     })
 
     # Handle response
@@ -149,23 +159,34 @@ with SyllableSDK(
         "definition": {
             "tool": {
                 "function": {
-                    "name": "weather_fetcher",
-                    "description": "Fetches weather data",
+                    "name": "get_weather",
+                    "description": "Get the weather for a city",
                     "parameters": {
 
                     },
                 },
                 "type": "function",
             },
+            "type": syllable_sdk.Type.ENDPOINT,
             "endpoint": {
                 "url": "https://api.example.com",
                 "method": syllable_sdk.ToolHTTPMethod.POST,
                 "argument_location": syllable_sdk.ToolArgumentLocation.PATH,
             },
             "defaults": "<value>",
+            "static_parameters": [
+                {
+                    "name": "temperature_unit",
+                    "required": True,
+                    "type": syllable_sdk.StaticToolParameterType.STRING,
+                    "description": "Whether the temperature information should be fetched in celsius or fahrenheit.",
+                    "default": "fahrenheit",
+                },
+            ],
         },
-        "service_id": 991464,
-        "id": 627690,
+        "service_id": 1,
+        "id": 1,
+        "last_updated_comments": "Updated to use new API endpoint",
     })
 
     # Handle response

@@ -1,5 +1,7 @@
 # SessionProperties
 
+Names of session fields supported for filtering/sorting on list endpoint.
+
 
 ## Values
 

@@ -1,6 +1,6 @@
 # ToolParameters
 
-Parameters for Insight Tool Definition
+Parameters for tools that use this definition and their associated types
 
 
 ## Fields

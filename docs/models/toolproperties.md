@@ -1,5 +1,7 @@
 # ToolProperties
 
+Names of tool fields supported for filtering/sorting on list endpoint.
+
 
 ## Values
 
