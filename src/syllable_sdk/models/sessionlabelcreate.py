@@ -17,9 +17,9 @@ class SessionLabelCreateTypedDict(TypedDict):
     session_id: int
     r"""The internal ID of the session (see Session.session_id)"""
     type: str
-    r"""The type of the label"""
+    r"""The type of the label (either \"auto-rating\" or \"human-rating\")"""
     code: str
-    r"""A code describing the quality of the labeled session"""
+    r"""A code describing the quality of the labeled session (either \"GOOD\", \"OK\", \"BAD\", or \"N/A\")"""
     user_email: str
     r"""The email of the user who created the label"""
     comments: NotRequired[Nullable[str]]
@@ -33,10 +33,10 @@ class SessionLabelCreate(BaseModel):
     r"""The internal ID of the session (see Session.session_id)"""
 
     type: str
-    r"""The type of the label"""
+    r"""The type of the label (either \"auto-rating\" or \"human-rating\")"""
 
     code: str
-    r"""A code describing the quality of the labeled session"""
+    r"""A code describing the quality of the labeled session (either \"GOOD\", \"OK\", \"BAD\", or \"N/A\")"""
 
     user_email: str
     r"""The email of the user who created the label"""

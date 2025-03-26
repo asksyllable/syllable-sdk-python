@@ -7,7 +7,9 @@ from typing_extensions import TypedDict
 
 
 class AgentToolFieldDefaultTypedDict(TypedDict):
-    r"""An agent-level configuration of default values for tool parameters for a given tool."""
+    r"""Agent-level value for a static parameter on a tool, overriding the tool-level default if one
+    exists.
+    """
 
     field_name: str
     r"""The name of the field"""
@@ -16,7 +18,9 @@ class AgentToolFieldDefaultTypedDict(TypedDict):
 
 
 class AgentToolFieldDefault(BaseModel):
-    r"""An agent-level configuration of default values for tool parameters for a given tool."""
+    r"""Agent-level value for a static parameter on a tool, overriding the tool-level default if one
+    exists.
+    """
 
     field_name: str
     r"""The name of the field"""

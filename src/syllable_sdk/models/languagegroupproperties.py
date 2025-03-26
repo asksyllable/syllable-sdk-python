@@ -5,6 +5,8 @@ from enum import Enum
 
 
 class LanguageGroupProperties(str, Enum):
+    r"""Names of language group fields supported for filtering/sorting on list endpoint."""
+
     NAME = "name"
     DESCRIPTION = "description"
     SKIP_CURRENT_LANGUAGE_IN_MESSAGE = "skip_current_language_in_message"

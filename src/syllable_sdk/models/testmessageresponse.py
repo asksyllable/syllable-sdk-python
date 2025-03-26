@@ -7,11 +7,11 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class ResponseTypedDict(TypedDict):
-    pass
+    r"""The response from the agent"""
 
 
 class Response(BaseModel):
-    pass
+    r"""The response from the agent"""
 
 
 class TestMessageResponseTypedDict(TypedDict):
@@ -26,6 +26,7 @@ class TestMessageResponseTypedDict(TypedDict):
     text: NotRequired[str]
     r"""The text of the message that elicited the response"""
     response: NotRequired[ResponseTypedDict]
+    r"""The response from the agent"""
     response_text: NotRequired[str]
     r"""The text of the response"""
 
@@ -45,6 +46,7 @@ class TestMessageResponse(BaseModel):
     r"""The text of the message that elicited the response"""
 
     response: Optional[Response] = None
+    r"""The response from the agent"""
 
     response_text: Optional[str] = None
     r"""The text of the response"""

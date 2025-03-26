@@ -12,16 +12,22 @@ from typing_extensions import TypedDict
 
 class SessionMessageTypedDict(TypedDict):
     role: DialogRole
+    r"""Role of dialog"""
     dialog: DialogMessageTypedDict
     tool_calls: List[DialogToolCallTypedDict]
+    r"""Tool calls"""
     timestamp: datetime
+    r"""Message timestamp"""
 
 
 class SessionMessage(BaseModel):
     role: DialogRole
+    r"""Role of dialog"""
 
     dialog: DialogMessage
 
     tool_calls: List[DialogToolCall]
+    r"""Tool calls"""
 
     timestamp: datetime
+    r"""Message timestamp"""

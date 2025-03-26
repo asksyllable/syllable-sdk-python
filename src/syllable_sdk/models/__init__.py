@@ -123,12 +123,7 @@ from .datasourceupdaterequest import (
 from .dayofweek import DayOfWeek
 from .dialogmessage import DialogMessage, DialogMessageTypedDict
 from .dialogrole import DialogRole
-from .dialogtoolcall import (
-    DialogToolCall,
-    DialogToolCallToolArguments,
-    DialogToolCallToolArgumentsTypedDict,
-    DialogToolCallTypedDict,
-)
+from .dialogtoolcall import DialogToolCall, DialogToolCallTypedDict
 from .directory_workflow_deleteop import (
     DirectoryWorkflowDeleteRequest,
     DirectoryWorkflowDeleteRequestTypedDict,
@@ -414,12 +409,7 @@ from .toolparametertransformcondition import (
 from .toolpromptinfo import ToolPromptInfo, ToolPromptInfoTypedDict
 from .toolproperties import ToolProperties
 from .toolresponse import ToolResponse, ToolResponseTypedDict
-from .toolresultdata import (
-    ToolResult,
-    ToolResultData,
-    ToolResultDataTypedDict,
-    ToolResultTypedDict,
-)
+from .toolresultdata import ToolResultData, ToolResultDataTypedDict
 from .toolupdaterequest import ToolUpdateRequest, ToolUpdateRequestTypedDict
 from .ttsprovider import TtsProvider
 from .validationerror import (
@@ -542,8 +532,6 @@ __all__ = [
     "DialogMessageTypedDict",
     "DialogRole",
     "DialogToolCall",
-    "DialogToolCallToolArguments",
-    "DialogToolCallToolArgumentsTypedDict",
     "DialogToolCallTypedDict",
     "DirectoryWorkflowDeleteRequest",
     "DirectoryWorkflowDeleteRequestTypedDict",
@@ -771,12 +759,10 @@ __all__ = [
     "ToolProperties",
     "ToolResponse",
     "ToolResponseTypedDict",
-    "ToolResult",
     "ToolResultData",
     "ToolResultDataTypedDict",
     "ToolResultSet",
     "ToolResultSetTypedDict",
-    "ToolResultTypedDict",
     "ToolUpdateRequest",
     "ToolUpdateRequestTypedDict",
     "TtsProvider",

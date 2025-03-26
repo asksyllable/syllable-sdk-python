@@ -16,66 +16,70 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class InsightToolOutputToolArgumentsTypedDict(TypedDict):
-    r"""Arguments for Insight Tool"""
+    r"""Arguments for calling the insight tool"""
 
 
 class InsightToolOutputToolArguments(BaseModel):
-    r"""Arguments for Insight Tool"""
+    r"""Arguments for calling the insight tool"""
 
 
 class InsightToolOutputTypedDict(TypedDict):
+    r"""Response model for an insight tool."""
+
     name: str
-    r"""Human readable name of Insight Tool"""
+    r"""Human readable name of insight tool"""
     description: str
-    r"""Text description of Insight Tool"""
+    r"""Text description of insight tool"""
     version: int
-    r"""Version of Insight Tool"""
+    r"""Version of insight tool"""
     tool_arguments: InsightToolOutputToolArgumentsTypedDict
-    r"""Arguments for Insight Tool"""
+    r"""Arguments for calling the insight tool"""
     insight_tool_definition_id: int
-    r"""Unique ID for Insight Tool Definition"""
+    r"""Unique ID for insight tool definition used by insight tool"""
     id: int
-    r"""Unique ID for Insight Tool"""
+    r"""Unique ID for insight tool"""
     last_updated_by: str
-    r"""User who last updated Insight Tool"""
+    r"""Email of user who last updated insight tool"""
     insight_tool_definition: NotRequired[Nullable[InsightToolDefinitionTypedDict]]
     r"""Insight Tool Definition"""
     created_at: NotRequired[datetime]
-    r"""Timestamp of Insight Tool creation"""
+    r"""Timestamp of at which insight tool was created"""
     updated_at: NotRequired[datetime]
-    r"""Timestamp of Insight Tool update"""
+    r"""Timestamp at which insight tool was last updated"""
 
 
 class InsightToolOutput(BaseModel):
+    r"""Response model for an insight tool."""
+
     name: str
-    r"""Human readable name of Insight Tool"""
+    r"""Human readable name of insight tool"""
 
     description: str
-    r"""Text description of Insight Tool"""
+    r"""Text description of insight tool"""
 
     version: int
-    r"""Version of Insight Tool"""
+    r"""Version of insight tool"""
 
     tool_arguments: InsightToolOutputToolArguments
-    r"""Arguments for Insight Tool"""
+    r"""Arguments for calling the insight tool"""
 
     insight_tool_definition_id: int
-    r"""Unique ID for Insight Tool Definition"""
+    r"""Unique ID for insight tool definition used by insight tool"""
 
     id: int
-    r"""Unique ID for Insight Tool"""
+    r"""Unique ID for insight tool"""
 
     last_updated_by: str
-    r"""User who last updated Insight Tool"""
+    r"""Email of user who last updated insight tool"""
 
     insight_tool_definition: OptionalNullable[InsightToolDefinition] = UNSET
     r"""Insight Tool Definition"""
 
     created_at: Optional[datetime] = None
-    r"""Timestamp of Insight Tool creation"""
+    r"""Timestamp of at which insight tool was created"""
 
     updated_at: Optional[datetime] = None
-    r"""Timestamp of Insight Tool update"""
+    r"""Timestamp at which insight tool was last updated"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

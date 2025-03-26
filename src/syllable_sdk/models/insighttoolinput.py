@@ -6,38 +6,42 @@ from typing_extensions import TypedDict
 
 
 class InsightToolInputToolArgumentsTypedDict(TypedDict):
-    r"""Arguments for Insight Tool"""
+    r"""Arguments for calling the insight tool"""
 
 
 class InsightToolInputToolArguments(BaseModel):
-    r"""Arguments for Insight Tool"""
+    r"""Arguments for calling the insight tool"""
 
 
 class InsightToolInputTypedDict(TypedDict):
+    r"""Request model to create/update an insight tool."""
+
     name: str
-    r"""Human readable name of Insight Tool"""
+    r"""Human readable name of insight tool"""
     description: str
-    r"""Text description of Insight Tool"""
+    r"""Text description of insight tool"""
     version: int
-    r"""Version number of Insight Tool"""
+    r"""Version number of insight tool"""
     tool_arguments: InsightToolInputToolArgumentsTypedDict
-    r"""Arguments for Insight Tool"""
+    r"""Arguments for calling the insight tool"""
     insight_tool_definition_id: int
-    r"""Unique ID for Insight Tool Definition"""
+    r"""Internal ID for the definition used by the insight tool"""
 
 
 class InsightToolInput(BaseModel):
+    r"""Request model to create/update an insight tool."""
+
     name: str
-    r"""Human readable name of Insight Tool"""
+    r"""Human readable name of insight tool"""
 
     description: str
-    r"""Text description of Insight Tool"""
+    r"""Text description of insight tool"""
 
     version: int
-    r"""Version number of Insight Tool"""
+    r"""Version number of insight tool"""
 
     tool_arguments: InsightToolInputToolArguments
-    r"""Arguments for Insight Tool"""
+    r"""Arguments for calling the insight tool"""
 
     insight_tool_definition_id: int
-    r"""Unique ID for Insight Tool Definition"""
+    r"""Internal ID for the definition used by the insight tool"""

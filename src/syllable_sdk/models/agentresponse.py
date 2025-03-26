@@ -27,7 +27,8 @@ if TYPE_CHECKING:
 
 
 class AgentResponseTypedDict(TypedDict):
-    r"""When a user interacts with the Syllable system, they do so by communicating with an agent.
+    r"""Response model for agent operations.
+    When a user interacts with the Syllable system, they do so by communicating with an agent.
     An agent is linked to a prompt, a custom message, and one or more channel targets to define its
     behavior and capabilities. For more information, see
     [Console docs](https://docs.syllable.ai/workspaces/Agents).
@@ -36,11 +37,11 @@ class AgentResponseTypedDict(TypedDict):
     name: str
     r"""The agent name"""
     type: str
-    r"""The agent type. Can be an arbitrary string"""
+    r"""The agent type. Must be \"ca_v1\" currently."""
     prompt_id: int
     r"""ID of the prompt associated with the agent"""
     custom_message_id: int
-    r"""ID of the custom message that should be delivered at the beginning of a conversation with the agent"""
+    r"""Internal ID of the custom message that should be delivered at the beginning of a conversation with the agent"""
     timezone: str
     r"""The time zone in which the agent operates"""
     variables: Dict[str, str]
@@ -48,7 +49,7 @@ class AgentResponseTypedDict(TypedDict):
     tool_headers: Nullable[Dict[str, str]]
     r"""Optional headers to include in tool calls for agent."""
     id: int
-    r"""The agent ID"""
+    r"""Internal ID of the agent"""
     updated_at: datetime
     r"""Timestamp of most recent update"""
     last_updated_by: Nullable[str]
@@ -58,11 +59,11 @@ class AgentResponseTypedDict(TypedDict):
     label: NotRequired[Nullable[str]]
     r"""The agent label"""
     language_group_id: NotRequired[Nullable[int]]
-    r"""ID of the language group associated with the agent"""
+    r"""Internal ID of the language group associated with the agent"""
     prompt_tool_defaults: NotRequired[List[AgentToolDefaultsTypedDict]]
-    r"""User-configured parameter values for the agent's tools"""
+    r"""Agent-level static parameter values for the agent's tools, overriding any tool-level defaults"""
     languages: NotRequired[List[str]]
-    r"""BCP 47 codes of languages the agent supports"""
+    r"""BCP 47 codes of languages the agent supports. (DEPRECATED - pass an empty list here and use language group ID to link agent to a language group instead.)"""
     agent_initiated: NotRequired[bool]
     r"""Whether the agent initiates conversation with a user after the custom_message is delivered"""
     stt_provider: NotRequired[Nullable[str]]
@@ -72,7 +73,7 @@ class AgentResponseTypedDict(TypedDict):
     prompt: NotRequired[Nullable[PromptResponseTypedDict]]
     r"""The prompt associated with the agent."""
     custom_message: NotRequired[Nullable[CustomMessageResponseTypedDict]]
-    r"""The custom message associated with the agent. Will be delivered as a greeting at the beginning of a conversation."""
+    r"""The message associated with the agent. Will be delivered as a greeting at the beginning of a conversation."""
     channel_targets: NotRequired[Nullable[List["ChannelTargetResponseTypedDict"]]]
     r"""Channel targets associated with the agent"""
     tools: NotRequired[Nullable[List[ToolResponseTypedDict]]]
@@ -82,7 +83,8 @@ class AgentResponseTypedDict(TypedDict):
 
 
 class AgentResponse(BaseModel):
-    r"""When a user interacts with the Syllable system, they do so by communicating with an agent.
+    r"""Response model for agent operations.
+    When a user interacts with the Syllable system, they do so by communicating with an agent.
     An agent is linked to a prompt, a custom message, and one or more channel targets to define its
     behavior and capabilities. For more information, see
     [Console docs](https://docs.syllable.ai/workspaces/Agents).
@@ -92,13 +94,13 @@ class AgentResponse(BaseModel):
     r"""The agent name"""
 
     type: str
-    r"""The agent type. Can be an arbitrary string"""
+    r"""The agent type. Must be \"ca_v1\" currently."""
 
     prompt_id: int
     r"""ID of the prompt associated with the agent"""
 
     custom_message_id: int
-    r"""ID of the custom message that should be delivered at the beginning of a conversation with the agent"""
+    r"""Internal ID of the custom message that should be delivered at the beginning of a conversation with the agent"""
 
     timezone: str
     r"""The time zone in which the agent operates"""
@@ -110,7 +112,7 @@ class AgentResponse(BaseModel):
     r"""Optional headers to include in tool calls for agent."""
 
     id: int
-    r"""The agent ID"""
+    r"""Internal ID of the agent"""
 
     updated_at: datetime
     r"""Timestamp of most recent update"""
@@ -125,10 +127,10 @@ class AgentResponse(BaseModel):
     r"""The agent label"""
 
     language_group_id: OptionalNullable[int] = UNSET
-    r"""ID of the language group associated with the agent"""
+    r"""Internal ID of the language group associated with the agent"""
 
     prompt_tool_defaults: Optional[List[AgentToolDefaults]] = None
-    r"""User-configured parameter values for the agent's tools"""
+    r"""Agent-level static parameter values for the agent's tools, overriding any tool-level defaults"""
 
     languages: Annotated[
         Optional[List[str]],
@@ -136,7 +138,7 @@ class AgentResponse(BaseModel):
             deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
         ),
     ] = None
-    r"""BCP 47 codes of languages the agent supports"""
+    r"""BCP 47 codes of languages the agent supports. (DEPRECATED - pass an empty list here and use language group ID to link agent to a language group instead.)"""
 
     agent_initiated: Optional[bool] = False
     r"""Whether the agent initiates conversation with a user after the custom_message is delivered"""
@@ -151,7 +153,7 @@ class AgentResponse(BaseModel):
     r"""The prompt associated with the agent."""
 
     custom_message: OptionalNullable[CustomMessageResponse] = UNSET
-    r"""The custom message associated with the agent. Will be delivered as a greeting at the beginning of a conversation."""
+    r"""The message associated with the agent. Will be delivered as a greeting at the beginning of a conversation."""
 
     channel_targets: OptionalNullable[List["ChannelTargetResponse"]] = UNSET
     r"""Channel targets associated with the agent"""

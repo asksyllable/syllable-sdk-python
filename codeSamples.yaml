@@ -42,19 +42,33 @@ actions:
             ) as ss_client:
 
                 res = ss_client.agents.create(request={
-                    "name": "<value>",
+                    "name": "Weather agent",
+                    "description": "Agent for answering questions about weather.",
+                    "label": "Information",
                     "type": "ca_v1",
-                    "prompt_id": 486589,
-                    "custom_message_id": 638424,
+                    "prompt_id": 1,
+                    "custom_message_id": 1,
+                    "language_group_id": 1,
                     "timezone": "America/New_York",
+                    "prompt_tool_defaults": [
+                        {
+                            "tool_name": "get_weather",
+                            "default_values": [
+                                {
+                                    "field_name": "temperature_unit",
+                                    "default_value": "fahrenheit",
+                                },
+                            ],
+                        },
+                    ],
                     "variables": {
-
+                        "vars.location_name": "Main Street Pizza",
                     },
                     "tool_headers": {
-                        "key": "<value>",
+                        "Authorization": "Basic sometoken",
                     },
-                    "stt_provider": syllable_sdk.AgentSttProvider.DEEPGRAM_NOVA_2,
-                    "wait_sound": syllable_sdk.AgentWaitSound.CALL_CENTER,
+                    "stt_provider": syllable_sdk.AgentSttProvider.GOOGLE_STT_V2,
+                    "wait_sound": syllable_sdk.AgentWaitSound.KEYBOARD_1,
                 })
 
                 # Handle response
@@ -75,23 +89,34 @@ actions:
             ) as ss_client:
 
                 res = ss_client.agents.update(request={
-                    "name": "<value>",
+                    "name": "Weather agent",
+                    "description": "Agent for answering questions about weather.",
+                    "label": "Information",
                     "type": "ca_v1",
-                    "prompt_id": 857478,
-                    "custom_message_id": 597129,
-                    "timezone": "America/New_York",
+                    "prompt_id": 1,
+                    "custom_message_id": 1,
+                    "language_group_id": 1,
+                    "timezone": "America/Chicago",
+                    "prompt_tool_defaults": [
+                        {
+                            "tool_name": "get_weather",
+                            "default_values": [
+                                {
+                                    "field_name": "temperature_unit",
+                                    "default_value": "fahrenheit",
+                                },
+                            ],
+                        },
+                    ],
                     "variables": {
-                        "key": "<value>",
-                        "key1": "<value>",
-                        "key2": "<value>",
+                        "vars.location_name": "Main Street Pizza",
                     },
                     "tool_headers": {
-                        "key": "<value>",
-                        "key1": "<value>",
+                        "Authorization": "Basic sometoken",
                     },
                     "stt_provider": syllable_sdk.AgentSttProvider.GOOGLE_STT_V2,
-                    "wait_sound": syllable_sdk.AgentWaitSound.CALL_CENTER,
-                    "id": 54062,
+                    "wait_sound": syllable_sdk.AgentWaitSound.KEYBOARD_1,
+                    "id": 1,
                 })
 
                 # Handle response
@@ -112,7 +137,8 @@ actions:
 
                 res = ss_client.agents.test.send_test_message(request={
                     "service_name": "<value>",
-                    "source": "<value>",
+                    "source": "user@email.com",
+                    "text": "Hello",
                     "test_id": "<id>",
                     "agent_id": "<id>",
                 })
@@ -275,11 +301,12 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.channels.targets.create(channel_id=134365, channel_target_create_request={
-                    "agent_id": 486589,
-                    "channel_id": 638424,
-                    "target": "<value>",
+                res = ss_client.channels.targets.create(channel_id=638424, channel_target_create_request={
+                    "agent_id": 1,
+                    "channel_id": 1,
+                    "target": "+19995551234",
                     "target_mode": syllable_sdk.TargetModes.CHAT,
+                    "fallback_target": "+19995551235",
                 })
 
                 # Handle response
@@ -317,12 +344,13 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.channels.targets.update(channel_id=627690, target_id=488852, channel_target_update_request={
-                    "agent_id": 857478,
-                    "channel_id": 597129,
-                    "target": "<value>",
-                    "target_mode": syllable_sdk.TargetModes.CHAT,
-                    "id": 991464,
+                res = ss_client.channels.targets.update(channel_id=597129, target_id=344620, channel_target_update_request={
+                    "agent_id": 1,
+                    "channel_id": 1,
+                    "target": "+19995551234",
+                    "target_mode": syllable_sdk.TargetModes.EMAIL,
+                    "fallback_target": "+19995551235",
+                    "id": 1,
                 })
 
                 # Handle response
@@ -389,11 +417,12 @@ actions:
             ) as ss_client:
 
                 res = ss_client.custom_messages.create(request={
-                    "name": "<value>",
-                    "text": "<value>",
+                    "name": "Customer service greeting",
+                    "text": "Hello and thank you for calling customer service. How can I help you today?",
+                    "label": "Customer service",
                     "rules": [
                         {
-                            "description": "delightfully fumigate convection though zowie up bulky electronics",
+                            "description": "Closed on New Year's Day",
                             "time_range_start": "09:00",
                             "time_range_end": "17:00",
                             "date_": "2025-01-01",
@@ -405,10 +434,10 @@ actions:
                                 syllable_sdk.DayOfWeek.FR,
                             ],
                             "invert": False,
-                            "text": "Sorry, we're closed today",
+                            "text": "Hello, thank you for calling. Sorry, we're closed today.",
                         },
                         {
-                            "description": "yuck forager beneath please shadowy foodstuffs welcome",
+                            "description": "Closed on New Year's Day",
                             "time_range_start": "09:00",
                             "time_range_end": "17:00",
                             "date_": "2025-01-01",
@@ -419,8 +448,8 @@ actions:
                                 syllable_sdk.DayOfWeek.TH,
                                 syllable_sdk.DayOfWeek.FR,
                             ],
-                            "invert": True,
-                            "text": "Sorry, we're closed today",
+                            "invert": False,
+                            "text": "Hello, thank you for calling. Sorry, we're closed today.",
                         },
                     ],
                 })
@@ -443,11 +472,12 @@ actions:
             ) as ss_client:
 
                 res = ss_client.custom_messages.update(request={
-                    "name": "<value>",
-                    "text": "<value>",
+                    "name": "Customer service greeting",
+                    "text": "Hello and thank you for calling customer service. How can I help you today?",
+                    "label": "Customer service",
                     "rules": [
                         {
-                            "description": "technician eulogise whereas till mild than during",
+                            "description": "Closed on New Year's Day",
                             "time_range_start": "09:00",
                             "time_range_end": "17:00",
                             "date_": "2025-01-01",
@@ -458,11 +488,11 @@ actions:
                                 syllable_sdk.DayOfWeek.TH,
                                 syllable_sdk.DayOfWeek.FR,
                             ],
-                            "invert": True,
-                            "text": "Sorry, we're closed today",
+                            "invert": False,
+                            "text": "Hello, thank you for calling. Sorry, we're closed today.",
                         },
                         {
-                            "description": "qualified cycle woot abseil perfumed fisherman with duh",
+                            "description": "Closed on New Year's Day",
                             "time_range_start": "09:00",
                             "time_range_end": "17:00",
                             "date_": "2025-01-01",
@@ -473,26 +503,11 @@ actions:
                                 syllable_sdk.DayOfWeek.TH,
                                 syllable_sdk.DayOfWeek.FR,
                             ],
-                            "invert": True,
-                            "text": "Sorry, we're closed today",
-                        },
-                        {
-                            "description": "ultimately in likely opera please antelope",
-                            "time_range_start": "09:00",
-                            "time_range_end": "17:00",
-                            "date_": "2025-01-01",
-                            "days_of_week": [
-                                syllable_sdk.DayOfWeek.MO,
-                                syllable_sdk.DayOfWeek.TU,
-                                syllable_sdk.DayOfWeek.WE,
-                                syllable_sdk.DayOfWeek.TH,
-                                syllable_sdk.DayOfWeek.FR,
-                            ],
-                            "invert": True,
-                            "text": "Sorry, we're closed today",
+                            "invert": False,
+                            "text": "Hello, thank you for calling. Sorry, we're closed today.",
                         },
                     ],
-                    "id": 975440,
+                    "id": 1,
                 })
 
                 # Handle response
@@ -654,7 +669,13 @@ actions:
                     ],
                     "chunk": False,
                     "chunk_delimiter": "",
-                    "text": "<value>",
+                    "text": ("The following are names and addresses of pizza shops.\n"
+                    "\n"
+                    "Cool Pizza, 123 Main St.\n"
+                    "\n"
+                    "Really Good Pizza, 456 Water St.\n"
+                    "\n"
+                    "The Best Pizza, 789 Circle Dr."),
                 })
 
                 # Handle response
@@ -683,7 +704,13 @@ actions:
                     "chunk_delimiter": "",
                     "id": 1,
                     "edit_comments": "Added new info",
-                    "text": "<value>",
+                    "text": ("The following are names and addresses of pizza shops.\n"
+                    "\n"
+                    "Cool Pizza, 123 Main St.\n"
+                    "\n"
+                    "Really Good Pizza, 456 Water St.\n"
+                    "\n"
+                    "The Best Pizza, 789 Circle Dr."),
                 })
 
                 # Handle response
@@ -803,11 +830,11 @@ actions:
             ) as ss_client:
 
                 res = ss_client.insights.tools.create(request={
-                    "name": "<value>",
-                    "description": "yuck vice between gee ugh ha",
-                    "version": 920994,
+                    "name": "summary-tool",
+                    "description": "Default tool - generates a summary of the call",
+                    "version": 1,
                     "tool_arguments": {},
-                    "insight_tool_definition_id": 780486,
+                    "insight_tool_definition_id": 1,
                 })
 
                 # Handle response
@@ -844,12 +871,12 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.tools.update(tool_id=198183, insight_tool_input={
-                    "name": "<value>",
-                    "description": "awful underneath retention too mobility char innocently dowse restfully",
-                    "version": 243447,
+                res = ss_client.insights.tools.update(tool_id=857478, insight_tool_input={
+                    "name": "summary-tool",
+                    "description": "Default tool - generates a summary of the call",
+                    "version": 1,
                     "tool_arguments": {},
-                    "insight_tool_definition_id": 265006,
+                    "insight_tool_definition_id": 1,
                 })
 
                 # Handle response
@@ -892,15 +919,13 @@ actions:
             ) as ss_client:
 
                 res = ss_client.insights.workflows.create(request={
-                    "name": "<value>",
-                    "description": "yuck vice between gee ugh ha",
+                    "name": "summary-workflow",
+                    "description": "Default workflow - generates a summary of the call",
                     "insight_tool_ids": [
-                        780486,
-                        760259,
-                        219974,
+                        1,
                     ],
                     "conditions": {},
-                    "status": "<value>",
+                    "status": "ACTIVE",
                 })
 
                 # Handle response
@@ -955,14 +980,14 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.workflows.update(workflow_id=265006, insight_workflow_input={
-                    "name": "<value>",
-                    "description": "awful underneath retention too mobility char innocently dowse restfully",
+                res = ss_client.insights.workflows.update(workflow_id=857478, insight_workflow_input={
+                    "name": "summary-workflow",
+                    "description": "Default workflow - generates a summary of the call",
                     "insight_tool_ids": [
-
+                        1,
                     ],
                     "conditions": {},
-                    "status": "<value>",
+                    "status": "ACTIVE",
                 })
 
                 # Handle response
@@ -1010,9 +1035,15 @@ actions:
                     "description": "Languages spoken by operators at Call Center 1",
                     "language_configs": [
                         {
+                            "language_code": syllable_sdk.LanguageCode.EN_US,
+                            "voice_provider": syllable_sdk.TtsProvider.OPEN_AI,
+                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ALLOY,
+                            "dtmf_code": 1,
+                        },
+                        {
                             "language_code": syllable_sdk.LanguageCode.ES_US,
-                            "voice_provider": syllable_sdk.TtsProvider.ELEVEN_LABS,
-                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.BRIAN,
+                            "voice_provider": syllable_sdk.TtsProvider.GOOGLE,
+                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ALEJANDRO,
                             "dtmf_code": 1,
                         },
                     ],
@@ -1041,21 +1072,15 @@ actions:
                     "description": "Languages spoken by operators at Call Center 1",
                     "language_configs": [
                         {
-                            "language_code": syllable_sdk.LanguageCode.ES_US,
-                            "voice_provider": syllable_sdk.TtsProvider.ELEVEN_LABS,
-                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.WILL,
+                            "language_code": syllable_sdk.LanguageCode.EN_US,
+                            "voice_provider": syllable_sdk.TtsProvider.OPEN_AI,
+                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ALLOY,
                             "dtmf_code": 1,
                         },
                         {
                             "language_code": syllable_sdk.LanguageCode.ES_US,
-                            "voice_provider": syllable_sdk.TtsProvider.ELEVEN_LABS,
-                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.WILL,
-                            "dtmf_code": 1,
-                        },
-                        {
-                            "language_code": syllable_sdk.LanguageCode.YUE_HK,
                             "voice_provider": syllable_sdk.TtsProvider.GOOGLE,
-                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.GEORGE,
+                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ALEJANDRO,
                             "dtmf_code": 1,
                         },
                     ],
@@ -1140,8 +1165,13 @@ actions:
             ) as ss_client:
 
                 res = ss_client.prompts.create(request={
-                    "name": "<value>",
-                    "type": "<value>",
+                    "name": "Weather Agent Prompt",
+                    "description": "Prompt for a weather agent.",
+                    "type": "prompt_v1",
+                    "context": "You are a weather agent. Answer the user's questions about weather and nothing else.",
+                    "tools": [
+                        "summary, hangup",
+                    ],
                     "llm_config": {
                         "version": "2024-05-13",
                         "api_version": "2024-06-01",
@@ -1165,13 +1195,19 @@ actions:
             ) as ss_client:
 
                 res = ss_client.prompts.update(request={
-                    "name": "<value>",
-                    "type": "<value>",
+                    "name": "Weather Agent Prompt",
+                    "description": "Prompt for a weather agent.",
+                    "type": "prompt_v1",
+                    "context": "You are a weather agent. Answer the user's questions about weather and nothing else.",
+                    "tools": [
+                        "summary, hangup",
+                    ],
                     "llm_config": {
                         "version": "2024-05-13",
                         "api_version": "2024-06-01",
                     },
-                    "id": 857478,
+                    "id": 1,
+                    "edit_comments": "Updated prompt text to include requirement to not answer questions that aren't about weather.",
                 })
 
                 # Handle response
@@ -1268,8 +1304,8 @@ actions:
             ) as ss_client:
 
                 res = ss_client.services.create(request={
-                    "name": "<value>",
-                    "description": "yuck vice between gee ugh ha",
+                    "name": "Weather tools",
+                    "description": "Service containing tools for fetching weather information",
                 })
 
                 # Handle response
@@ -1289,9 +1325,10 @@ actions:
             ) as ss_client:
 
                 res = ss_client.services.update(request={
-                    "name": "<value>",
-                    "description": "awful underneath retention too mobility char innocently dowse restfully",
-                    "id": 243447,
+                    "name": "Weather tools",
+                    "description": "Service containing tools for fetching weather information",
+                    "id": 1,
+                    "last_updated_comments": "Updated description to correct typo",
                 })
 
                 # Handle response
@@ -1424,10 +1461,10 @@ actions:
             ) as ss_client:
 
                 res = ss_client.session_labels.create(request={
-                    "session_id": 486589,
-                    "type": "human-rating",
-                    "code": "OK",
-                    "user_email": "<value>",
+                    "session_id": 1,
+                    "type": "auto-rating",
+                    "code": "BAD",
+                    "user_email": "user@email.com",
                     "issue_categories": [
                         "Silent treatment",
                     ],
@@ -1625,11 +1662,12 @@ actions:
                 res = ss_client.tools.create(request={
                     "name": "Weather Fetcher",
                     "definition": {
+                        "type": syllable_sdk.Type.ENDPOINT,
                         "tool": {
                             "type": "function",
                             "function": {
-                                "name": "weather_fetcher",
-                                "description": "Fetches weather data",
+                                "name": "get_weather",
+                                "description": "Get the weather for a city",
                                 "parameters": {
 
                                 },
@@ -1641,8 +1679,17 @@ actions:
                             "argument_location": syllable_sdk.ToolArgumentLocation.PATH,
                         },
                         "defaults": "<value>",
+                        "static_parameters": [
+                            {
+                                "name": "temperature_unit",
+                                "description": "Whether the temperature information should be fetched in celsius or fahrenheit.",
+                                "required": True,
+                                "type": syllable_sdk.StaticToolParameterType.STRING,
+                                "default": "fahrenheit",
+                            },
+                        ],
                     },
-                    "service_id": 134365,
+                    "service_id": 1,
                 })
 
                 # Handle response
@@ -1665,11 +1712,12 @@ actions:
                 res = ss_client.tools.update(request={
                     "name": "Weather Fetcher",
                     "definition": {
+                        "type": syllable_sdk.Type.ENDPOINT,
                         "tool": {
                             "type": "function",
                             "function": {
-                                "name": "weather_fetcher",
-                                "description": "Fetches weather data",
+                                "name": "get_weather",
+                                "description": "Get the weather for a city",
                                 "parameters": {
 
                                 },
@@ -1681,9 +1729,19 @@ actions:
                             "argument_location": syllable_sdk.ToolArgumentLocation.PATH,
                         },
                         "defaults": "<value>",
+                        "static_parameters": [
+                            {
+                                "name": "temperature_unit",
+                                "description": "Whether the temperature information should be fetched in celsius or fahrenheit.",
+                                "required": True,
+                                "type": syllable_sdk.StaticToolParameterType.STRING,
+                                "default": "fahrenheit",
+                            },
+                        ],
                     },
-                    "service_id": 991464,
-                    "id": 627690,
+                    "service_id": 1,
+                    "id": 1,
+                    "last_updated_comments": "Updated to use new API endpoint",
                 })
 
                 # Handle response

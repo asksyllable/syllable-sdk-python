@@ -5,6 +5,8 @@ from enum import Enum
 
 
 class PromptProperties(str, Enum):
+    r"""Names of prompt fields supported for filtering/sorting on list endpoint."""
+
     ID = "id"
     NAME = "name"
     DESCRIPTION = "description"

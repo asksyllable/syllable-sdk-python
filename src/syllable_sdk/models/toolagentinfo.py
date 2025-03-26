@@ -9,7 +9,7 @@ class ToolAgentInfoTypedDict(TypedDict):
     r"""Information about an agent linked to a tool via a prompt."""
 
     id: int
-    r"""The ID of the agent"""
+    r"""The internal ID of the agent"""
     name: str
     r"""The name of the agent"""
 
@@ -18,7 +18,7 @@ class ToolAgentInfo(BaseModel):
     r"""Information about an agent linked to a tool via a prompt."""
 
     id: int
-    r"""The ID of the agent"""
+    r"""The internal ID of the agent"""
 
     name: str
     r"""The name of the agent"""

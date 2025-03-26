@@ -15,26 +15,31 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class PromptUpdateRequestTypedDict(TypedDict):
+    r"""Request model to update an existing prompt."""
+
     name: str
     r"""The prompt name"""
     type: str
     r"""The type of the prompt"""
     llm_config: PromptLlmConfigTypedDict
+    r"""LLM configuration for a prompt."""
     id: int
-    r"""The prompt ID"""
+    r"""The internal ID of the prompt"""
     description: NotRequired[Nullable[str]]
     r"""The description of the prompt"""
     context: NotRequired[Nullable[str]]
-    r"""The prompt text"""
+    r"""The prompt text that will be sent to the LLM at the beginning of the conversation"""
     tools: NotRequired[List[str]]
     r"""Names of tools to which the prompt has access"""
     edit_comments: NotRequired[Nullable[str]]
     r"""The comments for the most recent edit to the prompt"""
     include_default_tools: NotRequired[bool]
-    r"""Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."""
+    r"""Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."""
 
 
 class PromptUpdateRequest(BaseModel):
+    r"""Request model to update an existing prompt."""
+
     name: str
     r"""The prompt name"""
 
@@ -42,15 +47,16 @@ class PromptUpdateRequest(BaseModel):
     r"""The type of the prompt"""
 
     llm_config: PromptLlmConfig
+    r"""LLM configuration for a prompt."""
 
     id: int
-    r"""The prompt ID"""
+    r"""The internal ID of the prompt"""
 
     description: OptionalNullable[str] = UNSET
     r"""The description of the prompt"""
 
     context: OptionalNullable[str] = UNSET
-    r"""The prompt text"""
+    r"""The prompt text that will be sent to the LLM at the beginning of the conversation"""
 
     tools: Optional[List[str]] = None
     r"""Names of tools to which the prompt has access"""
@@ -59,7 +65,7 @@ class PromptUpdateRequest(BaseModel):
     r"""The comments for the most recent edit to the prompt"""
 
     include_default_tools: Optional[bool] = True
-    r"""Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."""
+    r"""Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

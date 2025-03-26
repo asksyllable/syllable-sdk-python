@@ -20,7 +20,8 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class LanguageGroupResponseTypedDict(TypedDict):
-    r"""A language group is a collection of language, voice, and DTMF configuration that can be
+    r"""Response model for language group operations.
+    A language group is a collection of language, voice, and DTMF configuration that can be
     linked to an agent to define the languages and voices it supports. For more information, see
     [Console docs](https://docs.syllable.ai/Resources/LanguageGroups).
     """
@@ -30,7 +31,7 @@ class LanguageGroupResponseTypedDict(TypedDict):
     language_configs: List[LanguageConfigTypedDict]
     r"""Voice and DTMF configurations for each language in the group."""
     skip_current_language_in_message: bool
-    r"""Whether a message using the language group to generate a language DTMF menu should skip the agent's current language in the menu."""
+    r"""Whether a custom message using the language group to generate a language DTMF menu should skip the agent's current language in the menu."""
     id: int
     r"""The ID of the language group to update."""
     updated_at: datetime
@@ -46,7 +47,8 @@ class LanguageGroupResponseTypedDict(TypedDict):
 
 
 class LanguageGroupResponse(BaseModel):
-    r"""A language group is a collection of language, voice, and DTMF configuration that can be
+    r"""Response model for language group operations.
+    A language group is a collection of language, voice, and DTMF configuration that can be
     linked to an agent to define the languages and voices it supports. For more information, see
     [Console docs](https://docs.syllable.ai/Resources/LanguageGroups).
     """
@@ -58,7 +60,7 @@ class LanguageGroupResponse(BaseModel):
     r"""Voice and DTMF configurations for each language in the group."""
 
     skip_current_language_in_message: bool
-    r"""Whether a message using the language group to generate a language DTMF menu should skip the agent's current language in the menu."""
+    r"""Whether a custom message using the language group to generate a language DTMF menu should skip the agent's current language in the menu."""
 
     id: int
     r"""The ID of the language group to update."""

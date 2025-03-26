@@ -5,6 +5,10 @@ from enum import Enum
 
 
 class ChannelTargetProperties(str, Enum):
+    r"""Names of channel target fields supported for filtering/sorting on full channel targets list
+    endpoint.
+    """
+
     ID = "id"
     CHANNEL_ID = "channel_id"
     CHANNEL_NAME = "channel_name"

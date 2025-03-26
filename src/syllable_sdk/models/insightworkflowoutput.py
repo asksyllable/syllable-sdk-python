@@ -9,63 +9,67 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class InsightWorkflowOutputConditionsTypedDict(TypedDict):
-    r"""Conditions for Insight Workflow"""
+    r"""Conditions for insight workflow to trigger on a given call recording."""
 
 
 class InsightWorkflowOutputConditions(BaseModel):
-    r"""Conditions for Insight Workflow"""
+    r"""Conditions for insight workflow to trigger on a given call recording."""
 
 
 class InsightWorkflowOutputTypedDict(TypedDict):
+    r"""Response model for an insight workflow."""
+
     name: str
-    r"""Human readable name of Insight Workflow"""
+    r"""Human-readable name of insight workflow"""
     description: str
-    r"""Text description of Insight Workflow"""
+    r"""Text description of insight workflow"""
     insight_tool_ids: List[int]
-    r"""List of Insight Tool IDs"""
+    r"""List of IDs of insight tools used in the workflow"""
     conditions: InsightWorkflowOutputConditionsTypedDict
-    r"""Conditions for Insight Workflow"""
+    r"""Conditions for insight workflow to trigger on a given call recording."""
     status: str
-    r"""Status of the Insight Workflow"""
+    r"""Status of the insight workflow"""
     id: int
-    r"""Unique ID for Insight Workflow"""
+    r"""Internal ID of the insight workflow"""
     insight_tools: List[InsightToolOutputTypedDict]
-    r"""List of Insight Tools"""
+    r"""List of insight tools used in the workflow"""
     last_updated_by: str
-    r"""User who last updated Insight Workflow"""
+    r"""Email of user who last updated Insight Workflow"""
     created_at: NotRequired[datetime]
-    r"""Timestamp of Insight Workflow creation"""
+    r"""Timestamp at which the insight workflow was created"""
     updated_at: NotRequired[datetime]
-    r"""Timestamp of Insight Workflow update"""
+    r"""Timestamp of most recent update to the insight workflow"""
 
 
 class InsightWorkflowOutput(BaseModel):
+    r"""Response model for an insight workflow."""
+
     name: str
-    r"""Human readable name of Insight Workflow"""
+    r"""Human-readable name of insight workflow"""
 
     description: str
-    r"""Text description of Insight Workflow"""
+    r"""Text description of insight workflow"""
 
     insight_tool_ids: List[int]
-    r"""List of Insight Tool IDs"""
+    r"""List of IDs of insight tools used in the workflow"""
 
     conditions: InsightWorkflowOutputConditions
-    r"""Conditions for Insight Workflow"""
+    r"""Conditions for insight workflow to trigger on a given call recording."""
 
     status: str
-    r"""Status of the Insight Workflow"""
+    r"""Status of the insight workflow"""
 
     id: int
-    r"""Unique ID for Insight Workflow"""
+    r"""Internal ID of the insight workflow"""
 
     insight_tools: List[InsightToolOutput]
-    r"""List of Insight Tools"""
+    r"""List of insight tools used in the workflow"""
 
     last_updated_by: str
-    r"""User who last updated Insight Workflow"""
+    r"""Email of user who last updated Insight Workflow"""
 
     created_at: Optional[datetime] = None
-    r"""Timestamp of Insight Workflow creation"""
+    r"""Timestamp at which the insight workflow was created"""
 
     updated_at: Optional[datetime] = None
-    r"""Timestamp of Insight Workflow update"""
+    r"""Timestamp of most recent update to the insight workflow"""

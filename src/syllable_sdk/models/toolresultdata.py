@@ -2,23 +2,20 @@
 
 from __future__ import annotations
 from syllable_sdk.types import BaseModel
+from typing import Any
 from typing_extensions import TypedDict
-
-
-class ToolResultTypedDict(TypedDict):
-    pass
-
-
-class ToolResult(BaseModel):
-    pass
 
 
 class ToolResultDataTypedDict(TypedDict):
     tool_name: str
-    tool_result: ToolResultTypedDict
+    r"""Tool name"""
+    tool_result: Any
+    r"""Tool result data"""
 
 
 class ToolResultData(BaseModel):
     tool_name: str
+    r"""Tool name"""
 
-    tool_result: ToolResult
+    tool_result: Any
+    r"""Tool result data"""

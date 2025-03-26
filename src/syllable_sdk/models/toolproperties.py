@@ -5,6 +5,8 @@ from enum import Enum
 
 
 class ToolProperties(str, Enum):
+    r"""Names of tool fields supported for filtering/sorting on list endpoint."""
+
     ID = "id"
     NAME = "name"
     SERVICE_NAME = "service_name"

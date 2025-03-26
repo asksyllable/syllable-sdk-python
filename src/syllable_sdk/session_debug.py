@@ -71,7 +71,7 @@ class SessionDebug(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="get_session_data_by_sid",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -171,7 +171,7 @@ class SessionDebug(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="get_session_data_by_sid",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -268,7 +268,7 @@ class SessionDebug(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="get_session_data_by_session_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -365,7 +365,7 @@ class SessionDebug(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="get_session_data_by_session_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -465,7 +465,7 @@ class SessionDebug(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="get_session_tool_call_result_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -565,7 +565,7 @@ class SessionDebug(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="get_session_tool_call_result_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

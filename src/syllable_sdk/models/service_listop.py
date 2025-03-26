@@ -18,7 +18,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class ServiceListRequestTypedDict(TypedDict):
     page: NotRequired[Nullable[int]]
-    r"""The page number from which to start (0-indexed)"""
+    r"""The page number from which to start (0-based)"""
     limit: NotRequired[int]
     r"""The maximum number of items to return"""
     search_fields: NotRequired[List[ServiceProperties]]
@@ -42,7 +42,7 @@ class ServiceListRequest(BaseModel):
         OptionalNullable[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""The page number from which to start (0-indexed)"""
+    r"""The page number from which to start (0-based)"""
 
     limit: Annotated[
         Optional[int],
