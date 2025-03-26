@@ -18,7 +18,7 @@ class ToolParameterTransformConditionTypedDict(TypedDict):
     value: str
     r"""The value to check against the parameter."""
     operator: Nullable[Literal["eq"]]
-    r"""The operator to use for the comparison."""
+    r"""The operator to use for the comparison. Currently only supports \"eq\" """
 
 
 class ToolParameterTransformCondition(BaseModel):
@@ -36,7 +36,7 @@ class ToolParameterTransformCondition(BaseModel):
         ],
         pydantic.Field(alias="operator"),
     ] = "eq"
-    r"""The operator to use for the comparison."""
+    r"""The operator to use for the comparison. Currently only supports \"eq\" """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

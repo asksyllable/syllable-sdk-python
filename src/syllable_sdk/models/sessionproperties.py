@@ -5,6 +5,8 @@ from enum import Enum
 
 
 class SessionProperties(str, Enum):
+    r"""Names of session fields supported for filtering/sorting on list endpoint."""
+
     TIMESTAMP = "timestamp"
     SESSION_ID = "session_id"
     CONVERSATION_ID = "conversation_id"

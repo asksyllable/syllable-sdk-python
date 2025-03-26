@@ -7,15 +7,19 @@ from typing_extensions import TypedDict
 
 
 class ToolCreateRequestTypedDict(TypedDict):
+    r"""Request model to create a tool."""
+
     name: str
     r"""The name of the tool"""
     definition: ToolDefinitionTypedDict
     r"""A tool that can be called from an LLM during the conversation. See https://docs.syllable.ai/Resources/Tools."""
     service_id: int
-    r"""The service to which this tool belongs"""
+    r"""Internal ID of the service to which the tool belongs"""
 
 
 class ToolCreateRequest(BaseModel):
+    r"""Request model to create a tool."""
+
     name: str
     r"""The name of the tool"""
 
@@ -23,4 +27,4 @@ class ToolCreateRequest(BaseModel):
     r"""A tool that can be called from an LLM during the conversation. See https://docs.syllable.ai/Resources/Tools."""
 
     service_id: int
-    r"""The service to which this tool belongs"""
+    r"""Internal ID of the service to which the tool belongs"""

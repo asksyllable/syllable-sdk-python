@@ -5,6 +5,8 @@ from enum import Enum
 
 
 class AvailableTargetProperties(str, Enum):
+    r"""Names of target fields supported for filtering/sorting on available targets list endpoint."""
+
     CHANNEL_ID = "channel_id"
     CHANNEL_NAME = "channel_name"
     TARGET = "target"

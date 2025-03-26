@@ -17,7 +17,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class PromptResponseTypedDict(TypedDict):
-    r"""A prompt defines the behavior of an agent by delivering instructions to the LLM about how the
+    r"""Response model for prompt operations.
+    A prompt defines the behavior of an agent by delivering instructions to the LLM about how the
     agent should behave. A prompt can be linked to one or more agents. A prompt can also be linked to
     tools to allow an agent using it to use those tools. For more information, see
     [Console docs](https://docs.syllable.ai/Resources/Prompts).
@@ -28,16 +29,17 @@ class PromptResponseTypedDict(TypedDict):
     type: str
     r"""The type of the prompt"""
     llm_config: PromptLlmConfigTypedDict
+    r"""LLM configuration for a prompt."""
     id: int
-    r"""The prompt ID"""
+    r"""The internal ID of the prompt"""
     last_updated: Nullable[str]
     r"""The last updated date of the prompt"""
     description: NotRequired[Nullable[str]]
     r"""The description of the prompt"""
     context: NotRequired[Nullable[str]]
-    r"""The prompt text"""
+    r"""The prompt text that will be sent to the LLM at the beginning of the conversation"""
     tools: NotRequired[List[str]]
-    r"""Names of the tools to which the prompt has access"""
+    r"""Names of the tools to which the prompt has access (DEPRECATED - use information from full tools field instead)"""
     edit_comments: NotRequired[Nullable[str]]
     r"""The comments for the most recent edit to the prompt"""
     last_updated_by: NotRequired[Nullable[str]]
@@ -45,11 +47,12 @@ class PromptResponseTypedDict(TypedDict):
     agent_count: NotRequired[Nullable[int]]
     r"""The number of agents using the prompt"""
     tools_full: NotRequired[Nullable[List[ToolResponseTypedDict]]]
-    r"""Tools to which the prompt has access"""
+    r"""Full definitions of tools to which the prompt has access"""
 
 
 class PromptResponse(BaseModel):
-    r"""A prompt defines the behavior of an agent by delivering instructions to the LLM about how the
+    r"""Response model for prompt operations.
+    A prompt defines the behavior of an agent by delivering instructions to the LLM about how the
     agent should behave. A prompt can be linked to one or more agents. A prompt can also be linked to
     tools to allow an agent using it to use those tools. For more information, see
     [Console docs](https://docs.syllable.ai/Resources/Prompts).
@@ -62,9 +65,10 @@ class PromptResponse(BaseModel):
     r"""The type of the prompt"""
 
     llm_config: PromptLlmConfig
+    r"""LLM configuration for a prompt."""
 
     id: int
-    r"""The prompt ID"""
+    r"""The internal ID of the prompt"""
 
     last_updated: Nullable[str]
     r"""The last updated date of the prompt"""
@@ -73,7 +77,7 @@ class PromptResponse(BaseModel):
     r"""The description of the prompt"""
 
     context: OptionalNullable[str] = UNSET
-    r"""The prompt text"""
+    r"""The prompt text that will be sent to the LLM at the beginning of the conversation"""
 
     tools: Annotated[
         Optional[List[str]],
@@ -81,7 +85,7 @@ class PromptResponse(BaseModel):
             deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
         ),
     ] = None
-    r"""Names of the tools to which the prompt has access"""
+    r"""Names of the tools to which the prompt has access (DEPRECATED - use information from full tools field instead)"""
 
     edit_comments: OptionalNullable[str] = UNSET
     r"""The comments for the most recent edit to the prompt"""
@@ -93,7 +97,7 @@ class PromptResponse(BaseModel):
     r"""The number of agents using the prompt"""
 
     tools_full: OptionalNullable[List[ToolResponse]] = UNSET
-    r"""Tools to which the prompt has access"""
+    r"""Full definitions of tools to which the prompt has access"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

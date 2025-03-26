@@ -16,6 +16,10 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class CustomMessageRuleTypedDict(TypedDict):
+    r"""A rule used to determine whether a custom message should present a variant message based on
+    the current timestamp.
+    """
+
     description: str
     r"""The description of the rule"""
     invert: bool
@@ -33,6 +37,10 @@ class CustomMessageRuleTypedDict(TypedDict):
 
 
 class CustomMessageRule(BaseModel):
+    r"""A rule used to determine whether a custom message should present a variant message based on
+    the current timestamp.
+    """
+
     description: str
     r"""The description of the rule"""
 

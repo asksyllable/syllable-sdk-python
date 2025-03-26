@@ -32,7 +32,7 @@ class Tools(BaseSDK):
 
         List the existing tools
 
-        :param page: The page number from which to start (0-indexed)
+        :param page: The page number from which to start (0-based)
         :param limit: The maximum number of items to return
         :param search_fields: String names of fields to search. Correspond by index to search field values
         :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
@@ -96,7 +96,7 @@ class Tools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="tool_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -155,7 +155,7 @@ class Tools(BaseSDK):
 
         List the existing tools
 
-        :param page: The page number from which to start (0-indexed)
+        :param page: The page number from which to start (0-based)
         :param limit: The maximum number of items to return
         :param search_fields: String names of fields to search. Correspond by index to search field values
         :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
@@ -219,7 +219,7 @@ class Tools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="tool_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -321,7 +321,7 @@ class Tools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="tool_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -423,7 +423,7 @@ class Tools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="tool_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -525,7 +525,7 @@ class Tools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="tool_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -627,7 +627,7 @@ class Tools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="tool_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -726,7 +726,7 @@ class Tools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="tool_get_by_name",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -825,7 +825,7 @@ class Tools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="tool_get_by_name",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -927,7 +927,7 @@ class Tools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="tool_delete",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1029,7 +1029,7 @@ class Tools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="tool_delete",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

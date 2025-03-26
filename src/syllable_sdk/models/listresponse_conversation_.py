@@ -16,22 +16,32 @@ from typing_extensions import NotRequired, TypedDict
 
 class ListResponseConversationTypedDict(TypedDict):
     items: List[ConversationTypedDict]
+    r"""List of items returned from the query"""
     page: int
+    r"""The page number of the results (0-based)"""
     page_size: int
+    r"""The number of items returned per page"""
     total_pages: NotRequired[Nullable[int]]
+    r"""The total number of pages of results given the indicated page size"""
     total_count: NotRequired[Nullable[int]]
+    r"""The total number of items returned from the query"""
 
 
 class ListResponseConversation(BaseModel):
     items: List[Conversation]
+    r"""List of items returned from the query"""
 
     page: int
+    r"""The page number of the results (0-based)"""
 
     page_size: int
+    r"""The number of items returned per page"""
 
     total_pages: OptionalNullable[int] = UNSET
+    r"""The total number of pages of results given the indicated page size"""
 
     total_count: OptionalNullable[int] = UNSET
+    r"""The total number of items returned from the query"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

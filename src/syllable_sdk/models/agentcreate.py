@@ -18,14 +18,16 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class AgentCreateTypedDict(TypedDict):
+    r"""Request model to create an agent."""
+
     name: str
     r"""The agent name"""
     type: str
-    r"""The agent type. Can be an arbitrary string"""
+    r"""The agent type. Must be \"ca_v1\" currently."""
     prompt_id: int
     r"""ID of the prompt associated with the agent"""
     custom_message_id: int
-    r"""ID of the custom message that should be delivered at the beginning of a conversation with the agent"""
+    r"""Internal ID of the custom message that should be delivered at the beginning of a conversation with the agent"""
     timezone: str
     r"""The time zone in which the agent operates"""
     variables: Dict[str, str]
@@ -37,11 +39,11 @@ class AgentCreateTypedDict(TypedDict):
     label: NotRequired[Nullable[str]]
     r"""The agent label"""
     language_group_id: NotRequired[Nullable[int]]
-    r"""ID of the language group associated with the agent"""
+    r"""Internal ID of the language group associated with the agent"""
     prompt_tool_defaults: NotRequired[List[AgentToolDefaultsTypedDict]]
-    r"""User-configured parameter values for the agent's tools"""
+    r"""Agent-level static parameter values for the agent's tools, overriding any tool-level defaults"""
     languages: NotRequired[List[str]]
-    r"""BCP 47 codes of languages the agent supports"""
+    r"""BCP 47 codes of languages the agent supports. (DEPRECATED - pass an empty list here and use language group ID to link agent to a language group instead.)"""
     agent_initiated: NotRequired[bool]
     r"""Whether the agent initiates conversation with a user after the custom message is delivered"""
     stt_provider: NotRequired[Nullable[AgentSttProvider]]
@@ -51,17 +53,19 @@ class AgentCreateTypedDict(TypedDict):
 
 
 class AgentCreate(BaseModel):
+    r"""Request model to create an agent."""
+
     name: str
     r"""The agent name"""
 
     type: str
-    r"""The agent type. Can be an arbitrary string"""
+    r"""The agent type. Must be \"ca_v1\" currently."""
 
     prompt_id: int
     r"""ID of the prompt associated with the agent"""
 
     custom_message_id: int
-    r"""ID of the custom message that should be delivered at the beginning of a conversation with the agent"""
+    r"""Internal ID of the custom message that should be delivered at the beginning of a conversation with the agent"""
 
     timezone: str
     r"""The time zone in which the agent operates"""
@@ -79,10 +83,10 @@ class AgentCreate(BaseModel):
     r"""The agent label"""
 
     language_group_id: OptionalNullable[int] = UNSET
-    r"""ID of the language group associated with the agent"""
+    r"""Internal ID of the language group associated with the agent"""
 
     prompt_tool_defaults: Optional[List[AgentToolDefaults]] = None
-    r"""User-configured parameter values for the agent's tools"""
+    r"""Agent-level static parameter values for the agent's tools, overriding any tool-level defaults"""
 
     languages: Annotated[
         Optional[List[str]],
@@ -90,7 +94,7 @@ class AgentCreate(BaseModel):
             deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
         ),
     ] = None
-    r"""BCP 47 codes of languages the agent supports"""
+    r"""BCP 47 codes of languages the agent supports. (DEPRECATED - pass an empty list here and use language group ID to link agent to a language group instead.)"""
 
     agent_initiated: Optional[bool] = False
     r"""Whether the agent initiates conversation with a user after the custom message is delivered"""

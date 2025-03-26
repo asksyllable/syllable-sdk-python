@@ -7,7 +7,9 @@ from typing_extensions import TypedDict
 
 class DialogMessageTypedDict(TypedDict):
     text: str
+    r"""Dialog message text"""
 
 
 class DialogMessage(BaseModel):
     text: str
+    r"""Dialog message text"""

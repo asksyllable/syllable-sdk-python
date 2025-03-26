@@ -32,7 +32,7 @@ class InsightsTools(BaseSDK):
 
         List the existing insight_tools
 
-        :param page: The page number from which to start (0-indexed)
+        :param page: The page number from which to start (0-based)
         :param limit: The maximum number of items to return
         :param search_fields: String names of fields to search. Correspond by index to search field values
         :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
@@ -96,7 +96,7 @@ class InsightsTools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="insight_tool_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -157,7 +157,7 @@ class InsightsTools(BaseSDK):
 
         List the existing insight_tools
 
-        :param page: The page number from which to start (0-indexed)
+        :param page: The page number from which to start (0-based)
         :param limit: The maximum number of items to return
         :param search_fields: String names of fields to search. Correspond by index to search field values
         :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
@@ -221,7 +221,7 @@ class InsightsTools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="insight_tool_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -325,7 +325,7 @@ class InsightsTools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="insights_tool_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -427,7 +427,7 @@ class InsightsTools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="insights_tool_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -526,7 +526,7 @@ class InsightsTools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="insight_tool_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -625,7 +625,7 @@ class InsightsTools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="insight_tool_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -738,7 +738,7 @@ class InsightsTools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="insights_tool_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -851,7 +851,7 @@ class InsightsTools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="insights_tool_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -943,7 +943,7 @@ class InsightsTools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="insight_tool_get_definitions",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1031,7 +1031,7 @@ class InsightsTools(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="insight_tool_get_definitions",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

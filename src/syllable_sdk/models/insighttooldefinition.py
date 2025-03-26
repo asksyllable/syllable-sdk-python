@@ -6,51 +6,59 @@ from typing_extensions import TypedDict
 
 
 class ToolParametersTypedDict(TypedDict):
-    r"""Parameters for Insight Tool Definition"""
+    r"""Parameters for tools that use this definition and their associated types"""
 
 
 class ToolParameters(BaseModel):
-    r"""Parameters for Insight Tool Definition"""
+    r"""Parameters for tools that use this definition and their associated types"""
 
 
 class ToolResultSetTypedDict(TypedDict):
-    r"""Result key/types for Insight Tool Definition"""
+    r"""Result key/types for insight tool definition"""
 
 
 class ToolResultSet(BaseModel):
-    r"""Result key/types for Insight Tool Definition"""
+    r"""Result key/types for insight tool definition"""
 
 
 class InsightToolDefinitionTypedDict(TypedDict):
+    r"""Model for an insight tool definition. This is a template that can be used by multiple insight
+    tools, each providing their own parameter values.
+    """
+
     id: int
-    r"""Unique ID for Insight Tool Definition"""
+    r"""Unique ID for insight tool definition"""
     name: str
-    r"""Human readable name of Insight Tool Definition"""
+    r"""Human-readable name of insight tool definition"""
     type: str
-    r"""Type of Insight Tool Definition"""
+    r"""Type of insight tool definition"""
     description: str
-    r"""Text description of Insight Tool Definition"""
+    r"""Text description of insight tool definition"""
     tool_parameters: ToolParametersTypedDict
-    r"""Parameters for Insight Tool Definition"""
+    r"""Parameters for tools that use this definition and their associated types"""
     tool_result_set: ToolResultSetTypedDict
-    r"""Result key/types for Insight Tool Definition"""
+    r"""Result key/types for insight tool definition"""
 
 
 class InsightToolDefinition(BaseModel):
+    r"""Model for an insight tool definition. This is a template that can be used by multiple insight
+    tools, each providing their own parameter values.
+    """
+
     id: int
-    r"""Unique ID for Insight Tool Definition"""
+    r"""Unique ID for insight tool definition"""
 
     name: str
-    r"""Human readable name of Insight Tool Definition"""
+    r"""Human-readable name of insight tool definition"""
 
     type: str
-    r"""Type of Insight Tool Definition"""
+    r"""Type of insight tool definition"""
 
     description: str
-    r"""Text description of Insight Tool Definition"""
+    r"""Text description of insight tool definition"""
 
     tool_parameters: ToolParameters
-    r"""Parameters for Insight Tool Definition"""
+    r"""Parameters for tools that use this definition and their associated types"""
 
     tool_result_set: ToolResultSet
-    r"""Result key/types for Insight Tool Definition"""
+    r"""Result key/types for insight tool definition"""

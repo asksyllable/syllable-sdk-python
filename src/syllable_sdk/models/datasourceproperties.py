@@ -5,6 +5,8 @@ from enum import Enum
 
 
 class DataSourceProperties(str, Enum):
+    r"""Names of data source fields supported for filtering/sorting on list endpoint."""
+
     NAME = "name"
     DESCRIPTION = "description"
     LABELS = "labels"

@@ -6,6 +6,8 @@ from typing_extensions import TypedDict
 
 
 class ServiceCreateRequestTypedDict(TypedDict):
+    r"""Request model to create a service."""
+
     name: str
     r"""The name of the service"""
     description: str
@@ -13,6 +15,8 @@ class ServiceCreateRequestTypedDict(TypedDict):
 
 
 class ServiceCreateRequest(BaseModel):
+    r"""Request model to create a service."""
+
     name: str
     r"""The name of the service"""
 

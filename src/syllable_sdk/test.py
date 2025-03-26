@@ -75,7 +75,7 @@ class Test(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="send_test_message",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -177,7 +177,7 @@ class Test(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="send_test_message",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
