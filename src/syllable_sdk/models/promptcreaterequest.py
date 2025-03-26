@@ -15,22 +15,27 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class PromptCreateRequestTypedDict(TypedDict):
+    r"""Request model to create a prompt."""
+
     name: str
     r"""The prompt name"""
     type: str
     r"""The type of the prompt"""
     llm_config: PromptLlmConfigTypedDict
+    r"""LLM configuration for a prompt."""
     description: NotRequired[Nullable[str]]
     r"""The description of the prompt"""
     context: NotRequired[Nullable[str]]
-    r"""The prompt text"""
+    r"""The prompt text that will be sent to the LLM at the beginning of the conversation"""
     tools: NotRequired[List[str]]
     r"""Names of tools to which the prompt has access"""
     include_default_tools: NotRequired[bool]
-    r"""Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."""
+    r"""Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."""
 
 
 class PromptCreateRequest(BaseModel):
+    r"""Request model to create a prompt."""
+
     name: str
     r"""The prompt name"""
 
@@ -38,18 +43,19 @@ class PromptCreateRequest(BaseModel):
     r"""The type of the prompt"""
 
     llm_config: PromptLlmConfig
+    r"""LLM configuration for a prompt."""
 
     description: OptionalNullable[str] = UNSET
     r"""The description of the prompt"""
 
     context: OptionalNullable[str] = UNSET
-    r"""The prompt text"""
+    r"""The prompt text that will be sent to the LLM at the beginning of the conversation"""
 
     tools: Optional[List[str]] = None
     r"""Names of tools to which the prompt has access"""
 
     include_default_tools: Optional[bool] = True
-    r"""Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."""
+    r"""Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

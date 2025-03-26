@@ -5,5 +5,7 @@ from enum import Enum
 
 
 class DialogRole(str, Enum):
+    r"""Role of dialog"""
+
     AGENT = "agent"
     USER = "user"

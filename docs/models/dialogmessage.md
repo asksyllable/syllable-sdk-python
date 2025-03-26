@@ -3,6 +3,6 @@
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `text`             | *str*              | :heavy_check_mark: | N/A                |
+| Field                      | Type                       | Required                   | Description                | Example                    |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| `text`                     | *str*                      | :heavy_check_mark:         | Dialog message text        | Tell me about Syllable.ai! |

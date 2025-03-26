@@ -22,7 +22,7 @@ class TestMessageTypedDict(TypedDict):
     service_name: str
     r"""Name of the service producing the message"""
     source: str
-    r"""Name of the source of the message, should identify the user, like an email or username"""
+    r"""Name of the source of the message - identifies the user, like an email or username."""
     test_id: str
     r"""Channel-manager-side ID of the session (see Session.channel_manager_sid)"""
     agent_id: str
@@ -46,7 +46,7 @@ class TestMessage(BaseModel):
     r"""Name of the service producing the message"""
 
     source: str
-    r"""Name of the source of the message, should identify the user, like an email or username"""
+    r"""Name of the source of the message - identifies the user, like an email or username."""
 
     test_id: str
     r"""Channel-manager-side ID of the session (see Session.channel_manager_sid)"""

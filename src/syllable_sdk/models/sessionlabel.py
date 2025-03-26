@@ -14,22 +14,23 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class SessionLabelTypedDict(TypedDict):
-    r"""A session label is associated with a given session and contains an evaluation of quality and
+    r"""Response model for session label operations.
+    A session label is associated with a given session and contains an evaluation of quality and
     descriptions of issues the user encountered in that session or other details.
     """
 
     session_id: int
     r"""The internal ID of the session (see Session.session_id)"""
     type: str
-    r"""The type of the label"""
+    r"""The type of the label (either \"auto-rating\" or \"human-rating\")"""
     code: str
-    r"""A code describing the quality of the labeled session"""
+    r"""A code describing the quality of the labeled session (either \"GOOD\", \"OK\", \"BAD\", or \"N/A\")"""
     user_email: str
     r"""The email of the user who created the label"""
     id: int
     r"""The internal ID of the label"""
     timestamp: str
-    r"""The timestamp of the label creation"""
+    r"""The timestamp at which the label was created"""
     comments: NotRequired[Nullable[str]]
     r"""Comment string describing additional details about the session"""
     issue_categories: NotRequired[Nullable[List[str]]]
@@ -37,7 +38,8 @@ class SessionLabelTypedDict(TypedDict):
 
 
 class SessionLabel(BaseModel):
-    r"""A session label is associated with a given session and contains an evaluation of quality and
+    r"""Response model for session label operations.
+    A session label is associated with a given session and contains an evaluation of quality and
     descriptions of issues the user encountered in that session or other details.
     """
 
@@ -45,10 +47,10 @@ class SessionLabel(BaseModel):
     r"""The internal ID of the session (see Session.session_id)"""
 
     type: str
-    r"""The type of the label"""
+    r"""The type of the label (either \"auto-rating\" or \"human-rating\")"""
 
     code: str
-    r"""A code describing the quality of the labeled session"""
+    r"""A code describing the quality of the labeled session (either \"GOOD\", \"OK\", \"BAD\", or \"N/A\")"""
 
     user_email: str
     r"""The email of the user who created the label"""
@@ -57,7 +59,7 @@ class SessionLabel(BaseModel):
     r"""The internal ID of the label"""
 
     timestamp: str
-    r"""The timestamp of the label creation"""
+    r"""The timestamp at which the label was created"""
 
     comments: OptionalNullable[str] = UNSET
     r"""Comment string describing additional details about the session"""

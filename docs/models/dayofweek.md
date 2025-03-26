@@ -1,5 +1,7 @@
 # DayOfWeek
 
+Available options for day of the week for use in message rules.
+
 
 ## Values
 

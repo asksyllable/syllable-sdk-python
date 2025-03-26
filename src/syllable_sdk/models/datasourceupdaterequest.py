@@ -14,6 +14,8 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class DataSourceUpdateRequestTypedDict(TypedDict):
+    r"""Request model to update an existing data source."""
+
     name: str
     r"""The data source name. Must be unique within suborg. Cannot contain whitespace."""
     chunk: bool
@@ -21,7 +23,7 @@ class DataSourceUpdateRequestTypedDict(TypedDict):
     id: int
     r"""The data source ID."""
     text: str
-    r"""Information that the data source will provide to the agent accessing it."""
+    r"""Information that the data source will provide to the agent accessing it. It is recommended to include a sentence at the beginning providing context to the LLM for the information in the data source."""
     description: NotRequired[Nullable[str]]
     r"""The description of the data source."""
     labels: NotRequired[List[str]]
@@ -33,6 +35,8 @@ class DataSourceUpdateRequestTypedDict(TypedDict):
 
 
 class DataSourceUpdateRequest(BaseModel):
+    r"""Request model to update an existing data source."""
+
     name: str
     r"""The data source name. Must be unique within suborg. Cannot contain whitespace."""
 
@@ -43,7 +47,7 @@ class DataSourceUpdateRequest(BaseModel):
     r"""The data source ID."""
 
     text: str
-    r"""Information that the data source will provide to the agent accessing it."""
+    r"""Information that the data source will provide to the agent accessing it. It is recommended to include a sentence at the beginning providing context to the LLM for the information in the data source."""
 
     description: OptionalNullable[str] = UNSET
     r"""The description of the data source."""

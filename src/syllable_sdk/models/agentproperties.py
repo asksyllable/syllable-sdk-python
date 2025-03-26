@@ -5,6 +5,8 @@ from enum import Enum
 
 
 class AgentProperties(str, Enum):
+    r"""Names of agent fields supported for filtering/sorting on list endpoint."""
+
     ID = "id"
     NAME = "name"
     NAME_EXACT = "name_exact"

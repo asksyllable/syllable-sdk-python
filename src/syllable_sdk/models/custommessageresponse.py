@@ -16,7 +16,8 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class CustomMessageResponseTypedDict(TypedDict):
-    r"""A custom message is a pre-configured message delivered by an agent as a greeting at the
+    r"""Response model for custom message operations.
+    A custom message is a pre-configured message delivered by an agent as a greeting at the
     beginning of a conversation. Multiple agents can use the same custom mesasage. A custom message
     has one or more rules defined, which allow for different messages to be dynamically selected and
     delivered at runtime based on the current time and either date or day of the week. For more
@@ -26,7 +27,7 @@ class CustomMessageResponseTypedDict(TypedDict):
     name: str
     r"""The name of the custom message"""
     text: str
-    r"""The text of the custom message"""
+    r"""The default message that the agent will deliver if no rules are set or no rules match the current timestamp."""
     id: int
     r"""The ID of the custom message"""
     updated_at: datetime
@@ -40,10 +41,12 @@ class CustomMessageResponseTypedDict(TypedDict):
     agent_count: NotRequired[Nullable[int]]
     r"""The number of agents using the custom message"""
     type: NotRequired[str]
+    r"""Type of the custom message (must be \"greeting\" for now)"""
 
 
 class CustomMessageResponse(BaseModel):
-    r"""A custom message is a pre-configured message delivered by an agent as a greeting at the
+    r"""Response model for custom message operations.
+    A custom message is a pre-configured message delivered by an agent as a greeting at the
     beginning of a conversation. Multiple agents can use the same custom mesasage. A custom message
     has one or more rules defined, which allow for different messages to be dynamically selected and
     delivered at runtime based on the current time and either date or day of the week. For more
@@ -54,7 +57,7 @@ class CustomMessageResponse(BaseModel):
     r"""The name of the custom message"""
 
     text: str
-    r"""The text of the custom message"""
+    r"""The default message that the agent will deliver if no rules are set or no rules match the current timestamp."""
 
     id: int
     r"""The ID of the custom message"""
@@ -75,6 +78,7 @@ class CustomMessageResponse(BaseModel):
     r"""The number of agents using the custom message"""
 
     type: Optional[str] = "greeting"
+    r"""Type of the custom message (must be \"greeting\" for now)"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

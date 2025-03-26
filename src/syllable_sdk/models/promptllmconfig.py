@@ -15,6 +15,8 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class PromptLlmConfigTypedDict(TypedDict):
+    r"""LLM configuration for a prompt."""
+
     provider: NotRequired[PromptLlmProvider]
     r"""LLM API provider."""
     model: NotRequired[str]
@@ -26,6 +28,8 @@ class PromptLlmConfigTypedDict(TypedDict):
 
 
 class PromptLlmConfig(BaseModel):
+    r"""LLM configuration for a prompt."""
+
     provider: Optional[PromptLlmProvider] = None
     r"""LLM API provider."""
 

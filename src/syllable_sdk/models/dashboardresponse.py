@@ -13,9 +13,9 @@ class DashboardResponseTypedDict(TypedDict):
     display_name: str
     r"""Display name of the dashboard"""
     rank: int
-    r"""Dashboard importance, 0 is the highest"""
+    r"""Dashboard importance (0 is the highest)"""
     label: str
-    r"""Dashboard label.  Typically report or dashboard"""
+    r"""Dashboard label. Typically \"report\" or \"dashboard\" """
 
 
 class DashboardResponse(BaseModel):
@@ -28,7 +28,7 @@ class DashboardResponse(BaseModel):
     r"""Display name of the dashboard"""
 
     rank: int
-    r"""Dashboard importance, 0 is the highest"""
+    r"""Dashboard importance (0 is the highest)"""
 
     label: str
-    r"""Dashboard label.  Typically report or dashboard"""
+    r"""Dashboard label. Typically \"report\" or \"dashboard\" """

@@ -15,14 +15,14 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class ServiceResponseTypedDict(TypedDict):
-    r"""A service is a collection of tools."""
+    r"""Response model for service operations. A service is a collection of tools."""
 
     name: str
     r"""The name of the service"""
     description: str
     r"""The description of the service"""
     id: int
-    r"""The ID of the service"""
+    r"""The internal ID of the service"""
     last_updated: datetime
     r"""The timestamp of the most recent update to the service"""
     last_updated_by: str
@@ -30,11 +30,11 @@ class ServiceResponseTypedDict(TypedDict):
     tools: List[str]
     r"""Names of tools that belong to the service"""
     last_updated_comments: NotRequired[Nullable[str]]
-    r"""Update comments"""
+    r"""Free text providing comment about what was updated"""
 
 
 class ServiceResponse(BaseModel):
-    r"""A service is a collection of tools."""
+    r"""Response model for service operations. A service is a collection of tools."""
 
     name: str
     r"""The name of the service"""
@@ -43,7 +43,7 @@ class ServiceResponse(BaseModel):
     r"""The description of the service"""
 
     id: int
-    r"""The ID of the service"""
+    r"""The internal ID of the service"""
 
     last_updated: datetime
     r"""The timestamp of the most recent update to the service"""
@@ -55,7 +55,7 @@ class ServiceResponse(BaseModel):
     r"""Names of tools that belong to the service"""
 
     last_updated_comments: OptionalNullable[str] = UNSET
-    r"""Update comments"""
+    r"""Free text providing comment about what was updated"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

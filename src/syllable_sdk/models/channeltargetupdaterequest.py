@@ -15,43 +15,47 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class ChannelTargetUpdateRequestTypedDict(TypedDict):
+    r"""Request model to update a channel target."""
+
     agent_id: int
-    r"""The ID of the agent associated with the channel target"""
+    r"""The internal ID of the agent associated with the channel target"""
     channel_id: int
-    r"""The ID of the channel associated with the channel target"""
+    r"""The internal ID of the channel associated with the channel target"""
     target: str
-    r"""The name of the channel target (must correspond to an organization-level target)"""
+    r"""The name of the channel target. Must correspond to an organization-level target (available targets can be fetched from `/channels/available-targets`)."""
     target_mode: TargetModes
     r"""Available modes (communication methods) for channel targets."""
     id: int
-    r"""The ID of the channel target"""
+    r"""The internal ID of the channel target"""
     fallback_target: NotRequired[Nullable[str]]
     r"""The fallback for the channel target (currently only supported for \"voice\" mode)"""
     is_test: NotRequired[bool]
-    r"""Whether the channel target is intended for testing. If true, any sessions created through this target will be labeled as test."""
+    r"""Whether the channel target is intended for testing. If true, any sessions created through this target will be labeled as a test session (i.e., will not be included in dashboard data and can easily be filtered out in the Sessions screen in the SyllableConsole)."""
 
 
 class ChannelTargetUpdateRequest(BaseModel):
+    r"""Request model to update a channel target."""
+
     agent_id: int
-    r"""The ID of the agent associated with the channel target"""
+    r"""The internal ID of the agent associated with the channel target"""
 
     channel_id: int
-    r"""The ID of the channel associated with the channel target"""
+    r"""The internal ID of the channel associated with the channel target"""
 
     target: str
-    r"""The name of the channel target (must correspond to an organization-level target)"""
+    r"""The name of the channel target. Must correspond to an organization-level target (available targets can be fetched from `/channels/available-targets`)."""
 
     target_mode: TargetModes
     r"""Available modes (communication methods) for channel targets."""
 
     id: int
-    r"""The ID of the channel target"""
+    r"""The internal ID of the channel target"""
 
     fallback_target: OptionalNullable[str] = UNSET
     r"""The fallback for the channel target (currently only supported for \"voice\" mode)"""
 
     is_test: Optional[bool] = False
-    r"""Whether the channel target is intended for testing. If true, any sessions created through this target will be labeled as test."""
+    r"""Whether the channel target is intended for testing. If true, any sessions created through this target will be labeled as a test session (i.e., will not be included in dashboard data and can easily be filtered out in the Sessions screen in the SyllableConsole)."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

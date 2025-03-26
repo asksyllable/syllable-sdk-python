@@ -44,7 +44,7 @@ with SyllableSDK(
 
 | Parameter                                                                                                                                              | Type                                                                                                                                                   | Required                                                                                                                                               | Description                                                                                                                                            | Example                                                                                                                                                |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-indexed)                                                                                                        | 0                                                                                                                                                      |
+| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-based)                                                                                                          | 0                                                                                                                                                      |
 | `limit`                                                                                                                                                | *Optional[int]*                                                                                                                                        | :heavy_minus_sign:                                                                                                                                     | The maximum number of items to return                                                                                                                  | 25                                                                                                                                                     |
 | `search_fields`                                                                                                                                        | List[[models.LanguageGroupProperties](../../models/languagegroupproperties.md)]                                                                        | :heavy_minus_sign:                                                                                                                                     | String names of fields to search. Correspond by index to search field values                                                                           | name                                                                                                                                                   |
 | `search_field_values`                                                                                                                                  | List[*str*]                                                                                                                                            | :heavy_minus_sign:                                                                                                                                     | Values of fields to search. Correspond by index to search fields. Unless field name contains "list", an individual search field value cannot be a list | Some Object Name                                                                                                                                       |
@@ -86,9 +86,15 @@ with SyllableSDK(
         "name": "Call Center 1 Languages",
         "language_configs": [
             {
+                "language_code": syllable_sdk.LanguageCode.EN_US,
+                "voice_provider": syllable_sdk.TtsProvider.OPEN_AI,
+                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ALLOY,
+                "dtmf_code": 1,
+            },
+            {
                 "language_code": syllable_sdk.LanguageCode.ES_US,
-                "voice_provider": syllable_sdk.TtsProvider.ELEVEN_LABS,
-                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.BRIAN,
+                "voice_provider": syllable_sdk.TtsProvider.GOOGLE,
+                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ALEJANDRO,
                 "dtmf_code": 1,
             },
         ],
@@ -139,21 +145,15 @@ with SyllableSDK(
         "name": "Call Center 1 Languages",
         "language_configs": [
             {
-                "language_code": syllable_sdk.LanguageCode.ES_US,
-                "voice_provider": syllable_sdk.TtsProvider.ELEVEN_LABS,
-                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.WILL,
+                "language_code": syllable_sdk.LanguageCode.EN_US,
+                "voice_provider": syllable_sdk.TtsProvider.OPEN_AI,
+                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ALLOY,
                 "dtmf_code": 1,
             },
             {
                 "language_code": syllable_sdk.LanguageCode.ES_US,
-                "voice_provider": syllable_sdk.TtsProvider.ELEVEN_LABS,
-                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.WILL,
-                "dtmf_code": 1,
-            },
-            {
-                "language_code": syllable_sdk.LanguageCode.YUE_HK,
                 "voice_provider": syllable_sdk.TtsProvider.GOOGLE,
-                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.GEORGE,
+                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ALEJANDRO,
                 "dtmf_code": 1,
             },
         ],

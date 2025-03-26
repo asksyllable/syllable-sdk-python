@@ -14,19 +14,23 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class ToolUpdateRequestTypedDict(TypedDict):
+    r"""Request model to update an existing tool."""
+
     name: str
     r"""The name of the tool"""
     definition: ToolDefinitionTypedDict
     r"""A tool that can be called from an LLM during the conversation. See https://docs.syllable.ai/Resources/Tools."""
     service_id: int
-    r"""The service to which this tool belongs"""
+    r"""Internal ID of the service to which the tool belongs"""
     id: int
-    r"""The ID of the tool"""
+    r"""The internal ID of the tool"""
     last_updated_comments: NotRequired[Nullable[str]]
-    r"""Update comments"""
+    r"""Comments for the most recent edit to the tool."""
 
 
 class ToolUpdateRequest(BaseModel):
+    r"""Request model to update an existing tool."""
+
     name: str
     r"""The name of the tool"""
 
@@ -34,13 +38,13 @@ class ToolUpdateRequest(BaseModel):
     r"""A tool that can be called from an LLM during the conversation. See https://docs.syllable.ai/Resources/Tools."""
 
     service_id: int
-    r"""The service to which this tool belongs"""
+    r"""Internal ID of the service to which the tool belongs"""
 
     id: int
-    r"""The ID of the tool"""
+    r"""The internal ID of the tool"""
 
     last_updated_comments: OptionalNullable[str] = UNSET
-    r"""Update comments"""
+    r"""Comments for the most recent edit to the tool."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

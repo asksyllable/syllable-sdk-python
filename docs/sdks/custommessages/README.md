@@ -44,7 +44,7 @@ with SyllableSDK(
 
 | Parameter                                                                                                                                              | Type                                                                                                                                                   | Required                                                                                                                                               | Description                                                                                                                                            | Example                                                                                                                                                |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-indexed)                                                                                                        | 0                                                                                                                                                      |
+| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-based)                                                                                                          | 0                                                                                                                                                      |
 | `limit`                                                                                                                                                | *Optional[int]*                                                                                                                                        | :heavy_minus_sign:                                                                                                                                     | The maximum number of items to return                                                                                                                  | 25                                                                                                                                                     |
 | `search_fields`                                                                                                                                        | List[[models.CustomMessageProperties](../../models/custommessageproperties.md)]                                                                        | :heavy_minus_sign:                                                                                                                                     | String names of fields to search. Correspond by index to search field values                                                                           | name                                                                                                                                                   |
 | `search_field_values`                                                                                                                                  | List[*str*]                                                                                                                                            | :heavy_minus_sign:                                                                                                                                     | Values of fields to search. Correspond by index to search fields. Unless field name contains "list", an individual search field value cannot be a list | Some Object Name                                                                                                                                       |
@@ -83,13 +83,14 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.custom_messages.create(request={
-        "name": "<value>",
-        "text": "<value>",
+        "name": "Customer service greeting",
+        "text": "Hello and thank you for calling customer service. How can I help you today?",
+        "label": "Customer service",
         "rules": [
             {
-                "description": "delightfully fumigate convection though zowie up bulky electronics",
+                "description": "Closed on New Year's Day",
                 "invert": False,
-                "text": "Sorry, we're closed today",
+                "text": "Hello, thank you for calling. Sorry, we're closed today.",
                 "time_range_start": "09:00",
                 "time_range_end": "17:00",
                 "date_": "2025-01-01",
@@ -102,9 +103,9 @@ with SyllableSDK(
                 ],
             },
             {
-                "description": "yuck forager beneath please shadowy foodstuffs welcome",
-                "invert": True,
-                "text": "Sorry, we're closed today",
+                "description": "Closed on New Year's Day",
+                "invert": False,
+                "text": "Hello, thank you for calling. Sorry, we're closed today.",
                 "time_range_start": "09:00",
                 "time_range_end": "17:00",
                 "date_": "2025-01-01",
@@ -159,14 +160,15 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.custom_messages.update(request={
-        "name": "<value>",
-        "text": "<value>",
-        "id": 975440,
+        "name": "Customer service greeting",
+        "text": "Hello and thank you for calling customer service. How can I help you today?",
+        "id": 1,
+        "label": "Customer service",
         "rules": [
             {
-                "description": "technician eulogise whereas till mild than during",
-                "invert": True,
-                "text": "Sorry, we're closed today",
+                "description": "Closed on New Year's Day",
+                "invert": False,
+                "text": "Hello, thank you for calling. Sorry, we're closed today.",
                 "time_range_start": "09:00",
                 "time_range_end": "17:00",
                 "date_": "2025-01-01",
@@ -179,24 +181,9 @@ with SyllableSDK(
                 ],
             },
             {
-                "description": "qualified cycle woot abseil perfumed fisherman with duh",
-                "invert": True,
-                "text": "Sorry, we're closed today",
-                "time_range_start": "09:00",
-                "time_range_end": "17:00",
-                "date_": "2025-01-01",
-                "days_of_week": [
-                    syllable_sdk.DayOfWeek.MO,
-                    syllable_sdk.DayOfWeek.TU,
-                    syllable_sdk.DayOfWeek.WE,
-                    syllable_sdk.DayOfWeek.TH,
-                    syllable_sdk.DayOfWeek.FR,
-                ],
-            },
-            {
-                "description": "ultimately in likely opera please antelope",
-                "invert": True,
-                "text": "Sorry, we're closed today",
+                "description": "Closed on New Year's Day",
+                "invert": False,
+                "text": "Hello, thank you for calling. Sorry, we're closed today.",
                 "time_range_start": "09:00",
                 "time_range_end": "17:00",
                 "date_": "2025-01-01",

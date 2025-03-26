@@ -1,11 +1,12 @@
 # AgentToolFieldDefault
 
-An agent-level configuration of default values for tool parameters for a given tool.
+Agent-level value for a static parameter on a tool, overriding the tool-level default if one
+exists.
 
 
 ## Fields
 
-| Field                           | Type                            | Required                        | Description                     |
-| ------------------------------- | ------------------------------- | ------------------------------- | ------------------------------- |
-| `field_name`                    | *str*                           | :heavy_check_mark:              | The name of the field           |
-| `default_value`                 | *Any*                           | :heavy_check_mark:              | The default value for the field |
+| Field                           | Type                            | Required                        | Description                     | Example                         |
+| ------------------------------- | ------------------------------- | ------------------------------- | ------------------------------- | ------------------------------- |
+| `field_name`                    | *str*                           | :heavy_check_mark:              | The name of the field           | temperature_unit                |
+| `default_value`                 | *Any*                           | :heavy_check_mark:              | The default value for the field | fahrenheit                      |

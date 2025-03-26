@@ -9,19 +9,29 @@ from typing_extensions import TypedDict
 
 class SessionDataTypedDict(TypedDict):
     session_id: int
+    r"""Session ID"""
     source: str
+    r"""Session source"""
     target: str
+    r"""Session target"""
     is_test: bool
+    r"""Is test session"""
     messages: List[SessionMessageTypedDict]
+    r"""Session messages"""
 
 
 class SessionData(BaseModel):
     session_id: int
+    r"""Session ID"""
 
     source: str
+    r"""Session source"""
 
     target: str
+    r"""Session target"""
 
     is_test: bool
+    r"""Is test session"""
 
     messages: List[SessionMessage]
+    r"""Session messages"""

@@ -18,7 +18,8 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class ToolResponseTypedDict(TypedDict):
-    r"""A tool is a function that an agent can call to perform actions like accessing databases,
+    r"""Response model for tool operations.
+    A tool is a function that an agent can call to perform actions like accessing databases,
     making API calls, or processing data. For an agent to have access to a tool, the prompt
     associated with that agent should be linked to the tool and include instructions to use it.
     For more information, see [Console docs](https://docs.syllable.ai/Resources/Tools).
@@ -29,15 +30,15 @@ class ToolResponseTypedDict(TypedDict):
     definition: ToolDefinitionTypedDict
     r"""A tool that can be called from an LLM during the conversation. See https://docs.syllable.ai/Resources/Tools."""
     service_id: int
-    r"""The service to which this tool belongs"""
+    r"""Internal ID of the service to which the tool belongs"""
     id: int
-    r"""The ID of the tool"""
+    r"""The internal ID of the tool"""
     last_updated: datetime
     r"""The timestamp of the most recent update to the service"""
     last_updated_by: str
     r"""The email of the user who last updated the tool"""
     last_updated_comments: NotRequired[Nullable[str]]
-    r"""Update comments"""
+    r"""Comments for the most recent edit to the tool."""
     service_name: NotRequired[Nullable[str]]
     r"""The name of the service to which the tool belongs"""
     prompts_info: NotRequired[Nullable[List[ToolPromptInfoTypedDict]]]
@@ -47,7 +48,8 @@ class ToolResponseTypedDict(TypedDict):
 
 
 class ToolResponse(BaseModel):
-    r"""A tool is a function that an agent can call to perform actions like accessing databases,
+    r"""Response model for tool operations.
+    A tool is a function that an agent can call to perform actions like accessing databases,
     making API calls, or processing data. For an agent to have access to a tool, the prompt
     associated with that agent should be linked to the tool and include instructions to use it.
     For more information, see [Console docs](https://docs.syllable.ai/Resources/Tools).
@@ -60,10 +62,10 @@ class ToolResponse(BaseModel):
     r"""A tool that can be called from an LLM during the conversation. See https://docs.syllable.ai/Resources/Tools."""
 
     service_id: int
-    r"""The service to which this tool belongs"""
+    r"""Internal ID of the service to which the tool belongs"""
 
     id: int
-    r"""The ID of the tool"""
+    r"""The internal ID of the tool"""
 
     last_updated: datetime
     r"""The timestamp of the most recent update to the service"""
@@ -72,7 +74,7 @@ class ToolResponse(BaseModel):
     r"""The email of the user who last updated the tool"""
 
     last_updated_comments: OptionalNullable[str] = UNSET
-    r"""Update comments"""
+    r"""Comments for the most recent edit to the tool."""
 
     service_name: OptionalNullable[str] = UNSET
     r"""The name of the service to which the tool belongs"""
