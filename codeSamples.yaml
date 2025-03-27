@@ -1175,6 +1175,8 @@ actions:
                     "llm_config": {
                         "version": "2024-05-13",
                         "api_version": "2024-06-01",
+                        "temperature": 1,
+                        "seed": 123,
                     },
                 })
 
@@ -1205,6 +1207,8 @@ actions:
                     "llm_config": {
                         "version": "2024-05-13",
                         "api_version": "2024-06-01",
+                        "temperature": 1,
+                        "seed": 123,
                     },
                     "id": 1,
                     "edit_comments": "Updated prompt text to include requirement to not answer questions that aren't about weather.",
