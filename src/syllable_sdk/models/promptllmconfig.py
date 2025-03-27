@@ -25,6 +25,10 @@ class PromptLlmConfigTypedDict(TypedDict):
     r"""Optional model version."""
     api_version: NotRequired[Nullable[str]]
     r"""Version of the API. (Currently only used for Azure OpenAI.)"""
+    temperature: NotRequired[Nullable[float]]
+    r"""Temperature parameter for the model. Determines randomness of responses - higher is more random, lower is more focused. Must be between 0.0 and 2.0, inclusive."""
+    seed: NotRequired[Nullable[int]]
+    r"""Controls the reproducibility of the job. The LLM will give the same or similar responses given the same inputs in multiple conversations with the same seed."""
 
 
 class PromptLlmConfig(BaseModel):
@@ -42,10 +46,23 @@ class PromptLlmConfig(BaseModel):
     api_version: OptionalNullable[str] = UNSET
     r"""Version of the API. (Currently only used for Azure OpenAI.)"""
 
+    temperature: OptionalNullable[float] = UNSET
+    r"""Temperature parameter for the model. Determines randomness of responses - higher is more random, lower is more focused. Must be between 0.0 and 2.0, inclusive."""
+
+    seed: OptionalNullable[int] = UNSET
+    r"""Controls the reproducibility of the job. The LLM will give the same or similar responses given the same inputs in multiple conversations with the same seed."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["provider", "model", "version", "api_version"]
-        nullable_fields = ["version", "api_version"]
+        optional_fields = [
+            "provider",
+            "model",
+            "version",
+            "api_version",
+            "temperature",
+            "seed",
+        ]
+        nullable_fields = ["version", "api_version", "temperature", "seed"]
         null_default_fields = []
 
         serialized = handler(self)

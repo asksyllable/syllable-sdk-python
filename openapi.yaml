@@ -8521,7 +8521,7 @@ components:
         "include_default_tools":
           type: "boolean"
           title: "Include Default Tools"
-          description: "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."
+          description: "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."
           default: true
           examples:
             - true
@@ -8622,6 +8622,22 @@ components:
           description: "Version of the API. (Currently only used for Azure OpenAI.)"
           examples:
             - "2024-06-01"
+        "temperature":
+          anyOf:
+            - type: "number"
+            - type: "null"
+          title: "Temperature"
+          description: "Temperature parameter for the model. Determines randomness of responses - higher is more random, lower is more focused. Must be between 0.0 and 2.0, inclusive."
+          examples:
+            - 1
+        "seed":
+          anyOf:
+            - type: "integer"
+            - type: "null"
+          title: "Seed"
+          description: "Controls the reproducibility of the job. The LLM will give the same or similar responses given the same inputs in multiple conversations with the same seed."
+          examples:
+            - 123
       type: "object"
       title: "PromptLlmConfig"
       description: "LLM configuration for a prompt."
@@ -8801,7 +8817,7 @@ components:
         "include_default_tools":
           type: "boolean"
           title: "Include Default Tools"
-          description: "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."
+          description: "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."
           default: true
           examples:
             - true
