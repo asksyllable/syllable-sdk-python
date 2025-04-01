@@ -24,7 +24,7 @@ class PromptLlmConfigTypedDict(TypedDict):
     version: NotRequired[Nullable[str]]
     r"""Optional model version."""
     api_version: NotRequired[Nullable[str]]
-    r"""Version of the API. (Currently only used for Azure OpenAI.)"""
+    r"""Version of the provider's API."""
     temperature: NotRequired[Nullable[float]]
     r"""Temperature parameter for the model. Determines randomness of responses - higher is more random, lower is more focused. Must be between 0.0 and 2.0, inclusive."""
     seed: NotRequired[Nullable[int]]
@@ -44,7 +44,7 @@ class PromptLlmConfig(BaseModel):
     r"""Optional model version."""
 
     api_version: OptionalNullable[str] = UNSET
-    r"""Version of the API. (Currently only used for Azure OpenAI.)"""
+    r"""Version of the provider's API."""
 
     temperature: OptionalNullable[float] = UNSET
     r"""Temperature parameter for the model. Determines randomness of responses - higher is more random, lower is more focused. Must be between 0.0 and 2.0, inclusive."""

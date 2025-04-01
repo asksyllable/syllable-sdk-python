@@ -267,6 +267,7 @@ with SyllableSDK(
 
 ### [insights](docs/sdks/insights/README.md)
 
+* [list](docs/sdks/insights/README.md#list) - Insights List
 
 #### [insights.tools](docs/sdks/insightstools/README.md)
 
@@ -300,6 +301,7 @@ with SyllableSDK(
 * [get_by_id](docs/sdks/prompts/README.md#get_by_id) - Get Prompt By Id
 * [delete](docs/sdks/prompts/README.md#delete) - Delete Prompt
 * [prompts_history](docs/sdks/prompts/README.md#prompts_history) - Get Prompt History
+* [prompt_get_supported_llms](docs/sdks/prompts/README.md#prompt_get_supported_llms) - Get Supported Llm Configs
 
 ### [services](docs/sdks/services/README.md)
 
@@ -341,6 +343,11 @@ with SyllableSDK(
 * [get_by_id](docs/sdks/transcript/README.md#get_by_id) - Get Session Transcript By Id
 
 
+### [takeouts](docs/sdks/takeouts/README.md)
+
+* [create_takeout_api_v1_takeouts_create_post](docs/sdks/takeouts/README.md#create_takeout_api_v1_takeouts_create_post) - Create Takeout
+* [get_takeout_api_v1_takeouts_get_job_id_get](docs/sdks/takeouts/README.md#get_takeout_api_v1_takeouts_get_job_id_get) - Get Takeout
+
 ### [tools](docs/sdks/tools/README.md)
 
 * [list](docs/sdks/tools/README.md#list) - Tool List
@@ -351,12 +358,16 @@ with SyllableSDK(
 
 ### [v1](docs/sdks/v1/README.md)
 
+* [list](docs/sdks/v1/README.md#list) - Insights List
+* [prompt_get_supported_llms](docs/sdks/v1/README.md#prompt_get_supported_llms) - Get Supported Llm Configs
 * [post_list_dashboard](docs/sdks/v1/README.md#post_list_dashboard) - Post List Dashboards
 * [post_get_dashboard](docs/sdks/v1/README.md#post_get_dashboard) - Post Fetch Info
 * [~~post_session_events_dashboard~~](docs/sdks/v1/README.md#post_session_events_dashboard) - Post Session Events :warning: **Deprecated**
 * [~~post_session_summary_dashboard~~](docs/sdks/v1/README.md#post_session_summary_dashboard) - Post Session Summary :warning: **Deprecated**
 * [~~post_session_transfers_dashboard~~](docs/sdks/v1/README.md#post_session_transfers_dashboard) - Post Session Transfers :warning: **Deprecated**
 * [~~post_sessions_dashboard~~](docs/sdks/v1/README.md#post_sessions_dashboard) - Post Sessions :warning: **Deprecated**
+* [create_takeout_api_v1_takeouts_create_post](docs/sdks/v1/README.md#create_takeout_api_v1_takeouts_create_post) - Create Takeout
+* [get_takeout_api_v1_takeouts_get_job_id_get](docs/sdks/v1/README.md#get_takeout_api_v1_takeouts_get_job_id_get) - Get Takeout
 
 </details>
 <!-- End Available Resources and Operations [operations] -->

@@ -94,7 +94,7 @@ class Conversations(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="conversations_list",
-                oauth2_scopes=None,
+                oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -215,7 +215,7 @@ class Conversations(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="conversations_list",
-                oauth2_scopes=None,
+                oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
