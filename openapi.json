@@ -1592,6 +1592,224 @@
         }
       }
     },
+    "/api/v1/insights/": {
+      "get": {
+        "tags": [
+          "insights",
+          "V1"
+        ],
+        "summary": "Insights List",
+        "description": "List the existing insight_tools",
+        "operationId": "insights_list",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The page number from which to start (0-based)",
+              "examples": [
+                0
+              ],
+              "default": 0,
+              "title": "Page"
+            },
+            "description": "The page number from which to start (0-based)"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "The maximum number of items to return",
+              "examples": [
+                25
+              ],
+              "default": 25,
+              "title": "Limit"
+            },
+            "description": "The maximum number of items to return"
+          },
+          {
+            "name": "search_fields",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/InsightsProperties"
+              },
+              "description": "String names of fields to search. Correspond by index to search field values",
+              "examples": [
+                "name"
+              ],
+              "default": [],
+              "title": "Search Fields"
+            },
+            "description": "String names of fields to search. Correspond by index to search field values"
+          },
+          {
+            "name": "search_field_values",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list",
+              "examples": [
+                "Some Object Name"
+              ],
+              "default": [],
+              "title": "Search Field Values"
+            },
+            "description": "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/InsightsProperties"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The field whose value should be used to order the results",
+              "examples": [
+                "name"
+              ],
+              "title": "Order By"
+            },
+            "description": "The field whose value should be used to order the results"
+          },
+          {
+            "name": "order_by_direction",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/OrderByDirection"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The direction in which to order the results",
+              "title": "Order By Direction"
+            },
+            "description": "The direction in which to order the results"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InsightsProperties"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The fields to include in the response",
+              "default": [],
+              "title": "Fields"
+            },
+            "description": "The fields to include in the response"
+          },
+          {
+            "name": "start_datetime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The start datetime for filtering results",
+              "examples": [
+                "2023-01-01T00:00:00Z"
+              ],
+              "title": "Start Datetime"
+            },
+            "description": "The start datetime for filtering results"
+          },
+          {
+            "name": "end_datetime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The end datetime for filtering results",
+              "examples": [
+                "2024-01-01T00:00:00Z"
+              ],
+              "title": "End Datetime"
+            },
+            "description": "The end datetime for filtering results"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListResponse_InsightsOutput_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/insights/workflows/": {
       "get": {
         "tags": [
@@ -3319,6 +3537,38 @@
             }
           }
         }
+      }
+    },
+    "/api/v1/prompts/llms/supported": {
+      "get": {
+        "tags": [
+          "prompts",
+          "V1"
+        ],
+        "summary": "Get Supported Llm Configs",
+        "description": "Get supported LLM configs.",
+        "operationId": "prompt_get_supported_llms",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/SupportedLlm"
+                  },
+                  "type": "array",
+                  "title": "Response Prompt Get Supported Llms"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
       }
     },
     "/api/v1/services/": {
@@ -6940,7 +7190,7 @@
         },
         "x-speakeasy-ignore": true
       },
-      "put": {
+      "post": {
         "tags": [
           "outbound.batches",
           "V1"
@@ -7019,6 +7269,63 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-speakeasy-ignore": true
+      },
+      "put": {
+        "tags": [
+          "outbound.batches",
+          "V1"
+        ],
+        "summary": "Update Outbound Communication Batch",
+        "operationId": "outbound_batch_update",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "batch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Batch Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommunicationBatch"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -8128,19 +8435,105 @@
           }
         }
       }
+    },
+    "/api/v1/takeouts/create": {
+      "post": {
+        "tags": [
+          "takeouts",
+          "V1"
+        ],
+        "summary": "Create Takeout",
+        "operationId": "create_takeout_api_v1_takeouts_create_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DaoTakeoutCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateTakeoutResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/v1/takeouts/get/{job_id}": {
+      "get": {
+        "tags": [
+          "takeouts",
+          "V1"
+        ],
+        "summary": "Get Takeout",
+        "operationId": "get_takeout_api_v1_takeouts_get__job_id__get",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Job Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TakeoutStatusResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
-      "ActionMode": {
-        "type": "string",
-        "enum": [
-          "BATCH",
-          "INTERACTIVE"
-        ],
-        "title": "ActionMode",
-        "description": "Mode of outbound campaign."
-      },
       "AgentCreate": {
         "properties": {
           "name": {
@@ -9268,18 +9661,166 @@
         "title": "AvailableTargetProperties",
         "description": "Names of target fields supported for filtering/sorting on available targets list endpoint."
       },
+      "BatchDetails": {
+        "properties": {
+          "batch_id": {
+            "type": "string",
+            "title": "Batch Id",
+            "description": "Unique ID for conversation batch",
+            "examples": [
+              "20250117.9"
+            ]
+          },
+          "campaign_id": {
+            "type": "integer",
+            "title": "Campaign Id",
+            "description": "Unique ID for campaign",
+            "examples": [
+              1
+            ]
+          },
+          "expires_on": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires On",
+            "description": "Timestamp of batch expiration",
+            "examples": [
+              "2024-01-01T00:00:00Z"
+            ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/BatchStatus",
+            "description": "Status of batch",
+            "default": "PENDING",
+            "examples": [
+              "PENDING",
+              "ACTIVE",
+              "PAUSED",
+              "IDLE",
+              "CANCELED",
+              "EXPIRED"
+            ]
+          },
+          "count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Count",
+            "description": "Number of requests in batch",
+            "examples": [
+              152
+            ]
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At",
+            "description": "Timestamp of batch creation",
+            "examples": [
+              "2024-01-01T00:00:00Z"
+            ]
+          },
+          "deleted_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Deleted At",
+            "description": "Timestamp of batch deletion",
+            "examples": [
+              "2024-01-01T00:00:00Z"
+            ]
+          },
+          "deleted_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Deleted Reason",
+            "description": "Reason for batch deletion",
+            "examples": [
+              "User request"
+            ]
+          },
+          "last_worked_on": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Worked On",
+            "description": "Timestamp of last batch activity",
+            "examples": [
+              "2024-01-01T00:00:00Z"
+            ]
+          },
+          "last_updated_by": {
+            "type": "string",
+            "title": "Last Updated By",
+            "description": "Email of user who last updated campaign",
+            "examples": [
+              "user@email.com"
+            ]
+          },
+          "status_counts": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Counts",
+            "description": "Counts of requests by status",
+            "examples": [
+              {
+                "CANCELED": 7,
+                "CONNECTED": 100,
+                "DUPLICATE": 5,
+                "FAILED": 10,
+                "INITIATED": 20,
+                "PENDING": 10
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "batch_id",
+          "campaign_id",
+          "last_updated_by"
+        ],
+        "title": "BatchDetails"
+      },
       "BatchProperties": {
         "type": "string",
         "enum": [
           "batch_id",
           "campaign_id",
           "status",
-          "type",
-          "source",
-          "rate",
-          "expires_on",
-          "retry_count",
-          "retry_interval"
+          "expires_on"
         ],
         "title": "BatchProperties"
       },
@@ -9288,12 +9829,13 @@
         "enum": [
           "PENDING",
           "ACTIVE",
+          "PAUSED",
           "IDLE",
           "CANCELED",
-          "COMPLETED"
+          "EXPIRED"
         ],
         "title": "BatchStatus",
-        "description": "Status of a communication batch. Interactive batches will go IDLE when no messages are in the\nqueue for five minutes"
+        "description": "Status of a communication batch."
       },
       "Body_directory_member_bulk_load": {
         "properties": {
@@ -9342,24 +9884,12 @@
           "id",
           "campaign_name",
           "campaign_variables",
-          "status",
           "daily_start_time",
           "daily_end_time",
           "timezone",
-          "mode"
+          "source"
         ],
         "title": "CampaignProperties"
-      },
-      "CampaignStatus": {
-        "type": "string",
-        "enum": [
-          "PENDING",
-          "ACTIVE",
-          "PAUSED",
-          "CANCELED"
-        ],
-        "title": "CampaignStatus",
-        "description": "Status of an outbound campaign."
       },
       "Channel": {
         "properties": {
@@ -9728,32 +10258,6 @@
               1
             ]
           },
-          "type": {
-            "type": "string",
-            "title": "Type",
-            "description": "Method of communication for the batch",
-            "examples": [
-              "CALL",
-              "SMS",
-              "EMAIL"
-            ]
-          },
-          "source": {
-            "type": "string",
-            "title": "Source",
-            "description": "Source phone number, email, or SMS number",
-            "examples": [
-              "account@email.com"
-            ]
-          },
-          "rate": {
-            "type": "integer",
-            "title": "Rate",
-            "description": "Target number of outreach calls per minute",
-            "examples": [
-              5
-            ]
-          },
           "expires_on": {
             "anyOf": [
               {
@@ -9769,32 +10273,6 @@
               "2024-01-01T00:00:00Z"
             ]
           },
-          "retry_count": {
-            "type": "integer",
-            "title": "Retry Count",
-            "description": "Number of retries per target",
-            "default": 0,
-            "examples": [
-              1
-            ]
-          },
-          "retry_interval": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Retry Interval",
-            "description": "How long to wait before retrying",
-            "examples": [
-              "30m",
-              "12h",
-              "7d"
-            ]
-          },
           "status": {
             "$ref": "#/components/schemas/BatchStatus",
             "description": "Status of batch",
@@ -9802,9 +10280,25 @@
             "examples": [
               "PENDING",
               "ACTIVE",
+              "PAUSED",
               "IDLE",
               "CANCELED",
-              "COMPLETED"
+              "EXPIRED"
+            ]
+          },
+          "count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Count",
+            "description": "Number of requests in batch",
+            "examples": [
+              152
             ]
           },
           "created_at": {
@@ -9873,9 +10367,6 @@
         "required": [
           "batch_id",
           "campaign_id",
-          "type",
-          "source",
-          "rate",
           "last_updated_by"
         ],
         "title": "CommunicationBatch"
@@ -9898,32 +10389,6 @@
               1
             ]
           },
-          "type": {
-            "type": "string",
-            "title": "Type",
-            "description": "Method of communication for the batch",
-            "examples": [
-              "CALL",
-              "SMS",
-              "EMAIL"
-            ]
-          },
-          "source": {
-            "type": "string",
-            "title": "Source",
-            "description": "Source phone number, email, or SMS number",
-            "examples": [
-              "account@email.com"
-            ]
-          },
-          "rate": {
-            "type": "integer",
-            "title": "Rate",
-            "description": "Target number of outreach calls per minute",
-            "examples": [
-              5
-            ]
-          },
           "expires_on": {
             "anyOf": [
               {
@@ -9938,41 +10403,12 @@
             "examples": [
               "2024-01-01T00:00:00Z"
             ]
-          },
-          "retry_count": {
-            "type": "integer",
-            "title": "Retry Count",
-            "description": "Number of retries per target",
-            "default": 0,
-            "examples": [
-              1
-            ]
-          },
-          "retry_interval": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Retry Interval",
-            "description": "How long to wait before retrying",
-            "examples": [
-              "30m",
-              "12h",
-              "7d"
-            ]
           }
         },
         "type": "object",
         "required": [
           "batch_id",
-          "campaign_id",
-          "type",
-          "source",
-          "rate"
+          "campaign_id"
         ],
         "title": "CommunicationBatchInput"
       },
@@ -10008,7 +10444,7 @@
             "default": "PENDING",
             "examples": [
               "PENDING",
-              "QUEUEING",
+              "DUPLICATE",
               "INITIATED",
               "CONNECTED",
               "FAILED",
@@ -10062,7 +10498,7 @@
             "default": "PENDING",
             "examples": [
               "PENDING",
-              "QUEUEING",
+              "DUPLICATE",
               "INITIATED",
               "CONNECTED",
               "FAILED",
@@ -10149,24 +10585,6 @@
             "description": "Unique ID for conversation",
             "examples": [
               1
-            ]
-          },
-          "insights": {
-            "anyOf": [
-              {
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Insights",
-            "description": "Insights from call",
-            "examples": [
-              {
-                "rating": "Good",
-                "summary": "The customer service agent successfully assisted the caller with their inquiry and the call ended positively."
-              }
             ]
           }
         },
@@ -10336,6 +10754,25 @@
           "is_legacy"
         ],
         "title": "ConversationProperties"
+      },
+      "CreateTakeoutResponse": {
+        "properties": {
+          "job_id": {
+            "type": "string",
+            "title": "Job Id"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "job_id",
+          "created_at"
+        ],
+        "title": "CreateTakeoutResponse"
       },
       "CustomMessageCreateRequest": {
         "properties": {
@@ -10756,6 +11193,30 @@
         ],
         "title": "CustomMessageUpdateRequest",
         "description": "Request model to update an existing custom message."
+      },
+      "DaoTakeoutCreate": {
+        "properties": {
+          "sub_organization_id": {
+            "type": "integer",
+            "title": "Sub Organization Id"
+          },
+          "requested_by": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Requested By"
+          }
+        },
+        "type": "object",
+        "required": [
+          "sub_organization_id"
+        ],
+        "title": "DaoTakeoutCreate"
       },
       "Dashboard": {
         "properties": {
@@ -12276,6 +12737,131 @@
         ],
         "title": "InsightWorkflowProperties"
       },
+      "InsightsOutput": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id",
+            "description": "Unique ID for insight tool",
+            "examples": [
+              1
+            ]
+          },
+          "session_id": {
+            "type": "integer",
+            "title": "Session Id",
+            "description": "Unique ID for session",
+            "examples": [
+              1
+            ]
+          },
+          "insight_tool_id": {
+            "type": "integer",
+            "title": "Insight Tool Id",
+            "description": "Unique ID for insight tool",
+            "examples": [
+              1
+            ]
+          },
+          "insight_tool_version": {
+            "type": "integer",
+            "title": "Insight Tool Version",
+            "description": "Version of insight tool",
+            "examples": [
+              1
+            ]
+          },
+          "insight_key": {
+            "type": "string",
+            "title": "Insight Key",
+            "description": "Key for insight tool result",
+            "examples": [
+              "summary"
+            ]
+          },
+          "string_value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "String Value",
+            "description": "String value of insight tool result",
+            "examples": [
+              "This is a summary of the call"
+            ]
+          },
+          "numeric_value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Numeric Value",
+            "description": "Numeric value of insight tool result",
+            "examples": [
+              1.0
+            ]
+          },
+          "json_value": {
+            "type": "object",
+            "title": "Json Value",
+            "description": "JSON value of insight tool result",
+            "examples": [
+              {
+                "content": " was there anything else that I can assist you with other than this",
+                "role": "assistant",
+                "start_time": 289
+              }
+            ]
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "Timestamp at which insight tool result was created",
+            "examples": [
+              "2024-01-01T00:00:00Z"
+            ]
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At",
+            "description": "Timestamp at which insight tool result was last updated",
+            "examples": [
+              "2024-01-02T00:00:00Z"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "session_id",
+          "insight_tool_id",
+          "insight_tool_version",
+          "insight_key",
+          "json_value"
+        ],
+        "title": "InsightsOutput",
+        "description": "Response model for an insight tool."
+      },
+      "InsightsProperties": {
+        "type": "string",
+        "enum": [
+          "id",
+          "session_id",
+          "insight_key",
+          "insight_tool_id"
+        ],
+        "title": "InsightsProperties"
+      },
       "InternalTool": {
         "properties": {
           "type": {
@@ -13479,6 +14065,72 @@
         ],
         "title": "ListResponse[InsightWorkflowOutput]"
       },
+      "ListResponse_InsightsOutput_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/InsightsOutput"
+            },
+            "type": "array",
+            "title": "Items",
+            "description": "List of items returned from the query",
+            "examples": []
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page",
+            "description": "The page number of the results (0-based)",
+            "examples": [
+              0
+            ]
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size",
+            "description": "The number of items returned per page",
+            "examples": [
+              25
+            ]
+          },
+          "total_pages": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Pages",
+            "description": "The total number of pages of results given the indicated page size",
+            "examples": [
+              4
+            ]
+          },
+          "total_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Count",
+            "description": "The total number of items returned from the query",
+            "examples": [
+              100
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "page",
+          "page_size"
+        ],
+        "title": "ListResponse[InsightsOutput]"
+      },
       "ListResponse_LanguageGroupResponse_": {
         "properties": {
           "items": {
@@ -13905,17 +14557,6 @@
               }
             ]
           },
-          "status": {
-            "$ref": "#/components/schemas/CampaignStatus",
-            "description": "Status of campaign",
-            "default": "PENDING",
-            "examples": [
-              "PENDING",
-              "ACTIVE",
-              "PAUSED",
-              "CANCELED"
-            ]
-          },
           "daily_start_time": {
             "type": "string",
             "title": "Daily Start Time",
@@ -13940,13 +14581,20 @@
               "America/New_York"
             ]
           },
-          "mode": {
-            "$ref": "#/components/schemas/ActionMode",
-            "description": "Mode of campaign",
-            "default": "BATCH",
+          "source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source",
+            "description": "Source phone number, email, or SMS number",
             "examples": [
-              "BATCH",
-              "INTERACTIVE"
+              "+19032900844",
+              "account@email.com"
             ]
           },
           "caller_id": {
@@ -13962,6 +14610,41 @@
             "description": "Caller ID for call",
             "examples": [
               19995551234
+            ]
+          },
+          "rate": {
+            "type": "integer",
+            "title": "Rate",
+            "description": "Target number of outreach calls per minute",
+            "default": 1,
+            "examples": [
+              5
+            ]
+          },
+          "retry_count": {
+            "type": "integer",
+            "title": "Retry Count",
+            "description": "Number of retries per target",
+            "default": 0,
+            "examples": [
+              1
+            ]
+          },
+          "retry_interval": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Retry Interval",
+            "description": "How long to wait before retrying",
+            "examples": [
+              "30m",
+              "12h",
+              "7d"
             ]
           },
           "pause_seconds": {
@@ -14046,17 +14729,6 @@
               }
             ]
           },
-          "status": {
-            "$ref": "#/components/schemas/CampaignStatus",
-            "description": "Status of campaign",
-            "default": "PENDING",
-            "examples": [
-              "PENDING",
-              "ACTIVE",
-              "PAUSED",
-              "CANCELED"
-            ]
-          },
           "daily_start_time": {
             "type": "string",
             "title": "Daily Start Time",
@@ -14081,13 +14753,20 @@
               "America/New_York"
             ]
           },
-          "mode": {
-            "$ref": "#/components/schemas/ActionMode",
-            "description": "Mode of campaign",
-            "default": "BATCH",
+          "source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source",
+            "description": "Source phone number, email, or SMS number",
             "examples": [
-              "BATCH",
-              "INTERACTIVE"
+              "+19032900844",
+              "account@email.com"
             ]
           },
           "caller_id": {
@@ -14103,6 +14782,41 @@
             "description": "Caller ID for call",
             "examples": [
               19995551234
+            ]
+          },
+          "rate": {
+            "type": "integer",
+            "title": "Rate",
+            "description": "Target number of outreach calls per minute",
+            "default": 1,
+            "examples": [
+              5
+            ]
+          },
+          "retry_count": {
+            "type": "integer",
+            "title": "Retry Count",
+            "description": "Number of retries per target",
+            "default": 0,
+            "examples": [
+              1
+            ]
+          },
+          "retry_interval": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Retry Interval",
+            "description": "How long to wait before retrying",
+            "examples": [
+              "30m",
+              "12h",
+              "7d"
             ]
           },
           "pause_seconds": {
@@ -14189,7 +14903,10 @@
             "description": "Names of tools to which the prompt has access",
             "default": [],
             "examples": [
-              "summary, hangup"
+              [
+                "summary",
+                "hangup"
+              ]
             ]
           },
           "llm_config": {
@@ -14365,7 +15082,7 @@
               }
             ],
             "title": "Api Version",
-            "description": "Version of the API. (Currently only used for Azure OpenAI.)",
+            "description": "Version of the provider's API.",
             "examples": [
               "2024-06-01"
             ]
@@ -14658,7 +15375,10 @@
             "description": "Names of tools to which the prompt has access",
             "default": [],
             "examples": [
-              "summary, hangup"
+              [
+                "summary",
+                "hangup"
+              ]
             ]
           },
           "llm_config": {
@@ -14719,7 +15439,7 @@
         "type": "string",
         "enum": [
           "PENDING",
-          "QUEUEING",
+          "DUPLICATE",
           "INITIATED",
           "CONNECTED",
           "FAILED",
@@ -15776,6 +16496,129 @@
         ],
         "title": "StaticToolParameterType",
         "description": "The expected type for a static tool parameter."
+      },
+      "SupportedLlm": {
+        "properties": {
+          "provider": {
+            "$ref": "#/components/schemas/PromptLlmProvider",
+            "description": "Provider of the LLM model.",
+            "default": "azure_openai",
+            "examples": [
+              "azure_openai"
+            ]
+          },
+          "model": {
+            "type": "string",
+            "title": "Model",
+            "description": "Name of the model. Must match the deployment name in Azure AI Studio.",
+            "default": "gpt-4o",
+            "examples": [
+              "gpt-4o"
+            ]
+          },
+          "display_name": {
+            "type": "string",
+            "title": "Display Name",
+            "description": "Display name of the model. This is used for display purposes in the Console UI.",
+            "examples": [
+              "GPT-4o"
+            ]
+          },
+          "version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version",
+            "description": "Model version.",
+            "examples": [
+              "2024-05-13"
+            ]
+          },
+          "api_version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Api Version",
+            "description": "Version of the provider's API.",
+            "examples": [
+              "2024-06-01"
+            ]
+          },
+          "deprecated": {
+            "type": "boolean",
+            "title": "Deprecated",
+            "description": "Whether the LLM config is deprecated and should not be used.",
+            "examples": [
+              false
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "display_name",
+          "deprecated"
+        ],
+        "title": "SupportedLlm",
+        "description": "LLM config option that can be used on a prompt."
+      },
+      "TakeoutRequestStatus": {
+        "type": "string",
+        "enum": [
+          "pending",
+          "in_progress",
+          "completed",
+          "failed",
+          "canceled"
+        ],
+        "title": "TakeoutRequestStatus",
+        "description": "Status of a takeout request."
+      },
+      "TakeoutStatusResponse": {
+        "properties": {
+          "job_id": {
+            "type": "string",
+            "title": "Job Id"
+          },
+          "status": {
+            "$ref": "#/components/schemas/TakeoutRequestStatus"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At"
+          },
+          "download_links": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Download Links"
+          }
+        },
+        "type": "object",
+        "required": [
+          "job_id",
+          "status",
+          "updated_at"
+        ],
+        "title": "TakeoutStatusResponse"
       },
       "TargetModes": {
         "type": "string",
@@ -16883,6 +17726,10 @@
     {
       "name": "events",
       "description": "Operations related to events. An event represents a specific occurrence           during a session. Currently the API/SDK only supports fetching logged events."
+    },
+    {
+      "name": "insights",
+      "description": "Operations related to insights results. An insight is a tool that processes          conversation data to extract information and generate reports."
     },
     {
       "name": "insights.tools",
