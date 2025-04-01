@@ -113,7 +113,7 @@ class Sessions(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="sessions_list",
-                oauth2_scopes=None,
+                oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -234,7 +234,7 @@ class Sessions(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="sessions_list",
-                oauth2_scopes=None,
+                oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -331,7 +331,7 @@ class Sessions(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="session_get_by_id",
-                oauth2_scopes=None,
+                oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -428,7 +428,7 @@ class Sessions(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="session_get_by_id",
-                oauth2_scopes=None,
+                oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -525,7 +525,7 @@ class Sessions(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="generate_session_recording_urls",
-                oauth2_scopes=None,
+                oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -622,7 +622,7 @@ class Sessions(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="generate_session_recording_urls",
-                oauth2_scopes=None,
+                oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -719,7 +719,7 @@ class Sessions(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="session_recording_stream",
-                oauth2_scopes=None,
+                oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -818,7 +818,7 @@ class Sessions(BaseSDK):
             hook_ctx=HookContext(
                 base_url=base_url or "",
                 operation_id="session_recording_stream",
-                oauth2_scopes=None,
+                oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
