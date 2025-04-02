@@ -148,6 +148,7 @@ actions:
   - target: $["paths"]["/api/v1/custom_messages/{custom_message_id}"]["delete"]["tags"]
     update:
       - "custom_messages"
+
   - target: $["paths"]["/api/v1/prompts/"]["get"]["tags"][*]
     remove: true
   - target: $["paths"]["/api/v1/prompts/"]["get"]["tags"]
@@ -178,6 +179,12 @@ actions:
   - target: $["paths"]["/api/v1/prompts/{prompt_id}/history"]["get"]["tags"]
     update:
       - "prompts"
+  - target: $["paths"]["/api/v1/prompts/llms/supported"]["get"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/prompts/llms/supported"]["get"]["tags"]
+    update:
+      - "prompts"
+
   - target: $["paths"]["/api/v1/services/"]["get"]["tags"][*]
     remove: true
   - target: $["paths"]["/api/v1/services/"]["get"]["tags"]
@@ -364,6 +371,13 @@ actions:
   - target: $["paths"]["/api/v1/data_sources/{data_source_id}"]["delete"]["tags"]
     update:
       - "data_sources"
+
+  - target: $["paths"]["/api/v1/insights/"]["get"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/insights/"]["get"]["tags"]
+    update:
+      - "insights"
+
   - target: $["paths"]["/api/v1/insights/workflows/"]["get"]["tags"][*]
     remove: true
   - target: $["paths"]["/api/v1/insights/workflows/"]["get"]["tags"]
@@ -387,6 +401,11 @@ actions:
   - target: $["paths"]["/api/v1/insights/workflows/{workflow_id}"]["delete"]["tags"][*]
     remove: true
   - target: $["paths"]["/api/v1/insights/workflows/{workflow_id}"]["delete"]["tags"]
+    update:
+      - "insights.workflows"
+  - target: $["paths"]["/api/v1/insights/workflows/queue-session"]["post"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/insights/workflows/queue-session"]["post"]["tags"]
     update:
       - "insights.workflows"
   - target: $["paths"]["/api/v1/insights/tools"]["get"]["tags"][*]
@@ -456,3 +475,81 @@ actions:
   - target: $["paths"]["/api/v1/session_debug/tool_result/{session_id}/{tool_call_id}"]["get"]["tags"]
     update:
       - "session_debug"
+
+  - target: $["paths"]["/api/v1/outbound/batches"]["get"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/outbound/batches"]["get"]["tags"]
+    update:
+      - "outbound.batches"
+  - target: $["paths"]["/api/v1/outbound/batches/{batch_id}"]["get"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/outbound/batches/{batch_id}"]["get"]["tags"]
+    update:
+      - "outbound.batches"
+  - target: $["paths"]["/api/v1/outbound/batches/{batch_id}/results"]["get"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/outbound/batches/{batch_id}/results"]["get"]["tags"]
+    update:
+      - "outbound.batches"
+  - target: $["paths"]["/api/v1/outbound/batches/{batch_id}/upload_batch"]["post"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/outbound/batches/{batch_id}/upload_batch"]["post"]["tags"]
+    update:
+      - "outbound.batches"
+  - target: $["paths"]["/api/v1/outbound/batches/{batch_id}/requests"]["post"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/outbound/batches/{batch_id}/requests"]["post"]["tags"]
+    update:
+      - "outbound.batches"
+  - target: $["paths"]["/api/v1/outbound/batches/{batch_id}/remove-requests"]["post"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/outbound/batches/{batch_id}/remove-requests"]["post"]["tags"]
+    update:
+      - "outbound.batches"
+  - target: $["paths"]["/api/v1/outbound/batches"]["post"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/outbound/batches"]["post"]["tags"]
+    update:
+      - "outbound.batches"
+  - target: $["paths"]["/api/v1/outbound/batches/{batch_id}"]["delete"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/outbound/batches/{batch_id}"]["delete"]["tags"]
+    update:
+      - "outbound.batches"
+  - target: $["paths"]["/api/v1/outbound/batches/{batch_id}"]["put"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/outbound/batches/{batch_id}"]["put"]["tags"]
+    update:
+      - "outbound.batches"
+
+  - target: $["paths"]["/api/v1/outbound/campaigns"]["get"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/outbound/campaigns"]["get"]["tags"]
+    update:
+      - "outbound.campaigns"
+  - target: $["paths"]["/api/v1/outbound/campaigns/{campaign_id}"]["get"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/outbound/campaigns/{campaign_id}"]["get"]["tags"]
+    update:
+      - "outbound.campaigns"
+  - target: $["paths"]["/api/v1/outbound/campaigns"]["post"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/outbound/campaigns"]["post"]["tags"]
+    update:
+      - "outbound.campaigns"
+  - target: $["paths"]["/api/v1/outbound/campaigns/{campaign_id}"]["put"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/outbound/campaigns/{campaign_id}"]["put"]["tags"]
+    update:
+      - "outbound.campaigns"
+
+  - target: $["paths"]["/api/v1/takeouts/create"]["post"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/takeouts/create"]["post"]["tags"]
+    update:
+      - "takeouts"
+  - target: $["paths"]["/api/v1/takeouts/get/{job_id}"]["get"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/takeouts/get/{job_id}"]["get"]["tags"]
+    update:
+      - "takeouts"
