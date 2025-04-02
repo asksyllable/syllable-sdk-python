@@ -24,6 +24,25 @@ from .available_targetsop import (
 )
 from .availabletarget import AvailableTarget, AvailableTargetTypedDict
 from .availabletargetproperties import AvailableTargetProperties
+from .batchdetails import (
+    BatchDetails,
+    BatchDetailsTypedDict,
+    StatusCounts,
+    StatusCountsTypedDict,
+)
+from .batchproperties import BatchProperties
+from .batchstatus import BatchStatus
+from .body_outbound_batch_delete import (
+    BodyOutboundBatchDelete,
+    BodyOutboundBatchDeleteTypedDict,
+)
+from .body_outbound_batch_upload import (
+    BodyOutboundBatchUpload,
+    BodyOutboundBatchUploadTypedDict,
+    File,
+    FileTypedDict,
+)
+from .campaignproperties import CampaignProperties
 from .channel import Channel, ChannelTypedDict
 from .channel_targets_createop import (
     ChannelTargetsCreateRequest,
@@ -58,6 +77,23 @@ from .channeltargetupdaterequest import (
     ChannelTargetUpdateRequest,
     ChannelTargetUpdateRequestTypedDict,
 )
+from .communicationbatch import CommunicationBatch, CommunicationBatchTypedDict
+from .communicationbatchinput import (
+    CommunicationBatchInput,
+    CommunicationBatchInputTypedDict,
+)
+from .communicationrequest import (
+    CommunicationRequest,
+    CommunicationRequestRequestVariables,
+    CommunicationRequestRequestVariablesTypedDict,
+    CommunicationRequestTypedDict,
+)
+from .communicationrequestresult import (
+    CommunicationRequestResult,
+    CommunicationRequestResultRequestVariables,
+    CommunicationRequestResultRequestVariablesTypedDict,
+    CommunicationRequestResultTypedDict,
+)
 from .conversation import Conversation, ConversationTypedDict
 from .conversationproperties import ConversationProperties
 from .conversations_listop import (
@@ -88,7 +124,6 @@ from .custommessageupdaterequest import (
     CustomMessageUpdateRequest,
     CustomMessageUpdateRequestTypedDict,
 )
-from .daotakeoutcreate import DaoTakeoutCreate, DaoTakeoutCreateTypedDict
 from .dashboard import Dashboard, DashboardTypedDict
 from .dashboardproperties import DashboardProperties
 from .dashboardresponse import DashboardResponse, DashboardResponseTypedDict
@@ -126,10 +161,6 @@ from .dayofweek import DayOfWeek
 from .dialogmessage import DialogMessage, DialogMessageTypedDict
 from .dialogrole import DialogRole
 from .dialogtoolcall import DialogToolCall, DialogToolCallTypedDict
-from .directory_workflow_deleteop import (
-    DirectoryWorkflowDeleteRequest,
-    DirectoryWorkflowDeleteRequestTypedDict,
-)
 from .event import Attributes, AttributesTypedDict, Event, EventTypedDict
 from .eventproperties import EventProperties
 from .events_listop import EventsListRequest, EventsListRequestTypedDict
@@ -164,6 +195,10 @@ from .insights_tool_updateop import (
     InsightsToolUpdateRequest,
     InsightsToolUpdateRequestTypedDict,
 )
+from .insights_workflow_deleteop import (
+    InsightsWorkflowDeleteRequest,
+    InsightsWorkflowDeleteRequestTypedDict,
+)
 from .insights_workflow_get_by_idop import (
     InsightsWorkflowGetByIDRequest,
     InsightsWorkflowGetByIDRequestTypedDict,
@@ -183,6 +218,10 @@ from .insightsoutput import (
     JSONValueTypedDict,
 )
 from .insightsproperties import InsightsProperties
+from .insightsworkflowqueuesession import (
+    InsightsWorkflowQueueSession,
+    InsightsWorkflowQueueSessionTypedDict,
+)
 from .insighttooldefinition import (
     InsightToolDefinition,
     InsightToolDefinitionTypedDict,
@@ -310,6 +349,62 @@ from .listresponse_toolresponse_ import (
     ListResponseToolResponseTypedDict,
 )
 from .orderbydirection import OrderByDirection
+from .outbound_batch_addop import (
+    OutboundBatchAddRequest,
+    OutboundBatchAddRequestTypedDict,
+)
+from .outbound_batch_deleteop import (
+    OutboundBatchDeleteRequest,
+    OutboundBatchDeleteRequestTypedDict,
+)
+from .outbound_batch_get_by_idop import (
+    OutboundBatchGetByIDRequest,
+    OutboundBatchGetByIDRequestTypedDict,
+)
+from .outbound_batch_listop import (
+    OutboundBatchListRequest,
+    OutboundBatchListRequestTypedDict,
+)
+from .outbound_batch_removeop import (
+    OutboundBatchRemoveRequest,
+    OutboundBatchRemoveRequestTypedDict,
+)
+from .outbound_batch_resultsop import (
+    OutboundBatchResultsRequest,
+    OutboundBatchResultsRequestTypedDict,
+)
+from .outbound_batch_updateop import (
+    OutboundBatchUpdateRequest,
+    OutboundBatchUpdateRequestTypedDict,
+)
+from .outbound_batch_uploadop import (
+    OutboundBatchUploadRequest,
+    OutboundBatchUploadRequestTypedDict,
+)
+from .outbound_campaign_get_by_idop import (
+    OutboundCampaignGetByIDRequest,
+    OutboundCampaignGetByIDRequestTypedDict,
+)
+from .outbound_campaign_listop import (
+    OutboundCampaignListRequest,
+    OutboundCampaignListRequestTypedDict,
+)
+from .outbound_campaign_updateop import (
+    OutboundCampaignUpdateRequest,
+    OutboundCampaignUpdateRequestTypedDict,
+)
+from .outboundcampaign import (
+    OutboundCampaign,
+    OutboundCampaignCampaignVariables,
+    OutboundCampaignCampaignVariablesTypedDict,
+    OutboundCampaignTypedDict,
+)
+from .outboundcampaigninput import (
+    OutboundCampaignInput,
+    OutboundCampaignInputCampaignVariables,
+    OutboundCampaignInputCampaignVariablesTypedDict,
+    OutboundCampaignInputTypedDict,
+)
 from .post_get_dashboardop import (
     PostGetDashboardRequest,
     PostGetDashboardRequestTypedDict,
@@ -329,6 +424,7 @@ from .prompts_get_by_idop import PromptsGetByIDRequest, PromptsGetByIDRequestTyp
 from .prompts_historyop import PromptsHistoryRequest, PromptsHistoryRequestTypedDict
 from .prompts_listop import PromptsListRequest, PromptsListRequestTypedDict
 from .promptupdaterequest import PromptUpdateRequest, PromptUpdateRequestTypedDict
+from .requeststatus import RequestStatus
 from .security import Security, SecurityTypedDict
 from .service_deleteop import ServiceDeleteRequest, ServiceDeleteRequestTypedDict
 from .service_listop import ServiceListRequest, ServiceListRequestTypedDict
@@ -357,10 +453,6 @@ from .session_labels_listop import (
 from .session_recording_streamop import (
     SessionRecordingStreamRequest,
     SessionRecordingStreamRequestTypedDict,
-)
-from .session_summary_get_by_idop import (
-    SessionSummaryGetByIDRequest,
-    SessionSummaryGetByIDRequestTypedDict,
 )
 from .session_transcript_get_by_idop import (
     SessionTranscriptGetByIDRequest,
@@ -481,6 +573,15 @@ __all__ = [
     "AvailableTargetTypedDict",
     "AvailableTargetsRequest",
     "AvailableTargetsRequestTypedDict",
+    "BatchDetails",
+    "BatchDetailsTypedDict",
+    "BatchProperties",
+    "BatchStatus",
+    "BodyOutboundBatchDelete",
+    "BodyOutboundBatchDeleteTypedDict",
+    "BodyOutboundBatchUpload",
+    "BodyOutboundBatchUploadTypedDict",
+    "CampaignProperties",
     "Channel",
     "ChannelProperties",
     "ChannelServices",
@@ -504,6 +605,18 @@ __all__ = [
     "ChannelTypedDict",
     "ChannelsListRequest",
     "ChannelsListRequestTypedDict",
+    "CommunicationBatch",
+    "CommunicationBatchInput",
+    "CommunicationBatchInputTypedDict",
+    "CommunicationBatchTypedDict",
+    "CommunicationRequest",
+    "CommunicationRequestRequestVariables",
+    "CommunicationRequestRequestVariablesTypedDict",
+    "CommunicationRequestResult",
+    "CommunicationRequestResultRequestVariables",
+    "CommunicationRequestResultRequestVariablesTypedDict",
+    "CommunicationRequestResultTypedDict",
+    "CommunicationRequestTypedDict",
     "Conversation",
     "ConversationProperties",
     "ConversationTypedDict",
@@ -526,8 +639,6 @@ __all__ = [
     "CustomMessagesDeleteRequestTypedDict",
     "CustomMessagesListRequest",
     "CustomMessagesListRequestTypedDict",
-    "DaoTakeoutCreate",
-    "DaoTakeoutCreateTypedDict",
     "Dashboard",
     "DashboardProperties",
     "DashboardResponse",
@@ -558,13 +669,13 @@ __all__ = [
     "DialogRole",
     "DialogToolCall",
     "DialogToolCallTypedDict",
-    "DirectoryWorkflowDeleteRequest",
-    "DirectoryWorkflowDeleteRequestTypedDict",
     "Event",
     "EventProperties",
     "EventTypedDict",
     "EventsListRequest",
     "EventsListRequestTypedDict",
+    "File",
+    "FileTypedDict",
     "GenerateSessionRecordingUrlsRequest",
     "GenerateSessionRecordingUrlsRequestTypedDict",
     "GetSessionDataBySessionIDRequest",
@@ -608,10 +719,14 @@ __all__ = [
     "InsightsProperties",
     "InsightsToolUpdateRequest",
     "InsightsToolUpdateRequestTypedDict",
+    "InsightsWorkflowDeleteRequest",
+    "InsightsWorkflowDeleteRequestTypedDict",
     "InsightsWorkflowGetByIDRequest",
     "InsightsWorkflowGetByIDRequestTypedDict",
     "InsightsWorkflowListRequest",
     "InsightsWorkflowListRequestTypedDict",
+    "InsightsWorkflowQueueSession",
+    "InsightsWorkflowQueueSessionTypedDict",
     "InsightsWorkflowUpdateRequest",
     "InsightsWorkflowUpdateRequestTypedDict",
     "InternalTool",
@@ -675,6 +790,36 @@ __all__ = [
     "Loc",
     "LocTypedDict",
     "OrderByDirection",
+    "OutboundBatchAddRequest",
+    "OutboundBatchAddRequestTypedDict",
+    "OutboundBatchDeleteRequest",
+    "OutboundBatchDeleteRequestTypedDict",
+    "OutboundBatchGetByIDRequest",
+    "OutboundBatchGetByIDRequestTypedDict",
+    "OutboundBatchListRequest",
+    "OutboundBatchListRequestTypedDict",
+    "OutboundBatchRemoveRequest",
+    "OutboundBatchRemoveRequestTypedDict",
+    "OutboundBatchResultsRequest",
+    "OutboundBatchResultsRequestTypedDict",
+    "OutboundBatchUpdateRequest",
+    "OutboundBatchUpdateRequestTypedDict",
+    "OutboundBatchUploadRequest",
+    "OutboundBatchUploadRequestTypedDict",
+    "OutboundCampaign",
+    "OutboundCampaignCampaignVariables",
+    "OutboundCampaignCampaignVariablesTypedDict",
+    "OutboundCampaignGetByIDRequest",
+    "OutboundCampaignGetByIDRequestTypedDict",
+    "OutboundCampaignInput",
+    "OutboundCampaignInputCampaignVariables",
+    "OutboundCampaignInputCampaignVariablesTypedDict",
+    "OutboundCampaignInputTypedDict",
+    "OutboundCampaignListRequest",
+    "OutboundCampaignListRequestTypedDict",
+    "OutboundCampaignTypedDict",
+    "OutboundCampaignUpdateRequest",
+    "OutboundCampaignUpdateRequestTypedDict",
     "PostGetDashboardRequest",
     "PostGetDashboardRequestTypedDict",
     "PostListDashboardRequest",
@@ -699,6 +844,7 @@ __all__ = [
     "PromptsHistoryRequestTypedDict",
     "PromptsListRequest",
     "PromptsListRequestTypedDict",
+    "RequestStatus",
     "Response",
     "ResponseTypedDict",
     "Security",
@@ -741,8 +887,6 @@ __all__ = [
     "SessionRecordingResponseTypedDict",
     "SessionRecordingStreamRequest",
     "SessionRecordingStreamRequestTypedDict",
-    "SessionSummaryGetByIDRequest",
-    "SessionSummaryGetByIDRequestTypedDict",
     "SessionSummaryResponse",
     "SessionSummaryResponseTypedDict",
     "SessionText",
@@ -757,6 +901,8 @@ __all__ = [
     "StaticToolParameter",
     "StaticToolParameterType",
     "StaticToolParameterTypedDict",
+    "StatusCounts",
+    "StatusCountsTypedDict",
     "SupportedLlm",
     "SupportedLlmTypedDict",
     "TakeoutRequestStatus",

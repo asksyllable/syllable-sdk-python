@@ -12,6 +12,7 @@ Operations related to insights workflows. An workflow is series of tool         
 * [get_by_id](#get_by_id) - Get Insight Workflow By Id
 * [update](#update) - Update Insights Workflow
 * [delete](#delete) - Delete Insights Workflow
+* [queue_sessions_workflow](#queue_sessions_workflow) - Queue Insights Workflow For Sessions
 
 ## list
 
@@ -231,6 +232,51 @@ with SyllableSDK(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `workflow_id`                                                       | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[Any](../../models/.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## queue_sessions_workflow
+
+Delete a Insights workflow.
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.insights.workflows.queue_sessions_workflow(request={
+        "workflow_name": "summary-workflow",
+        "session_id_list": [
+            [12334,23445,34556],
+        ],
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `request`                                                                           | [models.InsightsWorkflowQueueSession](../../models/insightsworkflowqueuesession.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
+| `retries`                                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                    | :heavy_minus_sign:                                                                  | Configuration to override the default retry behavior of the client.                 |
 
 ### Response
 

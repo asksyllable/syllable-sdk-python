@@ -1,8 +1,8 @@
-# SessionSummaryGetByIDRequest
+# InsightsWorkflowDeleteRequest
 
 
 ## Fields
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `session_id`       | *str*              | :heavy_check_mark: | N/A                |
+| `workflow_id`      | *int*              | :heavy_check_mark: | N/A                |
