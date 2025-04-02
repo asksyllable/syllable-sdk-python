@@ -1,8 +1,8 @@
-# DirectoryWorkflowDeleteRequest
+# OutboundCampaignGetByIDRequest
 
 
 ## Fields
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `workflow_id`      | *int*              | :heavy_check_mark: | N/A                |
+| `campaign_id`      | *str*              | :heavy_check_mark: | N/A                |

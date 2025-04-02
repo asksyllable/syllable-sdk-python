@@ -6,11 +6,11 @@ from syllable_sdk.utils import FieldMetadata, PathParamMetadata
 from typing_extensions import Annotated, TypedDict
 
 
-class DirectoryWorkflowDeleteRequestTypedDict(TypedDict):
+class InsightsWorkflowDeleteRequestTypedDict(TypedDict):
     workflow_id: int
 
 
-class DirectoryWorkflowDeleteRequest(BaseModel):
+class InsightsWorkflowDeleteRequest(BaseModel):
     workflow_id: Annotated[
         int, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]

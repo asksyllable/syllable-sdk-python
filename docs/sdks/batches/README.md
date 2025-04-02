@@ -1,0 +1,425 @@
+# Batches
+(*outbound.batches*)
+
+## Overview
+
+Operations related to outbound campaign batches
+
+### Available Operations
+
+* [list](#list) - List Outbound Communication Batches
+* [create](#create) - Create Outbound Communication Batch
+* [get_by_id](#get_by_id) - Get Outbound Communication Batch
+* [update](#update) - Update Outbound Communication Batch
+* [delete](#delete) - Delete Outbound Communication Batch
+* [upload](#upload) - Upload Outbound Communication Batch
+* [outbound_batch_results](#outbound_batch_results) - Fetch Outbound Communication Batch Results
+* [outbound_batch_add](#outbound_batch_add) - Create Outbound Communication Request
+* [outbound_batch_remove](#outbound_batch_remove) - Delete Requests By List Of Reference Ids
+
+## list
+
+List Outbound Communication Batches
+
+### Example Usage
+
+```python
+import os
+import syllable_sdk
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.outbound.batches.list(page=0, search_fields=[
+        syllable_sdk.BatchProperties.EXPIRES_ON,
+    ], search_field_values=[
+        "Some Object Name",
+    ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                              | Type                                                                                                                                                   | Required                                                                                                                                               | Description                                                                                                                                            | Example                                                                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-based)                                                                                                          | 0                                                                                                                                                      |
+| `limit`                                                                                                                                                | *Optional[int]*                                                                                                                                        | :heavy_minus_sign:                                                                                                                                     | The maximum number of items to return                                                                                                                  | 25                                                                                                                                                     |
+| `search_fields`                                                                                                                                        | List[[models.BatchProperties](../../models/batchproperties.md)]                                                                                        | :heavy_minus_sign:                                                                                                                                     | String names of fields to search. Correspond by index to search field values                                                                           | name                                                                                                                                                   |
+| `search_field_values`                                                                                                                                  | List[*str*]                                                                                                                                            | :heavy_minus_sign:                                                                                                                                     | Values of fields to search. Correspond by index to search fields. Unless field name contains "list", an individual search field value cannot be a list | Some Object Name                                                                                                                                       |
+| `order_by`                                                                                                                                             | [OptionalNullable[models.BatchProperties]](../../models/batchproperties.md)                                                                            | :heavy_minus_sign:                                                                                                                                     | The field whose value should be used to order the results                                                                                              |                                                                                                                                                        |
+| `order_by_direction`                                                                                                                                   | [OptionalNullable[models.OrderByDirection]](../../models/orderbydirection.md)                                                                          | :heavy_minus_sign:                                                                                                                                     | The direction in which to order the results                                                                                                            |                                                                                                                                                        |
+| `fields`                                                                                                                                               | List[[models.BatchProperties](../../models/batchproperties.md)]                                                                                        | :heavy_minus_sign:                                                                                                                                     | The fields to include in the response                                                                                                                  |                                                                                                                                                        |
+| `start_datetime`                                                                                                                                       | *OptionalNullable[str]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The start datetime for filtering results                                                                                                               | 2023-01-01T00:00:00Z                                                                                                                                   |
+| `end_datetime`                                                                                                                                         | *OptionalNullable[str]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The end datetime for filtering results                                                                                                                 | 2024-01-01T00:00:00Z                                                                                                                                   |
+| `retries`                                                                                                                                              | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                       | :heavy_minus_sign:                                                                                                                                     | Configuration to override the default retry behavior of the client.                                                                                    |                                                                                                                                                        |
+
+### Response
+
+**[List[models.CommunicationBatch]](../../models/.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## create
+
+Create Outbound Communication Batch
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.outbound.batches.create(request={
+        "batch_id": "20250117.9",
+        "campaign_id": 1,
+        "expires_on": "2024-01-01T00:00:00Z",
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `request`                                                                 | [models.CommunicationBatchInput](../../models/communicationbatchinput.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+| `retries`                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)          | :heavy_minus_sign:                                                        | Configuration to override the default retry behavior of the client.       |
+
+### Response
+
+**[models.CommunicationBatch](../../models/communicationbatch.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## get_by_id
+
+Get Outbound Communication Batch
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.outbound.batches.get_by_id(batch_id="<id>")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `batch_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.BatchDetails](../../models/batchdetails.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## update
+
+Update Outbound Communication Batch
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.outbound.batches.update(batch_id="<id>", communication_batch={
+        "batch_id": "20250117.9",
+        "campaign_id": 1,
+        "last_updated_by": "user@email.com",
+        "expires_on": "2024-01-01T00:00:00Z",
+        "count": 152,
+        "created_at": "2024-01-01T00:00:00Z",
+        "deleted_at": "2024-01-01T00:00:00Z",
+        "deleted_reason": "User request",
+        "last_worked_on": "2024-01-01T00:00:00Z",
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `batch_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `communication_batch`                                               | [models.CommunicationBatch](../../models/communicationbatch.md)     | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.CommunicationBatch](../../models/communicationbatch.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## delete
+
+Delete Outbound Communication Batch
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.outbound.batches.delete(batch_id="<id>", body_outbound_batch_delete={
+        "delete_reason": "<value>",
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `batch_id`                                                                | *str*                                                                     | :heavy_check_mark:                                                        | N/A                                                                       |
+| `body_outbound_batch_delete`                                              | [models.BodyOutboundBatchDelete](../../models/bodyoutboundbatchdelete.md) | :heavy_check_mark:                                                        | N/A                                                                       |
+| `retries`                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)          | :heavy_minus_sign:                                                        | Configuration to override the default retry behavior of the client.       |
+
+### Response
+
+**[Any](../../models/.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## upload
+
+Upload Outbound Communication Batch
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.outbound.batches.upload(batch_id="<id>", body_outbound_batch_upload={
+        "file": {
+            "file_name": "example.file",
+            "content": open("example.file", "rb"),
+        },
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `batch_id`                                                                | *str*                                                                     | :heavy_check_mark:                                                        | N/A                                                                       |
+| `body_outbound_batch_upload`                                              | [models.BodyOutboundBatchUpload](../../models/bodyoutboundbatchupload.md) | :heavy_check_mark:                                                        | N/A                                                                       |
+| `retries`                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)          | :heavy_minus_sign:                                                        | Configuration to override the default retry behavior of the client.       |
+
+### Response
+
+**[Any](../../models/.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## outbound_batch_results
+
+Fetch Outbound Communication Batch Results
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.outbound.batches.outbound_batch_results(batch_id="<id>")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `batch_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[List[models.CommunicationRequestResult]](../../models/.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## outbound_batch_add
+
+Create Outbound Communication Request
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.outbound.batches.outbound_batch_add(batch_id="<id>", communication_request={
+        "batch_id": "20250117.9",
+        "reference_id": "12345",
+        "target": "user@email.com",
+        "request_variables": {},
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `batch_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `communication_request`                                             | [models.CommunicationRequest](../../models/communicationrequest.md) | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[Any](../../models/.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## outbound_batch_remove
+
+Delete Requests By List Of Reference Ids
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.outbound.batches.outbound_batch_remove(batch_id="<id>", request_body=[
+        "<value>",
+        "<value>",
+    ])
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `batch_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `request_body`                                                      | List[*str*]                                                         | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[Any](../../models/.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |

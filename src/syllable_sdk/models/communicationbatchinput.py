@@ -12,27 +12,36 @@ from syllable_sdk.types import (
 from typing_extensions import NotRequired, TypedDict
 
 
-class DaoTakeoutCreateTypedDict(TypedDict):
-    sub_organization_id: int
-    requested_by: NotRequired[Nullable[int]]
+class CommunicationBatchInputTypedDict(TypedDict):
+    batch_id: str
+    r"""Unique ID for conversation batch"""
+    campaign_id: int
+    r"""Unique ID for campaign"""
+    expires_on: NotRequired[Nullable[str]]
+    r"""Timestamp of batch expiration"""
 
 
-class DaoTakeoutCreate(BaseModel):
-    sub_organization_id: int
+class CommunicationBatchInput(BaseModel):
+    batch_id: str
+    r"""Unique ID for conversation batch"""
 
-    requested_by: OptionalNullable[int] = UNSET
+    campaign_id: int
+    r"""Unique ID for campaign"""
+
+    expires_on: OptionalNullable[str] = UNSET
+    r"""Timestamp of batch expiration"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["requested_by"]
-        nullable_fields = ["requested_by"]
+        optional_fields = ["expires_on"]
+        nullable_fields = ["expires_on"]
         null_default_fields = []
 
         serialized = handler(self)
 
         m = {}
 
-        for n, f in self.model_fields.items():
+        for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k)
             serialized.pop(k, None)

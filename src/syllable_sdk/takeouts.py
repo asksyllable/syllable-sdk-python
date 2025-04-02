@@ -3,16 +3,15 @@
 from .basesdk import BaseSDK
 from syllable_sdk import models, utils
 from syllable_sdk._hooks import HookContext
-from syllable_sdk.types import BaseModel, OptionalNullable, UNSET
+from syllable_sdk.types import OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
-from typing import Any, Mapping, Optional, Union, cast
+from typing import Any, Mapping, Optional
 
 
 class Takeouts(BaseSDK):
     def create_takeout_api_v1_takeouts_create_post(
         self,
         *,
-        request: Union[models.DaoTakeoutCreate, models.DaoTakeoutCreateTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -20,7 +19,6 @@ class Takeouts(BaseSDK):
     ) -> models.CreateTakeoutResponse:
         r"""Create Takeout
 
-        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -35,27 +33,19 @@ class Takeouts(BaseSDK):
             base_url = server_url
         else:
             base_url = self._get_url(base_url, url_variables)
-
-        if not isinstance(request, BaseModel):
-            request = utils.unmarshal(request, models.DaoTakeoutCreate)
-        request = cast(models.DaoTakeoutCreate, request)
-
         req = self._build_request(
             method="POST",
             path="/api/v1/takeouts/create",
             base_url=base_url,
             url_variables=url_variables,
-            request=request,
-            request_body_required=True,
+            request=None,
+            request_body_required=False,
             request_has_path_params=False,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.DaoTakeoutCreate
-            ),
             timeout_ms=timeout_ms,
         )
 
@@ -77,18 +67,12 @@ class Takeouts(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["422", "4XX", "5XX"],
+            error_status_codes=["4XX", "5XX"],
             retry_config=retry_config,
         )
 
-        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(http_res.text, models.CreateTakeoutResponse)
-        if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, models.HTTPValidationErrorData
-            )
-            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.APIError(
@@ -112,7 +96,6 @@ class Takeouts(BaseSDK):
     async def create_takeout_api_v1_takeouts_create_post_async(
         self,
         *,
-        request: Union[models.DaoTakeoutCreate, models.DaoTakeoutCreateTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -120,7 +103,6 @@ class Takeouts(BaseSDK):
     ) -> models.CreateTakeoutResponse:
         r"""Create Takeout
 
-        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -135,27 +117,19 @@ class Takeouts(BaseSDK):
             base_url = server_url
         else:
             base_url = self._get_url(base_url, url_variables)
-
-        if not isinstance(request, BaseModel):
-            request = utils.unmarshal(request, models.DaoTakeoutCreate)
-        request = cast(models.DaoTakeoutCreate, request)
-
         req = self._build_request_async(
             method="POST",
             path="/api/v1/takeouts/create",
             base_url=base_url,
             url_variables=url_variables,
-            request=request,
-            request_body_required=True,
+            request=None,
+            request_body_required=False,
             request_has_path_params=False,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.DaoTakeoutCreate
-            ),
             timeout_ms=timeout_ms,
         )
 
@@ -177,18 +151,12 @@ class Takeouts(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["422", "4XX", "5XX"],
+            error_status_codes=["4XX", "5XX"],
             retry_config=retry_config,
         )
 
-        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(http_res.text, models.CreateTakeoutResponse)
-        if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, models.HTTPValidationErrorData
-            )
-            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.APIError(

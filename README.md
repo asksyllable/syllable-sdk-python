@@ -34,6 +34,7 @@ assistants, or any other AI-driven solutions, Syllable SDK has got you covered.
   * [SDK Example Usage](#sdk-example-usage)
   * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
+  * [File uploads](#file-uploads)
   * [Retries](#retries)
   * [Error Handling](#error-handling)
   * [Server Selection](#server-selection)
@@ -284,6 +285,7 @@ with SyllableSDK(
 * [get_by_id](docs/sdks/workflows/README.md#get_by_id) - Get Insight Workflow By Id
 * [update](docs/sdks/workflows/README.md#update) - Update Insights Workflow
 * [delete](docs/sdks/workflows/README.md#delete) - Delete Insights Workflow
+* [queue_sessions_workflow](docs/sdks/workflows/README.md#queue_sessions_workflow) - Queue Insights Workflow For Sessions
 
 ### [language_groups](docs/sdks/languagegroups/README.md)
 
@@ -292,6 +294,28 @@ with SyllableSDK(
 * [update](docs/sdks/languagegroups/README.md#update) - Update Language Group
 * [get_by_id](docs/sdks/languagegroups/README.md#get_by_id) - Get Language Group
 * [delete](docs/sdks/languagegroups/README.md#delete) - Delete Language Group
+
+### [outbound](docs/sdks/outbound/README.md)
+
+
+#### [outbound.batches](docs/sdks/batches/README.md)
+
+* [list](docs/sdks/batches/README.md#list) - List Outbound Communication Batches
+* [create](docs/sdks/batches/README.md#create) - Create Outbound Communication Batch
+* [get_by_id](docs/sdks/batches/README.md#get_by_id) - Get Outbound Communication Batch
+* [update](docs/sdks/batches/README.md#update) - Update Outbound Communication Batch
+* [delete](docs/sdks/batches/README.md#delete) - Delete Outbound Communication Batch
+* [upload](docs/sdks/batches/README.md#upload) - Upload Outbound Communication Batch
+* [outbound_batch_results](docs/sdks/batches/README.md#outbound_batch_results) - Fetch Outbound Communication Batch Results
+* [outbound_batch_add](docs/sdks/batches/README.md#outbound_batch_add) - Create Outbound Communication Request
+* [outbound_batch_remove](docs/sdks/batches/README.md#outbound_batch_remove) - Delete Requests By List Of Reference Ids
+
+#### [outbound.campaigns](docs/sdks/campaigns/README.md)
+
+* [list](docs/sdks/campaigns/README.md#list) - List Outbound Communication Campaigns
+* [create](docs/sdks/campaigns/README.md#create) - Create Outbound Communication Campaign
+* [get_by_id](docs/sdks/campaigns/README.md#get_by_id) - Get Outbound Communication Campaign
+* [update](docs/sdks/campaigns/README.md#update) - Update Outbound Communication Campaign
 
 ### [prompts](docs/sdks/prompts/README.md)
 
@@ -334,10 +358,6 @@ with SyllableSDK(
 
 * [get_by_id](docs/sdks/fullsummary/README.md#get_by_id) - Get Full Session Summary By Id
 
-#### [sessions.summary](docs/sdks/summary/README.md)
-
-* [get_by_id](docs/sdks/summary/README.md#get_by_id) - Get Session Summary By Id
-
 #### [sessions.transcript](docs/sdks/transcript/README.md)
 
 * [get_by_id](docs/sdks/transcript/README.md#get_by_id) - Get Session Transcript By Id
@@ -358,19 +378,47 @@ with SyllableSDK(
 
 ### [v1](docs/sdks/v1/README.md)
 
-* [list](docs/sdks/v1/README.md#list) - Insights List
-* [prompt_get_supported_llms](docs/sdks/v1/README.md#prompt_get_supported_llms) - Get Supported Llm Configs
 * [post_list_dashboard](docs/sdks/v1/README.md#post_list_dashboard) - Post List Dashboards
 * [post_get_dashboard](docs/sdks/v1/README.md#post_get_dashboard) - Post Fetch Info
 * [~~post_session_events_dashboard~~](docs/sdks/v1/README.md#post_session_events_dashboard) - Post Session Events :warning: **Deprecated**
 * [~~post_session_summary_dashboard~~](docs/sdks/v1/README.md#post_session_summary_dashboard) - Post Session Summary :warning: **Deprecated**
 * [~~post_session_transfers_dashboard~~](docs/sdks/v1/README.md#post_session_transfers_dashboard) - Post Session Transfers :warning: **Deprecated**
 * [~~post_sessions_dashboard~~](docs/sdks/v1/README.md#post_sessions_dashboard) - Post Sessions :warning: **Deprecated**
-* [create_takeout_api_v1_takeouts_create_post](docs/sdks/v1/README.md#create_takeout_api_v1_takeouts_create_post) - Create Takeout
-* [get_takeout_api_v1_takeouts_get_job_id_get](docs/sdks/v1/README.md#get_takeout_api_v1_takeouts_get_job_id_get) - Get Takeout
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
+
+<!-- Start File uploads [file-upload] -->
+## File uploads
+
+Certain SDK methods accept file objects as part of a request body or multi-part request. It is possible and typically recommended to upload files as a stream rather than reading the entire contents into memory. This avoids excessive memory consumption and potentially crashing with out-of-memory errors when working with very large files. The following example demonstrates how to attach a file stream to a request.
+
+> [!TIP]
+>
+> For endpoints that handle file uploads bytes arrays can also be used. However, using streams is recommended for large files.
+>
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.outbound.batches.upload(batch_id="<id>", body_outbound_batch_upload={
+        "file": {
+            "file_name": "example.file",
+            "content": open("example.file", "rb"),
+        },
+    })
+
+    # Handle response
+    print(res)
+
+```
+<!-- End File uploads [file-upload] -->
 
 <!-- Start Retries [retries] -->
 ## Retries

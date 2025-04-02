@@ -17,6 +17,7 @@ from syllable_sdk.data_sources import DataSources
 from syllable_sdk.events import Events
 from syllable_sdk.insights import Insights
 from syllable_sdk.language_groups import LanguageGroups
+from syllable_sdk.outbound import Outbound
 from syllable_sdk.prompts import Prompts
 from syllable_sdk.services import Services
 from syllable_sdk.session_debug import SessionDebug
@@ -65,7 +66,6 @@ class SyllableSDK(BaseSDK):
     r"""Operations related to events. An event represents a specific occurrence           during a session. Currently the API/SDK only supports fetching logged events."""
     insights: Insights
     r"""Operations related to insights results. An insight is a tool that processes          conversation data to extract information and generate reports."""
-    v1: V1
     custom_messages: CustomMessages
     r"""Operations related to custom message configuration.           A custom message is a pre-configured message delivered by an agent as a greeting at the           beginning of a conversation. Multiple agents can use the same custom mesasage. A custom           message has one or more rules defined, which allow for different messages to be           dynamically selected and delivered at runtime based on the current time and either           date or day of the week. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Messages)."""
     prompts: Prompts
@@ -81,6 +81,8 @@ class SyllableSDK(BaseSDK):
     r"""Operations related to tool configuration. A tool is a function that an           agent can call to perform actions like accessing databases, making API calls, or           processing data. For an agent to have access to a tool, the prompt associated with that           agent should be linked to the tool and include instructions to use it. For more           information, see [Console docs](https://docs.syllable.ai/Resources/Tools)."""
     dashboards: Dashboards
     r"""Operations related to dashboards. Currently the API/SDK           only supports fetching basic information about dashboards."""
+    v1: V1
+    outbound: Outbound
     language_groups: LanguageGroups
     r"""Operations related to language groups. A language group is a           collection of language, voice, and DTMF configuration that can be linked to an agent to           define the languages and voices it supports. For more information, see           [Console docs](https://docs.syllable.ai/Resources/LanguageGroups)."""
     takeouts: Takeouts
@@ -189,7 +191,6 @@ class SyllableSDK(BaseSDK):
         self.data_sources = DataSources(self.sdk_configuration)
         self.events = Events(self.sdk_configuration)
         self.insights = Insights(self.sdk_configuration)
-        self.v1 = V1(self.sdk_configuration)
         self.custom_messages = CustomMessages(self.sdk_configuration)
         self.prompts = Prompts(self.sdk_configuration)
         self.services = Services(self.sdk_configuration)
@@ -198,6 +199,8 @@ class SyllableSDK(BaseSDK):
         self.session_debug = SessionDebug(self.sdk_configuration)
         self.tools = Tools(self.sdk_configuration)
         self.dashboards = Dashboards(self.sdk_configuration)
+        self.v1 = V1(self.sdk_configuration)
+        self.outbound = Outbound(self.sdk_configuration)
         self.language_groups = LanguageGroups(self.sdk_configuration)
         self.takeouts = Takeouts(self.sdk_configuration)
 

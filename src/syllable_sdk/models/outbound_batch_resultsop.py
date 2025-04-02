@@ -6,11 +6,11 @@ from syllable_sdk.utils import FieldMetadata, PathParamMetadata
 from typing_extensions import Annotated, TypedDict
 
 
-class SessionSummaryGetByIDRequestTypedDict(TypedDict):
-    session_id: str
+class OutboundBatchResultsRequestTypedDict(TypedDict):
+    batch_id: str
 
 
-class SessionSummaryGetByIDRequest(BaseModel):
-    session_id: Annotated[
+class OutboundBatchResultsRequest(BaseModel):
+    batch_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]

@@ -23,9 +23,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.takeouts.create_takeout_api_v1_takeouts_create_post(request={
-        "sub_organization_id": 38300,
-    })
+    res = ss_client.takeouts.create_takeout_api_v1_takeouts_create_post()
 
     # Handle response
     print(res)
@@ -36,7 +34,6 @@ with SyllableSDK(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [models.DaoTakeoutCreate](../../models/daotakeoutcreate.md)         | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -45,10 +42,9 @@ with SyllableSDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| models.APIError | 4XX, 5XX        | \*/\*           |
 
 ## get_takeout_api_v1_takeouts_get_job_id_get
 

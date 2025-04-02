@@ -25,7 +25,7 @@ class SupportedLlmTypedDict(TypedDict):
     r"""LLM API provider."""
     model: NotRequired[str]
     r"""Name of the model. Must match the deployment name in Azure AI Studio."""
-    version: NotRequired[Nullable[str]]
+    version: NotRequired[str]
     r"""Model version."""
     api_version: NotRequired[Nullable[str]]
     r"""Version of the provider's API."""
@@ -46,7 +46,7 @@ class SupportedLlm(BaseModel):
     model: Optional[str] = "gpt-4o"
     r"""Name of the model. Must match the deployment name in Azure AI Studio."""
 
-    version: OptionalNullable[str] = UNSET
+    version: Optional[str] = None
     r"""Model version."""
 
     api_version: OptionalNullable[str] = UNSET
@@ -55,14 +55,14 @@ class SupportedLlm(BaseModel):
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = ["provider", "model", "version", "api_version"]
-        nullable_fields = ["version", "api_version"]
+        nullable_fields = ["api_version"]
         null_default_fields = []
 
         serialized = handler(self)
 
         m = {}
 
-        for n, f in self.model_fields.items():
+        for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k)
             serialized.pop(k, None)

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: f1fb9c673c687803c0faff9f8be1f62f
+  docChecksum: 3ca186710a6f2b873ae7e575c8c1cacf
   docVersion: 0.0.2
-  speakeasyVersion: 1.526.6
-  generationVersion: 2.563.1
-  releaseVersion: 0.3.16
-  configChecksum: f3730b9a7b1540a1b80395135bb73c47
+  speakeasyVersion: 1.528.1
+  generationVersion: 2.565.1
+  releaseVersion: 0.4.0
+  configChecksum: abd51ab9dfc0c455173f1d59effefdd6
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -14,7 +14,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.12.4
+    core: 5.12.5
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
     devContainers: 3.0.0
@@ -28,12 +28,14 @@ features:
     globalServerURLs: 3.1.0
     ignores: 3.0.1
     methodArguments: 1.0.2
+    multipartFileContentType: 1.0.0
     nameOverrides: 3.0.1
     nullables: 1.0.1
     responseFormat: 1.0.1
     retries: 3.0.2
     sdkHooks: 1.0.1
     unions: 3.0.4
+    uploadStreams: 1.0.0
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -64,6 +66,12 @@ generatedFiles:
   - docs/models/availabletarget.md
   - docs/models/availabletargetproperties.md
   - docs/models/availabletargetsrequest.md
+  - docs/models/batchdetails.md
+  - docs/models/batchproperties.md
+  - docs/models/batchstatus.md
+  - docs/models/bodyoutboundbatchdelete.md
+  - docs/models/bodyoutboundbatchupload.md
+  - docs/models/campaignproperties.md
   - docs/models/channel.md
   - docs/models/channelproperties.md
   - docs/models/channelservices.md
@@ -77,6 +85,12 @@ generatedFiles:
   - docs/models/channeltargetslistrequest.md
   - docs/models/channeltargetsupdaterequest.md
   - docs/models/channeltargetupdaterequest.md
+  - docs/models/communicationbatch.md
+  - docs/models/communicationbatchinput.md
+  - docs/models/communicationrequest.md
+  - docs/models/communicationrequestrequestvariables.md
+  - docs/models/communicationrequestresult.md
+  - docs/models/communicationrequestresultrequestvariables.md
   - docs/models/conversation.md
   - docs/models/conversationproperties.md
   - docs/models/conversationslistrequest.md
@@ -89,7 +103,6 @@ generatedFiles:
   - docs/models/custommessagesdeleterequest.md
   - docs/models/custommessageslistrequest.md
   - docs/models/custommessageupdaterequest.md
-  - docs/models/daotakeoutcreate.md
   - docs/models/dashboard.md
   - docs/models/dashboardproperties.md
   - docs/models/dashboardresponse.md
@@ -107,10 +120,10 @@ generatedFiles:
   - docs/models/dialogmessage.md
   - docs/models/dialogrole.md
   - docs/models/dialogtoolcall.md
-  - docs/models/directoryworkflowdeleterequest.md
   - docs/models/event.md
   - docs/models/eventproperties.md
   - docs/models/eventslistrequest.md
+  - docs/models/file.md
   - docs/models/generatesessionrecordingurlsrequest.md
   - docs/models/getsessiondatabysessionidrequest.md
   - docs/models/getsessiondatabysidrequest.md
@@ -121,8 +134,10 @@ generatedFiles:
   - docs/models/insightsoutput.md
   - docs/models/insightsproperties.md
   - docs/models/insightstoolupdaterequest.md
+  - docs/models/insightsworkflowdeleterequest.md
   - docs/models/insightsworkflowgetbyidrequest.md
   - docs/models/insightsworkflowlistrequest.md
+  - docs/models/insightsworkflowqueuesession.md
   - docs/models/insightsworkflowupdaterequest.md
   - docs/models/insighttooldefinition.md
   - docs/models/insighttoolgetbyidrequest.md
@@ -169,6 +184,21 @@ generatedFiles:
   - docs/models/listresponsetoolresponse.md
   - docs/models/loc.md
   - docs/models/orderbydirection.md
+  - docs/models/outboundbatchaddrequest.md
+  - docs/models/outboundbatchdeleterequest.md
+  - docs/models/outboundbatchgetbyidrequest.md
+  - docs/models/outboundbatchlistrequest.md
+  - docs/models/outboundbatchremoverequest.md
+  - docs/models/outboundbatchresultsrequest.md
+  - docs/models/outboundbatchupdaterequest.md
+  - docs/models/outboundbatchuploadrequest.md
+  - docs/models/outboundcampaign.md
+  - docs/models/outboundcampaigncampaignvariables.md
+  - docs/models/outboundcampaigngetbyidrequest.md
+  - docs/models/outboundcampaigninput.md
+  - docs/models/outboundcampaigninputcampaignvariables.md
+  - docs/models/outboundcampaignlistrequest.md
+  - docs/models/outboundcampaignupdaterequest.md
   - docs/models/postgetdashboardrequest.md
   - docs/models/postlistdashboardrequest.md
   - docs/models/promptcreaterequest.md
@@ -182,6 +212,7 @@ generatedFiles:
   - docs/models/promptshistoryrequest.md
   - docs/models/promptslistrequest.md
   - docs/models/promptupdaterequest.md
+  - docs/models/requeststatus.md
   - docs/models/response.md
   - docs/models/security.md
   - docs/models/servicecreaterequest.md
@@ -206,13 +237,13 @@ generatedFiles:
   - docs/models/sessionrecordingresponse.md
   - docs/models/sessionrecordingstreamrequest.md
   - docs/models/sessionslistrequest.md
-  - docs/models/sessionsummarygetbyidrequest.md
   - docs/models/sessionsummaryresponse.md
   - docs/models/sessiontext.md
   - docs/models/sessiontranscriptgetbyidrequest.md
   - docs/models/sessiontranscriptionresponse.md
   - docs/models/statictoolparameter.md
   - docs/models/statictoolparametertype.md
+  - docs/models/statuscounts.md
   - docs/models/supportedllm.md
   - docs/models/takeoutrequeststatus.md
   - docs/models/takeoutstatusresponse.md
@@ -245,6 +276,8 @@ generatedFiles:
   - docs/models/utils/retryconfig.md
   - docs/models/validationerror.md
   - docs/sdks/agents/README.md
+  - docs/sdks/batches/README.md
+  - docs/sdks/campaigns/README.md
   - docs/sdks/channels/README.md
   - docs/sdks/conversations/README.md
   - docs/sdks/custommessages/README.md
@@ -255,12 +288,12 @@ generatedFiles:
   - docs/sdks/insights/README.md
   - docs/sdks/insightstools/README.md
   - docs/sdks/languagegroups/README.md
+  - docs/sdks/outbound/README.md
   - docs/sdks/prompts/README.md
   - docs/sdks/services/README.md
   - docs/sdks/sessiondebug/README.md
   - docs/sdks/sessionlabels/README.md
   - docs/sdks/sessions/README.md
-  - docs/sdks/summary/README.md
   - docs/sdks/syllablesdk/README.md
   - docs/sdks/takeouts/README.md
   - docs/sdks/targets/README.md
@@ -282,6 +315,8 @@ generatedFiles:
   - src/syllable_sdk/_version.py
   - src/syllable_sdk/agents.py
   - src/syllable_sdk/basesdk.py
+  - src/syllable_sdk/batches.py
+  - src/syllable_sdk/campaigns.py
   - src/syllable_sdk/channels.py
   - src/syllable_sdk/conversations.py
   - src/syllable_sdk/custom_messages.py
@@ -315,6 +350,12 @@ generatedFiles:
   - src/syllable_sdk/models/available_targetsop.py
   - src/syllable_sdk/models/availabletarget.py
   - src/syllable_sdk/models/availabletargetproperties.py
+  - src/syllable_sdk/models/batchdetails.py
+  - src/syllable_sdk/models/batchproperties.py
+  - src/syllable_sdk/models/batchstatus.py
+  - src/syllable_sdk/models/body_outbound_batch_delete.py
+  - src/syllable_sdk/models/body_outbound_batch_upload.py
+  - src/syllable_sdk/models/campaignproperties.py
   - src/syllable_sdk/models/channel.py
   - src/syllable_sdk/models/channel_targets_createop.py
   - src/syllable_sdk/models/channel_targets_deleteop.py
@@ -328,6 +369,10 @@ generatedFiles:
   - src/syllable_sdk/models/channeltargetproperties.py
   - src/syllable_sdk/models/channeltargetresponse.py
   - src/syllable_sdk/models/channeltargetupdaterequest.py
+  - src/syllable_sdk/models/communicationbatch.py
+  - src/syllable_sdk/models/communicationbatchinput.py
+  - src/syllable_sdk/models/communicationrequest.py
+  - src/syllable_sdk/models/communicationrequestresult.py
   - src/syllable_sdk/models/conversation.py
   - src/syllable_sdk/models/conversationproperties.py
   - src/syllable_sdk/models/conversations_listop.py
@@ -340,7 +385,6 @@ generatedFiles:
   - src/syllable_sdk/models/custommessageresponse.py
   - src/syllable_sdk/models/custommessagerule.py
   - src/syllable_sdk/models/custommessageupdaterequest.py
-  - src/syllable_sdk/models/daotakeoutcreate.py
   - src/syllable_sdk/models/dashboard.py
   - src/syllable_sdk/models/dashboardproperties.py
   - src/syllable_sdk/models/dashboardresponse.py
@@ -357,7 +401,6 @@ generatedFiles:
   - src/syllable_sdk/models/dialogmessage.py
   - src/syllable_sdk/models/dialogrole.py
   - src/syllable_sdk/models/dialogtoolcall.py
-  - src/syllable_sdk/models/directory_workflow_deleteop.py
   - src/syllable_sdk/models/event.py
   - src/syllable_sdk/models/eventproperties.py
   - src/syllable_sdk/models/events_listop.py
@@ -371,11 +414,13 @@ generatedFiles:
   - src/syllable_sdk/models/insight_tool_listop.py
   - src/syllable_sdk/models/insights_listop.py
   - src/syllable_sdk/models/insights_tool_updateop.py
+  - src/syllable_sdk/models/insights_workflow_deleteop.py
   - src/syllable_sdk/models/insights_workflow_get_by_idop.py
   - src/syllable_sdk/models/insights_workflow_listop.py
   - src/syllable_sdk/models/insights_workflow_updateop.py
   - src/syllable_sdk/models/insightsoutput.py
   - src/syllable_sdk/models/insightsproperties.py
+  - src/syllable_sdk/models/insightsworkflowqueuesession.py
   - src/syllable_sdk/models/insighttooldefinition.py
   - src/syllable_sdk/models/insighttoolinput.py
   - src/syllable_sdk/models/insighttooloutput.py
@@ -413,6 +458,19 @@ generatedFiles:
   - src/syllable_sdk/models/listresponse_sessionlabel_.py
   - src/syllable_sdk/models/listresponse_toolresponse_.py
   - src/syllable_sdk/models/orderbydirection.py
+  - src/syllable_sdk/models/outbound_batch_addop.py
+  - src/syllable_sdk/models/outbound_batch_deleteop.py
+  - src/syllable_sdk/models/outbound_batch_get_by_idop.py
+  - src/syllable_sdk/models/outbound_batch_listop.py
+  - src/syllable_sdk/models/outbound_batch_removeop.py
+  - src/syllable_sdk/models/outbound_batch_resultsop.py
+  - src/syllable_sdk/models/outbound_batch_updateop.py
+  - src/syllable_sdk/models/outbound_batch_uploadop.py
+  - src/syllable_sdk/models/outbound_campaign_get_by_idop.py
+  - src/syllable_sdk/models/outbound_campaign_listop.py
+  - src/syllable_sdk/models/outbound_campaign_updateop.py
+  - src/syllable_sdk/models/outboundcampaign.py
+  - src/syllable_sdk/models/outboundcampaigninput.py
   - src/syllable_sdk/models/post_get_dashboardop.py
   - src/syllable_sdk/models/post_list_dashboardop.py
   - src/syllable_sdk/models/promptcreaterequest.py
@@ -426,6 +484,7 @@ generatedFiles:
   - src/syllable_sdk/models/prompts_historyop.py
   - src/syllable_sdk/models/prompts_listop.py
   - src/syllable_sdk/models/promptupdaterequest.py
+  - src/syllable_sdk/models/requeststatus.py
   - src/syllable_sdk/models/security.py
   - src/syllable_sdk/models/service_deleteop.py
   - src/syllable_sdk/models/service_listop.py
@@ -440,7 +499,6 @@ generatedFiles:
   - src/syllable_sdk/models/session_label_get_by_idop.py
   - src/syllable_sdk/models/session_labels_listop.py
   - src/syllable_sdk/models/session_recording_streamop.py
-  - src/syllable_sdk/models/session_summary_get_by_idop.py
   - src/syllable_sdk/models/session_transcript_get_by_idop.py
   - src/syllable_sdk/models/sessionaction.py
   - src/syllable_sdk/models/sessiondata.py
@@ -483,6 +541,7 @@ generatedFiles:
   - src/syllable_sdk/models/toolupdaterequest.py
   - src/syllable_sdk/models/ttsprovider.py
   - src/syllable_sdk/models/validationerror.py
+  - src/syllable_sdk/outbound.py
   - src/syllable_sdk/prompts.py
   - src/syllable_sdk/py.typed
   - src/syllable_sdk/sdk.py
@@ -491,7 +550,6 @@ generatedFiles:
   - src/syllable_sdk/session_debug.py
   - src/syllable_sdk/session_labels.py
   - src/syllable_sdk/sessions.py
-  - src/syllable_sdk/summary.py
   - src/syllable_sdk/takeouts.py
   - src/syllable_sdk/targets.py
   - src/syllable_sdk/test.py
@@ -1379,6 +1437,175 @@ examples:
       responses:
         "200":
           application/json: {"job_id": "<id>", "status": "pending", "updated_at": "2023-04-28T10:32:56.623Z"}
+        "422":
+          application/json: {}
+  insights_workflow_delete:
+    speakeasy-default-insights-workflow-delete:
+      parameters:
+        path:
+          workflow_id: 545907
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+  queue_sessions_workflow:
+    speakeasy-default-queue-sessions-workflow:
+      requestBody:
+        application/json: {"workflow_name": "summary-workflow", "session_id_list": ["[12334,23445,34556]"]}
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+  outbound_batch_list:
+    speakeasy-default-outbound-batch-list:
+      parameters:
+        query:
+          page: 0
+          limit: 25
+          search_fields: ["expires_on"]
+          search_field_values: ["Some Object Name"]
+          start_datetime: "2023-01-01T00:00:00Z"
+          end_datetime: "2024-01-01T00:00:00Z"
+      responses:
+        "200":
+          application/json: [{"batch_id": "20250117.9", "campaign_id": 1, "expires_on": "2024-01-01T00:00:00Z", "count": 152, "created_at": "2024-01-01T00:00:00Z", "deleted_at": "2024-01-01T00:00:00Z", "deleted_reason": "User request", "last_worked_on": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}, {"batch_id": "20250117.9", "campaign_id": 1, "expires_on": "2024-01-01T00:00:00Z", "count": 152, "created_at": "2024-01-01T00:00:00Z", "deleted_at": "2024-01-01T00:00:00Z", "deleted_reason": "User request", "last_worked_on": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}]
+        "422":
+          application/json: {}
+  outbound_batch_create:
+    speakeasy-default-outbound-batch-create:
+      requestBody:
+        application/json: {"batch_id": "20250117.9", "campaign_id": 1, "expires_on": "2024-01-01T00:00:00Z"}
+      responses:
+        "200":
+          application/json: {"batch_id": "20250117.9", "campaign_id": 1, "expires_on": "2024-01-01T00:00:00Z", "count": 152, "created_at": "2024-01-01T00:00:00Z", "deleted_at": "2024-01-01T00:00:00Z", "deleted_reason": "User request", "last_worked_on": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
+        "422":
+          application/json: {}
+  outbound_batch_get_by_id:
+    speakeasy-default-outbound-batch-get-by-id:
+      parameters:
+        path:
+          batch_id: "<id>"
+      responses:
+        "200":
+          application/json: {"batch_id": "20250117.9", "campaign_id": 1, "expires_on": "2024-01-01T00:00:00Z", "count": 152, "created_at": "2024-01-01T00:00:00Z", "deleted_at": "2024-01-01T00:00:00Z", "deleted_reason": "User request", "last_worked_on": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
+        "422":
+          application/json: {}
+  outbound_batch_update:
+    speakeasy-default-outbound-batch-update:
+      parameters:
+        path:
+          batch_id: "<id>"
+      requestBody:
+        application/json: {"batch_id": "20250117.9", "campaign_id": 1, "expires_on": "2024-01-01T00:00:00Z", "count": 152, "created_at": "2024-01-01T00:00:00Z", "deleted_at": "2024-01-01T00:00:00Z", "deleted_reason": "User request", "last_worked_on": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
+      responses:
+        "200":
+          application/json: {"batch_id": "20250117.9", "campaign_id": 1, "expires_on": "2024-01-01T00:00:00Z", "count": 152, "created_at": "2024-01-01T00:00:00Z", "deleted_at": "2024-01-01T00:00:00Z", "deleted_reason": "User request", "last_worked_on": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
+        "422":
+          application/json: {}
+  outbound_batch_delete:
+    speakeasy-default-outbound-batch-delete:
+      parameters:
+        path:
+          batch_id: "<id>"
+      requestBody:
+        application/x-www-form-urlencoded: {"deleteReason": "<value>"}
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+  outbound_batch_upload:
+    speakeasy-default-outbound-batch-upload:
+      parameters:
+        path:
+          batch_id: "<id>"
+      requestBody:
+        multipart/form-data: {"file": {}}
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+  outbound_batch_results:
+    speakeasy-default-outbound-batch-results:
+      parameters:
+        path:
+          batch_id: "<id>"
+      responses:
+        "200":
+          application/json: [{"batch_id": "20250117.9", "reference_id": "12345", "target": "user@email.com", "request_variables": {}, "call_manager_sid": "LMc4b16a9df2ce33d84b3d30581fe6598c", "created_at": "2024-01-01T00:00:00Z", "sent_at": "2024-01-02T00:00:00Z", "attempt_count": 0, "session_id": 1, "conversation_id": 1}, {"batch_id": "20250117.9", "reference_id": "12345", "target": "user@email.com", "request_variables": {}, "call_manager_sid": "LMc4b16a9df2ce33d84b3d30581fe6598c", "created_at": "2024-01-01T00:00:00Z", "sent_at": "2024-01-02T00:00:00Z", "attempt_count": 0, "session_id": 1, "conversation_id": 1}]
+        "422":
+          application/json: {}
+  outbound_batch_add:
+    speakeasy-default-outbound-batch-add:
+      parameters:
+        path:
+          batch_id: "<id>"
+      requestBody:
+        application/json: {"batch_id": "20250117.9", "reference_id": "12345", "target": "user@email.com", "request_variables": {}}
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+  outbound_batch_remove:
+    speakeasy-default-outbound-batch-remove:
+      parameters:
+        path:
+          batch_id: "<id>"
+      requestBody:
+        application/json: ["<value>", "<value>"]
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+  outbound_campaign_list:
+    speakeasy-default-outbound-campaign-list:
+      parameters:
+        query:
+          page: 0
+          limit: 25
+          search_fields: ["timezone"]
+          search_field_values: ["Some Object Name"]
+          start_datetime: "2023-01-01T00:00:00Z"
+          end_datetime: "2024-01-01T00:00:00Z"
+      responses:
+        "200":
+          application/json: [{"campaign_name": "Outbound Campaign 1", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "timezone": "America/New_York", "source": "account@email.com", "caller_id": "19995551234", "rate": 5, "retry_count": 1, "retry_interval": "30m", "pause_seconds": 30, "id": 1, "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}, {"campaign_name": "Outbound Campaign 1", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "timezone": "America/New_York", "source": "+19032900844", "caller_id": "19995551234", "rate": 5, "retry_count": 1, "retry_interval": "30m", "pause_seconds": 30, "id": 1, "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}]
+        "422":
+          application/json: {}
+  outbound_campaign_create:
+    speakeasy-default-outbound-campaign-create:
+      requestBody:
+        application/json: {"campaign_name": "Outbound Campaign 1", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "timezone": "America/New_York", "source": "+19032900844", "caller_id": "19995551234", "rate": 5, "retry_count": 1, "retry_interval": "12h", "pause_seconds": 30}
+      responses:
+        "200":
+          application/json: {"campaign_name": "Outbound Campaign 1", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "timezone": "America/New_York", "source": "+19032900844", "caller_id": "19995551234", "rate": 5, "retry_count": 1, "retry_interval": "30m", "pause_seconds": 30, "id": 1, "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
+        "422":
+          application/json: {}
+  outbound_campaign_get_by_id:
+    speakeasy-default-outbound-campaign-get-by-id:
+      parameters:
+        path:
+          campaign_id: "<id>"
+      responses:
+        "200":
+          application/json: {"campaign_name": "Outbound Campaign 1", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "timezone": "America/New_York", "source": "account@email.com", "caller_id": "19995551234", "rate": 5, "retry_count": 1, "retry_interval": "12h", "pause_seconds": 30, "id": 1, "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
+        "422":
+          application/json: {}
+  outbound_campaign_update:
+    speakeasy-default-outbound-campaign-update:
+      parameters:
+        path:
+          campaign_id: 344620
+      requestBody:
+        application/json: {"campaign_name": "Outbound Campaign 1", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "timezone": "America/New_York", "source": "account@email.com", "caller_id": "19995551234", "rate": 5, "retry_count": 1, "retry_interval": "12h", "pause_seconds": 30}
+      responses:
+        "200":
+          application/json: {"campaign_name": "Outbound Campaign 1", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "timezone": "America/New_York", "source": "account@email.com", "caller_id": "19995551234", "rate": 5, "retry_count": 1, "retry_interval": "12h", "pause_seconds": 30, "id": 1, "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
 examplesVersion: 1.0.0
