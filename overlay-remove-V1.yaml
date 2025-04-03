@@ -378,6 +378,33 @@ actions:
     update:
       - "insights"
 
+
+  - target: $["paths"]["/api/v1/incidents/{incident_id}"]["get"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/incidents/{incident_id}"]["get"]["tags"]
+    update:
+      - "incidents"
+  - target: $["paths"]["/api/v1/incidents/{incident_id}"]["put"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/incidents/{incident_id}"]["put"]["tags"]
+    update:
+      - "incidents"
+  - target: $["paths"]["/api/v1/incidents/{incident_id}"]["delete"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/incidents/{incident_id}"]["delete"]["tags"]
+    update:
+      - "incidents"
+  - target: $["paths"]["/api/v1/incidents/"]["get"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/incidents/"]["get"]["tags"]
+    update:
+      - "incidents"
+  - target: $["paths"]["/api/v1/incidents/"]["post"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/incidents/"]["post"]["tags"]
+    update:
+      - "incidents"
+
   - target: $["paths"]["/api/v1/insights/workflows/"]["get"]["tags"][*]
     remove: true
   - target: $["paths"]["/api/v1/insights/workflows/"]["get"]["tags"]
