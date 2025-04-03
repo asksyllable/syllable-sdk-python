@@ -774,6 +774,118 @@ actions:
 
                 # Handle response
                 print(res)
+  - target: $["paths"]["/api/v1/incidents/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.incidents.list()
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/incidents/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import dateutil.parser
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.incidents.create(request={
+                    "organization_id": 486589,
+                    "sub_organization_id": 638424,
+                    "sub_organization": "<value>",
+                    "description": "calmly fortunately bench around igloo scaffold",
+                    "start_datetime": dateutil.parser.isoparse("2025-04-13T05:49:58.922Z"),
+                    "resolution_datetime": dateutil.parser.isoparse("2023-08-30T02:12:40.558Z"),
+                    "impact_category": "<value>",
+                    "sessions_impacted": 449221,
+                    "markdown": "<value>",
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/incidents/{incident_id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.incidents.delete(incident_id=545907)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/incidents/{incident_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.incidents.get_by_id(incident_id=931598)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/incidents/{incident_id}"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import dateutil.parser
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.incidents.update(incident_id=656776, service_incident_request={
+                    "organization_id": 857478,
+                    "sub_organization_id": 597129,
+                    "sub_organization": "<value>",
+                    "description": "hydrolyze for drat underneath sticky",
+                    "start_datetime": dateutil.parser.isoparse("2023-03-21T03:40:17.460Z"),
+                    "resolution_datetime": dateutil.parser.isoparse("2023-06-16T09:40:21.633Z"),
+                    "impact_category": "<value>",
+                    "sessions_impacted": 342070,
+                    "markdown": "<value>",
+                })
+
+                # Handle response
+                print(res)
   - target: $["paths"]["/api/v1/insights/"]["get"]
     update:
       x-codeSamples:

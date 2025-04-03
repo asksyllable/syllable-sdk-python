@@ -15,6 +15,7 @@ from syllable_sdk.custom_messages import CustomMessages
 from syllable_sdk.dashboards import Dashboards
 from syllable_sdk.data_sources import DataSources
 from syllable_sdk.events import Events
+from syllable_sdk.incidents import Incidents
 from syllable_sdk.insights import Insights
 from syllable_sdk.language_groups import LanguageGroups
 from syllable_sdk.outbound import Outbound
@@ -64,6 +65,8 @@ class SyllableSDK(BaseSDK):
     r"""Operations related to data sources. A data source is a blob of text that           can be made available to an agent's general info tools to provide more context to the           agent when generating its responses. For more information, see           [Console docs](https://docs.syllable.ai/Resources/DataSources)."""
     events: Events
     r"""Operations related to events. An event represents a specific occurrence           during a session. Currently the API/SDK only supports fetching logged events."""
+    incidents: Incidents
+    r"""Operations related to incidents."""
     insights: Insights
     r"""Operations related to insights results. An insight is a tool that processes          conversation data to extract information and generate reports."""
     custom_messages: CustomMessages
@@ -190,6 +193,7 @@ class SyllableSDK(BaseSDK):
         self.conversations = Conversations(self.sdk_configuration)
         self.data_sources = DataSources(self.sdk_configuration)
         self.events = Events(self.sdk_configuration)
+        self.incidents = Incidents(self.sdk_configuration)
         self.insights = Insights(self.sdk_configuration)
         self.custom_messages = CustomMessages(self.sdk_configuration)
         self.prompts = Prompts(self.sdk_configuration)

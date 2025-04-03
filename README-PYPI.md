@@ -9,7 +9,7 @@ Syllable SDK gives you the power of awesome AI agentry. 🚀
 
 ## Overview
 
-The Syllable SDK provides a comprehensive set of tools and APIs to integrate powerful AI  
+The Syllable SDK provides a comprehensive set of tools and APIs to integrate powerful AI
 capabilities into your communication applications. Whether you're building chatbots, virtual
 assistants, or any other AI-driven solutions, Syllable SDK has got you covered.
 
@@ -265,6 +265,14 @@ with SyllableSDK(
 ### [events](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/events/README.md)
 
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/events/README.md#list) - Events List
+
+### [incidents](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/incidents/README.md)
+
+* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/incidents/README.md#get_by_id) - Get Incident By Id
+* [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/incidents/README.md#update) - Update Incident
+* [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/incidents/README.md#delete) - Delete Incident
+* [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/incidents/README.md#create) - Create Incident
+* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/incidents/README.md#list) - List Incidents
 
 ### [insights](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insights/README.md)
 
