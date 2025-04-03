@@ -1,0 +1,16 @@
+# ServiceIncidentRequest
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `organization_id`                                                    | *Nullable[int]*                                                      | :heavy_check_mark:                                                   | N/A                                                                  |
+| `sub_organization_id`                                                | *Nullable[int]*                                                      | :heavy_check_mark:                                                   | N/A                                                                  |
+| `sub_organization`                                                   | *Nullable[str]*                                                      | :heavy_check_mark:                                                   | N/A                                                                  |
+| `description`                                                        | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `start_datetime`                                                     | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_check_mark:                                                   | N/A                                                                  |
+| `resolution_datetime`                                                | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_check_mark:                                                   | N/A                                                                  |
+| `impact_category`                                                    | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `sessions_impacted`                                                  | *int*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `markdown`                                                           | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |

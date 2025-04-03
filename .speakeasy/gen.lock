@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 3ca186710a6f2b873ae7e575c8c1cacf
+  docChecksum: bf9c22f0a17a03bd27e7d1b89d9318be
   docVersion: 0.0.2
   speakeasyVersion: 1.528.1
   generationVersion: 2.565.1
-  releaseVersion: 0.4.0
-  configChecksum: abd51ab9dfc0c455173f1d59effefdd6
+  releaseVersion: 0.4.1
+  configChecksum: 8e579c87810005324b3f013ace020583
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -130,6 +130,10 @@ generatedFiles:
   - docs/models/getsessiontoolcallresultbyidrequest.md
   - docs/models/gettakeoutapiv1takeoutsgetjobidgetrequest.md
   - docs/models/httpvalidationerror.md
+  - docs/models/incidentdeleterequest.md
+  - docs/models/incidentgetbyidrequest.md
+  - docs/models/incidentlistrequest.md
+  - docs/models/incidentupdaterequest.md
   - docs/models/insightslistrequest.md
   - docs/models/insightsoutput.md
   - docs/models/insightsproperties.md
@@ -217,6 +221,8 @@ generatedFiles:
   - docs/models/security.md
   - docs/models/servicecreaterequest.md
   - docs/models/servicedeleterequest.md
+  - docs/models/serviceincidentrequest.md
+  - docs/models/serviceincidentresponse.md
   - docs/models/servicelistrequest.md
   - docs/models/serviceproperties.md
   - docs/models/serviceresponse.md
@@ -285,6 +291,7 @@ generatedFiles:
   - docs/sdks/datasources/README.md
   - docs/sdks/events/README.md
   - docs/sdks/fullsummary/README.md
+  - docs/sdks/incidents/README.md
   - docs/sdks/insights/README.md
   - docs/sdks/insightstools/README.md
   - docs/sdks/languagegroups/README.md
@@ -325,6 +332,7 @@ generatedFiles:
   - src/syllable_sdk/events.py
   - src/syllable_sdk/full_summary.py
   - src/syllable_sdk/httpclient.py
+  - src/syllable_sdk/incidents.py
   - src/syllable_sdk/insights.py
   - src/syllable_sdk/insights_tools.py
   - src/syllable_sdk/language_groups.py
@@ -410,6 +418,10 @@ generatedFiles:
   - src/syllable_sdk/models/get_session_tool_call_result_by_idop.py
   - src/syllable_sdk/models/get_takeout_api_v1_takeouts_get_job_id_getop.py
   - src/syllable_sdk/models/httpvalidationerror.py
+  - src/syllable_sdk/models/incident_deleteop.py
+  - src/syllable_sdk/models/incident_get_by_idop.py
+  - src/syllable_sdk/models/incident_listop.py
+  - src/syllable_sdk/models/incident_updateop.py
   - src/syllable_sdk/models/insight_tool_get_by_idop.py
   - src/syllable_sdk/models/insight_tool_listop.py
   - src/syllable_sdk/models/insights_listop.py
@@ -489,6 +501,8 @@ generatedFiles:
   - src/syllable_sdk/models/service_deleteop.py
   - src/syllable_sdk/models/service_listop.py
   - src/syllable_sdk/models/servicecreaterequest.py
+  - src/syllable_sdk/models/serviceincidentrequest.py
+  - src/syllable_sdk/models/serviceincidentresponse.py
   - src/syllable_sdk/models/serviceproperties.py
   - src/syllable_sdk/models/serviceresponse.py
   - src/syllable_sdk/models/services_get_by_idop.py
@@ -1574,7 +1588,7 @@ examples:
           end_datetime: "2024-01-01T00:00:00Z"
       responses:
         "200":
-          application/json: [{"campaign_name": "Outbound Campaign 1", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "timezone": "America/New_York", "source": "account@email.com", "caller_id": "19995551234", "rate": 5, "retry_count": 1, "retry_interval": "30m", "pause_seconds": 30, "id": 1, "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}, {"campaign_name": "Outbound Campaign 1", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "timezone": "America/New_York", "source": "+19032900844", "caller_id": "19995551234", "rate": 5, "retry_count": 1, "retry_interval": "30m", "pause_seconds": 30, "id": 1, "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}]
+          application/json: [{"campaign_name": "Outbound Campaign 1", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "timezone": "America/New_York", "source": "account@email.com", "caller_id": "19995551234", "rate": 5, "retry_count": 1, "retry_interval": "7d", "pause_seconds": 30, "id": 1, "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}, {"campaign_name": "Outbound Campaign 1", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "timezone": "America/New_York", "source": "+19032900844", "caller_id": "19995551234", "rate": 5, "retry_count": 1, "retry_interval": "30m", "pause_seconds": 30, "id": 1, "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}]
         "422":
           application/json: {}
   outbound_campaign_create:
@@ -1605,7 +1619,59 @@ examples:
         application/json: {"campaign_name": "Outbound Campaign 1", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "timezone": "America/New_York", "source": "account@email.com", "caller_id": "19995551234", "rate": 5, "retry_count": 1, "retry_interval": "12h", "pause_seconds": 30}
       responses:
         "200":
-          application/json: {"campaign_name": "Outbound Campaign 1", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "timezone": "America/New_York", "source": "account@email.com", "caller_id": "19995551234", "rate": 5, "retry_count": 1, "retry_interval": "12h", "pause_seconds": 30, "id": 1, "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"campaign_name": "Outbound Campaign 1", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "timezone": "America/New_York", "source": "+19032900844", "caller_id": "19995551234", "rate": 5, "retry_count": 1, "retry_interval": "7d", "pause_seconds": 30, "id": 1, "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
+        "422":
+          application/json: {}
+  incident_get_by_id:
+    speakeasy-default-incident-get-by-id:
+      parameters:
+        path:
+          incident_id: 931598
+      responses:
+        "200":
+          application/json: {"organization_id": 505057, "sub_organization_id": 467619, "sub_organization": "<value>", "description": "cassava statement unabashedly", "start_datetime": "2023-04-03T13:35:51.168Z", "resolution_datetime": "2024-10-08T23:21:57.432Z", "impact_category": "<value>", "sessions_impacted": 993676, "markdown": "<value>", "created_at": "2024-08-17T17:48:53.061Z", "updated_at": "2025-10-08T19:54:32.742Z", "id": 397001}
+        "422":
+          application/json: {}
+  incident_update:
+    speakeasy-default-incident-update:
+      parameters:
+        path:
+          incident_id: 656776
+      requestBody:
+        application/json: {"organization_id": 857478, "sub_organization_id": 597129, "sub_organization": "<value>", "description": "hydrolyze for drat underneath sticky", "start_datetime": "2023-03-21T03:40:17.460Z", "resolution_datetime": "2023-06-16T09:40:21.633Z", "impact_category": "<value>", "sessions_impacted": 342070, "markdown": "<value>"}
+      responses:
+        "200":
+          application/json: {"organization_id": 119053, "sub_organization_id": 609050, "sub_organization": "<value>", "description": "even gosh frantically", "start_datetime": "2023-08-06T05:00:55.823Z", "resolution_datetime": "2024-01-07T04:27:44.407Z", "impact_category": "<value>", "sessions_impacted": 683356, "markdown": "<value>", "created_at": "2023-07-12T17:23:14.857Z", "updated_at": "2023-10-30T15:27:26.453Z", "id": 332914}
+        "422":
+          application/json: {}
+  incident_delete:
+    speakeasy-default-incident-delete:
+      parameters:
+        path:
+          incident_id: 545907
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+  incident_create:
+    speakeasy-default-incident-create:
+      requestBody:
+        application/json: {"organization_id": 486589, "sub_organization_id": 638424, "sub_organization": "<value>", "description": "calmly fortunately bench around igloo scaffold", "start_datetime": "2025-04-13T05:49:58.922Z", "resolution_datetime": "2023-08-30T02:12:40.558Z", "impact_category": "<value>", "sessions_impacted": 449221, "markdown": "<value>"}
+      responses:
+        "200":
+          application/json: {"organization_id": 427887, "sub_organization_id": 588497, "sub_organization": "<value>", "description": "electronics through for", "start_datetime": "2025-07-14T04:50:22.539Z", "resolution_datetime": "2024-01-23T11:16:40.339Z", "impact_category": "<value>", "sessions_impacted": 428745, "markdown": "<value>", "created_at": "2025-01-15T03:41:56.444Z", "updated_at": "2023-03-21T09:22:24.071Z", "id": 860420}
+        "422":
+          application/json: {}
+  incident_list:
+    speakeasy-default-incident-list:
+      parameters:
+        query:
+          limit: 10
+          offset: 0
+      responses:
+        "200":
+          application/json: [{"organization_id": 547272, "sub_organization_id": 678317, "sub_organization": "<value>", "description": "bob inwardly beautifully comparison", "start_datetime": "2023-03-24T06:20:14.879Z", "resolution_datetime": "2025-09-10T04:30:13.188Z", "impact_category": "<value>", "sessions_impacted": 135572, "markdown": "<value>", "created_at": "2024-05-19T11:06:26.987Z", "updated_at": "2024-04-11T03:59:08.538Z", "id": 432930}, {"organization_id": 480616, "sub_organization_id": 103421, "sub_organization": "<value>", "description": "covenant safely briefly ugh fen phew reschedule", "start_datetime": "2025-04-21T16:08:32.154Z", "resolution_datetime": "2024-03-21T14:01:55.283Z", "impact_category": "<value>", "sessions_impacted": 29267, "markdown": "<value>", "created_at": "2024-12-15T22:46:18.179Z", "updated_at": "2025-01-24T21:46:28.752Z", "id": 605070}, {"organization_id": 408066, "sub_organization_id": 41398, "sub_organization": "<value>", "description": "woot excepting gah only despite seemingly eventually ah creative", "start_datetime": "2024-06-10T07:32:02.289Z", "resolution_datetime": "2025-03-21T06:52:57.825Z", "impact_category": "<value>", "sessions_impacted": 849513, "markdown": "<value>", "created_at": "2023-11-06T04:06:54.106Z", "updated_at": "2024-06-20T13:26:28.598Z", "id": 350124}]
         "422":
           application/json: {}
 examplesVersion: 1.0.0

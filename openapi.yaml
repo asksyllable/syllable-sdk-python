@@ -1,7 +1,7 @@
 openapi: "3.1.0"
 info:
   title: "SyllableSDK"
-  description: "\n# Syllable Platform SDK\n\nSyllable SDK gives you the power of awesome AI agentry. \U0001F680\n\n## Overview\n\nThe Syllable SDK provides a comprehensive set of tools and APIs to integrate powerful AI  \ncapabilities into your communication applications. Whether you're building chatbots, virtual\nassistants, or any other AI-driven solutions, Syllable SDK has got you covered.\n\n## Features\n\n- **Natural Language Processing (NLP)**: Understand and generate human language with ease.\n- **Machine Learning Models**: Leverage pre-trained models or train your own custom models.\n- **Speech Recognition**: Convert speech to text and vice versa.\n- **Data Analytics**: Analyze and visualize data to gain insights.\n- **Integration**: Seamlessly integrate with other services and platforms.\n\n"
+  description: "\n# Syllable Platform SDK\n\nSyllable SDK gives you the power of awesome AI agentry. \U0001F680\n\n## Overview\n\nThe Syllable SDK provides a comprehensive set of tools and APIs to integrate powerful AI\ncapabilities into your communication applications. Whether you're building chatbots, virtual\nassistants, or any other AI-driven solutions, Syllable SDK has got you covered.\n\n## Features\n\n- **Natural Language Processing (NLP)**: Understand and generate human language with ease.\n- **Machine Learning Models**: Leverage pre-trained models or train your own custom models.\n- **Speech Recognition**: Convert speech to text and vice versa.\n- **Data Analytics**: Analyze and visualize data to gain insights.\n- **Integration**: Seamlessly integrate with other services and platforms.\n\n"
   version: "0.0.2"
 servers:
   - url: "https://api.syllable.cloud"
@@ -921,6 +921,156 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/ListResponse_Event_"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+  "/api/v1/incidents/{incident_id}":
+    get:
+      tags:
+        - "incidents"
+      summary: "Get Incident By Id"
+      description: "Get incident by ID"
+      operationId: "incident_get_by_id"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "incident_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Incident Id"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema:
+                anyOf:
+                  - {"$ref": "#/components/schemas/ServiceIncidentResponse"}
+                  - type: "null"
+                title: "Response Incident Get By Id"
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+    put:
+      tags:
+        - "incidents"
+      summary: "Update Incident"
+      description: "Update an existing incident"
+      operationId: "incident_update"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "incident_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Incident Id"
+      requestBody:
+        required: true
+        content:
+          "application/json":
+            schema: {"$ref": "#/components/schemas/ServiceIncidentRequest"}
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/ServiceIncidentResponse"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+    delete:
+      tags:
+        - "incidents"
+      summary: "Delete Incident"
+      description: "Delete an incident by ID"
+      operationId: "incident_delete"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "incident_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Incident Id"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+  "/api/v1/incidents/":
+    post:
+      tags:
+        - "incidents"
+      summary: "Create Incident"
+      description: "Create a new incident"
+      operationId: "incident_create"
+      security:
+        - APIKeyHeader: []
+      requestBody:
+        required: true
+        content:
+          "application/json":
+            schema: {"$ref": "#/components/schemas/ServiceIncidentRequest"}
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/ServiceIncidentResponse"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+    get:
+      tags:
+        - "incidents"
+      summary: "List Incidents"
+      description: "List service incidents with pagination"
+      operationId: "incident_list"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "limit"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            default: 10
+            title: "Limit"
+        - name: "offset"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            default: 0
+            title: "Offset"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema:
+                type: "array"
+                items: {"$ref": "#/components/schemas/ServiceIncidentResponse"}
+                title: "Response Incident List"
         "422":
           description: "Validation Error"
           content:
@@ -9262,6 +9412,118 @@ components:
         - "description"
       title: "ServiceCreateRequest"
       description: "Request model to create a service."
+    "ServiceIncidentRequest":
+      properties:
+        "organization_id":
+          anyOf:
+            - type: "integer"
+            - type: "null"
+          title: "Organization Id"
+        "sub_organization_id":
+          anyOf:
+            - type: "integer"
+            - type: "null"
+          title: "Sub Organization Id"
+        "sub_organization":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Sub Organization"
+        "description":
+          type: "string"
+          title: "Description"
+        "start_datetime":
+          type: "string"
+          format: "date-time"
+          title: "Start Datetime"
+        "resolution_datetime":
+          type: "string"
+          format: "date-time"
+          title: "Resolution Datetime"
+        "impact_category":
+          type: "string"
+          title: "Impact Category"
+        "sessions_impacted":
+          type: "integer"
+          title: "Sessions Impacted"
+        "markdown":
+          type: "string"
+          title: "Markdown"
+      type: "object"
+      required:
+        - "organization_id"
+        - "sub_organization_id"
+        - "sub_organization"
+        - "description"
+        - "start_datetime"
+        - "resolution_datetime"
+        - "impact_category"
+        - "sessions_impacted"
+        - "markdown"
+      title: "ServiceIncidentRequest"
+    "ServiceIncidentResponse":
+      properties:
+        "organization_id":
+          anyOf:
+            - type: "integer"
+            - type: "null"
+          title: "Organization Id"
+        "sub_organization_id":
+          anyOf:
+            - type: "integer"
+            - type: "null"
+          title: "Sub Organization Id"
+        "sub_organization":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Sub Organization"
+        "description":
+          type: "string"
+          title: "Description"
+        "start_datetime":
+          type: "string"
+          format: "date-time"
+          title: "Start Datetime"
+        "resolution_datetime":
+          type: "string"
+          format: "date-time"
+          title: "Resolution Datetime"
+        "impact_category":
+          type: "string"
+          title: "Impact Category"
+        "sessions_impacted":
+          type: "integer"
+          title: "Sessions Impacted"
+        "markdown":
+          type: "string"
+          title: "Markdown"
+        "created_at":
+          type: "string"
+          format: "date-time"
+          title: "Created At"
+        "updated_at":
+          type: "string"
+          format: "date-time"
+          title: "Updated At"
+        "id":
+          type: "integer"
+          title: "Id"
+      type: "object"
+      required:
+        - "organization_id"
+        - "sub_organization_id"
+        - "sub_organization"
+        - "description"
+        - "start_datetime"
+        - "resolution_datetime"
+        - "impact_category"
+        - "sessions_impacted"
+        - "markdown"
+        - "created_at"
+        - "updated_at"
+        - "id"
+      title: "ServiceIncidentResponse"
     "ServiceProperties":
       type: "string"
       enum:
@@ -10576,6 +10838,8 @@ tags:
     description: "Operations related to directory"
   - name: "events"
     description: "Operations related to events. An event represents a specific occurrence           during a session. Currently the API/SDK only supports fetching logged events."
+  - name: "incidents"
+    description: "Operations related to incidents."
   - name: "insights"
     description: "Operations related to insights results. An insight is a tool that processes          conversation data to extract information and generate reports."
   - name: "insights.tools"

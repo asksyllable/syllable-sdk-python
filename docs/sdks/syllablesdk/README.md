@@ -9,7 +9,7 @@ Syllable SDK gives you the power of awesome AI agentry. 🚀
 
 ## Overview
 
-The Syllable SDK provides a comprehensive set of tools and APIs to integrate powerful AI  
+The Syllable SDK provides a comprehensive set of tools and APIs to integrate powerful AI
 capabilities into your communication applications. Whether you're building chatbots, virtual
 assistants, or any other AI-driven solutions, Syllable SDK has got you covered.
 

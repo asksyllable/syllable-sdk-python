@@ -185,6 +185,13 @@ from .get_takeout_api_v1_takeouts_get_job_id_getop import (
     GetTakeoutAPIV1TakeoutsGetJobIDGetRequestTypedDict,
 )
 from .httpvalidationerror import HTTPValidationError, HTTPValidationErrorData
+from .incident_deleteop import IncidentDeleteRequest, IncidentDeleteRequestTypedDict
+from .incident_get_by_idop import (
+    IncidentGetByIDRequest,
+    IncidentGetByIDRequestTypedDict,
+)
+from .incident_listop import IncidentListRequest, IncidentListRequestTypedDict
+from .incident_updateop import IncidentUpdateRequest, IncidentUpdateRequestTypedDict
 from .insight_tool_get_by_idop import (
     InsightToolGetByIDRequest,
     InsightToolGetByIDRequestTypedDict,
@@ -429,6 +436,14 @@ from .security import Security, SecurityTypedDict
 from .service_deleteop import ServiceDeleteRequest, ServiceDeleteRequestTypedDict
 from .service_listop import ServiceListRequest, ServiceListRequestTypedDict
 from .servicecreaterequest import ServiceCreateRequest, ServiceCreateRequestTypedDict
+from .serviceincidentrequest import (
+    ServiceIncidentRequest,
+    ServiceIncidentRequestTypedDict,
+)
+from .serviceincidentresponse import (
+    ServiceIncidentResponse,
+    ServiceIncidentResponseTypedDict,
+)
 from .serviceproperties import ServiceProperties
 from .serviceresponse import ServiceResponse, ServiceResponseTypedDict
 from .services_get_by_idop import (
@@ -688,6 +703,14 @@ __all__ = [
     "GetTakeoutAPIV1TakeoutsGetJobIDGetRequestTypedDict",
     "HTTPValidationError",
     "HTTPValidationErrorData",
+    "IncidentDeleteRequest",
+    "IncidentDeleteRequestTypedDict",
+    "IncidentGetByIDRequest",
+    "IncidentGetByIDRequestTypedDict",
+    "IncidentListRequest",
+    "IncidentListRequestTypedDict",
+    "IncidentUpdateRequest",
+    "IncidentUpdateRequestTypedDict",
     "InsightToolDefinition",
     "InsightToolDefinitionTypedDict",
     "InsightToolGetByIDRequest",
@@ -853,6 +876,10 @@ __all__ = [
     "ServiceCreateRequestTypedDict",
     "ServiceDeleteRequest",
     "ServiceDeleteRequestTypedDict",
+    "ServiceIncidentRequest",
+    "ServiceIncidentRequestTypedDict",
+    "ServiceIncidentResponse",
+    "ServiceIncidentResponseTypedDict",
     "ServiceListRequest",
     "ServiceListRequestTypedDict",
     "ServiceProperties",
