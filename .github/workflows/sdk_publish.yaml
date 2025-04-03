@@ -21,3 +21,13 @@ jobs:
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
       pypi_token: ${{ secrets.PYPI_TOKEN }}
       speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+  refresh-mintlify-docs:
+    name: Refresh Mintlify Docs
+    runs-on: ubuntu-latest
+    needs: publish
+    steps:
+      - name: Call mintlify API
+        run: |
+          curl --request POST \
+          --url https://api.mintlify.com/v1/project/update/${{ secrets.MINTLIFY_PROJECT_ID}} \
+          --header 'Authorization: Bearer ${{ secrets.MINTLIFY_API_TOKEN}}'
