@@ -379,14 +379,14 @@ actions:
       - "insights"
 
 
+  - target: $["paths"]["/api/v1/incidents/organizations"]["get"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/incidents/organizations"]["get"]["tags"]
+    update:
+      - "incidents"
   - target: $["paths"]["/api/v1/incidents/{incident_id}"]["get"]["tags"][*]
     remove: true
   - target: $["paths"]["/api/v1/incidents/{incident_id}"]["get"]["tags"]
-    update:
-      - "incidents"
-  - target: $["paths"]["/api/v1/incidents/{incident_id}"]["put"]["tags"][*]
-    remove: true
-  - target: $["paths"]["/api/v1/incidents/{incident_id}"]["put"]["tags"]
     update:
       - "incidents"
   - target: $["paths"]["/api/v1/incidents/{incident_id}"]["delete"]["tags"][*]
@@ -404,6 +404,12 @@ actions:
   - target: $["paths"]["/api/v1/incidents/"]["post"]["tags"]
     update:
       - "incidents"
+  - target: $["paths"]["/api/v1/incidents/"]["put"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/incidents/"]["put"]["tags"]
+    update:
+      - "incidents"
+
 
   - target: $["paths"]["/api/v1/insights/workflows/"]["get"]["tags"][*]
     remove: true
@@ -460,7 +466,11 @@ actions:
   - target: $["paths"]["/api/v1/insights/tool-definitions"]["get"]["tags"]
     update:
       - "insights.tools"
-
+  - target: $["paths"]["/api/v1/insights/tools-test"]["post"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/insights/tools-test"]["post"]["tags"]
+    update:
+      - "insights.tools"
   - target: $["paths"]["/api/v1/language_groups/"]["get"]["tags"][*]
     remove: true
   - target: $["paths"]["/api/v1/language_groups/"]["get"]["tags"]

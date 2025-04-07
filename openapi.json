@@ -1592,6 +1592,348 @@
         }
       }
     },
+    "/api/v1/incidents/": {
+      "get": {
+        "tags": [
+          "incidents",
+          "V1"
+        ],
+        "summary": "List Incidents",
+        "description": "List service incidents with pagination and filtering",
+        "operationId": "incident_list",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The page number from which to start (0-based)",
+              "examples": [
+                0
+              ],
+              "default": 0,
+              "title": "Page"
+            },
+            "description": "The page number from which to start (0-based)"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "The maximum number of items to return",
+              "examples": [
+                25
+              ],
+              "default": 25,
+              "title": "Limit"
+            },
+            "description": "The maximum number of items to return"
+          },
+          {
+            "name": "search_fields",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/IncidentProperties"
+              },
+              "description": "String names of fields to search. Correspond by index to search field values",
+              "examples": [
+                "name"
+              ],
+              "default": [],
+              "title": "Search Fields"
+            },
+            "description": "String names of fields to search. Correspond by index to search field values"
+          },
+          {
+            "name": "search_field_values",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list",
+              "examples": [
+                "Some Object Name"
+              ],
+              "default": [],
+              "title": "Search Field Values"
+            },
+            "description": "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/IncidentProperties"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The field whose value should be used to order the results",
+              "examples": [
+                "name"
+              ],
+              "title": "Order By"
+            },
+            "description": "The field whose value should be used to order the results"
+          },
+          {
+            "name": "order_by_direction",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/OrderByDirection"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The direction in which to order the results",
+              "title": "Order By Direction"
+            },
+            "description": "The direction in which to order the results"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IncidentProperties"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The fields to include in the response",
+              "default": [],
+              "title": "Fields"
+            },
+            "description": "The fields to include in the response"
+          },
+          {
+            "name": "start_datetime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The start datetime for filtering results",
+              "examples": [
+                "2023-01-01T00:00:00Z"
+              ],
+              "title": "Start Datetime"
+            },
+            "description": "The start datetime for filtering results"
+          },
+          {
+            "name": "end_datetime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The end datetime for filtering results",
+              "examples": [
+                "2024-01-01T00:00:00Z"
+              ],
+              "title": "End Datetime"
+            },
+            "description": "The end datetime for filtering results"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListResponse_IncidentResponse_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "incidents",
+          "V1"
+        ],
+        "summary": "Create Incident",
+        "description": "Create a new incident",
+        "operationId": "incident_create",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IncidentCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IncidentResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "incidents",
+          "V1"
+        ],
+        "summary": "Update Incident",
+        "description": "Update an existing incident",
+        "operationId": "incident_update",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IncidentUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IncidentResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/incidents/organizations": {
+      "get": {
+        "tags": [
+          "incidents",
+          "V1"
+        ],
+        "summary": "Get Organizations",
+        "description": "Get all organizations",
+        "operationId": "incident_get_organizations",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/IncidentOrganizationResponse"
+                  },
+                  "type": "array",
+                  "title": "Response Incident Get Organizations"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
     "/api/v1/incidents/{incident_id}": {
       "get": {
         "tags": [
@@ -1623,72 +1965,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "anyOf": [
-                    {
-                      "$ref": "#/components/schemas/ServiceIncidentResponse"
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ],
-                  "title": "Response Incident Get By Id"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "incidents",
-          "V1"
-        ],
-        "summary": "Update Incident",
-        "description": "Update an existing incident",
-        "operationId": "incident_update",
-        "security": [
-          {
-            "APIKeyHeader": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "incident_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "title": "Incident Id"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ServiceIncidentRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ServiceIncidentResponse"
+                  "$ref": "#/components/schemas/IncidentResponse"
                 }
               }
             }
@@ -1727,6 +2004,15 @@
               "type": "integer",
               "title": "Incident Id"
             }
+          },
+          {
+            "name": "reason",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Reason"
+            }
           }
         ],
         "responses": {
@@ -1751,116 +2037,6 @@
         }
       }
     },
-    "/api/v1/incidents/": {
-      "post": {
-        "tags": [
-          "incidents",
-          "V1"
-        ],
-        "summary": "Create Incident",
-        "description": "Create a new incident",
-        "operationId": "incident_create",
-        "security": [
-          {
-            "APIKeyHeader": []
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ServiceIncidentRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ServiceIncidentResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      },
-      "get": {
-        "tags": [
-          "incidents",
-          "V1"
-        ],
-        "summary": "List Incidents",
-        "description": "List service incidents with pagination",
-        "operationId": "incident_list",
-        "security": [
-          {
-            "APIKeyHeader": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "default": 10,
-              "title": "Limit"
-            }
-          },
-          {
-            "name": "offset",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "default": 0,
-              "title": "Offset"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ServiceIncidentResponse"
-                  },
-                  "title": "Response Incident List"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/v1/insights/": {
       "get": {
         "tags": [
@@ -1868,7 +2044,7 @@
           "V1"
         ],
         "summary": "Insights List",
-        "description": "List the existing insight_tools",
+        "description": "List the evaluated insights for sessions.",
         "operationId": "insights_list",
         "security": [
           {
@@ -2522,7 +2698,7 @@
           "V1"
         ],
         "summary": "Queue Insights Workflow For Sessions",
-        "description": "Delete a Insights workflow.",
+        "description": "Manually queue sessions for insights workflow evaluation.",
         "operationId": "queue_sessions_workflow",
         "requestBody": {
           "content": {
@@ -2793,7 +2969,7 @@
           "V1"
         ],
         "summary": "Create Insight Tool",
-        "description": "Create a new tool in the insights",
+        "description": "Create a new insight tool.",
         "operationId": "insights_tool_create",
         "security": [
           {
@@ -2820,6 +2996,12 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           },
           "422": {
             "description": "Validation Error",
@@ -2888,7 +3070,7 @@
           "V1"
         ],
         "summary": "Update Insights Tool",
-        "description": "Update a InsightTool.",
+        "description": "Update an Insights tool.",
         "operationId": "insights_tool_update",
         "security": [
           {
@@ -2950,6 +3132,61 @@
             }
           }
         }
+      }
+    },
+    "/api/v1/insights/tools-test": {
+      "post": {
+        "tags": [
+          "insights.tools",
+          "V1"
+        ],
+        "summary": "Test Insights Tool",
+        "description": "Manually run the given insight tool against a session and return the response.",
+        "operationId": "insights_tool_test",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsightToolTestInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
       }
     },
     "/api/v1/insights/tool-definitions": {
@@ -7443,11 +7680,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/CommunicationBatch"
-                  },
-                  "title": "Response Outbound Batch List"
+                  "$ref": "#/components/schemas/ListResponse_CommunicationBatch_"
                 }
               }
             }
@@ -7701,7 +7934,6 @@
           }
         ],
         "requestBody": {
-          "required": true,
           "content": {
             "multipart/form-data": {
               "schema": {
@@ -7753,6 +7985,24 @@
             "schema": {
               "type": "string",
               "title": "Batch Id"
+            }
+          },
+          {
+            "name": "reference_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Reference Id"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Status"
             }
           }
         ],
@@ -8101,10 +8351,7 @@
                 "schema": {
                   "anyOf": [
                     {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/OutboundCampaign"
-                      }
+                      "$ref": "#/components/schemas/ListResponse_OutboundCampaign_"
                     },
                     {
                       "type": "null"
@@ -8705,7 +8952,7 @@
           "V1"
         ],
         "summary": "Create Takeout",
-        "operationId": "create_takeout_api_v1_takeouts_create_post",
+        "operationId": "takeouts_create",
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -8732,7 +8979,7 @@
           "V1"
         ],
         "summary": "Get Takeout",
-        "operationId": "get_takeout_api_v1_takeouts_get__job_id__get",
+        "operationId": "takeouts_get_by_job_id",
         "security": [
           {
             "APIKeyHeader": []
@@ -9910,7 +10157,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20250117.9"
+              "20250407.9"
             ]
           },
           "campaign_id": {
@@ -9933,7 +10180,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2024-01-01T00:00:00Z"
+              "2025-04-08T00:00:00Z"
             ]
           },
           "status": {
@@ -9969,7 +10216,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2024-01-01T00:00:00Z"
+              "2025-04-07T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -9984,7 +10231,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2024-01-01T00:00:00Z"
+              "2025-04-07T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -10014,7 +10261,7 @@
             "title": "Last Worked On",
             "description": "Timestamp of last batch activity",
             "examples": [
-              "2024-01-01T00:00:00Z"
+              "2025-04-07T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -10095,14 +10342,14 @@
       },
       "Body_outbound_batch_delete": {
         "properties": {
-          "deleteReason": {
+          "delete_reason": {
             "type": "string",
-            "title": "Deletereason"
+            "title": "Delete Reason"
           }
         },
         "type": "object",
         "required": [
-          "deleteReason"
+          "delete_reason"
         ],
         "title": "Body_outbound_batch_delete"
       },
@@ -10115,9 +10362,6 @@
           }
         },
         "type": "object",
-        "required": [
-          "file"
-        ],
         "title": "Body_outbound_batch_upload"
       },
       "CampaignProperties": {
@@ -10489,7 +10733,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20250117.9"
+              "20250407.9"
             ]
           },
           "campaign_id": {
@@ -10512,7 +10756,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2024-01-01T00:00:00Z"
+              "2025-04-08T00:00:00Z"
             ]
           },
           "status": {
@@ -10548,7 +10792,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2024-01-01T00:00:00Z"
+              "2025-04-07T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -10563,7 +10807,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2024-01-01T00:00:00Z"
+              "2025-04-07T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -10593,7 +10837,7 @@
             "title": "Last Worked On",
             "description": "Timestamp of last batch activity",
             "examples": [
-              "2024-01-01T00:00:00Z"
+              "2025-04-07T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -10620,7 +10864,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20250117.9"
+              "20250407.9"
             ]
           },
           "campaign_id": {
@@ -10643,7 +10887,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2024-01-01T00:00:00Z"
+              "2025-04-08T00:00:00Z"
             ]
           }
         },
@@ -10656,14 +10900,6 @@
       },
       "CommunicationRequest": {
         "properties": {
-          "batch_id": {
-            "type": "string",
-            "title": "Batch Id",
-            "description": "Unique ID for conversation batch",
-            "examples": [
-              "20250117.9"
-            ]
-          },
           "reference_id": {
             "type": "string",
             "title": "Reference Id",
@@ -10678,19 +10914,6 @@
             "description": "Target phone number or email address",
             "examples": [
               "user@email.com"
-            ]
-          },
-          "request_status": {
-            "$ref": "#/components/schemas/RequestStatus",
-            "description": "Status of request",
-            "default": "PENDING",
-            "examples": [
-              "PENDING",
-              "DUPLICATE",
-              "INITIATED",
-              "CONNECTED",
-              "FAILED",
-              "CANCELED"
             ]
           },
           "request_variables": {
@@ -10701,7 +10924,6 @@
         },
         "type": "object",
         "required": [
-          "batch_id",
           "reference_id",
           "target",
           "request_variables"
@@ -10710,14 +10932,6 @@
       },
       "CommunicationRequestResult": {
         "properties": {
-          "batch_id": {
-            "type": "string",
-            "title": "Batch Id",
-            "description": "Unique ID for conversation batch",
-            "examples": [
-              "20250117.9"
-            ]
-          },
           "reference_id": {
             "type": "string",
             "title": "Reference Id",
@@ -10734,25 +10948,12 @@
               "user@email.com"
             ]
           },
-          "request_status": {
-            "$ref": "#/components/schemas/RequestStatus",
-            "description": "Status of request",
-            "default": "PENDING",
-            "examples": [
-              "PENDING",
-              "DUPLICATE",
-              "INITIATED",
-              "CONNECTED",
-              "FAILED",
-              "CANCELED"
-            ]
-          },
           "request_variables": {
             "type": "object",
             "title": "Request Variables",
             "description": "Variables for request"
           },
-          "call_manager_sid": {
+          "channel_manager_sid": {
             "anyOf": [
               {
                 "type": "string"
@@ -10761,8 +10962,8 @@
                 "type": "null"
               }
             ],
-            "title": "Call Manager Sid",
-            "description": "Call manager SID",
+            "title": "Channel Manager Sid",
+            "description": "Channel manager SID",
             "examples": [
               "LMc4b16a9df2ce33d84b3d30581fe6598c"
             ]
@@ -10772,7 +10973,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2024-01-01T00:00:00Z"
+              "2025-04-06T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -10787,7 +10988,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2024-01-02T00:00:00Z"
+              "2025-04-07T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -10828,11 +11029,64 @@
             "examples": [
               1
             ]
+          },
+          "channel_manager_status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Channel Manager Status",
+            "description": "Status of request in channel manager",
+            "examples": [
+              "COMPLETED",
+              "FAILED",
+              "NO_ANSWER",
+              "BUSY"
+            ]
+          },
+          "insights_status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Insights Status",
+            "description": "Status of session in insight workflow",
+            "examples": [
+              "PENDING",
+              "PROCESSING",
+              "COMPLETED",
+              "FAILED"
+            ]
+          },
+          "insights": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Insights",
+            "description": "Insights from call",
+            "examples": [
+              {
+                "rating": "Good",
+                "summary": "The customer service agent successfully assisted the caller with their inquiry and the call ended positively."
+              }
+            ]
           }
         },
         "type": "object",
         "required": [
-          "batch_id",
           "reference_id",
           "target",
           "request_variables"
@@ -10959,6 +11213,30 @@
             ],
             "title": "Llm Version",
             "description": "Version for the LLM used in the conversation (see PromptResponse.llm_config.version)"
+          },
+          "llm_temperature": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Llm Temperature",
+            "description": "Temperature for the LLM used in the conversation (see PromptResponse.llm_config.temperature)"
+          },
+          "llm_seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Llm Seed",
+            "description": "Seed for the LLM used in the conversation (see PromptResponse.llm_config.seed)."
           },
           "is_legacy": {
             "anyOf": [
@@ -12540,6 +12818,394 @@
         "type": "object",
         "title": "HTTPValidationError"
       },
+      "IncidentCreateRequest": {
+        "properties": {
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "description": "Description of the service incident",
+            "example": "Service outage in region X"
+          },
+          "start_datetime": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Start Datetime",
+            "description": "Start time of the incident",
+            "example": "2023-10-01T08:00:00Z"
+          },
+          "resolution_datetime": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Resolution Datetime",
+            "description": "Resolution time of the incident",
+            "example": "2023-10-01T12:00:00Z"
+          },
+          "impact_category": {
+            "type": "string",
+            "title": "Impact Category",
+            "description": "Category of the impact",
+            "example": "High"
+          },
+          "sessions_impacted": {
+            "type": "integer",
+            "title": "Sessions Impacted",
+            "description": "Number of sessions impacted",
+            "example": 1500
+          },
+          "markdown": {
+            "type": "string",
+            "title": "Markdown",
+            "description": "Detailed markdown description of the incident",
+            "example": "**Incident Details**"
+          },
+          "organization_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Organization Id",
+            "description": "The ID of the organization",
+            "example": 123
+          },
+          "sub_organization_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sub Organization Id",
+            "description": "The ID of the sub-organization",
+            "example": 456
+          },
+          "sub_organization": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sub Organization",
+            "description": "The name of the sub-organization",
+            "example": "SubOrg A"
+          }
+        },
+        "type": "object",
+        "required": [
+          "description",
+          "start_datetime",
+          "resolution_datetime",
+          "impact_category",
+          "sessions_impacted",
+          "markdown"
+        ],
+        "title": "IncidentCreateRequest",
+        "description": "Request model to create a service incident."
+      },
+      "IncidentOrganizationResponse": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "display_name": {
+            "type": "string",
+            "title": "Display Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "display_name"
+        ],
+        "title": "IncidentOrganizationResponse"
+      },
+      "IncidentProperties": {
+        "type": "string",
+        "enum": [
+          "id",
+          "description",
+          "impact_category",
+          "sessions_impacted",
+          "markdown",
+          "created_at",
+          "updated_at",
+          "organization_id",
+          "sub_organization_id",
+          "start_datetime",
+          "end_datetime",
+          "resolution_datetime"
+        ],
+        "title": "IncidentProperties",
+        "description": "Names of agent fields supported for filtering/sorting on list endpoint."
+      },
+      "IncidentResponse": {
+        "properties": {
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "description": "Description of the service incident",
+            "example": "Service outage in region X"
+          },
+          "start_datetime": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Start Datetime",
+            "description": "Start time of the incident",
+            "example": "2023-10-01T08:00:00Z"
+          },
+          "resolution_datetime": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Resolution Datetime",
+            "description": "Resolution time of the incident",
+            "example": "2023-10-01T12:00:00Z"
+          },
+          "impact_category": {
+            "type": "string",
+            "title": "Impact Category",
+            "description": "Category of the impact",
+            "example": "High"
+          },
+          "sessions_impacted": {
+            "type": "integer",
+            "title": "Sessions Impacted",
+            "description": "Number of sessions impacted",
+            "example": 1500
+          },
+          "markdown": {
+            "type": "string",
+            "title": "Markdown",
+            "description": "Detailed markdown description of the incident",
+            "example": "**Incident Details**"
+          },
+          "organization_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Organization Id",
+            "description": "The ID of the organization",
+            "example": 123
+          },
+          "sub_organization_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sub Organization Id",
+            "description": "The ID of the sub-organization",
+            "example": 456
+          },
+          "sub_organization": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sub Organization",
+            "description": "The name of the sub-organization",
+            "example": "SubOrg A"
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id",
+            "description": "The ID of the incident to update",
+            "example": 1
+          },
+          "created_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created At",
+            "description": "Creation time of the incident",
+            "example": "2023-10-01T08:00:00Z"
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At",
+            "description": "Last update time of the incident",
+            "example": "2023-10-01T08:00:00Z"
+          }
+        },
+        "type": "object",
+        "required": [
+          "description",
+          "start_datetime",
+          "resolution_datetime",
+          "impact_category",
+          "sessions_impacted",
+          "markdown",
+          "id"
+        ],
+        "title": "IncidentResponse",
+        "description": "Response model for service incident operations."
+      },
+      "IncidentUpdateRequest": {
+        "properties": {
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "description": "Description of the service incident",
+            "example": "Service outage in region X"
+          },
+          "start_datetime": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Start Datetime",
+            "description": "Start time of the incident",
+            "example": "2023-10-01T08:00:00Z"
+          },
+          "resolution_datetime": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Resolution Datetime",
+            "description": "Resolution time of the incident",
+            "example": "2023-10-01T12:00:00Z"
+          },
+          "impact_category": {
+            "type": "string",
+            "title": "Impact Category",
+            "description": "Category of the impact",
+            "example": "High"
+          },
+          "sessions_impacted": {
+            "type": "integer",
+            "title": "Sessions Impacted",
+            "description": "Number of sessions impacted",
+            "example": 1500
+          },
+          "markdown": {
+            "type": "string",
+            "title": "Markdown",
+            "description": "Detailed markdown description of the incident",
+            "example": "**Incident Details**"
+          },
+          "organization_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Organization Id",
+            "description": "The ID of the organization",
+            "example": 123
+          },
+          "sub_organization_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sub Organization Id",
+            "description": "The ID of the sub-organization",
+            "example": 456
+          },
+          "sub_organization": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sub Organization",
+            "description": "The name of the sub-organization",
+            "example": "SubOrg A"
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id",
+            "description": "The ID of the incident to update",
+            "example": 1
+          },
+          "created_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created At",
+            "description": "Creation time of the incident",
+            "example": "2023-10-01T08:00:00Z"
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At",
+            "description": "Last update time of the incident",
+            "example": "2023-10-01T08:00:00Z"
+          }
+        },
+        "type": "object",
+        "required": [
+          "description",
+          "start_datetime",
+          "resolution_datetime",
+          "impact_category",
+          "sessions_impacted",
+          "markdown",
+          "id"
+        ],
+        "title": "IncidentUpdateRequest",
+        "description": "Request model to update an existing service incident."
+      },
       "InsightToolDefinition": {
         "properties": {
           "id": {
@@ -12729,7 +13395,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool was created",
             "examples": [
-              "2024-01-01T00:00:00Z"
+              "2025-04-06T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -12738,7 +13404,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool was last updated",
             "examples": [
-              "2024-01-02T00:00:00Z"
+              "2025-04-07T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -12774,6 +13440,33 @@
           "updated_at"
         ],
         "title": "InsightToolProperties"
+      },
+      "InsightToolTestInput": {
+        "properties": {
+          "tool_name": {
+            "type": "string",
+            "title": "Tool Name",
+            "description": "Human readable name of insight tool",
+            "examples": [
+              "summary-tool"
+            ]
+          },
+          "session_id": {
+            "type": "integer",
+            "title": "Session Id",
+            "description": "The session ID of the session to run the tool against",
+            "examples": [
+              "283467"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "tool_name",
+          "session_id"
+        ],
+        "title": "InsightToolTestInput",
+        "description": "Request model to test an insight tool."
       },
       "InsightWorkflowInput": {
         "properties": {
@@ -12907,7 +13600,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2024-01-01T00:00:00Z"
+              "2025-04-06T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -12916,7 +13609,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2024-01-02T00:00:00Z"
+              "2025-04-07T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -13045,7 +13738,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2024-01-01T00:00:00Z"
+              "2025-04-06T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -13054,7 +13747,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2024-01-02T00:00:00Z"
+              "2025-04-07T00:00:00Z"
             ]
           }
         },
@@ -13785,6 +14478,72 @@
         ],
         "title": "ListResponse[Channel]"
       },
+      "ListResponse_CommunicationBatch_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/CommunicationBatch"
+            },
+            "type": "array",
+            "title": "Items",
+            "description": "List of items returned from the query",
+            "examples": []
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page",
+            "description": "The page number of the results (0-based)",
+            "examples": [
+              0
+            ]
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size",
+            "description": "The number of items returned per page",
+            "examples": [
+              25
+            ]
+          },
+          "total_pages": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Pages",
+            "description": "The total number of pages of results given the indicated page size",
+            "examples": [
+              4
+            ]
+          },
+          "total_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Count",
+            "description": "The total number of items returned from the query",
+            "examples": [
+              100
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "page",
+          "page_size"
+        ],
+        "title": "ListResponse[CommunicationBatch]"
+      },
       "ListResponse_Conversation_": {
         "properties": {
           "items": {
@@ -14181,6 +14940,72 @@
         ],
         "title": "ListResponse[Event]"
       },
+      "ListResponse_IncidentResponse_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/IncidentResponse"
+            },
+            "type": "array",
+            "title": "Items",
+            "description": "List of items returned from the query",
+            "examples": []
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page",
+            "description": "The page number of the results (0-based)",
+            "examples": [
+              0
+            ]
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size",
+            "description": "The number of items returned per page",
+            "examples": [
+              25
+            ]
+          },
+          "total_pages": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Pages",
+            "description": "The total number of pages of results given the indicated page size",
+            "examples": [
+              4
+            ]
+          },
+          "total_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Count",
+            "description": "The total number of items returned from the query",
+            "examples": [
+              100
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "page",
+          "page_size"
+        ],
+        "title": "ListResponse[IncidentResponse]"
+      },
       "ListResponse_InsightToolOutput_": {
         "properties": {
           "items": {
@@ -14444,6 +15269,72 @@
           "page_size"
         ],
         "title": "ListResponse[LanguageGroupResponse]"
+      },
+      "ListResponse_OutboundCampaign_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/OutboundCampaign"
+            },
+            "type": "array",
+            "title": "Items",
+            "description": "List of items returned from the query",
+            "examples": []
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page",
+            "description": "The page number of the results (0-based)",
+            "examples": [
+              0
+            ]
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size",
+            "description": "The number of items returned per page",
+            "examples": [
+              25
+            ]
+          },
+          "total_pages": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Pages",
+            "description": "The total number of pages of results given the indicated page size",
+            "examples": [
+              4
+            ]
+          },
+          "total_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Count",
+            "description": "The total number of items returned from the query",
+            "examples": [
+              100
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "page",
+          "page_size"
+        ],
+        "title": "ListResponse[OutboundCampaign]"
       },
       "ListResponse_PromptResponse_": {
         "properties": {
@@ -14794,6 +15685,37 @@
               "Outbound Campaign 1"
             ]
           },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "Description of campaign",
+            "examples": [
+              "This is a test campaign"
+            ]
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Label",
+            "description": "Label for campaign",
+            "examples": [
+              "test",
+              "demo"
+            ]
+          },
           "campaign_variables": {
             "type": "object",
             "title": "Campaign Variables",
@@ -14923,7 +15845,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2024-01-01T00:00:00Z"
+              "2025-04-07T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -14931,7 +15853,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2024-01-01T00:00:00Z"
+              "2025-04-07T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -14964,6 +15886,37 @@
             "description": "Human readable name of campaign",
             "examples": [
               "Outbound Campaign 1"
+            ]
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "Description of campaign",
+            "examples": [
+              "This is a test campaign"
+            ]
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Label",
+            "description": "Label for campaign",
+            "examples": [
+              "test",
+              "demo"
             ]
           },
           "campaign_variables": {
@@ -15171,7 +16124,7 @@
           "include_default_tools": {
             "type": "boolean",
             "title": "Include Default Tools",
-            "description": "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt.",
+            "description": "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt.",
             "default": true,
             "examples": [
               true
@@ -15666,7 +16619,7 @@
           "include_default_tools": {
             "type": "boolean",
             "title": "Include Default Tools",
-            "description": "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated.",
+            "description": "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated.",
             "default": true,
             "examples": [
               true
@@ -15682,19 +16635,6 @@
         ],
         "title": "PromptUpdateRequest",
         "description": "Request model to update an existing prompt."
-      },
-      "RequestStatus": {
-        "type": "string",
-        "enum": [
-          "PENDING",
-          "DUPLICATE",
-          "INITIATED",
-          "CONNECTED",
-          "FAILED",
-          "CANCELED"
-        ],
-        "title": "RequestStatus",
-        "description": "Status of a communication request."
       },
       "ServiceCreateRequest": {
         "properties": {
@@ -15722,175 +16662,6 @@
         ],
         "title": "ServiceCreateRequest",
         "description": "Request model to create a service."
-      },
-      "ServiceIncidentRequest": {
-        "properties": {
-          "organization_id": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Organization Id"
-          },
-          "sub_organization_id": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Sub Organization Id"
-          },
-          "sub_organization": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Sub Organization"
-          },
-          "description": {
-            "type": "string",
-            "title": "Description"
-          },
-          "start_datetime": {
-            "type": "string",
-            "format": "date-time",
-            "title": "Start Datetime"
-          },
-          "resolution_datetime": {
-            "type": "string",
-            "format": "date-time",
-            "title": "Resolution Datetime"
-          },
-          "impact_category": {
-            "type": "string",
-            "title": "Impact Category"
-          },
-          "sessions_impacted": {
-            "type": "integer",
-            "title": "Sessions Impacted"
-          },
-          "markdown": {
-            "type": "string",
-            "title": "Markdown"
-          }
-        },
-        "type": "object",
-        "required": [
-          "organization_id",
-          "sub_organization_id",
-          "sub_organization",
-          "description",
-          "start_datetime",
-          "resolution_datetime",
-          "impact_category",
-          "sessions_impacted",
-          "markdown"
-        ],
-        "title": "ServiceIncidentRequest"
-      },
-      "ServiceIncidentResponse": {
-        "properties": {
-          "organization_id": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Organization Id"
-          },
-          "sub_organization_id": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Sub Organization Id"
-          },
-          "sub_organization": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Sub Organization"
-          },
-          "description": {
-            "type": "string",
-            "title": "Description"
-          },
-          "start_datetime": {
-            "type": "string",
-            "format": "date-time",
-            "title": "Start Datetime"
-          },
-          "resolution_datetime": {
-            "type": "string",
-            "format": "date-time",
-            "title": "Resolution Datetime"
-          },
-          "impact_category": {
-            "type": "string",
-            "title": "Impact Category"
-          },
-          "sessions_impacted": {
-            "type": "integer",
-            "title": "Sessions Impacted"
-          },
-          "markdown": {
-            "type": "string",
-            "title": "Markdown"
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "title": "Created At"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "title": "Updated At"
-          },
-          "id": {
-            "type": "integer",
-            "title": "Id"
-          }
-        },
-        "type": "object",
-        "required": [
-          "organization_id",
-          "sub_organization_id",
-          "sub_organization",
-          "description",
-          "start_datetime",
-          "resolution_datetime",
-          "impact_category",
-          "sessions_impacted",
-          "markdown",
-          "created_at",
-          "updated_at",
-          "id"
-        ],
-        "title": "ServiceIncidentResponse"
       },
       "ServiceProperties": {
         "type": "string",
@@ -18214,6 +18985,18 @@
     {
       "operationId": ".*_get_by_name$",
       "methodNameOverride": "get_by_name"
+    },
+    {
+      "operationId": ".*_add$",
+      "methodNameOverride": "add"
+    },
+    {
+      "operationId": ".*_remove$",
+      "methodNameOverride": "remove"
+    },
+    {
+      "operationId": ".*_results$",
+      "methodNameOverride": "results"
     }
   ]
 }
