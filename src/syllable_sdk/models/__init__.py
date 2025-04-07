@@ -93,6 +93,8 @@ from .communicationrequestresult import (
     CommunicationRequestResultRequestVariables,
     CommunicationRequestResultRequestVariablesTypedDict,
     CommunicationRequestResultTypedDict,
+    Insights,
+    InsightsTypedDict,
 )
 from .conversation import Conversation, ConversationTypedDict
 from .conversationproperties import ConversationProperties
@@ -180,10 +182,6 @@ from .get_session_tool_call_result_by_idop import (
     GetSessionToolCallResultByIDRequest,
     GetSessionToolCallResultByIDRequestTypedDict,
 )
-from .get_takeout_api_v1_takeouts_get_job_id_getop import (
-    GetTakeoutAPIV1TakeoutsGetJobIDGetRequest,
-    GetTakeoutAPIV1TakeoutsGetJobIDGetRequestTypedDict,
-)
 from .httpvalidationerror import HTTPValidationError, HTTPValidationErrorData
 from .incident_deleteop import IncidentDeleteRequest, IncidentDeleteRequestTypedDict
 from .incident_get_by_idop import (
@@ -191,7 +189,14 @@ from .incident_get_by_idop import (
     IncidentGetByIDRequestTypedDict,
 )
 from .incident_listop import IncidentListRequest, IncidentListRequestTypedDict
-from .incident_updateop import IncidentUpdateRequest, IncidentUpdateRequestTypedDict
+from .incidentcreaterequest import IncidentCreateRequest, IncidentCreateRequestTypedDict
+from .incidentorganizationresponse import (
+    IncidentOrganizationResponse,
+    IncidentOrganizationResponseTypedDict,
+)
+from .incidentproperties import IncidentProperties
+from .incidentresponse import IncidentResponse, IncidentResponseTypedDict
+from .incidentupdaterequest import IncidentUpdateRequest, IncidentUpdateRequestTypedDict
 from .insight_tool_get_by_idop import (
     InsightToolGetByIDRequest,
     InsightToolGetByIDRequestTypedDict,
@@ -250,6 +255,7 @@ from .insighttooloutput import (
     InsightToolOutputTypedDict,
 )
 from .insighttoolproperties import InsightToolProperties
+from .insighttooltestinput import InsightToolTestInput, InsightToolTestInputTypedDict
 from .insightworkflowinput import (
     InsightWorkflowInput,
     InsightWorkflowInputConditions,
@@ -305,6 +311,10 @@ from .listresponse_channeltargetresponse_ import (
     ListResponseChannelTargetResponse,
     ListResponseChannelTargetResponseTypedDict,
 )
+from .listresponse_communicationbatch_ import (
+    ListResponseCommunicationBatch,
+    ListResponseCommunicationBatchTypedDict,
+)
 from .listresponse_conversation_ import (
     ListResponseConversation,
     ListResponseConversationTypedDict,
@@ -322,6 +332,10 @@ from .listresponse_datasourcemetadataresponse_ import (
     ListResponseDataSourceMetadataResponseTypedDict,
 )
 from .listresponse_event_ import ListResponseEvent, ListResponseEventTypedDict
+from .listresponse_incidentresponse_ import (
+    ListResponseIncidentResponse,
+    ListResponseIncidentResponseTypedDict,
+)
 from .listresponse_insightsoutput_ import (
     ListResponseInsightsOutput,
     ListResponseInsightsOutputTypedDict,
@@ -337,6 +351,10 @@ from .listresponse_insightworkflowoutput_ import (
 from .listresponse_languagegroupresponse_ import (
     ListResponseLanguageGroupResponse,
     ListResponseLanguageGroupResponseTypedDict,
+)
+from .listresponse_outboundcampaign_ import (
+    ListResponseOutboundCampaign,
+    ListResponseOutboundCampaignTypedDict,
 )
 from .listresponse_promptresponse_ import (
     ListResponsePromptResponse,
@@ -431,19 +449,10 @@ from .prompts_get_by_idop import PromptsGetByIDRequest, PromptsGetByIDRequestTyp
 from .prompts_historyop import PromptsHistoryRequest, PromptsHistoryRequestTypedDict
 from .prompts_listop import PromptsListRequest, PromptsListRequestTypedDict
 from .promptupdaterequest import PromptUpdateRequest, PromptUpdateRequestTypedDict
-from .requeststatus import RequestStatus
 from .security import Security, SecurityTypedDict
 from .service_deleteop import ServiceDeleteRequest, ServiceDeleteRequestTypedDict
 from .service_listop import ServiceListRequest, ServiceListRequestTypedDict
 from .servicecreaterequest import ServiceCreateRequest, ServiceCreateRequestTypedDict
-from .serviceincidentrequest import (
-    ServiceIncidentRequest,
-    ServiceIncidentRequestTypedDict,
-)
-from .serviceincidentresponse import (
-    ServiceIncidentResponse,
-    ServiceIncidentResponseTypedDict,
-)
 from .serviceproperties import ServiceProperties
 from .serviceresponse import ServiceResponse, ServiceResponseTypedDict
 from .services_get_by_idop import (
@@ -498,6 +507,10 @@ from .statictoolparameter import StaticToolParameter, StaticToolParameterTypedDi
 from .statictoolparametertype import StaticToolParameterType
 from .supportedllm import SupportedLlm, SupportedLlmTypedDict
 from .takeoutrequeststatus import TakeoutRequestStatus
+from .takeouts_get_by_job_idop import (
+    TakeoutsGetByJobIDRequest,
+    TakeoutsGetByJobIDRequestTypedDict,
+)
 from .takeoutstatusresponse import TakeoutStatusResponse, TakeoutStatusResponseTypedDict
 from .targetmodes import TargetModes
 from .testmessage import TestMessage, TestMessageTypedDict
@@ -699,16 +712,21 @@ __all__ = [
     "GetSessionDataBySidRequestTypedDict",
     "GetSessionToolCallResultByIDRequest",
     "GetSessionToolCallResultByIDRequestTypedDict",
-    "GetTakeoutAPIV1TakeoutsGetJobIDGetRequest",
-    "GetTakeoutAPIV1TakeoutsGetJobIDGetRequestTypedDict",
     "HTTPValidationError",
     "HTTPValidationErrorData",
+    "IncidentCreateRequest",
+    "IncidentCreateRequestTypedDict",
     "IncidentDeleteRequest",
     "IncidentDeleteRequestTypedDict",
     "IncidentGetByIDRequest",
     "IncidentGetByIDRequestTypedDict",
     "IncidentListRequest",
     "IncidentListRequestTypedDict",
+    "IncidentOrganizationResponse",
+    "IncidentOrganizationResponseTypedDict",
+    "IncidentProperties",
+    "IncidentResponse",
+    "IncidentResponseTypedDict",
     "IncidentUpdateRequest",
     "IncidentUpdateRequestTypedDict",
     "InsightToolDefinition",
@@ -726,6 +744,8 @@ __all__ = [
     "InsightToolOutputToolArgumentsTypedDict",
     "InsightToolOutputTypedDict",
     "InsightToolProperties",
+    "InsightToolTestInput",
+    "InsightToolTestInputTypedDict",
     "InsightWorkflowInput",
     "InsightWorkflowInputConditions",
     "InsightWorkflowInputConditionsTypedDict",
@@ -735,6 +755,7 @@ __all__ = [
     "InsightWorkflowOutputConditionsTypedDict",
     "InsightWorkflowOutputTypedDict",
     "InsightWorkflowProperties",
+    "Insights",
     "InsightsListRequest",
     "InsightsListRequestTypedDict",
     "InsightsOutput",
@@ -742,6 +763,7 @@ __all__ = [
     "InsightsProperties",
     "InsightsToolUpdateRequest",
     "InsightsToolUpdateRequestTypedDict",
+    "InsightsTypedDict",
     "InsightsWorkflowDeleteRequest",
     "InsightsWorkflowDeleteRequestTypedDict",
     "InsightsWorkflowGetByIDRequest",
@@ -782,6 +804,8 @@ __all__ = [
     "ListResponseChannelTargetResponse",
     "ListResponseChannelTargetResponseTypedDict",
     "ListResponseChannelTypedDict",
+    "ListResponseCommunicationBatch",
+    "ListResponseCommunicationBatchTypedDict",
     "ListResponseConversation",
     "ListResponseConversationTypedDict",
     "ListResponseCustomMessageResponse",
@@ -792,6 +816,8 @@ __all__ = [
     "ListResponseDataSourceMetadataResponseTypedDict",
     "ListResponseEvent",
     "ListResponseEventTypedDict",
+    "ListResponseIncidentResponse",
+    "ListResponseIncidentResponseTypedDict",
     "ListResponseInsightToolOutput",
     "ListResponseInsightToolOutputTypedDict",
     "ListResponseInsightWorkflowOutput",
@@ -800,6 +826,8 @@ __all__ = [
     "ListResponseInsightsOutputTypedDict",
     "ListResponseLanguageGroupResponse",
     "ListResponseLanguageGroupResponseTypedDict",
+    "ListResponseOutboundCampaign",
+    "ListResponseOutboundCampaignTypedDict",
     "ListResponsePromptResponse",
     "ListResponsePromptResponseTypedDict",
     "ListResponseServiceResponse",
@@ -867,7 +895,6 @@ __all__ = [
     "PromptsHistoryRequestTypedDict",
     "PromptsListRequest",
     "PromptsListRequestTypedDict",
-    "RequestStatus",
     "Response",
     "ResponseTypedDict",
     "Security",
@@ -876,10 +903,6 @@ __all__ = [
     "ServiceCreateRequestTypedDict",
     "ServiceDeleteRequest",
     "ServiceDeleteRequestTypedDict",
-    "ServiceIncidentRequest",
-    "ServiceIncidentRequestTypedDict",
-    "ServiceIncidentResponse",
-    "ServiceIncidentResponseTypedDict",
     "ServiceListRequest",
     "ServiceListRequestTypedDict",
     "ServiceProperties",
@@ -935,6 +958,8 @@ __all__ = [
     "TakeoutRequestStatus",
     "TakeoutStatusResponse",
     "TakeoutStatusResponseTypedDict",
+    "TakeoutsGetByJobIDRequest",
+    "TakeoutsGetByJobIDRequestTypedDict",
     "TargetModes",
     "TestMessage",
     "TestMessageResponse",

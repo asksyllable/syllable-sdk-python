@@ -5,10 +5,10 @@
 
 ### Available Operations
 
-* [create_takeout_api_v1_takeouts_create_post](#create_takeout_api_v1_takeouts_create_post) - Create Takeout
-* [get_takeout_api_v1_takeouts_get_job_id_get](#get_takeout_api_v1_takeouts_get_job_id_get) - Get Takeout
+* [create](#create) - Create Takeout
+* [takeouts_get_by_job_id](#takeouts_get_by_job_id) - Get Takeout
 
-## create_takeout_api_v1_takeouts_create_post
+## create
 
 Create Takeout
 
@@ -23,7 +23,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.takeouts.create_takeout_api_v1_takeouts_create_post()
+    res = ss_client.takeouts.create()
 
     # Handle response
     print(res)
@@ -46,7 +46,7 @@ with SyllableSDK(
 | --------------- | --------------- | --------------- |
 | models.APIError | 4XX, 5XX        | \*/\*           |
 
-## get_takeout_api_v1_takeouts_get_job_id_get
+## takeouts_get_by_job_id
 
 Get Takeout
 
@@ -61,7 +61,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.takeouts.get_takeout_api_v1_takeouts_get_job_id_get(job_id="<id>")
+    res = ss_client.takeouts.takeouts_get_by_job_id(job_id="<id>")
 
     # Handle response
     print(res)

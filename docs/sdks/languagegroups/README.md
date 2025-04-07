@@ -84,6 +84,7 @@ with SyllableSDK(
 
     res = ss_client.language_groups.create(request={
         "name": "Call Center 1 Languages",
+        "description": "Languages spoken by operators at Call Center 1",
         "language_configs": [
             {
                 "language_code": syllable_sdk.LanguageCode.EN_US,
@@ -99,7 +100,6 @@ with SyllableSDK(
             },
         ],
         "skip_current_language_in_message": True,
-        "description": "Languages spoken by operators at Call Center 1",
     })
 
     # Handle response
@@ -143,6 +143,7 @@ with SyllableSDK(
 
     res = ss_client.language_groups.update(request={
         "name": "Call Center 1 Languages",
+        "description": "Languages spoken by operators at Call Center 1",
         "language_configs": [
             {
                 "language_code": syllable_sdk.LanguageCode.EN_US,
@@ -159,7 +160,6 @@ with SyllableSDK(
         ],
         "skip_current_language_in_message": True,
         "id": 1,
-        "description": "Languages spoken by operators at Call Center 1",
         "edit_comments": "Added Spanish support.",
     })
 

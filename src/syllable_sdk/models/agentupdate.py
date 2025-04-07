@@ -123,10 +123,10 @@ class AgentUpdate(BaseModel):
             "wait_sound",
         ]
         nullable_fields = [
-            "tool_headers",
             "description",
             "label",
             "language_group_id",
+            "tool_headers",
             "stt_provider",
             "wait_sound",
         ]

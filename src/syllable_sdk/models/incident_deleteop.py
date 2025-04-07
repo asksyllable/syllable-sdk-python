@@ -2,15 +2,20 @@
 
 from __future__ import annotations
 from syllable_sdk.types import BaseModel
-from syllable_sdk.utils import FieldMetadata, PathParamMetadata
+from syllable_sdk.utils import FieldMetadata, PathParamMetadata, QueryParamMetadata
 from typing_extensions import Annotated, TypedDict
 
 
 class IncidentDeleteRequestTypedDict(TypedDict):
     incident_id: int
+    reason: str
 
 
 class IncidentDeleteRequest(BaseModel):
     incident_id: Annotated[
         int, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
+    ]
+
+    reason: Annotated[
+        str, FieldMetadata(query=QueryParamMetadata(style="form", explode=True))
     ]

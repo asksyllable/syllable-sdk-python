@@ -11,7 +11,7 @@ from syllable_sdk.workflows import Workflows
 from typing import Any, List, Mapping, Optional
 
 
-class Insights(BaseSDK):
+class InsightsSDK(BaseSDK):
     r"""Operations related to insights results. An insight is a tool that processes          conversation data to extract information and generate reports."""
 
     workflows: Workflows
@@ -47,7 +47,7 @@ class Insights(BaseSDK):
     ) -> models.ListResponseInsightsOutput:
         r"""Insights List
 
-        List the existing insight_tools
+        List the evaluated insights for sessions.
 
         :param page: The page number from which to start (0-based)
         :param limit: The maximum number of items to return
@@ -172,7 +172,7 @@ class Insights(BaseSDK):
     ) -> models.ListResponseInsightsOutput:
         r"""Insights List
 
-        List the existing insight_tools
+        List the evaluated insights for sessions.
 
         :param page: The page number from which to start (0-based)
         :param limit: The maximum number of items to return

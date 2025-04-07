@@ -83,7 +83,12 @@ with SyllableSDK(
 
     res = ss_client.data_sources.create(request={
         "name": "Rain",
+        "description": "Information about rain.",
+        "labels": [
+            "Weather Info",
+        ],
         "chunk": False,
+        "chunk_delimiter": "",
         "text": ("The following are names and addresses of pizza shops.\n"
         "\n"
         "Cool Pizza, 123 Main St.\n"
@@ -91,11 +96,6 @@ with SyllableSDK(
         "Really Good Pizza, 456 Water St.\n"
         "\n"
         "The Best Pizza, 789 Circle Dr."),
-        "description": "Information about rain.",
-        "labels": [
-            "Weather Info",
-        ],
-        "chunk_delimiter": "",
     })
 
     # Handle response
@@ -138,8 +138,14 @@ with SyllableSDK(
 
     res = ss_client.data_sources.update(request={
         "name": "Rain",
+        "description": "Information about rain.",
+        "labels": [
+            "Weather Info",
+        ],
         "chunk": False,
+        "chunk_delimiter": "",
         "id": 1,
+        "edit_comments": "Added new info",
         "text": ("The following are names and addresses of pizza shops.\n"
         "\n"
         "Cool Pizza, 123 Main St.\n"
@@ -147,12 +153,6 @@ with SyllableSDK(
         "Really Good Pizza, 456 Water St.\n"
         "\n"
         "The Best Pizza, 789 Circle Dr."),
-        "description": "Information about rain.",
-        "labels": [
-            "Weather Info",
-        ],
-        "chunk_delimiter": "",
-        "edit_comments": "Added new info",
     })
 
     # Handle response

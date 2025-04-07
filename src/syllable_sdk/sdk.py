@@ -16,7 +16,7 @@ from syllable_sdk.dashboards import Dashboards
 from syllable_sdk.data_sources import DataSources
 from syllable_sdk.events import Events
 from syllable_sdk.incidents import Incidents
-from syllable_sdk.insights import Insights
+from syllable_sdk.insights_sdk import InsightsSDK
 from syllable_sdk.language_groups import LanguageGroups
 from syllable_sdk.outbound import Outbound
 from syllable_sdk.prompts import Prompts
@@ -67,7 +67,7 @@ class SyllableSDK(BaseSDK):
     r"""Operations related to events. An event represents a specific occurrence           during a session. Currently the API/SDK only supports fetching logged events."""
     incidents: Incidents
     r"""Operations related to incidents."""
-    insights: Insights
+    insights: InsightsSDK
     r"""Operations related to insights results. An insight is a tool that processes          conversation data to extract information and generate reports."""
     custom_messages: CustomMessages
     r"""Operations related to custom message configuration.           A custom message is a pre-configured message delivered by an agent as a greeting at the           beginning of a conversation. Multiple agents can use the same custom mesasage. A custom           message has one or more rules defined, which allow for different messages to be           dynamically selected and delivered at runtime based on the current time and either           date or day of the week. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Messages)."""
@@ -194,7 +194,7 @@ class SyllableSDK(BaseSDK):
         self.data_sources = DataSources(self.sdk_configuration)
         self.events = Events(self.sdk_configuration)
         self.incidents = Incidents(self.sdk_configuration)
-        self.insights = Insights(self.sdk_configuration)
+        self.insights = InsightsSDK(self.sdk_configuration)
         self.custom_messages = CustomMessages(self.sdk_configuration)
         self.prompts = Prompts(self.sdk_configuration)
         self.services = Services(self.sdk_configuration)

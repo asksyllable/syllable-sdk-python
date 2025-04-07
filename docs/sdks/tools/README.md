@@ -85,7 +85,9 @@ with SyllableSDK(
     res = ss_client.tools.create(request={
         "name": "Weather Fetcher",
         "definition": {
+            "type": syllable_sdk.Type.ENDPOINT,
             "tool": {
+                "type": "function",
                 "function": {
                     "name": "get_weather",
                     "description": "Get the weather for a city",
@@ -93,9 +95,7 @@ with SyllableSDK(
 
                     },
                 },
-                "type": "function",
             },
-            "type": syllable_sdk.Type.ENDPOINT,
             "endpoint": {
                 "url": "https://api.example.com",
                 "method": syllable_sdk.ToolHTTPMethod.GET,
@@ -105,9 +105,9 @@ with SyllableSDK(
             "static_parameters": [
                 {
                     "name": "temperature_unit",
+                    "description": "Whether the temperature information should be fetched in celsius or fahrenheit.",
                     "required": True,
                     "type": syllable_sdk.StaticToolParameterType.STRING,
-                    "description": "Whether the temperature information should be fetched in celsius or fahrenheit.",
                     "default": "fahrenheit",
                 },
             ],
@@ -157,7 +157,9 @@ with SyllableSDK(
     res = ss_client.tools.update(request={
         "name": "Weather Fetcher",
         "definition": {
+            "type": syllable_sdk.Type.ENDPOINT,
             "tool": {
+                "type": "function",
                 "function": {
                     "name": "get_weather",
                     "description": "Get the weather for a city",
@@ -165,9 +167,7 @@ with SyllableSDK(
 
                     },
                 },
-                "type": "function",
             },
-            "type": syllable_sdk.Type.ENDPOINT,
             "endpoint": {
                 "url": "https://api.example.com",
                 "method": syllable_sdk.ToolHTTPMethod.POST,
@@ -177,9 +177,9 @@ with SyllableSDK(
             "static_parameters": [
                 {
                     "name": "temperature_unit",
+                    "description": "Whether the temperature information should be fetched in celsius or fahrenheit.",
                     "required": True,
                     "type": syllable_sdk.StaticToolParameterType.STRING,
-                    "description": "Whether the temperature information should be fetched in celsius or fahrenheit.",
                     "default": "fahrenheit",
                 },
             ],

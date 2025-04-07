@@ -7,12 +7,13 @@ from .body_outbound_batch_upload import (
 )
 from syllable_sdk.types import BaseModel
 from syllable_sdk.utils import FieldMetadata, PathParamMetadata, RequestMetadata
-from typing_extensions import Annotated, TypedDict
+from typing import Optional
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class OutboundBatchUploadRequestTypedDict(TypedDict):
     batch_id: str
-    body_outbound_batch_upload: BodyOutboundBatchUploadTypedDict
+    body_outbound_batch_upload: NotRequired[BodyOutboundBatchUploadTypedDict]
 
 
 class OutboundBatchUploadRequest(BaseModel):
@@ -21,6 +22,6 @@ class OutboundBatchUploadRequest(BaseModel):
     ]
 
     body_outbound_batch_upload: Annotated[
-        BodyOutboundBatchUpload,
+        Optional[BodyOutboundBatchUpload],
         FieldMetadata(request=RequestMetadata(media_type="multipart/form-data")),
-    ]
+    ] = None

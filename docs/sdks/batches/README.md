@@ -13,9 +13,9 @@ Operations related to outbound campaign batches
 * [update](#update) - Update Outbound Communication Batch
 * [delete](#delete) - Delete Outbound Communication Batch
 * [upload](#upload) - Upload Outbound Communication Batch
-* [outbound_batch_results](#outbound_batch_results) - Fetch Outbound Communication Batch Results
-* [outbound_batch_add](#outbound_batch_add) - Create Outbound Communication Request
-* [outbound_batch_remove](#outbound_batch_remove) - Delete Requests By List Of Reference Ids
+* [results](#results) - Fetch Outbound Communication Batch Results
+* [add](#add) - Create Outbound Communication Request
+* [remove](#remove) - Delete Requests By List Of Reference Ids
 
 ## list
 
@@ -61,7 +61,7 @@ with SyllableSDK(
 
 ### Response
 
-**[List[models.CommunicationBatch]](../../models/.md)**
+**[models.ListResponseCommunicationBatch](../../models/listresponsecommunicationbatch.md)**
 
 ### Errors
 
@@ -86,9 +86,9 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.outbound.batches.create(request={
-        "batch_id": "20250117.9",
+        "batch_id": "20250407.9",
         "campaign_id": 1,
-        "expires_on": "2024-01-01T00:00:00Z",
+        "expires_on": "2025-04-08T00:00:00Z",
     })
 
     # Handle response
@@ -170,15 +170,15 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.outbound.batches.update(batch_id="<id>", communication_batch={
-        "batch_id": "20250117.9",
+        "batch_id": "20250407.9",
         "campaign_id": 1,
-        "last_updated_by": "user@email.com",
-        "expires_on": "2024-01-01T00:00:00Z",
+        "expires_on": "2025-04-08T00:00:00Z",
         "count": 152,
-        "created_at": "2024-01-01T00:00:00Z",
-        "deleted_at": "2024-01-01T00:00:00Z",
+        "created_at": "2025-04-07T00:00:00Z",
+        "deleted_at": "2025-04-07T00:00:00Z",
         "deleted_reason": "User request",
-        "last_worked_on": "2024-01-01T00:00:00Z",
+        "last_worked_on": "2025-04-07T00:00:00Z",
+        "last_updated_by": "user@email.com",
     })
 
     # Handle response
@@ -263,12 +263,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.outbound.batches.upload(batch_id="<id>", body_outbound_batch_upload={
-        "file": {
-            "file_name": "example.file",
-            "content": open("example.file", "rb"),
-        },
-    })
+    res = ss_client.outbound.batches.upload(batch_id="<id>")
 
     # Handle response
     print(res)
@@ -277,11 +272,11 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `batch_id`                                                                | *str*                                                                     | :heavy_check_mark:                                                        | N/A                                                                       |
-| `body_outbound_batch_upload`                                              | [models.BodyOutboundBatchUpload](../../models/bodyoutboundbatchupload.md) | :heavy_check_mark:                                                        | N/A                                                                       |
-| `retries`                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)          | :heavy_minus_sign:                                                        | Configuration to override the default retry behavior of the client.       |
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `batch_id`                                                                          | *str*                                                                               | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `body_outbound_batch_upload`                                                        | [Optional[models.BodyOutboundBatchUpload]](../../models/bodyoutboundbatchupload.md) | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `retries`                                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                    | :heavy_minus_sign:                                                                  | Configuration to override the default retry behavior of the client.                 |
 
 ### Response
 
@@ -294,7 +289,7 @@ with SyllableSDK(
 | models.HTTPValidationError | 422                        | application/json           |
 | models.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## outbound_batch_results
+## results
 
 Fetch Outbound Communication Batch Results
 
@@ -309,7 +304,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.outbound.batches.outbound_batch_results(batch_id="<id>")
+    res = ss_client.outbound.batches.results(batch_id="<id>")
 
     # Handle response
     print(res)
@@ -321,6 +316,8 @@ with SyllableSDK(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `batch_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `reference_id`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `status`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -334,7 +331,7 @@ with SyllableSDK(
 | models.HTTPValidationError | 422                        | application/json           |
 | models.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## outbound_batch_add
+## add
 
 Create Outbound Communication Request
 
@@ -349,8 +346,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.outbound.batches.outbound_batch_add(batch_id="<id>", communication_request={
-        "batch_id": "20250117.9",
+    res = ss_client.outbound.batches.add(batch_id="<id>", communication_request={
         "reference_id": "12345",
         "target": "user@email.com",
         "request_variables": {},
@@ -380,7 +376,7 @@ with SyllableSDK(
 | models.HTTPValidationError | 422                        | application/json           |
 | models.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## outbound_batch_remove
+## remove
 
 Delete Requests By List Of Reference Ids
 
@@ -395,7 +391,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.outbound.batches.outbound_batch_remove(batch_id="<id>", request_body=[
+    res = ss_client.outbound.batches.remove(batch_id="<id>", request_body=[
         "<value>",
         "<value>",
     ])

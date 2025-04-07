@@ -170,7 +170,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.workflows.update(workflow_id=265006, insight_workflow_input={
+    res = ss_client.insights.workflows.update(workflow_id=857478, insight_workflow_input={
         "name": "summary-workflow",
         "description": "Default workflow - generates a summary of the call",
         "insight_tool_ids": [
@@ -246,7 +246,7 @@ with SyllableSDK(
 
 ## queue_sessions_workflow
 
-Delete a Insights workflow.
+Manually queue sessions for insights workflow evaluation.
 
 ### Example Usage
 
