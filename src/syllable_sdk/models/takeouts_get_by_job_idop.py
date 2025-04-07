@@ -6,11 +6,11 @@ from syllable_sdk.utils import FieldMetadata, PathParamMetadata
 from typing_extensions import Annotated, TypedDict
 
 
-class GetTakeoutAPIV1TakeoutsGetJobIDGetRequestTypedDict(TypedDict):
+class TakeoutsGetByJobIDRequestTypedDict(TypedDict):
     job_id: str
 
 
-class GetTakeoutAPIV1TakeoutsGetJobIDGetRequest(BaseModel):
+class TakeoutsGetByJobIDRequest(BaseModel):
     job_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]

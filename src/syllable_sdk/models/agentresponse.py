@@ -182,13 +182,13 @@ class AgentResponse(BaseModel):
             "language_group",
         ]
         nullable_fields = [
-            "tool_headers",
-            "last_updated_by",
             "description",
             "label",
             "language_group_id",
+            "tool_headers",
             "stt_provider",
             "wait_sound",
+            "last_updated_by",
             "prompt",
             "custom_message",
             "channel_targets",

@@ -34,8 +34,10 @@ class File(BaseModel):
 
 
 class BodyOutboundBatchUploadTypedDict(TypedDict):
-    file: FileTypedDict
+    file: NotRequired[FileTypedDict]
 
 
 class BodyOutboundBatchUpload(BaseModel):
-    file: Annotated[File, FieldMetadata(multipart=MultipartFormMetadata(file=True))]
+    file: Annotated[
+        Optional[File], FieldMetadata(multipart=MultipartFormMetadata(file=True))
+    ] = None

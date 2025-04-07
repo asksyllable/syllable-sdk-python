@@ -89,8 +89,6 @@ with SyllableSDK(
         "rules": [
             {
                 "description": "Closed on New Year's Day",
-                "invert": False,
-                "text": "Hello, thank you for calling. Sorry, we're closed today.",
                 "time_range_start": "09:00",
                 "time_range_end": "17:00",
                 "date_": "2025-01-01",
@@ -101,11 +99,11 @@ with SyllableSDK(
                     syllable_sdk.DayOfWeek.TH,
                     syllable_sdk.DayOfWeek.FR,
                 ],
+                "invert": False,
+                "text": "Hello, thank you for calling. Sorry, we're closed today.",
             },
             {
                 "description": "Closed on New Year's Day",
-                "invert": False,
-                "text": "Hello, thank you for calling. Sorry, we're closed today.",
                 "time_range_start": "09:00",
                 "time_range_end": "17:00",
                 "date_": "2025-01-01",
@@ -116,6 +114,8 @@ with SyllableSDK(
                     syllable_sdk.DayOfWeek.TH,
                     syllable_sdk.DayOfWeek.FR,
                 ],
+                "invert": False,
+                "text": "Hello, thank you for calling. Sorry, we're closed today.",
             },
         ],
     })
@@ -162,13 +162,10 @@ with SyllableSDK(
     res = ss_client.custom_messages.update(request={
         "name": "Customer service greeting",
         "text": "Hello and thank you for calling customer service. How can I help you today?",
-        "id": 1,
         "label": "Customer service",
         "rules": [
             {
                 "description": "Closed on New Year's Day",
-                "invert": False,
-                "text": "Hello, thank you for calling. Sorry, we're closed today.",
                 "time_range_start": "09:00",
                 "time_range_end": "17:00",
                 "date_": "2025-01-01",
@@ -179,11 +176,11 @@ with SyllableSDK(
                     syllable_sdk.DayOfWeek.TH,
                     syllable_sdk.DayOfWeek.FR,
                 ],
+                "invert": False,
+                "text": "Hello, thank you for calling. Sorry, we're closed today.",
             },
             {
                 "description": "Closed on New Year's Day",
-                "invert": False,
-                "text": "Hello, thank you for calling. Sorry, we're closed today.",
                 "time_range_start": "09:00",
                 "time_range_end": "17:00",
                 "date_": "2025-01-01",
@@ -194,8 +191,11 @@ with SyllableSDK(
                     syllable_sdk.DayOfWeek.TH,
                     syllable_sdk.DayOfWeek.FR,
                 ],
+                "invert": False,
+                "text": "Hello, thank you for calling. Sorry, we're closed today.",
             },
         ],
+        "id": 1,
     })
 
     # Handle response

@@ -268,15 +268,16 @@ with SyllableSDK(
 
 ### [incidents](docs/sdks/incidents/README.md)
 
-* [get_by_id](docs/sdks/incidents/README.md#get_by_id) - Get Incident By Id
-* [update](docs/sdks/incidents/README.md#update) - Update Incident
-* [delete](docs/sdks/incidents/README.md#delete) - Delete Incident
-* [create](docs/sdks/incidents/README.md#create) - Create Incident
 * [list](docs/sdks/incidents/README.md#list) - List Incidents
+* [create](docs/sdks/incidents/README.md#create) - Create Incident
+* [update](docs/sdks/incidents/README.md#update) - Update Incident
+* [incident_get_organizations](docs/sdks/incidents/README.md#incident_get_organizations) - Get Organizations
+* [get_by_id](docs/sdks/incidents/README.md#get_by_id) - Get Incident By Id
+* [delete](docs/sdks/incidents/README.md#delete) - Delete Incident
 
-### [insights](docs/sdks/insights/README.md)
+### [insights](docs/sdks/insightssdk/README.md)
 
-* [list](docs/sdks/insights/README.md#list) - Insights List
+* [list](docs/sdks/insightssdk/README.md#list) - Insights List
 
 #### [insights.tools](docs/sdks/insightstools/README.md)
 
@@ -284,6 +285,7 @@ with SyllableSDK(
 * [create](docs/sdks/insightstools/README.md#create) - Create Insight Tool
 * [get_by_id](docs/sdks/insightstools/README.md#get_by_id) - Get Insight Tool By Id
 * [update](docs/sdks/insightstools/README.md#update) - Update Insights Tool
+* [insights_tool_test](docs/sdks/insightstools/README.md#insights_tool_test) - Test Insights Tool
 * [insight_tool_get_definitions](docs/sdks/insightstools/README.md#insight_tool_get_definitions) - Get Insight Tool Definitions
 
 #### [insights.workflows](docs/sdks/workflows/README.md)
@@ -314,9 +316,9 @@ with SyllableSDK(
 * [update](docs/sdks/batches/README.md#update) - Update Outbound Communication Batch
 * [delete](docs/sdks/batches/README.md#delete) - Delete Outbound Communication Batch
 * [upload](docs/sdks/batches/README.md#upload) - Upload Outbound Communication Batch
-* [outbound_batch_results](docs/sdks/batches/README.md#outbound_batch_results) - Fetch Outbound Communication Batch Results
-* [outbound_batch_add](docs/sdks/batches/README.md#outbound_batch_add) - Create Outbound Communication Request
-* [outbound_batch_remove](docs/sdks/batches/README.md#outbound_batch_remove) - Delete Requests By List Of Reference Ids
+* [results](docs/sdks/batches/README.md#results) - Fetch Outbound Communication Batch Results
+* [add](docs/sdks/batches/README.md#add) - Create Outbound Communication Request
+* [remove](docs/sdks/batches/README.md#remove) - Delete Requests By List Of Reference Ids
 
 #### [outbound.campaigns](docs/sdks/campaigns/README.md)
 
@@ -373,8 +375,8 @@ with SyllableSDK(
 
 ### [takeouts](docs/sdks/takeouts/README.md)
 
-* [create_takeout_api_v1_takeouts_create_post](docs/sdks/takeouts/README.md#create_takeout_api_v1_takeouts_create_post) - Create Takeout
-* [get_takeout_api_v1_takeouts_get_job_id_get](docs/sdks/takeouts/README.md#get_takeout_api_v1_takeouts_get_job_id_get) - Get Takeout
+* [create](docs/sdks/takeouts/README.md#create) - Create Takeout
+* [takeouts_get_by_job_id](docs/sdks/takeouts/README.md#takeouts_get_by_job_id) - Get Takeout
 
 ### [tools](docs/sdks/tools/README.md)
 
@@ -415,12 +417,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.outbound.batches.upload(batch_id="<id>", body_outbound_batch_upload={
-        "file": {
-            "file_name": "example.file",
-            "content": open("example.file", "rb"),
-        },
-    })
+    res = ss_client.outbound.batches.upload(batch_id="<id>")
 
     # Handle response
     print(res)

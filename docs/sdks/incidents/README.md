@@ -7,11 +7,208 @@ Operations related to incidents.
 
 ### Available Operations
 
-* [get_by_id](#get_by_id) - Get Incident By Id
-* [update](#update) - Update Incident
-* [delete](#delete) - Delete Incident
-* [create](#create) - Create Incident
 * [list](#list) - List Incidents
+* [create](#create) - Create Incident
+* [update](#update) - Update Incident
+* [incident_get_organizations](#incident_get_organizations) - Get Organizations
+* [get_by_id](#get_by_id) - Get Incident By Id
+* [delete](#delete) - Delete Incident
+
+## list
+
+List service incidents with pagination and filtering
+
+### Example Usage
+
+```python
+import os
+import syllable_sdk
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.incidents.list(page=0, search_fields=[
+        syllable_sdk.IncidentProperties.START_DATETIME,
+    ], search_field_values=[
+        "Some Object Name",
+    ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                              | Type                                                                                                                                                   | Required                                                                                                                                               | Description                                                                                                                                            | Example                                                                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-based)                                                                                                          | 0                                                                                                                                                      |
+| `limit`                                                                                                                                                | *Optional[int]*                                                                                                                                        | :heavy_minus_sign:                                                                                                                                     | The maximum number of items to return                                                                                                                  | 25                                                                                                                                                     |
+| `search_fields`                                                                                                                                        | List[[models.IncidentProperties](../../models/incidentproperties.md)]                                                                                  | :heavy_minus_sign:                                                                                                                                     | String names of fields to search. Correspond by index to search field values                                                                           | name                                                                                                                                                   |
+| `search_field_values`                                                                                                                                  | List[*str*]                                                                                                                                            | :heavy_minus_sign:                                                                                                                                     | Values of fields to search. Correspond by index to search fields. Unless field name contains "list", an individual search field value cannot be a list | Some Object Name                                                                                                                                       |
+| `order_by`                                                                                                                                             | [OptionalNullable[models.IncidentProperties]](../../models/incidentproperties.md)                                                                      | :heavy_minus_sign:                                                                                                                                     | The field whose value should be used to order the results                                                                                              |                                                                                                                                                        |
+| `order_by_direction`                                                                                                                                   | [OptionalNullable[models.OrderByDirection]](../../models/orderbydirection.md)                                                                          | :heavy_minus_sign:                                                                                                                                     | The direction in which to order the results                                                                                                            |                                                                                                                                                        |
+| `fields`                                                                                                                                               | List[[models.IncidentProperties](../../models/incidentproperties.md)]                                                                                  | :heavy_minus_sign:                                                                                                                                     | The fields to include in the response                                                                                                                  |                                                                                                                                                        |
+| `start_datetime`                                                                                                                                       | *OptionalNullable[str]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The start datetime for filtering results                                                                                                               | 2023-01-01T00:00:00Z                                                                                                                                   |
+| `end_datetime`                                                                                                                                         | *OptionalNullable[str]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The end datetime for filtering results                                                                                                                 | 2024-01-01T00:00:00Z                                                                                                                                   |
+| `retries`                                                                                                                                              | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                       | :heavy_minus_sign:                                                                                                                                     | Configuration to override the default retry behavior of the client.                                                                                    |                                                                                                                                                        |
+
+### Response
+
+**[models.ListResponseIncidentResponse](../../models/listresponseincidentresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## create
+
+Create a new incident
+
+### Example Usage
+
+```python
+import dateutil.parser
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.incidents.create(request={
+        "description": "Service outage in region X",
+        "start_datetime": dateutil.parser.isoparse("2023-10-01T08:00:00Z"),
+        "resolution_datetime": dateutil.parser.isoparse("2023-10-01T12:00:00Z"),
+        "impact_category": "High",
+        "sessions_impacted": 1500,
+        "markdown": "**Incident Details**",
+        "organization_id": 123,
+        "sub_organization_id": 456,
+        "sub_organization": "SubOrg A",
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `request`                                                             | [models.IncidentCreateRequest](../../models/incidentcreaterequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
+| `retries`                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)      | :heavy_minus_sign:                                                    | Configuration to override the default retry behavior of the client.   |
+
+### Response
+
+**[models.IncidentResponse](../../models/incidentresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## update
+
+Update an existing incident
+
+### Example Usage
+
+```python
+import dateutil.parser
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.incidents.update(request={
+        "description": "Service outage in region X",
+        "start_datetime": dateutil.parser.isoparse("2023-10-01T08:00:00Z"),
+        "resolution_datetime": dateutil.parser.isoparse("2023-10-01T12:00:00Z"),
+        "impact_category": "High",
+        "sessions_impacted": 1500,
+        "markdown": "**Incident Details**",
+        "organization_id": 123,
+        "sub_organization_id": 456,
+        "sub_organization": "SubOrg A",
+        "id": 1,
+        "created_at": dateutil.parser.isoparse("2023-10-01T08:00:00Z"),
+        "updated_at": dateutil.parser.isoparse("2023-10-01T08:00:00Z"),
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `request`                                                             | [models.IncidentUpdateRequest](../../models/incidentupdaterequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
+| `retries`                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)      | :heavy_minus_sign:                                                    | Configuration to override the default retry behavior of the client.   |
+
+### Response
+
+**[models.IncidentResponse](../../models/incidentresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## incident_get_organizations
+
+Get all organizations
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.incidents.incident_get_organizations()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[List[models.IncidentOrganizationResponse]](../../models/.md)**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| models.APIError | 4XX, 5XX        | \*/\*           |
 
 ## get_by_id
 
@@ -44,59 +241,7 @@ with SyllableSDK(
 
 ### Response
 
-**[models.ServiceIncidentResponse](../../models/serviceincidentresponse.md)**
-
-### Errors
-
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
-
-## update
-
-Update an existing incident
-
-### Example Usage
-
-```python
-import dateutil.parser
-import os
-from syllable_sdk import SyllableSDK
-
-
-with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-) as ss_client:
-
-    res = ss_client.incidents.update(incident_id=656776, service_incident_request={
-        "organization_id": 857478,
-        "sub_organization_id": 597129,
-        "sub_organization": "<value>",
-        "description": "hydrolyze for drat underneath sticky",
-        "start_datetime": dateutil.parser.isoparse("2023-03-21T03:40:17.460Z"),
-        "resolution_datetime": dateutil.parser.isoparse("2023-06-16T09:40:21.633Z"),
-        "impact_category": "<value>",
-        "sessions_impacted": 342070,
-        "markdown": "<value>",
-    })
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `incident_id`                                                           | *int*                                                                   | :heavy_check_mark:                                                      | N/A                                                                     |
-| `service_incident_request`                                              | [models.ServiceIncidentRequest](../../models/serviceincidentrequest.md) | :heavy_check_mark:                                                      | N/A                                                                     |
-| `retries`                                                               | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)        | :heavy_minus_sign:                                                      | Configuration to override the default retry behavior of the client.     |
-
-### Response
-
-**[models.ServiceIncidentResponse](../../models/serviceincidentresponse.md)**
+**[models.IncidentResponse](../../models/incidentresponse.md)**
 
 ### Errors
 
@@ -120,7 +265,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.incidents.delete(incident_id=545907)
+    res = ss_client.incidents.delete(incident_id=545907, reason="<value>")
 
     # Handle response
     print(res)
@@ -132,103 +277,12 @@ with SyllableSDK(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `incident_id`                                                       | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `reason`                                                            | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
 **[Any](../../models/.md)**
-
-### Errors
-
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
-
-## create
-
-Create a new incident
-
-### Example Usage
-
-```python
-import dateutil.parser
-import os
-from syllable_sdk import SyllableSDK
-
-
-with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-) as ss_client:
-
-    res = ss_client.incidents.create(request={
-        "organization_id": 486589,
-        "sub_organization_id": 638424,
-        "sub_organization": "<value>",
-        "description": "calmly fortunately bench around igloo scaffold",
-        "start_datetime": dateutil.parser.isoparse("2025-04-13T05:49:58.922Z"),
-        "resolution_datetime": dateutil.parser.isoparse("2023-08-30T02:12:40.558Z"),
-        "impact_category": "<value>",
-        "sessions_impacted": 449221,
-        "markdown": "<value>",
-    })
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [models.ServiceIncidentRequest](../../models/serviceincidentrequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
-| `retries`                                                               | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)        | :heavy_minus_sign:                                                      | Configuration to override the default retry behavior of the client.     |
-
-### Response
-
-**[models.ServiceIncidentResponse](../../models/serviceincidentresponse.md)**
-
-### Errors
-
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
-
-## list
-
-List service incidents with pagination
-
-### Example Usage
-
-```python
-import os
-from syllable_sdk import SyllableSDK
-
-
-with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-) as ss_client:
-
-    res = ss_client.incidents.list()
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `offset`                                                            | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
-
-### Response
-
-**[List[models.ServiceIncidentResponse]](../../models/.md)**
 
 ### Errors
 

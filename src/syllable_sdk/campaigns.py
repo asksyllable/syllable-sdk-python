@@ -27,7 +27,7 @@ class Campaigns(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.OutboundCampaign]:
+    ) -> models.ListResponseOutboundCampaign:
         r"""List Outbound Communication Campaigns
 
         :param page: The page number from which to start (0-based)
@@ -106,7 +106,9 @@ class Campaigns(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, List[models.OutboundCampaign])
+            return utils.unmarshal_json(
+                http_res.text, models.ListResponseOutboundCampaign
+            )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -148,7 +150,7 @@ class Campaigns(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.OutboundCampaign]:
+    ) -> models.ListResponseOutboundCampaign:
         r"""List Outbound Communication Campaigns
 
         :param page: The page number from which to start (0-based)
@@ -227,7 +229,9 @@ class Campaigns(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, List[models.OutboundCampaign])
+            return utils.unmarshal_json(
+                http_res.text, models.ListResponseOutboundCampaign
+            )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData

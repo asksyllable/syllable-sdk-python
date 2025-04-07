@@ -11,6 +11,7 @@ Operations related to insights tools. An insight is a tool that processes       
 * [create](#create) - Create Insight Tool
 * [get_by_id](#get_by_id) - Get Insight Tool By Id
 * [update](#update) - Update Insights Tool
+* [insights_tool_test](#insights_tool_test) - Test Insights Tool
 * [insight_tool_get_definitions](#insight_tool_get_definitions) - Get Insight Tool Definitions
 
 ## list
@@ -68,7 +69,7 @@ with SyllableSDK(
 
 ## create
 
-Create a new tool in the insights
+Create a new insight tool.
 
 ### Example Usage
 
@@ -154,7 +155,7 @@ with SyllableSDK(
 
 ## update
 
-Update a InsightTool.
+Update an Insights tool.
 
 ### Example Usage
 
@@ -167,7 +168,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.tools.update(tool_id=198183, insight_tool_input={
+    res = ss_client.insights.tools.update(tool_id=857478, insight_tool_input={
         "name": "summary-tool",
         "description": "Default tool - generates a summary of the call",
         "version": 1,
@@ -191,6 +192,49 @@ with SyllableSDK(
 ### Response
 
 **[models.InsightToolOutput](../../models/insighttooloutput.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## insights_tool_test
+
+Manually run the given insight tool against a session and return the response.
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.insights.tools.insights_tool_test(request={
+        "tool_name": "summary-tool",
+        "session_id": 283467,
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request`                                                           | [models.InsightToolTestInput](../../models/insighttooltestinput.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[Any](../../models/.md)**
 
 ### Errors
 

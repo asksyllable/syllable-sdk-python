@@ -79,10 +79,10 @@ class DataSourceMetadataResponse(BaseModel):
     def serialize_model(self, handler):
         optional_fields = ["description", "labels", "chunk_delimiter", "edit_comments"]
         nullable_fields = [
-            "last_updated_by",
             "description",
             "chunk_delimiter",
             "edit_comments",
+            "last_updated_by",
         ]
         null_default_fields = []
 

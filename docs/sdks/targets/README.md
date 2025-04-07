@@ -135,7 +135,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.channels.targets.create(channel_id=134365, channel_target_create_request={
+    res = ss_client.channels.targets.create(channel_id=638424, channel_target_create_request={
         "agent_id": 1,
         "channel_id": 1,
         "target": "+19995551234",
@@ -224,13 +224,13 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.channels.targets.update(channel_id=627690, target_id=488852, channel_target_update_request={
+    res = ss_client.channels.targets.update(channel_id=597129, target_id=344620, channel_target_update_request={
         "agent_id": 1,
         "channel_id": 1,
         "target": "+19995551234",
-        "target_mode": syllable_sdk.TargetModes.CHAT,
-        "id": 1,
+        "target_mode": syllable_sdk.TargetModes.EMAIL,
         "fallback_target": "+19995551235",
+        "id": 1,
     })
 
     # Handle response

@@ -40,6 +40,10 @@ class ConversationTypedDict(TypedDict):
     r"""Model for the LLM used in the conversation (see PromptResponse.llm_config.model)"""
     llm_version: NotRequired[Nullable[str]]
     r"""Version for the LLM used in the conversation (see PromptResponse.llm_config.version)"""
+    llm_temperature: NotRequired[Nullable[float]]
+    r"""Temperature for the LLM used in the conversation (see PromptResponse.llm_config.temperature)"""
+    llm_seed: NotRequired[Nullable[int]]
+    r"""Seed for the LLM used in the conversation (see PromptResponse.llm_config.seed)."""
     is_legacy: NotRequired[Nullable[bool]]
     r"""Whether the conversation occurred on the legacy Syllable system"""
 
@@ -82,6 +86,12 @@ class Conversation(BaseModel):
     llm_version: OptionalNullable[str] = UNSET
     r"""Version for the LLM used in the conversation (see PromptResponse.llm_config.version)"""
 
+    llm_temperature: OptionalNullable[float] = UNSET
+    r"""Temperature for the LLM used in the conversation (see PromptResponse.llm_config.temperature)"""
+
+    llm_seed: OptionalNullable[int] = UNSET
+    r"""Seed for the LLM used in the conversation (see PromptResponse.llm_config.seed)."""
+
     is_legacy: OptionalNullable[bool] = UNSET
     r"""Whether the conversation occurred on the legacy Syllable system"""
 
@@ -97,6 +107,8 @@ class Conversation(BaseModel):
             "llm_provider",
             "llm_model",
             "llm_version",
+            "llm_temperature",
+            "llm_seed",
             "is_legacy",
         ]
         nullable_fields = [
@@ -109,6 +121,8 @@ class Conversation(BaseModel):
             "llm_provider",
             "llm_model",
             "llm_version",
+            "llm_temperature",
+            "llm_seed",
             "is_legacy",
         ]
         null_default_fields = []

@@ -9,7 +9,7 @@ from typing import Any, Mapping, Optional
 
 
 class Takeouts(BaseSDK):
-    def create_takeout_api_v1_takeouts_create_post(
+    def create(
         self,
         *,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -60,7 +60,7 @@ class Takeouts(BaseSDK):
         http_res = self.do_request(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="create_takeout_api_v1_takeouts_create_post",
+                operation_id="takeouts_create",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -93,7 +93,7 @@ class Takeouts(BaseSDK):
             http_res,
         )
 
-    async def create_takeout_api_v1_takeouts_create_post_async(
+    async def create_async(
         self,
         *,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -144,7 +144,7 @@ class Takeouts(BaseSDK):
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="create_takeout_api_v1_takeouts_create_post",
+                operation_id="takeouts_create",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -177,7 +177,7 @@ class Takeouts(BaseSDK):
             http_res,
         )
 
-    def get_takeout_api_v1_takeouts_get_job_id_get(
+    def takeouts_get_by_job_id(
         self,
         *,
         job_id: str,
@@ -204,7 +204,7 @@ class Takeouts(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.GetTakeoutAPIV1TakeoutsGetJobIDGetRequest(
+        request = models.TakeoutsGetByJobIDRequest(
             job_id=job_id,
         )
 
@@ -235,7 +235,7 @@ class Takeouts(BaseSDK):
         http_res = self.do_request(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="get_takeout_api_v1_takeouts_get__job_id__get",
+                operation_id="takeouts_get_by_job_id",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -274,7 +274,7 @@ class Takeouts(BaseSDK):
             http_res,
         )
 
-    async def get_takeout_api_v1_takeouts_get_job_id_get_async(
+    async def takeouts_get_by_job_id_async(
         self,
         *,
         job_id: str,
@@ -301,7 +301,7 @@ class Takeouts(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.GetTakeoutAPIV1TakeoutsGetJobIDGetRequest(
+        request = models.TakeoutsGetByJobIDRequest(
             job_id=job_id,
         )
 
@@ -332,7 +332,7 @@ class Takeouts(BaseSDK):
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
                 base_url=base_url or "",
-                operation_id="get_takeout_api_v1_takeouts_get__job_id__get",
+                operation_id="takeouts_get_by_job_id",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security

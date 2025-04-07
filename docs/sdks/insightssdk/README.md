@@ -1,4 +1,4 @@
-# Insights
+# InsightsSDK
 (*insights*)
 
 ## Overview
@@ -11,7 +11,7 @@ Operations related to insights results. An insight is a tool that processes     
 
 ## list
 
-List the existing insight_tools
+List the evaluated insights for sessions.
 
 ### Example Usage
 

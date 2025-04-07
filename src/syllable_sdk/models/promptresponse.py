@@ -111,10 +111,10 @@ class PromptResponse(BaseModel):
             "tools_full",
         ]
         nullable_fields = [
-            "last_updated",
             "description",
             "context",
             "edit_comments",
+            "last_updated",
             "last_updated_by",
             "agent_count",
             "tools_full",

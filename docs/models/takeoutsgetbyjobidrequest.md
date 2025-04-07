@@ -1,4 +1,4 @@
-# GetTakeoutAPIV1TakeoutsGetJobIDGetRequest
+# TakeoutsGetByJobIDRequest
 
 
 ## Fields

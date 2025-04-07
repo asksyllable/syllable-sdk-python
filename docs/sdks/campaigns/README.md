@@ -56,7 +56,7 @@ with SyllableSDK(
 
 ### Response
 
-**[List[models.OutboundCampaign]](../../models/.md)**
+**[models.ListResponseOutboundCampaign](../../models/listresponseoutboundcampaign.md)**
 
 ### Errors
 
@@ -82,12 +82,14 @@ with SyllableSDK(
 
     res = ss_client.outbound.campaigns.create(request={
         "campaign_name": "Outbound Campaign 1",
+        "description": "This is a test campaign",
+        "label": "test",
         "campaign_variables": {},
         "daily_start_time": "09:00:00",
         "daily_end_time": "17:00:00",
         "timezone": "America/New_York",
+        "source": "account@email.com",
         "caller_id": "19995551234",
-        "source": "+19032900844",
         "retry_interval": "12h",
         "pause_seconds": 30,
     })
@@ -170,14 +172,16 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.outbound.campaigns.update(campaign_id=344620, outbound_campaign_input={
+    res = ss_client.outbound.campaigns.update(campaign_id=991464, outbound_campaign_input={
         "campaign_name": "Outbound Campaign 1",
+        "description": "This is a test campaign",
+        "label": "demo",
         "campaign_variables": {},
         "daily_start_time": "09:00:00",
         "daily_end_time": "17:00:00",
         "timezone": "America/New_York",
-        "caller_id": "19995551234",
         "source": "account@email.com",
+        "caller_id": "19995551234",
         "retry_interval": "12h",
         "pause_seconds": 30,
     })

@@ -2,15 +2,28 @@
 
 from __future__ import annotations
 from syllable_sdk.types import BaseModel
-from syllable_sdk.utils import FieldMetadata, PathParamMetadata
-from typing_extensions import Annotated, TypedDict
+from syllable_sdk.utils import FieldMetadata, PathParamMetadata, QueryParamMetadata
+from typing import Optional
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class OutboundBatchResultsRequestTypedDict(TypedDict):
     batch_id: str
+    reference_id: NotRequired[str]
+    status: NotRequired[str]
 
 
 class OutboundBatchResultsRequest(BaseModel):
     batch_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
+
+    reference_id: Annotated[
+        Optional[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+
+    status: Annotated[
+        Optional[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None

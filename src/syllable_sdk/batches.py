@@ -27,7 +27,7 @@ class Batches(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.CommunicationBatch]:
+    ) -> models.ListResponseCommunicationBatch:
         r"""List Outbound Communication Batches
 
         :param page: The page number from which to start (0-based)
@@ -106,7 +106,9 @@ class Batches(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, List[models.CommunicationBatch])
+            return utils.unmarshal_json(
+                http_res.text, models.ListResponseCommunicationBatch
+            )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -148,7 +150,7 @@ class Batches(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.CommunicationBatch]:
+    ) -> models.ListResponseCommunicationBatch:
         r"""List Outbound Communication Batches
 
         :param page: The page number from which to start (0-based)
@@ -227,7 +229,9 @@ class Batches(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, List[models.CommunicationBatch])
+            return utils.unmarshal_json(
+                http_res.text, models.ListResponseCommunicationBatch
+            )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -1099,9 +1103,11 @@ class Batches(BaseSDK):
         self,
         *,
         batch_id: str,
-        body_outbound_batch_upload: Union[
-            models.BodyOutboundBatchUpload, models.BodyOutboundBatchUploadTypedDict
-        ],
+        body_outbound_batch_upload: Optional[
+            Union[
+                models.BodyOutboundBatchUpload, models.BodyOutboundBatchUploadTypedDict
+            ]
+        ] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1129,7 +1135,7 @@ class Batches(BaseSDK):
         request = models.OutboundBatchUploadRequest(
             batch_id=batch_id,
             body_outbound_batch_upload=utils.get_pydantic_model(
-                body_outbound_batch_upload, models.BodyOutboundBatchUpload
+                body_outbound_batch_upload, Optional[models.BodyOutboundBatchUpload]
             ),
         )
 
@@ -1139,7 +1145,7 @@ class Batches(BaseSDK):
             base_url=base_url,
             url_variables=url_variables,
             request=request,
-            request_body_required=True,
+            request_body_required=False,
             request_has_path_params=True,
             request_has_query_params=True,
             user_agent_header="user-agent",
@@ -1149,9 +1155,9 @@ class Batches(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body_outbound_batch_upload,
                 False,
-                False,
+                True,
                 "multipart",
-                models.BodyOutboundBatchUpload,
+                Optional[models.BodyOutboundBatchUpload],
             ),
             timeout_ms=timeout_ms,
         )
@@ -1210,9 +1216,11 @@ class Batches(BaseSDK):
         self,
         *,
         batch_id: str,
-        body_outbound_batch_upload: Union[
-            models.BodyOutboundBatchUpload, models.BodyOutboundBatchUploadTypedDict
-        ],
+        body_outbound_batch_upload: Optional[
+            Union[
+                models.BodyOutboundBatchUpload, models.BodyOutboundBatchUploadTypedDict
+            ]
+        ] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1240,7 +1248,7 @@ class Batches(BaseSDK):
         request = models.OutboundBatchUploadRequest(
             batch_id=batch_id,
             body_outbound_batch_upload=utils.get_pydantic_model(
-                body_outbound_batch_upload, models.BodyOutboundBatchUpload
+                body_outbound_batch_upload, Optional[models.BodyOutboundBatchUpload]
             ),
         )
 
@@ -1250,7 +1258,7 @@ class Batches(BaseSDK):
             base_url=base_url,
             url_variables=url_variables,
             request=request,
-            request_body_required=True,
+            request_body_required=False,
             request_has_path_params=True,
             request_has_query_params=True,
             user_agent_header="user-agent",
@@ -1260,9 +1268,9 @@ class Batches(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body_outbound_batch_upload,
                 False,
-                False,
+                True,
                 "multipart",
-                models.BodyOutboundBatchUpload,
+                Optional[models.BodyOutboundBatchUpload],
             ),
             timeout_ms=timeout_ms,
         )
@@ -1317,10 +1325,12 @@ class Batches(BaseSDK):
             http_res,
         )
 
-    def outbound_batch_results(
+    def results(
         self,
         *,
         batch_id: str,
+        reference_id: Optional[str] = None,
+        status: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1329,6 +1339,8 @@ class Batches(BaseSDK):
         r"""Fetch Outbound Communication Batch Results
 
         :param batch_id:
+        :param reference_id:
+        :param status:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1346,6 +1358,8 @@ class Batches(BaseSDK):
 
         request = models.OutboundBatchResultsRequest(
             batch_id=batch_id,
+            reference_id=reference_id,
+            status=status,
         )
 
         req = self._build_request(
@@ -1416,10 +1430,12 @@ class Batches(BaseSDK):
             http_res,
         )
 
-    async def outbound_batch_results_async(
+    async def results_async(
         self,
         *,
         batch_id: str,
+        reference_id: Optional[str] = None,
+        status: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1428,6 +1444,8 @@ class Batches(BaseSDK):
         r"""Fetch Outbound Communication Batch Results
 
         :param batch_id:
+        :param reference_id:
+        :param status:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1445,6 +1463,8 @@ class Batches(BaseSDK):
 
         request = models.OutboundBatchResultsRequest(
             batch_id=batch_id,
+            reference_id=reference_id,
+            status=status,
         )
 
         req = self._build_request_async(
@@ -1515,7 +1535,7 @@ class Batches(BaseSDK):
             http_res,
         )
 
-    def outbound_batch_add(
+    def add(
         self,
         *,
         batch_id: str,
@@ -1626,7 +1646,7 @@ class Batches(BaseSDK):
             http_res,
         )
 
-    async def outbound_batch_add_async(
+    async def add_async(
         self,
         *,
         batch_id: str,
@@ -1737,7 +1757,7 @@ class Batches(BaseSDK):
             http_res,
         )
 
-    def outbound_batch_remove(
+    def remove(
         self,
         *,
         batch_id: str,
@@ -1840,7 +1860,7 @@ class Batches(BaseSDK):
             http_res,
         )
 
-    async def outbound_batch_remove_async(
+    async def remove_async(
         self,
         *,
         batch_id: str,

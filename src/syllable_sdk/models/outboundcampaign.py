@@ -38,6 +38,10 @@ class OutboundCampaignTypedDict(TypedDict):
     r"""Unique ID for campaign"""
     last_updated_by: str
     r"""Email of user who last updated campaign"""
+    description: NotRequired[Nullable[str]]
+    r"""Description of campaign"""
+    label: NotRequired[Nullable[str]]
+    r"""Label for campaign"""
     source: NotRequired[Nullable[str]]
     r"""Source phone number, email, or SMS number"""
     rate: NotRequired[int]
@@ -79,6 +83,12 @@ class OutboundCampaign(BaseModel):
     last_updated_by: str
     r"""Email of user who last updated campaign"""
 
+    description: OptionalNullable[str] = UNSET
+    r"""Description of campaign"""
+
+    label: OptionalNullable[str] = UNSET
+    r"""Label for campaign"""
+
     source: OptionalNullable[str] = UNSET
     r"""Source phone number, email, or SMS number"""
 
@@ -103,6 +113,8 @@ class OutboundCampaign(BaseModel):
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
+            "description",
+            "label",
             "source",
             "rate",
             "retry_count",
@@ -111,7 +123,14 @@ class OutboundCampaign(BaseModel):
             "created_at",
             "updated_at",
         ]
-        nullable_fields = ["caller_id", "source", "retry_interval", "pause_seconds"]
+        nullable_fields = [
+            "description",
+            "label",
+            "source",
+            "caller_id",
+            "retry_interval",
+            "pause_seconds",
+        ]
         null_default_fields = []
 
         serialized = handler(self)

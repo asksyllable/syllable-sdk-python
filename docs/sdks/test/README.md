@@ -27,10 +27,9 @@ with SyllableSDK(
     res = ss_client.agents.test.send_test_message(request={
         "service_name": "<value>",
         "source": "user@email.com",
+        "text": "Hello",
         "test_id": "<id>",
         "agent_id": "<id>",
-        "text": "Hello",
-        "org_name": "<value>",
     })
 
     # Handle response

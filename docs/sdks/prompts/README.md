@@ -85,19 +85,19 @@ with SyllableSDK(
 
     res = ss_client.prompts.create(request={
         "name": "Weather Agent Prompt",
+        "description": "Prompt for a weather agent.",
         "type": "prompt_v1",
+        "context": "You are a weather agent. Answer the user's questions about weather and nothing else.",
+        "tools": [
+            "summary",
+            "hangup",
+        ],
         "llm_config": {
             "version": "2024-05-13",
             "api_version": "2024-06-01",
             "temperature": 1,
             "seed": 123,
         },
-        "description": "Prompt for a weather agent.",
-        "context": "You are a weather agent. Answer the user's questions about weather and nothing else.",
-        "tools": [
-            "summary",
-            "hangup",
-        ],
     })
 
     # Handle response
@@ -140,7 +140,13 @@ with SyllableSDK(
 
     res = ss_client.prompts.update(request={
         "name": "Weather Agent Prompt",
+        "description": "Prompt for a weather agent.",
         "type": "prompt_v1",
+        "context": "You are a weather agent. Answer the user's questions about weather and nothing else.",
+        "tools": [
+            "summary",
+            "hangup",
+        ],
         "llm_config": {
             "version": "2024-05-13",
             "api_version": "2024-06-01",
@@ -148,12 +154,6 @@ with SyllableSDK(
             "seed": 123,
         },
         "id": 1,
-        "description": "Prompt for a weather agent.",
-        "context": "You are a weather agent. Answer the user's questions about weather and nothing else.",
-        "tools": [
-            "summary",
-            "hangup",
-        ],
         "edit_comments": "Updated prompt text to include requirement to not answer questions that aren't about weather.",
     })
 

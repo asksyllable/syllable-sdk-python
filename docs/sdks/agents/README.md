@@ -85,19 +85,13 @@ with SyllableSDK(
 
     res = ss_client.agents.create(request={
         "name": "Weather agent",
+        "description": "Agent for answering questions about weather.",
+        "label": "Information",
         "type": "ca_v1",
         "prompt_id": 1,
         "custom_message_id": 1,
-        "timezone": "America/New_York",
-        "variables": {
-            "vars.location_name": "Main Street Pizza",
-        },
-        "tool_headers": {
-            "Authorization": "Basic sometoken",
-        },
-        "description": "Agent for answering questions about weather.",
-        "label": "Information",
         "language_group_id": 1,
+        "timezone": "America/New_York",
         "prompt_tool_defaults": [
             {
                 "tool_name": "get_weather",
@@ -109,6 +103,12 @@ with SyllableSDK(
                 ],
             },
         ],
+        "variables": {
+            "vars.location_name": "Main Street Pizza",
+        },
+        "tool_headers": {
+            "Authorization": "Basic sometoken",
+        },
         "stt_provider": syllable_sdk.AgentSttProvider.GOOGLE_STT_V2,
         "wait_sound": syllable_sdk.AgentWaitSound.KEYBOARD_1,
     })
@@ -154,20 +154,13 @@ with SyllableSDK(
 
     res = ss_client.agents.update(request={
         "name": "Weather agent",
+        "description": "Agent for answering questions about weather.",
+        "label": "Information",
         "type": "ca_v1",
         "prompt_id": 1,
         "custom_message_id": 1,
-        "timezone": "America/Chicago",
-        "variables": {
-            "vars.location_name": "Main Street Pizza",
-        },
-        "tool_headers": {
-            "Authorization": "Basic sometoken",
-        },
-        "id": 1,
-        "description": "Agent for answering questions about weather.",
-        "label": "Information",
         "language_group_id": 1,
+        "timezone": "America/Chicago",
         "prompt_tool_defaults": [
             {
                 "tool_name": "get_weather",
@@ -179,8 +172,15 @@ with SyllableSDK(
                 ],
             },
         ],
+        "variables": {
+            "vars.location_name": "Main Street Pizza",
+        },
+        "tool_headers": {
+            "Authorization": "Basic sometoken",
+        },
         "stt_provider": syllable_sdk.AgentSttProvider.GOOGLE_STT_V2,
         "wait_sound": syllable_sdk.AgentWaitSound.KEYBOARD_1,
+        "id": 1,
     })
 
     # Handle response

@@ -1105,7 +1105,7 @@ class Workflows(BaseSDK):
     ) -> Any:
         r"""Queue Insights Workflow For Sessions
 
-        Delete a Insights workflow.
+        Manually queue sessions for insights workflow evaluation.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
@@ -1210,7 +1210,7 @@ class Workflows(BaseSDK):
     ) -> Any:
         r"""Queue Insights Workflow For Sessions
 
-        Delete a Insights workflow.
+        Manually queue sessions for insights workflow evaluation.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
