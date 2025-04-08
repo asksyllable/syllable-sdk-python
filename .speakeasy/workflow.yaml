@@ -4,8 +4,6 @@ sources:
     SyllableSDK:
         inputs:
             - location: openapi.json
-        overlays:
-            - location: overlay-remove-V1.yaml
         output: openapi.yaml
         registry:
             location: registry.speakeasyapi.dev/syllable/syllable/syllable-sdk-oas
