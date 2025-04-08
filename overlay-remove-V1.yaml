@@ -251,7 +251,11 @@ actions:
   - target: $["paths"]["/api/v1/sessions/full-summary/{session_id}"]["get"]["tags"]
     update:
       - "sessions.full-summary"
-
+  - target: $["paths"]["/api/v1/sessions/latency/{session_id}"]["get"]["tags"][*]
+    remove: true
+  - target: $["paths"]["/api/v1/sessions/latency/{session_id}"]["get"]["tags"]
+    update:
+      - "sessions.latency"
   - target: $["paths"]["/api/v1/session_labels/{session_label_id}"]["get"]["tags"][*]
     remove: true
   - target: $["paths"]["/api/v1/session_labels/{session_label_id}"]["get"]["tags"]
