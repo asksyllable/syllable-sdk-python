@@ -269,6 +269,10 @@ from .insightworkflowoutput import (
     InsightWorkflowOutputTypedDict,
 )
 from .insightworkflowproperties import InsightWorkflowProperties
+from .inspectlatencyresponse import (
+    InspectLatencyResponse,
+    InspectLatencyResponseTypedDict,
+)
 from .internaltool import InternalTool, InternalToolTypedDict
 from .language_groups_deleteop import (
     LanguageGroupsDeleteRequest,
@@ -298,6 +302,9 @@ from .languagegroupupdaterequest import (
     LanguageGroupUpdateRequest,
     LanguageGroupUpdateRequestTypedDict,
 )
+from .latencycategory import LatencyCategory
+from .latencyentry import LatencyEntry, LatencyEntryTypedDict
+from .latencyunittype import LatencyUnitType
 from .listresponse_agentresponse_ import (
     ListResponseAgentResponse,
     ListResponseAgentResponseTypedDict,
@@ -474,6 +481,10 @@ from .session_labels_listop import (
     SessionLabelsListRequest,
     SessionLabelsListRequestTypedDict,
 )
+from .session_latency_get_by_idop import (
+    SessionLatencyGetByIDRequest,
+    SessionLatencyGetByIDRequestTypedDict,
+)
 from .session_recording_streamop import (
     SessionRecordingStreamRequest,
     SessionRecordingStreamRequestTypedDict,
@@ -505,6 +516,7 @@ from .sessiontranscriptionresponse import (
 )
 from .statictoolparameter import StaticToolParameter, StaticToolParameterTypedDict
 from .statictoolparametertype import StaticToolParameterType
+from .summaryentry import SummaryEntry, SummaryEntryTypedDict
 from .supportedllm import SupportedLlm, SupportedLlmTypedDict
 from .takeoutrequeststatus import TakeoutRequestStatus
 from .takeouts_get_by_job_idop import (
@@ -561,8 +573,8 @@ from .validationerror import (
 )
 
 # Pydantic models with forward references
-AgentResponse.model_rebuild()
 ChannelTargetResponse.model_rebuild()
+AgentResponse.model_rebuild()
 
 __all__ = [
     "APIError",
@@ -774,6 +786,8 @@ __all__ = [
     "InsightsWorkflowQueueSessionTypedDict",
     "InsightsWorkflowUpdateRequest",
     "InsightsWorkflowUpdateRequestTypedDict",
+    "InspectLatencyResponse",
+    "InspectLatencyResponseTypedDict",
     "InternalTool",
     "InternalToolTypedDict",
     "JSONValue",
@@ -796,6 +810,10 @@ __all__ = [
     "LanguageGroupsGetByIDRequestTypedDict",
     "LanguageGroupsListRequest",
     "LanguageGroupsListRequestTypedDict",
+    "LatencyCategory",
+    "LatencyEntry",
+    "LatencyEntryTypedDict",
+    "LatencyUnitType",
     "ListResponseAgentResponse",
     "ListResponseAgentResponseTypedDict",
     "ListResponseAvailableTarget",
@@ -930,6 +948,8 @@ __all__ = [
     "SessionLabelTypedDict",
     "SessionLabelsListRequest",
     "SessionLabelsListRequestTypedDict",
+    "SessionLatencyGetByIDRequest",
+    "SessionLatencyGetByIDRequestTypedDict",
     "SessionMessage",
     "SessionMessageTypedDict",
     "SessionProperties",
@@ -953,6 +973,8 @@ __all__ = [
     "StaticToolParameterTypedDict",
     "StatusCounts",
     "StatusCountsTypedDict",
+    "SummaryEntry",
+    "SummaryEntryTypedDict",
     "SupportedLlm",
     "SupportedLlmTypedDict",
     "TakeoutRequestStatus",

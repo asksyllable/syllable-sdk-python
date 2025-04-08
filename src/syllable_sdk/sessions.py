@@ -6,6 +6,7 @@ import httpx
 from syllable_sdk import models, utils
 from syllable_sdk._hooks import HookContext
 from syllable_sdk.full_summary import FullSummary
+from syllable_sdk.latency import Latency
 from syllable_sdk.transcript import Transcript
 from syllable_sdk.types import OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
@@ -17,6 +18,7 @@ class Sessions(BaseSDK):
 
     transcript: Transcript
     full_summary: FullSummary
+    latency: Latency
 
     def __init__(self, sdk_config: SDKConfiguration) -> None:
         BaseSDK.__init__(self, sdk_config)
@@ -26,6 +28,7 @@ class Sessions(BaseSDK):
     def _init_sdks(self):
         self.transcript = Transcript(self.sdk_configuration)
         self.full_summary = FullSummary(self.sdk_configuration)
+        self.latency = Latency(self.sdk_configuration)
 
     def list(
         self,

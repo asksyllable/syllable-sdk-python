@@ -27,7 +27,6 @@ from syllable_sdk.sessions import Sessions
 from syllable_sdk.takeouts import Takeouts
 from syllable_sdk.tools import Tools
 from syllable_sdk.types import OptionalNullable, UNSET
-from syllable_sdk.v1 import V1
 from typing import Any, Callable, Dict, Optional, Union, cast
 import weakref
 
@@ -84,7 +83,6 @@ class SyllableSDK(BaseSDK):
     r"""Operations related to tool configuration. A tool is a function that an           agent can call to perform actions like accessing databases, making API calls, or           processing data. For an agent to have access to a tool, the prompt associated with that           agent should be linked to the tool and include instructions to use it. For more           information, see [Console docs](https://docs.syllable.ai/Resources/Tools)."""
     dashboards: Dashboards
     r"""Operations related to dashboards. Currently the API/SDK           only supports fetching basic information about dashboards."""
-    v1: V1
     outbound: Outbound
     language_groups: LanguageGroups
     r"""Operations related to language groups. A language group is a           collection of language, voice, and DTMF configuration that can be linked to an agent to           define the languages and voices it supports. For more information, see           [Console docs](https://docs.syllable.ai/Resources/LanguageGroups)."""
@@ -203,7 +201,6 @@ class SyllableSDK(BaseSDK):
         self.session_debug = SessionDebug(self.sdk_configuration)
         self.tools = Tools(self.sdk_configuration)
         self.dashboards = Dashboards(self.sdk_configuration)
-        self.v1 = V1(self.sdk_configuration)
         self.outbound = Outbound(self.sdk_configuration)
         self.language_groups = LanguageGroups(self.sdk_configuration)
         self.takeouts = Takeouts(self.sdk_configuration)

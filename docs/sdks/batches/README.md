@@ -86,9 +86,9 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.outbound.batches.create(request={
-        "batch_id": "20250407.9",
+        "batch_id": "20250408.9",
         "campaign_id": 1,
-        "expires_on": "2025-04-08T00:00:00Z",
+        "expires_on": "2025-04-09T00:00:00Z",
     })
 
     # Handle response
@@ -170,14 +170,14 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.outbound.batches.update(batch_id="<id>", communication_batch={
-        "batch_id": "20250407.9",
+        "batch_id": "20250408.9",
         "campaign_id": 1,
-        "expires_on": "2025-04-08T00:00:00Z",
+        "expires_on": "2025-04-09T00:00:00Z",
         "count": 152,
-        "created_at": "2025-04-07T00:00:00Z",
-        "deleted_at": "2025-04-07T00:00:00Z",
+        "created_at": "2025-04-08T00:00:00Z",
+        "deleted_at": "2025-04-08T00:00:00Z",
         "deleted_reason": "User request",
-        "last_worked_on": "2025-04-07T00:00:00Z",
+        "last_worked_on": "2025-04-08T00:00:00Z",
         "last_updated_by": "user@email.com",
     })
 

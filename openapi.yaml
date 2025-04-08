@@ -3067,6 +3067,32 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+  "/api/v1/sessions/latency/{session_id}":
+    get:
+      tags:
+        - "sessions.latency"
+      summary: "Inspect Latency For Session"
+      operationId: "session_latency_get_by_id"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "session_id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            title: "Session Id"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/InspectLatencyResponse"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
   "/api/v1/session_debug/sid/{channel_manager_service}/{channel_manager_sid}":
     get:
       tags:
@@ -4099,7 +4125,6 @@ paths:
     post:
       tags:
         - "dashboards"
-        - "V1"
       summary: "Post List Dashboards"
       description: "METHOD: POST\nURL: /dashboard/list\nARGUMENTS: None\nRETURNS: List of dashboards"
       operationId: "post_list_dashboard"
@@ -4230,7 +4255,6 @@ paths:
     post:
       tags:
         - "dashboards"
-        - "V1"
       summary: "Post Fetch Info"
       description: "METHOD: POST\nURL: /dashboard/fetch_info\nARGUMENTS: None\nRETURNS: Dashboard info for embedding"
       operationId: "post_get_dashboard"
@@ -4258,7 +4282,6 @@ paths:
     post:
       tags:
         - "dashboards"
-        - "V1"
       summary: "Post Session Events"
       description: "METHOD: POST\nURL: /dashboard/session_events\nARGUMENTS: None\nRETURNS: Dashboard info for embedding\nDEPRECATED: This endpoint is deprecated. Please use /dashboard/list instead"
       operationId: "post_session_events_dashboard"
@@ -4275,7 +4298,6 @@ paths:
     post:
       tags:
         - "dashboards"
-        - "V1"
       summary: "Post Session Summary"
       description: "METHOD: POST\nURL: /dashboard/session_summary\nARGUMENTS: None\nRETURNS: Dashboard info for embedding\nDEPRECATED: This endpoint is deprecated. Please use /dashboard/list instead"
       operationId: "post_session_summary_dashboard"
@@ -4292,7 +4314,6 @@ paths:
     post:
       tags:
         - "dashboards"
-        - "V1"
       summary: "Post Session Transfers"
       description: "METHOD: POST\nURL: /dashboard/session_transfers\nARGUMENTS: None\nRETURNS: Dashboard info for embedding\nDEPRECATED: This endpoint is deprecated. Please use /dashboard/list instead"
       operationId: "post_session_transfers_dashboard"
@@ -4309,7 +4330,6 @@ paths:
     post:
       tags:
         - "dashboards"
-        - "V1"
       summary: "Post Sessions"
       description: "METHOD: POST\nURL: /dashboard/sessions\nARGUMENTS: None\nRETURNS: Dashboard info for embedding\nDEPRECATED: This endpoint is deprecated. Please use /dashboard/list instead"
       operationId: "post_sessions_dashboard"
@@ -5922,7 +5942,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20250407.9"
+            - "20250408.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -5936,7 +5956,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-04-08T00:00:00Z"
+            - "2025-04-09T00:00:00Z"
         "status": {"$ref": "#/components/schemas/BatchStatus", "description": "Status of batch", "default": "PENDING", "examples": ["PENDING", "ACTIVE", "PAUSED", "IDLE", "CANCELED", "EXPIRED"]}
         "count":
           anyOf:
@@ -5951,7 +5971,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2025-04-07T00:00:00Z"
+            - "2025-04-08T00:00:00Z"
         "deleted_at":
           anyOf:
             - type: "string"
@@ -5959,7 +5979,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2025-04-07T00:00:00Z"
+            - "2025-04-08T00:00:00Z"
         "deleted_reason":
           anyOf:
             - type: "string"
@@ -5975,7 +5995,7 @@ components:
           title: "Last Worked On"
           description: "Timestamp of last batch activity"
           examples:
-            - "2025-04-07T00:00:00Z"
+            - "2025-04-08T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -6292,7 +6312,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20250407.9"
+            - "20250408.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -6306,7 +6326,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-04-08T00:00:00Z"
+            - "2025-04-09T00:00:00Z"
         "status": {"$ref": "#/components/schemas/BatchStatus", "description": "Status of batch", "default": "PENDING", "examples": ["PENDING", "ACTIVE", "PAUSED", "IDLE", "CANCELED", "EXPIRED"]}
         "count":
           anyOf:
@@ -6321,7 +6341,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2025-04-07T00:00:00Z"
+            - "2025-04-08T00:00:00Z"
         "deleted_at":
           anyOf:
             - type: "string"
@@ -6329,7 +6349,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2025-04-07T00:00:00Z"
+            - "2025-04-08T00:00:00Z"
         "deleted_reason":
           anyOf:
             - type: "string"
@@ -6345,7 +6365,7 @@ components:
           title: "Last Worked On"
           description: "Timestamp of last batch activity"
           examples:
-            - "2025-04-07T00:00:00Z"
+            - "2025-04-08T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -6365,7 +6385,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20250407.9"
+            - "20250408.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -6379,7 +6399,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-04-08T00:00:00Z"
+            - "2025-04-09T00:00:00Z"
       type: "object"
       required:
         - "batch_id"
@@ -6440,7 +6460,7 @@ components:
           title: "Created At"
           description: "Timestamp of request creation"
           examples:
-            - "2025-04-06T00:00:00Z"
+            - "2025-04-07T00:00:00Z"
         "sent_at":
           anyOf:
             - type: "string"
@@ -6448,7 +6468,7 @@ components:
           title: "Sent At"
           description: "Timestamp at which request was sent"
           examples:
-            - "2025-04-07T00:00:00Z"
+            - "2025-04-08T00:00:00Z"
         "attempt_count":
           type: "integer"
           title: "Attempt Count"
@@ -7969,14 +7989,14 @@ components:
           title: "Created At"
           description: "Timestamp of at which insight tool was created"
           examples:
-            - "2025-04-06T00:00:00Z"
+            - "2025-04-07T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool was last updated"
           examples:
-            - "2025-04-07T00:00:00Z"
+            - "2025-04-08T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -8118,14 +8138,14 @@ components:
           title: "Created At"
           description: "Timestamp at which the insight workflow was created"
           examples:
-            - "2025-04-06T00:00:00Z"
+            - "2025-04-07T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of most recent update to the insight workflow"
           examples:
-            - "2025-04-07T00:00:00Z"
+            - "2025-04-08T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -8215,14 +8235,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight tool result was created"
           examples:
-            - "2025-04-06T00:00:00Z"
+            - "2025-04-07T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool result was last updated"
           examples:
-            - "2025-04-07T00:00:00Z"
+            - "2025-04-08T00:00:00Z"
       type: "object"
       required:
         - "id"
@@ -8263,6 +8283,25 @@ components:
         - "session_id_list"
       title: "InsightsWorkflowQueueSession"
       description: "Session identifier for workflow queue."
+    "InspectLatencyResponse":
+      properties:
+        "session_id":
+          type: "string"
+          title: "Session Id"
+        "timeline":
+          items: {"$ref": "#/components/schemas/LatencyEntry"}
+          type: "array"
+          title: "Timeline"
+        "summary":
+          items: {"$ref": "#/components/schemas/SummaryEntry"}
+          type: "array"
+          title: "Summary"
+      type: "object"
+      required:
+        - "session_id"
+        - "timeline"
+      title: "InspectLatencyResponse"
+      description: "This is a report of the time spent in each operation during this session. It contains a timeline,\nwhich lists the operations in the order they were executed, and a summary, which aggregates the\noperations by category and sub-category."
     "InternalTool":
       properties:
         "type":
@@ -8502,6 +8541,67 @@ components:
         - "id"
       title: "LanguageGroupUpdateRequest"
       description: "Request model to update an existing language group."
+    "LatencyCategory":
+      type: "string"
+      enum:
+        - "tts"
+        - "stt"
+        - "llm"
+        - "tool"
+        - "http"
+      title: "LatencyCategory"
+    "LatencyEntry":
+      properties:
+        "timestamp":
+          type: "string"
+          format: "date-time"
+          title: "Timestamp"
+        "measurement_start":
+          type: "string"
+          format: "date-time"
+          title: "Measurement Start"
+        "category": {"$ref": "#/components/schemas/LatencyCategory"}
+        "label":
+          type: "string"
+          title: "Label"
+        "metadata":
+          anyOf:
+            - items:
+                type: "string"
+              type: "array"
+            - type: "null"
+          title: "Metadata"
+        "unit_type": {"$ref": "#/components/schemas/LatencyUnitType"}
+        "value":
+          type: "number"
+          title: "Value"
+        "value_str":
+          type: "string"
+          title: "Value Str"
+        "time_delta":
+          type: "string"
+          title: "Time Delta"
+      type: "object"
+      required:
+        - "timestamp"
+        - "measurement_start"
+        - "category"
+        - "label"
+        - "unit_type"
+        - "value"
+        - "value_str"
+        - "time_delta"
+      title: "LatencyEntry"
+      description: "Data model for latency entries."
+    "LatencyUnitType":
+      type: "string"
+      enum:
+        - "minutes"
+        - "seconds"
+        - "milliseconds"
+        - "microseconds"
+        - "nanoseconds"
+      title: "LatencyUnitType"
     "ListResponse_AgentResponse_":
       properties:
         "items":
@@ -9520,13 +9620,13 @@ components:
           title: "Created At"
           description: "Timestamp of campaign creation"
           examples:
-            - "2025-04-07T00:00:00Z"
+            - "2025-04-08T00:00:00Z"
         "updated_at":
           type: "string"
           title: "Updated At"
           description: "Timestamp of campaign update"
           examples:
-            - "2025-04-07T00:00:00Z"
+            - "2025-04-08T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -10662,6 +10762,35 @@ components:
         - "data_source_list"
       title: "StaticToolParameterType"
       description: "The expected type for a static tool parameter."
+    "SummaryEntry":
+      properties:
+        "category": {"$ref": "#/components/schemas/LatencyCategory"}
+        "sub_category":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Sub Category"
+        "sum_ms":
+          type: "number"
+          title: "Sum Ms"
+        "sum_str":
+          type: "string"
+          title: "Sum Str"
+        "average_ms":
+          type: "number"
+          title: "Average Ms"
+        "average_str":
+          type: "string"
+          title: "Average Str"
+      type: "object"
+      required:
+        - "category"
+        - "sum_ms"
+        - "sum_str"
+        - "average_ms"
+        - "average_str"
+      title: "SummaryEntry"
+      description: "A summary entry is an aggregation of latency entries by category and sub-category.\nIt contains the total and average latency for each category."
     "SupportedLlm":
       properties:
         "provider": {"$ref": "#/components/schemas/PromptLlmProvider", "description": "Provider of the LLM model.", "default": "azure_openai", "examples": ["azure_openai"]}

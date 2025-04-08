@@ -368,6 +368,10 @@ with SyllableSDK(
 
 * [get_by_id](docs/sdks/fullsummary/README.md#get_by_id) - Get Full Session Summary By Id
 
+#### [sessions.latency](docs/sdks/latency/README.md)
+
+* [get_by_id](docs/sdks/latency/README.md#get_by_id) - Inspect Latency For Session
+
 #### [sessions.transcript](docs/sdks/transcript/README.md)
 
 * [get_by_id](docs/sdks/transcript/README.md#get_by_id) - Get Session Transcript By Id
@@ -385,15 +389,6 @@ with SyllableSDK(
 * [update](docs/sdks/tools/README.md#update) - Update Tool
 * [get_by_name](docs/sdks/tools/README.md#get_by_name) - Tool Info
 * [delete](docs/sdks/tools/README.md#delete) - Delete Tool
-
-### [v1](docs/sdks/v1/README.md)
-
-* [post_list_dashboard](docs/sdks/v1/README.md#post_list_dashboard) - Post List Dashboards
-* [post_get_dashboard](docs/sdks/v1/README.md#post_get_dashboard) - Post Fetch Info
-* [~~post_session_events_dashboard~~](docs/sdks/v1/README.md#post_session_events_dashboard) - Post Session Events :warning: **Deprecated**
-* [~~post_session_summary_dashboard~~](docs/sdks/v1/README.md#post_session_summary_dashboard) - Post Session Summary :warning: **Deprecated**
-* [~~post_session_transfers_dashboard~~](docs/sdks/v1/README.md#post_session_transfers_dashboard) - Post Session Transfers :warning: **Deprecated**
-* [~~post_sessions_dashboard~~](docs/sdks/v1/README.md#post_sessions_dashboard) - Post Sessions :warning: **Deprecated**
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
