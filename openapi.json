@@ -15,8 +15,7 @@
     "/api/v1/agents/": {
       "get": {
         "tags": [
-          "agents",
-          "V1"
+          "agents"
         ],
         "summary": "Agent List",
         "description": "List the existing agents",
@@ -231,8 +230,7 @@
       },
       "post": {
         "tags": [
-          "agents",
-          "V1"
+          "agents"
         ],
         "summary": "Create Agent",
         "description": "Create a new agent",
@@ -283,8 +281,7 @@
       },
       "put": {
         "tags": [
-          "agents",
-          "V1"
+          "agents"
         ],
         "summary": "Update Agent",
         "description": "Update an existing agent",
@@ -340,8 +337,7 @@
     "/api/v1/agents/{agent_id}": {
       "get": {
         "tags": [
-          "agents",
-          "V1"
+          "agents"
         ],
         "summary": "Get Agent By Id",
         "description": "Get an agent by ID.",
@@ -387,8 +383,7 @@
       },
       "delete": {
         "tags": [
-          "agents",
-          "V1"
+          "agents"
         ],
         "summary": "Delete Agent",
         "operationId": "agent_delete",
@@ -451,8 +446,7 @@
     "/api/v1/agents/voices/available": {
       "get": {
         "tags": [
-          "agents",
-          "V1"
+          "agents"
         ],
         "summary": "Get Available Agent Voices",
         "description": "Get available agent voices.",
@@ -483,8 +477,7 @@
     "/api/v1/channels/": {
       "get": {
         "tags": [
-          "channels",
-          "V1"
+          "channels"
         ],
         "summary": "Get Channels",
         "operationId": "channels_list",
@@ -700,8 +693,7 @@
     "/api/v1/agents/test/messages": {
       "post": {
         "tags": [
-          "agents.test",
-          "V1"
+          "agents.test"
         ],
         "summary": "Send New Message",
         "description": "Send a new message",
@@ -748,8 +740,7 @@
     "/api/v1/conversations/": {
       "get": {
         "tags": [
-          "conversations",
-          "V1"
+          "conversations"
         ],
         "summary": "Conversations List",
         "operationId": "conversations_list",
@@ -965,8 +956,7 @@
     "/api/v1/data_sources/": {
       "get": {
         "tags": [
-          "data_sources",
-          "V1"
+          "data_sources"
         ],
         "summary": "List Data Sources",
         "description": "Fetch metadata about all data sources, not including their text.",
@@ -1181,8 +1171,7 @@
       },
       "post": {
         "tags": [
-          "data_sources",
-          "V1"
+          "data_sources"
         ],
         "summary": "Create Data Source",
         "description": "Create a new data source.",
@@ -1227,8 +1216,7 @@
       },
       "put": {
         "tags": [
-          "data_sources",
-          "V1"
+          "data_sources"
         ],
         "summary": "Update Data Source",
         "description": "Update an existing data source.",
@@ -1275,8 +1263,7 @@
     "/api/v1/data_sources/{data_source_id}": {
       "get": {
         "tags": [
-          "data_sources",
-          "V1"
+          "data_sources"
         ],
         "summary": "Get Data Source",
         "description": "Fetch a given data source, including its text.",
@@ -1322,8 +1309,7 @@
       },
       "delete": {
         "tags": [
-          "data_sources",
-          "V1"
+          "data_sources"
         ],
         "summary": "Delete Data Source",
         "description": "Delete a given data source.",
@@ -1378,8 +1364,7 @@
     "/api/v1/events/": {
       "get": {
         "tags": [
-          "events",
-          "V1"
+          "events"
         ],
         "summary": "Events List",
         "operationId": "events_list",
@@ -1595,8 +1580,7 @@
     "/api/v1/incidents/": {
       "get": {
         "tags": [
-          "incidents",
-          "V1"
+          "incidents"
         ],
         "summary": "List Incidents",
         "description": "List service incidents with pagination and filtering",
@@ -1811,8 +1795,7 @@
       },
       "post": {
         "tags": [
-          "incidents",
-          "V1"
+          "incidents"
         ],
         "summary": "Create Incident",
         "description": "Create a new incident",
@@ -1857,8 +1840,7 @@
       },
       "put": {
         "tags": [
-          "incidents",
-          "V1"
+          "incidents"
         ],
         "summary": "Update Incident",
         "description": "Update an existing incident",
@@ -1905,8 +1887,7 @@
     "/api/v1/incidents/organizations": {
       "get": {
         "tags": [
-          "incidents",
-          "V1"
+          "incidents"
         ],
         "summary": "Get Organizations",
         "description": "Get all organizations",
@@ -1937,8 +1918,7 @@
     "/api/v1/incidents/{incident_id}": {
       "get": {
         "tags": [
-          "incidents",
-          "V1"
+          "incidents"
         ],
         "summary": "Get Incident By Id",
         "description": "Get incident by ID",
@@ -1984,8 +1964,7 @@
       },
       "delete": {
         "tags": [
-          "incidents",
-          "V1"
+          "incidents"
         ],
         "summary": "Delete Incident",
         "description": "Delete an incident by ID",
@@ -2040,8 +2019,7 @@
     "/api/v1/insights/": {
       "get": {
         "tags": [
-          "insights",
-          "V1"
+          "insights"
         ],
         "summary": "Insights List",
         "description": "List the evaluated insights for sessions.",
@@ -2258,8 +2236,7 @@
     "/api/v1/insights/workflows/": {
       "get": {
         "tags": [
-          "insights.workflows",
-          "V1"
+          "insights.workflows"
         ],
         "summary": "Insight Workflow List",
         "description": "List the existing insight_workflows",
@@ -2474,8 +2451,7 @@
       },
       "post": {
         "tags": [
-          "insights.workflows",
-          "V1"
+          "insights.workflows"
         ],
         "summary": "Create Insight Workflow",
         "description": "Create a new tool in the insights",
@@ -2522,8 +2498,7 @@
     "/api/v1/insights/workflows/{workflow_id}": {
       "get": {
         "tags": [
-          "insights.workflows",
-          "V1"
+          "insights.workflows"
         ],
         "summary": "Get Insight Workflow By Id",
         "description": "Get a InsightWorkflow by ID.",
@@ -2569,8 +2544,7 @@
       },
       "put": {
         "tags": [
-          "insights.workflows",
-          "V1"
+          "insights.workflows"
         ],
         "summary": "Update Insights Workflow",
         "description": "Update a InsightWorkflow.",
@@ -2638,8 +2612,7 @@
       },
       "delete": {
         "tags": [
-          "insights.workflows",
-          "V1"
+          "insights.workflows"
         ],
         "summary": "Delete Insights Workflow",
         "description": "Delete a Insights workflow.",
@@ -2694,8 +2667,7 @@
     "/api/v1/insights/workflows/queue-session": {
       "post": {
         "tags": [
-          "insights.workflows",
-          "V1"
+          "insights.workflows"
         ],
         "summary": "Queue Insights Workflow For Sessions",
         "description": "Manually queue sessions for insights workflow evaluation.",
@@ -2749,8 +2721,7 @@
     "/api/v1/insights/tools": {
       "get": {
         "tags": [
-          "insights.tools",
-          "V1"
+          "insights.tools"
         ],
         "summary": "Insight Tool List",
         "description": "List the existing insight_tools",
@@ -2965,8 +2936,7 @@
       },
       "post": {
         "tags": [
-          "insights.tools",
-          "V1"
+          "insights.tools"
         ],
         "summary": "Create Insight Tool",
         "description": "Create a new insight tool.",
@@ -3019,8 +2989,7 @@
     "/api/v1/insights/tools/{tool_id}": {
       "get": {
         "tags": [
-          "insights.tools",
-          "V1"
+          "insights.tools"
         ],
         "summary": "Get Insight Tool By Id",
         "description": "Get a InsightTool by Name.",
@@ -3066,8 +3035,7 @@
       },
       "put": {
         "tags": [
-          "insights.tools",
-          "V1"
+          "insights.tools"
         ],
         "summary": "Update Insights Tool",
         "description": "Update an Insights tool.",
@@ -3137,8 +3105,7 @@
     "/api/v1/insights/tools-test": {
       "post": {
         "tags": [
-          "insights.tools",
-          "V1"
+          "insights.tools"
         ],
         "summary": "Test Insights Tool",
         "description": "Manually run the given insight tool against a session and return the response.",
@@ -3192,8 +3159,7 @@
     "/api/v1/insights/tool-definitions": {
       "get": {
         "tags": [
-          "insights.tools",
-          "V1"
+          "insights.tools"
         ],
         "summary": "Get Insight Tool Definitions",
         "description": "Get a InsightTool by Name.",
@@ -3224,8 +3190,7 @@
     "/api/v1/custom_messages/": {
       "get": {
         "tags": [
-          "custom_messages",
-          "V1"
+          "custom_messages"
         ],
         "summary": "Custom Messages List",
         "description": "List the existing custom_messages",
@@ -3440,8 +3405,7 @@
       },
       "post": {
         "tags": [
-          "custom_messages",
-          "V1"
+          "custom_messages"
         ],
         "summary": "Create Custom Message",
         "description": "Create a new custom message",
@@ -3486,8 +3450,7 @@
       },
       "put": {
         "tags": [
-          "custom_messages",
-          "V1"
+          "custom_messages"
         ],
         "summary": "Update Custom Message",
         "description": "Update a custom message",
@@ -3534,8 +3497,7 @@
     "/api/v1/custom_messages/{custom_message_id}": {
       "get": {
         "tags": [
-          "custom_messages",
-          "V1"
+          "custom_messages"
         ],
         "summary": "Get Custom Message By Id",
         "description": "Get the custom message by its ID",
@@ -3581,8 +3543,7 @@
       },
       "delete": {
         "tags": [
-          "custom_messages",
-          "V1"
+          "custom_messages"
         ],
         "summary": "Delete Custom Message",
         "description": "Delete custom message by ID",
@@ -3637,8 +3598,7 @@
     "/api/v1/prompts/": {
       "get": {
         "tags": [
-          "prompts",
-          "V1"
+          "prompts"
         ],
         "summary": "Prompt List",
         "description": "List the existing prompts",
@@ -3853,8 +3813,7 @@
       },
       "post": {
         "tags": [
-          "prompts",
-          "V1"
+          "prompts"
         ],
         "summary": "Create Prompt",
         "description": "Create a new prompt",
@@ -3899,8 +3858,7 @@
       },
       "put": {
         "tags": [
-          "prompts",
-          "V1"
+          "prompts"
         ],
         "summary": "Update Prompt",
         "description": "Update an existing prompt",
@@ -3947,8 +3905,7 @@
     "/api/v1/prompts/{prompt_id}": {
       "get": {
         "tags": [
-          "prompts",
-          "V1"
+          "prompts"
         ],
         "summary": "Get Prompt By Id",
         "description": "Get a prompt by ID",
@@ -3994,8 +3951,7 @@
       },
       "delete": {
         "tags": [
-          "prompts",
-          "V1"
+          "prompts"
         ],
         "summary": "Delete Prompt",
         "description": "Delete a prompt",
@@ -4050,8 +4006,7 @@
     "/api/v1/prompts/{prompt_id}/history": {
       "get": {
         "tags": [
-          "prompts",
-          "V1"
+          "prompts"
         ],
         "summary": "Get Prompt History",
         "description": "Get a prompt by ID",
@@ -4103,8 +4058,7 @@
     "/api/v1/prompts/llms/supported": {
       "get": {
         "tags": [
-          "prompts",
-          "V1"
+          "prompts"
         ],
         "summary": "Get Supported Llm Configs",
         "description": "Get supported LLM configs.",
@@ -4135,8 +4089,7 @@
     "/api/v1/services/": {
       "get": {
         "tags": [
-          "services",
-          "V1"
+          "services"
         ],
         "summary": "Service List",
         "description": "List the existing services",
@@ -4351,8 +4304,7 @@
       },
       "post": {
         "tags": [
-          "services",
-          "V1"
+          "services"
         ],
         "summary": "Create Service",
         "description": "Create a new service.",
@@ -4397,8 +4349,7 @@
       },
       "put": {
         "tags": [
-          "services",
-          "V1"
+          "services"
         ],
         "summary": "Update Service",
         "description": "Update an existing service.",
@@ -4445,8 +4396,7 @@
     "/api/v1/services/{service_id}": {
       "get": {
         "tags": [
-          "services",
-          "V1"
+          "services"
         ],
         "summary": "Get Service By Id",
         "description": "Get a service by its ID",
@@ -4492,8 +4442,7 @@
       },
       "delete": {
         "tags": [
-          "services",
-          "V1"
+          "services"
         ],
         "summary": "Delete Service",
         "description": "Delete a service. A service with linked tools cannot be deleted.",
@@ -4548,8 +4497,7 @@
     "/api/v1/session_labels/{session_label_id}": {
       "get": {
         "tags": [
-          "session_labels",
-          "V1"
+          "session_labels"
         ],
         "summary": "Get Label By Id",
         "operationId": "session_label_get_by_id",
@@ -4596,8 +4544,7 @@
     "/api/v1/session_labels/": {
       "post": {
         "tags": [
-          "session_labels",
-          "V1"
+          "session_labels"
         ],
         "summary": "Create Label",
         "description": "Create a new label",
@@ -4642,8 +4589,7 @@
       },
       "get": {
         "tags": [
-          "session_labels",
-          "V1"
+          "session_labels"
         ],
         "summary": "Session Labels List",
         "operationId": "session_labels_list",
@@ -4859,8 +4805,7 @@
     "/api/v1/sessions/": {
       "get": {
         "tags": [
-          "sessions",
-          "V1"
+          "sessions"
         ],
         "summary": "Sessions List",
         "operationId": "sessions_list",
@@ -5076,8 +5021,7 @@
     "/api/v1/sessions/transcript/{session_id}": {
       "get": {
         "tags": [
-          "sessions",
-          "V1"
+          "sessions"
         ],
         "summary": "Get Session Transcript By Id",
         "operationId": "session_transcript_get_by_id",
@@ -5124,8 +5068,7 @@
     "/api/v1/sessions/full-summary/{session_id}": {
       "get": {
         "tags": [
-          "sessions",
-          "V1"
+          "sessions"
         ],
         "summary": "Get Full Session Summary By Id",
         "operationId": "session_full_summary_get_by_id",
@@ -5172,8 +5115,7 @@
     "/api/v1/sessions/{session_id}": {
       "get": {
         "tags": [
-          "sessions",
-          "V1"
+          "sessions"
         ],
         "summary": "Get A Single Session By Id",
         "operationId": "session_get_by_id",
@@ -5220,8 +5162,7 @@
     "/api/v1/sessions/recording/{session_id}": {
       "post": {
         "tags": [
-          "sessions",
-          "V1"
+          "sessions"
         ],
         "summary": "Generate Recording Urls",
         "operationId": "generate_session_recording_urls",
@@ -5268,8 +5209,7 @@
     "/api/v1/sessions/recording/stream": {
       "get": {
         "tags": [
-          "sessions",
-          "V1"
+          "sessions"
         ],
         "summary": "Stream Recording",
         "operationId": "session_recording_stream",
@@ -5316,8 +5256,7 @@
     "/api/v1/sessions/latency/{session_id}": {
       "get": {
         "tags": [
-          "sessions",
-          "V1"
+          "sessions"
         ],
         "summary": "Inspect Latency For Session",
         "operationId": "session_latency_get_by_id",
@@ -5364,8 +5303,7 @@
     "/api/v1/session_debug/sid/{channel_manager_service}/{channel_manager_sid}": {
       "get": {
         "tags": [
-          "session.debug",
-          "V1"
+          "session.debug"
         ],
         "summary": "Get Session Data By Sid",
         "operationId": "get_session_data_by_sid",
@@ -5421,8 +5359,7 @@
     "/api/v1/session_debug/session_id/{session_id}": {
       "get": {
         "tags": [
-          "session.debug",
-          "V1"
+          "session.debug"
         ],
         "summary": "Get Session Data By Session Id",
         "operationId": "get_session_data_by_session_id",
@@ -5469,8 +5406,7 @@
     "/api/v1/session_debug/tool_result/{session_id}/{tool_call_id}": {
       "get": {
         "tags": [
-          "session.debug",
-          "V1"
+          "session.debug"
         ],
         "summary": "Get Session Tool Call Result By Id",
         "operationId": "get_session_tool_call_result_by_id",
@@ -5526,8 +5462,7 @@
     "/api/v1/tools/": {
       "get": {
         "tags": [
-          "tools",
-          "V1"
+          "tools"
         ],
         "summary": "Tool List",
         "description": "List the existing tools",
@@ -5742,8 +5677,7 @@
       },
       "post": {
         "tags": [
-          "tools",
-          "V1"
+          "tools"
         ],
         "summary": "Create Tool",
         "description": "Create a new tool",
@@ -5788,8 +5722,7 @@
       },
       "put": {
         "tags": [
-          "tools",
-          "V1"
+          "tools"
         ],
         "summary": "Update Tool",
         "description": "Update an existing tool",
@@ -5836,8 +5769,7 @@
     "/api/v1/tools/{tool_name}": {
       "get": {
         "tags": [
-          "tools",
-          "V1"
+          "tools"
         ],
         "summary": "Tool Info",
         "description": "Get the details of a specific tool",
@@ -5883,8 +5815,7 @@
       },
       "delete": {
         "tags": [
-          "tools",
-          "V1"
+          "tools"
         ],
         "summary": "Delete Tool",
         "description": "Delete a tool.",
@@ -5940,9 +5871,7 @@
       "get": {
         "tags": [
           "channels.targets",
-          "V1",
-          "channels.targets",
-          "V1"
+          "channels.targets"
         ],
         "summary": "Available Targets List",
         "description": "List the available phone numbers",
@@ -6160,9 +6089,7 @@
       "get": {
         "tags": [
           "channels.targets",
-          "V1",
-          "channels.targets",
-          "V1"
+          "channels.targets"
         ],
         "summary": "Get Channel Targets",
         "operationId": "channel_targets_list",
@@ -6379,9 +6306,7 @@
       "post": {
         "tags": [
           "channels.targets",
-          "V1",
-          "channels.targets",
-          "V1"
+          "channels.targets"
         ],
         "summary": "Assign A Channel Target",
         "operationId": "channel_targets_create",
@@ -6439,9 +6364,7 @@
       "get": {
         "tags": [
           "channels.targets",
-          "V1",
-          "channels.targets",
-          "V1"
+          "channels.targets"
         ],
         "summary": "Get A Channel Target",
         "operationId": "channel_targets_get_by_id",
@@ -6495,8 +6418,7 @@
       },
       "put": {
         "tags": [
-          "channels.targets",
-          "V1"
+          "channels.targets"
         ],
         "summary": "Edit Channel Target",
         "description": "Update channel target by ID",
@@ -6563,8 +6485,7 @@
     "/api/v1/channels/{channel_id}": {
       "delete": {
         "tags": [
-          "channels.targets",
-          "V1"
+          "channels.targets"
         ],
         "summary": "Delete Channel Target",
         "description": "Hard-delete a channel target by ID",
@@ -6619,8 +6540,7 @@
     "/api/v1/directory_members/": {
       "get": {
         "tags": [
-          "directory",
-          "V1"
+          "directory"
         ],
         "summary": "Directory Member List",
         "description": "List the existing directory_members",
@@ -6836,8 +6756,7 @@
       },
       "post": {
         "tags": [
-          "directory",
-          "V1"
+          "directory"
         ],
         "summary": "Create Directory Member",
         "description": "Create a new member in the directory",
@@ -6885,8 +6804,7 @@
     "/api/v1/directory_members/{member_id}": {
       "get": {
         "tags": [
-          "directory",
-          "V1"
+          "directory"
         ],
         "summary": "Get Directory Member By Id",
         "description": "Get a DirectoryMember by ID.",
@@ -6933,8 +6851,7 @@
       },
       "put": {
         "tags": [
-          "directory",
-          "V1"
+          "directory"
         ],
         "summary": "Update Directory Member",
         "description": "Update a DirectoryMember.",
@@ -7003,8 +6920,7 @@
       },
       "delete": {
         "tags": [
-          "directory",
-          "V1"
+          "directory"
         ],
         "summary": "Delete Directory Member",
         "description": "Delete a DirectoryMember.",
@@ -7060,8 +6976,7 @@
     "/api/v1/directory_members/upload/": {
       "put": {
         "tags": [
-          "directory",
-          "V1"
+          "directory"
         ],
         "summary": "Bulk Load Directory Members",
         "description": "Update Directory Members in chunks of 100.",
@@ -7119,8 +7034,7 @@
     "/api/v1/directory_members/download/": {
       "get": {
         "tags": [
-          "directory",
-          "V1"
+          "directory"
         ],
         "summary": "Download Directory Members",
         "description": "Download the entire directory as a JSON file.",
@@ -7149,8 +7063,7 @@
     "/api/v1/dashboards/list": {
       "post": {
         "tags": [
-          "dashboards",
-          "V1"
+          "dashboards"
         ],
         "summary": "Post List Dashboards",
         "description": "METHOD: POST\nURL: /dashboard/list\nARGUMENTS: None\nRETURNS: List of dashboards",
@@ -7367,8 +7280,7 @@
     "/api/v1/dashboards/fetch_info": {
       "post": {
         "tags": [
-          "dashboards",
-          "V1"
+          "dashboards"
         ],
         "summary": "Post Fetch Info",
         "description": "METHOD: POST\nURL: /dashboard/fetch_info\nARGUMENTS: None\nRETURNS: Dashboard info for embedding",
@@ -7416,8 +7328,7 @@
     "/api/v1/dashboards/session_events": {
       "post": {
         "tags": [
-          "dashboards",
-          "V1"
+          "dashboards"
         ],
         "summary": "Post Session Events",
         "description": "METHOD: POST\nURL: /dashboard/session_events\nARGUMENTS: None\nRETURNS: Dashboard info for embedding\nDEPRECATED: This endpoint is deprecated. Please use /dashboard/list instead",
@@ -7445,8 +7356,7 @@
     "/api/v1/dashboards/session_summary": {
       "post": {
         "tags": [
-          "dashboards",
-          "V1"
+          "dashboards"
         ],
         "summary": "Post Session Summary",
         "description": "METHOD: POST\nURL: /dashboard/session_summary\nARGUMENTS: None\nRETURNS: Dashboard info for embedding\nDEPRECATED: This endpoint is deprecated. Please use /dashboard/list instead",
@@ -7474,8 +7384,7 @@
     "/api/v1/dashboards/session_transfers": {
       "post": {
         "tags": [
-          "dashboards",
-          "V1"
+          "dashboards"
         ],
         "summary": "Post Session Transfers",
         "description": "METHOD: POST\nURL: /dashboard/session_transfers\nARGUMENTS: None\nRETURNS: Dashboard info for embedding\nDEPRECATED: This endpoint is deprecated. Please use /dashboard/list instead",
@@ -7503,8 +7412,7 @@
     "/api/v1/dashboards/sessions": {
       "post": {
         "tags": [
-          "dashboards",
-          "V1"
+          "dashboards"
         ],
         "summary": "Post Sessions",
         "description": "METHOD: POST\nURL: /dashboard/sessions\nARGUMENTS: None\nRETURNS: Dashboard info for embedding\nDEPRECATED: This endpoint is deprecated. Please use /dashboard/list instead",
@@ -7532,8 +7440,7 @@
     "/api/v1/outbound/batches": {
       "get": {
         "tags": [
-          "outbound.batches",
-          "V1"
+          "outbound.batches"
         ],
         "summary": "List Outbound Communication Batches",
         "operationId": "outbound_batch_list",
@@ -7747,8 +7654,7 @@
       },
       "post": {
         "tags": [
-          "outbound.batches",
-          "V1"
+          "outbound.batches"
         ],
         "summary": "Create Outbound Communication Batch",
         "operationId": "outbound_batch_create",
@@ -7802,8 +7708,7 @@
     "/api/v1/outbound/batches/{batch_id}": {
       "get": {
         "tags": [
-          "outbound.batches",
-          "V1"
+          "outbound.batches"
         ],
         "summary": "Get Outbound Communication Batch",
         "operationId": "outbound_batch_get_by_id",
@@ -7848,8 +7753,7 @@
       },
       "put": {
         "tags": [
-          "outbound.batches",
-          "V1"
+          "outbound.batches"
         ],
         "summary": "Update Outbound Communication Batch",
         "operationId": "outbound_batch_update",
@@ -7904,8 +7808,7 @@
       },
       "delete": {
         "tags": [
-          "outbound.batches",
-          "V1"
+          "outbound.batches"
         ],
         "summary": "Delete Outbound Communication Batch",
         "operationId": "outbound_batch_delete",
@@ -7960,8 +7863,7 @@
     "/api/v1/outbound/batches/{batch_id}/upload_batch": {
       "post": {
         "tags": [
-          "outbound.batches",
-          "V1"
+          "outbound.batches"
         ],
         "summary": "Upload Outbound Communication Batch",
         "operationId": "outbound_batch_upload",
@@ -8015,8 +7917,7 @@
     "/api/v1/outbound/batches/{batch_id}/results": {
       "get": {
         "tags": [
-          "outbound.batches",
-          "V1"
+          "outbound.batches"
         ],
         "summary": "Fetch Outbound Communication Batch Results",
         "operationId": "outbound_batch_results",
@@ -8085,8 +7986,7 @@
     "/api/v1/outbound/batches/{batch_id}/requests": {
       "post": {
         "tags": [
-          "outbound.batches",
-          "V1"
+          "outbound.batches"
         ],
         "summary": "Create Outbound Communication Request",
         "operationId": "outbound_batch_add",
@@ -8141,8 +8041,7 @@
     "/api/v1/outbound/batches/{batch_id}/remove-requests": {
       "post": {
         "tags": [
-          "outbound.batches",
-          "V1"
+          "outbound.batches"
         ],
         "summary": "Delete Requests By List Of Reference Ids",
         "operationId": "outbound_batch_remove",
@@ -8201,8 +8100,7 @@
     "/api/v1/outbound/campaigns": {
       "get": {
         "tags": [
-          "outbound.campaigns",
-          "V1"
+          "outbound.campaigns"
         ],
         "summary": "List Outbound Communication Campaigns",
         "operationId": "outbound_campaign_list",
@@ -8424,8 +8322,7 @@
       },
       "post": {
         "tags": [
-          "outbound.campaigns",
-          "V1"
+          "outbound.campaigns"
         ],
         "summary": "Create Outbound Communication Campaign",
         "operationId": "outbound_campaign_create",
@@ -8479,8 +8376,7 @@
     "/api/v1/outbound/campaigns/{campaign_id}": {
       "get": {
         "tags": [
-          "outbound.campaigns",
-          "V1"
+          "outbound.campaigns"
         ],
         "summary": "Get Outbound Communication Campaign",
         "operationId": "outbound_campaign_get_by_id",
@@ -8525,8 +8421,7 @@
       },
       "put": {
         "tags": [
-          "outbound.campaigns",
-          "V1"
+          "outbound.campaigns"
         ],
         "summary": "Update Outbound Communication Campaign",
         "operationId": "outbound_campaign_update",
@@ -8583,8 +8478,7 @@
     "/api/v1/language_groups/": {
       "get": {
         "tags": [
-          "language_groups",
-          "V1"
+          "language_groups"
         ],
         "summary": "List Language Groups",
         "description": "Fetch language groups.",
@@ -8799,8 +8693,7 @@
       },
       "post": {
         "tags": [
-          "language_groups",
-          "V1"
+          "language_groups"
         ],
         "summary": "Create Language Group",
         "description": "Create a new language group.",
@@ -8845,8 +8738,7 @@
       },
       "put": {
         "tags": [
-          "language_groups",
-          "V1"
+          "language_groups"
         ],
         "summary": "Update Language Group",
         "description": "Update an existing language group",
@@ -8893,8 +8785,7 @@
     "/api/v1/language_groups/{language_group_id}": {
       "get": {
         "tags": [
-          "language_groups",
-          "V1"
+          "language_groups"
         ],
         "summary": "Get Language Group",
         "description": "Fetch a given language group.",
@@ -8940,8 +8831,7 @@
       },
       "delete": {
         "tags": [
-          "language_groups",
-          "V1"
+          "language_groups"
         ],
         "summary": "Delete Language Group",
         "description": "Delete a language group.",
@@ -8996,8 +8886,7 @@
     "/api/v1/takeouts/create": {
       "post": {
         "tags": [
-          "takeouts",
-          "V1"
+          "takeouts"
         ],
         "summary": "Create Takeout",
         "operationId": "takeouts_create",
@@ -9023,8 +8912,7 @@
     "/api/v1/takeouts/get/{job_id}": {
       "get": {
         "tags": [
-          "takeouts",
-          "V1"
+          "takeouts"
         ],
         "summary": "Get Takeout",
         "operationId": "takeouts_get_by_job_id",
@@ -16286,7 +16174,7 @@
           "include_default_tools": {
             "type": "boolean",
             "title": "Include Default Tools",
-            "description": "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt.",
+            "description": "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt.",
             "default": true,
             "examples": [
               true
@@ -16781,7 +16669,7 @@
           "include_default_tools": {
             "type": "boolean",
             "title": "Include Default Tools",
-            "description": "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated.",
+            "description": "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated.",
             "default": true,
             "examples": [
               true
