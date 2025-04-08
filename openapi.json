@@ -5320,7 +5320,7 @@
           "V1"
         ],
         "summary": "Inspect Latency For Session",
-        "operationId": "session_latency_inspect",
+        "operationId": "session_latency_get_by_id",
         "security": [
           {
             "APIKeyHeader": []
@@ -13878,7 +13878,7 @@
           "timeline"
         ],
         "title": "InspectLatencyResponse",
-        "description": "Data model for latency logs."
+        "description": "This is a report of the time spent in each operation during this session. It contains a timeline,\nwhich lists the operations in the order they were executed, and a summary, which aggregates the\noperations by category and sub-category."
       },
       "InternalTool": {
         "properties": {
@@ -17889,7 +17889,7 @@
           "average_str"
         ],
         "title": "SummaryEntry",
-        "description": "Data model for summary entries."
+        "description": "A summary entry is an aggregation of latency entries by category and sub-category.\nIt contains the total and average latency for each category."
       },
       "SupportedLlm": {
         "properties": {
