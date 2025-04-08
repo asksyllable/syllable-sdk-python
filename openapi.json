@@ -5313,6 +5313,54 @@
         }
       }
     },
+    "/api/v1/sessions/latency/{session_id}": {
+      "get": {
+        "tags": [
+          "sessions",
+          "V1"
+        ],
+        "summary": "Inspect Latency For Session",
+        "operationId": "session_latency_inspect",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InspectLatencyResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/session_debug/sid/{channel_manager_service}/{channel_manager_sid}": {
       "get": {
         "tags": [
@@ -13803,6 +13851,35 @@
         "title": "InsightsWorkflowQueueSession",
         "description": "Session identifier for workflow queue."
       },
+      "InspectLatencyResponse": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "timeline": {
+            "items": {
+              "$ref": "#/components/schemas/LatencyEntry"
+            },
+            "type": "array",
+            "title": "Timeline"
+          },
+          "summary": {
+            "items": {
+              "$ref": "#/components/schemas/SummaryEntry"
+            },
+            "type": "array",
+            "title": "Summary"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "timeline"
+        ],
+        "title": "InspectLatencyResponse",
+        "description": "Data model for latency logs."
+      },
       "InternalTool": {
         "properties": {
           "type": {
@@ -14213,6 +14290,91 @@
         ],
         "title": "LanguageGroupUpdateRequest",
         "description": "Request model to update an existing language group."
+      },
+      "LatencyCategory": {
+        "type": "string",
+        "enum": [
+          "tts",
+          "stt",
+          "llm",
+          "tool",
+          "http"
+        ],
+        "title": "LatencyCategory"
+      },
+      "LatencyEntry": {
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Timestamp"
+          },
+          "measurement_start": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Measurement Start"
+          },
+          "category": {
+            "$ref": "#/components/schemas/LatencyCategory"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "metadata": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Metadata"
+          },
+          "unit_type": {
+            "$ref": "#/components/schemas/LatencyUnitType"
+          },
+          "value": {
+            "type": "number",
+            "title": "Value"
+          },
+          "value_str": {
+            "type": "string",
+            "title": "Value Str"
+          },
+          "time_delta": {
+            "type": "string",
+            "title": "Time Delta"
+          }
+        },
+        "type": "object",
+        "required": [
+          "timestamp",
+          "measurement_start",
+          "category",
+          "label",
+          "unit_type",
+          "value",
+          "value_str",
+          "time_delta"
+        ],
+        "title": "LatencyEntry",
+        "description": "Data model for latency entries."
+      },
+      "LatencyUnitType": {
+        "type": "string",
+        "enum": [
+          "minutes",
+          "seconds",
+          "milliseconds",
+          "microseconds",
+          "nanoseconds"
+        ],
+        "title": "LatencyUnitType"
       },
       "ListResponse_AgentResponse_": {
         "properties": {
@@ -16124,7 +16286,7 @@
           "include_default_tools": {
             "type": "boolean",
             "title": "Include Default Tools",
-            "description": "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt.",
+            "description": "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt.",
             "default": true,
             "examples": [
               true
@@ -16619,7 +16781,7 @@
           "include_default_tools": {
             "type": "boolean",
             "title": "Include Default Tools",
-            "description": "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated.",
+            "description": "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated.",
             "default": true,
             "examples": [
               true
@@ -17684,6 +17846,50 @@
         ],
         "title": "StaticToolParameterType",
         "description": "The expected type for a static tool parameter."
+      },
+      "SummaryEntry": {
+        "properties": {
+          "category": {
+            "$ref": "#/components/schemas/LatencyCategory"
+          },
+          "sub_category": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sub Category"
+          },
+          "sum_ms": {
+            "type": "number",
+            "title": "Sum Ms"
+          },
+          "sum_str": {
+            "type": "string",
+            "title": "Sum Str"
+          },
+          "average_ms": {
+            "type": "number",
+            "title": "Average Ms"
+          },
+          "average_str": {
+            "type": "string",
+            "title": "Average Str"
+          }
+        },
+        "type": "object",
+        "required": [
+          "category",
+          "sum_ms",
+          "sum_str",
+          "average_ms",
+          "average_str"
+        ],
+        "title": "SummaryEntry",
+        "description": "Data model for summary entries."
       },
       "SupportedLlm": {
         "properties": {
