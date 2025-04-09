@@ -6,6 +6,11 @@ permissions:
   statuses: write
   id-token: write
 "on":
+  push:
+    branches:
+      - main
+    paths:
+      - openapi.json
   workflow_dispatch:
     inputs:
       force:
