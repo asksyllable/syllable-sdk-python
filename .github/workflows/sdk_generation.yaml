@@ -22,7 +22,6 @@ jobs:
     with:
       force: ${{ github.event.inputs.force }}
       mode: direct
-      publish_python: false
       set_version: ${{ github.event.inputs.set_version }}
     secrets:
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
