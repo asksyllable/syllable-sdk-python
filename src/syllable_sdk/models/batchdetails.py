@@ -33,8 +33,8 @@ class BatchDetailsTypedDict(TypedDict):
     r"""Timestamp of batch expiration"""
     status: NotRequired[BatchStatus]
     r"""Status of a communication batch."""
-    count: NotRequired[Nullable[int]]
-    r"""Number of requests in batch"""
+    upload_filename: NotRequired[Nullable[str]]
+    r"""Name of file used to create batch"""
     created_at: NotRequired[str]
     r"""Timestamp of batch creation"""
     deleted_at: NotRequired[Nullable[str]]
@@ -43,6 +43,8 @@ class BatchDetailsTypedDict(TypedDict):
     r"""Reason for batch deletion"""
     last_worked_on: NotRequired[Nullable[str]]
     r"""Timestamp of last batch activity"""
+    error_message: NotRequired[Nullable[str]]
+    r"""Error message if batch upload failed"""
     status_counts: NotRequired[Nullable[StatusCountsTypedDict]]
     r"""Counts of requests by status"""
 
@@ -63,8 +65,8 @@ class BatchDetails(BaseModel):
     status: Optional[BatchStatus] = None
     r"""Status of a communication batch."""
 
-    count: OptionalNullable[int] = UNSET
-    r"""Number of requests in batch"""
+    upload_filename: OptionalNullable[str] = UNSET
+    r"""Name of file used to create batch"""
 
     created_at: Optional[str] = None
     r"""Timestamp of batch creation"""
@@ -78,6 +80,9 @@ class BatchDetails(BaseModel):
     last_worked_on: OptionalNullable[str] = UNSET
     r"""Timestamp of last batch activity"""
 
+    error_message: OptionalNullable[str] = UNSET
+    r"""Error message if batch upload failed"""
+
     status_counts: OptionalNullable[StatusCounts] = UNSET
     r"""Counts of requests by status"""
 
@@ -86,19 +91,21 @@ class BatchDetails(BaseModel):
         optional_fields = [
             "expires_on",
             "status",
-            "count",
+            "upload_filename",
             "created_at",
             "deleted_at",
             "deleted_reason",
             "last_worked_on",
+            "error_message",
             "status_counts",
         ]
         nullable_fields = [
             "expires_on",
-            "count",
+            "upload_filename",
             "deleted_at",
             "deleted_reason",
             "last_worked_on",
+            "error_message",
             "status_counts",
         ]
         null_default_fields = []

@@ -82,6 +82,10 @@ from .communicationbatchinput import (
     CommunicationBatchInput,
     CommunicationBatchInputTypedDict,
 )
+from .communicationbatchupdate import (
+    CommunicationBatchUpdate,
+    CommunicationBatchUpdateTypedDict,
+)
 from .communicationrequest import (
     CommunicationRequest,
     CommunicationRequestRequestVariables,
@@ -160,6 +164,7 @@ from .datasourceupdaterequest import (
     DataSourceUpdateRequestTypedDict,
 )
 from .dayofweek import DayOfWeek
+from .daysofweek import DaysOfWeek
 from .dialogmessage import DialogMessage, DialogMessageTypedDict
 from .dialogrole import DialogRole
 from .dialogtoolcall import DialogToolCall, DialogToolCallTypedDict
@@ -456,6 +461,7 @@ from .prompts_get_by_idop import PromptsGetByIDRequest, PromptsGetByIDRequestTyp
 from .prompts_historyop import PromptsHistoryRequest, PromptsHistoryRequestTypedDict
 from .prompts_listop import PromptsListRequest, PromptsListRequestTypedDict
 from .promptupdaterequest import PromptUpdateRequest, PromptUpdateRequestTypedDict
+from .requeststatus import RequestStatus
 from .security import Security, SecurityTypedDict
 from .service_deleteop import ServiceDeleteRequest, ServiceDeleteRequestTypedDict
 from .service_listop import ServiceListRequest, ServiceListRequestTypedDict
@@ -573,8 +579,8 @@ from .validationerror import (
 )
 
 # Pydantic models with forward references
-ChannelTargetResponse.model_rebuild()
 AgentResponse.model_rebuild()
+ChannelTargetResponse.model_rebuild()
 
 __all__ = [
     "APIError",
@@ -649,6 +655,8 @@ __all__ = [
     "CommunicationBatchInput",
     "CommunicationBatchInputTypedDict",
     "CommunicationBatchTypedDict",
+    "CommunicationBatchUpdate",
+    "CommunicationBatchUpdateTypedDict",
     "CommunicationRequest",
     "CommunicationRequestRequestVariables",
     "CommunicationRequestRequestVariablesTypedDict",
@@ -702,6 +710,7 @@ __all__ = [
     "DataSourcesListRequest",
     "DataSourcesListRequestTypedDict",
     "DayOfWeek",
+    "DaysOfWeek",
     "Defaults",
     "DefaultsTypedDict",
     "DialogMessage",
@@ -913,6 +922,7 @@ __all__ = [
     "PromptsHistoryRequestTypedDict",
     "PromptsListRequest",
     "PromptsListRequestTypedDict",
+    "RequestStatus",
     "Response",
     "ResponseTypedDict",
     "Security",

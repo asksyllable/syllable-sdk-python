@@ -659,8 +659,8 @@ class Batches(BaseSDK):
         self,
         *,
         batch_id: str,
-        communication_batch: Union[
-            models.CommunicationBatch, models.CommunicationBatchTypedDict
+        communication_batch_update: Union[
+            models.CommunicationBatchUpdate, models.CommunicationBatchUpdateTypedDict
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -670,7 +670,7 @@ class Batches(BaseSDK):
         r"""Update Outbound Communication Batch
 
         :param batch_id:
-        :param communication_batch:
+        :param communication_batch_update:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -688,8 +688,8 @@ class Batches(BaseSDK):
 
         request = models.OutboundBatchUpdateRequest(
             batch_id=batch_id,
-            communication_batch=utils.get_pydantic_model(
-                communication_batch, models.CommunicationBatch
+            communication_batch_update=utils.get_pydantic_model(
+                communication_batch_update, models.CommunicationBatchUpdate
             ),
         )
 
@@ -707,11 +707,11 @@ class Batches(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.communication_batch,
+                request.communication_batch_update,
                 False,
                 False,
                 "json",
-                models.CommunicationBatch,
+                models.CommunicationBatchUpdate,
             ),
             timeout_ms=timeout_ms,
         )
@@ -770,8 +770,8 @@ class Batches(BaseSDK):
         self,
         *,
         batch_id: str,
-        communication_batch: Union[
-            models.CommunicationBatch, models.CommunicationBatchTypedDict
+        communication_batch_update: Union[
+            models.CommunicationBatchUpdate, models.CommunicationBatchUpdateTypedDict
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -781,7 +781,7 @@ class Batches(BaseSDK):
         r"""Update Outbound Communication Batch
 
         :param batch_id:
-        :param communication_batch:
+        :param communication_batch_update:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -799,8 +799,8 @@ class Batches(BaseSDK):
 
         request = models.OutboundBatchUpdateRequest(
             batch_id=batch_id,
-            communication_batch=utils.get_pydantic_model(
-                communication_batch, models.CommunicationBatch
+            communication_batch_update=utils.get_pydantic_model(
+                communication_batch_update, models.CommunicationBatchUpdate
             ),
         )
 
@@ -818,11 +818,11 @@ class Batches(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.communication_batch,
+                request.communication_batch_update,
                 False,
                 False,
                 "json",
-                models.CommunicationBatch,
+                models.CommunicationBatchUpdate,
             ),
             timeout_ms=timeout_ms,
         )

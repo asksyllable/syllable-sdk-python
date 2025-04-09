@@ -1394,16 +1394,9 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.outbound.batches.update(batch_id="<id>", communication_batch={
-                    "batch_id": "20250409.9",
-                    "campaign_id": 1,
-                    "expires_on": "2025-04-10T00:00:00Z",
-                    "count": 152,
-                    "created_at": "2025-04-09T00:00:00Z",
-                    "deleted_at": "2025-04-09T00:00:00Z",
-                    "deleted_reason": "User request",
-                    "last_worked_on": "2025-04-09T00:00:00Z",
-                    "last_updated_by": "user@email.com",
+                res = ss_client.outbound.batches.update(batch_id="<id>", communication_batch_update={
+                    "paused": False,
+                    "expires_on": "2027-01-01T06:00:00Z",
                 })
 
                 # Handle response
@@ -1517,6 +1510,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
+            import syllable_sdk
             from syllable_sdk import SyllableSDK
 
 
@@ -1535,7 +1529,9 @@ actions:
                     "source": "account@email.com",
                     "caller_id": "19995551234",
                     "retry_interval": "12h",
-                    "pause_seconds": 30,
+                    "active_days": [
+                        syllable_sdk.DaysOfWeek.MON,
+                    ],
                 })
 
                 # Handle response
@@ -1554,7 +1550,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.outbound.campaigns.get_by_id(campaign_id="<id>")
+                res = ss_client.outbound.campaigns.get_by_id(campaign_id=931598)
 
                 # Handle response
                 print(res)
@@ -1565,6 +1561,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
+            import syllable_sdk
             from syllable_sdk import SyllableSDK
 
 
@@ -1572,7 +1569,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.outbound.campaigns.update(campaign_id=991464, outbound_campaign_input={
+                res = ss_client.outbound.campaigns.update(campaign_id=627690, outbound_campaign_input={
                     "campaign_name": "Outbound Campaign 1",
                     "description": "This is a test campaign",
                     "label": "demo",
@@ -1583,7 +1580,9 @@ actions:
                     "source": "account@email.com",
                     "caller_id": "19995551234",
                     "retry_interval": "12h",
-                    "pause_seconds": 30,
+                    "active_days": [
+                        syllable_sdk.DaysOfWeek.SUN,
+                    ],
                 })
 
                 # Handle response
