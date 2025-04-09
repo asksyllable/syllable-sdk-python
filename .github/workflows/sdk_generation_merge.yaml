@@ -7,11 +7,13 @@ permissions:
   pull-requests: write
 
 jobs:
-  print-actor:
+  print-details:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Actor Name
-        run: echo "GitHub Actor ${{ github.actor }}"
+      - name: Print PR details
+        run: echo "GitHub author ${{ github.actor }}"
+      - name: Print PR URL
+        run: echo "PR URL ${{ github.event.pull_request.html_url }}"
 
   auto-merge:
     runs-on: ubuntu-latest
