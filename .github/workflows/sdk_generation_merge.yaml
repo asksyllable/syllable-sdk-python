@@ -1,32 +1,45 @@
-name: Auto-Merge PRs from Speakeasy SDK Regeneration
+name: Auto-Merge SDK Regen PRs
 
 on:
   pull_request:
-    types:
-      - opened
-    branches:
-      - main
+    types: [opened, synchronize, reopened]
   workflow_dispatch: {}
+permissions:
+  pull-requests: write
+  contents: write
 
 jobs:
   auto-merge:
+    name: Auto Merge if PR branch starts with `speakeasy-sdk-regen`
     runs-on: ubuntu-latest
+
     steps:
-      - name: Check Source Branch and Auto-Merge
+      - name: Checkout the repo
+        uses: actions/checkout@v3
+
+      - name: Set PR environment variables
+        run: |
+          echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+          echo "SOURCE_BRANCH=${{ github.head_ref }}" >> $GITHUB_ENV
+
+      - name: Debug print
+        run: |
+          echo "PR_NUMBER=$PR_NUMBER"
+          echo "SOURCE_BRANCH=$SOURCE_BRANCH"
+
+      - name: Auto-merge if branch matches
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PR_NUMBER=${{ github.event.pull_request.number }}
-          SOURCE_BRANCH=${{ github.event.pull_request.head.ref }}
-
           if [[ "$SOURCE_BRANCH" == speakeasy-sdk-regen* ]]; then
-            echo "Source branch '$SOURCE_BRANCH' matches the pattern. Attempting to auto-merge PR #$PR_NUMBER."
+            echo "✅ Source branch '$SOURCE_BRANCH' matches. Attempting auto-merge for PR #$PR_NUMBER..."
 
-            # Optionally, approve the PR if required by branch protection rules
-            gh pr review $PR_NUMBER --approve
+            # Approve the PR (needed for some protected branches)
+            gh pr review "$PR_NUMBER" --approve
 
-            # Enable auto-merge for the PR
-            gh pr merge $PR_NUMBER --auto --squash
+            # Enable auto-merge with squash
+            gh pr merge "$PR_NUMBER" --auto --squash
+
           else
-            echo "Source branch '$SOURCE_BRANCH' does not match the pattern. Skipping auto-merge."
+            echo "❌ Branch '$SOURCE_BRANCH' does not match pattern. Skipping auto-merge."
           fi
