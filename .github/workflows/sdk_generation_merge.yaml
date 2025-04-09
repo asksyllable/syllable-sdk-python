@@ -1,0 +1,31 @@
+name: Auto-Merge PRs from Speakeasy SDK Regeneration
+
+on:
+  pull_request:
+    types:
+      - opened
+    branches:
+      - main
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Source Branch and Auto-Merge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_NUMBER=${{ github.event.pull_request.number }}
+          SOURCE_BRANCH=${{ github.event.pull_request.head.ref }}
+
+          if [[ "$SOURCE_BRANCH" == speakeasy-sdk-regen* ]]; then
+            echo "Source branch '$SOURCE_BRANCH' matches the pattern. Attempting to auto-merge PR #$PR_NUMBER."
+
+            # Optionally, approve the PR if required by branch protection rules
+            gh pr review $PR_NUMBER --approve
+
+            # Enable auto-merge for the PR
+            gh pr merge $PR_NUMBER --auto --squash
+          else
+            echo "Source branch '$SOURCE_BRANCH' does not match the pattern. Skipping auto-merge."
+          fi
