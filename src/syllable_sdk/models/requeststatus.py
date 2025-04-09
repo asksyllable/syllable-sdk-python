@@ -4,12 +4,12 @@ from __future__ import annotations
 from enum import Enum
 
 
-class BatchStatus(str, Enum):
-    r"""Status of a communication batch."""
+class RequestStatus(str, Enum):
+    r"""Status of a communication request."""
 
     PENDING = "PENDING"
-    ACTIVE = "ACTIVE"
-    PAUSED = "PAUSED"
+    DUPLICATE = "DUPLICATE"
+    INITIATED = "INITIATED"
+    CONNECTED = "CONNECTED"
     FAILED = "FAILED"
     CANCELED = "CANCELED"
-    EXPIRED = "EXPIRED"

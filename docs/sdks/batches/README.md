@@ -169,16 +169,9 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.outbound.batches.update(batch_id="<id>", communication_batch={
-        "batch_id": "20250409.9",
-        "campaign_id": 1,
-        "expires_on": "2025-04-10T00:00:00Z",
-        "count": 152,
-        "created_at": "2025-04-09T00:00:00Z",
-        "deleted_at": "2025-04-09T00:00:00Z",
-        "deleted_reason": "User request",
-        "last_worked_on": "2025-04-09T00:00:00Z",
-        "last_updated_by": "user@email.com",
+    res = ss_client.outbound.batches.update(batch_id="<id>", communication_batch_update={
+        "paused": False,
+        "expires_on": "2027-01-01T06:00:00Z",
     })
 
     # Handle response
@@ -188,11 +181,11 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `batch_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `communication_batch`                                               | [models.CommunicationBatch](../../models/communicationbatch.md)     | :heavy_check_mark:                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `batch_id`                                                                  | *str*                                                                       | :heavy_check_mark:                                                          | N/A                                                                         |
+| `communication_batch_update`                                                | [models.CommunicationBatchUpdate](../../models/communicationbatchupdate.md) | :heavy_check_mark:                                                          | N/A                                                                         |
+| `retries`                                                                   | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)            | :heavy_minus_sign:                                                          | Configuration to override the default retry behavior of the client.         |
 
 ### Response
 
