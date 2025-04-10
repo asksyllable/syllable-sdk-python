@@ -25,8 +25,8 @@ class CommunicationBatchTypedDict(TypedDict):
     r"""Timestamp of batch expiration"""
     status: NotRequired[BatchStatus]
     r"""Status of a communication batch."""
-    count: NotRequired[Nullable[int]]
-    r"""Number of requests in batch"""
+    upload_filename: NotRequired[Nullable[str]]
+    r"""Name of file used to create batch"""
     created_at: NotRequired[str]
     r"""Timestamp of batch creation"""
     deleted_at: NotRequired[Nullable[str]]
@@ -35,6 +35,8 @@ class CommunicationBatchTypedDict(TypedDict):
     r"""Reason for batch deletion"""
     last_worked_on: NotRequired[Nullable[str]]
     r"""Timestamp of last batch activity"""
+    error_message: NotRequired[Nullable[str]]
+    r"""Error message if batch upload failed"""
 
 
 class CommunicationBatch(BaseModel):
@@ -53,8 +55,8 @@ class CommunicationBatch(BaseModel):
     status: Optional[BatchStatus] = None
     r"""Status of a communication batch."""
 
-    count: OptionalNullable[int] = UNSET
-    r"""Number of requests in batch"""
+    upload_filename: OptionalNullable[str] = UNSET
+    r"""Name of file used to create batch"""
 
     created_at: Optional[str] = None
     r"""Timestamp of batch creation"""
@@ -68,23 +70,28 @@ class CommunicationBatch(BaseModel):
     last_worked_on: OptionalNullable[str] = UNSET
     r"""Timestamp of last batch activity"""
 
+    error_message: OptionalNullable[str] = UNSET
+    r"""Error message if batch upload failed"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
             "expires_on",
             "status",
-            "count",
+            "upload_filename",
             "created_at",
             "deleted_at",
             "deleted_reason",
             "last_worked_on",
+            "error_message",
         ]
         nullable_fields = [
             "expires_on",
-            "count",
+            "upload_filename",
             "deleted_at",
             "deleted_reason",
             "last_worked_on",
+            "error_message",
         ]
         null_default_fields = []
 
