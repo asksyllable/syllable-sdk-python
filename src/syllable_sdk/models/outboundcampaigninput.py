@@ -27,12 +27,6 @@ class OutboundCampaignInputTypedDict(TypedDict):
     r"""Human readable name of campaign"""
     campaign_variables: OutboundCampaignInputCampaignVariablesTypedDict
     r"""Variables for campaign"""
-    daily_start_time: str
-    r"""Start time of campaign each day"""
-    daily_end_time: str
-    r"""End time of campaign each day"""
-    timezone: str
-    r"""Timezone of campaign"""
     caller_id: Nullable[str]
     r"""Caller ID for call"""
     active_days: List[DaysOfWeek]
@@ -41,6 +35,10 @@ class OutboundCampaignInputTypedDict(TypedDict):
     r"""Description of campaign"""
     label: NotRequired[Nullable[str]]
     r"""Label for campaign"""
+    daily_start_time: NotRequired[Nullable[str]]
+    r"""Start time of campaign each day"""
+    daily_end_time: NotRequired[Nullable[str]]
+    r"""End time of campaign each day"""
     source: NotRequired[Nullable[str]]
     r"""Source phone number, email, or SMS number"""
     hourly_rate: NotRequired[int]
@@ -58,15 +56,6 @@ class OutboundCampaignInput(BaseModel):
     campaign_variables: OutboundCampaignInputCampaignVariables
     r"""Variables for campaign"""
 
-    daily_start_time: str
-    r"""Start time of campaign each day"""
-
-    daily_end_time: str
-    r"""End time of campaign each day"""
-
-    timezone: str
-    r"""Timezone of campaign"""
-
     caller_id: Nullable[str]
     r"""Caller ID for call"""
 
@@ -78,6 +67,12 @@ class OutboundCampaignInput(BaseModel):
 
     label: OptionalNullable[str] = UNSET
     r"""Label for campaign"""
+
+    daily_start_time: OptionalNullable[str] = UNSET
+    r"""Start time of campaign each day"""
+
+    daily_end_time: OptionalNullable[str] = UNSET
+    r"""End time of campaign each day"""
 
     source: OptionalNullable[str] = UNSET
     r"""Source phone number, email, or SMS number"""
@@ -96,6 +91,8 @@ class OutboundCampaignInput(BaseModel):
         optional_fields = [
             "description",
             "label",
+            "daily_start_time",
+            "daily_end_time",
             "source",
             "hourly_rate",
             "retry_count",
@@ -104,6 +101,8 @@ class OutboundCampaignInput(BaseModel):
         nullable_fields = [
             "description",
             "label",
+            "daily_start_time",
+            "daily_end_time",
             "source",
             "caller_id",
             "retry_interval",

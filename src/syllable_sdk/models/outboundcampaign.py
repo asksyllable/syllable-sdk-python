@@ -27,12 +27,6 @@ class OutboundCampaignTypedDict(TypedDict):
     r"""Human readable name of campaign"""
     campaign_variables: OutboundCampaignCampaignVariablesTypedDict
     r"""Variables for campaign"""
-    daily_start_time: str
-    r"""Start time of campaign each day"""
-    daily_end_time: str
-    r"""End time of campaign each day"""
-    timezone: str
-    r"""Timezone of campaign"""
     caller_id: Nullable[str]
     r"""Caller ID for call"""
     active_days: List[DaysOfWeek]
@@ -45,6 +39,10 @@ class OutboundCampaignTypedDict(TypedDict):
     r"""Description of campaign"""
     label: NotRequired[Nullable[str]]
     r"""Label for campaign"""
+    daily_start_time: NotRequired[Nullable[str]]
+    r"""Start time of campaign each day"""
+    daily_end_time: NotRequired[Nullable[str]]
+    r"""End time of campaign each day"""
     source: NotRequired[Nullable[str]]
     r"""Source phone number, email, or SMS number"""
     hourly_rate: NotRequired[int]
@@ -53,6 +51,8 @@ class OutboundCampaignTypedDict(TypedDict):
     r"""Number of retries per target"""
     retry_interval: NotRequired[Nullable[str]]
     r"""How long to wait before retrying"""
+    agent_id: NotRequired[Nullable[int]]
+    r"""ID of agent assigned to campaign"""
     created_at: NotRequired[str]
     r"""Timestamp of campaign creation"""
     updated_at: NotRequired[str]
@@ -65,15 +65,6 @@ class OutboundCampaign(BaseModel):
 
     campaign_variables: OutboundCampaignCampaignVariables
     r"""Variables for campaign"""
-
-    daily_start_time: str
-    r"""Start time of campaign each day"""
-
-    daily_end_time: str
-    r"""End time of campaign each day"""
-
-    timezone: str
-    r"""Timezone of campaign"""
 
     caller_id: Nullable[str]
     r"""Caller ID for call"""
@@ -93,6 +84,12 @@ class OutboundCampaign(BaseModel):
     label: OptionalNullable[str] = UNSET
     r"""Label for campaign"""
 
+    daily_start_time: OptionalNullable[str] = UNSET
+    r"""Start time of campaign each day"""
+
+    daily_end_time: OptionalNullable[str] = UNSET
+    r"""End time of campaign each day"""
+
     source: OptionalNullable[str] = UNSET
     r"""Source phone number, email, or SMS number"""
 
@@ -105,6 +102,9 @@ class OutboundCampaign(BaseModel):
     retry_interval: OptionalNullable[str] = UNSET
     r"""How long to wait before retrying"""
 
+    agent_id: OptionalNullable[int] = UNSET
+    r"""ID of agent assigned to campaign"""
+
     created_at: Optional[str] = None
     r"""Timestamp of campaign creation"""
 
@@ -116,19 +116,25 @@ class OutboundCampaign(BaseModel):
         optional_fields = [
             "description",
             "label",
+            "daily_start_time",
+            "daily_end_time",
             "source",
             "hourly_rate",
             "retry_count",
             "retry_interval",
+            "agent_id",
             "created_at",
             "updated_at",
         ]
         nullable_fields = [
             "description",
             "label",
+            "daily_start_time",
+            "daily_end_time",
             "source",
             "caller_id",
             "retry_interval",
+            "agent_id",
         ]
         null_default_fields = []
 

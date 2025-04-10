@@ -6079,8 +6079,8 @@ components:
         - "campaign_variables"
         - "daily_start_time"
         - "daily_end_time"
-        - "timezone"
         - "source"
+        - "caller_id"
       title: "CampaignProperties"
     "Channel":
       properties:
@@ -9595,23 +9595,21 @@ components:
           examples:
             - {"key": "value", "key2": "value2"}
         "daily_start_time":
-          type: "string"
+          anyOf:
+            - type: "string"
+            - type: "null"
           title: "Daily Start Time"
           description: "Start time of campaign each day"
           examples:
             - "09:00:00"
         "daily_end_time":
-          type: "string"
+          anyOf:
+            - type: "string"
+            - type: "null"
           title: "Daily End Time"
           description: "End time of campaign each day"
           examples:
             - "17:00:00"
-        "timezone":
-          type: "string"
-          title: "Timezone"
-          description: "Timezone of campaign"
-          examples:
-            - "America/New_York"
         "source":
           anyOf:
             - type: "string"
@@ -9666,6 +9664,14 @@ components:
           description: "Unique ID for campaign"
           examples:
             - 1
+        "agent_id":
+          anyOf:
+            - type: "integer"
+            - type: "null"
+          title: "Agent Id"
+          description: "ID of agent assigned to campaign"
+          examples:
+            - "agent_id"
         "created_at":
           type: "string"
           title: "Created At"
@@ -9688,9 +9694,6 @@ components:
       required:
         - "campaign_name"
         - "campaign_variables"
-        - "daily_start_time"
-        - "daily_end_time"
-        - "timezone"
         - "caller_id"
         - "active_days"
         - "id"
@@ -9728,23 +9731,21 @@ components:
           examples:
             - {"key": "value", "key2": "value2"}
         "daily_start_time":
-          type: "string"
+          anyOf:
+            - type: "string"
+            - type: "null"
           title: "Daily Start Time"
           description: "Start time of campaign each day"
           examples:
             - "09:00:00"
         "daily_end_time":
-          type: "string"
+          anyOf:
+            - type: "string"
+            - type: "null"
           title: "Daily End Time"
           description: "End time of campaign each day"
           examples:
             - "17:00:00"
-        "timezone":
-          type: "string"
-          title: "Timezone"
-          description: "Timezone of campaign"
-          examples:
-            - "America/New_York"
         "source":
           anyOf:
             - type: "string"
@@ -9797,9 +9798,6 @@ components:
       required:
         - "campaign_name"
         - "campaign_variables"
-        - "daily_start_time"
-        - "daily_end_time"
-        - "timezone"
         - "caller_id"
         - "active_days"
       title: "OutboundCampaignInput"
