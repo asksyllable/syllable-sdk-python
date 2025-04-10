@@ -579,8 +579,8 @@ from .validationerror import (
 )
 
 # Pydantic models with forward references
-AgentResponse.model_rebuild()
 ChannelTargetResponse.model_rebuild()
+AgentResponse.model_rebuild()
 
 __all__ = [
     "APIError",
