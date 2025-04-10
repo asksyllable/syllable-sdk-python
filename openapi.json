@@ -10324,8 +10324,8 @@
           "campaign_variables",
           "daily_start_time",
           "daily_end_time",
-          "timezone",
-          "source"
+          "source",
+          "caller_id"
         ],
         "title": "CampaignProperties"
       },
@@ -15874,7 +15874,14 @@
             ]
           },
           "daily_start_time": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Daily Start Time",
             "description": "Start time of campaign each day",
             "examples": [
@@ -15882,19 +15889,18 @@
             ]
           },
           "daily_end_time": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Daily End Time",
             "description": "End time of campaign each day",
             "examples": [
               "17:00:00"
-            ]
-          },
-          "timezone": {
-            "type": "string",
-            "title": "Timezone",
-            "description": "Timezone of campaign",
-            "examples": [
-              "America/New_York"
             ]
           },
           "source": {
@@ -15982,6 +15988,21 @@
               1
             ]
           },
+          "agent_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Agent Id",
+            "description": "ID of agent assigned to campaign",
+            "examples": [
+              "agent_id"
+            ]
+          },
           "created_at": {
             "type": "string",
             "title": "Created At",
@@ -16011,9 +16032,6 @@
         "required": [
           "campaign_name",
           "campaign_variables",
-          "daily_start_time",
-          "daily_end_time",
-          "timezone",
           "caller_id",
           "active_days",
           "id",
@@ -16074,7 +16092,14 @@
             ]
           },
           "daily_start_time": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Daily Start Time",
             "description": "Start time of campaign each day",
             "examples": [
@@ -16082,19 +16107,18 @@
             ]
           },
           "daily_end_time": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Daily End Time",
             "description": "End time of campaign each day",
             "examples": [
               "17:00:00"
-            ]
-          },
-          "timezone": {
-            "type": "string",
-            "title": "Timezone",
-            "description": "Timezone of campaign",
-            "examples": [
-              "America/New_York"
             ]
           },
           "source": {
@@ -16179,9 +16203,6 @@
         "required": [
           "campaign_name",
           "campaign_variables",
-          "daily_start_time",
-          "daily_end_time",
-          "timezone",
           "caller_id",
           "active_days"
         ],
