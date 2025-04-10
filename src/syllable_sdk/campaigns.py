@@ -464,7 +464,7 @@ class Campaigns(BaseSDK):
     def get_by_id(
         self,
         *,
-        campaign_id: int,
+        campaign_id: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -561,7 +561,7 @@ class Campaigns(BaseSDK):
     async def get_by_id_async(
         self,
         *,
-        campaign_id: int,
+        campaign_id: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
