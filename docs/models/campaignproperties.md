@@ -10,5 +10,5 @@
 | `CAMPAIGN_VARIABLES` | campaign_variables   |
 | `DAILY_START_TIME`   | daily_start_time     |
 | `DAILY_END_TIME`     | daily_end_time       |
-| `TIMEZONE`           | timezone             |
 | `SOURCE`             | source               |
+| `CALLER_ID`          | caller_id            |

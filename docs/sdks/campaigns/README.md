@@ -29,7 +29,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.outbound.campaigns.list(page=0, search_fields=[
-        syllable_sdk.CampaignProperties.TIMEZONE,
+        syllable_sdk.CampaignProperties.SOURCE,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -88,7 +88,6 @@ with SyllableSDK(
         "campaign_variables": {},
         "daily_start_time": "09:00:00",
         "daily_end_time": "17:00:00",
-        "timezone": "America/New_York",
         "source": "account@email.com",
         "caller_id": "19995551234",
         "retry_interval": "12h",
@@ -183,7 +182,6 @@ with SyllableSDK(
         "campaign_variables": {},
         "daily_start_time": "09:00:00",
         "daily_end_time": "17:00:00",
-        "timezone": "America/New_York",
         "source": "account@email.com",
         "caller_id": "19995551234",
         "retry_interval": "12h",
