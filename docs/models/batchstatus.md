@@ -10,6 +10,6 @@ Status of a communication batch.
 | `PENDING`  | PENDING    |
 | `ACTIVE`   | ACTIVE     |
 | `PAUSED`   | PAUSED     |
-| `FAILED`   | FAILED     |
+| `IDLE`     | IDLE       |
 | `CANCELED` | CANCELED   |
 | `EXPIRED`  | EXPIRED    |

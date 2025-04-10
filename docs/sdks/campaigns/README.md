@@ -73,7 +73,6 @@ Create Outbound Communication Campaign
 
 ```python
 import os
-import syllable_sdk
 from syllable_sdk import SyllableSDK
 
 
@@ -92,9 +91,7 @@ with SyllableSDK(
         "source": "account@email.com",
         "caller_id": "19995551234",
         "retry_interval": "12h",
-        "active_days": [
-            syllable_sdk.DaysOfWeek.MON,
-        ],
+        "pause_seconds": 30,
     })
 
     # Handle response
@@ -135,7 +132,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.outbound.campaigns.get_by_id(campaign_id=<id>)
+    res = ss_client.outbound.campaigns.get_by_id(campaign_id="<id>")
 
     # Handle response
     print(res)
@@ -146,7 +143,7 @@ with SyllableSDK(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `campaign_id`                                                       | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `campaign_id`                                                       | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -168,7 +165,6 @@ Update Outbound Communication Campaign
 
 ```python
 import os
-import syllable_sdk
 from syllable_sdk import SyllableSDK
 
 
@@ -187,9 +183,7 @@ with SyllableSDK(
         "source": "account@email.com",
         "caller_id": "19995551234",
         "retry_interval": "12h",
-        "active_days": [
-            syllable_sdk.DaysOfWeek.SUN,
-        ],
+        "pause_seconds": 30,
     })
 
     # Handle response

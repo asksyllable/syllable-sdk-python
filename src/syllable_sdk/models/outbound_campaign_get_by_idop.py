@@ -7,10 +7,10 @@ from typing_extensions import Annotated, TypedDict
 
 
 class OutboundCampaignGetByIDRequestTypedDict(TypedDict):
-    campaign_id: int
+    campaign_id: str
 
 
 class OutboundCampaignGetByIDRequest(BaseModel):
     campaign_id: Annotated[
-        int, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
+        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
