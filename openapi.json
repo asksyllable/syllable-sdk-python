@@ -10110,7 +10110,8 @@
           "expires_on": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "string",
+                "format": "date-time"
               },
               {
                 "type": "null"
@@ -10152,6 +10153,7 @@
           },
           "created_at": {
             "type": "string",
+            "format": "date-time",
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
@@ -10161,7 +10163,8 @@
           "deleted_at": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "string",
+                "format": "date-time"
               },
               {
                 "type": "null"
@@ -10191,7 +10194,8 @@
           "last_worked_on": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "string",
+                "format": "date-time"
               },
               {
                 "type": "null"
@@ -10705,7 +10709,8 @@
           "expires_on": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "string",
+                "format": "date-time"
               },
               {
                 "type": "null"
@@ -10747,6 +10752,7 @@
           },
           "created_at": {
             "type": "string",
+            "format": "date-time",
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
@@ -10756,7 +10762,8 @@
           "deleted_at": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "string",
+                "format": "date-time"
               },
               {
                 "type": "null"
@@ -10786,7 +10793,8 @@
           "last_worked_on": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "string",
+                "format": "date-time"
               },
               {
                 "type": "null"
@@ -10852,7 +10860,8 @@
           "expires_on": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "string",
+                "format": "date-time"
               },
               {
                 "type": "null"
@@ -10893,7 +10902,8 @@
           "expires_on": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "string",
+                "format": "date-time"
               },
               {
                 "type": "null"
@@ -10981,6 +10991,7 @@
           },
           "created_at": {
             "type": "string",
+            "format": "date-time",
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
@@ -10990,7 +11001,8 @@
           "sent_at": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "string",
+                "format": "date-time"
               },
               {
                 "type": "null"
@@ -16011,6 +16023,7 @@
           },
           "created_at": {
             "type": "string",
+            "format": "date-time",
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
@@ -16019,6 +16032,7 @@
           },
           "updated_at": {
             "type": "string",
+            "format": "date-time",
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
@@ -16291,7 +16305,7 @@
           "include_default_tools": {
             "type": "boolean",
             "title": "Include Default Tools",
-            "description": "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt.",
+            "description": "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt.",
             "default": true,
             "examples": [
               true
@@ -16786,7 +16800,7 @@
           "include_default_tools": {
             "type": "boolean",
             "title": "Include Default Tools",
-            "description": "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated.",
+            "description": "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated.",
             "default": true,
             "examples": [
               true
