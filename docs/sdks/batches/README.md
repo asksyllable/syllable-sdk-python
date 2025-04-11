@@ -77,6 +77,7 @@ Create Outbound Communication Batch
 ### Example Usage
 
 ```python
+import dateutil.parser
 import os
 from syllable_sdk import SyllableSDK
 
@@ -88,7 +89,7 @@ with SyllableSDK(
     res = ss_client.outbound.batches.create(request={
         "batch_id": "20250411.9",
         "campaign_id": 1,
-        "expires_on": "2025-04-12T00:00:00Z",
+        "expires_on": dateutil.parser.isoparse("2025-04-12T00:00:00Z"),
     })
 
     # Handle response
@@ -161,6 +162,7 @@ Update Outbound Communication Batch
 ### Example Usage
 
 ```python
+import dateutil.parser
 import os
 from syllable_sdk import SyllableSDK
 
@@ -171,7 +173,7 @@ with SyllableSDK(
 
     res = ss_client.outbound.batches.update(batch_id="<id>", communication_batch_update={
         "paused": False,
-        "expires_on": "2027-01-01T06:00:00Z",
+        "expires_on": dateutil.parser.isoparse("2027-01-01T06:00:00Z"),
     })
 
     # Handle response

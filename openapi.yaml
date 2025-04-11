@@ -5954,6 +5954,7 @@ components:
         "expires_on":
           anyOf:
             - type: "string"
+              format: "date-time"
             - type: "null"
           title: "Expires On"
           description: "Timestamp of batch expiration"
@@ -5970,6 +5971,7 @@ components:
             - "LATE_PAYMENTS_20250401.csv"
         "created_at":
           type: "string"
+          format: "date-time"
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
@@ -5977,6 +5979,7 @@ components:
         "deleted_at":
           anyOf:
             - type: "string"
+              format: "date-time"
             - type: "null"
           title: "Deleted At"
           description: "Timestamp of batch deletion"
@@ -5993,6 +5996,7 @@ components:
         "last_worked_on":
           anyOf:
             - type: "string"
+              format: "date-time"
             - type: "null"
           title: "Last Worked On"
           description: "Timestamp of last batch activity"
@@ -6335,6 +6339,7 @@ components:
         "expires_on":
           anyOf:
             - type: "string"
+              format: "date-time"
             - type: "null"
           title: "Expires On"
           description: "Timestamp of batch expiration"
@@ -6351,6 +6356,7 @@ components:
             - "LATE_PAYMENTS_20250401.csv"
         "created_at":
           type: "string"
+          format: "date-time"
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
@@ -6358,6 +6364,7 @@ components:
         "deleted_at":
           anyOf:
             - type: "string"
+              format: "date-time"
             - type: "null"
           title: "Deleted At"
           description: "Timestamp of batch deletion"
@@ -6374,6 +6381,7 @@ components:
         "last_worked_on":
           anyOf:
             - type: "string"
+              format: "date-time"
             - type: "null"
           title: "Last Worked On"
           description: "Timestamp of last batch activity"
@@ -6417,6 +6425,7 @@ components:
         "expires_on":
           anyOf:
             - type: "string"
+              format: "date-time"
             - type: "null"
           title: "Expires On"
           description: "Timestamp of batch expiration"
@@ -6441,6 +6450,7 @@ components:
         "expires_on":
           anyOf:
             - type: "string"
+              format: "date-time"
             - type: "null"
           title: "Expires On"
           description: "Timestamp of batch expiration"
@@ -6500,6 +6510,7 @@ components:
             - "LMc4b16a9df2ce33d84b3d30581fe6598c"
         "created_at":
           type: "string"
+          format: "date-time"
           title: "Created At"
           description: "Timestamp of request creation"
           examples:
@@ -6507,6 +6518,7 @@ components:
         "sent_at":
           anyOf:
             - type: "string"
+              format: "date-time"
             - type: "null"
           title: "Sent At"
           description: "Timestamp at which request was sent"
@@ -9678,12 +9690,14 @@ components:
             - "agent_id"
         "created_at":
           type: "string"
+          format: "date-time"
           title: "Created At"
           description: "Timestamp of campaign creation"
           examples:
             - "2025-04-11T00:00:00Z"
         "updated_at":
           type: "string"
+          format: "date-time"
           title: "Updated At"
           description: "Timestamp of campaign update"
           examples:
@@ -9848,7 +9862,7 @@ components:
         "include_default_tools":
           type: "boolean"
           title: "Include Default Tools"
-          description: "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."
+          description: "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."
           default: true
           examples:
             - true
@@ -10144,7 +10158,7 @@ components:
         "include_default_tools":
           type: "boolean"
           title: "Include Default Tools"
-          description: "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."
+          description: "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."
           default: true
           examples:
             - true

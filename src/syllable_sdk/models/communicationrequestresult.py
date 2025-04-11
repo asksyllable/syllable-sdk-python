@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from .requeststatus import RequestStatus
+from datetime import datetime
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -39,9 +40,9 @@ class CommunicationRequestResultTypedDict(TypedDict):
     r"""Variables for request"""
     channel_manager_sid: NotRequired[Nullable[str]]
     r"""Channel manager SID"""
-    created_at: NotRequired[str]
+    created_at: NotRequired[datetime]
     r"""Timestamp of request creation"""
-    sent_at: NotRequired[Nullable[str]]
+    sent_at: NotRequired[Nullable[datetime]]
     r"""Timestamp at which request was sent"""
     attempt_count: NotRequired[int]
     r"""Number of attempts for request"""
@@ -72,10 +73,10 @@ class CommunicationRequestResult(BaseModel):
     channel_manager_sid: OptionalNullable[str] = UNSET
     r"""Channel manager SID"""
 
-    created_at: Optional[str] = None
+    created_at: Optional[datetime] = None
     r"""Timestamp of request creation"""
 
-    sent_at: OptionalNullable[str] = UNSET
+    sent_at: OptionalNullable[datetime] = UNSET
     r"""Timestamp at which request was sent"""
 
     attempt_count: Optional[int] = 0

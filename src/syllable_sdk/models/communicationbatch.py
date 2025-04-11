@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from .batchstatus import BatchStatus
+from datetime import datetime
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -21,19 +22,19 @@ class CommunicationBatchTypedDict(TypedDict):
     r"""Unique ID for campaign"""
     last_updated_by: str
     r"""Email of user who last updated campaign"""
-    expires_on: NotRequired[Nullable[str]]
+    expires_on: NotRequired[Nullable[datetime]]
     r"""Timestamp of batch expiration"""
     status: NotRequired[BatchStatus]
     r"""Status of a communication batch."""
     upload_filename: NotRequired[Nullable[str]]
     r"""Name of file used to create batch"""
-    created_at: NotRequired[str]
+    created_at: NotRequired[datetime]
     r"""Timestamp of batch creation"""
-    deleted_at: NotRequired[Nullable[str]]
+    deleted_at: NotRequired[Nullable[datetime]]
     r"""Timestamp of batch deletion"""
     deleted_reason: NotRequired[Nullable[str]]
     r"""Reason for batch deletion"""
-    last_worked_on: NotRequired[Nullable[str]]
+    last_worked_on: NotRequired[Nullable[datetime]]
     r"""Timestamp of last batch activity"""
     error_message: NotRequired[Nullable[str]]
     r"""Error message if batch upload failed"""
@@ -49,7 +50,7 @@ class CommunicationBatch(BaseModel):
     last_updated_by: str
     r"""Email of user who last updated campaign"""
 
-    expires_on: OptionalNullable[str] = UNSET
+    expires_on: OptionalNullable[datetime] = UNSET
     r"""Timestamp of batch expiration"""
 
     status: Optional[BatchStatus] = None
@@ -58,16 +59,16 @@ class CommunicationBatch(BaseModel):
     upload_filename: OptionalNullable[str] = UNSET
     r"""Name of file used to create batch"""
 
-    created_at: Optional[str] = None
+    created_at: Optional[datetime] = None
     r"""Timestamp of batch creation"""
 
-    deleted_at: OptionalNullable[str] = UNSET
+    deleted_at: OptionalNullable[datetime] = UNSET
     r"""Timestamp of batch deletion"""
 
     deleted_reason: OptionalNullable[str] = UNSET
     r"""Reason for batch deletion"""
 
-    last_worked_on: OptionalNullable[str] = UNSET
+    last_worked_on: OptionalNullable[datetime] = UNSET
     r"""Timestamp of last batch activity"""
 
     error_message: OptionalNullable[str] = UNSET
