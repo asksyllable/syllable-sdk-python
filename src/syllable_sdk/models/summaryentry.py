@@ -19,6 +19,7 @@ class SummaryEntryTypedDict(TypedDict):
     """
 
     category: LatencyCategory
+    event_count: int
     sum_ms: float
     sum_str: str
     average_ms: float
@@ -32,6 +33,8 @@ class SummaryEntry(BaseModel):
     """
 
     category: LatencyCategory
+
+    event_count: int
 
     sum_ms: float
 

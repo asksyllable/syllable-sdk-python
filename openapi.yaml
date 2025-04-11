@@ -10849,6 +10849,9 @@ components:
             - type: "string"
             - type: "null"
           title: "Sub Category"
+        "event_count":
+          type: "integer"
+          title: "Event Count"
         "sum_ms":
           type: "number"
           title: "Sum Ms"
@@ -10864,6 +10867,7 @@ components:
       type: "object"
       required:
         - "category"
+        - "event_count"
         - "sum_ms"
         - "sum_str"
         - "average_ms"
