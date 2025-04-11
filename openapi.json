@@ -10230,6 +10230,9 @@
           "status_counts": {
             "anyOf": [
               {
+                "additionalProperties": {
+                  "type": "integer"
+                },
                 "type": "object"
               },
               {
