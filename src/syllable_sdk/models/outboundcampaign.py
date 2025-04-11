@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from .daysofweek import DaysOfWeek
+from datetime import datetime
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -53,9 +54,9 @@ class OutboundCampaignTypedDict(TypedDict):
     r"""How long to wait before retrying"""
     agent_id: NotRequired[Nullable[int]]
     r"""ID of agent assigned to campaign"""
-    created_at: NotRequired[str]
+    created_at: NotRequired[datetime]
     r"""Timestamp of campaign creation"""
-    updated_at: NotRequired[str]
+    updated_at: NotRequired[datetime]
     r"""Timestamp of campaign update"""
 
 
@@ -105,10 +106,10 @@ class OutboundCampaign(BaseModel):
     agent_id: OptionalNullable[int] = UNSET
     r"""ID of agent assigned to campaign"""
 
-    created_at: Optional[str] = None
+    created_at: Optional[datetime] = None
     r"""Timestamp of campaign creation"""
 
-    updated_at: Optional[str] = None
+    updated_at: Optional[datetime] = None
     r"""Timestamp of campaign update"""
 
     @model_serializer(mode="wrap")

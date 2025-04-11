@@ -30,7 +30,7 @@ class PromptCreateRequestTypedDict(TypedDict):
     tools: NotRequired[List[str]]
     r"""Names of tools to which the prompt has access"""
     include_default_tools: NotRequired[bool]
-    r"""Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."""
+    r"""Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."""
 
 
 class PromptCreateRequest(BaseModel):
@@ -55,7 +55,7 @@ class PromptCreateRequest(BaseModel):
     r"""Names of tools to which the prompt has access"""
 
     include_default_tools: Optional[bool] = True
-    r"""Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."""
+    r"""Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
