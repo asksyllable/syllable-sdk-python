@@ -425,18 +425,8 @@ from .outbound_campaign_updateop import (
     OutboundCampaignUpdateRequest,
     OutboundCampaignUpdateRequestTypedDict,
 )
-from .outboundcampaign import (
-    OutboundCampaign,
-    OutboundCampaignCampaignVariables,
-    OutboundCampaignCampaignVariablesTypedDict,
-    OutboundCampaignTypedDict,
-)
-from .outboundcampaigninput import (
-    OutboundCampaignInput,
-    OutboundCampaignInputCampaignVariables,
-    OutboundCampaignInputCampaignVariablesTypedDict,
-    OutboundCampaignInputTypedDict,
-)
+from .outboundcampaign import OutboundCampaign, OutboundCampaignTypedDict
+from .outboundcampaigninput import OutboundCampaignInput, OutboundCampaignInputTypedDict
 from .post_get_dashboardop import (
     PostGetDashboardRequest,
     PostGetDashboardRequestTypedDict,
@@ -884,13 +874,9 @@ __all__ = [
     "OutboundBatchUploadRequest",
     "OutboundBatchUploadRequestTypedDict",
     "OutboundCampaign",
-    "OutboundCampaignCampaignVariables",
-    "OutboundCampaignCampaignVariablesTypedDict",
     "OutboundCampaignGetByIDRequest",
     "OutboundCampaignGetByIDRequestTypedDict",
     "OutboundCampaignInput",
-    "OutboundCampaignInputCampaignVariables",
-    "OutboundCampaignInputCampaignVariablesTypedDict",
     "OutboundCampaignInputTypedDict",
     "OutboundCampaignListRequest",
     "OutboundCampaignListRequestTypedDict",

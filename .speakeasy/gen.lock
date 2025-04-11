@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: f0011a2fc4104d8a89086117c4fa2a9d
+  docChecksum: 5c92933046c6aa8d1155ba2d59ddaf69
   docVersion: 0.0.2
   speakeasyVersion: 1.531.3
   generationVersion: 2.570.3
-  releaseVersion: 0.4.21
-  configChecksum: e84c721e7ae420754d2932678646e3fb
+  releaseVersion: 0.4.22
+  configChecksum: c5f7d22059dc54cb37b95f27f521357e
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -211,10 +211,8 @@ generatedFiles:
   - docs/models/outboundbatchupdaterequest.md
   - docs/models/outboundbatchuploadrequest.md
   - docs/models/outboundcampaign.md
-  - docs/models/outboundcampaigncampaignvariables.md
   - docs/models/outboundcampaigngetbyidrequest.md
   - docs/models/outboundcampaigninput.md
-  - docs/models/outboundcampaigninputcampaignvariables.md
   - docs/models/outboundcampaignlistrequest.md
   - docs/models/outboundcampaignupdaterequest.md
   - docs/models/postgetdashboardrequest.md
@@ -1592,16 +1590,16 @@ examples:
           end_datetime: "2024-01-01T00:00:00Z"
       responses:
         "200":
-          application/json: {"items": [{"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "label": "demo", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "account@email.com", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["tue"], "id": 1, "agent_id": "agent_id", "created_at": "2025-04-11T00:00:00Z", "updated_at": "2025-04-11T00:00:00Z", "last_updated_by": "user@email.com"}, {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "label": "test", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "account@email.com", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "12h", "active_days": ["mon"], "id": 1, "agent_id": "agent_id", "created_at": "2025-04-11T00:00:00Z", "updated_at": "2025-04-11T00:00:00Z", "last_updated_by": "user@email.com"}], "page": 0, "page_size": 25, "total_pages": 4, "total_count": 100}
+          application/json: {"items": [{"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "label": "demo", "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "account@email.com", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["tue"], "id": 1, "agent_id": "agent_id", "created_at": "2025-04-11T00:00:00Z", "updated_at": "2025-04-11T00:00:00Z", "last_updated_by": "user@email.com"}, {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "label": "test", "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "account@email.com", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "12h", "active_days": ["mon"], "id": 1, "agent_id": "agent_id", "created_at": "2025-04-11T00:00:00Z", "updated_at": "2025-04-11T00:00:00Z", "last_updated_by": "user@email.com"}], "page": 0, "page_size": 25, "total_pages": 4, "total_count": 100}
         "422":
           application/json: {}
   outbound_campaign_create:
     speakeasy-default-outbound-campaign-create:
       requestBody:
-        application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "label": "test", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "account@email.com", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "12h", "active_days": ["mon"]}
+        application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "label": "test", "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "account@email.com", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "12h", "active_days": ["mon"]}
       responses:
         "200":
-          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "label": "test", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "account@email.com", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "7d", "active_days": ["mon"], "id": 1, "agent_id": "agent_id", "created_at": "2025-04-11T00:00:00Z", "updated_at": "2025-04-11T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "label": "test", "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "account@email.com", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "7d", "active_days": ["mon"], "id": 1, "agent_id": "agent_id", "created_at": "2025-04-11T00:00:00Z", "updated_at": "2025-04-11T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   outbound_campaign_get_by_id:
@@ -1611,7 +1609,7 @@ examples:
           campaign_id: "<id>"
       responses:
         "200":
-          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "label": "demo", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "account@email.com", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "12h", "active_days": ["mon"], "id": 1, "agent_id": "agent_id", "created_at": "2025-04-11T00:00:00Z", "updated_at": "2025-04-11T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "label": "demo", "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "account@email.com", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "12h", "active_days": ["mon"], "id": 1, "agent_id": "agent_id", "created_at": "2025-04-11T00:00:00Z", "updated_at": "2025-04-11T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   outbound_campaign_update:
@@ -1620,10 +1618,10 @@ examples:
         path:
           campaign_id: 991464
       requestBody:
-        application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "label": "demo", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "account@email.com", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "12h", "active_days": ["sun"]}
+        application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "label": "demo", "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "account@email.com", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "12h", "active_days": ["sun"]}
       responses:
         "200":
-          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "label": "demo", "campaign_variables": {}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "7d", "active_days": ["mon"], "id": 1, "agent_id": "agent_id", "created_at": "2025-04-11T00:00:00Z", "updated_at": "2025-04-11T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "label": "demo", "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "7d", "active_days": ["mon"], "id": 1, "agent_id": "agent_id", "created_at": "2025-04-11T00:00:00Z", "updated_at": "2025-04-11T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   language_groups_list:
