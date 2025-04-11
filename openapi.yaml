@@ -1580,7 +1580,9 @@ paths:
           description: "Successful Response"
           content:
             "application/json":
-              schema: {}
+              schema:
+                type: "object"
+                title: "Response Queue Sessions Workflow"
         "400":
           description: "Bad Request"
         "404":
@@ -6013,7 +6015,9 @@ components:
             - "Missing required fields"
         "status_counts":
           anyOf:
-            - type: "object"
+            - additionalProperties:
+                type: "integer"
+              type: "object"
             - type: "null"
           title: "Status Counts"
           description: "Counts of requests by status"
@@ -9844,7 +9848,7 @@ components:
         "include_default_tools":
           type: "boolean"
           title: "Include Default Tools"
-          description: "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."
+          description: "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."
           default: true
           examples:
             - true
@@ -10140,7 +10144,7 @@ components:
         "include_default_tools":
           type: "boolean"
           title: "Include Default Tools"
-          description: "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."
+          description: "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."
           default: true
           examples:
             - true

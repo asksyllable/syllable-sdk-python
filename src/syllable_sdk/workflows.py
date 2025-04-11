@@ -1102,7 +1102,7 @@ class Workflows(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Any:
+    ) -> models.ResponseQueueSessionsWorkflow:
         r"""Queue Insights Workflow For Sessions
 
         Manually queue sessions for insights workflow evaluation.
@@ -1170,7 +1170,9 @@ class Workflows(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Any)
+            return utils.unmarshal_json(
+                http_res.text, models.ResponseQueueSessionsWorkflow
+            )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -1207,7 +1209,7 @@ class Workflows(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Any:
+    ) -> models.ResponseQueueSessionsWorkflow:
         r"""Queue Insights Workflow For Sessions
 
         Manually queue sessions for insights workflow evaluation.
@@ -1275,7 +1277,9 @@ class Workflows(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Any)
+            return utils.unmarshal_json(
+                http_res.text, models.ResponseQueueSessionsWorkflow
+            )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
