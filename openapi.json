@@ -15881,6 +15881,9 @@
             ]
           },
           "campaign_variables": {
+            "additionalProperties": {
+              "type": "string"
+            },
             "type": "object",
             "title": "Campaign Variables",
             "description": "Variables for campaign",
@@ -16101,6 +16104,9 @@
             ]
           },
           "campaign_variables": {
+            "additionalProperties": {
+              "type": "string"
+            },
             "type": "object",
             "title": "Campaign Variables",
             "description": "Variables for campaign",
