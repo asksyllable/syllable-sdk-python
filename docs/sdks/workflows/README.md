@@ -280,7 +280,7 @@ with SyllableSDK(
 
 ### Response
 
-**[Any](../../models/.md)**
+**[models.ResponseQueueSessionsWorkflow](../../models/responsequeuesessionsworkflow.md)**
 
 ### Errors
 

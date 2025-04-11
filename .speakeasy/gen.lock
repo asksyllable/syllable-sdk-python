@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: ad573e2922fd1d8ab10fcd15927f6de7
+  docChecksum: fa00f2060fe3d4acb788adbcdb736297
   docVersion: 0.0.2
-  speakeasyVersion: 1.531.2
-  generationVersion: 2.570.0
-  releaseVersion: 0.4.16
-  configChecksum: 8510785619b7ab29b90fa399f0239a01
+  speakeasyVersion: 1.531.3
+  generationVersion: 2.570.3
+  releaseVersion: 0.4.17
+  configChecksum: fb59a6720a2f801523c344630df19816
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -14,7 +14,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.12.6
+    core: 5.12.7
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
     devContainers: 3.0.0
@@ -232,6 +232,7 @@ generatedFiles:
   - docs/models/promptupdaterequest.md
   - docs/models/requeststatus.md
   - docs/models/response.md
+  - docs/models/responsequeuesessionsworkflow.md
   - docs/models/security.md
   - docs/models/servicecreaterequest.md
   - docs/models/servicedeleterequest.md
@@ -262,7 +263,6 @@ generatedFiles:
   - docs/models/sessiontranscriptionresponse.md
   - docs/models/statictoolparameter.md
   - docs/models/statictoolparametertype.md
-  - docs/models/statuscounts.md
   - docs/models/summaryentry.md
   - docs/models/supportedllm.md
   - docs/models/takeoutrequeststatus.md
@@ -525,6 +525,7 @@ generatedFiles:
   - src/syllable_sdk/models/prompts_historyop.py
   - src/syllable_sdk/models/prompts_listop.py
   - src/syllable_sdk/models/promptupdaterequest.py
+  - src/syllable_sdk/models/queue_sessions_workflowop.py
   - src/syllable_sdk/models/requeststatus.py
   - src/syllable_sdk/models/security.py
   - src/syllable_sdk/models/service_deleteop.py
@@ -1002,7 +1003,7 @@ examples:
         application/json: {"workflow_name": "summary-workflow", "session_id_list": ["[12334,23445,34556]"]}
       responses:
         "200":
-          application/json: "<value>"
+          application/json: {}
         "422":
           application/json: {}
   insight_tool_list:
@@ -1507,7 +1508,7 @@ examples:
           batch_id: "<id>"
       responses:
         "200":
-          application/json: {"batch_id": "20250411.9", "campaign_id": 1, "expires_on": "2025-04-12T00:00:00Z", "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2025-04-11T00:00:00Z", "deleted_at": "2025-04-11T00:00:00Z", "deleted_reason": "User request", "last_worked_on": "2025-04-11T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Missing required fields"}
+          application/json: {"batch_id": "20250411.9", "campaign_id": 1, "expires_on": "2025-04-12T00:00:00Z", "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2025-04-11T00:00:00Z", "deleted_at": "2025-04-11T00:00:00Z", "deleted_reason": "User request", "last_worked_on": "2025-04-11T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Missing required fields", "status_counts": {"CANCELED": 7, "CONNECTED": 100, "DUPLICATE": 5, "FAILED": 10, "INITIATED": 20, "PENDING": 10}}
         "422":
           application/json: {}
   outbound_batch_update:

@@ -10,16 +10,8 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import Optional
+from typing import Dict, Optional
 from typing_extensions import NotRequired, TypedDict
-
-
-class StatusCountsTypedDict(TypedDict):
-    pass
-
-
-class StatusCounts(BaseModel):
-    pass
 
 
 class BatchDetailsTypedDict(TypedDict):
@@ -45,7 +37,7 @@ class BatchDetailsTypedDict(TypedDict):
     r"""Timestamp of last batch activity"""
     error_message: NotRequired[Nullable[str]]
     r"""Error message if batch upload failed"""
-    status_counts: NotRequired[Nullable[StatusCountsTypedDict]]
+    status_counts: NotRequired[Nullable[Dict[str, int]]]
     r"""Counts of requests by status"""
 
 
@@ -83,7 +75,7 @@ class BatchDetails(BaseModel):
     error_message: OptionalNullable[str] = UNSET
     r"""Error message if batch upload failed"""
 
-    status_counts: OptionalNullable[StatusCounts] = UNSET
+    status_counts: OptionalNullable[Dict[str, int]] = UNSET
     r"""Counts of requests by status"""
 
     @model_serializer(mode="wrap")

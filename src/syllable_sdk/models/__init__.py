@@ -24,12 +24,7 @@ from .available_targetsop import (
 )
 from .availabletarget import AvailableTarget, AvailableTargetTypedDict
 from .availabletargetproperties import AvailableTargetProperties
-from .batchdetails import (
-    BatchDetails,
-    BatchDetailsTypedDict,
-    StatusCounts,
-    StatusCountsTypedDict,
-)
+from .batchdetails import BatchDetails, BatchDetailsTypedDict
 from .batchproperties import BatchProperties
 from .batchstatus import BatchStatus
 from .body_outbound_batch_delete import (
@@ -461,6 +456,10 @@ from .prompts_get_by_idop import PromptsGetByIDRequest, PromptsGetByIDRequestTyp
 from .prompts_historyop import PromptsHistoryRequest, PromptsHistoryRequestTypedDict
 from .prompts_listop import PromptsListRequest, PromptsListRequestTypedDict
 from .promptupdaterequest import PromptUpdateRequest, PromptUpdateRequestTypedDict
+from .queue_sessions_workflowop import (
+    ResponseQueueSessionsWorkflow,
+    ResponseQueueSessionsWorkflowTypedDict,
+)
 from .requeststatus import RequestStatus
 from .security import Security, SecurityTypedDict
 from .service_deleteop import ServiceDeleteRequest, ServiceDeleteRequestTypedDict
@@ -579,8 +578,8 @@ from .validationerror import (
 )
 
 # Pydantic models with forward references
-ChannelTargetResponse.model_rebuild()
 AgentResponse.model_rebuild()
+ChannelTargetResponse.model_rebuild()
 
 __all__ = [
     "APIError",
@@ -924,6 +923,8 @@ __all__ = [
     "PromptsListRequestTypedDict",
     "RequestStatus",
     "Response",
+    "ResponseQueueSessionsWorkflow",
+    "ResponseQueueSessionsWorkflowTypedDict",
     "ResponseTypedDict",
     "Security",
     "SecurityTypedDict",
@@ -981,8 +982,6 @@ __all__ = [
     "StaticToolParameter",
     "StaticToolParameterType",
     "StaticToolParameterTypedDict",
-    "StatusCounts",
-    "StatusCountsTypedDict",
     "SummaryEntry",
     "SummaryEntryTypedDict",
     "SupportedLlm",
