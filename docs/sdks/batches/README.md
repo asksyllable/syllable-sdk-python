@@ -86,9 +86,9 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.outbound.batches.create(request={
-        "batch_id": "20250410.9",
+        "batch_id": "20250411.9",
         "campaign_id": 1,
-        "expires_on": "2025-04-11T00:00:00Z",
+        "expires_on": "2025-04-12T00:00:00Z",
     })
 
     # Handle response
