@@ -10,22 +10,14 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import List, Optional
+from typing import Dict, List, Optional
 from typing_extensions import NotRequired, TypedDict
-
-
-class OutboundCampaignInputCampaignVariablesTypedDict(TypedDict):
-    r"""Variables for campaign"""
-
-
-class OutboundCampaignInputCampaignVariables(BaseModel):
-    r"""Variables for campaign"""
 
 
 class OutboundCampaignInputTypedDict(TypedDict):
     campaign_name: str
     r"""Human readable name of campaign"""
-    campaign_variables: OutboundCampaignInputCampaignVariablesTypedDict
+    campaign_variables: Dict[str, str]
     r"""Variables for campaign"""
     caller_id: Nullable[str]
     r"""Caller ID for call"""
@@ -53,7 +45,7 @@ class OutboundCampaignInput(BaseModel):
     campaign_name: str
     r"""Human readable name of campaign"""
 
-    campaign_variables: OutboundCampaignInputCampaignVariables
+    campaign_variables: Dict[str, str]
     r"""Variables for campaign"""
 
     caller_id: Nullable[str]

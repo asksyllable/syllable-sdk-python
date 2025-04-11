@@ -85,7 +85,10 @@ with SyllableSDK(
         "campaign_name": "Outbound Campaign 1",
         "description": "This is a test campaign",
         "label": "test",
-        "campaign_variables": {},
+        "campaign_variables": {
+            "key": "value",
+            "key2": "value2",
+        },
         "daily_start_time": "09:00:00",
         "daily_end_time": "17:00:00",
         "source": "account@email.com",
@@ -179,7 +182,10 @@ with SyllableSDK(
         "campaign_name": "Outbound Campaign 1",
         "description": "This is a test campaign",
         "label": "demo",
-        "campaign_variables": {},
+        "campaign_variables": {
+            "key": "value",
+            "key2": "value2",
+        },
         "daily_start_time": "09:00:00",
         "daily_end_time": "17:00:00",
         "source": "account@email.com",
