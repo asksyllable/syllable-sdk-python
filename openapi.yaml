@@ -52,6 +52,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -64,6 +65,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -97,6 +99,7 @@ paths:
                 items: {"$ref": "#/components/schemas/AgentProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -318,6 +321,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -330,6 +334,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -363,6 +368,7 @@ paths:
                 items: {"$ref": "#/components/schemas/ChannelProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -469,6 +475,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -481,6 +488,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -514,6 +522,7 @@ paths:
                 items: {"$ref": "#/components/schemas/ConversationProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -596,6 +605,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -608,6 +618,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -641,6 +652,7 @@ paths:
                 items: {"$ref": "#/components/schemas/DataSourceProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -829,6 +841,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -841,6 +854,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -874,6 +888,7 @@ paths:
                 items: {"$ref": "#/components/schemas/EventProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -956,6 +971,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -968,6 +984,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -1001,6 +1018,7 @@ paths:
                 items: {"$ref": "#/components/schemas/IncidentProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -1208,6 +1226,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -1220,6 +1239,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -1253,6 +1273,7 @@ paths:
                 items: {"$ref": "#/components/schemas/InsightsProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -1335,6 +1356,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -1347,6 +1369,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -1380,6 +1403,7 @@ paths:
                 items: {"$ref": "#/components/schemas/InsightWorkflowProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -1617,6 +1641,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -1629,6 +1654,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -1662,6 +1688,7 @@ paths:
                 items: {"$ref": "#/components/schemas/InsightToolProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -1887,6 +1914,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -1899,6 +1927,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -1932,6 +1961,7 @@ paths:
                 items: {"$ref": "#/components/schemas/CustomMessageProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -2121,6 +2151,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -2133,6 +2164,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -2166,6 +2198,7 @@ paths:
                 items: {"$ref": "#/components/schemas/PromptProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -2403,6 +2436,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -2415,6 +2449,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -2448,6 +2483,7 @@ paths:
                 items: {"$ref": "#/components/schemas/ServiceProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -2686,6 +2722,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -2698,6 +2735,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -2731,6 +2769,7 @@ paths:
                 items: {"$ref": "#/components/schemas/SessionLabelProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -2812,6 +2851,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -2824,6 +2864,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -2857,6 +2898,7 @@ paths:
                 items: {"$ref": "#/components/schemas/SessionProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -3188,6 +3230,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -3200,6 +3243,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -3233,6 +3277,7 @@ paths:
                 items: {"$ref": "#/components/schemas/ToolProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -3422,6 +3467,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -3434,6 +3480,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -3467,6 +3514,7 @@ paths:
                 items: {"$ref": "#/components/schemas/AvailableTargetProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -3548,6 +3596,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -3560,6 +3609,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -3593,6 +3643,7 @@ paths:
                 items: {"$ref": "#/components/schemas/ChannelTargetProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -3808,6 +3859,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -3820,6 +3872,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -3853,6 +3906,7 @@ paths:
                 items: {"$ref": "#/components/schemas/DirectoryMemberProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -4114,6 +4168,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -4126,6 +4181,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -4159,6 +4215,7 @@ paths:
                 items: {"$ref": "#/components/schemas/DashboardProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -4331,6 +4388,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -4343,6 +4401,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -4376,6 +4435,7 @@ paths:
                 items: {"$ref": "#/components/schemas/BatchProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -4707,6 +4767,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -4719,6 +4780,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -4752,6 +4814,7 @@ paths:
                 items: {"$ref": "#/components/schemas/CampaignProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -4921,6 +4984,7 @@ paths:
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
               - "name"
+            default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
         - name: "search_field_values"
@@ -4933,6 +4997,7 @@ paths:
             description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
             examples:
               - "Some Object Name"
+            default: []
             title: "Search Field Values"
           description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
         - name: "order_by"
@@ -4966,6 +5031,7 @@ paths:
                 items: {"$ref": "#/components/schemas/LanguageGroupProperties"}
               - type: "null"
             description: "The fields to include in the response"
+            default: []
             title: "Fields"
           description: "The fields to include in the response"
         - name: "start_datetime"
@@ -5878,7 +5944,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20250411.9"
+            - "20250412.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -5893,7 +5959,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-04-12T00:00:00Z"
+            - "2025-04-13T00:00:00Z"
         "status": {"$ref": "#/components/schemas/BatchStatus", "description": "Status of batch", "default": "PENDING", "examples": ["PENDING", "ACTIVE", "PAUSED", "FAILED", "CANCELED", "EXPIRED"]}
         "upload_filename":
           anyOf:
@@ -5909,7 +5975,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2025-04-11T00:00:00Z"
+            - "2025-04-12T00:00:00Z"
         "deleted_at":
           anyOf:
             - type: "string"
@@ -5918,7 +5984,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2025-04-11T00:00:00Z"
+            - "2025-04-12T00:00:00Z"
         "deleted_reason":
           anyOf:
             - type: "string"
@@ -5935,7 +6001,7 @@ components:
           title: "Last Worked On"
           description: "Timestamp of last batch activity"
           examples:
-            - "2025-04-11T00:00:00Z"
+            - "2025-04-12T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -6263,7 +6329,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20250411.9"
+            - "20250412.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -6278,7 +6344,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-04-12T00:00:00Z"
+            - "2025-04-13T00:00:00Z"
         "status": {"$ref": "#/components/schemas/BatchStatus", "description": "Status of batch", "default": "PENDING", "examples": ["PENDING", "ACTIVE", "PAUSED", "FAILED", "CANCELED", "EXPIRED"]}
         "upload_filename":
           anyOf:
@@ -6294,7 +6360,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2025-04-11T00:00:00Z"
+            - "2025-04-12T00:00:00Z"
         "deleted_at":
           anyOf:
             - type: "string"
@@ -6303,7 +6369,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2025-04-11T00:00:00Z"
+            - "2025-04-12T00:00:00Z"
         "deleted_reason":
           anyOf:
             - type: "string"
@@ -6320,7 +6386,7 @@ components:
           title: "Last Worked On"
           description: "Timestamp of last batch activity"
           examples:
-            - "2025-04-11T00:00:00Z"
+            - "2025-04-12T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -6349,7 +6415,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20250411.9"
+            - "20250412.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -6364,7 +6430,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-04-12T00:00:00Z"
+            - "2025-04-13T00:00:00Z"
       type: "object"
       required:
         - "batch_id"
@@ -6448,7 +6514,7 @@ components:
           title: "Created At"
           description: "Timestamp of request creation"
           examples:
-            - "2025-04-10T00:00:00Z"
+            - "2025-04-11T00:00:00Z"
         "sent_at":
           anyOf:
             - type: "string"
@@ -6457,7 +6523,7 @@ components:
           title: "Sent At"
           description: "Timestamp at which request was sent"
           examples:
-            - "2025-04-11T00:00:00Z"
+            - "2025-04-12T00:00:00Z"
         "attempt_count":
           type: "integer"
           title: "Attempt Count"
@@ -6662,6 +6728,7 @@ components:
           type: "array"
           title: "Rules"
           description: "Rules for time-specific message variants"
+          default: []
           examples:
             - [{"date": "2025-01-01", "description": "Closed on New Year's Day", "invert": false, "text": "Hello, thank you for calling. Sorry, we're closed today.", "time_range_end": "17:00", "time_range_start": "09:00"}, {"days_of_week": ["sa", "su"], "description": "Closed on weekends", "invert": false, "text": "Hello, thank you for calling. Sorry, we're closed on weekends.", "time_range_end": "17:00", "time_range_start": "09:00"}]
         "type":
@@ -6713,6 +6780,7 @@ components:
           type: "array"
           title: "Rules"
           description: "Rules for time-specific message variants"
+          default: []
           examples:
             - [{"date": "2025-01-01", "description": "Closed on New Year's Day", "invert": false, "text": "Hello, thank you for calling. Sorry, we're closed today.", "time_range_end": "17:00", "time_range_start": "09:00"}, {"days_of_week": ["sa", "su"], "description": "Closed on weekends", "invert": false, "text": "Hello, thank you for calling. Sorry, we're closed on weekends.", "time_range_end": "17:00", "time_range_start": "09:00"}]
         "id":
@@ -6848,6 +6916,7 @@ components:
           type: "array"
           title: "Rules"
           description: "Rules for time-specific message variants"
+          default: []
           examples:
             - [{"date": "2025-01-01", "description": "Closed on New Year's Day", "invert": false, "text": "Hello, thank you for calling. Sorry, we're closed today.", "time_range_end": "17:00", "time_range_start": "09:00"}, {"days_of_week": ["sa", "su"], "description": "Closed on weekends", "invert": false, "text": "Hello, thank you for calling. Sorry, we're closed on weekends.", "time_range_end": "17:00", "time_range_start": "09:00"}]
         "id":
@@ -7017,6 +7086,7 @@ components:
           type: "array"
           title: "Labels"
           description: "Searchable labels for the data source. Can be included in agent.prompt_tool_defaults for a given tool to give the agent access to data sources with those labels when calling that tool."
+          default: []
           examples:
             - ["Weather Info"]
         "chunk":
@@ -7068,6 +7138,7 @@ components:
           type: "array"
           title: "Labels"
           description: "Searchable labels for the data source. Can be included in agent.prompt_tool_defaults for a given tool to give the agent access to data sources with those labels when calling that tool."
+          default: []
           examples:
             - ["Weather Info"]
         "chunk":
@@ -7147,6 +7218,7 @@ components:
           type: "array"
           title: "Labels"
           description: "Searchable labels for the data source. Can be included in agent.prompt_tool_defaults for a given tool to give the agent access to data sources with those labels when calling that tool."
+          default: []
           examples:
             - ["Weather Info"]
         "chunk":
@@ -7233,6 +7305,7 @@ components:
           type: "array"
           title: "Labels"
           description: "Searchable labels for the data source. Can be included in agent.prompt_tool_defaults for a given tool to give the agent access to data sources with those labels when calling that tool."
+          default: []
           examples:
             - ["Weather Info"]
         "chunk":
@@ -7984,14 +8057,14 @@ components:
           title: "Created At"
           description: "Timestamp of at which insight tool was created"
           examples:
-            - "2025-04-10T00:00:00Z"
+            - "2025-04-11T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool was last updated"
           examples:
-            - "2025-04-11T00:00:00Z"
+            - "2025-04-12T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -8133,14 +8206,14 @@ components:
           title: "Created At"
           description: "Timestamp at which the insight workflow was created"
           examples:
-            - "2025-04-10T00:00:00Z"
+            - "2025-04-11T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of most recent update to the insight workflow"
           examples:
-            - "2025-04-11T00:00:00Z"
+            - "2025-04-12T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -8230,14 +8303,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight tool result was created"
           examples:
-            - "2025-04-10T00:00:00Z"
+            - "2025-04-11T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool result was last updated"
           examples:
-            - "2025-04-11T00:00:00Z"
+            - "2025-04-12T00:00:00Z"
       type: "object"
       required:
         - "id"
@@ -9623,14 +9696,14 @@ components:
           title: "Created At"
           description: "Timestamp of campaign creation"
           examples:
-            - "2025-04-11T00:00:00Z"
+            - "2025-04-12T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of campaign update"
           examples:
-            - "2025-04-11T00:00:00Z"
+            - "2025-04-12T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -9786,13 +9859,14 @@ components:
           type: "array"
           title: "Tools"
           description: "Names of tools to which the prompt has access"
+          default: []
           examples:
             - ["summary", "hangup"]
         "llm_config": {"$ref": "#/components/schemas/PromptLlmConfig", "description": "The configuration for the LLM that the prompt uses", "examples": [{"model": "gpt-4o", "provider": "openai", "version": "2024-08-06"}]}
         "include_default_tools":
           type: "boolean"
           title: "Include Default Tools"
-          description: "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."
+          description: "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."
           default: true
           examples:
             - true
@@ -9971,6 +10045,7 @@ components:
           type: "array"
           title: "Tools"
           description: "Names of the tools to which the prompt has access (DEPRECATED - use information from full tools field instead)"
+          default: []
           deprecated: true
           examples:
             - "hangup"
@@ -10066,6 +10141,7 @@ components:
           type: "array"
           title: "Tools"
           description: "Names of tools to which the prompt has access"
+          default: []
           examples:
             - ["summary", "hangup"]
         "llm_config": {"$ref": "#/components/schemas/PromptLlmConfig", "description": "The configuration for the LLM that the prompt uses", "examples": [{"model": "gpt-4o", "provider": "openai", "version": "2024-08-06"}]}
@@ -10086,7 +10162,7 @@ components:
         "include_default_tools":
           type: "boolean"
           title: "Include Default Tools"
-          description: "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."
+          description: "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."
           default: true
           examples:
             - true
@@ -10482,6 +10558,7 @@ components:
             - type: "null"
           title: "Issue Categories"
           description: "Descriptions of issues occurring in the labeled call"
+          default: []
           examples:
             - ["Silent treatment"]
             - ["Speech transcription (STT)"]
@@ -10551,6 +10628,7 @@ components:
             - type: "null"
           title: "Issue Categories"
           description: "Descriptions of issues occurring in the labeled call"
+          default: []
           examples:
             - ["Silent treatment"]
             - ["Speech transcription (STT)"]

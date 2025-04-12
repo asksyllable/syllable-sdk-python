@@ -1336,9 +1336,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20250411.9",
+                    "batch_id": "20250412.9",
                     "campaign_id": 1,
-                    "expires_on": dateutil.parser.isoparse("2025-04-12T00:00:00Z"),
+                    "expires_on": dateutil.parser.isoparse("2025-04-13T00:00:00Z"),
                 })
 
                 # Handle response
