@@ -2936,58 +2936,6 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/HTTPValidationError"}
-  "/api/v1/sessions/transcript/{session_id}":
-    get:
-      tags:
-        - "sessions.transcript"
-      summary: "Get Session Transcript By Id"
-      operationId: "session_transcript_get_by_id"
-      security:
-        - APIKeyHeader: []
-      parameters:
-        - name: "session_id"
-          in: "path"
-          required: true
-          schema:
-            type: "string"
-            title: "Session Id"
-      responses:
-        "200":
-          description: "Successful Response"
-          content:
-            "application/json":
-              schema: {"$ref": "#/components/schemas/SessionTranscriptionResponse"}
-        "422":
-          description: "Validation Error"
-          content:
-            "application/json":
-              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
-  "/api/v1/sessions/full-summary/{session_id}":
-    get:
-      tags:
-        - "sessions.full-summary"
-      summary: "Get Full Session Summary By Id"
-      operationId: "session_full_summary_get_by_id"
-      security:
-        - APIKeyHeader: []
-      parameters:
-        - name: "session_id"
-          in: "path"
-          required: true
-          schema:
-            type: "string"
-            title: "Session Id"
-      responses:
-        "200":
-          description: "Successful Response"
-          content:
-            "application/json":
-              schema: {"$ref": "#/components/schemas/SessionSummaryResponse"}
-        "422":
-          description: "Validation Error"
-          content:
-            "application/json":
-              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
   "/api/v1/sessions/{session_id}":
     get:
       tags:
@@ -3064,6 +3012,58 @@ paths:
                 type: "string"
                 title: "bytes"
                 format: "binary"
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+  "/api/v1/sessions/transcript/{session_id}":
+    get:
+      tags:
+        - "sessions.transcript"
+      summary: "Get Session Transcript By Id"
+      operationId: "session_transcript_get_by_id"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "session_id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            title: "Session Id"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/SessionTranscriptionResponse"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+  "/api/v1/sessions/full-summary/{session_id}":
+    get:
+      tags:
+        - "sessions.full-summary"
+      summary: "Get Full Session Summary By Id"
+      operationId: "session_full_summary_get_by_id"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "session_id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            title: "Session Id"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/SessionSummaryResponse"}
         "422":
           description: "Validation Error"
           content:
@@ -9866,7 +9866,7 @@ components:
         "include_default_tools":
           type: "boolean"
           title: "Include Default Tools"
-          description: "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."
+          description: "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."
           default: true
           examples:
             - true
@@ -10162,7 +10162,7 @@ components:
         "include_default_tools":
           type: "boolean"
           title: "Include Default Tools"
-          description: "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."
+          description: "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."
           default: true
           examples:
             - true
