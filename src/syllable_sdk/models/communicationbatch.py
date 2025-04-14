@@ -24,6 +24,8 @@ class CommunicationBatchTypedDict(TypedDict):
     r"""Email of user who last updated campaign"""
     expires_on: NotRequired[Nullable[datetime]]
     r"""Timestamp of batch expiration"""
+    paused: NotRequired[Nullable[bool]]
+    r"""Whether the batch is on HOLD. When on HOLD, no outreach will be made."""
     status: NotRequired[BatchStatus]
     r"""Status of a communication batch."""
     upload_filename: NotRequired[Nullable[str]]
@@ -53,6 +55,9 @@ class CommunicationBatch(BaseModel):
     expires_on: OptionalNullable[datetime] = UNSET
     r"""Timestamp of batch expiration"""
 
+    paused: OptionalNullable[bool] = UNSET
+    r"""Whether the batch is on HOLD. When on HOLD, no outreach will be made."""
+
     status: Optional[BatchStatus] = None
     r"""Status of a communication batch."""
 
@@ -78,6 +83,7 @@ class CommunicationBatch(BaseModel):
     def serialize_model(self, handler):
         optional_fields = [
             "expires_on",
+            "paused",
             "status",
             "upload_filename",
             "created_at",
@@ -88,6 +94,7 @@ class CommunicationBatch(BaseModel):
         ]
         nullable_fields = [
             "expires_on",
+            "paused",
             "upload_filename",
             "deleted_at",
             "deleted_reason",

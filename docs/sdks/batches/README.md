@@ -90,6 +90,7 @@ with SyllableSDK(
         "batch_id": "20250414.9",
         "campaign_id": 1,
         "expires_on": dateutil.parser.isoparse("2025-04-15T00:00:00Z"),
+        "paused": True,
     })
 
     # Handle response
