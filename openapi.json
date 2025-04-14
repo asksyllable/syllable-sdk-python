@@ -5021,100 +5021,6 @@
         }
       }
     },
-    "/api/v1/sessions/transcript/{session_id}": {
-      "get": {
-        "tags": [
-          "sessions"
-        ],
-        "summary": "Get Session Transcript By Id",
-        "operationId": "session_transcript_get_by_id",
-        "security": [
-          {
-            "APIKeyHeader": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "session_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Session Id"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SessionTranscriptionResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/sessions/full-summary/{session_id}": {
-      "get": {
-        "tags": [
-          "sessions"
-        ],
-        "summary": "Get Full Session Summary By Id",
-        "operationId": "session_full_summary_get_by_id",
-        "security": [
-          {
-            "APIKeyHeader": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "session_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Session Id"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SessionSummaryResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/v1/sessions/{session_id}": {
       "get": {
         "tags": [
@@ -5256,10 +5162,104 @@
         }
       }
     },
+    "/api/v1/sessions/transcript/{session_id}": {
+      "get": {
+        "tags": [
+          "sessions.transcript"
+        ],
+        "summary": "Get Session Transcript By Id",
+        "operationId": "session_transcript_get_by_id",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionTranscriptionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sessions/full-summary/{session_id}": {
+      "get": {
+        "tags": [
+          "sessions.full-summary"
+        ],
+        "summary": "Get Full Session Summary By Id",
+        "operationId": "session_full_summary_get_by_id",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionSummaryResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/sessions/latency/{session_id}": {
       "get": {
         "tags": [
-          "sessions"
+          "sessions.latency"
         ],
         "summary": "Inspect Latency For Session",
         "operationId": "session_latency_get_by_id",
@@ -5306,7 +5306,7 @@
     "/api/v1/session_debug/sid/{channel_manager_service}/{channel_manager_sid}": {
       "get": {
         "tags": [
-          "session.debug"
+          "session_debug"
         ],
         "summary": "Get Session Data By Sid",
         "operationId": "get_session_data_by_sid",
@@ -5362,7 +5362,7 @@
     "/api/v1/session_debug/session_id/{session_id}": {
       "get": {
         "tags": [
-          "session.debug"
+          "session_debug"
         ],
         "summary": "Get Session Data By Session Id",
         "operationId": "get_session_data_by_session_id",
@@ -5409,7 +5409,7 @@
     "/api/v1/session_debug/tool_result/{session_id}/{tool_call_id}": {
       "get": {
         "tags": [
-          "session.debug"
+          "session_debug"
         ],
         "summary": "Get Session Tool Call Result By Id",
         "operationId": "get_session_tool_call_result_by_id",
@@ -5873,7 +5873,6 @@
     "/api/v1/channels/available-targets": {
       "get": {
         "tags": [
-          "channels.targets",
           "channels.targets"
         ],
         "summary": "Available Targets List",
@@ -6091,7 +6090,6 @@
     "/api/v1/channels/targets": {
       "get": {
         "tags": [
-          "channels.targets",
           "channels.targets"
         ],
         "summary": "Get Channel Targets",
@@ -6308,7 +6306,6 @@
     "/api/v1/channels/{channel_id}/targets": {
       "post": {
         "tags": [
-          "channels.targets",
           "channels.targets"
         ],
         "summary": "Assign A Channel Target",
@@ -6366,7 +6363,6 @@
     "/api/v1/channels/{channel_id}/targets/{target_id}": {
       "get": {
         "tags": [
-          "channels.targets",
           "channels.targets"
         ],
         "summary": "Get A Channel Target",
