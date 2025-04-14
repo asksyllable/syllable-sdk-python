@@ -5960,6 +5960,15 @@ components:
           description: "Timestamp of batch expiration"
           examples:
             - "2025-04-15T00:00:00Z"
+        "paused":
+          anyOf:
+            - type: "boolean"
+            - type: "null"
+          title: "Paused"
+          description: "Whether the batch is on HOLD. When on HOLD, no outreach will be made."
+          examples:
+            - true
+            - false
         "status": {"$ref": "#/components/schemas/BatchStatus", "description": "Status of batch", "default": "PENDING", "examples": ["PENDING", "ACTIVE", "PAUSED", "FAILED", "CANCELED", "EXPIRED"]}
         "upload_filename":
           anyOf:
@@ -6345,6 +6354,15 @@ components:
           description: "Timestamp of batch expiration"
           examples:
             - "2025-04-15T00:00:00Z"
+        "paused":
+          anyOf:
+            - type: "boolean"
+            - type: "null"
+          title: "Paused"
+          description: "Whether the batch is on HOLD. When on HOLD, no outreach will be made."
+          examples:
+            - true
+            - false
         "status": {"$ref": "#/components/schemas/BatchStatus", "description": "Status of batch", "default": "PENDING", "examples": ["PENDING", "ACTIVE", "PAUSED", "FAILED", "CANCELED", "EXPIRED"]}
         "upload_filename":
           anyOf:
@@ -6431,6 +6449,15 @@ components:
           description: "Timestamp of batch expiration"
           examples:
             - "2025-04-15T00:00:00Z"
+        "paused":
+          anyOf:
+            - type: "boolean"
+            - type: "null"
+          title: "Paused"
+          description: "Whether the batch is on HOLD. When on HOLD, no outreach will be made."
+          examples:
+            - true
+            - false
       type: "object"
       required:
         - "batch_id"
