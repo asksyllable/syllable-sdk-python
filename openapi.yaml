@@ -7684,55 +7684,64 @@ components:
           type: "string"
           title: "Description"
           description: "Description of the service incident"
-          example: "Service outage in region X"
+          examples:
+            - "Service outage in region X"
         "start_datetime":
           type: "string"
           format: "date-time"
           title: "Start Datetime"
           description: "Start time of the incident"
-          example: "2023-10-01T08:00:00Z"
+          examples:
+            - "2023-10-01T08:00:00Z"
         "resolution_datetime":
           type: "string"
           format: "date-time"
           title: "Resolution Datetime"
           description: "Resolution time of the incident"
-          example: "2023-10-01T12:00:00Z"
+          examples:
+            - "2023-10-01T12:00:00Z"
         "impact_category":
           type: "string"
           title: "Impact Category"
           description: "Category of the impact"
-          example: "High"
+          examples:
+            - "High"
         "sessions_impacted":
           type: "integer"
           title: "Sessions Impacted"
           description: "Number of sessions impacted"
-          example: 1500
+          examples:
+            - 1500
         "markdown":
           type: "string"
           title: "Markdown"
           description: "Detailed markdown description of the incident"
-          example: "**Incident Details**"
+          examples:
+            - "**Incident Details**"
         "organization_id":
           anyOf:
             - type: "integer"
             - type: "null"
           title: "Organization Id"
           description: "The ID of the organization"
-          example: 123
+          examples:
+            - 123
         "sub_organization_id":
           anyOf:
             - type: "integer"
             - type: "null"
           title: "Sub Organization Id"
           description: "The ID of the sub-organization"
-          example: 456
+          examples:
+            - 456
         "sub_organization":
           anyOf:
             - type: "string"
             - type: "null"
           title: "Sub Organization"
           description: "The name of the sub-organization"
-          example: "SubOrg A"
+          examples:
+            - "SubOrg A"
       type: "object"
       required:
         - "description"
@@ -7783,60 +7792,70 @@ components:
           type: "string"
           title: "Description"
           description: "Description of the service incident"
-          example: "Service outage in region X"
+          examples:
+            - "Service outage in region X"
         "start_datetime":
           type: "string"
           format: "date-time"
           title: "Start Datetime"
           description: "Start time of the incident"
-          example: "2023-10-01T08:00:00Z"
+          examples:
+            - "2023-10-01T08:00:00Z"
         "resolution_datetime":
           type: "string"
           format: "date-time"
           title: "Resolution Datetime"
           description: "Resolution time of the incident"
-          example: "2023-10-01T12:00:00Z"
+          examples:
+            - "2023-10-01T12:00:00Z"
         "impact_category":
           type: "string"
           title: "Impact Category"
           description: "Category of the impact"
-          example: "High"
+          examples:
+            - "High"
         "sessions_impacted":
           type: "integer"
           title: "Sessions Impacted"
           description: "Number of sessions impacted"
-          example: 1500
+          examples:
+            - 1500
         "markdown":
           type: "string"
           title: "Markdown"
           description: "Detailed markdown description of the incident"
-          example: "**Incident Details**"
+          examples:
+            - "**Incident Details**"
         "organization_id":
           anyOf:
             - type: "integer"
             - type: "null"
           title: "Organization Id"
           description: "The ID of the organization"
-          example: 123
+          examples:
+            - 123
         "sub_organization_id":
           anyOf:
             - type: "integer"
             - type: "null"
           title: "Sub Organization Id"
           description: "The ID of the sub-organization"
-          example: 456
+          examples:
+            - 456
         "sub_organization":
           anyOf:
             - type: "string"
             - type: "null"
           title: "Sub Organization"
           description: "The name of the sub-organization"
-          example: "SubOrg A"
+          examples:
+            - "SubOrg A"
         "id":
           type: "integer"
           title: "Id"
           description: "The ID of the incident to update"
-          example: 1
+          examples:
+            - 1
         "created_at":
           anyOf:
             - type: "string"
@@ -7844,7 +7863,8 @@ components:
             - type: "null"
           title: "Created At"
           description: "Creation time of the incident"
-          example: "2023-10-01T08:00:00Z"
+          examples:
+            - "2023-10-01T08:00:00Z"
         "updated_at":
           anyOf:
             - type: "string"
@@ -7852,7 +7872,16 @@ components:
             - type: "null"
           title: "Updated At"
           description: "Last update time of the incident"
-          example: "2023-10-01T08:00:00Z"
+          examples:
+            - "2023-10-01T08:00:00Z"
+        "last_updated_by":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Last Updated By"
+          description: "The email of the user who last updated the incident"
+          examples:
+            - "user@mail.com"
       type: "object"
       required:
         - "description"
@@ -7862,6 +7891,7 @@ components:
         - "sessions_impacted"
         - "markdown"
         - "id"
+        - "last_updated_by"
       title: "IncidentResponse"
       description: "Response model for service incident operations."
     "IncidentUpdateRequest":
@@ -7870,60 +7900,70 @@ components:
           type: "string"
           title: "Description"
           description: "Description of the service incident"
-          example: "Service outage in region X"
+          examples:
+            - "Service outage in region X"
         "start_datetime":
           type: "string"
           format: "date-time"
           title: "Start Datetime"
           description: "Start time of the incident"
-          example: "2023-10-01T08:00:00Z"
+          examples:
+            - "2023-10-01T08:00:00Z"
         "resolution_datetime":
           type: "string"
           format: "date-time"
           title: "Resolution Datetime"
           description: "Resolution time of the incident"
-          example: "2023-10-01T12:00:00Z"
+          examples:
+            - "2023-10-01T12:00:00Z"
         "impact_category":
           type: "string"
           title: "Impact Category"
           description: "Category of the impact"
-          example: "High"
+          examples:
+            - "High"
         "sessions_impacted":
           type: "integer"
           title: "Sessions Impacted"
           description: "Number of sessions impacted"
-          example: 1500
+          examples:
+            - 1500
         "markdown":
           type: "string"
           title: "Markdown"
           description: "Detailed markdown description of the incident"
-          example: "**Incident Details**"
+          examples:
+            - "**Incident Details**"
         "organization_id":
           anyOf:
             - type: "integer"
             - type: "null"
           title: "Organization Id"
           description: "The ID of the organization"
-          example: 123
+          examples:
+            - 123
         "sub_organization_id":
           anyOf:
             - type: "integer"
             - type: "null"
           title: "Sub Organization Id"
           description: "The ID of the sub-organization"
-          example: 456
+          examples:
+            - 456
         "sub_organization":
           anyOf:
             - type: "string"
             - type: "null"
           title: "Sub Organization"
           description: "The name of the sub-organization"
-          example: "SubOrg A"
+          examples:
+            - "SubOrg A"
         "id":
           type: "integer"
           title: "Id"
           description: "The ID of the incident to update"
-          example: 1
+          examples:
+            - 1
         "created_at":
           anyOf:
             - type: "string"
@@ -7931,7 +7971,8 @@ components:
             - type: "null"
           title: "Created At"
           description: "Creation time of the incident"
-          example: "2023-10-01T08:00:00Z"
+          examples:
+            - "2023-10-01T08:00:00Z"
         "updated_at":
           anyOf:
             - type: "string"
@@ -7939,7 +7980,8 @@ components:
             - type: "null"
           title: "Updated At"
           description: "Last update time of the incident"
-          example: "2023-10-01T08:00:00Z"
+          examples:
+            - "2023-10-01T08:00:00Z"
       type: "object"
       required:
         - "description"
