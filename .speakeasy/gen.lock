@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 623b0d37e5ce28299ae582e83e70a3f9
+  docChecksum: 1908fd22e3c050d86374daea8ece9c17
   docVersion: 0.0.2
   speakeasyVersion: 1.533.0
   generationVersion: 2.578.0
-  releaseVersion: 0.5.4
-  configChecksum: be61913226aa68b9aabc551e77eefb59
+  releaseVersion: 0.5.5
+  configChecksum: 372399ca7c57dec9e2d629a8e9fd53ec
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -876,7 +876,7 @@ examples:
           end_datetime: "2024-01-01T00:00:00Z"
       responses:
         "200":
-          application/json: {"items": [{"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "sub_organization": "SubOrg A", "id": 1, "created_at": "2023-10-01T08:00:00Z", "updated_at": "2023-10-01T08:00:00Z"}, {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "sub_organization": "SubOrg A", "id": 1, "created_at": "2023-10-01T08:00:00Z", "updated_at": "2023-10-01T08:00:00Z"}], "page": 0, "page_size": 25, "total_pages": 4, "total_count": 100}
+          application/json: {"items": [{"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "sub_organization": "SubOrg A", "id": 1, "created_at": "2023-10-01T08:00:00Z", "updated_at": "2023-10-01T08:00:00Z", "last_updated_by": "user@mail.com"}, {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "sub_organization": "SubOrg A", "id": 1, "created_at": "2023-10-01T08:00:00Z", "updated_at": "2023-10-01T08:00:00Z", "last_updated_by": "user@mail.com"}], "page": 0, "page_size": 25, "total_pages": 4, "total_count": 100}
         "422":
           application/json: {}
   incident_create:
@@ -885,7 +885,7 @@ examples:
         application/json: {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "sub_organization": "SubOrg A"}
       responses:
         "200":
-          application/json: {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "sub_organization": "SubOrg A", "id": 1, "created_at": "2023-10-01T08:00:00Z", "updated_at": "2023-10-01T08:00:00Z"}
+          application/json: {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "sub_organization": "SubOrg A", "id": 1, "created_at": "2023-10-01T08:00:00Z", "updated_at": "2023-10-01T08:00:00Z", "last_updated_by": "user@mail.com"}
         "422":
           application/json: {}
   incident_update:
@@ -894,7 +894,7 @@ examples:
         application/json: {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "sub_organization": "SubOrg A", "id": 1, "created_at": "2023-10-01T08:00:00Z", "updated_at": "2023-10-01T08:00:00Z"}
       responses:
         "200":
-          application/json: {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "sub_organization": "SubOrg A", "id": 1, "created_at": "2023-10-01T08:00:00Z", "updated_at": "2023-10-01T08:00:00Z"}
+          application/json: {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "sub_organization": "SubOrg A", "id": 1, "created_at": "2023-10-01T08:00:00Z", "updated_at": "2023-10-01T08:00:00Z", "last_updated_by": "user@mail.com"}
         "422":
           application/json: {}
   incident_get_organizations:
@@ -909,7 +909,7 @@ examples:
           incident_id: 931598
       responses:
         "200":
-          application/json: {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "sub_organization": "SubOrg A", "id": 1, "created_at": "2023-10-01T08:00:00Z", "updated_at": "2023-10-01T08:00:00Z"}
+          application/json: {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "sub_organization": "SubOrg A", "id": 1, "created_at": "2023-10-01T08:00:00Z", "updated_at": "2023-10-01T08:00:00Z", "last_updated_by": "user@mail.com"}
         "422":
           application/json: {}
   incident_delete:

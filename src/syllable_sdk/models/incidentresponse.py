@@ -30,6 +30,8 @@ class IncidentResponseTypedDict(TypedDict):
     r"""Detailed markdown description of the incident"""
     id: int
     r"""The ID of the incident to update"""
+    last_updated_by: Nullable[str]
+    r"""The email of the user who last updated the incident"""
     organization_id: NotRequired[Nullable[int]]
     r"""The ID of the organization"""
     sub_organization_id: NotRequired[Nullable[int]]
@@ -66,6 +68,9 @@ class IncidentResponse(BaseModel):
     id: int
     r"""The ID of the incident to update"""
 
+    last_updated_by: Nullable[str]
+    r"""The email of the user who last updated the incident"""
+
     organization_id: OptionalNullable[int] = UNSET
     r"""The ID of the organization"""
 
@@ -96,6 +101,7 @@ class IncidentResponse(BaseModel):
             "sub_organization",
             "created_at",
             "updated_at",
+            "last_updated_by",
         ]
         null_default_fields = []
 
