@@ -9,3 +9,4 @@ class BatchProperties(str, Enum):
     CAMPAIGN_ID = "campaign_id"
     STATUS = "status"
     EXPIRES_ON = "expires_on"
+    LAST_UPDATED_AT = "last_updated_at"

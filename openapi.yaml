@@ -6002,13 +6002,13 @@ components:
           description: "Reason for batch deletion"
           examples:
             - "User request"
-        "last_worked_on":
+        "last_updated_at":
           anyOf:
             - type: "string"
               format: "date-time"
             - type: "null"
-          title: "Last Worked On"
-          description: "Timestamp of last batch activity"
+          title: "Last Updated At"
+          description: "Timestamp of last change to batch"
           examples:
             - "2025-04-16T00:00:00Z"
         "last_updated_by":
@@ -6049,6 +6049,7 @@ components:
         - "campaign_id"
         - "status"
         - "expires_on"
+        - "last_updated_at"
       title: "BatchProperties"
     "BatchStatus":
       type: "string"
@@ -6098,6 +6099,8 @@ components:
         - "daily_end_time"
         - "source"
         - "caller_id"
+        - "updated_at"
+        - "label"
       title: "CampaignProperties"
     "Channel":
       properties:
@@ -6396,13 +6399,13 @@ components:
           description: "Reason for batch deletion"
           examples:
             - "User request"
-        "last_worked_on":
+        "last_updated_at":
           anyOf:
             - type: "string"
               format: "date-time"
             - type: "null"
-          title: "Last Worked On"
-          description: "Timestamp of last batch activity"
+          title: "Last Updated At"
+          description: "Timestamp of last change to batch"
           examples:
             - "2025-04-16T00:00:00Z"
         "last_updated_by":
