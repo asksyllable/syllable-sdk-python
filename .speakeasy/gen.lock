@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: d48f23f83bfe6829143e1f772e247a89
+  docChecksum: 623b0d37e5ce28299ae582e83e70a3f9
   docVersion: 0.0.2
   speakeasyVersion: 1.533.0
   generationVersion: 2.578.0
-  releaseVersion: 0.5.3
-  configChecksum: 800b928ad82f339fb817af06bda949ad
+  releaseVersion: 0.5.4
+  configChecksum: be61913226aa68b9aabc551e77eefb59
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -1487,7 +1487,7 @@ examples:
           end_datetime: "2024-01-01T00:00:00Z"
       responses:
         "200":
-          application/json: {"items": [{"batch_id": "20250416.9", "campaign_id": 1, "expires_on": "2025-04-17T00:00:00Z", "paused": false, "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2025-04-16T00:00:00Z", "deleted_at": "2025-04-16T00:00:00Z", "deleted_reason": "User request", "last_worked_on": "2025-04-16T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Missing required fields"}, {"batch_id": "20250416.9", "campaign_id": 1, "expires_on": "2025-04-17T00:00:00Z", "paused": true, "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2025-04-16T00:00:00Z", "deleted_at": "2025-04-16T00:00:00Z", "deleted_reason": "User request", "last_worked_on": "2025-04-16T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Invalid file format"}], "page": 0, "page_size": 25, "total_pages": 4, "total_count": 100}
+          application/json: {"items": [{"batch_id": "20250416.9", "campaign_id": 1, "expires_on": "2025-04-17T00:00:00Z", "paused": false, "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2025-04-16T00:00:00Z", "deleted_at": "2025-04-16T00:00:00Z", "deleted_reason": "User request", "last_updated_at": "2025-04-16T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Missing required fields"}, {"batch_id": "20250416.9", "campaign_id": 1, "expires_on": "2025-04-17T00:00:00Z", "paused": true, "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2025-04-16T00:00:00Z", "deleted_at": "2025-04-16T00:00:00Z", "deleted_reason": "User request", "last_updated_at": "2025-04-16T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Invalid file format"}], "page": 0, "page_size": 25, "total_pages": 4, "total_count": 100}
         "422":
           application/json: {}
   outbound_batch_create:
@@ -1496,7 +1496,7 @@ examples:
         application/json: {"batch_id": "20250416.9", "campaign_id": 1, "expires_on": "2025-04-17T00:00:00Z", "paused": true}
       responses:
         "200":
-          application/json: {"batch_id": "20250416.9", "campaign_id": 1, "expires_on": "2025-04-17T00:00:00Z", "paused": false, "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2025-04-16T00:00:00Z", "deleted_at": "2025-04-16T00:00:00Z", "deleted_reason": "User request", "last_worked_on": "2025-04-16T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Invalid file format"}
+          application/json: {"batch_id": "20250416.9", "campaign_id": 1, "expires_on": "2025-04-17T00:00:00Z", "paused": false, "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2025-04-16T00:00:00Z", "deleted_at": "2025-04-16T00:00:00Z", "deleted_reason": "User request", "last_updated_at": "2025-04-16T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Invalid file format"}
         "422":
           application/json: {}
   outbound_batch_get_by_id:
@@ -1506,7 +1506,7 @@ examples:
           batch_id: "<id>"
       responses:
         "200":
-          application/json: {"batch_id": "20250416.9", "campaign_id": 1, "expires_on": "2025-04-17T00:00:00Z", "paused": false, "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2025-04-16T00:00:00Z", "deleted_at": "2025-04-16T00:00:00Z", "deleted_reason": "User request", "last_worked_on": "2025-04-16T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Missing required fields", "status_counts": {"CANCELED": 7, "CONNECTED": 100, "DUPLICATE": 5, "FAILED": 10, "INITIATED": 20, "PENDING": 10}}
+          application/json: {"batch_id": "20250416.9", "campaign_id": 1, "expires_on": "2025-04-17T00:00:00Z", "paused": false, "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2025-04-16T00:00:00Z", "deleted_at": "2025-04-16T00:00:00Z", "deleted_reason": "User request", "last_updated_at": "2025-04-16T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Missing required fields", "status_counts": {"CANCELED": 7, "CONNECTED": 100, "DUPLICATE": 5, "FAILED": 10, "INITIATED": 20, "PENDING": 10}}
         "422":
           application/json: {}
   outbound_batch_update:
@@ -1518,7 +1518,7 @@ examples:
         application/json: {"paused": false, "expires_on": "2027-01-01T06:00:00Z"}
       responses:
         "200":
-          application/json: {"batch_id": "20250416.9", "campaign_id": 1, "expires_on": "2025-04-17T00:00:00Z", "paused": false, "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2025-04-16T00:00:00Z", "deleted_at": "2025-04-16T00:00:00Z", "deleted_reason": "User request", "last_worked_on": "2025-04-16T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Invalid file format"}
+          application/json: {"batch_id": "20250416.9", "campaign_id": 1, "expires_on": "2025-04-17T00:00:00Z", "paused": false, "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2025-04-16T00:00:00Z", "deleted_at": "2025-04-16T00:00:00Z", "deleted_reason": "User request", "last_updated_at": "2025-04-16T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Invalid file format"}
         "422":
           application/json: {}
   outbound_batch_delete:
@@ -1584,7 +1584,7 @@ examples:
         query:
           page: 0
           limit: 25
-          search_fields: ["source"]
+          search_fields: ["caller_id"]
           search_field_values: ["Some Object Name"]
           start_datetime: "2023-01-01T00:00:00Z"
           end_datetime: "2024-01-01T00:00:00Z"

@@ -36,8 +36,8 @@ class BatchDetailsTypedDict(TypedDict):
     r"""Timestamp of batch deletion"""
     deleted_reason: NotRequired[Nullable[str]]
     r"""Reason for batch deletion"""
-    last_worked_on: NotRequired[Nullable[datetime]]
-    r"""Timestamp of last batch activity"""
+    last_updated_at: NotRequired[Nullable[datetime]]
+    r"""Timestamp of last change to batch"""
     error_message: NotRequired[Nullable[str]]
     r"""Error message if batch upload failed"""
     status_counts: NotRequired[Nullable[Dict[str, int]]]
@@ -75,8 +75,8 @@ class BatchDetails(BaseModel):
     deleted_reason: OptionalNullable[str] = UNSET
     r"""Reason for batch deletion"""
 
-    last_worked_on: OptionalNullable[datetime] = UNSET
-    r"""Timestamp of last batch activity"""
+    last_updated_at: OptionalNullable[datetime] = UNSET
+    r"""Timestamp of last change to batch"""
 
     error_message: OptionalNullable[str] = UNSET
     r"""Error message if batch upload failed"""
@@ -94,7 +94,7 @@ class BatchDetails(BaseModel):
             "created_at",
             "deleted_at",
             "deleted_reason",
-            "last_worked_on",
+            "last_updated_at",
             "error_message",
             "status_counts",
         ]
@@ -104,7 +104,7 @@ class BatchDetails(BaseModel):
             "upload_filename",
             "deleted_at",
             "deleted_reason",
-            "last_worked_on",
+            "last_updated_at",
             "error_message",
             "status_counts",
         ]

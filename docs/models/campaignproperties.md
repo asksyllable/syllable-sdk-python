@@ -12,3 +12,5 @@
 | `DAILY_END_TIME`     | daily_end_time       |
 | `SOURCE`             | source               |
 | `CALLER_ID`          | caller_id            |
+| `UPDATED_AT`         | updated_at           |
+| `LABEL`              | label                |

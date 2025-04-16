@@ -36,8 +36,8 @@ class CommunicationBatchTypedDict(TypedDict):
     r"""Timestamp of batch deletion"""
     deleted_reason: NotRequired[Nullable[str]]
     r"""Reason for batch deletion"""
-    last_worked_on: NotRequired[Nullable[datetime]]
-    r"""Timestamp of last batch activity"""
+    last_updated_at: NotRequired[Nullable[datetime]]
+    r"""Timestamp of last change to batch"""
     error_message: NotRequired[Nullable[str]]
     r"""Error message if batch upload failed"""
 
@@ -73,8 +73,8 @@ class CommunicationBatch(BaseModel):
     deleted_reason: OptionalNullable[str] = UNSET
     r"""Reason for batch deletion"""
 
-    last_worked_on: OptionalNullable[datetime] = UNSET
-    r"""Timestamp of last batch activity"""
+    last_updated_at: OptionalNullable[datetime] = UNSET
+    r"""Timestamp of last change to batch"""
 
     error_message: OptionalNullable[str] = UNSET
     r"""Error message if batch upload failed"""
@@ -89,7 +89,7 @@ class CommunicationBatch(BaseModel):
             "created_at",
             "deleted_at",
             "deleted_reason",
-            "last_worked_on",
+            "last_updated_at",
             "error_message",
         ]
         nullable_fields = [
@@ -98,7 +98,7 @@ class CommunicationBatch(BaseModel):
             "upload_filename",
             "deleted_at",
             "deleted_reason",
-            "last_worked_on",
+            "last_updated_at",
             "error_message",
         ]
         null_default_fields = []
