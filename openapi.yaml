@@ -4643,6 +4643,12 @@ paths:
           schema:
             type: "string"
             title: "Status"
+        - name: "insights_status"
+          in: "query"
+          required: false
+          schema:
+            type: "string"
+            title: "Insights Status"
       responses:
         "200":
           description: "Successful Response"
@@ -5944,7 +5950,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20250416.9"
+            - "20250417.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -5959,7 +5965,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-04-17T00:00:00Z"
+            - "2025-04-18T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -5984,7 +5990,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2025-04-16T00:00:00Z"
+            - "2025-04-17T00:00:00Z"
         "deleted_at":
           anyOf:
             - type: "string"
@@ -5993,7 +5999,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2025-04-16T00:00:00Z"
+            - "2025-04-17T00:00:00Z"
         "deleted_reason":
           anyOf:
             - type: "string"
@@ -6010,7 +6016,7 @@ components:
           title: "Last Updated At"
           description: "Timestamp of last change to batch"
           examples:
-            - "2025-04-16T00:00:00Z"
+            - "2025-04-17T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -6341,7 +6347,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20250416.9"
+            - "20250417.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -6356,7 +6362,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-04-17T00:00:00Z"
+            - "2025-04-18T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -6381,7 +6387,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2025-04-16T00:00:00Z"
+            - "2025-04-17T00:00:00Z"
         "deleted_at":
           anyOf:
             - type: "string"
@@ -6390,7 +6396,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2025-04-16T00:00:00Z"
+            - "2025-04-17T00:00:00Z"
         "deleted_reason":
           anyOf:
             - type: "string"
@@ -6407,7 +6413,7 @@ components:
           title: "Last Updated At"
           description: "Timestamp of last change to batch"
           examples:
-            - "2025-04-16T00:00:00Z"
+            - "2025-04-17T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -6436,7 +6442,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20250416.9"
+            - "20250417.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -6451,7 +6457,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-04-17T00:00:00Z"
+            - "2025-04-18T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -6544,7 +6550,7 @@ components:
           title: "Created At"
           description: "Timestamp of request creation"
           examples:
-            - "2025-04-15T00:00:00Z"
+            - "2025-04-16T00:00:00Z"
         "sent_at":
           anyOf:
             - type: "string"
@@ -6553,7 +6559,7 @@ components:
           title: "Sent At"
           description: "Timestamp at which request was sent"
           examples:
-            - "2025-04-16T00:00:00Z"
+            - "2025-04-17T00:00:00Z"
         "attempt_count":
           type: "integer"
           title: "Attempt Count"
@@ -8129,14 +8135,14 @@ components:
           title: "Created At"
           description: "Timestamp of at which insight tool was created"
           examples:
-            - "2025-04-15T00:00:00Z"
+            - "2025-04-16T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool was last updated"
           examples:
-            - "2025-04-16T00:00:00Z"
+            - "2025-04-17T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -8278,14 +8284,14 @@ components:
           title: "Created At"
           description: "Timestamp at which the insight workflow was created"
           examples:
-            - "2025-04-15T00:00:00Z"
+            - "2025-04-16T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of most recent update to the insight workflow"
           examples:
-            - "2025-04-16T00:00:00Z"
+            - "2025-04-17T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -8375,14 +8381,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight tool result was created"
           examples:
-            - "2025-04-15T00:00:00Z"
+            - "2025-04-16T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool result was last updated"
           examples:
-            - "2025-04-16T00:00:00Z"
+            - "2025-04-17T00:00:00Z"
       type: "object"
       required:
         - "id"
@@ -9768,14 +9774,14 @@ components:
           title: "Created At"
           description: "Timestamp of campaign creation"
           examples:
-            - "2025-04-16T00:00:00Z"
+            - "2025-04-17T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of campaign update"
           examples:
-            - "2025-04-16T00:00:00Z"
+            - "2025-04-17T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -9938,7 +9944,7 @@ components:
         "include_default_tools":
           type: "boolean"
           title: "Include Default Tools"
-          description: "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."
+          description: "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."
           default: true
           examples:
             - true
@@ -10234,7 +10240,7 @@ components:
         "include_default_tools":
           type: "boolean"
           title: "Include Default Tools"
-          description: "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."
+          description: "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."
           default: true
           examples:
             - true

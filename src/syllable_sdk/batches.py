@@ -1331,6 +1331,7 @@ class Batches(BaseSDK):
         batch_id: str,
         reference_id: Optional[str] = None,
         status: Optional[str] = None,
+        insights_status: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1341,6 +1342,7 @@ class Batches(BaseSDK):
         :param batch_id:
         :param reference_id:
         :param status:
+        :param insights_status:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1360,6 +1362,7 @@ class Batches(BaseSDK):
             batch_id=batch_id,
             reference_id=reference_id,
             status=status,
+            insights_status=insights_status,
         )
 
         req = self._build_request(
@@ -1436,6 +1439,7 @@ class Batches(BaseSDK):
         batch_id: str,
         reference_id: Optional[str] = None,
         status: Optional[str] = None,
+        insights_status: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1446,6 +1450,7 @@ class Batches(BaseSDK):
         :param batch_id:
         :param reference_id:
         :param status:
+        :param insights_status:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1465,6 +1470,7 @@ class Batches(BaseSDK):
             batch_id=batch_id,
             reference_id=reference_id,
             status=status,
+            insights_status=insights_status,
         )
 
         req = self._build_request_async(
