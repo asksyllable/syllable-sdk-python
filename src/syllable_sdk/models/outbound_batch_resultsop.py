@@ -11,6 +11,7 @@ class OutboundBatchResultsRequestTypedDict(TypedDict):
     batch_id: str
     reference_id: NotRequired[str]
     status: NotRequired[str]
+    insights_status: NotRequired[str]
 
 
 class OutboundBatchResultsRequest(BaseModel):
@@ -24,6 +25,11 @@ class OutboundBatchResultsRequest(BaseModel):
     ] = None
 
     status: Annotated[
+        Optional[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+
+    insights_status: Annotated[
         Optional[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
