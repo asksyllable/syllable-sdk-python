@@ -27,6 +27,8 @@ from syllable_sdk.sessions import Sessions
 from syllable_sdk.takeouts import Takeouts
 from syllable_sdk.tools import Tools
 from syllable_sdk.types import OptionalNullable, UNSET
+from syllable_sdk.users import Users
+from syllable_sdk.v1 import V1
 from typing import Any, Callable, Dict, Optional, Union, cast
 import weakref
 
@@ -87,6 +89,8 @@ class SyllableSDK(BaseSDK):
     language_groups: LanguageGroups
     r"""Operations related to language groups. A language group is a           collection of language, voice, and DTMF configuration that can be linked to an agent to           define the languages and voices it supports. For more information, see           [Console docs](https://docs.syllable.ai/Resources/LanguageGroups)."""
     takeouts: Takeouts
+    users: Users
+    v1: V1
 
     def __init__(
         self,
@@ -204,6 +208,8 @@ class SyllableSDK(BaseSDK):
         self.outbound = Outbound(self.sdk_configuration)
         self.language_groups = LanguageGroups(self.sdk_configuration)
         self.takeouts = Takeouts(self.sdk_configuration)
+        self.users = Users(self.sdk_configuration)
+        self.v1 = V1(self.sdk_configuration)
 
     def __enter__(self):
         return self

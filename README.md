@@ -390,6 +390,14 @@ with SyllableSDK(
 * [get_by_name](docs/sdks/tools/README.md#get_by_name) - Tool Info
 * [delete](docs/sdks/tools/README.md#delete) - Delete Tool
 
+### [users](docs/sdks/users/README.md)
+
+* [users_delete_account](docs/sdks/users/README.md#users_delete_account) - Request Removal Of This Account
+
+### [v1](docs/sdks/v1/README.md)
+
+* [users_delete_account](docs/sdks/v1/README.md#users_delete_account) - Request Removal Of This Account
+
 </details>
 <!-- End Available Resources and Operations [operations] -->
 

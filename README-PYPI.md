@@ -390,6 +390,14 @@ with SyllableSDK(
 * [get_by_name](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/tools/README.md#get_by_name) - Tool Info
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/tools/README.md#delete) - Delete Tool
 
+### [users](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/users/README.md)
+
+* [users_delete_account](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/users/README.md#users_delete_account) - Request Removal Of This Account
+
+### [v1](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md)
+
+* [users_delete_account](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md#users_delete_account) - Request Removal Of This Account
+
 </details>
 <!-- End Available Resources and Operations [operations] -->
 

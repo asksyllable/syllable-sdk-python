@@ -1336,9 +1336,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20250417.9",
+                    "batch_id": "20250419.9",
                     "campaign_id": 1,
-                    "expires_on": dateutil.parser.isoparse("2025-04-18T00:00:00Z"),
+                    "expires_on": dateutil.parser.isoparse("2025-04-20T00:00:00Z"),
                     "paused": True,
                 })
 
@@ -2306,6 +2306,39 @@ actions:
             ) as ss_client:
 
                 res = ss_client.tools.get_by_name(tool_name="<value>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/users/delete_account"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.users.users_delete_account()
+
+                # Handle response
+                print(res)
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.v1.users_delete_account()
 
                 # Handle response
                 print(res)
