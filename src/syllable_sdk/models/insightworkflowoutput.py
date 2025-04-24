@@ -2,18 +2,25 @@
 
 from __future__ import annotations
 from .insighttooloutput import InsightToolOutput, InsightToolOutputTypedDict
+from .insightworkflowcondition import (
+    InsightWorkflowCondition,
+    InsightWorkflowConditionTypedDict,
+)
+from .insightworkflowestimate import (
+    InsightWorkflowEstimate,
+    InsightWorkflowEstimateTypedDict,
+)
 from datetime import datetime
-from syllable_sdk.types import BaseModel
+from pydantic import model_serializer
+from syllable_sdk.types import (
+    BaseModel,
+    Nullable,
+    OptionalNullable,
+    UNSET,
+    UNSET_SENTINEL,
+)
 from typing import List, Optional
 from typing_extensions import NotRequired, TypedDict
-
-
-class InsightWorkflowOutputConditionsTypedDict(TypedDict):
-    r"""Conditions for insight workflow to trigger on a given call recording."""
-
-
-class InsightWorkflowOutputConditions(BaseModel):
-    r"""Conditions for insight workflow to trigger on a given call recording."""
 
 
 class InsightWorkflowOutputTypedDict(TypedDict):
@@ -21,20 +28,28 @@ class InsightWorkflowOutputTypedDict(TypedDict):
 
     name: str
     r"""Human-readable name of insight workflow"""
+    source: str
+    r"""Source of the insight workflow"""
     description: str
     r"""Text description of insight workflow"""
     insight_tool_ids: List[int]
     r"""List of IDs of insight tools used in the workflow"""
-    conditions: InsightWorkflowOutputConditionsTypedDict
-    r"""Conditions for insight workflow to trigger on a given call recording."""
-    status: str
-    r"""Status of the insight workflow"""
+    conditions: InsightWorkflowConditionTypedDict
+    r"""Model for the conditions that trigger an insight workflow."""
     id: int
     r"""Internal ID of the insight workflow"""
     insight_tools: List[InsightToolOutputTypedDict]
     r"""List of insight tools used in the workflow"""
+    status: str
+    r"""Status of the insight workflow"""
+    estimate: InsightWorkflowEstimateTypedDict
+    r"""Response model for an insight workflow."""
     last_updated_by: str
     r"""Email of user who last updated Insight Workflow"""
+    start_datetime: NotRequired[Nullable[datetime]]
+    r"""Timestamp for when the insight workflow should start. An empty value indicates start on activation"""
+    end_datetime: NotRequired[Nullable[datetime]]
+    r"""Timestamp of when the insight workflow should end. An empty value indicates no end"""
     created_at: NotRequired[datetime]
     r"""Timestamp at which the insight workflow was created"""
     updated_at: NotRequired[datetime]
@@ -47,17 +62,17 @@ class InsightWorkflowOutput(BaseModel):
     name: str
     r"""Human-readable name of insight workflow"""
 
+    source: str
+    r"""Source of the insight workflow"""
+
     description: str
     r"""Text description of insight workflow"""
 
     insight_tool_ids: List[int]
     r"""List of IDs of insight tools used in the workflow"""
 
-    conditions: InsightWorkflowOutputConditions
-    r"""Conditions for insight workflow to trigger on a given call recording."""
-
-    status: str
-    r"""Status of the insight workflow"""
+    conditions: InsightWorkflowCondition
+    r"""Model for the conditions that trigger an insight workflow."""
 
     id: int
     r"""Internal ID of the insight workflow"""
@@ -65,11 +80,53 @@ class InsightWorkflowOutput(BaseModel):
     insight_tools: List[InsightToolOutput]
     r"""List of insight tools used in the workflow"""
 
+    status: str
+    r"""Status of the insight workflow"""
+
+    estimate: InsightWorkflowEstimate
+    r"""Response model for an insight workflow."""
+
     last_updated_by: str
     r"""Email of user who last updated Insight Workflow"""
+
+    start_datetime: OptionalNullable[datetime] = UNSET
+    r"""Timestamp for when the insight workflow should start. An empty value indicates start on activation"""
+
+    end_datetime: OptionalNullable[datetime] = UNSET
+    r"""Timestamp of when the insight workflow should end. An empty value indicates no end"""
 
     created_at: Optional[datetime] = None
     r"""Timestamp at which the insight workflow was created"""
 
     updated_at: Optional[datetime] = None
     r"""Timestamp of most recent update to the insight workflow"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = ["start_datetime", "end_datetime", "created_at", "updated_at"]
+        nullable_fields = ["start_datetime", "end_datetime"]
+        null_default_fields = []
+
+        serialized = handler(self)
+
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+            serialized.pop(k, None)
+
+            optional_nullable = k in optional_fields and k in nullable_fields
+            is_set = (
+                self.__pydantic_fields_set__.intersection({n})
+                or k in null_default_fields
+            )  # pylint: disable=no-member
+
+            if val is not None and val != UNSET_SENTINEL:
+                m[k] = val
+            elif val != UNSET_SENTINEL and (
+                not k in optional_fields or (optional_nullable and is_set)
+            ):
+                m[k] = val
+
+        return m

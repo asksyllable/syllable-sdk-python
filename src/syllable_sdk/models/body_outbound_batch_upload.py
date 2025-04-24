@@ -9,13 +9,13 @@ from typing import IO, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class FileTypedDict(TypedDict):
+class BodyOutboundBatchUploadFileTypedDict(TypedDict):
     file_name: str
     content: Union[bytes, IO[bytes], io.BufferedReader]
     content_type: NotRequired[str]
 
 
-class File(BaseModel):
+class BodyOutboundBatchUploadFile(BaseModel):
     file_name: Annotated[
         str, pydantic.Field(alias="fileName"), FieldMetadata(multipart=True)
     ]
@@ -34,10 +34,11 @@ class File(BaseModel):
 
 
 class BodyOutboundBatchUploadTypedDict(TypedDict):
-    file: NotRequired[FileTypedDict]
+    file: NotRequired[BodyOutboundBatchUploadFileTypedDict]
 
 
 class BodyOutboundBatchUpload(BaseModel):
     file: Annotated[
-        Optional[File], FieldMetadata(multipart=MultipartFormMetadata(file=True))
+        Optional[BodyOutboundBatchUploadFile],
+        FieldMetadata(multipart=MultipartFormMetadata(file=True)),
     ] = None

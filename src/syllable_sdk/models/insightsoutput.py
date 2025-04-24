@@ -27,8 +27,6 @@ class InsightsOutputTypedDict(TypedDict):
 
     id: int
     r"""Unique ID for insight tool"""
-    session_id: int
-    r"""Unique ID for session"""
     insight_tool_id: int
     r"""Unique ID for insight tool"""
     insight_tool_version: int
@@ -37,6 +35,10 @@ class InsightsOutputTypedDict(TypedDict):
     r"""Key for insight tool result"""
     json_value: JSONValueTypedDict
     r"""JSON value of insight tool result"""
+    session_id: NotRequired[Nullable[int]]
+    r"""Unique ID for session"""
+    upload_file_id: NotRequired[Nullable[int]]
+    r"""Unique ID for uploaded file"""
     string_value: NotRequired[Nullable[str]]
     r"""String value of insight tool result"""
     numeric_value: NotRequired[Nullable[float]]
@@ -53,9 +55,6 @@ class InsightsOutput(BaseModel):
     id: int
     r"""Unique ID for insight tool"""
 
-    session_id: int
-    r"""Unique ID for session"""
-
     insight_tool_id: int
     r"""Unique ID for insight tool"""
 
@@ -67,6 +66,12 @@ class InsightsOutput(BaseModel):
 
     json_value: JSONValue
     r"""JSON value of insight tool result"""
+
+    session_id: OptionalNullable[int] = UNSET
+    r"""Unique ID for session"""
+
+    upload_file_id: OptionalNullable[int] = UNSET
+    r"""Unique ID for uploaded file"""
 
     string_value: OptionalNullable[str] = UNSET
     r"""String value of insight tool result"""
@@ -82,8 +87,20 @@ class InsightsOutput(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["string_value", "numeric_value", "created_at", "updated_at"]
-        nullable_fields = ["string_value", "numeric_value"]
+        optional_fields = [
+            "session_id",
+            "upload_file_id",
+            "string_value",
+            "numeric_value",
+            "created_at",
+            "updated_at",
+        ]
+        nullable_fields = [
+            "session_id",
+            "upload_file_id",
+            "string_value",
+            "numeric_value",
+        ]
         null_default_fields = []
 
         serialized = handler(self)

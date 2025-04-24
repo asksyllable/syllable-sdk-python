@@ -27,15 +27,21 @@ from .availabletargetproperties import AvailableTargetProperties
 from .batchdetails import BatchDetails, BatchDetailsTypedDict
 from .batchproperties import BatchProperties
 from .batchstatus import BatchStatus
+from .body_insights_folder_upload_file import (
+    BodyInsightsFolderUploadFile,
+    BodyInsightsFolderUploadFileFile,
+    BodyInsightsFolderUploadFileFileTypedDict,
+    BodyInsightsFolderUploadFileTypedDict,
+)
 from .body_outbound_batch_delete import (
     BodyOutboundBatchDelete,
     BodyOutboundBatchDeleteTypedDict,
 )
 from .body_outbound_batch_upload import (
     BodyOutboundBatchUpload,
+    BodyOutboundBatchUploadFile,
+    BodyOutboundBatchUploadFileTypedDict,
     BodyOutboundBatchUploadTypedDict,
-    File,
-    FileTypedDict,
 )
 from .campaignproperties import CampaignProperties
 from .channel import Channel, ChannelTypedDict
@@ -166,6 +172,12 @@ from .dialogtoolcall import DialogToolCall, DialogToolCallTypedDict
 from .event import Attributes, AttributesTypedDict, Event, EventTypedDict
 from .eventproperties import EventProperties
 from .events_listop import EventsListRequest, EventsListRequestTypedDict
+from .folderdetails import (
+    FolderDetails,
+    FolderDetailsTypedDict,
+    FolderStats,
+    FolderStatsTypedDict,
+)
 from .generate_session_recording_urlsop import (
     GenerateSessionRecordingUrlsRequest,
     GenerateSessionRecordingUrlsRequestTypedDict,
@@ -202,10 +214,34 @@ from .insight_tool_get_by_idop import (
     InsightToolGetByIDRequestTypedDict,
 )
 from .insight_tool_listop import InsightToolListRequest, InsightToolListRequestTypedDict
+from .insights_folder_get_by_idop import (
+    InsightsFolderGetByIDRequest,
+    InsightsFolderGetByIDRequestTypedDict,
+)
+from .insights_folder_listop import (
+    InsightsFolderListRequest,
+    InsightsFolderListRequestTypedDict,
+)
+from .insights_folder_updateop import (
+    InsightsFolderUpdateRequest,
+    InsightsFolderUpdateRequestTypedDict,
+)
+from .insights_folder_upload_fileop import (
+    InsightsFolderUploadFileRequest,
+    InsightsFolderUploadFileRequestTypedDict,
+)
 from .insights_listop import InsightsListRequest, InsightsListRequestTypedDict
 from .insights_tool_updateop import (
     InsightsToolUpdateRequest,
     InsightsToolUpdateRequestTypedDict,
+)
+from .insights_upload_list_filesop import (
+    InsightsUploadListFilesRequest,
+    InsightsUploadListFilesRequestTypedDict,
+)
+from .insights_workflow_activateop import (
+    InsightsWorkflowActivateRequest,
+    InsightsWorkflowActivateRequestTypedDict,
 )
 from .insights_workflow_deleteop import (
     InsightsWorkflowDeleteRequest,
@@ -215,6 +251,10 @@ from .insights_workflow_get_by_idop import (
     InsightsWorkflowGetByIDRequest,
     InsightsWorkflowGetByIDRequestTypedDict,
 )
+from .insights_workflow_inactivateop import (
+    InsightsWorkflowInactivateRequest,
+    InsightsWorkflowInactivateRequestTypedDict,
+)
 from .insights_workflow_listop import (
     InsightsWorkflowListRequest,
     InsightsWorkflowListRequestTypedDict,
@@ -223,6 +263,9 @@ from .insights_workflow_updateop import (
     InsightsWorkflowUpdateRequest,
     InsightsWorkflowUpdateRequestTypedDict,
 )
+from .insightsfolder import InsightsFolder, InsightsFolderTypedDict
+from .insightsfolderinput import InsightsFolderInput, InsightsFolderInputTypedDict
+from .insightsfolderproperties import InsightsFolderProperties
 from .insightsoutput import (
     InsightsOutput,
     InsightsOutputTypedDict,
@@ -230,6 +273,13 @@ from .insightsoutput import (
     JSONValueTypedDict,
 )
 from .insightsproperties import InsightsProperties
+from .insightsuploadfile import (
+    InsightsUploadFile,
+    InsightsUploadFileTypedDict,
+    Metadata,
+    MetadataTypedDict,
+)
+from .insightsuploadfileproperties import InsightsUploadFileProperties
 from .insightsworkflowqueuesession import (
     InsightsWorkflowQueueSession,
     InsightsWorkflowQueueSessionTypedDict,
@@ -256,18 +306,20 @@ from .insighttooloutput import (
 )
 from .insighttoolproperties import InsightToolProperties
 from .insighttooltestinput import InsightToolTestInput, InsightToolTestInputTypedDict
-from .insightworkflowinput import (
-    InsightWorkflowInput,
-    InsightWorkflowInputConditions,
-    InsightWorkflowInputConditionsTypedDict,
-    InsightWorkflowInputTypedDict,
+from .insightworkflowactivate import (
+    InsightWorkflowActivate,
+    InsightWorkflowActivateTypedDict,
 )
-from .insightworkflowoutput import (
-    InsightWorkflowOutput,
-    InsightWorkflowOutputConditions,
-    InsightWorkflowOutputConditionsTypedDict,
-    InsightWorkflowOutputTypedDict,
+from .insightworkflowcondition import (
+    InsightWorkflowCondition,
+    InsightWorkflowConditionTypedDict,
 )
+from .insightworkflowestimate import (
+    InsightWorkflowEstimate,
+    InsightWorkflowEstimateTypedDict,
+)
+from .insightworkflowinput import InsightWorkflowInput, InsightWorkflowInputTypedDict
+from .insightworkflowoutput import InsightWorkflowOutput, InsightWorkflowOutputTypedDict
 from .insightworkflowproperties import InsightWorkflowProperties
 from .inspectlatencyresponse import (
     InspectLatencyResponse,
@@ -343,9 +395,17 @@ from .listresponse_incidentresponse_ import (
     ListResponseIncidentResponse,
     ListResponseIncidentResponseTypedDict,
 )
+from .listresponse_insightsfolder_ import (
+    ListResponseInsightsFolder,
+    ListResponseInsightsFolderTypedDict,
+)
 from .listresponse_insightsoutput_ import (
     ListResponseInsightsOutput,
     ListResponseInsightsOutputTypedDict,
+)
+from .listresponse_insightsuploadfile_ import (
+    ListResponseInsightsUploadFile,
+    ListResponseInsightsUploadFileTypedDict,
 )
 from .listresponse_insighttooloutput_ import (
     ListResponseInsightToolOutput,
@@ -446,10 +506,6 @@ from .prompts_get_by_idop import PromptsGetByIDRequest, PromptsGetByIDRequestTyp
 from .prompts_historyop import PromptsHistoryRequest, PromptsHistoryRequestTypedDict
 from .prompts_listop import PromptsListRequest, PromptsListRequestTypedDict
 from .promptupdaterequest import PromptUpdateRequest, PromptUpdateRequestTypedDict
-from .queue_sessions_workflowop import (
-    ResponseQueueSessionsWorkflow,
-    ResponseQueueSessionsWorkflowTypedDict,
-)
 from .requeststatus import RequestStatus
 from .security import Security, SecurityTypedDict
 from .service_deleteop import ServiceDeleteRequest, ServiceDeleteRequestTypedDict
@@ -612,9 +668,15 @@ __all__ = [
     "BatchDetailsTypedDict",
     "BatchProperties",
     "BatchStatus",
+    "BodyInsightsFolderUploadFile",
+    "BodyInsightsFolderUploadFileFile",
+    "BodyInsightsFolderUploadFileFileTypedDict",
+    "BodyInsightsFolderUploadFileTypedDict",
     "BodyOutboundBatchDelete",
     "BodyOutboundBatchDeleteTypedDict",
     "BodyOutboundBatchUpload",
+    "BodyOutboundBatchUploadFile",
+    "BodyOutboundBatchUploadFileTypedDict",
     "BodyOutboundBatchUploadTypedDict",
     "CampaignProperties",
     "Channel",
@@ -712,8 +774,10 @@ __all__ = [
     "EventTypedDict",
     "EventsListRequest",
     "EventsListRequestTypedDict",
-    "File",
-    "FileTypedDict",
+    "FolderDetails",
+    "FolderDetailsTypedDict",
+    "FolderStats",
+    "FolderStatsTypedDict",
     "GenerateSessionRecordingUrlsRequest",
     "GenerateSessionRecordingUrlsRequestTypedDict",
     "GetSessionDataBySessionIDRequest",
@@ -756,16 +820,31 @@ __all__ = [
     "InsightToolProperties",
     "InsightToolTestInput",
     "InsightToolTestInputTypedDict",
+    "InsightWorkflowActivate",
+    "InsightWorkflowActivateTypedDict",
+    "InsightWorkflowCondition",
+    "InsightWorkflowConditionTypedDict",
+    "InsightWorkflowEstimate",
+    "InsightWorkflowEstimateTypedDict",
     "InsightWorkflowInput",
-    "InsightWorkflowInputConditions",
-    "InsightWorkflowInputConditionsTypedDict",
     "InsightWorkflowInputTypedDict",
     "InsightWorkflowOutput",
-    "InsightWorkflowOutputConditions",
-    "InsightWorkflowOutputConditionsTypedDict",
     "InsightWorkflowOutputTypedDict",
     "InsightWorkflowProperties",
     "Insights",
+    "InsightsFolder",
+    "InsightsFolderGetByIDRequest",
+    "InsightsFolderGetByIDRequestTypedDict",
+    "InsightsFolderInput",
+    "InsightsFolderInputTypedDict",
+    "InsightsFolderListRequest",
+    "InsightsFolderListRequestTypedDict",
+    "InsightsFolderProperties",
+    "InsightsFolderTypedDict",
+    "InsightsFolderUpdateRequest",
+    "InsightsFolderUpdateRequestTypedDict",
+    "InsightsFolderUploadFileRequest",
+    "InsightsFolderUploadFileRequestTypedDict",
     "InsightsListRequest",
     "InsightsListRequestTypedDict",
     "InsightsOutput",
@@ -774,10 +853,19 @@ __all__ = [
     "InsightsToolUpdateRequest",
     "InsightsToolUpdateRequestTypedDict",
     "InsightsTypedDict",
+    "InsightsUploadFile",
+    "InsightsUploadFileProperties",
+    "InsightsUploadFileTypedDict",
+    "InsightsUploadListFilesRequest",
+    "InsightsUploadListFilesRequestTypedDict",
+    "InsightsWorkflowActivateRequest",
+    "InsightsWorkflowActivateRequestTypedDict",
     "InsightsWorkflowDeleteRequest",
     "InsightsWorkflowDeleteRequestTypedDict",
     "InsightsWorkflowGetByIDRequest",
     "InsightsWorkflowGetByIDRequestTypedDict",
+    "InsightsWorkflowInactivateRequest",
+    "InsightsWorkflowInactivateRequestTypedDict",
     "InsightsWorkflowListRequest",
     "InsightsWorkflowListRequestTypedDict",
     "InsightsWorkflowQueueSession",
@@ -838,8 +926,12 @@ __all__ = [
     "ListResponseInsightToolOutputTypedDict",
     "ListResponseInsightWorkflowOutput",
     "ListResponseInsightWorkflowOutputTypedDict",
+    "ListResponseInsightsFolder",
+    "ListResponseInsightsFolderTypedDict",
     "ListResponseInsightsOutput",
     "ListResponseInsightsOutputTypedDict",
+    "ListResponseInsightsUploadFile",
+    "ListResponseInsightsUploadFileTypedDict",
     "ListResponseLanguageGroupResponse",
     "ListResponseLanguageGroupResponseTypedDict",
     "ListResponseOutboundCampaign",
@@ -856,6 +948,8 @@ __all__ = [
     "ListResponseToolResponseTypedDict",
     "Loc",
     "LocTypedDict",
+    "Metadata",
+    "MetadataTypedDict",
     "OrderByDirection",
     "OutboundBatchAddRequest",
     "OutboundBatchAddRequestTypedDict",
@@ -909,8 +1003,6 @@ __all__ = [
     "PromptsListRequestTypedDict",
     "RequestStatus",
     "Response",
-    "ResponseQueueSessionsWorkflow",
-    "ResponseQueueSessionsWorkflowTypedDict",
     "ResponseTypedDict",
     "Security",
     "SecurityTypedDict",

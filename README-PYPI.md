@@ -279,6 +279,15 @@ with SyllableSDK(
 
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightssdk/README.md#list) - Insights List
 
+#### [insights.folders](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/folders/README.md)
+
+* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/folders/README.md#list) - List Insights Upload Folders
+* [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/folders/README.md#create) - Create Insights Upload Folder
+* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/folders/README.md#get_by_id) - Get Insights Folder Details
+* [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/folders/README.md#update) - Update Insights Folder
+* [upload_file](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/folders/README.md#upload_file) - Upload Insights  Upload Folder
+* [list_files](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/folders/README.md#list_files) - Fetch Insights Upload Files
+
 #### [insights.tools](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md)
 
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#list) - Insight Tool List
@@ -295,7 +304,9 @@ with SyllableSDK(
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#get_by_id) - Get Insight Workflow By Id
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#update) - Update Insights Workflow
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#delete) - Delete Insights Workflow
-* [queue_sessions_workflow](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#queue_sessions_workflow) - Queue Insights Workflow For Sessions
+* [inactivate](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#inactivate) - Update Insights Workflow
+* [activate](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#activate) - Update Insights Workflow
+* [queue_work](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#queue_work) - Queue Insights Workflow For Sessions/Files
 
 ### [language_groups](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/languagegroups/README.md)
 
@@ -420,7 +431,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.outbound.batches.upload(batch_id="<id>")
+    res = ss_client.insights.folders.upload_file(folder_id=209119, call_id="<id>")
 
     # Handle response
     print(res)

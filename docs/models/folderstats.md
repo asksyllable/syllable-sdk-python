@@ -1,6 +1,6 @@
-# ResponseQueueSessionsWorkflow
+# FolderStats
 
-Successful Response
+Meta-data of insight upload files associated with the folder
 
 
 ## Fields
