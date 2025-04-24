@@ -12,7 +12,9 @@ Operations related to insights workflows. An workflow is series of tool         
 * [get_by_id](#get_by_id) - Get Insight Workflow By Id
 * [update](#update) - Update Insights Workflow
 * [delete](#delete) - Delete Insights Workflow
-* [queue_sessions_workflow](#queue_sessions_workflow) - Queue Insights Workflow For Sessions
+* [inactivate](#inactivate) - Update Insights Workflow
+* [activate](#activate) - Update Insights Workflow
+* [queue_work](#queue_work) - Queue Insights Workflow For Sessions/Files
 
 ## list
 
@@ -74,6 +76,7 @@ Create a new tool in the insights
 ### Example Usage
 
 ```python
+import dateutil.parser
 import os
 from syllable_sdk import SyllableSDK
 
@@ -84,12 +87,14 @@ with SyllableSDK(
 
     res = ss_client.insights.workflows.create(request={
         "name": "summary-workflow",
+        "source": "transfer",
         "description": "Default workflow - generates a summary of the call",
         "insight_tool_ids": [
             1,
         ],
         "conditions": {},
-        "status": "ACTIVE",
+        "start_datetime": dateutil.parser.isoparse("2025-04-23T00:00:00Z"),
+        "end_datetime": dateutil.parser.isoparse("2025-04-24T00:00:00Z"),
     })
 
     # Handle response
@@ -162,6 +167,7 @@ Update a InsightWorkflow.
 ### Example Usage
 
 ```python
+import dateutil.parser
 import os
 from syllable_sdk import SyllableSDK
 
@@ -172,12 +178,14 @@ with SyllableSDK(
 
     res = ss_client.insights.workflows.update(workflow_id=857478, insight_workflow_input={
         "name": "summary-workflow",
+        "source": "manual",
         "description": "Default workflow - generates a summary of the call",
         "insight_tool_ids": [
             1,
         ],
         "conditions": {},
-        "status": "ACTIVE",
+        "start_datetime": dateutil.parser.isoparse("2025-04-23T00:00:00Z"),
+        "end_datetime": dateutil.parser.isoparse("2025-04-24T00:00:00Z"),
     })
 
     # Handle response
@@ -244,7 +252,98 @@ with SyllableSDK(
 | models.HTTPValidationError | 422                        | application/json           |
 | models.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## queue_sessions_workflow
+## inactivate
+
+Update a InsightWorkflow.
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.insights.workflows.inactivate(workflow_id=550727)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `workflow_id`                                                       | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.InsightWorkflowOutput](../../models/insightworkflowoutput.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## activate
+
+Update a InsightWorkflow.
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.insights.workflows.activate(workflow_id=537910, insight_workflow_activate={
+        "is_acknowledged": True,
+        "estimate": {
+            "backfill_count": 100,
+            "backfill_duration": 1000,
+            "estimated_daily_count": 10,
+            "estimated_daily_duration": 3674.11,
+            "estimated_daily_cost": 45.25,
+            "estimated_backfill_cost": 4561.00,
+        },
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `workflow_id`                                                             | *int*                                                                     | :heavy_check_mark:                                                        | N/A                                                                       |
+| `insight_workflow_activate`                                               | [models.InsightWorkflowActivate](../../models/insightworkflowactivate.md) | :heavy_check_mark:                                                        | N/A                                                                       |
+| `retries`                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)          | :heavy_minus_sign:                                                        | Configuration to override the default retry behavior of the client.       |
+
+### Response
+
+**[models.InsightWorkflowOutput](../../models/insightworkflowoutput.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## queue_work
 
 Manually queue sessions for insights workflow evaluation.
 
@@ -259,10 +358,13 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.workflows.queue_sessions_workflow(request={
+    res = ss_client.insights.workflows.queue_work(request={
         "workflow_name": "summary-workflow",
         "session_id_list": [
             [12334,23445,34556],
+        ],
+        "file_id_list": [
+            [1234,1678,2224],
         ],
     })
 
@@ -280,7 +382,7 @@ with SyllableSDK(
 
 ### Response
 
-**[models.ResponseQueueSessionsWorkflow](../../models/responsequeuesessionsworkflow.md)**
+**[Any](../../models/.md)**
 
 ### Errors
 

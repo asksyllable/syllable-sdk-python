@@ -893,10 +893,136 @@ actions:
             ) as ss_client:
 
                 res = ss_client.insights.list(page=0, search_fields=[
-                    syllable_sdk.InsightsProperties.INSIGHT_TOOL_ID,
+                    syllable_sdk.InsightsProperties.INSIGHT_KEY,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/folders/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.folders.list(page=0, search_fields=[
+                    syllable_sdk.InsightsFolderProperties.NAME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/folders/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.folders.create(request={
+                    "name": "customer-complaints",
+                    "label": "support",
+                    "description": "Call recordings related to customer complaints",
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/folders/{folder_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.folders.get_by_id(folder_id=931598)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/folders/{folder_id}"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.folders.update(folder_id=857478, insights_folder_input={
+                    "name": "customer-complaints",
+                    "label": "support",
+                    "description": "Call recordings related to customer complaints",
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/folders/{folder_id}/files"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.folders.list_files(folder_id=74439, page=0, search_fields=[
+                    syllable_sdk.InsightsUploadFileProperties.START_TIME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/folders/{folder_id}/upload-file"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.folders.upload_file(folder_id=209119, call_id="<id>")
 
                 # Handle response
                 print(res)
@@ -1057,6 +1183,7 @@ actions:
         - lang: python
           label: Python (SDK)
           source: |-
+            import dateutil.parser
             import os
             from syllable_sdk import SyllableSDK
 
@@ -1067,17 +1194,34 @@ actions:
 
                 res = ss_client.insights.workflows.create(request={
                     "name": "summary-workflow",
+                    "source": "transfer",
                     "description": "Default workflow - generates a summary of the call",
                     "insight_tool_ids": [
                         1,
                     ],
-                    "conditions": {},
-                    "status": "ACTIVE",
+                    "conditions": {
+                        "min_duration": 120,
+                        "max_duration": 600,
+                        "sample_rate": 2,
+                        "agent_list": [
+                            866324,
+                            826325,
+                        ],
+                        "prompt_list": [
+                            "123324",
+                        ],
+                        "folder_list": [
+                            16754,
+                            67535,
+                        ],
+                    },
+                    "start_datetime": dateutil.parser.isoparse("2025-04-23T00:00:00Z"),
+                    "end_datetime": dateutil.parser.isoparse("2025-04-24T00:00:00Z"),
                 })
 
                 # Handle response
                 print(res)
-  - target: $["paths"]["/api/v1/insights/workflows/queue-session"]["post"]
+  - target: $["paths"]["/api/v1/insights/workflows/queue-work"]["post"]
     update:
       x-codeSamples:
         - lang: python
@@ -1091,10 +1235,13 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.workflows.queue_sessions_workflow(request={
+                res = ss_client.insights.workflows.queue_work(request={
                     "workflow_name": "summary-workflow",
                     "session_id_list": [
                         [12334,23445,34556],
+                    ],
+                    "file_id_list": [
+                        [1234,1678,2224],
                     ],
                 })
 
@@ -1142,6 +1289,7 @@ actions:
         - lang: python
           label: Python (SDK)
           source: |-
+            import dateutil.parser
             import os
             from syllable_sdk import SyllableSDK
 
@@ -1150,15 +1298,78 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.workflows.update(workflow_id=857478, insight_workflow_input={
+                res = ss_client.insights.workflows.update(workflow_id=597129, insight_workflow_input={
                     "name": "summary-workflow",
+                    "source": "manual",
                     "description": "Default workflow - generates a summary of the call",
                     "insight_tool_ids": [
                         1,
                     ],
-                    "conditions": {},
-                    "status": "ACTIVE",
+                    "conditions": {
+                        "min_duration": 120,
+                        "max_duration": 600,
+                        "sample_rate": 2,
+                        "agent_list": [
+                            866324,
+                            826325,
+                        ],
+                        "prompt_list": [
+                            "123324",
+                        ],
+                        "folder_list": [
+                            16754,
+                            67535,
+                        ],
+                    },
+                    "start_datetime": dateutil.parser.isoparse("2025-04-23T00:00:00Z"),
+                    "end_datetime": dateutil.parser.isoparse("2025-04-24T00:00:00Z"),
                 })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/workflows/{workflow_id}/activate"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.workflows.activate(workflow_id=537910, insight_workflow_activate={
+                    "is_acknowledged": True,
+                    "estimate": {
+                        "backfill_count": 100,
+                        "backfill_duration": 1000,
+                        "estimated_daily_count": 10,
+                        "estimated_daily_duration": 3674.11,
+                        "estimated_daily_cost": 45.25,
+                        "estimated_backfill_cost": 4561.00,
+                    },
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/workflows/{workflow_id}/inactivate"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.workflows.inactivate(workflow_id=550727)
 
                 # Handle response
                 print(res)
@@ -1336,9 +1547,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20250423.9",
+                    "batch_id": "20250424.9",
                     "campaign_id": 1,
-                    "expires_on": dateutil.parser.isoparse("2025-04-24T00:00:00Z"),
+                    "expires_on": dateutil.parser.isoparse("2025-04-25T00:00:00Z"),
                     "paused": True,
                 })
 

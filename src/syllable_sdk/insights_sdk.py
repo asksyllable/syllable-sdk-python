@@ -4,6 +4,7 @@ from .basesdk import BaseSDK
 from .sdkconfiguration import SDKConfiguration
 from syllable_sdk import models, utils
 from syllable_sdk._hooks import HookContext
+from syllable_sdk.folders import Folders
 from syllable_sdk.insights_tools import InsightsTools
 from syllable_sdk.types import OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
@@ -14,6 +15,8 @@ from typing import Any, List, Mapping, Optional
 class InsightsSDK(BaseSDK):
     r"""Operations related to insights results. An insight is a tool that processes          conversation data to extract information and generate reports."""
 
+    folders: Folders
+    r"""Operations related to insights upload folders. An insight folder is used          to upload call recordings for insight workflow analysis."""
     workflows: Workflows
     r"""Operations related to insights workflows. An workflow is series of tool           invocations that processes conversation data to extract information and generate reports."""
     tools: InsightsTools
@@ -25,6 +28,7 @@ class InsightsSDK(BaseSDK):
         self._init_sdks()
 
     def _init_sdks(self):
+        self.folders = Folders(self.sdk_configuration)
         self.workflows = Workflows(self.sdk_configuration)
         self.tools = InsightsTools(self.sdk_configuration)
 
