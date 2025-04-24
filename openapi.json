@@ -2233,6 +2233,764 @@
         }
       }
     },
+    "/api/v1/insights/folders/": {
+      "get": {
+        "tags": [
+          "insights.folders"
+        ],
+        "summary": "List Insights Upload Folders",
+        "operationId": "insights_folder_list",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The page number from which to start (0-based)",
+              "examples": [
+                0
+              ],
+              "default": 0,
+              "title": "Page"
+            },
+            "description": "The page number from which to start (0-based)"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "The maximum number of items to return",
+              "examples": [
+                25
+              ],
+              "default": 25,
+              "title": "Limit"
+            },
+            "description": "The maximum number of items to return"
+          },
+          {
+            "name": "search_fields",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/InsightsFolderProperties"
+              },
+              "description": "String names of fields to search. Correspond by index to search field values",
+              "examples": [
+                "name"
+              ],
+              "default": [],
+              "title": "Search Fields"
+            },
+            "description": "String names of fields to search. Correspond by index to search field values"
+          },
+          {
+            "name": "search_field_values",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list",
+              "examples": [
+                "Some Object Name"
+              ],
+              "default": [],
+              "title": "Search Field Values"
+            },
+            "description": "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/InsightsFolderProperties"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The field whose value should be used to order the results",
+              "examples": [
+                "name"
+              ],
+              "title": "Order By"
+            },
+            "description": "The field whose value should be used to order the results"
+          },
+          {
+            "name": "order_by_direction",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/OrderByDirection"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The direction in which to order the results",
+              "title": "Order By Direction"
+            },
+            "description": "The direction in which to order the results"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InsightsFolderProperties"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The fields to include in the response",
+              "default": [],
+              "title": "Fields"
+            },
+            "description": "The fields to include in the response"
+          },
+          {
+            "name": "start_datetime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The start datetime for filtering results",
+              "examples": [
+                "2023-01-01T00:00:00Z"
+              ],
+              "title": "Start Datetime"
+            },
+            "description": "The start datetime for filtering results"
+          },
+          {
+            "name": "end_datetime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The end datetime for filtering results",
+              "examples": [
+                "2024-01-01T00:00:00Z"
+              ],
+              "title": "End Datetime"
+            },
+            "description": "The end datetime for filtering results"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListResponse_InsightsFolder_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "insights.folders"
+        ],
+        "summary": "Create Insights Upload Folder",
+        "operationId": "insights_folder_create",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsightsFolderInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/InsightsFolder"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "title": "Response Insights Folder Create"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/insights/folders/{folder_id}": {
+      "get": {
+        "tags": [
+          "insights.folders"
+        ],
+        "summary": "Get Insights Folder Details",
+        "operationId": "insights_folder_get_by_id",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "folder_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Folder Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FolderDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "insights.folders"
+        ],
+        "summary": "Update Insights Folder",
+        "operationId": "insights_folder_update",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "folder_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Folder Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsightsFolderInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsightsFolder"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/insights/folders/{folder_id}/upload-file": {
+      "post": {
+        "tags": [
+          "insights.folders"
+        ],
+        "summary": "Upload Insights  Upload Folder",
+        "operationId": "insights_folder_upload_file",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "folder_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Folder Id"
+            }
+          },
+          {
+            "name": "call_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Call Id"
+            }
+          },
+          {
+            "name": "agent_number",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Agent Number"
+            }
+          },
+          {
+            "name": "customer_number",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Customer Number"
+            }
+          },
+          {
+            "name": "start_time",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Start Time"
+            }
+          },
+          {
+            "name": "end_time",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "End Time"
+            }
+          },
+          {
+            "name": "duration",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Duration"
+            }
+          },
+          {
+            "name": "metadata",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Metadata"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_insights_folder_upload_file"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsightsUploadFile"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/insights/folders/{folder_id}/files": {
+      "get": {
+        "tags": [
+          "insights.folders"
+        ],
+        "summary": "Fetch Insights Upload Files",
+        "operationId": "insights_upload_list_files",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "folder_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Folder Id"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The page number from which to start (0-based)",
+              "examples": [
+                0
+              ],
+              "default": 0,
+              "title": "Page"
+            },
+            "description": "The page number from which to start (0-based)"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "The maximum number of items to return",
+              "examples": [
+                25
+              ],
+              "default": 25,
+              "title": "Limit"
+            },
+            "description": "The maximum number of items to return"
+          },
+          {
+            "name": "search_fields",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/InsightsUploadFileProperties"
+              },
+              "description": "String names of fields to search. Correspond by index to search field values",
+              "examples": [
+                "name"
+              ],
+              "default": [],
+              "title": "Search Fields"
+            },
+            "description": "String names of fields to search. Correspond by index to search field values"
+          },
+          {
+            "name": "search_field_values",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list",
+              "examples": [
+                "Some Object Name"
+              ],
+              "default": [],
+              "title": "Search Field Values"
+            },
+            "description": "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/InsightsUploadFileProperties"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The field whose value should be used to order the results",
+              "examples": [
+                "name"
+              ],
+              "title": "Order By"
+            },
+            "description": "The field whose value should be used to order the results"
+          },
+          {
+            "name": "order_by_direction",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/OrderByDirection"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The direction in which to order the results",
+              "title": "Order By Direction"
+            },
+            "description": "The direction in which to order the results"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InsightsUploadFileProperties"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The fields to include in the response",
+              "default": [],
+              "title": "Fields"
+            },
+            "description": "The fields to include in the response"
+          },
+          {
+            "name": "start_datetime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The start datetime for filtering results",
+              "examples": [
+                "2023-01-01T00:00:00Z"
+              ],
+              "title": "Start Datetime"
+            },
+            "description": "The start datetime for filtering results"
+          },
+          {
+            "name": "end_datetime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The end datetime for filtering results",
+              "examples": [
+                "2024-01-01T00:00:00Z"
+              ],
+              "title": "End Datetime"
+            },
+            "description": "The end datetime for filtering results"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListResponse_InsightsUploadFile_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/insights/workflows/": {
       "get": {
         "tags": [
@@ -2664,14 +3422,132 @@
         }
       }
     },
-    "/api/v1/insights/workflows/queue-session": {
+    "/api/v1/insights/workflows/{workflow_id}/inactivate": {
+      "put": {
+        "tags": [
+          "insights.workflows"
+        ],
+        "summary": "Update Insights Workflow",
+        "description": "Update a InsightWorkflow.",
+        "operationId": "insights_workflow_inactivate",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workflow_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Workflow Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsightWorkflowOutput"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/insights/workflows/{workflow_id}/activate": {
+      "put": {
+        "tags": [
+          "insights.workflows"
+        ],
+        "summary": "Update Insights Workflow",
+        "description": "Update a InsightWorkflow.",
+        "operationId": "insights_workflow_activate",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workflow_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Workflow Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsightWorkflowActivate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsightWorkflowOutput"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/insights/workflows/queue-work": {
       "post": {
         "tags": [
           "insights.workflows"
         ],
-        "summary": "Queue Insights Workflow For Sessions",
+        "summary": "Queue Insights Workflow For Sessions/Files",
         "description": "Manually queue sessions for insights workflow evaluation.",
-        "operationId": "queue_sessions_workflow",
+        "operationId": "insights_workflow_queue_work",
         "requestBody": {
           "content": {
             "application/json": {
@@ -2687,10 +3563,7 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {
-                  "type": "object",
-                  "title": "Response Queue Sessions Workflow"
-                }
+                "schema": {}
               }
             }
           },
@@ -10126,7 +10999,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20250423.9"
+              "20250424.9"
             ]
           },
           "campaign_id": {
@@ -10150,7 +11023,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           },
           "paused": {
@@ -10203,7 +11076,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -10219,7 +11092,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -10250,7 +11123,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -10348,6 +11221,17 @@
           "file"
         ],
         "title": "Body_directory_member_bulk_load"
+      },
+      "Body_insights_folder_upload_file": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File"
+          }
+        },
+        "type": "object",
+        "title": "Body_insights_folder_upload_file"
       },
       "Body_outbound_batch_delete": {
         "properties": {
@@ -10744,7 +11628,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20250423.9"
+              "20250424.9"
             ]
           },
           "campaign_id": {
@@ -10768,7 +11652,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           },
           "paused": {
@@ -10821,7 +11705,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -10837,7 +11721,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -10868,7 +11752,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -10911,7 +11795,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20250423.9"
+              "20250424.9"
             ]
           },
           "campaign_id": {
@@ -10935,7 +11819,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           },
           "paused": {
@@ -11076,7 +11960,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2025-04-22T00:00:00Z"
+              "2025-04-23T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -11092,7 +11976,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -12936,6 +13820,103 @@
         ],
         "title": "EventProperties"
       },
+      "FolderDetails": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Human-readable name of insight folder",
+            "examples": [
+              "customer-complaints"
+            ]
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Label",
+            "description": "optional label assigned to insight folder",
+            "examples": [
+              "support"
+            ]
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "Text description of insight upload folder",
+            "examples": [
+              "Call recordings related to customer complaints"
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id",
+            "description": "System-assign folder ID",
+            "examples": [
+              182764
+            ]
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "Timestamp at which insight upload folder was created",
+            "examples": [
+              "2025-04-23T00:00:00Z"
+            ]
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At",
+            "description": "Timestamp at which insight upload folder was last updated",
+            "examples": [
+              "2025-04-24T00:00:00Z"
+            ]
+          },
+          "last_updated_by": {
+            "type": "string",
+            "title": "Last Updated By",
+            "description": "Email of user who last updated upload folder",
+            "examples": [
+              "user@email.com"
+            ]
+          },
+          "folder_stats": {
+            "type": "object",
+            "title": "Folder Stats",
+            "description": "Meta-data of insight upload files associated with the folder",
+            "examples": [
+              {
+                "count": 10,
+                "total_duration": "10:00:00",
+                "total_size": "213MB"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "id",
+          "last_updated_by",
+          "folder_stats"
+        ],
+        "title": "FolderDetails",
+        "description": "Response model for an insight upload folder details."
+      },
       "HTTPValidationError": {
         "properties": {
           "detail": {
@@ -13608,7 +14589,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool was created",
             "examples": [
-              "2025-04-22T00:00:00Z"
+              "2025-04-23T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -13617,7 +14598,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool was last updated",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -13681,6 +14662,206 @@
         "title": "InsightToolTestInput",
         "description": "Request model to test an insight tool."
       },
+      "InsightWorkflowActivate": {
+        "properties": {
+          "is_acknowledged": {
+            "type": "boolean",
+            "title": "Is Acknowledged",
+            "description": "Flag to indicate if the user has acknowledged the estimate",
+            "examples": [
+              true
+            ]
+          },
+          "estimate": {
+            "$ref": "#/components/schemas/InsightWorkflowEstimate",
+            "description": "Estimate of the number of calls that will be processed by the workflow"
+          }
+        },
+        "type": "object",
+        "required": [
+          "is_acknowledged",
+          "estimate"
+        ],
+        "title": "InsightWorkflowActivate",
+        "description": "Request model to activate an insight workflow."
+      },
+      "InsightWorkflowCondition": {
+        "properties": {
+          "min_duration": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Min Duration",
+            "description": "Minimum duration of the calls in seconds",
+            "examples": [
+              120
+            ]
+          },
+          "max_duration": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Duration",
+            "description": "Maximum duration of the calls in seconds",
+            "examples": [
+              600
+            ]
+          },
+          "sample_rate": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sample Rate",
+            "description": "Sample rate as a percentage of calls",
+            "examples": [
+              2
+            ]
+          },
+          "agent_list": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Agent List",
+            "description": "List of agent IDs",
+            "examples": [
+              [
+                866324,
+                826325
+              ]
+            ]
+          },
+          "prompt_list": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt List",
+            "description": "List of prompts IDs",
+            "examples": [
+              [
+                123324
+              ]
+            ]
+          },
+          "folder_list": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Folder List",
+            "description": "List of folder IDs",
+            "examples": [
+              [
+                16754,
+                67535
+              ]
+            ]
+          }
+        },
+        "type": "object",
+        "title": "InsightWorkflowCondition",
+        "description": "Model for the conditions that trigger an insight workflow."
+      },
+      "InsightWorkflowEstimate": {
+        "properties": {
+          "backfill_count": {
+            "type": "integer",
+            "title": "Backfill Count",
+            "description": "Number of extant calls that will be processed by the workflow",
+            "examples": [
+              100
+            ]
+          },
+          "backfill_duration": {
+            "type": "number",
+            "title": "Backfill Duration",
+            "description": "Estimated duration of the calls that will be processed by the workflow",
+            "examples": [
+              1000.0
+            ]
+          },
+          "estimated_daily_count": {
+            "type": "integer",
+            "title": "Estimated Daily Count",
+            "description": "Estimated number of calls that will be processed by the workflow daily",
+            "examples": [
+              10
+            ]
+          },
+          "estimated_daily_duration": {
+            "type": "number",
+            "title": "Estimated Daily Duration",
+            "description": "Estimated duration of the calls that will be processed by the workflow daily",
+            "examples": [
+              "3674.11"
+            ]
+          },
+          "estimated_daily_cost": {
+            "type": "number",
+            "title": "Estimated Daily Cost",
+            "description": "Estimated cost of the calls that will be processed by the workflow daily",
+            "examples": [
+              "45.25"
+            ]
+          },
+          "estimated_backfill_cost": {
+            "type": "number",
+            "title": "Estimated Backfill Cost",
+            "description": "Estimated cost of the backfill of the calls that will be processed by the workflow",
+            "examples": [
+              "4561.00"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "backfill_count",
+          "backfill_duration",
+          "estimated_daily_count",
+          "estimated_daily_duration",
+          "estimated_daily_cost",
+          "estimated_backfill_cost"
+        ],
+        "title": "InsightWorkflowEstimate",
+        "description": "Response model for an insight workflow."
+      },
       "InsightWorkflowInput": {
         "properties": {
           "name": {
@@ -13689,6 +14870,17 @@
             "description": "Human-readable name of insight workflow",
             "examples": [
               "summary-workflow"
+            ]
+          },
+          "source": {
+            "type": "string",
+            "title": "Source",
+            "description": "Source of the insight workflow",
+            "examples": [
+              "agent",
+              "transfer",
+              "upload",
+              "manual"
             ]
           },
           "description": {
@@ -13713,31 +14905,49 @@
             ]
           },
           "conditions": {
-            "type": "object",
-            "title": "Conditions",
-            "description": "Conditions for insight workflow to trigger on a given call recording.",
-            "examples": [
+            "$ref": "#/components/schemas/InsightWorkflowCondition",
+            "description": "Conditions for insight workflow to trigger on a given call recording."
+          },
+          "start_datetime": {
+            "anyOf": [
               {
-                "trigger": "call_recording"
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
               }
+            ],
+            "title": "Start Datetime",
+            "description": "Timestamp for when the insight workflow should start. An empty value indicates start on activation",
+            "examples": [
+              "2025-04-23T00:00:00Z"
             ]
           },
-          "status": {
-            "type": "string",
-            "title": "Status",
-            "description": "Status of the insight workflow",
+          "end_datetime": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End Datetime",
+            "description": "Timestamp of when the insight workflow should end. An empty value indicates no end",
             "examples": [
-              "ACTIVE"
+              "2025-04-24T00:00:00Z"
             ]
           }
         },
         "type": "object",
         "required": [
           "name",
+          "source",
           "description",
           "insight_tool_ids",
-          "conditions",
-          "status"
+          "conditions"
         ],
         "title": "InsightWorkflowInput",
         "description": "Request model to create/update an insight workflow."
@@ -13752,6 +14962,17 @@
               "summary-workflow"
             ]
           },
+          "source": {
+            "type": "string",
+            "title": "Source",
+            "description": "Source of the insight workflow",
+            "examples": [
+              "agent",
+              "transfer",
+              "upload",
+              "manual"
+            ]
+          },
           "description": {
             "type": "string",
             "title": "Description",
@@ -13774,21 +14995,39 @@
             ]
           },
           "conditions": {
-            "type": "object",
-            "title": "Conditions",
-            "description": "Conditions for insight workflow to trigger on a given call recording.",
-            "examples": [
+            "$ref": "#/components/schemas/InsightWorkflowCondition",
+            "description": "Conditions for insight workflow to trigger on a given call recording."
+          },
+          "start_datetime": {
+            "anyOf": [
               {
-                "trigger": "call_recording"
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
               }
+            ],
+            "title": "Start Datetime",
+            "description": "Timestamp for when the insight workflow should start. An empty value indicates start on activation",
+            "examples": [
+              "2025-04-23T00:00:00Z"
             ]
           },
-          "status": {
-            "type": "string",
-            "title": "Status",
-            "description": "Status of the insight workflow",
+          "end_datetime": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End Datetime",
+            "description": "Timestamp of when the insight workflow should end. An empty value indicates no end",
             "examples": [
-              "ACTIVE"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "id": {
@@ -13807,13 +15046,26 @@
             "title": "Insight Tools",
             "description": "List of insight tools used in the workflow"
           },
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "description": "Status of the insight workflow",
+            "examples": [
+              "ACTIVE",
+              "INACTIVE"
+            ]
+          },
+          "estimate": {
+            "$ref": "#/components/schemas/InsightWorkflowEstimate",
+            "description": "Estimate of the number of calls that will be processed by the workflow"
+          },
           "created_at": {
             "type": "string",
             "format": "date-time",
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2025-04-22T00:00:00Z"
+              "2025-04-23T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -13822,7 +15074,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -13837,12 +15089,14 @@
         "type": "object",
         "required": [
           "name",
+          "source",
           "description",
           "insight_tool_ids",
           "conditions",
-          "status",
           "id",
           "insight_tools",
+          "status",
+          "estimate",
           "last_updated_by"
         ],
         "title": "InsightWorkflowOutput",
@@ -13861,6 +15115,148 @@
         ],
         "title": "InsightWorkflowProperties"
       },
+      "InsightsFolder": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Human-readable name of insight folder",
+            "examples": [
+              "customer-complaints"
+            ]
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Label",
+            "description": "optional label assigned to insight folder",
+            "examples": [
+              "support"
+            ]
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "Text description of insight upload folder",
+            "examples": [
+              "Call recordings related to customer complaints"
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id",
+            "description": "System-assign folder ID",
+            "examples": [
+              182764
+            ]
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "Timestamp at which insight upload folder was created",
+            "examples": [
+              "2025-04-23T00:00:00Z"
+            ]
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At",
+            "description": "Timestamp at which insight upload folder was last updated",
+            "examples": [
+              "2025-04-24T00:00:00Z"
+            ]
+          },
+          "last_updated_by": {
+            "type": "string",
+            "title": "Last Updated By",
+            "description": "Email of user who last updated upload folder",
+            "examples": [
+              "user@email.com"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "id",
+          "last_updated_by"
+        ],
+        "title": "InsightsFolder",
+        "description": "Response model for an insight upload folder."
+      },
+      "InsightsFolderInput": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Human-readable name of insight folder",
+            "examples": [
+              "customer-complaints"
+            ]
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Label",
+            "description": "optional label assigned to insight folder",
+            "examples": [
+              "support"
+            ]
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "Text description of insight upload folder",
+            "examples": [
+              "Call recordings related to customer complaints"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "InsightsFolderInput",
+        "description": "Request model to create/update an insight upload folder."
+      },
+      "InsightsFolderProperties": {
+        "type": "string",
+        "enum": [
+          "id",
+          "name",
+          "label",
+          "updated_at"
+        ],
+        "title": "InsightsFolderProperties"
+      },
       "InsightsOutput": {
         "properties": {
           "id": {
@@ -13872,11 +15268,33 @@
             ]
           },
           "session_id": {
-            "type": "integer",
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Session Id",
             "description": "Unique ID for session",
             "examples": [
-              1
+              12341
+            ]
+          },
+          "upload_file_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Upload File Id",
+            "description": "Unique ID for uploaded file",
+            "examples": [
+              12535
             ]
           },
           "insight_tool_id": {
@@ -13884,7 +15302,7 @@
             "title": "Insight Tool Id",
             "description": "Unique ID for insight tool",
             "examples": [
-              1
+              34531
             ]
           },
           "insight_tool_version": {
@@ -13951,7 +15369,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2025-04-22T00:00:00Z"
+              "2025-04-23T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -13960,14 +15378,13 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           }
         },
         "type": "object",
         "required": [
           "id",
-          "session_id",
           "insight_tool_id",
           "insight_tool_version",
           "insight_key",
@@ -13981,10 +15398,206 @@
         "enum": [
           "id",
           "session_id",
+          "upload_file_id",
+          "workflow_id",
+          "upload_folder_id",
           "insight_key",
           "insight_tool_id"
         ],
         "title": "InsightsProperties"
+      },
+      "InsightsUploadFile": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id",
+            "description": "System-assigned ID for the upload file",
+            "examples": [
+              182764
+            ]
+          },
+          "folder_id": {
+            "type": "integer",
+            "title": "Folder Id",
+            "description": "System-assigned ID for the folder to which the file belongs",
+            "examples": [
+              182764
+            ]
+          },
+          "filename": {
+            "type": "string",
+            "title": "Filename",
+            "description": "Name of the uploaded file",
+            "examples": [
+              "customer-complaints.wav"
+            ]
+          },
+          "object_key": {
+            "type": "string",
+            "title": "Object Key",
+            "description": "Object-store key of the uploaded file",
+            "examples": [
+              "UPLOAD_CALL_ID/recording/2025/04/22/15/00/ce7d212e-80b0-4f0b-9e01-74322f146611.mp3"
+            ]
+          },
+          "call_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Call Id",
+            "description": "Unique identifier for the call associated with the uploaded file",
+            "examples": [
+              "12345"
+            ]
+          },
+          "agent_number": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Agent Number",
+            "description": "Agent number associated with the uploaded file",
+            "examples": [
+              "1234567890"
+            ]
+          },
+          "customer_number": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Customer Number",
+            "description": "Customer number associated with the uploaded file",
+            "examples": [
+              "0987654321"
+            ]
+          },
+          "duration": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Duration",
+            "description": "Length in seconds of the uploaded recording",
+            "examples": [
+              305.5
+            ]
+          },
+          "start_time": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Time",
+            "description": "Start time of the uploaded file",
+            "examples": [
+              "2025-04-23T00:00:00Z"
+            ]
+          },
+          "end_time": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End Time",
+            "description": "End time of the uploaded file",
+            "examples": [
+              "2025-04-24T00:00:00Z"
+            ]
+          },
+          "error_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Message",
+            "description": "Error message associated with the uploaded file",
+            "examples": [
+              "File not found"
+            ]
+          },
+          "metadata": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Metadata",
+            "description": "Meta-data associated with the uploaded file",
+            "examples": [
+              {
+                "duration": "00:10:00",
+                "size": "10MB"
+              }
+            ]
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "Timestamp at which insight upload file was created",
+            "examples": [
+              "2025-04-23T00:00:00Z"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "folder_id",
+          "filename",
+          "object_key"
+        ],
+        "title": "InsightsUploadFile",
+        "description": "Response model for an insight upload file."
+      },
+      "InsightsUploadFileProperties": {
+        "type": "string",
+        "enum": [
+          "filename",
+          "call_id",
+          "agent_number",
+          "customer_number",
+          "duration",
+          "start_time",
+          "end_time",
+          "created_at"
+        ],
+        "title": "InsightsUploadFileProperties"
       },
       "InsightsWorkflowQueueSession": {
         "properties": {
@@ -13997,21 +15610,45 @@
             ]
           },
           "session_id_list": {
-            "items": {
-              "type": "integer"
-            },
-            "type": "array",
+            "anyOf": [
+              {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Session Id List",
             "description": "List of session identifiers",
             "examples": [
               "[12334,23445,34556]"
             ]
+          },
+          "file_id_list": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "File Id List",
+            "description": "List of file IDs to be processed. This is only applicable for upload folders",
+            "examples": [
+              "[1234,1678,2224]"
+            ]
           }
         },
         "type": "object",
         "required": [
-          "workflow_name",
-          "session_id_list"
+          "workflow_name"
         ],
         "title": "InsightsWorkflowQueueSession",
         "description": "Session identifier for workflow queue."
@@ -15465,6 +17102,72 @@
         ],
         "title": "ListResponse[InsightWorkflowOutput]"
       },
+      "ListResponse_InsightsFolder_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/InsightsFolder"
+            },
+            "type": "array",
+            "title": "Items",
+            "description": "List of items returned from the query",
+            "examples": []
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page",
+            "description": "The page number of the results (0-based)",
+            "examples": [
+              0
+            ]
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size",
+            "description": "The number of items returned per page",
+            "examples": [
+              25
+            ]
+          },
+          "total_pages": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Pages",
+            "description": "The total number of pages of results given the indicated page size",
+            "examples": [
+              4
+            ]
+          },
+          "total_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Count",
+            "description": "The total number of items returned from the query",
+            "examples": [
+              100
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "page",
+          "page_size"
+        ],
+        "title": "ListResponse[InsightsFolder]"
+      },
       "ListResponse_InsightsOutput_": {
         "properties": {
           "items": {
@@ -15530,6 +17233,72 @@
           "page_size"
         ],
         "title": "ListResponse[InsightsOutput]"
+      },
+      "ListResponse_InsightsUploadFile_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/InsightsUploadFile"
+            },
+            "type": "array",
+            "title": "Items",
+            "description": "List of items returned from the query",
+            "examples": []
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page",
+            "description": "The page number of the results (0-based)",
+            "examples": [
+              0
+            ]
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size",
+            "description": "The number of items returned per page",
+            "examples": [
+              25
+            ]
+          },
+          "total_pages": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Pages",
+            "description": "The total number of pages of results given the indicated page size",
+            "examples": [
+              4
+            ]
+          },
+          "total_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Count",
+            "description": "The total number of items returned from the query",
+            "examples": [
+              100
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "page",
+          "page_size"
+        ],
+        "title": "ListResponse[InsightsUploadFile]"
       },
       "ListResponse_LanguageGroupResponse_": {
         "properties": {
@@ -16193,7 +17962,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -16202,7 +17971,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -19329,6 +21098,10 @@
       "description": "Operations related to insights results. An insight is a tool that processes          conversation data to extract information and generate reports."
     },
     {
+      "name": "insights.folders",
+      "description": "Operations related to insights upload folders. An insight folder is used          to upload call recordings for insight workflow analysis."
+    },
+    {
       "name": "insights.tools",
       "description": "Operations related to insights tools. An insight is a tool that processes           conversation data to extract information and generate reports."
     },
@@ -19409,6 +21182,26 @@
     {
       "operationId": ".*_results$",
       "methodNameOverride": "results"
+    },
+    {
+      "operationId": ".*_queue_work$",
+      "methodNameOverride": "queue_work"
+    },
+    {
+      "operationId": ".*_activate$",
+      "methodNameOverride": "activate"
+    },
+    {
+      "operationId": ".*_inactivate$",
+      "methodNameOverride": "inactivate"
+    },
+    {
+      "operationId": ".*_list_files$",
+      "methodNameOverride": "list_files"
+    },
+    {
+      "operationId": ".*_upload_file$",
+      "methodNameOverride": "upload_file"
     }
   ]
 }
