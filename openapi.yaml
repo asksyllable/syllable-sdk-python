@@ -6352,12 +6352,13 @@ components:
     "AgentVoiceModel":
       type: "string"
       enum:
-        - "Multilingual_v2"
+        - "Eleven_Turbo_v2_5"
         - "Neural2"
         - "Standard"
         - "Studio"
         - "WaveNet"
-        - "Whisper"
+        - "tts-1"
+        - "gpt-4o-mini-tts"
       title: "AgentVoiceModel"
       description: "Model for an agent voice."
     "AgentVoiceVarName":
@@ -6463,7 +6464,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20250424.9"
+            - "20250425.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -6478,7 +6479,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-04-26T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -6503,7 +6504,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-04-25T00:00:00Z"
         "deleted_at":
           anyOf:
             - type: "string"
@@ -6512,7 +6513,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-04-25T00:00:00Z"
         "deleted_reason":
           anyOf:
             - type: "string"
@@ -6529,7 +6530,7 @@ components:
           title: "Last Updated At"
           description: "Timestamp of last change to batch"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-04-25T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -6868,7 +6869,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20250424.9"
+            - "20250425.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -6883,7 +6884,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-04-26T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -6908,7 +6909,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-04-25T00:00:00Z"
         "deleted_at":
           anyOf:
             - type: "string"
@@ -6917,7 +6918,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-04-25T00:00:00Z"
         "deleted_reason":
           anyOf:
             - type: "string"
@@ -6934,7 +6935,7 @@ components:
           title: "Last Updated At"
           description: "Timestamp of last change to batch"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-04-25T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -6963,7 +6964,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20250424.9"
+            - "20250425.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -6978,7 +6979,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-04-26T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -7071,7 +7072,7 @@ components:
           title: "Created At"
           description: "Timestamp of request creation"
           examples:
-            - "2025-04-23T00:00:00Z"
+            - "2025-04-24T00:00:00Z"
         "sent_at":
           anyOf:
             - type: "string"
@@ -7080,7 +7081,7 @@ components:
           title: "Sent At"
           description: "Timestamp at which request was sent"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-04-25T00:00:00Z"
         "attempt_count":
           type: "integer"
           title: "Attempt Count"
@@ -8233,14 +8234,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload folder was created"
           examples:
-            - "2025-04-23T00:00:00Z"
+            - "2025-04-24T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight upload folder was last updated"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-04-25T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -8720,14 +8721,14 @@ components:
           title: "Created At"
           description: "Timestamp of at which insight tool was created"
           examples:
-            - "2025-04-23T00:00:00Z"
+            - "2025-04-24T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool was last updated"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-04-25T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -8937,7 +8938,7 @@ components:
           title: "Start Datetime"
           description: "Timestamp for when the insight workflow should start. An empty value indicates start on activation"
           examples:
-            - "2025-04-23T00:00:00Z"
+            - "2025-04-24T00:00:00Z"
         "end_datetime":
           anyOf:
             - type: "string"
@@ -8946,7 +8947,7 @@ components:
           title: "End Datetime"
           description: "Timestamp of when the insight workflow should end. An empty value indicates no end"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-04-25T00:00:00Z"
       type: "object"
       required:
         - "name"
@@ -8996,7 +8997,7 @@ components:
           title: "Start Datetime"
           description: "Timestamp for when the insight workflow should start. An empty value indicates start on activation"
           examples:
-            - "2025-04-23T00:00:00Z"
+            - "2025-04-24T00:00:00Z"
         "end_datetime":
           anyOf:
             - type: "string"
@@ -9005,7 +9006,7 @@ components:
           title: "End Datetime"
           description: "Timestamp of when the insight workflow should end. An empty value indicates no end"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-04-25T00:00:00Z"
         "id":
           type: "integer"
           title: "Id"
@@ -9031,14 +9032,14 @@ components:
           title: "Created At"
           description: "Timestamp at which the insight workflow was created"
           examples:
-            - "2025-04-23T00:00:00Z"
+            - "2025-04-24T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of most recent update to the insight workflow"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-04-25T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -9106,14 +9107,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload folder was created"
           examples:
-            - "2025-04-23T00:00:00Z"
+            - "2025-04-24T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight upload folder was last updated"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-04-25T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -9234,14 +9235,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight tool result was created"
           examples:
-            - "2025-04-23T00:00:00Z"
+            - "2025-04-24T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool result was last updated"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-04-25T00:00:00Z"
       type: "object"
       required:
         - "id"
@@ -9328,7 +9329,7 @@ components:
           title: "Start Time"
           description: "Start time of the uploaded file"
           examples:
-            - "2025-04-23T00:00:00Z"
+            - "2025-04-24T00:00:00Z"
         "end_time":
           anyOf:
             - type: "string"
@@ -9337,7 +9338,7 @@ components:
           title: "End Time"
           description: "End time of the uploaded file"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-04-25T00:00:00Z"
         "error_message":
           anyOf:
             - type: "string"
@@ -9360,7 +9361,7 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload file was created"
           examples:
-            - "2025-04-23T00:00:00Z"
+            - "2025-04-24T00:00:00Z"
       type: "object"
       required:
         - "id"
@@ -9466,10 +9467,26 @@ components:
         "language_code": {"$ref": "#/components/schemas/LanguageCode", "description": "BCP 47 code of the language", "examples": ["en-US"]}
         "voice_provider": {"$ref": "#/components/schemas/TtsProvider", "description": "TTS provider of the voice to use for the language", "examples": ["OpenAI"]}
         "voice_display_name": {"$ref": "#/components/schemas/AgentVoiceDisplayName", "description": "Display name of the voice to use for the language", "examples": ["Alloy"]}
+        "voice_speed":
+          anyOf:
+            - type: "number"
+            - type: "null"
+          title: "Voice Speed"
+          description: "Speed of the voice in the range of 0.25 to 4.0 (OpenAI and Google) or 0.7 to 1.2 (ElevenLabs). Standard speed is 1.0."
+          examples:
+            - 1
+        "voice_pitch":
+          anyOf:
+            - type: "number"
+            - type: "null"
+          title: "Voice Pitch"
+          description: "Pitch of the voice in the range of -20.0 to 20.0. 20 means increase 20 semitones from the original pitch. -20 means decrease 20 semitones from the original pitch. 0 means use the original pitch. Only supported for Google configs."
+          examples:
+            - 0
         "dtmf_code":
           type: "integer"
           title: "Dtmf Code"
-          description: "DTMF code that should be used for the language in the menu generated from the language group"
+          description: "DTMF code that should be used for the language in the menu generated from the language group."
           examples:
             - 1
       type: "object"
@@ -10841,14 +10858,14 @@ components:
           title: "Created At"
           description: "Timestamp of campaign creation"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-04-25T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of campaign update"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-04-25T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -11011,7 +11028,7 @@ components:
         "include_default_tools":
           type: "boolean"
           title: "Include Default Tools"
-          description: "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."
+          description: "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."
           default: true
           examples:
             - true
@@ -11307,7 +11324,7 @@ components:
         "include_default_tools":
           type: "boolean"
           title: "Include Default Tools"
-          description: "Whether to include the default tools (`summary`, `hangup`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."
+          description: "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."
           default: true
           examples:
             - true
