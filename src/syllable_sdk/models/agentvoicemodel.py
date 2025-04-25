@@ -7,9 +7,10 @@ from enum import Enum
 class AgentVoiceModel(str, Enum):
     r"""Model for an agent voice."""
 
-    MULTILINGUAL_V2 = "Multilingual_v2"
+    ELEVEN_TURBO_V2_5 = "Eleven_Turbo_v2_5"
     NEURAL2 = "Neural2"
     STANDARD = "Standard"
     STUDIO = "Studio"
     WAVE_NET = "WaveNet"
-    WHISPER = "Whisper"
+    TTS_1 = "tts-1"
+    GPT_4O_MINI_TTS = "gpt-4o-mini-tts"

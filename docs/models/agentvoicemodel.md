@@ -5,11 +5,12 @@ Model for an agent voice.
 
 ## Values
 
-| Name              | Value             |
-| ----------------- | ----------------- |
-| `MULTILINGUAL_V2` | Multilingual_v2   |
-| `NEURAL2`         | Neural2           |
-| `STANDARD`        | Standard          |
-| `STUDIO`          | Studio            |
-| `WAVE_NET`        | WaveNet           |
-| `WHISPER`         | Whisper           |
+| Name                | Value               |
+| ------------------- | ------------------- |
+| `ELEVEN_TURBO_V2_5` | Eleven_Turbo_v2_5   |
+| `NEURAL2`           | Neural2             |
+| `STANDARD`          | Standard            |
+| `STUDIO`            | Studio              |
+| `WAVE_NET`          | WaveNet             |
+| `TTS_1`             | tts-1               |
+| `GPT_4O_MINI_TTS`   | gpt-4o-mini-tts     |
