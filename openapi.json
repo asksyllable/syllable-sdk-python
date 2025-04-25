@@ -10864,12 +10864,13 @@
       "AgentVoiceModel": {
         "type": "string",
         "enum": [
-          "Multilingual_v2",
+          "Eleven_Turbo_v2_5",
           "Neural2",
           "Standard",
           "Studio",
           "WaveNet",
-          "Whisper"
+          "tts-1",
+          "gpt-4o-mini-tts"
         ],
         "title": "AgentVoiceModel",
         "description": "Model for an agent voice."
@@ -10999,7 +11000,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20250424.9"
+              "20250425.9"
             ]
           },
           "campaign_id": {
@@ -11023,7 +11024,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-04-25T00:00:00Z"
+              "2025-04-26T00:00:00Z"
             ]
           },
           "paused": {
@@ -11076,7 +11077,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -11092,7 +11093,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -11123,7 +11124,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -11628,7 +11629,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20250424.9"
+              "20250425.9"
             ]
           },
           "campaign_id": {
@@ -11652,7 +11653,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-04-25T00:00:00Z"
+              "2025-04-26T00:00:00Z"
             ]
           },
           "paused": {
@@ -11705,7 +11706,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -11721,7 +11722,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -11752,7 +11753,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -11795,7 +11796,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20250424.9"
+              "20250425.9"
             ]
           },
           "campaign_id": {
@@ -11819,7 +11820,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-04-25T00:00:00Z"
+              "2025-04-26T00:00:00Z"
             ]
           },
           "paused": {
@@ -11960,7 +11961,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -11976,7 +11977,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -13874,7 +13875,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -13883,7 +13884,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -14589,7 +14590,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool was created",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -14598,7 +14599,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool was last updated",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -14921,7 +14922,7 @@
             "title": "Start Datetime",
             "description": "Timestamp for when the insight workflow should start. An empty value indicates start on activation",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -14937,7 +14938,7 @@
             "title": "End Datetime",
             "description": "Timestamp of when the insight workflow should end. An empty value indicates no end",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           }
         },
@@ -15011,7 +15012,7 @@
             "title": "Start Datetime",
             "description": "Timestamp for when the insight workflow should start. An empty value indicates start on activation",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -15027,7 +15028,7 @@
             "title": "End Datetime",
             "description": "Timestamp of when the insight workflow should end. An empty value indicates no end",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           },
           "id": {
@@ -15065,7 +15066,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -15074,7 +15075,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -15169,7 +15170,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -15178,7 +15179,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -15369,7 +15370,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -15378,7 +15379,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           }
         },
@@ -15513,7 +15514,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           },
           "end_time": {
@@ -15529,7 +15530,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           },
           "error_message": {
@@ -15571,7 +15572,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2025-04-23T00:00:00Z"
+              "2025-04-24T00:00:00Z"
             ]
           }
         },
@@ -15744,10 +15745,40 @@
               "Alloy"
             ]
           },
+          "voice_speed": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Voice Speed",
+            "description": "Speed of the voice in the range of 0.25 to 4.0 (OpenAI and Google) or 0.7 to 1.2 (ElevenLabs). Standard speed is 1.0.",
+            "examples": [
+              1.0
+            ]
+          },
+          "voice_pitch": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Voice Pitch",
+            "description": "Pitch of the voice in the range of -20.0 to 20.0. 20 means increase 20 semitones from the original pitch. -20 means decrease 20 semitones from the original pitch. 0 means use the original pitch. Only supported for Google configs.",
+            "examples": [
+              0.0
+            ]
+          },
           "dtmf_code": {
             "type": "integer",
             "title": "Dtmf Code",
-            "description": "DTMF code that should be used for the language in the menu generated from the language group",
+            "description": "DTMF code that should be used for the language in the menu generated from the language group.",
             "examples": [
               1
             ]
@@ -17962,7 +17993,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -17971,7 +18002,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2025-04-24T00:00:00Z"
+              "2025-04-25T00:00:00Z"
             ]
           },
           "last_updated_by": {
