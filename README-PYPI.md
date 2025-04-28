@@ -315,7 +315,6 @@ with SyllableSDK(
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/languagegroups/README.md#update) - Update Language Group
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/languagegroups/README.md#get_by_id) - Get Language Group
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/languagegroups/README.md#delete) - Delete Language Group
-* [language_groups_create_voice_sample](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/languagegroups/README.md#language_groups_create_voice_sample) - Create Voice Sample
 
 ### [outbound](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/outbound/README.md)
 
