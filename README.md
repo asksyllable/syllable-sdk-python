@@ -315,7 +315,6 @@ with SyllableSDK(
 * [update](docs/sdks/languagegroups/README.md#update) - Update Language Group
 * [get_by_id](docs/sdks/languagegroups/README.md#get_by_id) - Get Language Group
 * [delete](docs/sdks/languagegroups/README.md#delete) - Delete Language Group
-* [language_groups_create_voice_sample](docs/sdks/languagegroups/README.md#language_groups_create_voice_sample) - Create Voice Sample
 
 ### [outbound](docs/sdks/outbound/README.md)
 

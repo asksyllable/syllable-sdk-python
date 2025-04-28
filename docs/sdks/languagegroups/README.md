@@ -12,7 +12,6 @@ Operations related to language groups. A language group is a           collectio
 * [update](#update) - Update Language Group
 * [get_by_id](#get_by_id) - Get Language Group
 * [delete](#delete) - Delete Language Group
-* [language_groups_create_voice_sample](#language_groups_create_voice_sample) - Create Voice Sample
 
 ## list
 
@@ -264,53 +263,6 @@ with SyllableSDK(
 | `language_group_id`                                                 | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `reason`                                                            | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
-
-### Response
-
-**[Any](../../models/.md)**
-
-### Errors
-
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
-
-## language_groups_create_voice_sample
-
-Generate voice sample.
-
-### Example Usage
-
-```python
-import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
-
-
-with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-) as ss_client:
-
-    res = ss_client.language_groups.language_groups_create_voice_sample(request={
-        "language_code": syllable_sdk.LanguageCode.EN_US,
-        "voice_provider": syllable_sdk.TtsProvider.OPEN_AI,
-        "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ONYX,
-        "voice_speed": 1,
-        "voice_pitch": 0,
-    })
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `request`                                                                   | [models.VoiceSampleCreateRequest](../../models/voicesamplecreaterequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
-| `retries`                                                                   | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)            | :heavy_minus_sign:                                                          | Configuration to override the default retry behavior of the client.         |
 
 ### Response
 

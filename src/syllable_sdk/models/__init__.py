@@ -622,10 +622,6 @@ from .validationerror import (
     ValidationError,
     ValidationErrorTypedDict,
 )
-from .voicesamplecreaterequest import (
-    VoiceSampleCreateRequest,
-    VoiceSampleCreateRequestTypedDict,
-)
 
 # Pydantic models with forward references
 AgentResponse.model_rebuild()
@@ -1121,6 +1117,4 @@ __all__ = [
     "Type",
     "ValidationError",
     "ValidationErrorTypedDict",
-    "VoiceSampleCreateRequest",
-    "VoiceSampleCreateRequestTypedDict",
 ]
