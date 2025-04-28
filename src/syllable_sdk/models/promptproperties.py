@@ -9,6 +9,7 @@ class PromptProperties(str, Enum):
 
     ID = "id"
     NAME = "name"
+    NAME_EXACT = "name_exact"
     DESCRIPTION = "description"
     NAME_DESCRIPTION = "name_description"
     CONTEXT = "context"
