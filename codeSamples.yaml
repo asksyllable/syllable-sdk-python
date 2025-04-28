@@ -1480,31 +1480,6 @@ actions:
 
                 # Handle response
                 print(res)
-  - target: $["paths"]["/api/v1/language_groups/voices/sample"]["post"]
-    update:
-      x-codeSamples:
-        - lang: python
-          label: Python (SDK)
-          source: |-
-            import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
-
-
-            with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-            ) as ss_client:
-
-                res = ss_client.language_groups.language_groups_create_voice_sample(request={
-                    "language_code": syllable_sdk.LanguageCode.EN_US,
-                    "voice_provider": syllable_sdk.TtsProvider.OPEN_AI,
-                    "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ONYX,
-                    "voice_speed": 1,
-                    "voice_pitch": 0,
-                })
-
-                # Handle response
-                print(res)
   - target: $["paths"]["/api/v1/language_groups/{language_group_id}"]["delete"]
     update:
       x-codeSamples:
