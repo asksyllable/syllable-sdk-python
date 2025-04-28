@@ -1215,8 +1215,8 @@ actions:
                             67535,
                         ],
                     },
-                    "start_datetime": dateutil.parser.isoparse("2025-04-26T00:00:00Z"),
-                    "end_datetime": dateutil.parser.isoparse("2025-04-27T00:00:00Z"),
+                    "start_datetime": dateutil.parser.isoparse("2025-04-27T00:00:00Z"),
+                    "end_datetime": dateutil.parser.isoparse("2025-04-28T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1321,8 +1321,8 @@ actions:
                             67535,
                         ],
                     },
-                    "start_datetime": dateutil.parser.isoparse("2025-04-26T00:00:00Z"),
-                    "end_datetime": dateutil.parser.isoparse("2025-04-27T00:00:00Z"),
+                    "start_datetime": dateutil.parser.isoparse("2025-04-27T00:00:00Z"),
+                    "end_datetime": dateutil.parser.isoparse("2025-04-28T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1480,6 +1480,31 @@ actions:
 
                 # Handle response
                 print(res)
+  - target: $["paths"]["/api/v1/language_groups/voices/sample"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.language_groups.language_groups_create_voice_sample(request={
+                    "language_code": syllable_sdk.LanguageCode.EN_US,
+                    "voice_provider": syllable_sdk.TtsProvider.OPEN_AI,
+                    "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ONYX,
+                    "voice_speed": 1,
+                    "voice_pitch": 0,
+                })
+
+                # Handle response
+                print(res)
   - target: $["paths"]["/api/v1/language_groups/{language_group_id}"]["delete"]
     update:
       x-codeSamples:
@@ -1555,9 +1580,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20250427.9",
+                    "batch_id": "20250428.9",
                     "campaign_id": 1,
-                    "expires_on": dateutil.parser.isoparse("2025-04-28T00:00:00Z"),
+                    "expires_on": dateutil.parser.isoparse("2025-04-29T00:00:00Z"),
                     "paused": True,
                 })
 
