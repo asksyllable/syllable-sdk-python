@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: ed7cb8a81180f6b40ec9aee28eed31dd
+  docChecksum: ee75fb9f5d7f02bd2a168164c4ef04d7
   docVersion: 0.0.2
   speakeasyVersion: 1.535.1
   generationVersion: 2.585.2
-  releaseVersion: 0.23.1
-  configChecksum: da7aa8d4d7062902cae70fced6f840cc
+  releaseVersion: 0.24.1
+  configChecksum: 0f2bbe78464913321a7657c7b8cab067
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -721,7 +721,7 @@ examples:
     speakeasy-default-agent-get-available-voices:
       responses:
         "200":
-          application/json: [{"provider": "OpenAI", "display_name": "Isabella", "var_name": "wavenet:female/vi-VN-Neural2-A", "gender": "male", "model": "Eleven_Turbo_v2_5", "supported_languages": [{"name": "English", "code": "es-US"}], "deprecated": false}]
+          application/json: [{"provider": "OpenAI", "display_name": "Isabella", "var_name": "wavenet:female/vi-VN-Neural2-A", "gender": "male", "model": "eleven_flash_v2_5", "supported_languages": [{"name": "English", "code": "es-US"}], "deprecated": false}]
   send_test_message:
     speakeasy-default-send-test-message:
       requestBody:
