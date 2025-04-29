@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 47c7001e8c5d0f506f5352fd3f2729e1
+  docChecksum: ed7cb8a81180f6b40ec9aee28eed31dd
   docVersion: 0.0.2
   speakeasyVersion: 1.535.1
   generationVersion: 2.585.2
-  releaseVersion: 0.22.1
-  configChecksum: c885714e77653da54d021e052398b71a
+  releaseVersion: 0.23.1
+  configChecksum: da7aa8d4d7062902cae70fced6f840cc
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -313,6 +313,7 @@ generatedFiles:
   - docs/models/type.md
   - docs/models/utils/retryconfig.md
   - docs/models/validationerror.md
+  - docs/models/voicesamplecreaterequest.md
   - docs/sdks/agents/README.md
   - docs/sdks/batches/README.md
   - docs/sdks/campaigns/README.md
@@ -625,6 +626,7 @@ generatedFiles:
   - src/syllable_sdk/models/toolupdaterequest.py
   - src/syllable_sdk/models/ttsprovider.py
   - src/syllable_sdk/models/validationerror.py
+  - src/syllable_sdk/models/voicesamplecreaterequest.py
   - src/syllable_sdk/outbound.py
   - src/syllable_sdk/prompts.py
   - src/syllable_sdk/py.typed
