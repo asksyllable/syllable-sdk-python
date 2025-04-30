@@ -10,6 +10,7 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
+from typing import Optional
 from typing_extensions import NotRequired, TypedDict
 
 
@@ -22,6 +23,8 @@ class ChannelTypedDict(TypedDict):
     r"""The channel ID"""
     supported_modes: NotRequired[Nullable[str]]
     r"""The comma-delimited list of supported modes for the channel, which defines the       possible communication methods for channel targets linked to it."""
+    is_system_channel: NotRequired[bool]
+    r"""Whether the channel is a built-in system channel (i.e., is not customizable)"""
 
 
 class Channel(BaseModel):
@@ -37,9 +40,12 @@ class Channel(BaseModel):
     supported_modes: OptionalNullable[str] = UNSET
     r"""The comma-delimited list of supported modes for the channel, which defines the       possible communication methods for channel targets linked to it."""
 
+    is_system_channel: Optional[bool] = True
+    r"""Whether the channel is a built-in system channel (i.e., is not customizable)"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["supported_modes"]
+        optional_fields = ["supported_modes", "is_system_channel"]
         nullable_fields = ["supported_modes"]
         null_default_fields = []
 

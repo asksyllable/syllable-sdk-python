@@ -406,6 +406,79 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+  "/api/v1/channels/twilio/{channel_id}":
+    get:
+      tags:
+        - "channels"
+      summary: "Get Twilio Channel By Id"
+      operationId: "channels_twilio_get_by_id"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "channel_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Channel Id"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/Channel"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+  "/api/v1/channels/twilio/":
+    put:
+      tags:
+        - "channels"
+      summary: "Update Twilio Channel"
+      operationId: "channels_twilio_update"
+      requestBody:
+        content:
+          "application/json":
+            schema: {"$ref": "#/components/schemas/TwilioChannelUpdateRequest"}
+        required: true
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/Channel"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+      security:
+        - APIKeyHeader: []
+    post:
+      tags:
+        - "channels"
+      summary: "Create Twilio Channel"
+      operationId: "channels_twilio_create"
+      requestBody:
+        content:
+          "application/json":
+            schema: {"$ref": "#/components/schemas/TwilioChannelCreateRequest"}
+        required: true
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/Channel"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+      security:
+        - APIKeyHeader: []
   "/api/v1/agents/test/messages":
     post:
       tags:
@@ -6672,6 +6745,13 @@ components:
           description: "The comma-delimited list of supported modes for the channel, which defines the       possible communication methods for channel targets linked to it."
           examples:
             - ["chat", "voice"]
+        "is_system_channel":
+          type: "boolean"
+          title: "Is System Channel"
+          description: "Whether the channel is a built-in system channel (i.e., is not customizable)"
+          default: true
+          examples:
+            - false
         "id":
           type: "integer"
           title: "Id"
@@ -12694,6 +12774,88 @@ components:
         - "Google"
       title: "TtsProvider"
       description: "TTS provider for an agent voice."
+    "TwilioChannelConfigCreate":
+      properties:
+        "account_sid":
+          type: "string"
+          title: "Account Sid"
+          description: "SID of the Twilio account"
+          examples:
+            - "AC1234567890abcdef1234567890abcdef"
+        "auth_token":
+          type: "string"
+          title: "Auth Token"
+          description: "The Twilio auth token"
+          examples:
+            - "sometoken"
+      type: "object"
+      required:
+        - "account_sid"
+        - "auth_token"
+      title: "TwilioChannelConfigCreate"
+      description: "Twilio channel config information."
+    "TwilioChannelConfigUpdate":
+      properties:
+        "account_sid":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Account Sid"
+          description: "SID of the Twilio account"
+          examples:
+            - "AC1234567890abcdef1234567890abcdef"
+        "auth_token":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Auth Token"
+          description: "The Twilio auth token"
+          examples:
+            - "sometoken"
+      type: "object"
+      title: "TwilioChannelConfigUpdate"
+      description: "Twilio channel config information. If a field is passed as None, it will not be updated."
+    "TwilioChannelCreateRequest":
+      properties:
+        "name":
+          type: "string"
+          title: "Name"
+          description: "The channel name"
+          examples:
+            - "syllable-webchat"
+        "config": {"$ref": "#/components/schemas/TwilioChannelConfigCreate", "description": "The configuration of the channel"}
+      type: "object"
+      required:
+        - "name"
+        - "config"
+      title: "TwilioChannelCreateRequest"
+      description: "Request model for creating a Twilio channel."
+    "TwilioChannelUpdateRequest":
+      properties:
+        "id":
+          type: "integer"
+          title: "Id"
+          description: "The internal ID of the channel"
+          examples:
+            - 1
+        "name":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Name"
+          description: "The name of the channel"
+          examples:
+            - "syllable-webchat"
+        "config":
+          anyOf:
+            - {"$ref": "#/components/schemas/TwilioChannelConfigUpdate"}
+            - type: "null"
+          description: "The configuration of the channel"
+      type: "object"
+      required:
+        - "id"
+      title: "TwilioChannelUpdateRequest"
+      description: "Request model for updating a Twilio channel."
     "ValidationError":
       properties:
         "loc":

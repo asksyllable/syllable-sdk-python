@@ -67,6 +67,10 @@ from .channel_targets_updateop import (
 )
 from .channelproperties import ChannelProperties
 from .channels_listop import ChannelsListRequest, ChannelsListRequestTypedDict
+from .channels_twilio_get_by_idop import (
+    ChannelsTwilioGetByIDRequest,
+    ChannelsTwilioGetByIDRequestTypedDict,
+)
 from .channelservices import ChannelServices
 from .channeltargetcreaterequest import (
     ChannelTargetCreateRequest,
@@ -616,6 +620,22 @@ from .toolresponse import ToolResponse, ToolResponseTypedDict
 from .toolresultdata import ToolResultData, ToolResultDataTypedDict
 from .toolupdaterequest import ToolUpdateRequest, ToolUpdateRequestTypedDict
 from .ttsprovider import TtsProvider
+from .twiliochannelconfigcreate import (
+    TwilioChannelConfigCreate,
+    TwilioChannelConfigCreateTypedDict,
+)
+from .twiliochannelconfigupdate import (
+    TwilioChannelConfigUpdate,
+    TwilioChannelConfigUpdateTypedDict,
+)
+from .twiliochannelcreaterequest import (
+    TwilioChannelCreateRequest,
+    TwilioChannelCreateRequestTypedDict,
+)
+from .twiliochannelupdaterequest import (
+    TwilioChannelUpdateRequest,
+    TwilioChannelUpdateRequestTypedDict,
+)
 from .validationerror import (
     Loc,
     LocTypedDict,
@@ -706,6 +726,8 @@ __all__ = [
     "ChannelTypedDict",
     "ChannelsListRequest",
     "ChannelsListRequestTypedDict",
+    "ChannelsTwilioGetByIDRequest",
+    "ChannelsTwilioGetByIDRequestTypedDict",
     "CommunicationBatch",
     "CommunicationBatchInput",
     "CommunicationBatchInputTypedDict",
@@ -1118,6 +1140,14 @@ __all__ = [
     "ToolUpdateRequest",
     "ToolUpdateRequestTypedDict",
     "TtsProvider",
+    "TwilioChannelConfigCreate",
+    "TwilioChannelConfigCreateTypedDict",
+    "TwilioChannelConfigUpdate",
+    "TwilioChannelConfigUpdateTypedDict",
+    "TwilioChannelCreateRequest",
+    "TwilioChannelCreateRequestTypedDict",
+    "TwilioChannelUpdateRequest",
+    "TwilioChannelUpdateRequestTypedDict",
     "Type",
     "ValidationError",
     "ValidationErrorTypedDict",
