@@ -223,6 +223,9 @@ with SyllableSDK(
 ### [channels](docs/sdks/channels/README.md)
 
 * [list](docs/sdks/channels/README.md#list) - Get Channels
+* [get_by_id](docs/sdks/channels/README.md#get_by_id) - Get Twilio Channel By Id
+* [update](docs/sdks/channels/README.md#update) - Update Twilio Channel
+* [create](docs/sdks/channels/README.md#create) - Create Twilio Channel
 * [delete](docs/sdks/channels/README.md#delete) - Delete Channel Target
 
 #### [channels.targets](docs/sdks/targets/README.md)
