@@ -12781,7 +12781,7 @@ components:
           title: "Account Sid"
           description: "SID of the Twilio account"
           examples:
-            - "AC1234567890abcdef1234567890abcdef"
+            - "AC123..."
         "auth_token":
           type: "string"
           title: "Auth Token"
@@ -12803,7 +12803,7 @@ components:
           title: "Account Sid"
           description: "SID of the Twilio account"
           examples:
-            - "AC1234567890abcdef1234567890abcdef"
+            - "AC123..."
         "auth_token":
           anyOf:
             - type: "string"

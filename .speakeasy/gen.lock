@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 502ee9efa47385ad50cf62559477970d
+  docChecksum: 6ab6da033a60c392e845ac64def9d76d
   docVersion: 0.0.2
   speakeasyVersion: 1.535.1
   generationVersion: 2.585.2
-  releaseVersion: 0.26.1
-  configChecksum: 741433bd7db69d89cfbf63c6c5b2f6ed
+  releaseVersion: 0.27.1
+  configChecksum: ab0daf7a682afbd7d56438f4548bf39e
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -1892,7 +1892,7 @@ examples:
   channels_twilio_update:
     speakeasy-default-channels-twilio-update:
       requestBody:
-        application/json: {"id": 1, "name": "syllable-webchat", "config": {"account_sid": "AC1234567890abcdef1234567890abcdef", "auth_token": "sometoken"}}
+        application/json: {"id": 1, "name": "syllable-webchat", "config": {"account_sid": "AC123...", "auth_token": "sometoken"}}
       responses:
         "200":
           application/json: {"name": "syllable-webchat", "channel_service": "webchat", "supported_modes": "[\"chat\",\"voice\"]", "is_system_channel": false, "id": 597129}
@@ -1901,7 +1901,7 @@ examples:
   channels_twilio_create:
     speakeasy-default-channels-twilio-create:
       requestBody:
-        application/json: {"name": "syllable-webchat", "config": {"account_sid": "AC1234567890abcdef1234567890abcdef", "auth_token": "sometoken"}}
+        application/json: {"name": "syllable-webchat", "config": {"account_sid": "AC123...", "auth_token": "sometoken"}}
       responses:
         "200":
           application/json: {"name": "syllable-webchat", "channel_service": "twilio", "supported_modes": "[\"chat\",\"voice\"]", "is_system_channel": false, "id": 638424}

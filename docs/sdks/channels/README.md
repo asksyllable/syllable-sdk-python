@@ -125,7 +125,7 @@ with SyllableSDK(
         "id": 1,
         "name": "syllable-webchat",
         "config": {
-            "account_sid": "AC1234567890abcdef1234567890abcdef",
+            "account_sid": "AC123...",
             "auth_token": "sometoken",
         },
     })
@@ -171,7 +171,7 @@ with SyllableSDK(
     res = ss_client.channels.create(request={
         "name": "syllable-webchat",
         "config": {
-            "account_sid": "AC1234567890abcdef1234567890abcdef",
+            "account_sid": "AC123...",
             "auth_token": "sometoken",
         },
     })
