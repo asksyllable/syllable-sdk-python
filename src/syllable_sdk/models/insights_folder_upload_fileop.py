@@ -27,11 +27,17 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class InsightsFolderUploadFileRequestTypedDict(TypedDict):
     folder_id: int
     call_id: str
+    r"""A unique identifier for the call"""
     agent_number: NotRequired[Nullable[str]]
+    r"""The phone number or ID of the agent involved."""
     customer_number: NotRequired[Nullable[str]]
+    r"""The phone number or ID of the customer."""
     start_time: NotRequired[Nullable[datetime]]
+    r"""The timestamp of the call's beginning"""
     end_time: NotRequired[Nullable[datetime]]
+    r"""The timestamp of the call's end."""
     duration: NotRequired[Nullable[float]]
+    r"""The call duration in seconds."""
     metadata: NotRequired[Nullable[str]]
     body_insights_folder_upload_file: NotRequired[BodyInsightsFolderUploadFileTypedDict]
 
@@ -44,31 +50,37 @@ class InsightsFolderUploadFileRequest(BaseModel):
     call_id: Annotated[
         str, FieldMetadata(query=QueryParamMetadata(style="form", explode=True))
     ]
+    r"""A unique identifier for the call"""
 
     agent_number: Annotated[
         OptionalNullable[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
+    r"""The phone number or ID of the agent involved."""
 
     customer_number: Annotated[
         OptionalNullable[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
+    r"""The phone number or ID of the customer."""
 
     start_time: Annotated[
         OptionalNullable[datetime],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
+    r"""The timestamp of the call's beginning"""
 
     end_time: Annotated[
         OptionalNullable[datetime],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
+    r"""The timestamp of the call's end."""
 
     duration: Annotated[
         OptionalNullable[float],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
+    r"""The call duration in seconds."""
 
     metadata: Annotated[
         OptionalNullable[str],

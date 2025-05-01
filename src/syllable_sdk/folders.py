@@ -899,12 +899,12 @@ class Folders(BaseSDK):
         r"""Upload Insights  Upload Folder
 
         :param folder_id:
-        :param call_id:
-        :param agent_number:
-        :param customer_number:
-        :param start_time:
-        :param end_time:
-        :param duration:
+        :param call_id: A unique identifier for the call
+        :param agent_number: The phone number or ID of the agent involved.
+        :param customer_number: The phone number or ID of the customer.
+        :param start_time: The timestamp of the call's beginning
+        :param end_time: The timestamp of the call's end.
+        :param duration: The call duration in seconds.
         :param metadata:
         :param body_insights_folder_upload_file:
         :param retries: Override the default retry configuration for this method
@@ -1035,12 +1035,12 @@ class Folders(BaseSDK):
         r"""Upload Insights  Upload Folder
 
         :param folder_id:
-        :param call_id:
-        :param agent_number:
-        :param customer_number:
-        :param start_time:
-        :param end_time:
-        :param duration:
+        :param call_id: A unique identifier for the call
+        :param agent_number: The phone number or ID of the agent involved.
+        :param customer_number: The phone number or ID of the customer.
+        :param start_time: The timestamp of the call's beginning
+        :param end_time: The timestamp of the call's end.
+        :param duration: The call duration in seconds.
         :param metadata:
         :param body_insights_folder_upload_file:
         :param retries: Override the default retry configuration for this method

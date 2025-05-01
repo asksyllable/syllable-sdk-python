@@ -1616,7 +1616,9 @@ paths:
           required: true
           schema:
             type: "string"
+            description: "A unique identifier for the call"
             title: "Call Id"
+          description: "A unique identifier for the call"
         - name: "agent_number"
           in: "query"
           required: false
@@ -1624,7 +1626,9 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The phone number or ID of the agent involved."
             title: "Agent Number"
+          description: "The phone number or ID of the agent involved."
         - name: "customer_number"
           in: "query"
           required: false
@@ -1632,7 +1636,9 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The phone number or ID of the customer."
             title: "Customer Number"
+          description: "The phone number or ID of the customer."
         - name: "start_time"
           in: "query"
           required: false
@@ -1641,7 +1647,9 @@ paths:
               - type: "string"
                 format: "date-time"
               - type: "null"
+            description: "The timestamp of the call's beginning"
             title: "Start Time"
+          description: "The timestamp of the call's beginning"
         - name: "end_time"
           in: "query"
           required: false
@@ -1650,7 +1658,9 @@ paths:
               - type: "string"
                 format: "date-time"
               - type: "null"
+            description: "The timestamp of the call's end."
             title: "End Time"
+          description: "The timestamp of the call's end."
         - name: "duration"
           in: "query"
           required: false
@@ -1658,7 +1668,9 @@ paths:
             anyOf:
               - type: "number"
               - type: "null"
+            description: "The call duration in seconds."
             title: "Duration"
+          description: "The call duration in seconds."
         - name: "metadata"
           in: "query"
           required: false
