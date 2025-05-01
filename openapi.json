@@ -2768,8 +2768,10 @@
             "required": true,
             "schema": {
               "type": "string",
+              "description": "A unique identifier for the call",
               "title": "Call Id"
-            }
+            },
+            "description": "A unique identifier for the call"
           },
           {
             "name": "agent_number",
@@ -2784,8 +2786,10 @@
                   "type": "null"
                 }
               ],
+              "description": "The phone number or ID of the agent involved.",
               "title": "Agent Number"
-            }
+            },
+            "description": "The phone number or ID of the agent involved."
           },
           {
             "name": "customer_number",
@@ -2800,8 +2804,10 @@
                   "type": "null"
                 }
               ],
+              "description": "The phone number or ID of the customer.",
               "title": "Customer Number"
-            }
+            },
+            "description": "The phone number or ID of the customer."
           },
           {
             "name": "start_time",
@@ -2817,8 +2823,10 @@
                   "type": "null"
                 }
               ],
+              "description": "The timestamp of the call's beginning",
               "title": "Start Time"
-            }
+            },
+            "description": "The timestamp of the call's beginning"
           },
           {
             "name": "end_time",
@@ -2834,8 +2842,10 @@
                   "type": "null"
                 }
               ],
+              "description": "The timestamp of the call's end.",
               "title": "End Time"
-            }
+            },
+            "description": "The timestamp of the call's end."
           },
           {
             "name": "duration",
@@ -2850,8 +2860,10 @@
                   "type": "null"
                 }
               ],
+              "description": "The call duration in seconds.",
               "title": "Duration"
-            }
+            },
+            "description": "The call duration in seconds."
           },
           {
             "name": "metadata",
