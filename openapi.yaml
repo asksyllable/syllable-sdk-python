@@ -5206,19 +5206,25 @@ paths:
           in: "query"
           required: false
           schema:
-            type: "string"
+            anyOf:
+              - type: "string"
+              - type: "null"
             title: "Reference Id"
         - name: "status"
           in: "query"
           required: false
           schema:
-            type: "string"
+            anyOf:
+              - type: "string"
+              - type: "null"
             title: "Status"
         - name: "insights_status"
           in: "query"
           required: false
           schema:
-            type: "string"
+            anyOf:
+              - type: "string"
+              - type: "null"
             title: "Insights Status"
       responses:
         "200":
