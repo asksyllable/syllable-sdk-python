@@ -827,6 +827,64 @@
         ]
       }
     },
+    "/api/v1/channels/twilio/{channel_id}/numbers": {
+      "post": {
+        "tags": [
+          "channels"
+        ],
+        "summary": "Create Twilio Number",
+        "description": "Purchase a Twilio number and associate it with a channel.",
+        "operationId": "channels_twilio_numbers_create",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "channel_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Channel Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TwilioNumberCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TwilioNumberCreateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/agents/test/messages": {
       "post": {
         "tags": [
@@ -21393,6 +21451,51 @@
         ],
         "title": "TwilioChannelUpdateRequest",
         "description": "Request model for updating a Twilio channel."
+      },
+      "TwilioNumberCreateRequest": {
+        "properties": {
+          "friendly_name": {
+            "type": "string",
+            "title": "Friendly Name",
+            "description": "Friendly name for the Twilio number",
+            "examples": [
+              "Support Line"
+            ]
+          },
+          "area_code": {
+            "type": "string",
+            "title": "Area Code",
+            "description": "Area code for the Twilio number",
+            "examples": [
+              "804"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "friendly_name",
+          "area_code"
+        ],
+        "title": "TwilioNumberCreateRequest",
+        "description": "Request model for purchasing a Twilio number and associating it with a channel."
+      },
+      "TwilioNumberCreateResponse": {
+        "properties": {
+          "phone_number": {
+            "type": "string",
+            "title": "Phone Number",
+            "description": "The purchased Twilio phone number",
+            "examples": [
+              "+18042221111"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "phone_number"
+        ],
+        "title": "TwilioNumberCreateResponse",
+        "description": "Response model for purchasing a Twilio number and associating it with a channel."
       },
       "ValidationError": {
         "properties": {
