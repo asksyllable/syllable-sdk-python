@@ -832,9 +832,9 @@
         "tags": [
           "channels"
         ],
-        "summary": "Create Twilio Number",
+        "summary": "Add Twilio Number",
         "description": "Purchase a Twilio number and associate it with a channel.",
-        "operationId": "channels_twilio_numbers_create",
+        "operationId": "channels_twilio_numbers_add",
         "security": [
           {
             "APIKeyHeader": []
@@ -856,7 +856,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/TwilioNumberCreateRequest"
+                "$ref": "#/components/schemas/TwilioNumberAddRequest"
               }
             }
           }
@@ -867,7 +867,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TwilioNumberCreateResponse"
+                  "$ref": "#/components/schemas/TwilioNumberAddResponse"
                 }
               }
             }
@@ -21571,7 +21571,7 @@
         "title": "TwilioChannelUpdateRequest",
         "description": "Request model for updating a Twilio channel."
       },
-      "TwilioNumberCreateRequest": {
+      "TwilioNumberAddRequest": {
         "properties": {
           "friendly_name": {
             "type": "string",
@@ -21595,10 +21595,10 @@
           "friendly_name",
           "area_code"
         ],
-        "title": "TwilioNumberCreateRequest",
+        "title": "TwilioNumberAddRequest",
         "description": "Request model for purchasing a Twilio number and associating it with a channel."
       },
-      "TwilioNumberCreateResponse": {
+      "TwilioNumberAddResponse": {
         "properties": {
           "phone_number": {
             "type": "string",
@@ -21613,7 +21613,7 @@
         "required": [
           "phone_number"
         ],
-        "title": "TwilioNumberCreateResponse",
+        "title": "TwilioNumberAddResponse",
         "description": "Response model for purchasing a Twilio number and associating it with a channel."
       },
       "ValidationError": {
