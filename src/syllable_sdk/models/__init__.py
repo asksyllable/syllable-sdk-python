@@ -292,34 +292,9 @@ from .insightsworkflowqueuesession import (
     InsightsWorkflowQueueSession,
     InsightsWorkflowQueueSessionTypedDict,
 )
-from .insighttooldefinition import (
-    InsightToolDefinition,
-    InsightToolDefinitionTypedDict,
-    ToolParameters,
-    ToolParametersTypedDict,
-    ToolParametersUnion,
-    ToolParametersUnionTypedDict,
-    ToolResultSet,
-    ToolResultSetTypedDict,
-    ToolResultSetUnion,
-    ToolResultSetUnionTypedDict,
-)
-from .insighttoolinput import (
-    InsightToolInput,
-    InsightToolInputToolArguments,
-    InsightToolInputToolArgumentsTypedDict,
-    InsightToolInputToolArgumentsUnion,
-    InsightToolInputToolArgumentsUnionTypedDict,
-    InsightToolInputTypedDict,
-)
-from .insighttooloutput import (
-    InsightToolOutput,
-    InsightToolOutputToolArguments,
-    InsightToolOutputToolArgumentsTypedDict,
-    InsightToolOutputToolArgumentsUnion,
-    InsightToolOutputToolArgumentsUnionTypedDict,
-    InsightToolOutputTypedDict,
-)
+from .insighttooldefinition import InsightToolDefinition, InsightToolDefinitionTypedDict
+from .insighttoolinput import InsightToolInput, InsightToolInputTypedDict
+from .insighttooloutput import InsightToolOutput, InsightToolOutputTypedDict
 from .insighttoolproperties import InsightToolProperties
 from .insighttooltestinput import InsightToolTestInput, InsightToolTestInputTypedDict
 from .insightworkflowactivate import (
@@ -856,18 +831,10 @@ __all__ = [
     "InsightToolGetByIDRequest",
     "InsightToolGetByIDRequestTypedDict",
     "InsightToolInput",
-    "InsightToolInputToolArguments",
-    "InsightToolInputToolArgumentsTypedDict",
-    "InsightToolInputToolArgumentsUnion",
-    "InsightToolInputToolArgumentsUnionTypedDict",
     "InsightToolInputTypedDict",
     "InsightToolListRequest",
     "InsightToolListRequestTypedDict",
     "InsightToolOutput",
-    "InsightToolOutputToolArguments",
-    "InsightToolOutputToolArgumentsTypedDict",
-    "InsightToolOutputToolArgumentsUnion",
-    "InsightToolOutputToolArgumentsUnionTypedDict",
     "InsightToolOutputTypedDict",
     "InsightToolProperties",
     "InsightToolTestInput",
@@ -1152,10 +1119,6 @@ __all__ = [
     "ToolParameterTransformCondition",
     "ToolParameterTransformConditionTypedDict",
     "ToolParameterTransformTypedDict",
-    "ToolParameters",
-    "ToolParametersTypedDict",
-    "ToolParametersUnion",
-    "ToolParametersUnionTypedDict",
     "ToolPromptInfo",
     "ToolPromptInfoTypedDict",
     "ToolProperties",
@@ -1163,10 +1126,6 @@ __all__ = [
     "ToolResponseTypedDict",
     "ToolResultData",
     "ToolResultDataTypedDict",
-    "ToolResultSet",
-    "ToolResultSetTypedDict",
-    "ToolResultSetUnion",
-    "ToolResultSetUnionTypedDict",
     "ToolUpdateRequest",
     "ToolUpdateRequestTypedDict",
     "TtsProvider",

@@ -2,46 +2,8 @@
 
 from __future__ import annotations
 from syllable_sdk.types import BaseModel
-from typing import Any, Dict, List, Union
-from typing_extensions import TypeAliasType, TypedDict
-
-
-class ToolParametersTypedDict(TypedDict):
-    pass
-
-
-class ToolParameters(BaseModel):
-    pass
-
-
-ToolParametersUnionTypedDict = TypeAliasType(
-    "ToolParametersUnionTypedDict",
-    Union[ToolParametersTypedDict, str, int, float, List[Any]],
-)
-
-
-ToolParametersUnion = TypeAliasType(
-    "ToolParametersUnion", Union[ToolParameters, str, int, float, List[Any]]
-)
-
-
-class ToolResultSetTypedDict(TypedDict):
-    pass
-
-
-class ToolResultSet(BaseModel):
-    pass
-
-
-ToolResultSetUnionTypedDict = TypeAliasType(
-    "ToolResultSetUnionTypedDict",
-    Union[ToolResultSetTypedDict, str, int, float, List[Any]],
-)
-
-
-ToolResultSetUnion = TypeAliasType(
-    "ToolResultSetUnion", Union[ToolResultSet, str, int, float, List[Any]]
-)
+from typing import Any
+from typing_extensions import TypedDict
 
 
 class InsightToolDefinitionTypedDict(TypedDict):
@@ -57,9 +19,9 @@ class InsightToolDefinitionTypedDict(TypedDict):
     r"""Type of insight tool definition"""
     description: str
     r"""Text description of insight tool definition"""
-    tool_parameters: Dict[str, ToolParametersUnionTypedDict]
+    tool_parameters: Any
     r"""Parameters for tools that use this definition and their associated types"""
-    tool_result_set: Dict[str, ToolResultSetUnionTypedDict]
+    tool_result_set: Any
     r"""Result key/types for insight tool definition"""
 
 
@@ -80,8 +42,8 @@ class InsightToolDefinition(BaseModel):
     description: str
     r"""Text description of insight tool definition"""
 
-    tool_parameters: Dict[str, ToolParametersUnion]
+    tool_parameters: Any
     r"""Parameters for tools that use this definition and their associated types"""
 
-    tool_result_set: Dict[str, ToolResultSetUnion]
+    tool_result_set: Any
     r"""Result key/types for insight tool definition"""
