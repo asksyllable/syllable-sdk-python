@@ -93,8 +93,8 @@ with SyllableSDK(
             1,
         ],
         "conditions": {},
-        "start_datetime": dateutil.parser.isoparse("2025-04-30T00:00:00Z"),
-        "end_datetime": dateutil.parser.isoparse("2025-05-01T00:00:00Z"),
+        "start_datetime": dateutil.parser.isoparse("2025-05-01T00:00:00Z"),
+        "end_datetime": dateutil.parser.isoparse("2025-05-02T00:00:00Z"),
     })
 
     # Handle response
@@ -184,8 +184,8 @@ with SyllableSDK(
             1,
         ],
         "conditions": {},
-        "start_datetime": dateutil.parser.isoparse("2025-04-30T00:00:00Z"),
-        "end_datetime": dateutil.parser.isoparse("2025-05-01T00:00:00Z"),
+        "start_datetime": dateutil.parser.isoparse("2025-05-01T00:00:00Z"),
+        "end_datetime": dateutil.parser.isoparse("2025-05-02T00:00:00Z"),
     })
 
     # Handle response

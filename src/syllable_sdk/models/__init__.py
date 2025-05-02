@@ -71,6 +71,10 @@ from .channels_twilio_get_by_idop import (
     ChannelsTwilioGetByIDRequest,
     ChannelsTwilioGetByIDRequestTypedDict,
 )
+from .channels_twilio_numbers_addop import (
+    ChannelsTwilioNumbersAddRequest,
+    ChannelsTwilioNumbersAddRequestTypedDict,
+)
 from .channelservices import ChannelServices
 from .channeltargetcreaterequest import (
     ChannelTargetCreateRequest,
@@ -293,19 +297,27 @@ from .insighttooldefinition import (
     InsightToolDefinitionTypedDict,
     ToolParameters,
     ToolParametersTypedDict,
+    ToolParametersUnion,
+    ToolParametersUnionTypedDict,
     ToolResultSet,
     ToolResultSetTypedDict,
+    ToolResultSetUnion,
+    ToolResultSetUnionTypedDict,
 )
 from .insighttoolinput import (
     InsightToolInput,
     InsightToolInputToolArguments,
     InsightToolInputToolArgumentsTypedDict,
+    InsightToolInputToolArgumentsUnion,
+    InsightToolInputToolArgumentsUnionTypedDict,
     InsightToolInputTypedDict,
 )
 from .insighttooloutput import (
     InsightToolOutput,
     InsightToolOutputToolArguments,
     InsightToolOutputToolArgumentsTypedDict,
+    InsightToolOutputToolArgumentsUnion,
+    InsightToolOutputToolArgumentsUnionTypedDict,
     InsightToolOutputTypedDict,
 )
 from .insighttoolproperties import InsightToolProperties
@@ -636,6 +648,14 @@ from .twiliochannelupdaterequest import (
     TwilioChannelUpdateRequest,
     TwilioChannelUpdateRequestTypedDict,
 )
+from .twilionumberaddrequest import (
+    TwilioNumberAddRequest,
+    TwilioNumberAddRequestTypedDict,
+)
+from .twilionumberaddresponse import (
+    TwilioNumberAddResponse,
+    TwilioNumberAddResponseTypedDict,
+)
 from .validationerror import (
     Loc,
     LocTypedDict,
@@ -728,6 +748,8 @@ __all__ = [
     "ChannelsListRequestTypedDict",
     "ChannelsTwilioGetByIDRequest",
     "ChannelsTwilioGetByIDRequestTypedDict",
+    "ChannelsTwilioNumbersAddRequest",
+    "ChannelsTwilioNumbersAddRequestTypedDict",
     "CommunicationBatch",
     "CommunicationBatchInput",
     "CommunicationBatchInputTypedDict",
@@ -836,12 +858,16 @@ __all__ = [
     "InsightToolInput",
     "InsightToolInputToolArguments",
     "InsightToolInputToolArgumentsTypedDict",
+    "InsightToolInputToolArgumentsUnion",
+    "InsightToolInputToolArgumentsUnionTypedDict",
     "InsightToolInputTypedDict",
     "InsightToolListRequest",
     "InsightToolListRequestTypedDict",
     "InsightToolOutput",
     "InsightToolOutputToolArguments",
     "InsightToolOutputToolArgumentsTypedDict",
+    "InsightToolOutputToolArgumentsUnion",
+    "InsightToolOutputToolArgumentsUnionTypedDict",
     "InsightToolOutputTypedDict",
     "InsightToolProperties",
     "InsightToolTestInput",
@@ -1128,6 +1154,8 @@ __all__ = [
     "ToolParameterTransformTypedDict",
     "ToolParameters",
     "ToolParametersTypedDict",
+    "ToolParametersUnion",
+    "ToolParametersUnionTypedDict",
     "ToolPromptInfo",
     "ToolPromptInfoTypedDict",
     "ToolProperties",
@@ -1137,6 +1165,8 @@ __all__ = [
     "ToolResultDataTypedDict",
     "ToolResultSet",
     "ToolResultSetTypedDict",
+    "ToolResultSetUnion",
+    "ToolResultSetUnionTypedDict",
     "ToolUpdateRequest",
     "ToolUpdateRequestTypedDict",
     "TtsProvider",
@@ -1148,6 +1178,10 @@ __all__ = [
     "TwilioChannelCreateRequestTypedDict",
     "TwilioChannelUpdateRequest",
     "TwilioChannelUpdateRequestTypedDict",
+    "TwilioNumberAddRequest",
+    "TwilioNumberAddRequestTypedDict",
+    "TwilioNumberAddResponse",
+    "TwilioNumberAddResponseTypedDict",
     "Type",
     "ValidationError",
     "ValidationErrorTypedDict",

@@ -1,4 +1,4 @@
-# FolderStats
+# ToolResultSetUnion
 
 
 ## Supported Types
@@ -19,5 +19,17 @@ value: int = /* values here */
 
 ```python
 value: float = /* values here */
+```
+
+### `models.ToolResultSet`
+
+```python
+value: models.ToolResultSet = /* values here */
+```
+
+### `List[Any]`
+
+```python
+value: List[Any] = /* values here */
 ```
 

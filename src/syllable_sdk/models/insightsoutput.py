@@ -10,16 +10,14 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import Optional
-from typing_extensions import NotRequired, TypedDict
+from typing import Dict, Optional, Union
+from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
-class JSONValueTypedDict(TypedDict):
-    r"""JSON value of insight tool result"""
+JSONValueTypedDict = TypeAliasType("JSONValueTypedDict", Union[str, int, float])
 
 
-class JSONValue(BaseModel):
-    r"""JSON value of insight tool result"""
+JSONValue = TypeAliasType("JSONValue", Union[str, int, float])
 
 
 class InsightsOutputTypedDict(TypedDict):
@@ -33,7 +31,7 @@ class InsightsOutputTypedDict(TypedDict):
     r"""Version of insight tool"""
     insight_key: str
     r"""Key for insight tool result"""
-    json_value: JSONValueTypedDict
+    json_value: Dict[str, JSONValueTypedDict]
     r"""JSON value of insight tool result"""
     session_id: NotRequired[Nullable[int]]
     r"""Unique ID for session"""
@@ -64,7 +62,7 @@ class InsightsOutput(BaseModel):
     insight_key: str
     r"""Key for insight tool result"""
 
-    json_value: JSONValue
+    json_value: Dict[str, JSONValue]
     r"""JSON value of insight tool result"""
 
     session_id: OptionalNullable[int] = UNSET

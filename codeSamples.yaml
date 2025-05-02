@@ -335,6 +335,27 @@ actions:
 
                 # Handle response
                 print(res)
+  - target: $["paths"]["/api/v1/channels/twilio/{channel_id}/numbers"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.channels.add(channel_id=551477, twilio_number_add_request={
+                    "friendly_name": "Support Line",
+                    "area_code": "804",
+                })
+
+                # Handle response
+                print(res)
   - target: $["paths"]["/api/v1/channels/{channel_id}"]["delete"]
     update:
       x-codeSamples:
@@ -1152,7 +1173,9 @@ actions:
                     "name": "summary-tool",
                     "description": "Default tool - generates a summary of the call",
                     "version": 1,
-                    "tool_arguments": {},
+                    "tool_arguments": {
+                        "prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded",
+                    },
                     "insight_tool_definition_id": 1,
                 })
 
@@ -1215,7 +1238,9 @@ actions:
                     "name": "summary-tool",
                     "description": "Default tool - generates a summary of the call",
                     "version": 1,
-                    "tool_arguments": {},
+                    "tool_arguments": {
+                        "prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded",
+                    },
                     "insight_tool_definition_id": 1,
                 })
 
@@ -1282,8 +1307,8 @@ actions:
                             67535,
                         ],
                     },
-                    "start_datetime": dateutil.parser.isoparse("2025-04-30T00:00:00Z"),
-                    "end_datetime": dateutil.parser.isoparse("2025-05-01T00:00:00Z"),
+                    "start_datetime": dateutil.parser.isoparse("2025-05-01T00:00:00Z"),
+                    "end_datetime": dateutil.parser.isoparse("2025-05-02T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1388,8 +1413,8 @@ actions:
                             67535,
                         ],
                     },
-                    "start_datetime": dateutil.parser.isoparse("2025-04-30T00:00:00Z"),
-                    "end_datetime": dateutil.parser.isoparse("2025-05-01T00:00:00Z"),
+                    "start_datetime": dateutil.parser.isoparse("2025-05-01T00:00:00Z"),
+                    "end_datetime": dateutil.parser.isoparse("2025-05-02T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1647,9 +1672,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20250501.9",
+                    "batch_id": "20250502.9",
                     "campaign_id": 1,
-                    "expires_on": dateutil.parser.isoparse("2025-05-02T00:00:00Z"),
+                    "expires_on": dateutil.parser.isoparse("2025-05-03T00:00:00Z"),
                     "paused": True,
                 })
 

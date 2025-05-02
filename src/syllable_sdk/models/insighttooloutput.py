@@ -11,16 +11,28 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import Optional
-from typing_extensions import NotRequired, TypedDict
+from typing import Any, Dict, List, Optional, Union
+from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
 class InsightToolOutputToolArgumentsTypedDict(TypedDict):
-    r"""Arguments for calling the insight tool"""
+    pass
 
 
 class InsightToolOutputToolArguments(BaseModel):
-    r"""Arguments for calling the insight tool"""
+    pass
+
+
+InsightToolOutputToolArgumentsUnionTypedDict = TypeAliasType(
+    "InsightToolOutputToolArgumentsUnionTypedDict",
+    Union[InsightToolOutputToolArgumentsTypedDict, str, int, float, List[Any]],
+)
+
+
+InsightToolOutputToolArgumentsUnion = TypeAliasType(
+    "InsightToolOutputToolArgumentsUnion",
+    Union[InsightToolOutputToolArguments, str, int, float, List[Any]],
+)
 
 
 class InsightToolOutputTypedDict(TypedDict):
@@ -32,7 +44,7 @@ class InsightToolOutputTypedDict(TypedDict):
     r"""Text description of insight tool"""
     version: int
     r"""Version of insight tool"""
-    tool_arguments: InsightToolOutputToolArgumentsTypedDict
+    tool_arguments: Dict[str, InsightToolOutputToolArgumentsUnionTypedDict]
     r"""Arguments for calling the insight tool"""
     insight_tool_definition_id: int
     r"""Unique ID for insight tool definition used by insight tool"""
@@ -60,7 +72,7 @@ class InsightToolOutput(BaseModel):
     version: int
     r"""Version of insight tool"""
 
-    tool_arguments: InsightToolOutputToolArguments
+    tool_arguments: Dict[str, InsightToolOutputToolArgumentsUnion]
     r"""Arguments for calling the insight tool"""
 
     insight_tool_definition_id: int

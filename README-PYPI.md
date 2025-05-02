@@ -226,6 +226,7 @@ with SyllableSDK(
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#get_by_id) - Get Twilio Channel By Id
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#update) - Update Twilio Channel
 * [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#create) - Create Twilio Channel
+* [add](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#add) - Add Twilio Number
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#delete) - Delete Channel Target
 
 #### [channels.targets](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/targets/README.md)
