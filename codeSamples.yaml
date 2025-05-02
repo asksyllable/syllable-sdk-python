@@ -282,7 +282,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.channels.create(request={
+                res = ss_client.channels.twilio.create(request={
                     "name": "syllable-webchat",
                     "config": {
                         "account_sid": "AC123...",
@@ -306,7 +306,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.channels.update(request={
+                res = ss_client.channels.twilio.update(request={
                     "id": 1,
                     "name": "syllable-webchat",
                     "config": {
@@ -331,7 +331,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.channels.get_by_id(channel_id=931598)
+                res = ss_client.channels.twilio.get_by_id(channel_id=931598)
 
                 # Handle response
                 print(res)
@@ -349,7 +349,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.channels.add(channel_id=551477, twilio_number_add_request={
+                res = ss_client.channels.twilio.numbers.add(channel_id=551477, twilio_number_add_request={
                     "friendly_name": "Support Line",
                     "area_code": "804",
                 })

@@ -223,10 +223,6 @@ with SyllableSDK(
 ### [channels](docs/sdks/channels/README.md)
 
 * [list](docs/sdks/channels/README.md#list) - Get Channels
-* [get_by_id](docs/sdks/channels/README.md#get_by_id) - Get Twilio Channel By Id
-* [update](docs/sdks/channels/README.md#update) - Update Twilio Channel
-* [create](docs/sdks/channels/README.md#create) - Create Twilio Channel
-* [add](docs/sdks/channels/README.md#add) - Add Twilio Number
 * [delete](docs/sdks/channels/README.md#delete) - Delete Channel Target
 
 #### [channels.targets](docs/sdks/targets/README.md)
@@ -236,6 +232,16 @@ with SyllableSDK(
 * [create](docs/sdks/targets/README.md#create) - Assign A Channel Target
 * [get_by_id](docs/sdks/targets/README.md#get_by_id) - Get A Channel Target
 * [update](docs/sdks/targets/README.md#update) - Edit Channel Target
+
+#### [channels.twilio](docs/sdks/twilio/README.md)
+
+* [get_by_id](docs/sdks/twilio/README.md#get_by_id) - Get Twilio Channel By Id
+* [update](docs/sdks/twilio/README.md#update) - Update Twilio Channel
+* [create](docs/sdks/twilio/README.md#create) - Create Twilio Channel
+
+#### [channels.twilio.numbers](docs/sdks/numbers/README.md)
+
+* [add](docs/sdks/numbers/README.md#add) - Add Twilio Number
 
 ### [conversations](docs/sdks/conversations/README.md)
 
