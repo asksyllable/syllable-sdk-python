@@ -223,10 +223,6 @@ with SyllableSDK(
 ### [channels](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md)
 
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#list) - Get Channels
-* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#get_by_id) - Get Twilio Channel By Id
-* [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#update) - Update Twilio Channel
-* [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#create) - Create Twilio Channel
-* [add](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#add) - Add Twilio Number
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#delete) - Delete Channel Target
 
 #### [channels.targets](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/targets/README.md)
@@ -236,6 +232,16 @@ with SyllableSDK(
 * [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/targets/README.md#create) - Assign A Channel Target
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/targets/README.md#get_by_id) - Get A Channel Target
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/targets/README.md#update) - Edit Channel Target
+
+#### [channels.twilio](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/twilio/README.md)
+
+* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/twilio/README.md#get_by_id) - Get Twilio Channel By Id
+* [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/twilio/README.md#update) - Update Twilio Channel
+* [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/twilio/README.md#create) - Create Twilio Channel
+
+#### [channels.twilio.numbers](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/numbers/README.md)
+
+* [add](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/numbers/README.md#add) - Add Twilio Number
 
 ### [conversations](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/conversations/README.md)
 
