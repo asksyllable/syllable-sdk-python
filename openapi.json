@@ -693,7 +693,7 @@
     "/api/v1/channels/twilio/{channel_id}": {
       "get": {
         "tags": [
-          "channels"
+          "channels.twilio"
         ],
         "summary": "Get Twilio Channel By Id",
         "operationId": "channels_twilio_get_by_id",
@@ -740,7 +740,7 @@
     "/api/v1/channels/twilio/": {
       "put": {
         "tags": [
-          "channels"
+          "channels.twilio"
         ],
         "summary": "Update Twilio Channel",
         "operationId": "channels_twilio_update",
@@ -784,7 +784,7 @@
       },
       "post": {
         "tags": [
-          "channels"
+          "channels.twilio"
         ],
         "summary": "Create Twilio Channel",
         "operationId": "channels_twilio_create",
@@ -830,7 +830,7 @@
     "/api/v1/channels/twilio/{channel_id}/numbers": {
       "post": {
         "tags": [
-          "channels"
+          "channels.twilio.numbers"
         ],
         "summary": "Add Twilio Number",
         "description": "Purchase a Twilio number and associate it with a channel.",
@@ -21733,6 +21733,14 @@
     {
       "name": "channels",
       "description": "Operations related to channel configuration.           A channel is an organization-level point of communication, like a phone number or a web           chat. A channel can be associated with an agent by creating a channel target linking           them."
+    },
+    {
+      "name": "channels.twilio",
+      "description": "Operations related to Twilio channel configuration."
+    },
+    {
+      "name": "channels.twilio.numbers",
+      "description": "Operations related to setting up phone numbers in Twilio for use in channels."
     },
     {
       "name": "channels.targets",
