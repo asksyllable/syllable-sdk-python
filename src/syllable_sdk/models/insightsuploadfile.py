@@ -10,16 +10,14 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import Optional
-from typing_extensions import NotRequired, TypedDict
+from typing import Dict, Optional, Union
+from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
-class MetadataTypedDict(TypedDict):
-    pass
+MetadataTypedDict = TypeAliasType("MetadataTypedDict", Union[str, int, float])
 
 
-class Metadata(BaseModel):
-    pass
+Metadata = TypeAliasType("Metadata", Union[str, int, float])
 
 
 class InsightsUploadFileTypedDict(TypedDict):
@@ -47,7 +45,7 @@ class InsightsUploadFileTypedDict(TypedDict):
     r"""End time of the uploaded file"""
     error_message: NotRequired[Nullable[str]]
     r"""Error message associated with the uploaded file"""
-    metadata: NotRequired[Nullable[MetadataTypedDict]]
+    metadata: NotRequired[Nullable[Dict[str, MetadataTypedDict]]]
     r"""Meta-data associated with the uploaded file"""
     created_at: NotRequired[datetime]
     r"""Timestamp at which insight upload file was created"""
@@ -89,7 +87,7 @@ class InsightsUploadFile(BaseModel):
     error_message: OptionalNullable[str] = UNSET
     r"""Error message associated with the uploaded file"""
 
-    metadata: OptionalNullable[Metadata] = UNSET
+    metadata: OptionalNullable[Dict[str, Metadata]] = UNSET
     r"""Meta-data associated with the uploaded file"""
 
     created_at: Optional[datetime] = None

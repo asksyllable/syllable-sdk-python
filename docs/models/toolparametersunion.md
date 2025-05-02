@@ -1,4 +1,4 @@
-# FolderStats
+# ToolParametersUnion
 
 
 ## Supported Types
@@ -19,5 +19,17 @@ value: int = /* values here */
 
 ```python
 value: float = /* values here */
+```
+
+### `models.ToolParameters`
+
+```python
+value: models.ToolParameters = /* values here */
+```
+
+### `List[Any]`
+
+```python
+value: List[Any] = /* values here */
 ```
 

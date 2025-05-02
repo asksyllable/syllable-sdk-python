@@ -1,7 +1,5 @@
 # InsightToolInputToolArguments
 
-Arguments for calling the insight tool
-
 
 ## Fields
 

@@ -2,23 +2,46 @@
 
 from __future__ import annotations
 from syllable_sdk.types import BaseModel
-from typing_extensions import TypedDict
+from typing import Any, Dict, List, Union
+from typing_extensions import TypeAliasType, TypedDict
 
 
 class ToolParametersTypedDict(TypedDict):
-    r"""Parameters for tools that use this definition and their associated types"""
+    pass
 
 
 class ToolParameters(BaseModel):
-    r"""Parameters for tools that use this definition and their associated types"""
+    pass
+
+
+ToolParametersUnionTypedDict = TypeAliasType(
+    "ToolParametersUnionTypedDict",
+    Union[ToolParametersTypedDict, str, int, float, List[Any]],
+)
+
+
+ToolParametersUnion = TypeAliasType(
+    "ToolParametersUnion", Union[ToolParameters, str, int, float, List[Any]]
+)
 
 
 class ToolResultSetTypedDict(TypedDict):
-    r"""Result key/types for insight tool definition"""
+    pass
 
 
 class ToolResultSet(BaseModel):
-    r"""Result key/types for insight tool definition"""
+    pass
+
+
+ToolResultSetUnionTypedDict = TypeAliasType(
+    "ToolResultSetUnionTypedDict",
+    Union[ToolResultSetTypedDict, str, int, float, List[Any]],
+)
+
+
+ToolResultSetUnion = TypeAliasType(
+    "ToolResultSetUnion", Union[ToolResultSet, str, int, float, List[Any]]
+)
 
 
 class InsightToolDefinitionTypedDict(TypedDict):
@@ -34,9 +57,9 @@ class InsightToolDefinitionTypedDict(TypedDict):
     r"""Type of insight tool definition"""
     description: str
     r"""Text description of insight tool definition"""
-    tool_parameters: ToolParametersTypedDict
+    tool_parameters: Dict[str, ToolParametersUnionTypedDict]
     r"""Parameters for tools that use this definition and their associated types"""
-    tool_result_set: ToolResultSetTypedDict
+    tool_result_set: Dict[str, ToolResultSetUnionTypedDict]
     r"""Result key/types for insight tool definition"""
 
 
@@ -57,8 +80,8 @@ class InsightToolDefinition(BaseModel):
     description: str
     r"""Text description of insight tool definition"""
 
-    tool_parameters: ToolParameters
+    tool_parameters: Dict[str, ToolParametersUnion]
     r"""Parameters for tools that use this definition and their associated types"""
 
-    tool_result_set: ToolResultSet
+    tool_result_set: Dict[str, ToolResultSetUnion]
     r"""Result key/types for insight tool definition"""

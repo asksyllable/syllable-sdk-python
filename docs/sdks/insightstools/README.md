@@ -86,7 +86,9 @@ with SyllableSDK(
         "name": "summary-tool",
         "description": "Default tool - generates a summary of the call",
         "version": 1,
-        "tool_arguments": {},
+        "tool_arguments": {
+            "prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded",
+        },
         "insight_tool_definition_id": 1,
     })
 
@@ -172,7 +174,9 @@ with SyllableSDK(
         "name": "summary-tool",
         "description": "Default tool - generates a summary of the call",
         "version": 1,
-        "tool_arguments": {},
+        "tool_arguments": {
+            "prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded",
+        },
         "insight_tool_definition_id": 1,
     })
 

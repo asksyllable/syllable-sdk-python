@@ -1,7 +1,5 @@
 # ToolResultSet
 
-Result key/types for insight tool definition
-
 
 ## Fields
 
