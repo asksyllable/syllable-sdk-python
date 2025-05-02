@@ -14729,27 +14729,6 @@
             ]
           },
           "tool_parameters": {
-            "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "object"
-                },
-                {
-                  "items": {},
-                  "type": "array"
-                }
-              ]
-            },
-            "type": "object",
             "title": "Tool Parameters",
             "description": "Parameters for tools that use this definition and their associated types",
             "examples": [
@@ -14759,27 +14738,6 @@
             ]
           },
           "tool_result_set": {
-            "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "object"
-                },
-                {
-                  "items": {},
-                  "type": "array"
-                }
-              ]
-            },
-            "type": "object",
             "title": "Tool Result Set",
             "description": "Result key/types for insight tool definition",
             "examples": [
@@ -14828,27 +14786,6 @@
             ]
           },
           "tool_arguments": {
-            "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "object"
-                },
-                {
-                  "items": {},
-                  "type": "array"
-                }
-              ]
-            },
-            "type": "object",
             "title": "Tool Arguments",
             "description": "Arguments for calling the insight tool",
             "examples": [
@@ -14904,27 +14841,6 @@
             ]
           },
           "tool_arguments": {
-            "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "object"
-                },
-                {
-                  "items": {},
-                  "type": "array"
-                }
-              ]
-            },
-            "type": "object",
             "title": "Tool Arguments",
             "description": "Arguments for calling the insight tool",
             "examples": [
