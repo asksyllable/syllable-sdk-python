@@ -2,28 +2,8 @@
 
 from __future__ import annotations
 from syllable_sdk.types import BaseModel
-from typing import Any, Dict, List, Union
-from typing_extensions import TypeAliasType, TypedDict
-
-
-class InsightToolInputToolArgumentsTypedDict(TypedDict):
-    pass
-
-
-class InsightToolInputToolArguments(BaseModel):
-    pass
-
-
-InsightToolInputToolArgumentsUnionTypedDict = TypeAliasType(
-    "InsightToolInputToolArgumentsUnionTypedDict",
-    Union[InsightToolInputToolArgumentsTypedDict, str, int, float, List[Any]],
-)
-
-
-InsightToolInputToolArgumentsUnion = TypeAliasType(
-    "InsightToolInputToolArgumentsUnion",
-    Union[InsightToolInputToolArguments, str, int, float, List[Any]],
-)
+from typing import Any
+from typing_extensions import TypedDict
 
 
 class InsightToolInputTypedDict(TypedDict):
@@ -35,7 +15,7 @@ class InsightToolInputTypedDict(TypedDict):
     r"""Text description of insight tool"""
     version: int
     r"""Version number of insight tool"""
-    tool_arguments: Dict[str, InsightToolInputToolArgumentsUnionTypedDict]
+    tool_arguments: Any
     r"""Arguments for calling the insight tool"""
     insight_tool_definition_id: int
     r"""Internal ID for the definition used by the insight tool"""
@@ -53,7 +33,7 @@ class InsightToolInput(BaseModel):
     version: int
     r"""Version number of insight tool"""
 
-    tool_arguments: Dict[str, InsightToolInputToolArgumentsUnion]
+    tool_arguments: Any
     r"""Arguments for calling the insight tool"""
 
     insight_tool_definition_id: int
