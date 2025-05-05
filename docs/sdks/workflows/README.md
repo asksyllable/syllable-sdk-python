@@ -76,9 +76,9 @@ Create a new tool in the insights
 ### Example Usage
 
 ```python
-import dateutil.parser
 import os
 from syllable_sdk import SyllableSDK
+from syllable_sdk.utils import parse_datetime
 
 
 with SyllableSDK(
@@ -93,8 +93,8 @@ with SyllableSDK(
             1,
         ],
         "conditions": {},
-        "start_datetime": dateutil.parser.isoparse("2025-05-03T00:00:00Z"),
-        "end_datetime": dateutil.parser.isoparse("2025-05-04T00:00:00Z"),
+        "start_datetime": parse_datetime("2025-05-04T00:00:00Z"),
+        "end_datetime": parse_datetime("2025-05-05T00:00:00Z"),
     })
 
     # Handle response
@@ -167,9 +167,9 @@ Update a InsightWorkflow.
 ### Example Usage
 
 ```python
-import dateutil.parser
 import os
 from syllable_sdk import SyllableSDK
+from syllable_sdk.utils import parse_datetime
 
 
 with SyllableSDK(
@@ -184,8 +184,8 @@ with SyllableSDK(
             1,
         ],
         "conditions": {},
-        "start_datetime": dateutil.parser.isoparse("2025-05-03T00:00:00Z"),
-        "end_datetime": dateutil.parser.isoparse("2025-05-04T00:00:00Z"),
+        "start_datetime": parse_datetime("2025-05-04T00:00:00Z"),
+        "end_datetime": parse_datetime("2025-05-05T00:00:00Z"),
     })
 
     # Handle response
