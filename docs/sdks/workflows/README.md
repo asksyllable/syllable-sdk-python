@@ -93,8 +93,8 @@ with SyllableSDK(
             1,
         ],
         "conditions": {},
-        "start_datetime": parse_datetime("2025-05-04T00:00:00Z"),
-        "end_datetime": parse_datetime("2025-05-05T00:00:00Z"),
+        "start_datetime": parse_datetime("2025-05-05T00:00:00Z"),
+        "end_datetime": parse_datetime("2025-05-06T00:00:00Z"),
     })
 
     # Handle response
@@ -184,8 +184,8 @@ with SyllableSDK(
             1,
         ],
         "conditions": {},
-        "start_datetime": parse_datetime("2025-05-04T00:00:00Z"),
-        "end_datetime": parse_datetime("2025-05-05T00:00:00Z"),
+        "start_datetime": parse_datetime("2025-05-05T00:00:00Z"),
+        "end_datetime": parse_datetime("2025-05-06T00:00:00Z"),
     })
 
     # Handle response
