@@ -565,6 +565,7 @@ from .takeouts_get_by_job_idop import (
     TakeoutsGetByJobIDRequest,
     TakeoutsGetByJobIDRequestTypedDict,
 )
+from .takeouts_get_fileop import TakeoutsGetFileRequest, TakeoutsGetFileRequestTypedDict
 from .takeoutstatusresponse import TakeoutStatusResponse, TakeoutStatusResponseTypedDict
 from .targetmodes import TargetModes
 from .testmessage import TestMessage, TestMessageTypedDict
@@ -1088,6 +1089,8 @@ __all__ = [
     "TakeoutStatusResponseTypedDict",
     "TakeoutsGetByJobIDRequest",
     "TakeoutsGetByJobIDRequestTypedDict",
+    "TakeoutsGetFileRequest",
+    "TakeoutsGetFileRequestTypedDict",
     "TargetModes",
     "TestMessage",
     "TestMessageResponse",

@@ -403,6 +403,7 @@ with SyllableSDK(
 
 * [create](docs/sdks/takeouts/README.md#create) - Create Takeout
 * [takeouts_get_by_job_id](docs/sdks/takeouts/README.md#takeouts_get_by_job_id) - Get Takeout
+* [takeouts_get_file](docs/sdks/takeouts/README.md#takeouts_get_file) - Get File
 
 ### [tools](docs/sdks/tools/README.md)
 
