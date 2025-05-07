@@ -1114,25 +1114,7 @@ actions:
 
                 # Handle response
                 print(res)
-  - target: $["paths"]["/api/v1/insights/tool-definitions"]["get"]
-    update:
-      x-codeSamples:
-        - lang: python
-          label: Python (SDK)
-          source: |-
-            import os
-            from syllable_sdk import SyllableSDK
-
-
-            with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-            ) as ss_client:
-
-                res = ss_client.insights.tools.insight_tool_get_definitions()
-
-                # Handle response
-                print(res)
-  - target: $["paths"]["/api/v1/insights/tools"]["get"]
+  - target: $["paths"]["/api/v1/insights/tool-configurations"]["get"]
     update:
       x-codeSamples:
         - lang: python
@@ -1155,7 +1137,7 @@ actions:
 
                 # Handle response
                 print(res)
-  - target: $["paths"]["/api/v1/insights/tools"]["post"]
+  - target: $["paths"]["/api/v1/insights/tool-configurations"]["post"]
     update:
       x-codeSamples:
         - lang: python
@@ -1171,13 +1153,75 @@ actions:
 
                 res = ss_client.insights.tools.create(request={
                     "name": "summary-tool",
-                    "description": "Default tool - generates a summary of the call",
+                    "description": "This tool uses GPT4.1 to generate a summary of the call",
                     "version": 1,
                     "tool_arguments": {
                         "prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded",
                     },
                     "insight_tool_definition_id": 1,
                 })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/tool-configurations/{tool_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.tools.get_by_id(tool_id="<id>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/tool-configurations/{tool_id}"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.tools.update(tool_id=857478, insight_tool_input={
+                    "name": "summary-tool",
+                    "description": "This tool uses GPT4.1 to generate a summary of the call",
+                    "version": 1,
+                    "tool_arguments": {
+                        "prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded",
+                    },
+                    "insight_tool_definition_id": 1,
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/tool-definitions"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.tools.insight_tool_get_definitions()
 
                 # Handle response
                 print(res)
@@ -1198,50 +1242,6 @@ actions:
                 res = ss_client.insights.tools.insights_tool_test(request={
                     "tool_name": "summary-tool",
                     "session_id": 283467,
-                })
-
-                # Handle response
-                print(res)
-  - target: $["paths"]["/api/v1/insights/tools/{tool_id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: python
-          label: Python (SDK)
-          source: |-
-            import os
-            from syllable_sdk import SyllableSDK
-
-
-            with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-            ) as ss_client:
-
-                res = ss_client.insights.tools.get_by_id(tool_id="<id>")
-
-                # Handle response
-                print(res)
-  - target: $["paths"]["/api/v1/insights/tools/{tool_id}"]["put"]
-    update:
-      x-codeSamples:
-        - lang: python
-          label: Python (SDK)
-          source: |-
-            import os
-            from syllable_sdk import SyllableSDK
-
-
-            with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-            ) as ss_client:
-
-                res = ss_client.insights.tools.update(tool_id=857478, insight_tool_input={
-                    "name": "summary-tool",
-                    "description": "Default tool - generates a summary of the call",
-                    "version": 1,
-                    "tool_arguments": {
-                        "prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded",
-                    },
-                    "insight_tool_definition_id": 1,
                 })
 
                 # Handle response

@@ -7,34 +7,34 @@ from typing_extensions import TypedDict
 
 
 class InsightToolInputTypedDict(TypedDict):
-    r"""Request model to create/update an insight tool."""
+    r"""Request model to create/update an insight tool configuration."""
 
     name: str
     r"""Human readable name of insight tool"""
     description: str
-    r"""Text description of insight tool"""
+    r"""Text description of insight tool configuration"""
     version: int
-    r"""Version number of insight tool"""
+    r"""Version number of insight tool configuration"""
     tool_arguments: Any
     r"""Arguments for calling the insight tool"""
     insight_tool_definition_id: int
-    r"""Internal ID for the definition used by the insight tool"""
+    r"""Internal ID for the definition used by the insight tool configuration"""
 
 
 class InsightToolInput(BaseModel):
-    r"""Request model to create/update an insight tool."""
+    r"""Request model to create/update an insight tool configuration."""
 
     name: str
     r"""Human readable name of insight tool"""
 
     description: str
-    r"""Text description of insight tool"""
+    r"""Text description of insight tool configuration"""
 
     version: int
-    r"""Version number of insight tool"""
+    r"""Version number of insight tool configuration"""
 
     tool_arguments: Any
     r"""Arguments for calling the insight tool"""
 
     insight_tool_definition_id: int
-    r"""Internal ID for the definition used by the insight tool"""
+    r"""Internal ID for the definition used by the insight tool configuration"""

@@ -3,14 +3,14 @@
 
 ## Overview
 
-Operations related to insights tools. An insight is a tool that processes           conversation data to extract information and generate reports.
+Operations related to insights tool configurationss. An insight is a tool           that processes conversation data to extract information and generate reports.
 
 ### Available Operations
 
-* [list](#list) - Insight Tool List
-* [create](#create) - Create Insight Tool
-* [get_by_id](#get_by_id) - Get Insight Tool By Id
-* [update](#update) - Update Insights Tool
+* [list](#list) - List Insight Tool Configurations
+* [create](#create) - Create Insight Tool Configuration
+* [get_by_id](#get_by_id) - Get Insight Tool Config By Id
+* [update](#update) - Update Insights Tool Configuration
 * [insights_tool_test](#insights_tool_test) - Test Insights Tool
 * [insight_tool_get_definitions](#insight_tool_get_definitions) - Get Insight Tool Definitions
 
@@ -84,7 +84,7 @@ with SyllableSDK(
 
     res = ss_client.insights.tools.create(request={
         "name": "summary-tool",
-        "description": "Default tool - generates a summary of the call",
+        "description": "This tool uses GPT4.1 to generate a summary of the call",
         "version": 1,
         "tool_arguments": {
             "prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded",
@@ -172,7 +172,7 @@ with SyllableSDK(
 
     res = ss_client.insights.tools.update(tool_id=857478, insight_tool_input={
         "name": "summary-tool",
-        "description": "Default tool - generates a summary of the call",
+        "description": "This tool uses GPT4.1 to generate a summary of the call",
         "version": 1,
         "tool_arguments": {
             "prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded",

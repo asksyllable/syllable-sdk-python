@@ -12,8 +12,8 @@ Operations related to insights workflows. An workflow is series of tool         
 * [get_by_id](#get_by_id) - Get Insight Workflow By Id
 * [update](#update) - Update Insights Workflow
 * [delete](#delete) - Delete Insights Workflow
-* [inactivate](#inactivate) - Update Insights Workflow
-* [activate](#activate) - Update Insights Workflow
+* [inactivate](#inactivate) - Inactivate Insights Workflow
+* [activate](#activate) - Activate Insights Workflow
 * [queue_work](#queue_work) - Queue Insights Workflow For Sessions/Files
 
 ## list
@@ -214,7 +214,7 @@ with SyllableSDK(
 
 ## delete
 
-Delete a Insights workflow.
+Delete an Insights workflow.
 
 ### Example Usage
 
@@ -254,7 +254,7 @@ with SyllableSDK(
 
 ## inactivate
 
-Update a InsightWorkflow.
+Inactivate an InsightWorkflow.
 
 ### Example Usage
 
@@ -294,7 +294,7 @@ with SyllableSDK(
 
 ## activate
 
-Update a InsightWorkflow.
+Activate an InsightWorkflow.
 
 ### Example Usage
 

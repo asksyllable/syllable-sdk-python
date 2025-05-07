@@ -2085,7 +2085,7 @@ paths:
       tags:
         - "insights.workflows"
       summary: "Delete Insights Workflow"
-      description: "Delete a Insights workflow."
+      description: "Delete an Insights workflow."
       operationId: "insights_workflow_delete"
       security:
         - APIKeyHeader: []
@@ -2117,8 +2117,8 @@ paths:
     put:
       tags:
         - "insights.workflows"
-      summary: "Update Insights Workflow"
-      description: "Update a InsightWorkflow."
+      summary: "Inactivate Insights Workflow"
+      description: "Inactivate an InsightWorkflow."
       operationId: "insights_workflow_inactivate"
       security:
         - APIKeyHeader: []
@@ -2148,8 +2148,8 @@ paths:
     put:
       tags:
         - "insights.workflows"
-      summary: "Update Insights Workflow"
-      description: "Update a InsightWorkflow."
+      summary: "Activate Insights Workflow"
+      description: "Activate an InsightWorkflow."
       operationId: "insights_workflow_activate"
       security:
         - APIKeyHeader: []
@@ -2211,11 +2211,11 @@ paths:
               schema: {"$ref": "#/components/schemas/HTTPValidationError"}
       security:
         - APIKeyHeader: []
-  "/api/v1/insights/tools":
+  "/api/v1/insights/tool-configurations":
     get:
       tags:
         - "insights.tools"
-      summary: "Insight Tool List"
+      summary: "List Insight Tool Configurations"
       description: "List the existing insight_tools"
       operationId: "insight_tool_list"
       security:
@@ -2344,7 +2344,7 @@ paths:
     post:
       tags:
         - "insights.tools"
-      summary: "Create Insight Tool"
+      summary: "Create Insight Tool Configuration"
       description: "Create a new insight tool."
       operationId: "insights_tool_create"
       security:
@@ -2369,11 +2369,11 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/HTTPValidationError"}
-  "/api/v1/insights/tools/{tool_id}":
+  "/api/v1/insights/tool-configurations/{tool_id}":
     get:
       tags:
         - "insights.tools"
-      summary: "Get Insight Tool By Id"
+      summary: "Get Insight Tool Config By Id"
       description: "Get a InsightTool by Name."
       operationId: "insight_tool_get_by_id"
       security:
@@ -2399,7 +2399,7 @@ paths:
     put:
       tags:
         - "insights.tools"
-      summary: "Update Insights Tool"
+      summary: "Update Insights Tool Configuration"
       description: "Update an Insights tool."
       operationId: "insights_tool_update"
       security:
@@ -8790,7 +8790,7 @@ components:
         - "tool_parameters"
         - "tool_result_set"
       title: "InsightToolDefinition"
-      description: "Model for an insight tool definition. This is a template that can be used by multiple insight\ntools, each providing their own parameter values."
+      description: "Model for an insight tool definition. This is a template that can be used by multiple insight\ntool configurations, each providing their own parameter values."
     "InsightToolInput":
       properties:
         "name":
@@ -8802,13 +8802,13 @@ components:
         "description":
           type: "string"
           title: "Description"
-          description: "Text description of insight tool"
+          description: "Text description of insight tool configuration"
           examples:
-            - "Default tool - generates a summary of the call"
+            - "This tool uses GPT4.1 to generate a summary of the call"
         "version":
           type: "integer"
           title: "Version"
-          description: "Version number of insight tool"
+          description: "Version number of insight tool configuration"
           examples:
             - 1
         "tool_arguments":
@@ -8819,7 +8819,7 @@ components:
         "insight_tool_definition_id":
           type: "integer"
           title: "Insight Tool Definition Id"
-          description: "Internal ID for the definition used by the insight tool"
+          description: "Internal ID for the definition used by the insight tool configuration"
           examples:
             - 1
       type: "object"
@@ -8830,7 +8830,7 @@ components:
         - "tool_arguments"
         - "insight_tool_definition_id"
       title: "InsightToolInput"
-      description: "Request model to create/update an insight tool."
+      description: "Request model to create/update an insight tool configuration."
     "InsightToolOutput":
       properties:
         "name":
@@ -8842,9 +8842,9 @@ components:
         "description":
           type: "string"
           title: "Description"
-          description: "Text description of insight tool"
+          description: "Text description of insight tool configuration"
           examples:
-            - "Default tool - generates a summary of the call"
+            - "This tool uses GPT4.1 to generate a summary of the call"
         "version":
           type: "integer"
           title: "Version"
@@ -8859,7 +8859,7 @@ components:
         "insight_tool_definition_id":
           type: "integer"
           title: "Insight Tool Definition Id"
-          description: "Unique ID for insight tool definition used by insight tool"
+          description: "Unique ID for insight tool definition used by this tool configuration"
           examples:
             - 1
         "id":
@@ -8877,20 +8877,20 @@ components:
           type: "string"
           format: "date-time"
           title: "Created At"
-          description: "Timestamp of at which insight tool was created"
+          description: "Timestamp of at which insight tool configuration was created"
           examples:
             - "2025-05-06T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
-          description: "Timestamp at which insight tool was last updated"
+          description: "Timestamp at which insight tool configuration was last updated"
           examples:
             - "2025-05-07T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
-          description: "Email of user who last updated insight tool"
+          description: "Email of user who last updated insight tool configuration"
           examples:
             - "user@email.com"
       type: "object"
@@ -8903,7 +8903,7 @@ components:
         - "id"
         - "last_updated_by"
       title: "InsightToolOutput"
-      description: "Response model for an insight tool."
+      description: "Response model for an insight tool configuration."
     "InsightToolProperties":
       type: "string"
       enum:
@@ -8919,7 +8919,7 @@ components:
         "tool_name":
           type: "string"
           title: "Tool Name"
-          description: "Human readable name of insight tool"
+          description: "Human readable name of insight tool configuration"
           examples:
             - "summary-tool"
         "session_id":
@@ -9084,7 +9084,7 @@ components:
             type: "integer"
           type: "array"
           title: "Insight Tool Ids"
-          description: "List of IDs of insight tools used in the workflow"
+          description: "List of IDs of insight tool configurations used in the workflow"
           examples:
             - [1]
         "conditions": {"$ref": "#/components/schemas/InsightWorkflowCondition", "description": "Conditions for insight workflow to trigger on a given call recording."}
@@ -9143,7 +9143,7 @@ components:
             type: "integer"
           type: "array"
           title: "Insight Tool Ids"
-          description: "List of IDs of insight tools used in the workflow"
+          description: "List of IDs of insight tool configurations used in the workflow"
           examples:
             - [1]
         "conditions": {"$ref": "#/components/schemas/InsightWorkflowCondition", "description": "Conditions for insight workflow to trigger on a given call recording."}
@@ -9175,7 +9175,7 @@ components:
           items: {"$ref": "#/components/schemas/InsightToolOutput"}
           type: "array"
           title: "Insight Tools"
-          description: "List of insight tools used in the workflow"
+          description: "List of insight tool configurations used in the workflow"
         "status":
           type: "string"
           title: "Status"
@@ -9183,7 +9183,7 @@ components:
           examples:
             - "ACTIVE"
             - "INACTIVE"
-        "estimate": {"$ref": "#/components/schemas/InsightWorkflowEstimate", "description": "Estimate of the number of calls that will be processed by the workflow"}
+        "estimate": {"$ref": "#/components/schemas/InsightWorkflowEstimate", "description": "Estimate of the number of calls that will be processed by the workflow and their cost"}
         "created_at":
           type: "string"
           format: "date-time"
@@ -9328,7 +9328,7 @@ components:
         "id":
           type: "integer"
           title: "Id"
-          description: "Unique ID for insight tool"
+          description: "Unique ID of the insight"
           examples:
             - 1
         "session_id":
@@ -9336,7 +9336,7 @@ components:
             - type: "integer"
             - type: "null"
           title: "Session Id"
-          description: "Unique ID for session"
+          description: "Unique ID for the session"
           examples:
             - 12341
         "upload_file_id":
@@ -9350,13 +9350,13 @@ components:
         "insight_tool_id":
           type: "integer"
           title: "Insight Tool Id"
-          description: "Unique ID for insight tool"
+          description: "Unique ID for insight tool configuration"
           examples:
             - 34531
         "insight_tool_version":
           type: "integer"
           title: "Insight Tool Version"
-          description: "Version of insight tool"
+          description: "Version of insight tool configuration"
           examples:
             - 1
         "insight_key":
@@ -13037,7 +13037,7 @@ tags:
   - name: "insights.folders"
     description: "Operations related to insights upload folders. An insight folder is used          to upload call recordings for insight workflow analysis."
   - name: "insights.tools"
-    description: "Operations related to insights tools. An insight is a tool that processes           conversation data to extract information and generate reports."
+    description: "Operations related to insights tool configurationss. An insight is a tool           that processes conversation data to extract information and generate reports."
   - name: "insights.workflows"
     description: "Operations related to insights workflows. An workflow is series of tool           invocations that processes conversation data to extract information and generate reports."
   - name: "language_groups"

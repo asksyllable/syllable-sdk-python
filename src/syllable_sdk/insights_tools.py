@@ -9,7 +9,7 @@ from typing import Any, List, Mapping, Optional, Union, cast
 
 
 class InsightsTools(BaseSDK):
-    r"""Operations related to insights tools. An insight is a tool that processes           conversation data to extract information and generate reports."""
+    r"""Operations related to insights tool configurationss. An insight is a tool           that processes conversation data to extract information and generate reports."""
 
     def list(
         self,
@@ -28,7 +28,7 @@ class InsightsTools(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ListResponseInsightToolOutput:
-        r"""Insight Tool List
+        r"""List Insight Tool Configurations
 
         List the existing insight_tools
 
@@ -70,7 +70,7 @@ class InsightsTools(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/insights/tools",
+            path="/api/v1/insights/tool-configurations",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -153,7 +153,7 @@ class InsightsTools(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ListResponseInsightToolOutput:
-        r"""Insight Tool List
+        r"""List Insight Tool Configurations
 
         List the existing insight_tools
 
@@ -195,7 +195,7 @@ class InsightsTools(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/insights/tools",
+            path="/api/v1/insights/tool-configurations",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -270,7 +270,7 @@ class InsightsTools(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.InsightToolOutput:
-        r"""Create Insight Tool
+        r"""Create Insight Tool Configuration
 
         Create a new insight tool.
 
@@ -296,7 +296,7 @@ class InsightsTools(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/api/v1/insights/tools",
+            path="/api/v1/insights/tool-configurations",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -372,7 +372,7 @@ class InsightsTools(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.InsightToolOutput:
-        r"""Create Insight Tool
+        r"""Create Insight Tool Configuration
 
         Create a new insight tool.
 
@@ -398,7 +398,7 @@ class InsightsTools(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/api/v1/insights/tools",
+            path="/api/v1/insights/tool-configurations",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -474,7 +474,7 @@ class InsightsTools(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.InsightToolOutput:
-        r"""Get Insight Tool By Id
+        r"""Get Insight Tool Config By Id
 
         Get a InsightTool by Name.
 
@@ -500,7 +500,7 @@ class InsightsTools(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/insights/tools/{tool_id}",
+            path="/api/v1/insights/tool-configurations/{tool_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -573,7 +573,7 @@ class InsightsTools(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.InsightToolOutput:
-        r"""Get Insight Tool By Id
+        r"""Get Insight Tool Config By Id
 
         Get a InsightTool by Name.
 
@@ -599,7 +599,7 @@ class InsightsTools(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/insights/tools/{tool_id}",
+            path="/api/v1/insights/tool-configurations/{tool_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -675,7 +675,7 @@ class InsightsTools(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.InsightToolOutput:
-        r"""Update Insights Tool
+        r"""Update Insights Tool Configuration
 
         Update an Insights tool.
 
@@ -705,7 +705,7 @@ class InsightsTools(BaseSDK):
 
         req = self._build_request(
             method="PUT",
-            path="/api/v1/insights/tools/{tool_id}",
+            path="/api/v1/insights/tool-configurations/{tool_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -788,7 +788,7 @@ class InsightsTools(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.InsightToolOutput:
-        r"""Update Insights Tool
+        r"""Update Insights Tool Configuration
 
         Update an Insights tool.
 
@@ -818,7 +818,7 @@ class InsightsTools(BaseSDK):
 
         req = self._build_request_async(
             method="PUT",
-            path="/api/v1/insights/tools/{tool_id}",
+            path="/api/v1/insights/tool-configurations/{tool_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

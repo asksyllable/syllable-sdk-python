@@ -300,10 +300,10 @@ with SyllableSDK(
 
 #### [insights.tools](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md)
 
-* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#list) - Insight Tool List
-* [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#create) - Create Insight Tool
-* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#get_by_id) - Get Insight Tool By Id
-* [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#update) - Update Insights Tool
+* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#list) - List Insight Tool Configurations
+* [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#create) - Create Insight Tool Configuration
+* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#get_by_id) - Get Insight Tool Config By Id
+* [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#update) - Update Insights Tool Configuration
 * [insights_tool_test](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#insights_tool_test) - Test Insights Tool
 * [insight_tool_get_definitions](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#insight_tool_get_definitions) - Get Insight Tool Definitions
 
@@ -314,8 +314,8 @@ with SyllableSDK(
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#get_by_id) - Get Insight Workflow By Id
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#update) - Update Insights Workflow
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#delete) - Delete Insights Workflow
-* [inactivate](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#inactivate) - Update Insights Workflow
-* [activate](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#activate) - Update Insights Workflow
+* [inactivate](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#inactivate) - Inactivate Insights Workflow
+* [activate](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#activate) - Activate Insights Workflow
 * [queue_work](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#queue_work) - Queue Insights Workflow For Sessions/Files
 
 ### [language_groups](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/languagegroups/README.md)

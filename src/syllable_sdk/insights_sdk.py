@@ -20,7 +20,7 @@ class InsightsSDK(BaseSDK):
     workflows: Workflows
     r"""Operations related to insights workflows. An workflow is series of tool           invocations that processes conversation data to extract information and generate reports."""
     tools: InsightsTools
-    r"""Operations related to insights tools. An insight is a tool that processes           conversation data to extract information and generate reports."""
+    r"""Operations related to insights tool configurationss. An insight is a tool           that processes conversation data to extract information and generate reports."""
 
     def __init__(self, sdk_config: SDKConfiguration) -> None:
         BaseSDK.__init__(self, sdk_config)
