@@ -9,7 +9,7 @@ class InsightToolTestInputTypedDict(TypedDict):
     r"""Request model to test an insight tool."""
 
     tool_name: str
-    r"""Human readable name of insight tool"""
+    r"""Human readable name of insight tool configuration"""
     session_id: int
     r"""The session ID of the session to run the tool against"""
 
@@ -18,7 +18,7 @@ class InsightToolTestInput(BaseModel):
     r"""Request model to test an insight tool."""
 
     tool_name: str
-    r"""Human readable name of insight tool"""
+    r"""Human readable name of insight tool configuration"""
 
     session_id: int
     r"""The session ID of the session to run the tool against"""

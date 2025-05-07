@@ -1,7 +1,7 @@
 # InsightToolDefinition
 
 Model for an insight tool definition. This is a template that can be used by multiple insight
-tools, each providing their own parameter values.
+tool configurations, each providing their own parameter values.
 
 
 ## Fields

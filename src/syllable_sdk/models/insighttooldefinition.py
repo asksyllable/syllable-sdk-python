@@ -8,7 +8,7 @@ from typing_extensions import TypedDict
 
 class InsightToolDefinitionTypedDict(TypedDict):
     r"""Model for an insight tool definition. This is a template that can be used by multiple insight
-    tools, each providing their own parameter values.
+    tool configurations, each providing their own parameter values.
     """
 
     id: int
@@ -27,7 +27,7 @@ class InsightToolDefinitionTypedDict(TypedDict):
 
 class InsightToolDefinition(BaseModel):
     r"""Model for an insight tool definition. This is a template that can be used by multiple insight
-    tools, each providing their own parameter values.
+    tool configurations, each providing their own parameter values.
     """
 
     id: int
