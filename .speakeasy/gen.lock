@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 262ce9558005decab47bfe998c21722b
+  docChecksum: 7cd21a1d5ee23279fcd182e48fb84af5
   docVersion: 0.0.2
   speakeasyVersion: 1.542.3
   generationVersion: 2.597.9
-  releaseVersion: 0.32.4
-  configChecksum: c727651ab01064716c463bc60a3f10cf
+  releaseVersion: 0.32.5
+  configChecksum: e506b90d263b29ba44e14767fd4d22e6
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -284,6 +284,7 @@ generatedFiles:
   - docs/models/supportedllm.md
   - docs/models/takeoutrequeststatus.md
   - docs/models/takeoutsgetbyjobidrequest.md
+  - docs/models/takeoutsgetfilerequest.md
   - docs/models/takeoutstatusresponse.md
   - docs/models/targetmodes.md
   - docs/models/testmessage.md
@@ -609,6 +610,7 @@ generatedFiles:
   - src/syllable_sdk/models/supportedllm.py
   - src/syllable_sdk/models/takeoutrequeststatus.py
   - src/syllable_sdk/models/takeouts_get_by_job_idop.py
+  - src/syllable_sdk/models/takeouts_get_fileop.py
   - src/syllable_sdk/models/takeoutstatusresponse.py
   - src/syllable_sdk/models/targetmodes.py
   - src/syllable_sdk/models/testmessage.py
@@ -1924,6 +1926,17 @@ examples:
       responses:
         "200":
           application/json: {"phone_number": "+18042221111"}
+        "422":
+          application/json: {}
+  takeouts_get_file:
+    speakeasy-default-takeouts-get-file:
+      parameters:
+        path:
+          job_id: "<id>"
+          file_name: "example.file"
+      responses:
+        "200":
+          application/json: "<value>"
         "422":
           application/json: {}
 examplesVersion: 1.0.1

@@ -403,6 +403,7 @@ with SyllableSDK(
 
 * [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/takeouts/README.md#create) - Create Takeout
 * [takeouts_get_by_job_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/takeouts/README.md#takeouts_get_by_job_id) - Get Takeout
+* [takeouts_get_file](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/takeouts/README.md#takeouts_get_file) - Get File
 
 ### [tools](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/tools/README.md)
 
