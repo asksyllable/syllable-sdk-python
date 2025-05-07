@@ -10110,6 +10110,60 @@
         }
       }
     },
+    "/api/v1/takeouts/get/{job_id}/file/{file_name}": {
+      "get": {
+        "tags": [
+          "takeouts"
+        ],
+        "summary": "Get File",
+        "operationId": "takeouts_get_file",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Job Id"
+            }
+          },
+          {
+            "name": "file_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "File Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/users/delete_account": {
       "delete": {
         "tags": [
@@ -20310,7 +20364,7 @@
             "format": "date-time",
             "title": "Updated At"
           },
-          "download_links": {
+          "file_names": {
             "anyOf": [
               {
                 "items": {
@@ -20322,7 +20376,7 @@
                 "type": "null"
               }
             ],
-            "title": "Download Links"
+            "title": "File Names"
           }
         },
         "type": "object",
