@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: e6f4c3ab4252628a5f2e1e5ce1bacbf7
+  docChecksum: d31f6515ebebff7eb875cdb9672bd4b7
   docVersion: 0.0.2
   speakeasyVersion: 1.543.1
   generationVersion: 2.598.21
-  releaseVersion: 0.32.6
-  configChecksum: 156f091bfe9ecf7ec2a2ae2f12c0ca0a
+  releaseVersion: 0.32.7
+  configChecksum: 4e0e50d253dd18acb678be026c3c2ffd
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -1886,6 +1886,7 @@ examples:
       responses:
         "200":
           application/json: "<value>"
+          audio/mpeg: "<value>"
         "422":
           application/json: {}
   channels_twilio_get_by_id:

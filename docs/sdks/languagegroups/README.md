@@ -314,7 +314,7 @@ with SyllableSDK(
 
 ### Response
 
-**[Any](../../models/.md)**
+**[str](../../models/.md)**
 
 ### Errors
 
