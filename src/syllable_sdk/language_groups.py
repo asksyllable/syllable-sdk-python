@@ -1093,7 +1093,7 @@ class LanguageGroups(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Any:
+    ) -> str:
         r"""Create Voice Sample
 
         Generate voice sample.
@@ -1128,7 +1128,7 @@ class LanguageGroups(BaseSDK):
             request_has_path_params=False,
             request_has_query_params=True,
             user_agent_header="user-agent",
-            accept_header_value="application/json",
+            accept_header_value="audio/mpeg",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
@@ -1160,8 +1160,8 @@ class LanguageGroups(BaseSDK):
         )
 
         response_data: Any = None
-        if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Any)
+        if utils.match_response(http_res, "200", "audio/mpeg"):
+            return http_res.text
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
@@ -1197,7 +1197,7 @@ class LanguageGroups(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Any:
+    ) -> str:
         r"""Create Voice Sample
 
         Generate voice sample.
@@ -1232,7 +1232,7 @@ class LanguageGroups(BaseSDK):
             request_has_path_params=False,
             request_has_query_params=True,
             user_agent_header="user-agent",
-            accept_header_value="application/json",
+            accept_header_value="audio/mpeg",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
@@ -1264,8 +1264,8 @@ class LanguageGroups(BaseSDK):
         )
 
         response_data: Any = None
-        if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Any)
+        if utils.match_response(http_res, "200", "audio/mpeg"):
+            return http_res.text
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.HTTPValidationErrorData
