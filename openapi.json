@@ -10014,8 +10014,10 @@
           "200": {
             "description": "Successful Response",
             "content": {
-              "application/json": {
-                "schema": {}
+              "audio/mpeg": {
+                "schema": {
+                  "type": "string"
+                }
               }
             }
           },
