@@ -1128,7 +1128,7 @@ class LanguageGroups(BaseSDK):
             request_has_path_params=False,
             request_has_query_params=True,
             user_agent_header="user-agent",
-            accept_header_value="audio/mpeg",
+            accept_header_value="application/octet-stream",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
@@ -1160,7 +1160,7 @@ class LanguageGroups(BaseSDK):
         )
 
         response_data: Any = None
-        if utils.match_response(http_res, "200", "audio/mpeg"):
+        if utils.match_response(http_res, "200", "application/octet-stream"):
             return http_res.text
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(
@@ -1232,7 +1232,7 @@ class LanguageGroups(BaseSDK):
             request_has_path_params=False,
             request_has_query_params=True,
             user_agent_header="user-agent",
-            accept_header_value="audio/mpeg",
+            accept_header_value="application/octet-stream",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
@@ -1264,7 +1264,7 @@ class LanguageGroups(BaseSDK):
         )
 
         response_data: Any = None
-        if utils.match_response(http_res, "200", "audio/mpeg"):
+        if utils.match_response(http_res, "200", "application/octet-stream"):
             return http_res.text
         if utils.match_response(http_res, "422", "application/json"):
             response_data = utils.unmarshal_json(

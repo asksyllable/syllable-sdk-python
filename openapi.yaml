@@ -5819,7 +5819,7 @@ paths:
         "200":
           description: "Successful Response"
           content:
-            "audio/mpeg":
+            "application/octet-stream":
               schema:
                 type: "string"
         "422":
