@@ -500,6 +500,12 @@ actions:
   - target: $["paths"]["/api/v1/language_groups/{language_group_id}"]["delete"]["tags"]
     update:
       - "language_groups"
+  - target: $["paths"]["/api/v1/language_groups/voices/sample"]["post"]["responses"]["200"]["content"]["application/octet-stream"]["schema"]
+    update:
+      "title": "bytes"
+  - target: $["paths"]["/api/v1/language_groups/voices/sample"]["post"]["responses"]["200"]["content"]["application/octet-stream"]["schema"]
+    update:
+      "format": "binary"
 
   - target: $["paths"]["/api/v1/session_debug/sid/{channel_manager_service}/{channel_manager_sid}"]["get"]["tags"][*]
     remove: true
