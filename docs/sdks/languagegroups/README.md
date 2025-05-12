@@ -314,7 +314,7 @@ with SyllableSDK(
 
 ### Response
 
-**[str](../../models/.md)**
+**[httpx.Response](../../models/.md)**
 
 ### Errors
 
