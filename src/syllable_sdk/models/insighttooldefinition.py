@@ -2,28 +2,13 @@
 
 from __future__ import annotations
 from syllable_sdk.types import BaseModel
+from typing import Any
 from typing_extensions import TypedDict
-
-
-class ToolParametersTypedDict(TypedDict):
-    r"""Parameters for tools that use this definition and their associated types"""
-
-
-class ToolParameters(BaseModel):
-    r"""Parameters for tools that use this definition and their associated types"""
-
-
-class ToolResultSetTypedDict(TypedDict):
-    r"""Result key/types for insight tool definition"""
-
-
-class ToolResultSet(BaseModel):
-    r"""Result key/types for insight tool definition"""
 
 
 class InsightToolDefinitionTypedDict(TypedDict):
     r"""Model for an insight tool definition. This is a template that can be used by multiple insight
-    tools, each providing their own parameter values.
+    tool configurations, each providing their own parameter values.
     """
 
     id: int
@@ -34,15 +19,15 @@ class InsightToolDefinitionTypedDict(TypedDict):
     r"""Type of insight tool definition"""
     description: str
     r"""Text description of insight tool definition"""
-    tool_parameters: ToolParametersTypedDict
+    tool_parameters: Any
     r"""Parameters for tools that use this definition and their associated types"""
-    tool_result_set: ToolResultSetTypedDict
+    tool_result_set: Any
     r"""Result key/types for insight tool definition"""
 
 
 class InsightToolDefinition(BaseModel):
     r"""Model for an insight tool definition. This is a template that can be used by multiple insight
-    tools, each providing their own parameter values.
+    tool configurations, each providing their own parameter values.
     """
 
     id: int
@@ -57,8 +42,8 @@ class InsightToolDefinition(BaseModel):
     description: str
     r"""Text description of insight tool definition"""
 
-    tool_parameters: ToolParameters
+    tool_parameters: Any
     r"""Parameters for tools that use this definition and their associated types"""
 
-    tool_result_set: ToolResultSet
+    tool_result_set: Any
     r"""Result key/types for insight tool definition"""

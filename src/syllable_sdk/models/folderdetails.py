@@ -10,16 +10,14 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import Optional
-from typing_extensions import NotRequired, TypedDict
+from typing import Dict, Optional, Union
+from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
-class FolderStatsTypedDict(TypedDict):
-    r"""Meta-data of insight upload files associated with the folder"""
+FolderStatsTypedDict = TypeAliasType("FolderStatsTypedDict", Union[str, int, float])
 
 
-class FolderStats(BaseModel):
-    r"""Meta-data of insight upload files associated with the folder"""
+FolderStats = TypeAliasType("FolderStats", Union[str, int, float])
 
 
 class FolderDetailsTypedDict(TypedDict):
@@ -31,7 +29,7 @@ class FolderDetailsTypedDict(TypedDict):
     r"""System-assign folder ID"""
     last_updated_by: str
     r"""Email of user who last updated upload folder"""
-    folder_stats: FolderStatsTypedDict
+    folder_stats: Dict[str, FolderStatsTypedDict]
     r"""Meta-data of insight upload files associated with the folder"""
     label: NotRequired[Nullable[str]]
     r"""optional label assigned to insight folder"""
@@ -55,7 +53,7 @@ class FolderDetails(BaseModel):
     last_updated_by: str
     r"""Email of user who last updated upload folder"""
 
-    folder_stats: FolderStats
+    folder_stats: Dict[str, FolderStats]
     r"""Meta-data of insight upload files associated with the folder"""
 
     label: OptionalNullable[str] = UNSET

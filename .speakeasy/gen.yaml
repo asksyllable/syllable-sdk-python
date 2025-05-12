@@ -14,11 +14,12 @@ generation:
     parameterOrderingFeb2024: true
     requestResponseComponentNamesFeb2024: true
     securityFeb2025: true
+    sharedErrorComponentsApr2025: false
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: true
 python:
-  version: 0.10.1
+  version: 0.32.10
   additionalDependencies:
     dev: {}
     main: {}
@@ -46,6 +47,7 @@ python:
   inputModelSuffix: input
   maxMethodParams: 999
   methodArguments: infer-optional-args
+  moduleName: ""
   outputModelSuffix: output
   packageName: syllable-sdk
   pytestTimeout: 0

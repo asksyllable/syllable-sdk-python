@@ -537,3 +537,363 @@ Based on:
 - [python v0.10.1] .
 ### Releases
 - [PyPI v0.10.1] https://pypi.org/project/syllable-sdk/0.10.1 - .
+
+## 2025-04-25 18:12:13
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.11.1] .
+### Releases
+- [PyPI v0.11.1] https://pypi.org/project/syllable-sdk/0.11.1 - .
+
+## 2025-04-25 21:50:09
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.12.1] .
+### Releases
+- [PyPI v0.12.1] https://pypi.org/project/syllable-sdk/0.12.1 - .
+
+## 2025-04-26 19:33:59
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.13.1] .
+### Releases
+- [PyPI v0.13.1] https://pypi.org/project/syllable-sdk/0.13.1 - .
+
+## 2025-04-27 20:44:36
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.14.1] .
+### Releases
+- [PyPI v0.14.1] https://pypi.org/project/syllable-sdk/0.14.1 - .
+
+## 2025-04-28 13:22:01
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.15.1] .
+### Releases
+- [PyPI v0.15.1] https://pypi.org/project/syllable-sdk/0.15.1 - .
+
+## 2025-04-28 13:30:40
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.16.1] .
+### Releases
+- [PyPI v0.16.1] https://pypi.org/project/syllable-sdk/0.16.1 - .
+
+## 2025-04-28 13:39:21
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.17.1] .
+### Releases
+- [PyPI v0.17.1] https://pypi.org/project/syllable-sdk/0.17.1 - .
+
+## 2025-04-28 16:29:53
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.18.1] .
+### Releases
+- [PyPI v0.18.1] https://pypi.org/project/syllable-sdk/0.18.1 - .
+
+## 2025-04-28 19:29:50
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.19.1] .
+### Releases
+- [PyPI v0.19.1] https://pypi.org/project/syllable-sdk/0.19.1 - .
+
+## 2025-04-28 21:32:17
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.20.1] .
+### Releases
+- [PyPI v0.20.1] https://pypi.org/project/syllable-sdk/0.20.1 - .
+
+## 2025-04-28 23:50:37
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.21.1] .
+### Releases
+- [PyPI v0.21.1] https://pypi.org/project/syllable-sdk/0.21.1 - .
+
+## 2025-04-29 00:20:35
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.22.1] .
+### Releases
+- [PyPI v0.22.1] https://pypi.org/project/syllable-sdk/0.22.1 - .
+
+## 2025-04-29 13:56:57
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.23.1] .
+### Releases
+- [PyPI v0.23.1] https://pypi.org/project/syllable-sdk/0.23.1 - .
+
+## 2025-04-29 18:12:36
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.24.1] .
+### Releases
+- [PyPI v0.24.1] https://pypi.org/project/syllable-sdk/0.24.1 - .
+
+## 2025-04-30 15:19:27
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.25.1] .
+### Releases
+- [PyPI v0.25.1] https://pypi.org/project/syllable-sdk/0.25.1 - .
+
+## 2025-04-30 23:16:54
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.26.1] .
+### Releases
+- [PyPI v0.26.1] https://pypi.org/project/syllable-sdk/0.26.1 - .
+
+## 2025-04-30 23:34:24
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.27.1] .
+### Releases
+- [PyPI v0.27.1] https://pypi.org/project/syllable-sdk/0.27.1 - .
+
+## 2025-05-01 15:39:00
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.28.1] .
+### Releases
+- [PyPI v0.28.1] https://pypi.org/project/syllable-sdk/0.28.1 - .
+
+## 2025-05-01 15:56:18
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.29.1] .
+### Releases
+- [PyPI v0.29.1] https://pypi.org/project/syllable-sdk/0.29.1 - .
+
+## 2025-05-01 17:13:01
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.30.1] .
+### Releases
+- [PyPI v0.30.1] https://pypi.org/project/syllable-sdk/0.30.1 - .
+
+## 2025-05-02 20:02:36
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.31.1] .
+### Releases
+- [PyPI v0.31.1] https://pypi.org/project/syllable-sdk/0.31.1 - .
+
+## 2025-05-02 20:31:15
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.31.2] .
+### Releases
+- [PyPI v0.31.2] https://pypi.org/project/syllable-sdk/0.31.2 - .
+
+## 2025-05-02 22:39:46
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.31.3] .
+### Releases
+- [PyPI v0.31.3] https://pypi.org/project/syllable-sdk/0.31.3 - .
+
+## 2025-05-03 00:32:37
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.31.4] .
+### Releases
+- [PyPI v0.31.4] https://pypi.org/project/syllable-sdk/0.31.4 - .
+
+## 2025-05-04 20:46:48
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.31.5] .
+### Releases
+- [PyPI v0.31.5] https://pypi.org/project/syllable-sdk/0.31.5 - .
+
+## 2025-05-05 18:14:47
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.542.3 (2.597.9) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.32.0] .
+### Releases
+- [PyPI v0.32.0] https://pypi.org/project/syllable-sdk/0.32.0 - .
+
+## 2025-05-06 00:03:04
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.542.3 (2.597.9) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.32.1] .
+### Releases
+- [PyPI v0.32.1] https://pypi.org/project/syllable-sdk/0.32.1 - .
+
+## 2025-05-07 00:18:43
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.542.3 (2.597.9) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.32.2] .
+### Releases
+- [PyPI v0.32.2] https://pypi.org/project/syllable-sdk/0.32.2 - .
+
+## 2025-05-07 16:08:31
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.542.3 (2.597.9) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.32.3] .
+### Releases
+- [PyPI v0.32.3] https://pypi.org/project/syllable-sdk/0.32.3 - .
+
+## 2025-05-07 17:00:11
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.542.3 (2.597.9) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.32.4] .
+### Releases
+- [PyPI v0.32.4] https://pypi.org/project/syllable-sdk/0.32.4 - .
+
+## 2025-05-07 22:53:48
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.542.3 (2.597.9) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.32.5] .
+### Releases
+- [PyPI v0.32.5] https://pypi.org/project/syllable-sdk/0.32.5 - .
+
+## 2025-05-08 16:06:04
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.543.1 (2.598.21) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.32.6] .
+### Releases
+- [PyPI v0.32.6] https://pypi.org/project/syllable-sdk/0.32.6 - .
+
+## 2025-05-08 16:24:31
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.543.1 (2.598.21) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.32.7] .
+### Releases
+- [PyPI v0.32.7] https://pypi.org/project/syllable-sdk/0.32.7 - .
+
+## 2025-05-09 13:41:35
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.543.2 (2.598.21) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.32.8] .
+### Releases
+- [PyPI v0.32.8] https://pypi.org/project/syllable-sdk/0.32.8 - .
+
+## 2025-05-09 14:03:11
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.543.2 (2.598.21) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.32.9] .
+### Releases
+- [PyPI v0.32.9] https://pypi.org/project/syllable-sdk/0.32.9 - .
+
+## 2025-05-10 18:14:39
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.543.4 (2.598.22) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.32.10] .
+### Releases
+- [PyPI v0.32.10] https://pypi.org/project/syllable-sdk/0.32.10 - .

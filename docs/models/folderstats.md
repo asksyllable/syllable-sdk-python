@@ -1,9 +1,23 @@
 # FolderStats
 
-Meta-data of insight upload files associated with the folder
 
+## Supported Types
 
-## Fields
+### `str`
 
-| Field       | Type        | Required    | Description |
-| ----------- | ----------- | ----------- | ----------- |
+```python
+value: str = /* values here */
+```
+
+### `int`
+
+```python
+value: int = /* values here */
+```
+
+### `float`
+
+```python
+value: float = /* values here */
+```
+

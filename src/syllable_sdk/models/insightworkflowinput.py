@@ -28,7 +28,7 @@ class InsightWorkflowInputTypedDict(TypedDict):
     description: str
     r"""Text description of insight workflow"""
     insight_tool_ids: List[int]
-    r"""List of IDs of insight tools used in the workflow"""
+    r"""List of IDs of insight tool configurations used in the workflow"""
     conditions: InsightWorkflowConditionTypedDict
     r"""Model for the conditions that trigger an insight workflow."""
     start_datetime: NotRequired[Nullable[datetime]]
@@ -50,7 +50,7 @@ class InsightWorkflowInput(BaseModel):
     r"""Text description of insight workflow"""
 
     insight_tool_ids: List[int]
-    r"""List of IDs of insight tools used in the workflow"""
+    r"""List of IDs of insight tool configurations used in the workflow"""
 
     conditions: InsightWorkflowCondition
     r"""Model for the conditions that trigger an insight workflow."""

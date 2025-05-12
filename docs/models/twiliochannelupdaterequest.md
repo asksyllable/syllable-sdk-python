@@ -1,0 +1,12 @@
+# TwilioChannelUpdateRequest
+
+Request model for updating a Twilio channel.
+
+
+## Fields
+
+| Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  | Example                                                                                      |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `id`                                                                                         | *int*                                                                                        | :heavy_check_mark:                                                                           | The internal ID of the channel                                                               | 1                                                                                            |
+| `name`                                                                                       | *OptionalNullable[str]*                                                                      | :heavy_minus_sign:                                                                           | The name of the channel                                                                      | syllable-webchat                                                                             |
+| `config`                                                                                     | [OptionalNullable[models.TwilioChannelConfigUpdate]](../models/twiliochannelconfigupdate.md) | :heavy_minus_sign:                                                                           | The configuration of the channel                                                             |                                                                                              |

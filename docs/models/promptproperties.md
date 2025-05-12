@@ -9,6 +9,7 @@ Names of prompt fields supported for filtering/sorting on list endpoint.
 | ------------------ | ------------------ |
 | `ID`               | id                 |
 | `NAME`             | name               |
+| `NAME_EXACT`       | name_exact         |
 | `DESCRIPTION`      | description        |
 | `NAME_DESCRIPTION` | name_description   |
 | `CONTEXT`          | context            |

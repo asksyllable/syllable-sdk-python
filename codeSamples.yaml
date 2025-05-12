@@ -268,6 +268,94 @@ actions:
 
                 # Handle response
                 print(res)
+  - target: $["paths"]["/api/v1/channels/twilio/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.channels.twilio.create(request={
+                    "name": "syllable-webchat",
+                    "config": {
+                        "account_sid": "AC123...",
+                        "auth_token": "sometoken",
+                    },
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/channels/twilio/"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.channels.twilio.update(request={
+                    "id": 1,
+                    "name": "syllable-webchat",
+                    "config": {
+                        "account_sid": "AC123...",
+                        "auth_token": "sometoken",
+                    },
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/channels/twilio/{channel_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.channels.twilio.get_by_id(channel_id=931598)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/channels/twilio/{channel_id}/numbers"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.channels.twilio.numbers.add(channel_id=551477, twilio_number_add_request={
+                    "friendly_name": "Support Line",
+                    "area_code": "804",
+                })
+
+                # Handle response
+                print(res)
   - target: $["paths"]["/api/v1/channels/{channel_id}"]["delete"]
     update:
       x-codeSamples:
@@ -768,9 +856,9 @@ actions:
         - lang: python
           label: Python (SDK)
           source: |-
-            import dateutil.parser
             import os
             from syllable_sdk import SyllableSDK
+            from syllable_sdk.utils import parse_datetime
 
 
             with SyllableSDK(
@@ -779,8 +867,8 @@ actions:
 
                 res = ss_client.incidents.create(request={
                     "description": "Service outage in region X",
-                    "start_datetime": dateutil.parser.isoparse("2023-10-01T08:00:00Z"),
-                    "resolution_datetime": dateutil.parser.isoparse("2023-10-01T12:00:00Z"),
+                    "start_datetime": parse_datetime("2023-10-01T08:00:00Z"),
+                    "resolution_datetime": parse_datetime("2023-10-01T12:00:00Z"),
                     "impact_category": "High",
                     "sessions_impacted": 1500,
                     "markdown": "**Incident Details**",
@@ -797,9 +885,9 @@ actions:
         - lang: python
           label: Python (SDK)
           source: |-
-            import dateutil.parser
             import os
             from syllable_sdk import SyllableSDK
+            from syllable_sdk.utils import parse_datetime
 
 
             with SyllableSDK(
@@ -808,8 +896,8 @@ actions:
 
                 res = ss_client.incidents.update(request={
                     "description": "Service outage in region X",
-                    "start_datetime": dateutil.parser.isoparse("2023-10-01T08:00:00Z"),
-                    "resolution_datetime": dateutil.parser.isoparse("2023-10-01T12:00:00Z"),
+                    "start_datetime": parse_datetime("2023-10-01T08:00:00Z"),
+                    "resolution_datetime": parse_datetime("2023-10-01T12:00:00Z"),
                     "impact_category": "High",
                     "sessions_impacted": 1500,
                     "markdown": "**Incident Details**",
@@ -817,8 +905,8 @@ actions:
                     "sub_organization_id": 456,
                     "sub_organization": "SubOrg A",
                     "id": 1,
-                    "created_at": dateutil.parser.isoparse("2023-10-01T08:00:00Z"),
-                    "updated_at": dateutil.parser.isoparse("2023-10-01T08:00:00Z"),
+                    "created_at": parse_datetime("2023-10-01T08:00:00Z"),
+                    "updated_at": parse_datetime("2023-10-01T08:00:00Z"),
                 })
 
                 # Handle response
@@ -1026,25 +1114,7 @@ actions:
 
                 # Handle response
                 print(res)
-  - target: $["paths"]["/api/v1/insights/tool-definitions"]["get"]
-    update:
-      x-codeSamples:
-        - lang: python
-          label: Python (SDK)
-          source: |-
-            import os
-            from syllable_sdk import SyllableSDK
-
-
-            with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-            ) as ss_client:
-
-                res = ss_client.insights.tools.insight_tool_get_definitions()
-
-                # Handle response
-                print(res)
-  - target: $["paths"]["/api/v1/insights/tools"]["get"]
+  - target: $["paths"]["/api/v1/insights/tool-configurations"]["get"]
     update:
       x-codeSamples:
         - lang: python
@@ -1067,7 +1137,7 @@ actions:
 
                 # Handle response
                 print(res)
-  - target: $["paths"]["/api/v1/insights/tools"]["post"]
+  - target: $["paths"]["/api/v1/insights/tool-configurations"]["post"]
     update:
       x-codeSamples:
         - lang: python
@@ -1083,11 +1153,75 @@ actions:
 
                 res = ss_client.insights.tools.create(request={
                     "name": "summary-tool",
-                    "description": "Default tool - generates a summary of the call",
+                    "description": "This tool uses GPT4.1 to generate a summary of the call",
                     "version": 1,
-                    "tool_arguments": {},
+                    "tool_arguments": {
+                        "prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded",
+                    },
                     "insight_tool_definition_id": 1,
                 })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/tool-configurations/{tool_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.tools.get_by_id(tool_id="<id>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/tool-configurations/{tool_id}"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.tools.update(tool_id=857478, insight_tool_input={
+                    "name": "summary-tool",
+                    "description": "This tool uses GPT4.1 to generate a summary of the call",
+                    "version": 1,
+                    "tool_arguments": {
+                        "prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded",
+                    },
+                    "insight_tool_definition_id": 1,
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/tool-definitions"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.tools.insight_tool_get_definitions()
 
                 # Handle response
                 print(res)
@@ -1108,48 +1242,6 @@ actions:
                 res = ss_client.insights.tools.insights_tool_test(request={
                     "tool_name": "summary-tool",
                     "session_id": 283467,
-                })
-
-                # Handle response
-                print(res)
-  - target: $["paths"]["/api/v1/insights/tools/{tool_id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: python
-          label: Python (SDK)
-          source: |-
-            import os
-            from syllable_sdk import SyllableSDK
-
-
-            with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-            ) as ss_client:
-
-                res = ss_client.insights.tools.get_by_id(tool_id="<id>")
-
-                # Handle response
-                print(res)
-  - target: $["paths"]["/api/v1/insights/tools/{tool_id}"]["put"]
-    update:
-      x-codeSamples:
-        - lang: python
-          label: Python (SDK)
-          source: |-
-            import os
-            from syllable_sdk import SyllableSDK
-
-
-            with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-            ) as ss_client:
-
-                res = ss_client.insights.tools.update(tool_id=857478, insight_tool_input={
-                    "name": "summary-tool",
-                    "description": "Default tool - generates a summary of the call",
-                    "version": 1,
-                    "tool_arguments": {},
-                    "insight_tool_definition_id": 1,
                 })
 
                 # Handle response
@@ -1183,9 +1275,9 @@ actions:
         - lang: python
           label: Python (SDK)
           source: |-
-            import dateutil.parser
             import os
             from syllable_sdk import SyllableSDK
+            from syllable_sdk.utils import parse_datetime
 
 
             with SyllableSDK(
@@ -1215,8 +1307,8 @@ actions:
                             67535,
                         ],
                     },
-                    "start_datetime": dateutil.parser.isoparse("2025-04-24T00:00:00Z"),
-                    "end_datetime": dateutil.parser.isoparse("2025-04-25T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-05-09T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-05-10T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1289,9 +1381,9 @@ actions:
         - lang: python
           label: Python (SDK)
           source: |-
-            import dateutil.parser
             import os
             from syllable_sdk import SyllableSDK
+            from syllable_sdk.utils import parse_datetime
 
 
             with SyllableSDK(
@@ -1321,8 +1413,8 @@ actions:
                             67535,
                         ],
                     },
-                    "start_datetime": dateutil.parser.isoparse("2025-04-24T00:00:00Z"),
-                    "end_datetime": dateutil.parser.isoparse("2025-04-25T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-05-09T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-05-10T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1480,6 +1572,31 @@ actions:
 
                 # Handle response
                 print(res)
+  - target: $["paths"]["/api/v1/language_groups/voices/sample"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            import syllable_sdk
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.language_groups.language_groups_create_voice_sample(request={
+                    "language_code": syllable_sdk.LanguageCode.EN_US,
+                    "voice_provider": syllable_sdk.TtsProvider.OPEN_AI,
+                    "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ONYX,
+                    "voice_speed": 1,
+                    "voice_pitch": 0,
+                })
+
+                # Handle response
+                print(res)
   - target: $["paths"]["/api/v1/language_groups/{language_group_id}"]["delete"]
     update:
       x-codeSamples:
@@ -1545,9 +1662,9 @@ actions:
         - lang: python
           label: Python (SDK)
           source: |-
-            import dateutil.parser
             import os
             from syllable_sdk import SyllableSDK
+            from syllable_sdk.utils import parse_datetime
 
 
             with SyllableSDK(
@@ -1555,9 +1672,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20250425.9",
+                    "batch_id": "20250510.9",
                     "campaign_id": 1,
-                    "expires_on": dateutil.parser.isoparse("2025-04-26T00:00:00Z"),
+                    "expires_on": parse_datetime("2025-05-11T00:00:00Z"),
                     "paused": True,
                 })
 
@@ -1607,9 +1724,9 @@ actions:
         - lang: python
           label: Python (SDK)
           source: |-
-            import dateutil.parser
             import os
             from syllable_sdk import SyllableSDK
+            from syllable_sdk.utils import parse_datetime
 
 
             with SyllableSDK(
@@ -1618,7 +1735,7 @@ actions:
 
                 res = ss_client.outbound.batches.update(batch_id="<id>", communication_batch_update={
                     "paused": False,
-                    "expires_on": dateutil.parser.isoparse("2027-01-01T06:00:00Z"),
+                    "expires_on": parse_datetime("2027-01-01T06:00:00Z"),
                 })
 
                 # Handle response
@@ -2364,6 +2481,24 @@ actions:
             ) as ss_client:
 
                 res = ss_client.takeouts.takeouts_get_by_job_id(job_id="<id>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/takeouts/get/{job_id}/file/{file_name}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.takeouts.takeouts_get_file(job_id="<id>", file_name="example.file")
 
                 # Handle response
                 print(res)

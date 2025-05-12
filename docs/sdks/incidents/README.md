@@ -74,9 +74,9 @@ Create a new incident
 ### Example Usage
 
 ```python
-import dateutil.parser
 import os
 from syllable_sdk import SyllableSDK
+from syllable_sdk.utils import parse_datetime
 
 
 with SyllableSDK(
@@ -85,8 +85,8 @@ with SyllableSDK(
 
     res = ss_client.incidents.create(request={
         "description": "Service outage in region X",
-        "start_datetime": dateutil.parser.isoparse("2023-10-01T08:00:00Z"),
-        "resolution_datetime": dateutil.parser.isoparse("2023-10-01T12:00:00Z"),
+        "start_datetime": parse_datetime("2023-10-01T08:00:00Z"),
+        "resolution_datetime": parse_datetime("2023-10-01T12:00:00Z"),
         "impact_category": "High",
         "sessions_impacted": 1500,
         "markdown": "**Incident Details**",
@@ -125,9 +125,9 @@ Update an existing incident
 ### Example Usage
 
 ```python
-import dateutil.parser
 import os
 from syllable_sdk import SyllableSDK
+from syllable_sdk.utils import parse_datetime
 
 
 with SyllableSDK(
@@ -136,8 +136,8 @@ with SyllableSDK(
 
     res = ss_client.incidents.update(request={
         "description": "Service outage in region X",
-        "start_datetime": dateutil.parser.isoparse("2023-10-01T08:00:00Z"),
-        "resolution_datetime": dateutil.parser.isoparse("2023-10-01T12:00:00Z"),
+        "start_datetime": parse_datetime("2023-10-01T08:00:00Z"),
+        "resolution_datetime": parse_datetime("2023-10-01T12:00:00Z"),
         "impact_category": "High",
         "sessions_impacted": 1500,
         "markdown": "**Incident Details**",
@@ -145,8 +145,8 @@ with SyllableSDK(
         "sub_organization_id": 456,
         "sub_organization": "SubOrg A",
         "id": 1,
-        "created_at": dateutil.parser.isoparse("2023-10-01T08:00:00Z"),
-        "updated_at": dateutil.parser.isoparse("2023-10-01T08:00:00Z"),
+        "created_at": parse_datetime("2023-10-01T08:00:00Z"),
+        "updated_at": parse_datetime("2023-10-01T08:00:00Z"),
     })
 
     # Handle response

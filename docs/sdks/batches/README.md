@@ -77,9 +77,9 @@ Create Outbound Communication Batch
 ### Example Usage
 
 ```python
-import dateutil.parser
 import os
 from syllable_sdk import SyllableSDK
+from syllable_sdk.utils import parse_datetime
 
 
 with SyllableSDK(
@@ -87,9 +87,9 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.outbound.batches.create(request={
-        "batch_id": "20250425.9",
+        "batch_id": "20250510.9",
         "campaign_id": 1,
-        "expires_on": dateutil.parser.isoparse("2025-04-26T00:00:00Z"),
+        "expires_on": parse_datetime("2025-05-11T00:00:00Z"),
         "paused": True,
     })
 
@@ -163,9 +163,9 @@ Update Outbound Communication Batch
 ### Example Usage
 
 ```python
-import dateutil.parser
 import os
 from syllable_sdk import SyllableSDK
+from syllable_sdk.utils import parse_datetime
 
 
 with SyllableSDK(
@@ -174,7 +174,7 @@ with SyllableSDK(
 
     res = ss_client.outbound.batches.update(batch_id="<id>", communication_batch_update={
         "paused": False,
-        "expires_on": dateutil.parser.isoparse("2027-01-01T06:00:00Z"),
+        "expires_on": parse_datetime("2027-01-01T06:00:00Z"),
     })
 
     # Handle response
@@ -312,9 +312,9 @@ with SyllableSDK(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `batch_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `reference_id`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `status`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `insights_status`                                                   | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `reference_id`                                                      | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `status`                                                            | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `insights_status`                                                   | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response

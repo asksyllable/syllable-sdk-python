@@ -10,33 +10,31 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import Optional
-from typing_extensions import NotRequired, TypedDict
+from typing import Dict, Optional, Union
+from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
-class JSONValueTypedDict(TypedDict):
-    r"""JSON value of insight tool result"""
+JSONValueTypedDict = TypeAliasType("JSONValueTypedDict", Union[str, int, float])
 
 
-class JSONValue(BaseModel):
-    r"""JSON value of insight tool result"""
+JSONValue = TypeAliasType("JSONValue", Union[str, int, float])
 
 
 class InsightsOutputTypedDict(TypedDict):
     r"""Response model for an insight tool."""
 
     id: int
-    r"""Unique ID for insight tool"""
+    r"""Unique ID of the insight"""
     insight_tool_id: int
-    r"""Unique ID for insight tool"""
+    r"""Unique ID for insight tool configuration"""
     insight_tool_version: int
-    r"""Version of insight tool"""
+    r"""Version of insight tool configuration"""
     insight_key: str
     r"""Key for insight tool result"""
-    json_value: JSONValueTypedDict
+    json_value: Dict[str, JSONValueTypedDict]
     r"""JSON value of insight tool result"""
     session_id: NotRequired[Nullable[int]]
-    r"""Unique ID for session"""
+    r"""Unique ID for the session"""
     upload_file_id: NotRequired[Nullable[int]]
     r"""Unique ID for uploaded file"""
     string_value: NotRequired[Nullable[str]]
@@ -53,22 +51,22 @@ class InsightsOutput(BaseModel):
     r"""Response model for an insight tool."""
 
     id: int
-    r"""Unique ID for insight tool"""
+    r"""Unique ID of the insight"""
 
     insight_tool_id: int
-    r"""Unique ID for insight tool"""
+    r"""Unique ID for insight tool configuration"""
 
     insight_tool_version: int
-    r"""Version of insight tool"""
+    r"""Version of insight tool configuration"""
 
     insight_key: str
     r"""Key for insight tool result"""
 
-    json_value: JSONValue
+    json_value: Dict[str, JSONValue]
     r"""JSON value of insight tool result"""
 
     session_id: OptionalNullable[int] = UNSET
-    r"""Unique ID for session"""
+    r"""Unique ID for the session"""
 
     upload_file_id: OptionalNullable[int] = UNSET
     r"""Unique ID for uploaded file"""

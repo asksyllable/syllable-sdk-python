@@ -5,6 +5,7 @@ from .sdkconfiguration import SDKConfiguration
 from syllable_sdk import models, utils
 from syllable_sdk._hooks import HookContext
 from syllable_sdk.targets import Targets
+from syllable_sdk.twilio import Twilio
 from syllable_sdk.types import OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
 from typing import Any, List, Mapping, Optional
@@ -13,6 +14,8 @@ from typing import Any, List, Mapping, Optional
 class Channels(BaseSDK):
     r"""Operations related to channel configuration.           A channel is an organization-level point of communication, like a phone number or a web           chat. A channel can be associated with an agent by creating a channel target linking           them."""
 
+    twilio: Twilio
+    r"""Operations related to Twilio channel configuration."""
     targets: Targets
     r"""Operations related to channel target configuration. A channel target           links a channel to an agent, allowing users to communicate with the agent through that           channel. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Channels)."""
 
@@ -22,6 +25,7 @@ class Channels(BaseSDK):
         self._init_sdks()
 
     def _init_sdks(self):
+        self.twilio = Twilio(self.sdk_configuration)
         self.targets = Targets(self.sdk_configuration)
 
     def list(

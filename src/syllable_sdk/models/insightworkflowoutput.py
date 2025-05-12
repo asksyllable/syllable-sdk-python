@@ -33,13 +33,13 @@ class InsightWorkflowOutputTypedDict(TypedDict):
     description: str
     r"""Text description of insight workflow"""
     insight_tool_ids: List[int]
-    r"""List of IDs of insight tools used in the workflow"""
+    r"""List of IDs of insight tool configurations used in the workflow"""
     conditions: InsightWorkflowConditionTypedDict
     r"""Model for the conditions that trigger an insight workflow."""
     id: int
     r"""Internal ID of the insight workflow"""
     insight_tools: List[InsightToolOutputTypedDict]
-    r"""List of insight tools used in the workflow"""
+    r"""List of insight tool configurations used in the workflow"""
     status: str
     r"""Status of the insight workflow"""
     estimate: InsightWorkflowEstimateTypedDict
@@ -69,7 +69,7 @@ class InsightWorkflowOutput(BaseModel):
     r"""Text description of insight workflow"""
 
     insight_tool_ids: List[int]
-    r"""List of IDs of insight tools used in the workflow"""
+    r"""List of IDs of insight tool configurations used in the workflow"""
 
     conditions: InsightWorkflowCondition
     r"""Model for the conditions that trigger an insight workflow."""
@@ -78,7 +78,7 @@ class InsightWorkflowOutput(BaseModel):
     r"""Internal ID of the insight workflow"""
 
     insight_tools: List[InsightToolOutput]
-    r"""List of insight tools used in the workflow"""
+    r"""List of insight tool configurations used in the workflow"""
 
     status: str
     r"""Status of the insight workflow"""

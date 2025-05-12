@@ -233,6 +233,16 @@ with SyllableSDK(
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/targets/README.md#get_by_id) - Get A Channel Target
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/targets/README.md#update) - Edit Channel Target
 
+#### [channels.twilio](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/twilio/README.md)
+
+* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/twilio/README.md#get_by_id) - Get Twilio Channel By Id
+* [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/twilio/README.md#update) - Update Twilio Channel
+* [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/twilio/README.md#create) - Create Twilio Channel
+
+#### [channels.twilio.numbers](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/numbers/README.md)
+
+* [add](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/numbers/README.md#add) - Add Twilio Number
+
 ### [conversations](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/conversations/README.md)
 
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/conversations/README.md#list) - Conversations List
@@ -290,10 +300,10 @@ with SyllableSDK(
 
 #### [insights.tools](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md)
 
-* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#list) - Insight Tool List
-* [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#create) - Create Insight Tool
-* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#get_by_id) - Get Insight Tool By Id
-* [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#update) - Update Insights Tool
+* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#list) - List Insight Tool Configurations
+* [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#create) - Create Insight Tool Configuration
+* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#get_by_id) - Get Insight Tool Config By Id
+* [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#update) - Update Insights Tool Configuration
 * [insights_tool_test](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#insights_tool_test) - Test Insights Tool
 * [insight_tool_get_definitions](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#insight_tool_get_definitions) - Get Insight Tool Definitions
 
@@ -304,8 +314,8 @@ with SyllableSDK(
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#get_by_id) - Get Insight Workflow By Id
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#update) - Update Insights Workflow
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#delete) - Delete Insights Workflow
-* [inactivate](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#inactivate) - Update Insights Workflow
-* [activate](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#activate) - Update Insights Workflow
+* [inactivate](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#inactivate) - Inactivate Insights Workflow
+* [activate](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#activate) - Activate Insights Workflow
 * [queue_work](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/workflows/README.md#queue_work) - Queue Insights Workflow For Sessions/Files
 
 ### [language_groups](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/languagegroups/README.md)
@@ -315,6 +325,7 @@ with SyllableSDK(
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/languagegroups/README.md#update) - Update Language Group
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/languagegroups/README.md#get_by_id) - Get Language Group
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/languagegroups/README.md#delete) - Delete Language Group
+* [language_groups_create_voice_sample](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/languagegroups/README.md#language_groups_create_voice_sample) - Create Voice Sample
 
 ### [outbound](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/outbound/README.md)
 
@@ -392,6 +403,7 @@ with SyllableSDK(
 
 * [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/takeouts/README.md#create) - Create Takeout
 * [takeouts_get_by_job_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/takeouts/README.md#takeouts_get_by_job_id) - Get Takeout
+* [takeouts_get_file](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/takeouts/README.md#takeouts_get_file) - Get File
 
 ### [tools](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/tools/README.md)
 

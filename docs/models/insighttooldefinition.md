@@ -1,7 +1,7 @@
 # InsightToolDefinition
 
 Model for an insight tool definition. This is a template that can be used by multiple insight
-tools, each providing their own parameter values.
+tool configurations, each providing their own parameter values.
 
 
 ## Fields
@@ -12,5 +12,5 @@ tools, each providing their own parameter values.
 | `name`                                                                   | *str*                                                                    | :heavy_check_mark:                                                       | Human-readable name of insight tool definition                           | llm_tool                                                                 |
 | `type`                                                                   | *str*                                                                    | :heavy_check_mark:                                                       | Type of insight tool definition                                          |                                                                          |
 | `description`                                                            | *str*                                                                    | :heavy_check_mark:                                                       | Text description of insight tool definition                              | An LLM tool evaluates a transcript with a given prompt                   |
-| `tool_parameters`                                                        | [models.ToolParameters](../models/toolparameters.md)                     | :heavy_check_mark:                                                       | Parameters for tools that use this definition and their associated types | {<br/>"prompt": "string"<br/>}                                           |
-| `tool_result_set`                                                        | [models.ToolResultSet](../models/toolresultset.md)                       | :heavy_check_mark:                                                       | Result key/types for insight tool definition                             | {<br/>"summary": "string"<br/>}                                          |
+| `tool_parameters`                                                        | *Any*                                                                    | :heavy_check_mark:                                                       | Parameters for tools that use this definition and their associated types | {<br/>"prompt": "string"<br/>}                                           |
+| `tool_result_set`                                                        | *Any*                                                                    | :heavy_check_mark:                                                       | Result key/types for insight tool definition                             | {<br/>"summary": "string"<br/>}                                          |

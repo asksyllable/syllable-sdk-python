@@ -12,8 +12,8 @@ Operations related to insights workflows. An workflow is series of tool         
 * [get_by_id](#get_by_id) - Get Insight Workflow By Id
 * [update](#update) - Update Insights Workflow
 * [delete](#delete) - Delete Insights Workflow
-* [inactivate](#inactivate) - Update Insights Workflow
-* [activate](#activate) - Update Insights Workflow
+* [inactivate](#inactivate) - Inactivate Insights Workflow
+* [activate](#activate) - Activate Insights Workflow
 * [queue_work](#queue_work) - Queue Insights Workflow For Sessions/Files
 
 ## list
@@ -76,9 +76,9 @@ Create a new tool in the insights
 ### Example Usage
 
 ```python
-import dateutil.parser
 import os
 from syllable_sdk import SyllableSDK
+from syllable_sdk.utils import parse_datetime
 
 
 with SyllableSDK(
@@ -93,8 +93,8 @@ with SyllableSDK(
             1,
         ],
         "conditions": {},
-        "start_datetime": dateutil.parser.isoparse("2025-04-24T00:00:00Z"),
-        "end_datetime": dateutil.parser.isoparse("2025-04-25T00:00:00Z"),
+        "start_datetime": parse_datetime("2025-05-09T00:00:00Z"),
+        "end_datetime": parse_datetime("2025-05-10T00:00:00Z"),
     })
 
     # Handle response
@@ -167,9 +167,9 @@ Update a InsightWorkflow.
 ### Example Usage
 
 ```python
-import dateutil.parser
 import os
 from syllable_sdk import SyllableSDK
+from syllable_sdk.utils import parse_datetime
 
 
 with SyllableSDK(
@@ -184,8 +184,8 @@ with SyllableSDK(
             1,
         ],
         "conditions": {},
-        "start_datetime": dateutil.parser.isoparse("2025-04-24T00:00:00Z"),
-        "end_datetime": dateutil.parser.isoparse("2025-04-25T00:00:00Z"),
+        "start_datetime": parse_datetime("2025-05-09T00:00:00Z"),
+        "end_datetime": parse_datetime("2025-05-10T00:00:00Z"),
     })
 
     # Handle response
@@ -214,7 +214,7 @@ with SyllableSDK(
 
 ## delete
 
-Delete a Insights workflow.
+Delete an Insights workflow.
 
 ### Example Usage
 
@@ -254,7 +254,7 @@ with SyllableSDK(
 
 ## inactivate
 
-Update a InsightWorkflow.
+Inactivate an InsightWorkflow.
 
 ### Example Usage
 
@@ -294,7 +294,7 @@ with SyllableSDK(
 
 ## activate
 
-Update a InsightWorkflow.
+Activate an InsightWorkflow.
 
 ### Example Usage
 

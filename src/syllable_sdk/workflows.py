@@ -904,7 +904,7 @@ class Workflows(BaseSDK):
     ) -> Any:
         r"""Delete Insights Workflow
 
-        Delete a Insights workflow.
+        Delete an Insights workflow.
 
         :param workflow_id:
         :param retries: Override the default retry configuration for this method
@@ -1003,7 +1003,7 @@ class Workflows(BaseSDK):
     ) -> Any:
         r"""Delete Insights Workflow
 
-        Delete a Insights workflow.
+        Delete an Insights workflow.
 
         :param workflow_id:
         :param retries: Override the default retry configuration for this method
@@ -1100,9 +1100,9 @@ class Workflows(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.InsightWorkflowOutput:
-        r"""Update Insights Workflow
+        r"""Inactivate Insights Workflow
 
-        Update a InsightWorkflow.
+        Inactivate an InsightWorkflow.
 
         :param workflow_id:
         :param retries: Override the default retry configuration for this method
@@ -1199,9 +1199,9 @@ class Workflows(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.InsightWorkflowOutput:
-        r"""Update Insights Workflow
+        r"""Inactivate Insights Workflow
 
-        Update a InsightWorkflow.
+        Inactivate an InsightWorkflow.
 
         :param workflow_id:
         :param retries: Override the default retry configuration for this method
@@ -1301,9 +1301,9 @@ class Workflows(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.InsightWorkflowOutput:
-        r"""Update Insights Workflow
+        r"""Activate Insights Workflow
 
-        Update a InsightWorkflow.
+        Activate an InsightWorkflow.
 
         :param workflow_id:
         :param insight_workflow_activate:
@@ -1414,9 +1414,9 @@ class Workflows(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.InsightWorkflowOutput:
-        r"""Update Insights Workflow
+        r"""Activate Insights Workflow
 
-        Update a InsightWorkflow.
+        Activate an InsightWorkflow.
 
         :param workflow_id:
         :param insight_workflow_activate:

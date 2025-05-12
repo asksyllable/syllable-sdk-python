@@ -233,6 +233,16 @@ with SyllableSDK(
 * [get_by_id](docs/sdks/targets/README.md#get_by_id) - Get A Channel Target
 * [update](docs/sdks/targets/README.md#update) - Edit Channel Target
 
+#### [channels.twilio](docs/sdks/twilio/README.md)
+
+* [get_by_id](docs/sdks/twilio/README.md#get_by_id) - Get Twilio Channel By Id
+* [update](docs/sdks/twilio/README.md#update) - Update Twilio Channel
+* [create](docs/sdks/twilio/README.md#create) - Create Twilio Channel
+
+#### [channels.twilio.numbers](docs/sdks/numbers/README.md)
+
+* [add](docs/sdks/numbers/README.md#add) - Add Twilio Number
+
 ### [conversations](docs/sdks/conversations/README.md)
 
 * [list](docs/sdks/conversations/README.md#list) - Conversations List
@@ -290,10 +300,10 @@ with SyllableSDK(
 
 #### [insights.tools](docs/sdks/insightstools/README.md)
 
-* [list](docs/sdks/insightstools/README.md#list) - Insight Tool List
-* [create](docs/sdks/insightstools/README.md#create) - Create Insight Tool
-* [get_by_id](docs/sdks/insightstools/README.md#get_by_id) - Get Insight Tool By Id
-* [update](docs/sdks/insightstools/README.md#update) - Update Insights Tool
+* [list](docs/sdks/insightstools/README.md#list) - List Insight Tool Configurations
+* [create](docs/sdks/insightstools/README.md#create) - Create Insight Tool Configuration
+* [get_by_id](docs/sdks/insightstools/README.md#get_by_id) - Get Insight Tool Config By Id
+* [update](docs/sdks/insightstools/README.md#update) - Update Insights Tool Configuration
 * [insights_tool_test](docs/sdks/insightstools/README.md#insights_tool_test) - Test Insights Tool
 * [insight_tool_get_definitions](docs/sdks/insightstools/README.md#insight_tool_get_definitions) - Get Insight Tool Definitions
 
@@ -304,8 +314,8 @@ with SyllableSDK(
 * [get_by_id](docs/sdks/workflows/README.md#get_by_id) - Get Insight Workflow By Id
 * [update](docs/sdks/workflows/README.md#update) - Update Insights Workflow
 * [delete](docs/sdks/workflows/README.md#delete) - Delete Insights Workflow
-* [inactivate](docs/sdks/workflows/README.md#inactivate) - Update Insights Workflow
-* [activate](docs/sdks/workflows/README.md#activate) - Update Insights Workflow
+* [inactivate](docs/sdks/workflows/README.md#inactivate) - Inactivate Insights Workflow
+* [activate](docs/sdks/workflows/README.md#activate) - Activate Insights Workflow
 * [queue_work](docs/sdks/workflows/README.md#queue_work) - Queue Insights Workflow For Sessions/Files
 
 ### [language_groups](docs/sdks/languagegroups/README.md)
@@ -315,6 +325,7 @@ with SyllableSDK(
 * [update](docs/sdks/languagegroups/README.md#update) - Update Language Group
 * [get_by_id](docs/sdks/languagegroups/README.md#get_by_id) - Get Language Group
 * [delete](docs/sdks/languagegroups/README.md#delete) - Delete Language Group
+* [language_groups_create_voice_sample](docs/sdks/languagegroups/README.md#language_groups_create_voice_sample) - Create Voice Sample
 
 ### [outbound](docs/sdks/outbound/README.md)
 
@@ -392,6 +403,7 @@ with SyllableSDK(
 
 * [create](docs/sdks/takeouts/README.md#create) - Create Takeout
 * [takeouts_get_by_job_id](docs/sdks/takeouts/README.md#takeouts_get_by_job_id) - Get Takeout
+* [takeouts_get_file](docs/sdks/takeouts/README.md#takeouts_get_file) - Get File
 
 ### [tools](docs/sdks/tools/README.md)
 

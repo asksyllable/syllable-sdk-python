@@ -20,7 +20,7 @@ class TakeoutStatusResponseTypedDict(TypedDict):
     status: TakeoutRequestStatus
     r"""Status of a takeout request."""
     updated_at: datetime
-    download_links: NotRequired[Nullable[List[str]]]
+    file_names: NotRequired[Nullable[List[str]]]
 
 
 class TakeoutStatusResponse(BaseModel):
@@ -31,12 +31,12 @@ class TakeoutStatusResponse(BaseModel):
 
     updated_at: datetime
 
-    download_links: OptionalNullable[List[str]] = UNSET
+    file_names: OptionalNullable[List[str]] = UNSET
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["download_links"]
-        nullable_fields = ["download_links"]
+        optional_fields = ["file_names"]
+        nullable_fields = ["file_names"]
         null_default_fields = []
 
         serialized = handler(self)

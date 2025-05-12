@@ -406,6 +406,111 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+  "/api/v1/channels/twilio/{channel_id}":
+    get:
+      tags:
+        - "channels.twilio"
+      summary: "Get Twilio Channel By Id"
+      operationId: "channels_twilio_get_by_id"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "channel_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Channel Id"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/Channel"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+  "/api/v1/channels/twilio/":
+    put:
+      tags:
+        - "channels.twilio"
+      summary: "Update Twilio Channel"
+      operationId: "channels_twilio_update"
+      requestBody:
+        content:
+          "application/json":
+            schema: {"$ref": "#/components/schemas/TwilioChannelUpdateRequest"}
+        required: true
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/Channel"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+      security:
+        - APIKeyHeader: []
+    post:
+      tags:
+        - "channels.twilio"
+      summary: "Create Twilio Channel"
+      operationId: "channels_twilio_create"
+      requestBody:
+        content:
+          "application/json":
+            schema: {"$ref": "#/components/schemas/TwilioChannelCreateRequest"}
+        required: true
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/Channel"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+      security:
+        - APIKeyHeader: []
+  "/api/v1/channels/twilio/{channel_id}/numbers":
+    post:
+      tags:
+        - "channels.twilio.numbers"
+      summary: "Add Twilio Number"
+      description: "Purchase a Twilio number and associate it with a channel."
+      operationId: "channels_twilio_numbers_add"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "channel_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Channel Id"
+      requestBody:
+        required: true
+        content:
+          "application/json":
+            schema: {"$ref": "#/components/schemas/TwilioNumberAddRequest"}
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/TwilioNumberAddResponse"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
   "/api/v1/agents/test/messages":
     post:
       tags:
@@ -1543,7 +1648,9 @@ paths:
           required: true
           schema:
             type: "string"
+            description: "A unique identifier for the call"
             title: "Call Id"
+          description: "A unique identifier for the call"
         - name: "agent_number"
           in: "query"
           required: false
@@ -1551,7 +1658,9 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The phone number or ID of the agent involved."
             title: "Agent Number"
+          description: "The phone number or ID of the agent involved."
         - name: "customer_number"
           in: "query"
           required: false
@@ -1559,7 +1668,9 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
+            description: "The phone number or ID of the customer."
             title: "Customer Number"
+          description: "The phone number or ID of the customer."
         - name: "start_time"
           in: "query"
           required: false
@@ -1568,7 +1679,9 @@ paths:
               - type: "string"
                 format: "date-time"
               - type: "null"
+            description: "The timestamp of the call's beginning"
             title: "Start Time"
+          description: "The timestamp of the call's beginning"
         - name: "end_time"
           in: "query"
           required: false
@@ -1577,7 +1690,9 @@ paths:
               - type: "string"
                 format: "date-time"
               - type: "null"
+            description: "The timestamp of the call's end."
             title: "End Time"
+          description: "The timestamp of the call's end."
         - name: "duration"
           in: "query"
           required: false
@@ -1585,7 +1700,9 @@ paths:
             anyOf:
               - type: "number"
               - type: "null"
+            description: "The call duration in seconds."
             title: "Duration"
+          description: "The call duration in seconds."
         - name: "metadata"
           in: "query"
           required: false
@@ -1968,7 +2085,7 @@ paths:
       tags:
         - "insights.workflows"
       summary: "Delete Insights Workflow"
-      description: "Delete a Insights workflow."
+      description: "Delete an Insights workflow."
       operationId: "insights_workflow_delete"
       security:
         - APIKeyHeader: []
@@ -2000,8 +2117,8 @@ paths:
     put:
       tags:
         - "insights.workflows"
-      summary: "Update Insights Workflow"
-      description: "Update a InsightWorkflow."
+      summary: "Inactivate Insights Workflow"
+      description: "Inactivate an InsightWorkflow."
       operationId: "insights_workflow_inactivate"
       security:
         - APIKeyHeader: []
@@ -2031,8 +2148,8 @@ paths:
     put:
       tags:
         - "insights.workflows"
-      summary: "Update Insights Workflow"
-      description: "Update a InsightWorkflow."
+      summary: "Activate Insights Workflow"
+      description: "Activate an InsightWorkflow."
       operationId: "insights_workflow_activate"
       security:
         - APIKeyHeader: []
@@ -2094,11 +2211,11 @@ paths:
               schema: {"$ref": "#/components/schemas/HTTPValidationError"}
       security:
         - APIKeyHeader: []
-  "/api/v1/insights/tools":
+  "/api/v1/insights/tool-configurations":
     get:
       tags:
         - "insights.tools"
-      summary: "Insight Tool List"
+      summary: "List Insight Tool Configurations"
       description: "List the existing insight_tools"
       operationId: "insight_tool_list"
       security:
@@ -2227,7 +2344,7 @@ paths:
     post:
       tags:
         - "insights.tools"
-      summary: "Create Insight Tool"
+      summary: "Create Insight Tool Configuration"
       description: "Create a new insight tool."
       operationId: "insights_tool_create"
       security:
@@ -2252,11 +2369,11 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/HTTPValidationError"}
-  "/api/v1/insights/tools/{tool_id}":
+  "/api/v1/insights/tool-configurations/{tool_id}":
     get:
       tags:
         - "insights.tools"
-      summary: "Get Insight Tool By Id"
+      summary: "Get Insight Tool Config By Id"
       description: "Get a InsightTool by Name."
       operationId: "insight_tool_get_by_id"
       security:
@@ -2282,7 +2399,7 @@ paths:
     put:
       tags:
         - "insights.tools"
-      summary: "Update Insights Tool"
+      summary: "Update Insights Tool Configuration"
       description: "Update an Insights tool."
       operationId: "insights_tool_update"
       security:
@@ -5133,19 +5250,25 @@ paths:
           in: "query"
           required: false
           schema:
-            type: "string"
+            anyOf:
+              - type: "string"
+              - type: "null"
             title: "Reference Id"
         - name: "status"
           in: "query"
           required: false
           schema:
-            type: "string"
+            anyOf:
+              - type: "string"
+              - type: "null"
             title: "Status"
         - name: "insights_status"
           in: "query"
           required: false
           schema:
-            type: "string"
+            anyOf:
+              - type: "string"
+              - type: "null"
             title: "Insights Status"
       responses:
         "200":
@@ -5680,6 +5803,32 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+  "/api/v1/language_groups/voices/sample":
+    post:
+      tags:
+        - "language_groups"
+      summary: "Create Voice Sample"
+      description: "Generate voice sample."
+      operationId: "language_groups_create_voice_sample"
+      requestBody:
+        content:
+          "application/json":
+            schema: {"$ref": "#/components/schemas/VoiceSampleCreateRequest"}
+        required: true
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/octet-stream":
+              schema:
+                type: "string"
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+      security:
+        - APIKeyHeader: []
   "/api/v1/takeouts/create":
     post:
       tags:
@@ -5715,6 +5864,38 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/TakeoutStatusResponse"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+  "/api/v1/takeouts/get/{job_id}/file/{file_name}":
+    get:
+      tags:
+        - "takeouts"
+      summary: "Get File"
+      operationId: "takeouts_get_file"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "job_id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            title: "Job Id"
+        - name: "file_name"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            title: "File Name"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {}
         "422":
           description: "Validation Error"
           content:
@@ -6352,7 +6533,7 @@ components:
     "AgentVoiceModel":
       type: "string"
       enum:
-        - "Eleven_Turbo_v2_5"
+        - "eleven_flash_v2_5"
         - "Neural2"
         - "Standard"
         - "Studio"
@@ -6464,7 +6645,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20250425.9"
+            - "20250510.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -6479,7 +6660,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-04-26T00:00:00Z"
+            - "2025-05-11T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -6504,7 +6685,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-05-10T00:00:00Z"
         "deleted_at":
           anyOf:
             - type: "string"
@@ -6513,7 +6694,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-05-10T00:00:00Z"
         "deleted_reason":
           anyOf:
             - type: "string"
@@ -6530,7 +6711,7 @@ components:
           title: "Last Updated At"
           description: "Timestamp of last change to batch"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-05-10T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -6647,6 +6828,13 @@ components:
           description: "The comma-delimited list of supported modes for the channel, which defines the       possible communication methods for channel targets linked to it."
           examples:
             - ["chat", "voice"]
+        "is_system_channel":
+          type: "boolean"
+          title: "Is System Channel"
+          description: "Whether the channel is a built-in system channel (i.e., is not customizable)"
+          default: true
+          examples:
+            - false
         "id":
           type: "integer"
           title: "Id"
@@ -6662,6 +6850,7 @@ components:
       enum:
         - "id"
         - "name"
+        - "name_exact"
         - "channel_service"
         - "supported_modes"
       title: "ChannelProperties"
@@ -6869,7 +7058,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20250425.9"
+            - "20250510.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -6884,7 +7073,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-04-26T00:00:00Z"
+            - "2025-05-11T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -6909,7 +7098,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-05-10T00:00:00Z"
         "deleted_at":
           anyOf:
             - type: "string"
@@ -6918,7 +7107,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-05-10T00:00:00Z"
         "deleted_reason":
           anyOf:
             - type: "string"
@@ -6935,7 +7124,7 @@ components:
           title: "Last Updated At"
           description: "Timestamp of last change to batch"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-05-10T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -6964,7 +7153,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20250425.9"
+            - "20250510.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -6979,7 +7168,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-04-26T00:00:00Z"
+            - "2025-05-11T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -7072,7 +7261,7 @@ components:
           title: "Created At"
           description: "Timestamp of request creation"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-05-09T00:00:00Z"
         "sent_at":
           anyOf:
             - type: "string"
@@ -7081,7 +7270,7 @@ components:
           title: "Sent At"
           description: "Timestamp at which request was sent"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-05-10T00:00:00Z"
         "attempt_count":
           type: "integer"
           title: "Attempt Count"
@@ -7307,6 +7496,7 @@ components:
       enum:
         - "id"
         - "name"
+        - "name_exact"
         - "text"
         - "label"
         - "updated_at"
@@ -8234,14 +8424,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload folder was created"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-05-09T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight upload folder was last updated"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-05-10T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -8249,6 +8439,11 @@ components:
           examples:
             - "user@email.com"
         "folder_stats":
+          additionalProperties:
+            anyOf:
+              - type: "string"
+              - type: "integer"
+              - type: "number"
           type: "object"
           title: "Folder Stats"
           description: "Meta-data of insight upload files associated with the folder"
@@ -8610,13 +8805,11 @@ components:
           examples:
             - "An LLM tool evaluates a transcript with a given prompt"
         "tool_parameters":
-          type: "object"
           title: "Tool Parameters"
           description: "Parameters for tools that use this definition and their associated types"
           examples:
             - {"prompt": "string"}
         "tool_result_set":
-          type: "object"
           title: "Tool Result Set"
           description: "Result key/types for insight tool definition"
           examples:
@@ -8630,7 +8823,7 @@ components:
         - "tool_parameters"
         - "tool_result_set"
       title: "InsightToolDefinition"
-      description: "Model for an insight tool definition. This is a template that can be used by multiple insight\ntools, each providing their own parameter values."
+      description: "Model for an insight tool definition. This is a template that can be used by multiple insight\ntool configurations, each providing their own parameter values."
     "InsightToolInput":
       properties:
         "name":
@@ -8642,17 +8835,16 @@ components:
         "description":
           type: "string"
           title: "Description"
-          description: "Text description of insight tool"
+          description: "Text description of insight tool configuration"
           examples:
-            - "Default tool - generates a summary of the call"
+            - "This tool uses GPT4.1 to generate a summary of the call"
         "version":
           type: "integer"
           title: "Version"
-          description: "Version number of insight tool"
+          description: "Version number of insight tool configuration"
           examples:
             - 1
         "tool_arguments":
-          type: "object"
           title: "Tool Arguments"
           description: "Arguments for calling the insight tool"
           examples:
@@ -8660,7 +8852,7 @@ components:
         "insight_tool_definition_id":
           type: "integer"
           title: "Insight Tool Definition Id"
-          description: "Internal ID for the definition used by the insight tool"
+          description: "Internal ID for the definition used by the insight tool configuration"
           examples:
             - 1
       type: "object"
@@ -8671,7 +8863,7 @@ components:
         - "tool_arguments"
         - "insight_tool_definition_id"
       title: "InsightToolInput"
-      description: "Request model to create/update an insight tool."
+      description: "Request model to create/update an insight tool configuration."
     "InsightToolOutput":
       properties:
         "name":
@@ -8683,9 +8875,9 @@ components:
         "description":
           type: "string"
           title: "Description"
-          description: "Text description of insight tool"
+          description: "Text description of insight tool configuration"
           examples:
-            - "Default tool - generates a summary of the call"
+            - "This tool uses GPT4.1 to generate a summary of the call"
         "version":
           type: "integer"
           title: "Version"
@@ -8693,7 +8885,6 @@ components:
           examples:
             - 1
         "tool_arguments":
-          type: "object"
           title: "Tool Arguments"
           description: "Arguments for calling the insight tool"
           examples:
@@ -8701,7 +8892,7 @@ components:
         "insight_tool_definition_id":
           type: "integer"
           title: "Insight Tool Definition Id"
-          description: "Unique ID for insight tool definition used by insight tool"
+          description: "Unique ID for insight tool definition used by this tool configuration"
           examples:
             - 1
         "id":
@@ -8719,20 +8910,20 @@ components:
           type: "string"
           format: "date-time"
           title: "Created At"
-          description: "Timestamp of at which insight tool was created"
+          description: "Timestamp of at which insight tool configuration was created"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-05-09T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
-          description: "Timestamp at which insight tool was last updated"
+          description: "Timestamp at which insight tool configuration was last updated"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-05-10T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
-          description: "Email of user who last updated insight tool"
+          description: "Email of user who last updated insight tool configuration"
           examples:
             - "user@email.com"
       type: "object"
@@ -8745,7 +8936,7 @@ components:
         - "id"
         - "last_updated_by"
       title: "InsightToolOutput"
-      description: "Response model for an insight tool."
+      description: "Response model for an insight tool configuration."
     "InsightToolProperties":
       type: "string"
       enum:
@@ -8761,7 +8952,7 @@ components:
         "tool_name":
           type: "string"
           title: "Tool Name"
-          description: "Human readable name of insight tool"
+          description: "Human readable name of insight tool configuration"
           examples:
             - "summary-tool"
         "session_id":
@@ -8926,7 +9117,7 @@ components:
             type: "integer"
           type: "array"
           title: "Insight Tool Ids"
-          description: "List of IDs of insight tools used in the workflow"
+          description: "List of IDs of insight tool configurations used in the workflow"
           examples:
             - [1]
         "conditions": {"$ref": "#/components/schemas/InsightWorkflowCondition", "description": "Conditions for insight workflow to trigger on a given call recording."}
@@ -8938,7 +9129,7 @@ components:
           title: "Start Datetime"
           description: "Timestamp for when the insight workflow should start. An empty value indicates start on activation"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-05-09T00:00:00Z"
         "end_datetime":
           anyOf:
             - type: "string"
@@ -8947,7 +9138,7 @@ components:
           title: "End Datetime"
           description: "Timestamp of when the insight workflow should end. An empty value indicates no end"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-05-10T00:00:00Z"
       type: "object"
       required:
         - "name"
@@ -8985,7 +9176,7 @@ components:
             type: "integer"
           type: "array"
           title: "Insight Tool Ids"
-          description: "List of IDs of insight tools used in the workflow"
+          description: "List of IDs of insight tool configurations used in the workflow"
           examples:
             - [1]
         "conditions": {"$ref": "#/components/schemas/InsightWorkflowCondition", "description": "Conditions for insight workflow to trigger on a given call recording."}
@@ -8997,7 +9188,7 @@ components:
           title: "Start Datetime"
           description: "Timestamp for when the insight workflow should start. An empty value indicates start on activation"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-05-09T00:00:00Z"
         "end_datetime":
           anyOf:
             - type: "string"
@@ -9006,7 +9197,7 @@ components:
           title: "End Datetime"
           description: "Timestamp of when the insight workflow should end. An empty value indicates no end"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-05-10T00:00:00Z"
         "id":
           type: "integer"
           title: "Id"
@@ -9017,7 +9208,7 @@ components:
           items: {"$ref": "#/components/schemas/InsightToolOutput"}
           type: "array"
           title: "Insight Tools"
-          description: "List of insight tools used in the workflow"
+          description: "List of insight tool configurations used in the workflow"
         "status":
           type: "string"
           title: "Status"
@@ -9025,21 +9216,21 @@ components:
           examples:
             - "ACTIVE"
             - "INACTIVE"
-        "estimate": {"$ref": "#/components/schemas/InsightWorkflowEstimate", "description": "Estimate of the number of calls that will be processed by the workflow"}
+        "estimate": {"$ref": "#/components/schemas/InsightWorkflowEstimate", "description": "Estimate of the number of calls that will be processed by the workflow and their cost"}
         "created_at":
           type: "string"
           format: "date-time"
           title: "Created At"
           description: "Timestamp at which the insight workflow was created"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-05-09T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of most recent update to the insight workflow"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-05-10T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -9107,14 +9298,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload folder was created"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-05-09T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight upload folder was last updated"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-05-10T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -9170,7 +9361,7 @@ components:
         "id":
           type: "integer"
           title: "Id"
-          description: "Unique ID for insight tool"
+          description: "Unique ID of the insight"
           examples:
             - 1
         "session_id":
@@ -9178,7 +9369,7 @@ components:
             - type: "integer"
             - type: "null"
           title: "Session Id"
-          description: "Unique ID for session"
+          description: "Unique ID for the session"
           examples:
             - 12341
         "upload_file_id":
@@ -9192,13 +9383,13 @@ components:
         "insight_tool_id":
           type: "integer"
           title: "Insight Tool Id"
-          description: "Unique ID for insight tool"
+          description: "Unique ID for insight tool configuration"
           examples:
             - 34531
         "insight_tool_version":
           type: "integer"
           title: "Insight Tool Version"
-          description: "Version of insight tool"
+          description: "Version of insight tool configuration"
           examples:
             - 1
         "insight_key":
@@ -9224,6 +9415,11 @@ components:
           examples:
             - 1
         "json_value":
+          additionalProperties:
+            anyOf:
+              - type: "string"
+              - type: "integer"
+              - type: "number"
           type: "object"
           title: "Json Value"
           description: "JSON value of insight tool result"
@@ -9235,14 +9431,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight tool result was created"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-05-09T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool result was last updated"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-05-10T00:00:00Z"
       type: "object"
       required:
         - "id"
@@ -9329,7 +9525,7 @@ components:
           title: "Start Time"
           description: "Start time of the uploaded file"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-05-09T00:00:00Z"
         "end_time":
           anyOf:
             - type: "string"
@@ -9338,7 +9534,7 @@ components:
           title: "End Time"
           description: "End time of the uploaded file"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-05-10T00:00:00Z"
         "error_message":
           anyOf:
             - type: "string"
@@ -9349,7 +9545,12 @@ components:
             - "File not found"
         "metadata":
           anyOf:
-            - type: "object"
+            - additionalProperties:
+                anyOf:
+                  - type: "string"
+                  - type: "integer"
+                  - type: "number"
+              type: "object"
             - type: "null"
           title: "Metadata"
           description: "Meta-data associated with the uploaded file"
@@ -9361,7 +9562,7 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload file was created"
           examples:
-            - "2025-04-24T00:00:00Z"
+            - "2025-05-09T00:00:00Z"
       type: "object"
       required:
         - "id"
@@ -10858,14 +11059,14 @@ components:
           title: "Created At"
           description: "Timestamp of campaign creation"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-05-10T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of campaign update"
           examples:
-            - "2025-04-25T00:00:00Z"
+            - "2025-05-10T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -11028,7 +11229,7 @@ components:
         "include_default_tools":
           type: "boolean"
           title: "Include Default Tools"
-          description: "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."
+          description: "Whether to include the default tools (`hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."
           default: true
           examples:
             - true
@@ -11161,6 +11362,7 @@ components:
       enum:
         - "id"
         - "name"
+        - "name_exact"
         - "description"
         - "name_description"
         - "context"
@@ -11324,7 +11526,7 @@ components:
         "include_default_tools":
           type: "boolean"
           title: "Include Default Tools"
-          description: "Whether to include the default tools (`hangup`, `summary`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."
+          description: "Whether to include the default tools (`hangup`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."
           default: true
           examples:
             - true
@@ -12102,13 +12304,13 @@ components:
           type: "string"
           format: "date-time"
           title: "Updated At"
-        "download_links":
+        "file_names":
           anyOf:
             - items:
                 type: "string"
               type: "array"
             - type: "null"
-          title: "Download Links"
+          title: "File Names"
       type: "object"
       required:
         - "job_id"
@@ -12667,6 +12869,121 @@ components:
         - "Google"
       title: "TtsProvider"
       description: "TTS provider for an agent voice."
+    "TwilioChannelConfigCreate":
+      properties:
+        "account_sid":
+          type: "string"
+          title: "Account Sid"
+          description: "SID of the Twilio account"
+          examples:
+            - "AC123..."
+        "auth_token":
+          type: "string"
+          title: "Auth Token"
+          description: "The Twilio auth token"
+          examples:
+            - "sometoken"
+      type: "object"
+      required:
+        - "account_sid"
+        - "auth_token"
+      title: "TwilioChannelConfigCreate"
+      description: "Twilio channel config information."
+    "TwilioChannelConfigUpdate":
+      properties:
+        "account_sid":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Account Sid"
+          description: "SID of the Twilio account"
+          examples:
+            - "AC123..."
+        "auth_token":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Auth Token"
+          description: "The Twilio auth token"
+          examples:
+            - "sometoken"
+      type: "object"
+      title: "TwilioChannelConfigUpdate"
+      description: "Twilio channel config information. If a field is passed as None, it will not be updated."
+    "TwilioChannelCreateRequest":
+      properties:
+        "name":
+          type: "string"
+          title: "Name"
+          description: "The channel name"
+          examples:
+            - "syllable-webchat"
+        "config": {"$ref": "#/components/schemas/TwilioChannelConfigCreate", "description": "The configuration of the channel"}
+      type: "object"
+      required:
+        - "name"
+        - "config"
+      title: "TwilioChannelCreateRequest"
+      description: "Request model for creating a Twilio channel."
+    "TwilioChannelUpdateRequest":
+      properties:
+        "id":
+          type: "integer"
+          title: "Id"
+          description: "The internal ID of the channel"
+          examples:
+            - 1
+        "name":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Name"
+          description: "The name of the channel"
+          examples:
+            - "syllable-webchat"
+        "config":
+          anyOf:
+            - {"$ref": "#/components/schemas/TwilioChannelConfigUpdate"}
+            - type: "null"
+          description: "The configuration of the channel"
+      type: "object"
+      required:
+        - "id"
+      title: "TwilioChannelUpdateRequest"
+      description: "Request model for updating a Twilio channel."
+    "TwilioNumberAddRequest":
+      properties:
+        "friendly_name":
+          type: "string"
+          title: "Friendly Name"
+          description: "Friendly name for the Twilio number"
+          examples:
+            - "Support Line"
+        "area_code":
+          type: "string"
+          title: "Area Code"
+          description: "Area code for the Twilio number"
+          examples:
+            - "804"
+      type: "object"
+      required:
+        - "friendly_name"
+        - "area_code"
+      title: "TwilioNumberAddRequest"
+      description: "Request model for purchasing a Twilio number and associating it with a channel."
+    "TwilioNumberAddResponse":
+      properties:
+        "phone_number":
+          type: "string"
+          title: "Phone Number"
+          description: "The purchased Twilio phone number"
+          examples:
+            - "+18042221111"
+      type: "object"
+      required:
+        - "phone_number"
+      title: "TwilioNumberAddResponse"
+      description: "Response model for purchasing a Twilio number and associating it with a channel."
     "ValidationError":
       properties:
         "loc":
@@ -12688,6 +13005,34 @@ components:
         - "msg"
         - "type"
       title: "ValidationError"
+    "VoiceSampleCreateRequest":
+      properties:
+        "language_code": {"$ref": "#/components/schemas/LanguageCode", "description": "BCP 47 code of the language", "examples": ["en-US"]}
+        "voice_provider": {"$ref": "#/components/schemas/TtsProvider", "description": "TTS provider of the voice to use for the language", "examples": ["OpenAI"]}
+        "voice_display_name": {"$ref": "#/components/schemas/AgentVoiceDisplayName", "description": "Display name of the voice to use for the language", "examples": ["Alloy"]}
+        "voice_speed":
+          anyOf:
+            - type: "number"
+            - type: "null"
+          title: "Voice Speed"
+          description: "Speed of the voice in the range of 0.25 to 4.0 (OpenAI and Google) or 0.7 to 1.2 (ElevenLabs). Standard speed is 1.0."
+          examples:
+            - 1
+        "voice_pitch":
+          anyOf:
+            - type: "number"
+            - type: "null"
+          title: "Voice Pitch"
+          description: "Pitch of the voice in the range of -20.0 to 20.0. 20 means increase 20 semitones from the original pitch. -20 means decrease 20 semitones from the original pitch. 0 means use the original pitch. Only supported for Google configs."
+          examples:
+            - 0
+      type: "object"
+      required:
+        - "language_code"
+        - "voice_provider"
+        - "voice_display_name"
+      title: "VoiceSampleCreateRequest"
+      description: "Request model to generate a sample audio file for a given voice and language."
   securitySchemes:
     "APIKeyHeader":
       type: "apiKey"
@@ -12700,6 +13045,10 @@ tags:
     description: "Operations for testing agents with live text.           These endpoints allow sending messages to an agent and receiving its responses."
   - name: "channels"
     description: "Operations related to channel configuration.           A channel is an organization-level point of communication, like a phone number or a web           chat. A channel can be associated with an agent by creating a channel target linking           them."
+  - name: "channels.twilio"
+    description: "Operations related to Twilio channel configuration."
+  - name: "channels.twilio.numbers"
+    description: "Operations related to setting up phone numbers in Twilio for use in channels."
   - name: "channels.targets"
     description: "Operations related to channel target configuration. A channel target           links a channel to an agent, allowing users to communicate with the agent through that           channel. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Channels)."
   - name: "conversations"
@@ -12721,7 +13070,7 @@ tags:
   - name: "insights.folders"
     description: "Operations related to insights upload folders. An insight folder is used          to upload call recordings for insight workflow analysis."
   - name: "insights.tools"
-    description: "Operations related to insights tools. An insight is a tool that processes           conversation data to extract information and generate reports."
+    description: "Operations related to insights tool configurationss. An insight is a tool           that processes conversation data to extract information and generate reports."
   - name: "insights.workflows"
     description: "Operations related to insights workflows. An workflow is series of tool           invocations that processes conversation data to extract information and generate reports."
   - name: "language_groups"

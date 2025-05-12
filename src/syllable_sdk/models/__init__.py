@@ -67,6 +67,14 @@ from .channel_targets_updateop import (
 )
 from .channelproperties import ChannelProperties
 from .channels_listop import ChannelsListRequest, ChannelsListRequestTypedDict
+from .channels_twilio_get_by_idop import (
+    ChannelsTwilioGetByIDRequest,
+    ChannelsTwilioGetByIDRequestTypedDict,
+)
+from .channels_twilio_numbers_addop import (
+    ChannelsTwilioNumbersAddRequest,
+    ChannelsTwilioNumbersAddRequestTypedDict,
+)
 from .channelservices import ChannelServices
 from .channeltargetcreaterequest import (
     ChannelTargetCreateRequest,
@@ -284,26 +292,9 @@ from .insightsworkflowqueuesession import (
     InsightsWorkflowQueueSession,
     InsightsWorkflowQueueSessionTypedDict,
 )
-from .insighttooldefinition import (
-    InsightToolDefinition,
-    InsightToolDefinitionTypedDict,
-    ToolParameters,
-    ToolParametersTypedDict,
-    ToolResultSet,
-    ToolResultSetTypedDict,
-)
-from .insighttoolinput import (
-    InsightToolInput,
-    InsightToolInputToolArguments,
-    InsightToolInputToolArgumentsTypedDict,
-    InsightToolInputTypedDict,
-)
-from .insighttooloutput import (
-    InsightToolOutput,
-    InsightToolOutputToolArguments,
-    InsightToolOutputToolArgumentsTypedDict,
-    InsightToolOutputTypedDict,
-)
+from .insighttooldefinition import InsightToolDefinition, InsightToolDefinitionTypedDict
+from .insighttoolinput import InsightToolInput, InsightToolInputTypedDict
+from .insighttooloutput import InsightToolOutput, InsightToolOutputTypedDict
 from .insighttoolproperties import InsightToolProperties
 from .insighttooltestinput import InsightToolTestInput, InsightToolTestInputTypedDict
 from .insightworkflowactivate import (
@@ -574,6 +565,7 @@ from .takeouts_get_by_job_idop import (
     TakeoutsGetByJobIDRequest,
     TakeoutsGetByJobIDRequestTypedDict,
 )
+from .takeouts_get_fileop import TakeoutsGetFileRequest, TakeoutsGetFileRequestTypedDict
 from .takeoutstatusresponse import TakeoutStatusResponse, TakeoutStatusResponseTypedDict
 from .targetmodes import TargetModes
 from .testmessage import TestMessage, TestMessageTypedDict
@@ -616,11 +608,39 @@ from .toolresponse import ToolResponse, ToolResponseTypedDict
 from .toolresultdata import ToolResultData, ToolResultDataTypedDict
 from .toolupdaterequest import ToolUpdateRequest, ToolUpdateRequestTypedDict
 from .ttsprovider import TtsProvider
+from .twiliochannelconfigcreate import (
+    TwilioChannelConfigCreate,
+    TwilioChannelConfigCreateTypedDict,
+)
+from .twiliochannelconfigupdate import (
+    TwilioChannelConfigUpdate,
+    TwilioChannelConfigUpdateTypedDict,
+)
+from .twiliochannelcreaterequest import (
+    TwilioChannelCreateRequest,
+    TwilioChannelCreateRequestTypedDict,
+)
+from .twiliochannelupdaterequest import (
+    TwilioChannelUpdateRequest,
+    TwilioChannelUpdateRequestTypedDict,
+)
+from .twilionumberaddrequest import (
+    TwilioNumberAddRequest,
+    TwilioNumberAddRequestTypedDict,
+)
+from .twilionumberaddresponse import (
+    TwilioNumberAddResponse,
+    TwilioNumberAddResponseTypedDict,
+)
 from .validationerror import (
     Loc,
     LocTypedDict,
     ValidationError,
     ValidationErrorTypedDict,
+)
+from .voicesamplecreaterequest import (
+    VoiceSampleCreateRequest,
+    VoiceSampleCreateRequestTypedDict,
 )
 
 # Pydantic models with forward references
@@ -702,6 +722,10 @@ __all__ = [
     "ChannelTypedDict",
     "ChannelsListRequest",
     "ChannelsListRequestTypedDict",
+    "ChannelsTwilioGetByIDRequest",
+    "ChannelsTwilioGetByIDRequestTypedDict",
+    "ChannelsTwilioNumbersAddRequest",
+    "ChannelsTwilioNumbersAddRequestTypedDict",
     "CommunicationBatch",
     "CommunicationBatchInput",
     "CommunicationBatchInputTypedDict",
@@ -808,14 +832,10 @@ __all__ = [
     "InsightToolGetByIDRequest",
     "InsightToolGetByIDRequestTypedDict",
     "InsightToolInput",
-    "InsightToolInputToolArguments",
-    "InsightToolInputToolArgumentsTypedDict",
     "InsightToolInputTypedDict",
     "InsightToolListRequest",
     "InsightToolListRequestTypedDict",
     "InsightToolOutput",
-    "InsightToolOutputToolArguments",
-    "InsightToolOutputToolArgumentsTypedDict",
     "InsightToolOutputTypedDict",
     "InsightToolProperties",
     "InsightToolTestInput",
@@ -1069,6 +1089,8 @@ __all__ = [
     "TakeoutStatusResponseTypedDict",
     "TakeoutsGetByJobIDRequest",
     "TakeoutsGetByJobIDRequestTypedDict",
+    "TakeoutsGetFileRequest",
+    "TakeoutsGetFileRequestTypedDict",
     "TargetModes",
     "TestMessage",
     "TestMessageResponse",
@@ -1100,8 +1122,6 @@ __all__ = [
     "ToolParameterTransformCondition",
     "ToolParameterTransformConditionTypedDict",
     "ToolParameterTransformTypedDict",
-    "ToolParameters",
-    "ToolParametersTypedDict",
     "ToolPromptInfo",
     "ToolPromptInfoTypedDict",
     "ToolProperties",
@@ -1109,12 +1129,24 @@ __all__ = [
     "ToolResponseTypedDict",
     "ToolResultData",
     "ToolResultDataTypedDict",
-    "ToolResultSet",
-    "ToolResultSetTypedDict",
     "ToolUpdateRequest",
     "ToolUpdateRequestTypedDict",
     "TtsProvider",
+    "TwilioChannelConfigCreate",
+    "TwilioChannelConfigCreateTypedDict",
+    "TwilioChannelConfigUpdate",
+    "TwilioChannelConfigUpdateTypedDict",
+    "TwilioChannelCreateRequest",
+    "TwilioChannelCreateRequestTypedDict",
+    "TwilioChannelUpdateRequest",
+    "TwilioChannelUpdateRequestTypedDict",
+    "TwilioNumberAddRequest",
+    "TwilioNumberAddRequestTypedDict",
+    "TwilioNumberAddResponse",
+    "TwilioNumberAddResponseTypedDict",
     "Type",
     "ValidationError",
     "ValidationErrorTypedDict",
+    "VoiceSampleCreateRequest",
+    "VoiceSampleCreateRequestTypedDict",
 ]
