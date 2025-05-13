@@ -222,6 +222,7 @@ with SyllableSDK(
     res = ss_client.insights.tools.insights_tool_test(request={
         "tool_name": "summary-tool",
         "session_id": 283467,
+        "upload_file_id": 283467,
     })
 
     # Handle response

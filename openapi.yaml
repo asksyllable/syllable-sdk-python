@@ -8959,15 +8959,24 @@ components:
           examples:
             - "summary-tool"
         "session_id":
-          type: "integer"
+          anyOf:
+            - type: "integer"
+            - type: "null"
           title: "Session Id"
-          description: "The session ID of the session to run the tool against"
+          description: "The session ID of the session against which to run the tool"
+          examples:
+            - "283467"
+        "upload_file_id":
+          anyOf:
+            - type: "integer"
+            - type: "null"
+          title: "Upload File Id"
+          description: "The file ID of the uploaded file against which to run the tool"
           examples:
             - "283467"
       type: "object"
       required:
         - "tool_name"
-        - "session_id"
       title: "InsightToolTestInput"
       description: "Request model to test an insight tool."
     "InsightWorkflowActivate":
