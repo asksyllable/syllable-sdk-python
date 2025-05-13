@@ -8944,6 +8944,7 @@ components:
       enum:
         - "id"
         - "name"
+        - "name_exact"
         - "description"
         - "tool_arguments"
         - "insight_tool_definition_id"
@@ -9258,6 +9259,7 @@ components:
       enum:
         - "id"
         - "name"
+        - "name_exact"
         - "description"
         - "status"
         - "conditions"
@@ -9355,6 +9357,7 @@ components:
       enum:
         - "id"
         - "name"
+        - "name_exact"
         - "label"
         - "updated_at"
       title: "InsightsFolderProperties"
