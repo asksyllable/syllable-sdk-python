@@ -7,6 +7,7 @@
 | ------------------ | ------------------ |
 | `ID`               | id                 |
 | `NAME`             | name               |
+| `NAME_EXACT`       | name_exact         |
 | `DESCRIPTION`      | description        |
 | `STATUS`           | status             |
 | `CONDITIONS`       | conditions         |
