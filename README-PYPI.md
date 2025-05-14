@@ -348,6 +348,7 @@ with SyllableSDK(
 * [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/campaigns/README.md#create) - Create Outbound Communication Campaign
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/campaigns/README.md#get_by_id) - Get Outbound Communication Campaign
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/campaigns/README.md#update) - Update Outbound Communication Campaign
+* [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/campaigns/README.md#delete) - Delete Outbound Communication Campaign
 
 ### [prompts](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/prompts/README.md)
 
