@@ -2742,6 +2742,52 @@
           }
         }
       },
+      "delete": {
+        "tags": [
+          "insights.folders"
+        ],
+        "summary": "Delete Insights Folder",
+        "operationId": "insights_folder_delete",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "folder_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Folder Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean",
+                  "title": "Response Insights Folder Delete"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
       "put": {
         "tags": [
           "insights.folders"
@@ -3181,6 +3227,67 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ListResponse_InsightsUploadFile_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/insights/folders/{folder_id}/move-files": {
+      "post": {
+        "tags": [
+          "insights.folders"
+        ],
+        "summary": "Move Insights Upload Files",
+        "operationId": "insights_upload_move_files",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "folder_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Folder Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsightsFolderFileMove"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InsightsUploadFile"
+                  },
+                  "title": "Response Insights Upload Move Files"
                 }
               }
             }
@@ -4103,6 +4210,62 @@
                 }
               }
             }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "insights.tools"
+        ],
+        "summary": "Delete Insight Tool Configuration",
+        "description": "Delete an Insights tool configuration.",
+        "operationId": "insights_tool_delete",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "tool_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Tool Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
           },
           "422": {
             "description": "Validation Error",
@@ -15615,6 +15778,36 @@
         "title": "InsightsFolder",
         "description": "Response model for an insight upload folder."
       },
+      "InsightsFolderFileMove": {
+        "properties": {
+          "destination_folder_id": {
+            "type": "integer",
+            "title": "Destination Folder Id",
+            "description": "System-assign folder ID",
+            "examples": [
+              182764
+            ]
+          },
+          "file_id_list": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "File Id List",
+            "description": "List of system-assigned IDs for the files to be moved",
+            "examples": [
+              "[12334,23445,34556]"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "destination_folder_id",
+          "file_id_list"
+        ],
+        "title": "InsightsFolderFileMove",
+        "description": "Request model to move files between insight upload folders."
+      },
       "InsightsFolderInput": {
         "properties": {
           "name": {
@@ -21919,6 +22112,10 @@
     {
       "operationId": ".*_list_files$",
       "methodNameOverride": "list_files"
+    },
+    {
+      "operationId": ".*_move_files$",
+      "methodNameOverride": "move_files"
     },
     {
       "operationId": ".*_upload_file$",
