@@ -10,9 +10,11 @@ Operations related to insights upload folders. An insight folder is used        
 * [list](#list) - List Insights Upload Folders
 * [create](#create) - Create Insights Upload Folder
 * [get_by_id](#get_by_id) - Get Insights Folder Details
+* [delete](#delete) - Delete Insights Folder
 * [update](#update) - Update Insights Folder
 * [upload_file](#upload_file) - Upload Insights  Upload Folder
 * [list_files](#list_files) - Fetch Insights Upload Files
+* [move_files](#move_files) - Move Insights Upload Files
 
 ## list
 
@@ -143,6 +145,46 @@ with SyllableSDK(
 ### Response
 
 **[models.FolderDetails](../../models/folderdetails.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## delete
+
+Delete Insights Folder
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.insights.folders.delete(folder_id=545907)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `folder_id`                                                         | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[bool](../../models/.md)**
 
 ### Errors
 
@@ -290,6 +332,52 @@ with SyllableSDK(
 ### Response
 
 **[models.ListResponseInsightsUploadFile](../../models/listresponseinsightsuploadfile.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## move_files
+
+Move Insights Upload Files
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.insights.folders.move_files(folder_id=623467, insights_folder_file_move={
+        "destination_folder_id": 182764,
+        "file_id_list": [
+            [12334,23445,34556],
+        ],
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `folder_id`                                                             | *int*                                                                   | :heavy_check_mark:                                                      | N/A                                                                     |
+| `insights_folder_file_move`                                             | [models.InsightsFolderFileMove](../../models/insightsfolderfilemove.md) | :heavy_check_mark:                                                      | N/A                                                                     |
+| `retries`                                                               | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)        | :heavy_minus_sign:                                                      | Configuration to override the default retry behavior of the client.     |
+
+### Response
+
+**[List[models.InsightsUploadFile]](../../models/.md)**
 
 ### Errors
 

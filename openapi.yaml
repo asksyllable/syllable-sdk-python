@@ -1598,6 +1598,33 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+    delete:
+      tags:
+        - "insights.folders"
+      summary: "Delete Insights Folder"
+      operationId: "insights_folder_delete"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "folder_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Folder Id"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema:
+                type: "boolean"
+                title: "Response Insights Folder Delete"
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
     put:
       tags:
         - "insights.folders"
@@ -1856,6 +1883,40 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/ListResponse_InsightsUploadFile_"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+  "/api/v1/insights/folders/{folder_id}/move-files":
+    post:
+      tags:
+        - "insights.folders"
+      summary: "Move Insights Upload Files"
+      operationId: "insights_upload_move_files"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "folder_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Folder Id"
+      requestBody:
+        required: true
+        content:
+          "application/json":
+            schema: {"$ref": "#/components/schemas/InsightsFolderFileMove"}
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema:
+                type: "array"
+                items: {"$ref": "#/components/schemas/InsightsUploadFile"}
+                title: "Response Insights Upload Move Files"
         "422":
           description: "Validation Error"
           content:
@@ -2391,6 +2452,40 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/InsightToolOutput"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+    delete:
+      tags:
+        - "insights.tools"
+      summary: "Delete Insight Tool Configuration"
+      description: "Delete an Insights tool configuration."
+      operationId: "insights_tool_delete"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "tool_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Tool Id"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {}
+        "400":
+          description: "Bad Request"
+        "404":
+          description: "Not Found"
+        "412":
+          description: "Precondition Failed"
+        "500":
+          description: "Internal Server Error"
         "422":
           description: "Validation Error"
           content:
@@ -9357,6 +9452,28 @@ components:
         - "last_updated_by"
       title: "InsightsFolder"
       description: "Response model for an insight upload folder."
+    "InsightsFolderFileMove":
+      properties:
+        "destination_folder_id":
+          type: "integer"
+          title: "Destination Folder Id"
+          description: "System-assign folder ID"
+          examples:
+            - 182764
+        "file_id_list":
+          items:
+            type: "integer"
+          type: "array"
+          title: "File Id List"
+          description: "List of system-assigned IDs for the files to be moved"
+          examples:
+            - "[12334,23445,34556]"
+      type: "object"
+      required:
+        - "destination_folder_id"
+        - "file_id_list"
+      title: "InsightsFolderFileMove"
+      description: "Request model to move files between insight upload folders."
     "InsightsFolderInput":
       properties:
         "name":
@@ -13128,4 +13245,4 @@ tags:
     description: "Operations related to labeling sessions with evaluations of quality and           descriptions of issues the user encountered or other details. For more information, see           [Console docs](https://docs.syllable.ai/workspaces/Sessions)."
   - name: "tools"
     description: "Operations related to tool configuration. A tool is a function that an           agent can call to perform actions like accessing databases, making API calls, or           processing data. For an agent to have access to a tool, the prompt associated with that           agent should be linked to the tool and include instructions to use it. For more           information, see [Console docs](https://docs.syllable.ai/Resources/Tools)."
-x-speakeasy-name-override: [{"operationId": ".*_list$", "methodNameOverride": "list"}, {"operationId": ".*_create$", "methodNameOverride": "create"}, {"operationId": ".*_update$", "methodNameOverride": "update"}, {"operationId": ".*_upload$", "methodNameOverride": "upload"}, {"operationId": ".*_delete$", "methodNameOverride": "delete"}, {"operationId": ".*_get_by_id$", "methodNameOverride": "get_by_id"}, {"operationId": ".*_get_by_name$", "methodNameOverride": "get_by_name"}, {"operationId": ".*_add$", "methodNameOverride": "add"}, {"operationId": ".*_remove$", "methodNameOverride": "remove"}, {"operationId": ".*_results$", "methodNameOverride": "results"}, {"operationId": ".*_queue_work$", "methodNameOverride": "queue_work"}, {"operationId": ".*_activate$", "methodNameOverride": "activate"}, {"operationId": ".*_inactivate$", "methodNameOverride": "inactivate"}, {"operationId": ".*_list_files$", "methodNameOverride": "list_files"}, {"operationId": ".*_upload_file$", "methodNameOverride": "upload_file"}]
+x-speakeasy-name-override: [{"operationId": ".*_list$", "methodNameOverride": "list"}, {"operationId": ".*_create$", "methodNameOverride": "create"}, {"operationId": ".*_update$", "methodNameOverride": "update"}, {"operationId": ".*_upload$", "methodNameOverride": "upload"}, {"operationId": ".*_delete$", "methodNameOverride": "delete"}, {"operationId": ".*_get_by_id$", "methodNameOverride": "get_by_id"}, {"operationId": ".*_get_by_name$", "methodNameOverride": "get_by_name"}, {"operationId": ".*_add$", "methodNameOverride": "add"}, {"operationId": ".*_remove$", "methodNameOverride": "remove"}, {"operationId": ".*_results$", "methodNameOverride": "results"}, {"operationId": ".*_queue_work$", "methodNameOverride": "queue_work"}, {"operationId": ".*_activate$", "methodNameOverride": "activate"}, {"operationId": ".*_inactivate$", "methodNameOverride": "inactivate"}, {"operationId": ".*_list_files$", "methodNameOverride": "list_files"}, {"operationId": ".*_move_files$", "methodNameOverride": "move_files"}, {"operationId": ".*_upload_file$", "methodNameOverride": "upload_file"}]

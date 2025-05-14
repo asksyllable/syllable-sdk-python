@@ -294,15 +294,18 @@ with SyllableSDK(
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/folders/README.md#list) - List Insights Upload Folders
 * [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/folders/README.md#create) - Create Insights Upload Folder
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/folders/README.md#get_by_id) - Get Insights Folder Details
+* [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/folders/README.md#delete) - Delete Insights Folder
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/folders/README.md#update) - Update Insights Folder
 * [upload_file](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/folders/README.md#upload_file) - Upload Insights  Upload Folder
 * [list_files](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/folders/README.md#list_files) - Fetch Insights Upload Files
+* [move_files](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/folders/README.md#move_files) - Move Insights Upload Files
 
 #### [insights.tools](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md)
 
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#list) - List Insight Tool Configurations
 * [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#create) - Create Insight Tool Configuration
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#get_by_id) - Get Insight Tool Config By Id
+* [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#delete) - Delete Insight Tool Configuration
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#update) - Update Insights Tool Configuration
 * [insights_tool_test](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#insights_tool_test) - Test Insights Tool
 * [insight_tool_get_definitions](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/insightstools/README.md#insight_tool_get_definitions) - Get Insight Tool Definitions
