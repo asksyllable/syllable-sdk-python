@@ -3,7 +3,7 @@
 
 ## Overview
 
-Operations related to setting up phone numbers in Twilio for use in channels.
+Operations related to setting up phone numbers in Twilio for use in           channels.
 
 ### Available Operations
 

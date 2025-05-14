@@ -9,7 +9,7 @@ from typing import Any, Mapping, Optional, Union
 
 
 class Numbers(BaseSDK):
-    r"""Operations related to setting up phone numbers in Twilio for use in channels."""
+    r"""Operations related to setting up phone numbers in Twilio for use in           channels."""
 
     def add(
         self,
