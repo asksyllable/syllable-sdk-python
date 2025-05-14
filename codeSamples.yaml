@@ -1878,6 +1878,24 @@ actions:
 
                 # Handle response
                 print(res)
+  - target: $["paths"]["/api/v1/outbound/campaigns/{campaign_id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.outbound.campaigns.delete(campaign_id=545907)
+
+                # Handle response
+                print(res)
   - target: $["paths"]["/api/v1/outbound/campaigns/{campaign_id}"]["get"]
     update:
       x-codeSamples:

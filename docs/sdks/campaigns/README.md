@@ -11,6 +11,7 @@ Operations related to outbound message campaigns
 * [create](#create) - Create Outbound Communication Campaign
 * [get_by_id](#get_by_id) - Get Outbound Communication Campaign
 * [update](#update) - Update Outbound Communication Campaign
+* [delete](#delete) - Delete Outbound Communication Campaign
 
 ## list
 
@@ -212,6 +213,46 @@ with SyllableSDK(
 ### Response
 
 **[models.OutboundCampaign](../../models/outboundcampaign.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## delete
+
+Delete Outbound Communication Campaign
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.outbound.campaigns.delete(campaign_id=545907)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `campaign_id`                                                       | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[Any](../../models/.md)**
 
 ### Errors
 

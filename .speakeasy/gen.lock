@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 4c74c7f9f84be568dcddd6a724462a20
+  docChecksum: 9b68fd21122a0c79c73a04ba00e9b22e
   docVersion: 0.0.2
   speakeasyVersion: 1.544.0
   generationVersion: 2.599.0
-  releaseVersion: 0.33.2
-  configChecksum: fd9098c3de47e630e694c64220b47ada
+  releaseVersion: 0.33.3
+  configChecksum: 9c298f897e0b9be8615a793450dd76bf
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -231,6 +231,7 @@ generatedFiles:
   - docs/models/outboundbatchupdaterequest.md
   - docs/models/outboundbatchuploadrequest.md
   - docs/models/outboundcampaign.md
+  - docs/models/outboundcampaigndeleterequest.md
   - docs/models/outboundcampaigngetbyidrequest.md
   - docs/models/outboundcampaigninput.md
   - docs/models/outboundcampaignlistrequest.md
@@ -557,6 +558,7 @@ generatedFiles:
   - src/syllable_sdk/models/outbound_batch_resultsop.py
   - src/syllable_sdk/models/outbound_batch_updateop.py
   - src/syllable_sdk/models/outbound_batch_uploadop.py
+  - src/syllable_sdk/models/outbound_campaign_deleteop.py
   - src/syllable_sdk/models/outbound_campaign_get_by_idop.py
   - src/syllable_sdk/models/outbound_campaign_listop.py
   - src/syllable_sdk/models/outbound_campaign_updateop.py
@@ -1936,6 +1938,16 @@ examples:
         path:
           job_id: "<id>"
           file_name: "example.file"
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+  outbound_campaign_delete:
+    speakeasy-default-outbound-campaign-delete:
+      parameters:
+        path:
+          campaign_id: 545907
       responses:
         "200":
           application/json: "<value>"

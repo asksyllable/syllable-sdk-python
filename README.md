@@ -348,6 +348,7 @@ with SyllableSDK(
 * [create](docs/sdks/campaigns/README.md#create) - Create Outbound Communication Campaign
 * [get_by_id](docs/sdks/campaigns/README.md#get_by_id) - Get Outbound Communication Campaign
 * [update](docs/sdks/campaigns/README.md#update) - Update Outbound Communication Campaign
+* [delete](docs/sdks/campaigns/README.md#delete) - Delete Outbound Communication Campaign
 
 ### [prompts](docs/sdks/prompts/README.md)
 

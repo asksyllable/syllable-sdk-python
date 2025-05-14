@@ -464,6 +464,10 @@ from .outbound_batch_uploadop import (
     OutboundBatchUploadRequest,
     OutboundBatchUploadRequestTypedDict,
 )
+from .outbound_campaign_deleteop import (
+    OutboundCampaignDeleteRequest,
+    OutboundCampaignDeleteRequestTypedDict,
+)
 from .outbound_campaign_get_by_idop import (
     OutboundCampaignGetByIDRequest,
     OutboundCampaignGetByIDRequestTypedDict,
@@ -988,6 +992,8 @@ __all__ = [
     "OutboundBatchUploadRequest",
     "OutboundBatchUploadRequestTypedDict",
     "OutboundCampaign",
+    "OutboundCampaignDeleteRequest",
+    "OutboundCampaignDeleteRequestTypedDict",
     "OutboundCampaignGetByIDRequest",
     "OutboundCampaignGetByIDRequestTypedDict",
     "OutboundCampaignInput",
