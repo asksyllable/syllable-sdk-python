@@ -18,7 +18,7 @@ class InsightsSDK(BaseSDK):
     folders: Folders
     r"""Operations related to insights upload folders. An insight folder is used          to upload call recordings for insight workflow analysis."""
     workflows: Workflows
-    r"""Operations related to insights workflows. An workflow is series of tool           invocations that processes conversation data to extract information and generate reports."""
+    r"""Operations related to insights workflows. An workflow is series of tool           invocations that processes conversation data to extract information and generate           reports."""
     tools: InsightsTools
     r"""Operations related to insights tool configurationss. An insight is a tool           that processes conversation data to extract information and generate reports."""
 

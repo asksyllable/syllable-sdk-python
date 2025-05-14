@@ -14,7 +14,7 @@ class Twilio(BaseSDK):
     r"""Operations related to Twilio channel configuration."""
 
     numbers: Numbers
-    r"""Operations related to setting up phone numbers in Twilio for use in channels."""
+    r"""Operations related to setting up phone numbers in Twilio for use in           channels."""
 
     def __init__(self, sdk_config: SDKConfiguration) -> None:
         BaseSDK.__init__(self, sdk_config)

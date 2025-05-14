@@ -9,7 +9,7 @@ from typing import Any, List, Mapping, Optional, Union, cast
 
 
 class Workflows(BaseSDK):
-    r"""Operations related to insights workflows. An workflow is series of tool           invocations that processes conversation data to extract information and generate reports."""
+    r"""Operations related to insights workflows. An workflow is series of tool           invocations that processes conversation data to extract information and generate           reports."""
 
     def list(
         self,

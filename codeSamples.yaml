@@ -1308,8 +1308,8 @@ actions:
                             67535,
                         ],
                     },
-                    "start_datetime": parse_datetime("2025-05-12T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-05-13T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-05-13T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-05-14T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1414,8 +1414,8 @@ actions:
                             67535,
                         ],
                     },
-                    "start_datetime": parse_datetime("2025-05-12T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-05-13T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-05-13T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-05-14T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1673,9 +1673,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20250513.9",
+                    "batch_id": "20250514.9",
                     "campaign_id": 1,
-                    "expires_on": parse_datetime("2025-05-14T00:00:00Z"),
+                    "expires_on": parse_datetime("2025-05-15T00:00:00Z"),
                     "paused": True,
                 })
 
