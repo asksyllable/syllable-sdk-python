@@ -10,6 +10,7 @@ Operations related to insights tool configurationss. An insight is a tool       
 * [list](#list) - List Insight Tool Configurations
 * [create](#create) - Create Insight Tool Configuration
 * [get_by_id](#get_by_id) - Get Insight Tool Config By Id
+* [delete](#delete) - Delete Insight Tool Configuration
 * [update](#update) - Update Insights Tool Configuration
 * [insights_tool_test](#insights_tool_test) - Test Insights Tool
 * [insight_tool_get_definitions](#insight_tool_get_definitions) - Get Insight Tool Definitions
@@ -147,6 +148,46 @@ with SyllableSDK(
 ### Response
 
 **[models.InsightToolOutput](../../models/insighttooloutput.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## delete
+
+Delete an Insights tool configuration.
+
+### Example Usage
+
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.insights.tools.delete(tool_id=545907)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `tool_id`                                                           | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[Any](../../models/.md)**
 
 ### Errors
 

@@ -294,15 +294,18 @@ with SyllableSDK(
 * [list](docs/sdks/folders/README.md#list) - List Insights Upload Folders
 * [create](docs/sdks/folders/README.md#create) - Create Insights Upload Folder
 * [get_by_id](docs/sdks/folders/README.md#get_by_id) - Get Insights Folder Details
+* [delete](docs/sdks/folders/README.md#delete) - Delete Insights Folder
 * [update](docs/sdks/folders/README.md#update) - Update Insights Folder
 * [upload_file](docs/sdks/folders/README.md#upload_file) - Upload Insights  Upload Folder
 * [list_files](docs/sdks/folders/README.md#list_files) - Fetch Insights Upload Files
+* [move_files](docs/sdks/folders/README.md#move_files) - Move Insights Upload Files
 
 #### [insights.tools](docs/sdks/insightstools/README.md)
 
 * [list](docs/sdks/insightstools/README.md#list) - List Insight Tool Configurations
 * [create](docs/sdks/insightstools/README.md#create) - Create Insight Tool Configuration
 * [get_by_id](docs/sdks/insightstools/README.md#get_by_id) - Get Insight Tool Config By Id
+* [delete](docs/sdks/insightstools/README.md#delete) - Delete Insight Tool Configuration
 * [update](docs/sdks/insightstools/README.md#update) - Update Insights Tool Configuration
 * [insights_tool_test](docs/sdks/insightstools/README.md#insights_tool_test) - Test Insights Tool
 * [insight_tool_get_definitions](docs/sdks/insightstools/README.md#insight_tool_get_definitions) - Get Insight Tool Definitions

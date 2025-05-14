@@ -222,6 +222,10 @@ from .insight_tool_get_by_idop import (
     InsightToolGetByIDRequestTypedDict,
 )
 from .insight_tool_listop import InsightToolListRequest, InsightToolListRequestTypedDict
+from .insights_folder_deleteop import (
+    InsightsFolderDeleteRequest,
+    InsightsFolderDeleteRequestTypedDict,
+)
 from .insights_folder_get_by_idop import (
     InsightsFolderGetByIDRequest,
     InsightsFolderGetByIDRequestTypedDict,
@@ -239,6 +243,10 @@ from .insights_folder_upload_fileop import (
     InsightsFolderUploadFileRequestTypedDict,
 )
 from .insights_listop import InsightsListRequest, InsightsListRequestTypedDict
+from .insights_tool_deleteop import (
+    InsightsToolDeleteRequest,
+    InsightsToolDeleteRequestTypedDict,
+)
 from .insights_tool_updateop import (
     InsightsToolUpdateRequest,
     InsightsToolUpdateRequestTypedDict,
@@ -246,6 +254,10 @@ from .insights_tool_updateop import (
 from .insights_upload_list_filesop import (
     InsightsUploadListFilesRequest,
     InsightsUploadListFilesRequestTypedDict,
+)
+from .insights_upload_move_filesop import (
+    InsightsUploadMoveFilesRequest,
+    InsightsUploadMoveFilesRequestTypedDict,
 )
 from .insights_workflow_activateop import (
     InsightsWorkflowActivateRequest,
@@ -272,6 +284,10 @@ from .insights_workflow_updateop import (
     InsightsWorkflowUpdateRequestTypedDict,
 )
 from .insightsfolder import InsightsFolder, InsightsFolderTypedDict
+from .insightsfolderfilemove import (
+    InsightsFolderFileMove,
+    InsightsFolderFileMoveTypedDict,
+)
 from .insightsfolderinput import InsightsFolderInput, InsightsFolderInputTypedDict
 from .insightsfolderproperties import InsightsFolderProperties
 from .insightsoutput import (
@@ -857,6 +873,10 @@ __all__ = [
     "InsightWorkflowProperties",
     "Insights",
     "InsightsFolder",
+    "InsightsFolderDeleteRequest",
+    "InsightsFolderDeleteRequestTypedDict",
+    "InsightsFolderFileMove",
+    "InsightsFolderFileMoveTypedDict",
     "InsightsFolderGetByIDRequest",
     "InsightsFolderGetByIDRequestTypedDict",
     "InsightsFolderInput",
@@ -874,6 +894,8 @@ __all__ = [
     "InsightsOutput",
     "InsightsOutputTypedDict",
     "InsightsProperties",
+    "InsightsToolDeleteRequest",
+    "InsightsToolDeleteRequestTypedDict",
     "InsightsToolUpdateRequest",
     "InsightsToolUpdateRequestTypedDict",
     "InsightsTypedDict",
@@ -882,6 +904,8 @@ __all__ = [
     "InsightsUploadFileTypedDict",
     "InsightsUploadListFilesRequest",
     "InsightsUploadListFilesRequestTypedDict",
+    "InsightsUploadMoveFilesRequest",
+    "InsightsUploadMoveFilesRequestTypedDict",
     "InsightsWorkflowActivateRequest",
     "InsightsWorkflowActivateRequestTypedDict",
     "InsightsWorkflowDeleteRequest",
