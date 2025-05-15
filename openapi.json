@@ -11274,14 +11274,14 @@
             "$ref": "#/components/schemas/TtsProvider",
             "description": "The provider for the voice",
             "examples": [
-              "Google"
+              "OpenAI"
             ]
           },
           "display_name": {
             "$ref": "#/components/schemas/AgentVoiceDisplayName",
             "description": "The display name of the voice",
             "examples": [
-              "Alejandro"
+              "Alloy"
             ]
           },
           "var_name": {
@@ -11289,7 +11289,7 @@
             "description": "The variable name of the voice (used when processing messages)",
             "deprecated": true,
             "examples": [
-              "wavenet:male/es-US-Neural2-B"
+              "openai:alloy"
             ]
           },
           "gender": {
@@ -11303,7 +11303,7 @@
             "$ref": "#/components/schemas/AgentVoiceModel",
             "description": "The model of the voice",
             "examples": [
-              "WaveNet"
+              "tts-1"
             ]
           },
           "supported_languages": {
@@ -11315,8 +11315,8 @@
             "description": "Languages supported by the voice",
             "examples": [
               {
-                "code": "es-US",
-                "name": "Spanish"
+                "code": "en-US",
+                "name": "English"
               }
             ]
           },
@@ -11356,15 +11356,23 @@
           "Charlotte",
           "Chris",
           "Clara",
+          "cmn-TW-Wavenet-A",
           "Coral",
           "Daniel",
           "Echo",
+          "en-US-Neural2-D",
+          "en-US-Neural2-F",
+          "en-US-Neural2-J",
+          "en-US-Studio-O",
           "Eric",
+          "es-US-Neural2-A",
+          "es-US-Neural2-B",
           "Fable",
           "George",
           "Isabella",
           "Jerry",
           "Jessica",
+          "ko-KR-Neural2-A",
           "Laura",
           "Liam",
           "Lily",
@@ -11382,7 +11390,9 @@
           "Shimmer",
           "Sienna",
           "Tara",
-          "Will"
+          "vi-VN-Neural2-A",
+          "Will",
+          "yue-HK-Standard-C"
         ],
         "title": "AgentVoiceDisplayName",
         "description": "Display names of voices that Syllable supports."
@@ -11453,7 +11463,7 @@
           "wavenet:female/vi-VN-Neural2-A"
         ],
         "title": "AgentVoiceVarName",
-        "description": "The variable name of an agent voice (used when procesing messages)."
+        "description": "The variable name of an agent voice (used when processing messages)."
       },
       "AgentWaitSound": {
         "type": "string",
