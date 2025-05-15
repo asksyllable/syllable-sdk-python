@@ -20,7 +20,7 @@ class AgentVoiceTypedDict(TypedDict):
     display_name: AgentVoiceDisplayName
     r"""Display names of voices that Syllable supports."""
     var_name: AgentVoiceVarName
-    r"""The variable name of an agent voice (used when procesing messages)."""
+    r"""The variable name of an agent voice (used when processing messages)."""
     gender: AgentVoiceGender
     r"""Gender for an agent voice."""
     model: AgentVoiceModel
@@ -41,7 +41,7 @@ class AgentVoice(BaseModel):
     r"""Display names of voices that Syllable supports."""
 
     var_name: AgentVoiceVarName
-    r"""The variable name of an agent voice (used when procesing messages)."""
+    r"""The variable name of an agent voice (used when processing messages)."""
 
     gender: AgentVoiceGender
     r"""Gender for an agent voice."""

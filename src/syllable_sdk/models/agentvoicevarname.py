@@ -5,7 +5,7 @@ from enum import Enum
 
 
 class AgentVoiceVarName(str, Enum):
-    r"""The variable name of an agent voice (used when procesing messages)."""
+    r"""The variable name of an agent voice (used when processing messages)."""
 
     OPENAI_ALLOY = "openai:alloy"
     OPENAI_ASH = "openai:ash"
