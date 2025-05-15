@@ -13,3 +13,4 @@ class RequestStatus(str, Enum):
     CONNECTED = "CONNECTED"
     FAILED = "FAILED"
     CANCELED = "CANCELED"
+    INVALID = "INVALID"

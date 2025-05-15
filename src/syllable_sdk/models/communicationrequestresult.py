@@ -35,7 +35,7 @@ class CommunicationRequestResultTypedDict(TypedDict):
     reference_id: str
     r"""ID for target outreach (unique within batch)"""
     target: str
-    r"""Target phone number or email address"""
+    r"""Target phone number"""
     request_variables: CommunicationRequestResultRequestVariablesTypedDict
     r"""Variables for request"""
     channel_manager_sid: NotRequired[Nullable[str]]
@@ -65,7 +65,7 @@ class CommunicationRequestResult(BaseModel):
     r"""ID for target outreach (unique within batch)"""
 
     target: str
-    r"""Target phone number or email address"""
+    r"""Target phone number"""
 
     request_variables: CommunicationRequestResultRequestVariables
     r"""Variables for request"""

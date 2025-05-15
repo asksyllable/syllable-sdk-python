@@ -13,3 +13,4 @@ Status of a communication request.
 | `CONNECTED` | CONNECTED   |
 | `FAILED`    | FAILED      |
 | `CANCELED`  | CANCELED    |
+| `INVALID`   | INVALID     |

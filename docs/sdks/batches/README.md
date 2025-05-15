@@ -87,9 +87,9 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.outbound.batches.create(request={
-        "batch_id": "20250514.9",
+        "batch_id": "20250515.9",
         "campaign_id": 1,
-        "expires_on": parse_datetime("2025-05-15T00:00:00Z"),
+        "expires_on": parse_datetime("2025-05-16T00:00:00Z"),
         "paused": True,
     })
 
@@ -345,7 +345,7 @@ with SyllableSDK(
 
     res = ss_client.outbound.batches.add(batch_id="<id>", communication_request={
         "reference_id": "12345",
-        "target": "user@email.com",
+        "target": "+15125551234",
         "request_variables": {},
     })
 
