@@ -1,6 +1,6 @@
 # AgentVoiceVarName
 
-The variable name of an agent voice (used when procesing messages).
+The variable name of an agent voice (used when processing messages).
 
 
 ## Values

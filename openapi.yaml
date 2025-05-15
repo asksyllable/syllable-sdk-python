@@ -6573,18 +6573,18 @@ components:
       description: "Request model to update an existing agent."
     "AgentVoice":
       properties:
-        "provider": {"$ref": "#/components/schemas/TtsProvider", "description": "The provider for the voice", "examples": ["Google"]}
-        "display_name": {"$ref": "#/components/schemas/AgentVoiceDisplayName", "description": "The display name of the voice", "examples": ["Alejandro"]}
-        "var_name": {"$ref": "#/components/schemas/AgentVoiceVarName", "description": "The variable name of the voice (used when processing messages)", "deprecated": true, "examples": ["wavenet:male/es-US-Neural2-B"]}
+        "provider": {"$ref": "#/components/schemas/TtsProvider", "description": "The provider for the voice", "examples": ["OpenAI"]}
+        "display_name": {"$ref": "#/components/schemas/AgentVoiceDisplayName", "description": "The display name of the voice", "examples": ["Alloy"]}
+        "var_name": {"$ref": "#/components/schemas/AgentVoiceVarName", "description": "The variable name of the voice (used when processing messages)", "deprecated": true, "examples": ["openai:alloy"]}
         "gender": {"$ref": "#/components/schemas/AgentVoiceGender", "description": "The gender of the voice", "examples": ["male"]}
-        "model": {"$ref": "#/components/schemas/AgentVoiceModel", "description": "The model of the voice", "examples": ["WaveNet"]}
+        "model": {"$ref": "#/components/schemas/AgentVoiceModel", "description": "The model of the voice", "examples": ["tts-1"]}
         "supported_languages":
           items: {"$ref": "#/components/schemas/AgentLanguage"}
           type: "array"
           title: "Supported Languages"
           description: "Languages supported by the voice"
           examples:
-            - {"code": "es-US", "name": "Spanish"}
+            - {"code": "en-US", "name": "English"}
         "deprecated":
           type: "boolean"
           title: "Deprecated"
@@ -6616,15 +6616,23 @@ components:
         - "Charlotte"
         - "Chris"
         - "Clara"
+        - "cmn-TW-Wavenet-A"
         - "Coral"
         - "Daniel"
         - "Echo"
+        - "en-US-Neural2-D"
+        - "en-US-Neural2-F"
+        - "en-US-Neural2-J"
+        - "en-US-Studio-O"
         - "Eric"
+        - "es-US-Neural2-A"
+        - "es-US-Neural2-B"
         - "Fable"
         - "George"
         - "Isabella"
         - "Jerry"
         - "Jessica"
+        - "ko-KR-Neural2-A"
         - "Laura"
         - "Liam"
         - "Lily"
@@ -6642,7 +6650,9 @@ components:
         - "Shimmer"
         - "Sienna"
         - "Tara"
+        - "vi-VN-Neural2-A"
         - "Will"
+        - "yue-HK-Standard-C"
       title: "AgentVoiceDisplayName"
       description: "Display names of voices that Syllable supports."
     "AgentVoiceGender":
@@ -6706,7 +6716,7 @@ components:
         - "wavenet:female/ko-KR-Neural2-A"
         - "wavenet:female/vi-VN-Neural2-A"
       title: "AgentVoiceVarName"
-      description: "The variable name of an agent voice (used when procesing messages)."
+      description: "The variable name of an agent voice (used when processing messages)."
     "AgentWaitSound":
       type: "string"
       enum:
