@@ -9361,6 +9361,14 @@ components:
             - "ACTIVE"
             - "INACTIVE"
         "estimate": {"$ref": "#/components/schemas/InsightWorkflowEstimate", "description": "Estimate of the number of calls that will be processed by the workflow and their cost"}
+        "queue_count":
+          anyOf:
+            - type: "integer"
+            - type: "null"
+          title: "Queue Count"
+          description: "Number of calls in the workflow queue (pending or processing)"
+          examples:
+            - 10
         "created_at":
           type: "string"
           format: "date-time"
