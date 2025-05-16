@@ -30,7 +30,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.channels.targets.available_targets(page=0, search_fields=[
-        syllable_sdk.AvailableTargetProperties.CHANNEL_NAME,
+        syllable_sdk.AvailableTargetProperties.TARGET,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -83,7 +83,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.channels.targets.list(page=0, search_fields=[
-        syllable_sdk.ChannelTargetProperties.FALLBACK_TARGET,
+        syllable_sdk.ChannelTargetProperties.AGENT_ID,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -135,11 +135,11 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.channels.targets.create(channel_id=638424, channel_target_create_request={
+    res = ss_client.channels.targets.create(channel_id=824809, channel_target_create_request={
         "agent_id": 1,
         "channel_id": 1,
         "target": "+19995551234",
-        "target_mode": syllable_sdk.TargetModes.CHAT,
+        "target_mode": syllable_sdk.TargetModes.EMAIL,
         "fallback_target": "+19995551235",
     })
 
@@ -182,7 +182,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.channels.targets.get_by_id(channel_id=931598, target_id=505057)
+    res = ss_client.channels.targets.get_by_id(channel_id=184507, target_id=235358)
 
     # Handle response
     print(res)
@@ -224,7 +224,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.channels.targets.update(channel_id=597129, target_id=344620, channel_target_update_request={
+    res = ss_client.channels.targets.update(channel_id=508167, target_id=880236, channel_target_update_request={
         "agent_id": 1,
         "channel_id": 1,
         "target": "+19995551234",

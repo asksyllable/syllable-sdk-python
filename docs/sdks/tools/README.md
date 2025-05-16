@@ -98,10 +98,21 @@ with SyllableSDK(
             },
             "endpoint": {
                 "url": "https://api.example.com",
-                "method": syllable_sdk.ToolHTTPMethod.GET,
-                "argument_location": syllable_sdk.ToolArgumentLocation.PATH,
+                "method": syllable_sdk.ToolHTTPMethod.POST,
+                "argument_location": syllable_sdk.ToolArgumentLocation.QUERY,
             },
-            "defaults": "<value>",
+            "defaults": {
+                "key": {
+                    "transform": {
+                        "action": "default",
+                        "when": {
+                            "key": "key",
+                            "value": "value",
+                            "operator": "eq",
+                        },
+                    },
+                },
+            },
             "static_parameters": [
                 {
                     "name": "temperature_unit",
@@ -170,8 +181,8 @@ with SyllableSDK(
             },
             "endpoint": {
                 "url": "https://api.example.com",
-                "method": syllable_sdk.ToolHTTPMethod.POST,
-                "argument_location": syllable_sdk.ToolArgumentLocation.PATH,
+                "method": syllable_sdk.ToolHTTPMethod.GET,
+                "argument_location": syllable_sdk.ToolArgumentLocation.FORM,
             },
             "defaults": "<value>",
             "static_parameters": [

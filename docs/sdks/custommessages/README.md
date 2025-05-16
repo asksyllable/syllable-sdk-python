@@ -236,7 +236,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.custom_messages.get_by_id(custom_message_id=931598)
+    res = ss_client.custom_messages.get_by_id(custom_message_id=909433)
 
     # Handle response
     print(res)
@@ -276,7 +276,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.custom_messages.delete(custom_message_id=545907, reason="<value>")
+    res = ss_client.custom_messages.delete(custom_message_id=729986, reason="<value>")
 
     # Handle response
     print(res)

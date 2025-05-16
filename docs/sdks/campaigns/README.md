@@ -30,7 +30,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.outbound.campaigns.list(page=0, search_fields=[
-        syllable_sdk.CampaignProperties.CALLER_ID,
+        syllable_sdk.CampaignProperties.ID,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -92,11 +92,11 @@ with SyllableSDK(
         },
         "daily_start_time": "09:00:00",
         "daily_end_time": "17:00:00",
-        "source": "account@email.com",
+        "source": "+19032900844",
         "caller_id": "19995551234",
         "retry_interval": "12h",
         "active_days": [
-            syllable_sdk.DaysOfWeek.MON,
+            syllable_sdk.DaysOfWeek.TUE,
         ],
     })
 
@@ -138,7 +138,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.outbound.campaigns.get_by_id(campaign_id=<id>)
+    res = ss_client.outbound.campaigns.get_by_id(campaign_id=11227)
 
     # Handle response
     print(res)
@@ -179,7 +179,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.outbound.campaigns.update(campaign_id=991464, outbound_campaign_input={
+    res = ss_client.outbound.campaigns.update(campaign_id=187717, outbound_campaign_input={
         "campaign_name": "Outbound Campaign 1",
         "description": "This is a test campaign",
         "label": "demo",
@@ -191,9 +191,9 @@ with SyllableSDK(
         "daily_end_time": "17:00:00",
         "source": "account@email.com",
         "caller_id": "19995551234",
-        "retry_interval": "12h",
+        "retry_interval": "7d",
         "active_days": [
-            syllable_sdk.DaysOfWeek.SUN,
+            syllable_sdk.DaysOfWeek.FRI,
         ],
     })
 
@@ -236,7 +236,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.outbound.campaigns.delete(campaign_id=545907)
+    res = ss_client.outbound.campaigns.delete(campaign_id=439537)
 
     # Handle response
     print(res)

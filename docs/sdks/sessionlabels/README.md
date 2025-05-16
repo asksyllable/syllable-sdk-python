@@ -26,7 +26,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.session_labels.get_by_id(session_label_id=931598)
+    res = ss_client.session_labels.get_by_id(session_label_id=491550)
 
     # Handle response
     print(res)
@@ -69,10 +69,10 @@ with SyllableSDK(
     res = ss_client.session_labels.create(request={
         "session_id": 1,
         "type": "auto-rating",
-        "code": "BAD",
+        "code": "GOOD",
         "user_email": "user@email.com",
         "issue_categories": [
-            "Silent treatment",
+            "Speech transcription (STT)",
         ],
     })
 
@@ -116,7 +116,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.session_labels.list(page=0, search_fields=[
-        syllable_sdk.SessionLabelProperties.ISSUE_CATEGORIES,
+        syllable_sdk.SessionLabelProperties.CODE,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")

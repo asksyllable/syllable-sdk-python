@@ -49,7 +49,7 @@ actions:
                     "prompt_id": 1,
                     "custom_message_id": 1,
                     "language_group_id": 1,
-                    "timezone": "America/New_York",
+                    "timezone": "America/Chicago",
                     "prompt_tool_defaults": [
                         {
                             "tool_name": "get_weather",
@@ -67,7 +67,7 @@ actions:
                     "tool_headers": {
                         "Authorization": "Basic sometoken",
                     },
-                    "stt_provider": syllable_sdk.AgentSttProvider.GOOGLE_STT_V2,
+                    "stt_provider": syllable_sdk.AgentSttProvider.DEEPGRAM_NOVA_2,
                     "wait_sound": syllable_sdk.AgentWaitSound.KEYBOARD_1,
                 })
 
@@ -96,7 +96,7 @@ actions:
                     "prompt_id": 1,
                     "custom_message_id": 1,
                     "language_group_id": 1,
-                    "timezone": "America/Chicago",
+                    "timezone": "America/New_York",
                     "prompt_tool_defaults": [
                         {
                             "tool_name": "get_weather",
@@ -114,8 +114,8 @@ actions:
                     "tool_headers": {
                         "Authorization": "Basic sometoken",
                     },
-                    "stt_provider": syllable_sdk.AgentSttProvider.GOOGLE_STT_V2,
-                    "wait_sound": syllable_sdk.AgentWaitSound.KEYBOARD_1,
+                    "stt_provider": syllable_sdk.AgentSttProvider.DEEPGRAM_NOVA_2,
+                    "wait_sound": syllable_sdk.AgentWaitSound.CALL_CENTER,
                     "id": 1,
                 })
 
@@ -177,7 +177,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.agents.delete(agent_id=545907, reason="<value>")
+                res = ss_client.agents.delete(agent_id=78115, reason="<value>")
 
                 # Handle response
                 print(res)
@@ -195,7 +195,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.agents.get_by_id(agent_id=931598)
+                res = ss_client.agents.get_by_id(agent_id=910445)
 
                 # Handle response
                 print(res)
@@ -238,7 +238,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.channels.targets.available_targets(page=0, search_fields=[
-                    syllable_sdk.AvailableTargetProperties.CHANNEL_NAME,
+                    syllable_sdk.AvailableTargetProperties.TARGET,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -261,7 +261,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.channels.targets.list(page=0, search_fields=[
-                    syllable_sdk.ChannelTargetProperties.FALLBACK_TARGET,
+                    syllable_sdk.ChannelTargetProperties.AGENT_ID,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -331,7 +331,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.channels.twilio.get_by_id(channel_id=931598)
+                res = ss_client.channels.twilio.get_by_id(channel_id=627671)
 
                 # Handle response
                 print(res)
@@ -349,7 +349,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.channels.twilio.numbers.add(channel_id=551477, twilio_number_add_request={
+                res = ss_client.channels.twilio.numbers.add(channel_id=314558, twilio_number_add_request={
                     "friendly_name": "Support Line",
                     "area_code": "804",
                 })
@@ -389,11 +389,11 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.channels.targets.create(channel_id=638424, channel_target_create_request={
+                res = ss_client.channels.targets.create(channel_id=824809, channel_target_create_request={
                     "agent_id": 1,
                     "channel_id": 1,
                     "target": "+19995551234",
-                    "target_mode": syllable_sdk.TargetModes.CHAT,
+                    "target_mode": syllable_sdk.TargetModes.EMAIL,
                     "fallback_target": "+19995551235",
                 })
 
@@ -413,7 +413,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.channels.targets.get_by_id(channel_id=931598, target_id=505057)
+                res = ss_client.channels.targets.get_by_id(channel_id=184507, target_id=235358)
 
                 # Handle response
                 print(res)
@@ -432,7 +432,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.channels.targets.update(channel_id=597129, target_id=344620, channel_target_update_request={
+                res = ss_client.channels.targets.update(channel_id=508167, target_id=880236, channel_target_update_request={
                     "agent_id": 1,
                     "channel_id": 1,
                     "target": "+19995551234",
@@ -459,7 +459,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.conversations.list(page=0, search_fields=[
-                    syllable_sdk.ConversationProperties.LLM_MODEL,
+                    syllable_sdk.ConversationProperties.AGENT_NAME,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -614,7 +614,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.custom_messages.delete(custom_message_id=545907, reason="<value>")
+                res = ss_client.custom_messages.delete(custom_message_id=729986, reason="<value>")
 
                 # Handle response
                 print(res)
@@ -632,7 +632,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.custom_messages.get_by_id(custom_message_id=931598)
+                res = ss_client.custom_messages.get_by_id(custom_message_id=909433)
 
                 # Handle response
                 print(res)
@@ -782,7 +782,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.data_sources.delete(data_source_id=545907, reason="<value>")
+                res = ss_client.data_sources.delete(data_source_id=509584, reason="<value>")
 
                 # Handle response
                 print(res)
@@ -800,7 +800,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.data_sources.get_by_id(data_source_id=931598)
+                res = ss_client.data_sources.get_by_id(data_source_id=87219)
 
                 # Handle response
                 print(res)
@@ -820,7 +820,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.events.list(page=0, search_fields=[
-                    syllable_sdk.EventProperties.USER_ID,
+                    syllable_sdk.EventProperties.DESCRIPTION,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -843,7 +843,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.incidents.list(page=0, search_fields=[
-                    syllable_sdk.IncidentProperties.START_DATETIME,
+                    syllable_sdk.IncidentProperties.UPDATED_AT,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -943,7 +943,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.incidents.delete(incident_id=545907, reason="<value>")
+                res = ss_client.incidents.delete(incident_id=400877, reason="<value>")
 
                 # Handle response
                 print(res)
@@ -961,7 +961,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.incidents.get_by_id(incident_id=931598)
+                res = ss_client.incidents.get_by_id(incident_id=835824)
 
                 # Handle response
                 print(res)
@@ -981,7 +981,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.insights.list(page=0, search_fields=[
-                    syllable_sdk.InsightsProperties.INSIGHT_KEY,
+                    syllable_sdk.InsightsProperties.UPLOAD_FILE_ID,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -1047,7 +1047,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.folders.delete(folder_id=545907)
+                res = ss_client.insights.folders.delete(folder_id=410792)
 
                 # Handle response
                 print(res)
@@ -1065,7 +1065,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.folders.get_by_id(folder_id=931598)
+                res = ss_client.insights.folders.get_by_id(folder_id=982079)
 
                 # Handle response
                 print(res)
@@ -1083,7 +1083,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.folders.update(folder_id=857478, insights_folder_input={
+                res = ss_client.insights.folders.update(folder_id=567518, insights_folder_input={
                     "name": "customer-complaints",
                     "label": "support",
                     "description": "Call recordings related to customer complaints",
@@ -1106,8 +1106,8 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.folders.list_files(folder_id=74439, page=0, search_fields=[
-                    syllable_sdk.InsightsUploadFileProperties.START_TIME,
+                res = ss_client.insights.folders.list_files(folder_id=55293, page=0, search_fields=[
+                    syllable_sdk.InsightsUploadFileProperties.CUSTOMER_NUMBER,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -1128,7 +1128,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.folders.move_files(folder_id=623467, insights_folder_file_move={
+                res = ss_client.insights.folders.move_files(folder_id=815114, insights_folder_file_move={
                     "destination_folder_id": 182764,
                     "file_id_list": [
                         [12334,23445,34556],
@@ -1151,7 +1151,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.folders.upload_file(folder_id=209119, call_id="<id>")
+                res = ss_client.insights.folders.upload_file(folder_id=444923, call_id="<id>")
 
                 # Handle response
                 print(res)
@@ -1218,7 +1218,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.tools.delete(tool_id=545907)
+                res = ss_client.insights.tools.delete(tool_id=770449)
 
                 # Handle response
                 print(res)
@@ -1254,7 +1254,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.tools.update(tool_id=857478, insight_tool_input={
+                res = ss_client.insights.tools.update(tool_id=368362, insight_tool_input={
                     "name": "summary-tool",
                     "description": "This tool uses GPT4.1 to generate a summary of the call",
                     "version": 1,
@@ -1367,8 +1367,8 @@ actions:
                             67535,
                         ],
                     },
-                    "start_datetime": parse_datetime("2025-05-14T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-05-15T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-05-15T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-05-16T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1413,7 +1413,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.workflows.delete(workflow_id=545907)
+                res = ss_client.insights.workflows.delete(workflow_id=609419)
 
                 # Handle response
                 print(res)
@@ -1431,7 +1431,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.workflows.get_by_id(workflow_id=931598)
+                res = ss_client.insights.workflows.get_by_id(workflow_id=788857)
 
                 # Handle response
                 print(res)
@@ -1450,9 +1450,9 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.workflows.update(workflow_id=597129, insight_workflow_input={
+                res = ss_client.insights.workflows.update(workflow_id=766381, insight_workflow_input={
                     "name": "summary-workflow",
-                    "source": "manual",
+                    "source": "upload",
                     "description": "Default workflow - generates a summary of the call",
                     "insight_tool_ids": [
                         1,
@@ -1473,8 +1473,8 @@ actions:
                             67535,
                         ],
                     },
-                    "start_datetime": parse_datetime("2025-05-14T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-05-15T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-05-15T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-05-16T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1493,7 +1493,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.workflows.activate(workflow_id=537910, insight_workflow_activate={
+                res = ss_client.insights.workflows.activate(workflow_id=303095, insight_workflow_activate={
                     "is_acknowledged": True,
                     "estimate": {
                         "backfill_count": 100,
@@ -1521,7 +1521,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.workflows.inactivate(workflow_id=550727)
+                res = ss_client.insights.workflows.inactivate(workflow_id=248768)
 
                 # Handle response
                 print(res)
@@ -1648,9 +1648,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.language_groups.language_groups_create_voice_sample(request={
-                    "language_code": syllable_sdk.LanguageCode.EN_US,
-                    "voice_provider": syllable_sdk.TtsProvider.OPEN_AI,
-                    "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ONYX,
+                    "language_code": syllable_sdk.LanguageCode.ZH_CN,
+                    "voice_provider": syllable_sdk.TtsProvider.GOOGLE,
+                    "voice_display_name": syllable_sdk.AgentVoiceDisplayName.EN_US_NEURAL2_F,
                     "voice_speed": 1,
                     "voice_pitch": 0,
                 })
@@ -1671,7 +1671,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.language_groups.delete(language_group_id=545907, reason="<value>")
+                res = ss_client.language_groups.delete(language_group_id=572805, reason="<value>")
 
                 # Handle response
                 print(res)
@@ -1689,7 +1689,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.language_groups.get_by_id(language_group_id=931598)
+                res = ss_client.language_groups.get_by_id(language_group_id=453313)
 
                 # Handle response
                 print(res)
@@ -1709,7 +1709,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.list(page=0, search_fields=[
-                    syllable_sdk.BatchProperties.EXPIRES_ON,
+                    syllable_sdk.BatchProperties.LAST_UPDATED_AT,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -1732,10 +1732,10 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20250515.9",
+                    "batch_id": "20250516.9",
                     "campaign_id": 1,
-                    "expires_on": parse_datetime("2025-05-16T00:00:00Z"),
-                    "paused": True,
+                    "expires_on": parse_datetime("2025-05-17T00:00:00Z"),
+                    "paused": False,
                 })
 
                 # Handle response
@@ -1794,7 +1794,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.update(batch_id="<id>", communication_batch_update={
-                    "paused": False,
+                    "paused": True,
                     "expires_on": parse_datetime("2027-01-01T06:00:00Z"),
                 })
 
@@ -1815,8 +1815,8 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.remove(batch_id="<id>", request_body=[
-                    "<value>",
-                    "<value>",
+                    "<value 1>",
+                    "<value 2>",
                 ])
 
                 # Handle response
@@ -1837,7 +1837,7 @@ actions:
 
                 res = ss_client.outbound.batches.add(batch_id="<id>", communication_request={
                     "reference_id": "12345",
-                    "target": "+15125551234",
+                    "target": "512-555-1234",
                     "request_variables": {},
                 })
 
@@ -1895,7 +1895,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.campaigns.list(page=0, search_fields=[
-                    syllable_sdk.CampaignProperties.CALLER_ID,
+                    syllable_sdk.CampaignProperties.ID,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -1927,11 +1927,11 @@ actions:
                     },
                     "daily_start_time": "09:00:00",
                     "daily_end_time": "17:00:00",
-                    "source": "account@email.com",
+                    "source": "+19032900844",
                     "caller_id": "19995551234",
                     "retry_interval": "12h",
                     "active_days": [
-                        syllable_sdk.DaysOfWeek.MON,
+                        syllable_sdk.DaysOfWeek.TUE,
                     ],
                 })
 
@@ -1951,7 +1951,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.outbound.campaigns.delete(campaign_id=545907)
+                res = ss_client.outbound.campaigns.delete(campaign_id=439537)
 
                 # Handle response
                 print(res)
@@ -1969,7 +1969,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.outbound.campaigns.get_by_id(campaign_id=931598)
+                res = ss_client.outbound.campaigns.get_by_id(campaign_id=11227)
 
                 # Handle response
                 print(res)
@@ -1988,7 +1988,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.outbound.campaigns.update(campaign_id=627690, outbound_campaign_input={
+                res = ss_client.outbound.campaigns.update(campaign_id=187717, outbound_campaign_input={
                     "campaign_name": "Outbound Campaign 1",
                     "description": "This is a test campaign",
                     "label": "demo",
@@ -2000,9 +2000,9 @@ actions:
                     "daily_end_time": "17:00:00",
                     "source": "account@email.com",
                     "caller_id": "19995551234",
-                    "retry_interval": "12h",
+                    "retry_interval": "7d",
                     "active_days": [
-                        syllable_sdk.DaysOfWeek.SUN,
+                        syllable_sdk.DaysOfWeek.FRI,
                     ],
                 })
 
@@ -2131,7 +2131,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.prompts.delete(prompt_id=545907, reason="<value>")
+                res = ss_client.prompts.delete(prompt_id=982839, reason="<value>")
 
                 # Handle response
                 print(res)
@@ -2149,7 +2149,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.prompts.get_by_id(prompt_id=931598)
+                res = ss_client.prompts.get_by_id(prompt_id=417330)
 
                 # Handle response
                 print(res)
@@ -2167,7 +2167,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.prompts.prompts_history(prompt_id=627932)
+                res = ss_client.prompts.prompts_history(prompt_id=922849)
 
                 # Handle response
                 print(res)
@@ -2252,7 +2252,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.services.delete(service_id=545907, reason="<value>")
+                res = ss_client.services.delete(service_id=754999, reason="<value>")
 
                 # Handle response
                 print(res)
@@ -2270,7 +2270,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.services.get_by_id(service_id=931598)
+                res = ss_client.services.get_by_id(service_id=902529)
 
                 # Handle response
                 print(res)
@@ -2288,7 +2288,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.session_debug.get_session_data_by_session_id(session_id=744354)
+                res = ss_client.session_debug.get_session_data_by_session_id(session_id=303182)
 
                 # Handle response
                 print(res)
@@ -2324,7 +2324,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.session_debug.get_session_tool_call_result_by_id(session_id=187795, tool_call_id="<id>")
+                res = ss_client.session_debug.get_session_tool_call_result_by_id(session_id=832133, tool_call_id="<id>")
 
                 # Handle response
                 print(res)
@@ -2344,7 +2344,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.session_labels.list(page=0, search_fields=[
-                    syllable_sdk.SessionLabelProperties.ISSUE_CATEGORIES,
+                    syllable_sdk.SessionLabelProperties.CODE,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -2368,10 +2368,10 @@ actions:
                 res = ss_client.session_labels.create(request={
                     "session_id": 1,
                     "type": "auto-rating",
-                    "code": "BAD",
+                    "code": "GOOD",
                     "user_email": "user@email.com",
                     "issue_categories": [
-                        "Silent treatment",
+                        "Speech transcription (STT)",
                     ],
                 })
 
@@ -2391,7 +2391,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.session_labels.get_by_id(session_label_id=931598)
+                res = ss_client.session_labels.get_by_id(session_label_id=491550)
 
                 # Handle response
                 print(res)
@@ -2411,7 +2411,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.sessions.list(page=0, search_fields=[
-                    syllable_sdk.SessionProperties.TARGET,
+                    syllable_sdk.SessionProperties.CONVERSATION_ID,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -2634,10 +2634,21 @@ actions:
                         },
                         "endpoint": {
                             "url": "https://api.example.com",
-                            "method": syllable_sdk.ToolHTTPMethod.GET,
-                            "argument_location": syllable_sdk.ToolArgumentLocation.PATH,
+                            "method": syllable_sdk.ToolHTTPMethod.POST,
+                            "argument_location": syllable_sdk.ToolArgumentLocation.QUERY,
                         },
-                        "defaults": "<value>",
+                        "defaults": {
+                            "key": {
+                                "transform": {
+                                    "action": "default",
+                                    "when": {
+                                        "key": "key",
+                                        "value": "value",
+                                        "operator": "eq",
+                                    },
+                                },
+                            },
+                        },
                         "static_parameters": [
                             {
                                 "name": "temperature_unit",
@@ -2684,8 +2695,8 @@ actions:
                         },
                         "endpoint": {
                             "url": "https://api.example.com",
-                            "method": syllable_sdk.ToolHTTPMethod.POST,
-                            "argument_location": syllable_sdk.ToolArgumentLocation.PATH,
+                            "method": syllable_sdk.ToolHTTPMethod.GET,
+                            "argument_location": syllable_sdk.ToolArgumentLocation.FORM,
                         },
                         "defaults": "<value>",
                         "static_parameters": [

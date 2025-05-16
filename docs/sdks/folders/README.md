@@ -128,7 +128,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.folders.get_by_id(folder_id=931598)
+    res = ss_client.insights.folders.get_by_id(folder_id=982079)
 
     # Handle response
     print(res)
@@ -168,7 +168,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.folders.delete(folder_id=545907)
+    res = ss_client.insights.folders.delete(folder_id=410792)
 
     # Handle response
     print(res)
@@ -208,7 +208,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.folders.update(folder_id=857478, insights_folder_input={
+    res = ss_client.insights.folders.update(folder_id=567518, insights_folder_input={
         "name": "customer-complaints",
         "label": "support",
         "description": "Call recordings related to customer complaints",
@@ -253,7 +253,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.folders.upload_file(folder_id=209119, call_id="<id>")
+    res = ss_client.insights.folders.upload_file(folder_id=444923, call_id="<id>")
 
     # Handle response
     print(res)
@@ -302,8 +302,8 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.folders.list_files(folder_id=74439, page=0, search_fields=[
-        syllable_sdk.InsightsUploadFileProperties.FILENAME,
+    res = ss_client.insights.folders.list_files(folder_id=55293, page=0, search_fields=[
+        syllable_sdk.InsightsUploadFileProperties.CUSTOMER_NUMBER,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -355,7 +355,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.folders.move_files(folder_id=623467, insights_folder_file_move={
+    res = ss_client.insights.folders.move_files(folder_id=815114, insights_folder_file_move={
         "destination_folder_id": 182764,
         "file_id_list": [
             [12334,23445,34556],

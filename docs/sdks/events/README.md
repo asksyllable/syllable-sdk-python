@@ -26,7 +26,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.events.list(page=0, search_fields=[
-        syllable_sdk.EventProperties.USER_ID,
+        syllable_sdk.EventProperties.DESCRIPTION,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")

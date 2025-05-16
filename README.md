@@ -447,7 +447,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.folders.upload_file(folder_id=209119, call_id="<id>")
+    res = ss_client.insights.folders.upload_file(folder_id=444923, call_id="<id>")
 
     # Handle response
     print(res)

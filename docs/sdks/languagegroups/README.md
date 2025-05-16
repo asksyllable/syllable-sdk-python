@@ -210,7 +210,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.language_groups.get_by_id(language_group_id=931598)
+    res = ss_client.language_groups.get_by_id(language_group_id=453313)
 
     # Handle response
     print(res)
@@ -250,7 +250,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.language_groups.delete(language_group_id=545907, reason="<value>")
+    res = ss_client.language_groups.delete(language_group_id=572805, reason="<value>")
 
     # Handle response
     print(res)
@@ -293,9 +293,9 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.language_groups.language_groups_create_voice_sample(request={
-        "language_code": syllable_sdk.LanguageCode.EN_US,
-        "voice_provider": syllable_sdk.TtsProvider.OPEN_AI,
-        "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ONYX,
+        "language_code": syllable_sdk.LanguageCode.ZH_CN,
+        "voice_provider": syllable_sdk.TtsProvider.GOOGLE,
+        "voice_display_name": syllable_sdk.AgentVoiceDisplayName.EN_US_NEURAL2_F,
         "voice_speed": 1,
         "voice_pitch": 0,
     })
