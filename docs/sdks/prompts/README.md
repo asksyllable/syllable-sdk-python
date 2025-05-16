@@ -195,7 +195,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.prompts.get_by_id(prompt_id=931598)
+    res = ss_client.prompts.get_by_id(prompt_id=417330)
 
     # Handle response
     print(res)
@@ -235,7 +235,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.prompts.delete(prompt_id=545907, reason="<value>")
+    res = ss_client.prompts.delete(prompt_id=982839, reason="<value>")
 
     # Handle response
     print(res)
@@ -276,7 +276,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.prompts.prompts_history(prompt_id=627932)
+    res = ss_client.prompts.prompts_history(prompt_id=922849)
 
     # Handle response
     print(res)

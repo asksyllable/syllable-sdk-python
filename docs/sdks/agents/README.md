@@ -91,7 +91,7 @@ with SyllableSDK(
         "prompt_id": 1,
         "custom_message_id": 1,
         "language_group_id": 1,
-        "timezone": "America/New_York",
+        "timezone": "America/Chicago",
         "prompt_tool_defaults": [
             {
                 "tool_name": "get_weather",
@@ -109,7 +109,7 @@ with SyllableSDK(
         "tool_headers": {
             "Authorization": "Basic sometoken",
         },
-        "stt_provider": syllable_sdk.AgentSttProvider.GOOGLE_STT_V2,
+        "stt_provider": syllable_sdk.AgentSttProvider.DEEPGRAM_NOVA_2,
         "wait_sound": syllable_sdk.AgentWaitSound.KEYBOARD_1,
     })
 
@@ -160,7 +160,7 @@ with SyllableSDK(
         "prompt_id": 1,
         "custom_message_id": 1,
         "language_group_id": 1,
-        "timezone": "America/Chicago",
+        "timezone": "America/New_York",
         "prompt_tool_defaults": [
             {
                 "tool_name": "get_weather",
@@ -178,8 +178,8 @@ with SyllableSDK(
         "tool_headers": {
             "Authorization": "Basic sometoken",
         },
-        "stt_provider": syllable_sdk.AgentSttProvider.GOOGLE_STT_V2,
-        "wait_sound": syllable_sdk.AgentWaitSound.KEYBOARD_1,
+        "stt_provider": syllable_sdk.AgentSttProvider.DEEPGRAM_NOVA_2,
+        "wait_sound": syllable_sdk.AgentWaitSound.CALL_CENTER,
         "id": 1,
     })
 
@@ -221,7 +221,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.agents.get_by_id(agent_id=931598)
+    res = ss_client.agents.get_by_id(agent_id=910445)
 
     # Handle response
     print(res)
@@ -261,7 +261,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.agents.delete(agent_id=545907, reason="<value>")
+    res = ss_client.agents.delete(agent_id=78115, reason="<value>")
 
     # Handle response
     print(res)

@@ -92,9 +92,24 @@ with SyllableSDK(
         "insight_tool_ids": [
             1,
         ],
-        "conditions": {},
-        "start_datetime": parse_datetime("2025-05-14T00:00:00Z"),
-        "end_datetime": parse_datetime("2025-05-15T00:00:00Z"),
+        "conditions": {
+            "min_duration": 120,
+            "max_duration": 600,
+            "sample_rate": 2,
+            "agent_list": [
+                866324,
+                826325,
+            ],
+            "prompt_list": [
+                "123324",
+            ],
+            "folder_list": [
+                16754,
+                67535,
+            ],
+        },
+        "start_datetime": parse_datetime("2025-05-15T00:00:00Z"),
+        "end_datetime": parse_datetime("2025-05-16T00:00:00Z"),
     })
 
     # Handle response
@@ -135,7 +150,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.workflows.get_by_id(workflow_id=931598)
+    res = ss_client.insights.workflows.get_by_id(workflow_id=788857)
 
     # Handle response
     print(res)
@@ -176,16 +191,31 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.workflows.update(workflow_id=857478, insight_workflow_input={
+    res = ss_client.insights.workflows.update(workflow_id=766381, insight_workflow_input={
         "name": "summary-workflow",
-        "source": "manual",
+        "source": "upload",
         "description": "Default workflow - generates a summary of the call",
         "insight_tool_ids": [
             1,
         ],
-        "conditions": {},
-        "start_datetime": parse_datetime("2025-05-14T00:00:00Z"),
-        "end_datetime": parse_datetime("2025-05-15T00:00:00Z"),
+        "conditions": {
+            "min_duration": 120,
+            "max_duration": 600,
+            "sample_rate": 2,
+            "agent_list": [
+                866324,
+                826325,
+            ],
+            "prompt_list": [
+                "123324",
+            ],
+            "folder_list": [
+                16754,
+                67535,
+            ],
+        },
+        "start_datetime": parse_datetime("2025-05-15T00:00:00Z"),
+        "end_datetime": parse_datetime("2025-05-16T00:00:00Z"),
     })
 
     # Handle response
@@ -227,7 +257,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.workflows.delete(workflow_id=545907)
+    res = ss_client.insights.workflows.delete(workflow_id=609419)
 
     # Handle response
     print(res)
@@ -267,7 +297,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.workflows.inactivate(workflow_id=550727)
+    res = ss_client.insights.workflows.inactivate(workflow_id=248768)
 
     # Handle response
     print(res)
@@ -307,7 +337,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.workflows.activate(workflow_id=537910, insight_workflow_activate={
+    res = ss_client.insights.workflows.activate(workflow_id=303095, insight_workflow_activate={
         "is_acknowledged": True,
         "estimate": {
             "backfill_count": 100,

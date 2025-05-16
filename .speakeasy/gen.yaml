@@ -19,7 +19,7 @@ generation:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: true
 python:
-  version: 0.33.6
+  version: 0.33.7
   additionalDependencies:
     dev: {}
     main: {}
@@ -50,6 +50,7 @@ python:
   moduleName: ""
   outputModelSuffix: output
   packageName: syllable-sdk
+  pytestFilterWarnings: []
   pytestTimeout: 0
   responseFormat: flat
   templateVersion: v2

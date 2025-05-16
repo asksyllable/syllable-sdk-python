@@ -24,7 +24,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.channels.twilio.numbers.add(channel_id=551477, twilio_number_add_request={
+    res = ss_client.channels.twilio.numbers.add(channel_id=314558, twilio_number_add_request={
         "friendly_name": "Support Line",
         "area_code": "804",
     })

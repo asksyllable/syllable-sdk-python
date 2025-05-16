@@ -193,7 +193,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.data_sources.get_by_id(data_source_id=931598)
+    res = ss_client.data_sources.get_by_id(data_source_id=87219)
 
     # Handle response
     print(res)
@@ -233,7 +233,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.data_sources.delete(data_source_id=545907, reason="<value>")
+    res = ss_client.data_sources.delete(data_source_id=509584, reason="<value>")
 
     # Handle response
     print(res)

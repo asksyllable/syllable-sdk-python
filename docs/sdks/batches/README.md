@@ -34,7 +34,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.outbound.batches.list(page=0, search_fields=[
-        syllable_sdk.BatchProperties.EXPIRES_ON,
+        syllable_sdk.BatchProperties.LAST_UPDATED_AT,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -87,10 +87,10 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.outbound.batches.create(request={
-        "batch_id": "20250515.9",
+        "batch_id": "20250516.9",
         "campaign_id": 1,
-        "expires_on": parse_datetime("2025-05-16T00:00:00Z"),
-        "paused": True,
+        "expires_on": parse_datetime("2025-05-17T00:00:00Z"),
+        "paused": False,
     })
 
     # Handle response
@@ -173,7 +173,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.outbound.batches.update(batch_id="<id>", communication_batch_update={
-        "paused": False,
+        "paused": True,
         "expires_on": parse_datetime("2027-01-01T06:00:00Z"),
     })
 
@@ -345,7 +345,7 @@ with SyllableSDK(
 
     res = ss_client.outbound.batches.add(batch_id="<id>", communication_request={
         "reference_id": "12345",
-        "target": "+15125551234",
+        "target": "512-555-1234",
         "request_variables": {},
     })
 
@@ -389,8 +389,8 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.outbound.batches.remove(batch_id="<id>", request_body=[
-        "<value>",
-        "<value>",
+        "<value 1>",
+        "<value 2>",
     ])
 
     # Handle response

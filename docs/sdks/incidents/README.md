@@ -31,7 +31,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.incidents.list(page=0, search_fields=[
-        syllable_sdk.IncidentProperties.START_DATETIME,
+        syllable_sdk.IncidentProperties.UPDATED_AT,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -225,7 +225,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.incidents.get_by_id(incident_id=931598)
+    res = ss_client.incidents.get_by_id(incident_id=835824)
 
     # Handle response
     print(res)
@@ -265,7 +265,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.incidents.delete(incident_id=545907, reason="<value>")
+    res = ss_client.incidents.delete(incident_id=400877, reason="<value>")
 
     # Handle response
     print(res)
