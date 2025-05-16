@@ -50,6 +50,8 @@ class InsightWorkflowOutputTypedDict(TypedDict):
     r"""Timestamp for when the insight workflow should start. An empty value indicates start on activation"""
     end_datetime: NotRequired[Nullable[datetime]]
     r"""Timestamp of when the insight workflow should end. An empty value indicates no end"""
+    queue_count: NotRequired[Nullable[int]]
+    r"""Number of calls in the workflow queue (pending or processing)"""
     created_at: NotRequired[datetime]
     r"""Timestamp at which the insight workflow was created"""
     updated_at: NotRequired[datetime]
@@ -95,6 +97,9 @@ class InsightWorkflowOutput(BaseModel):
     end_datetime: OptionalNullable[datetime] = UNSET
     r"""Timestamp of when the insight workflow should end. An empty value indicates no end"""
 
+    queue_count: OptionalNullable[int] = UNSET
+    r"""Number of calls in the workflow queue (pending or processing)"""
+
     created_at: Optional[datetime] = None
     r"""Timestamp at which the insight workflow was created"""
 
@@ -103,8 +108,14 @@ class InsightWorkflowOutput(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["start_datetime", "end_datetime", "created_at", "updated_at"]
-        nullable_fields = ["start_datetime", "end_datetime"]
+        optional_fields = [
+            "start_datetime",
+            "end_datetime",
+            "queue_count",
+            "created_at",
+            "updated_at",
+        ]
+        nullable_fields = ["start_datetime", "end_datetime", "queue_count"]
         null_default_fields = []
 
         serialized = handler(self)

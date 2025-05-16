@@ -303,7 +303,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.insights.folders.list_files(folder_id=55293, page=0, search_fields=[
-        syllable_sdk.InsightsUploadFileProperties.CUSTOMER_NUMBER,
+        syllable_sdk.InsightsUploadFileProperties.FILENAME,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
