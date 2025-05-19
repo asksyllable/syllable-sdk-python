@@ -358,7 +358,7 @@ with SyllableSDK(
     res = ss_client.insights.folders.move_files(folder_id=815114, insights_folder_file_move={
         "destination_folder_id": 182764,
         "file_id_list": [
-            [12334,23445,34556],
+            None,
         ],
     })
 
