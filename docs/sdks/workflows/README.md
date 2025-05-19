@@ -345,7 +345,7 @@ with SyllableSDK(
             "estimated_daily_count": 10,
             "estimated_daily_duration": 3674.11,
             "estimated_daily_cost": 45.25,
-            "estimated_backfill_cost": 4561.00,
+            "estimated_backfill_cost": 4561,
         },
     })
 
@@ -391,10 +391,10 @@ with SyllableSDK(
     res = ss_client.insights.workflows.queue_work(request={
         "workflow_name": "summary-workflow",
         "session_id_list": [
-            [12334,23445,34556],
+            None,
         ],
         "file_id_list": [
-            [1234,1678,2224],
+            None,
         ],
     })
 
