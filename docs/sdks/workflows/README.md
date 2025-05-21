@@ -87,7 +87,7 @@ with SyllableSDK(
 
     res = ss_client.insights.workflows.create(request={
         "name": "summary-workflow",
-        "source": "transfer",
+        "source": "agent",
         "description": "Default workflow - generates a summary of the call",
         "insight_tool_ids": [
             1,
@@ -108,8 +108,8 @@ with SyllableSDK(
                 67535,
             ],
         },
-        "start_datetime": parse_datetime("2025-05-15T00:00:00Z"),
-        "end_datetime": parse_datetime("2025-05-16T00:00:00Z"),
+        "start_datetime": parse_datetime("2025-05-20T00:00:00Z"),
+        "end_datetime": parse_datetime("2025-05-21T00:00:00Z"),
     })
 
     # Handle response
@@ -193,7 +193,7 @@ with SyllableSDK(
 
     res = ss_client.insights.workflows.update(workflow_id=766381, insight_workflow_input={
         "name": "summary-workflow",
-        "source": "upload",
+        "source": "agent",
         "description": "Default workflow - generates a summary of the call",
         "insight_tool_ids": [
             1,
@@ -214,8 +214,8 @@ with SyllableSDK(
                 67535,
             ],
         },
-        "start_datetime": parse_datetime("2025-05-15T00:00:00Z"),
-        "end_datetime": parse_datetime("2025-05-16T00:00:00Z"),
+        "start_datetime": parse_datetime("2025-05-20T00:00:00Z"),
+        "end_datetime": parse_datetime("2025-05-21T00:00:00Z"),
     })
 
     # Handle response
