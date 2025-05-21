@@ -91,7 +91,7 @@ with SyllableSDK(
         "prompt_id": 1,
         "custom_message_id": 1,
         "language_group_id": 1,
-        "timezone": "America/Chicago",
+        "timezone": "America/New_York",
         "prompt_tool_defaults": [
             {
                 "tool_name": "get_weather",
@@ -109,8 +109,8 @@ with SyllableSDK(
         "tool_headers": {
             "Authorization": "Basic sometoken",
         },
-        "stt_provider": syllable_sdk.AgentSttProvider.DEEPGRAM_NOVA_2,
-        "wait_sound": syllable_sdk.AgentWaitSound.KEYBOARD_1,
+        "stt_provider": syllable_sdk.AgentSttProvider.GOOGLE_STT_V1,
+        "wait_sound": syllable_sdk.AgentWaitSound.NO_SOUND,
     })
 
     # Handle response
@@ -178,8 +178,8 @@ with SyllableSDK(
         "tool_headers": {
             "Authorization": "Basic sometoken",
         },
-        "stt_provider": syllable_sdk.AgentSttProvider.DEEPGRAM_NOVA_2,
-        "wait_sound": syllable_sdk.AgentWaitSound.CALL_CENTER,
+        "stt_provider": syllable_sdk.AgentSttProvider.GOOGLE_STT_V1,
+        "wait_sound": syllable_sdk.AgentWaitSound.NO_SOUND,
         "id": 1,
     })
 

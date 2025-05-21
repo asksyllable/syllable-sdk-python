@@ -49,7 +49,7 @@ actions:
                     "prompt_id": 1,
                     "custom_message_id": 1,
                     "language_group_id": 1,
-                    "timezone": "America/Chicago",
+                    "timezone": "America/New_York",
                     "prompt_tool_defaults": [
                         {
                             "tool_name": "get_weather",
@@ -67,8 +67,8 @@ actions:
                     "tool_headers": {
                         "Authorization": "Basic sometoken",
                     },
-                    "stt_provider": syllable_sdk.AgentSttProvider.DEEPGRAM_NOVA_2,
-                    "wait_sound": syllable_sdk.AgentWaitSound.KEYBOARD_1,
+                    "stt_provider": syllable_sdk.AgentSttProvider.GOOGLE_STT_V1,
+                    "wait_sound": syllable_sdk.AgentWaitSound.NO_SOUND,
                 })
 
                 # Handle response
@@ -114,8 +114,8 @@ actions:
                     "tool_headers": {
                         "Authorization": "Basic sometoken",
                     },
-                    "stt_provider": syllable_sdk.AgentSttProvider.DEEPGRAM_NOVA_2,
-                    "wait_sound": syllable_sdk.AgentWaitSound.CALL_CENTER,
+                    "stt_provider": syllable_sdk.AgentSttProvider.GOOGLE_STT_V1,
+                    "wait_sound": syllable_sdk.AgentWaitSound.NO_SOUND,
                     "id": 1,
                 })
 
@@ -1321,7 +1321,7 @@ actions:
 
                 res = ss_client.insights.workflows.create(request={
                     "name": "summary-workflow",
-                    "source": "transfer",
+                    "source": "agent",
                     "description": "Default workflow - generates a summary of the call",
                     "insight_tool_ids": [
                         1,
@@ -1342,8 +1342,8 @@ actions:
                             67535,
                         ],
                     },
-                    "start_datetime": parse_datetime("2025-05-18T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-05-19T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-05-20T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-05-21T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1425,9 +1425,9 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.workflows.update(workflow_id=766381, insight_workflow_input={
+                res = ss_client.insights.workflows.update(workflow_id=673493, insight_workflow_input={
                     "name": "summary-workflow",
-                    "source": "upload",
+                    "source": "agent",
                     "description": "Default workflow - generates a summary of the call",
                     "insight_tool_ids": [
                         1,
@@ -1448,8 +1448,8 @@ actions:
                             67535,
                         ],
                     },
-                    "start_datetime": parse_datetime("2025-05-18T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-05-19T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-05-20T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-05-21T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1699,10 +1699,10 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20250519.9",
+                    "batch_id": "20250521.9",
                     "campaign_id": 1,
-                    "expires_on": parse_datetime("2025-05-20T00:00:00Z"),
-                    "paused": False,
+                    "expires_on": parse_datetime("2025-05-22T00:00:00Z"),
+                    "paused": True,
                 })
 
                 # Handle response
@@ -1896,7 +1896,7 @@ actions:
                     "daily_end_time": "17:00:00",
                     "source": "+19032900844",
                     "caller_id": "19995551234",
-                    "retry_interval": "12h",
+                    "retry_interval": "30m",
                     "active_days": [
                         syllable_sdk.DaysOfWeek.TUE,
                     ],
@@ -1955,19 +1955,19 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.outbound.campaigns.update(campaign_id=187717, outbound_campaign_input={
+                res = ss_client.outbound.campaigns.update(campaign_id=667849, outbound_campaign_input={
                     "campaign_name": "Outbound Campaign 1",
                     "description": "This is a test campaign",
-                    "label": "demo",
+                    "label": "test",
                     "campaign_variables": {
                         "key": "value",
                         "key2": "value2",
                     },
                     "daily_start_time": "09:00:00",
                     "daily_end_time": "17:00:00",
-                    "source": "account@email.com",
+                    "source": "+19032900844",
                     "caller_id": "19995551234",
-                    "retry_interval": "7d",
+                    "retry_interval": "30m",
                     "active_days": [
                         syllable_sdk.DaysOfWeek.FRI,
                     ],
@@ -2338,7 +2338,7 @@ actions:
                     "code": "GOOD",
                     "user_email": "user@email.com",
                     "issue_categories": [
-                        "Speech transcription (STT)",
+                        "Silent treatment",
                     ],
                 })
 

@@ -116,8 +116,8 @@ with SyllableSDK(
             "static_parameters": [
                 {
                     "name": "temperature_unit",
-                    "description": "Whether the temperature information should be fetched in celsius or fahrenheit.",
-                    "required": True,
+                    "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit",
+                    "required": False,
                     "type": syllable_sdk.StaticToolParameterType.STRING,
                     "default": "fahrenheit",
                 },
@@ -188,8 +188,8 @@ with SyllableSDK(
             "static_parameters": [
                 {
                     "name": "temperature_unit",
-                    "description": "Whether the temperature information should be fetched in celsius or fahrenheit.",
-                    "required": True,
+                    "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit",
+                    "required": False,
                     "type": syllable_sdk.StaticToolParameterType.STRING,
                     "default": "fahrenheit",
                 },

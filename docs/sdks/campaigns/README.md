@@ -94,7 +94,7 @@ with SyllableSDK(
         "daily_end_time": "17:00:00",
         "source": "+19032900844",
         "caller_id": "19995551234",
-        "retry_interval": "12h",
+        "retry_interval": "30m",
         "active_days": [
             syllable_sdk.DaysOfWeek.TUE,
         ],
@@ -182,16 +182,16 @@ with SyllableSDK(
     res = ss_client.outbound.campaigns.update(campaign_id=187717, outbound_campaign_input={
         "campaign_name": "Outbound Campaign 1",
         "description": "This is a test campaign",
-        "label": "demo",
+        "label": "test",
         "campaign_variables": {
             "key": "value",
             "key2": "value2",
         },
         "daily_start_time": "09:00:00",
         "daily_end_time": "17:00:00",
-        "source": "account@email.com",
+        "source": "+19032900844",
         "caller_id": "19995551234",
-        "retry_interval": "7d",
+        "retry_interval": "30m",
         "active_days": [
             syllable_sdk.DaysOfWeek.FRI,
         ],

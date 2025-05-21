@@ -72,7 +72,7 @@ with SyllableSDK(
         "code": "GOOD",
         "user_email": "user@email.com",
         "issue_categories": [
-            "Speech transcription (STT)",
+            "Silent treatment",
         ],
     })
 
