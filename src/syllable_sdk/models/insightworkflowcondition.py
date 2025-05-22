@@ -22,7 +22,7 @@ class InsightWorkflowConditionTypedDict(TypedDict):
     r"""Maximum duration of the calls in seconds"""
     sample_rate: NotRequired[Nullable[int]]
     r"""Sample rate as a percentage of calls"""
-    agent_list: NotRequired[Nullable[List[int]]]
+    agent_list: NotRequired[Nullable[List[str]]]
     r"""List of agent IDs"""
     prompt_list: NotRequired[Nullable[List[str]]]
     r"""List of prompts IDs"""
@@ -42,7 +42,7 @@ class InsightWorkflowCondition(BaseModel):
     sample_rate: OptionalNullable[int] = UNSET
     r"""Sample rate as a percentage of calls"""
 
-    agent_list: OptionalNullable[List[int]] = UNSET
+    agent_list: OptionalNullable[List[str]] = UNSET
     r"""List of agent IDs"""
 
     prompt_list: OptionalNullable[List[str]] = UNSET
