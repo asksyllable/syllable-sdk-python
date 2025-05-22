@@ -15333,7 +15333,14 @@
             "anyOf": [
               {
                 "items": {
-                  "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 },
                 "type": "array"
               },
@@ -15345,8 +15352,8 @@
             "description": "List of agent IDs",
             "examples": [
               [
-                866324,
-                826325
+                "866324",
+                "826325"
               ]
             ]
           },
@@ -15366,7 +15373,7 @@
             "description": "List of prompts IDs",
             "examples": [
               [
-                123324
+                "123324"
               ]
             ]
           },
