@@ -9159,7 +9159,7 @@ components:
         "agent_list":
           anyOf:
             - items:
-                type: "integer"
+                type: "string"
               type: "array"
             - type: "null"
           title: "Agent List"
