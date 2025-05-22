@@ -2,15 +2,8 @@
 
 from __future__ import annotations
 from syllable_sdk.types import BaseModel
+from typing import Dict
 from typing_extensions import TypedDict
-
-
-class CommunicationRequestRequestVariablesTypedDict(TypedDict):
-    r"""Variables for request"""
-
-
-class CommunicationRequestRequestVariables(BaseModel):
-    r"""Variables for request"""
 
 
 class CommunicationRequestTypedDict(TypedDict):
@@ -18,7 +11,7 @@ class CommunicationRequestTypedDict(TypedDict):
     r"""ID for target outreach (unique within batch)"""
     target: str
     r"""Target phone number"""
-    request_variables: CommunicationRequestRequestVariablesTypedDict
+    request_variables: Dict[str, str]
     r"""Variables for request"""
 
 
@@ -29,5 +22,5 @@ class CommunicationRequest(BaseModel):
     target: str
     r"""Target phone number"""
 
-    request_variables: CommunicationRequestRequestVariables
+    request_variables: Dict[str, str]
     r"""Variables for request"""

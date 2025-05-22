@@ -11,16 +11,8 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import Optional
+from typing import Dict, Optional
 from typing_extensions import NotRequired, TypedDict
-
-
-class CommunicationRequestResultRequestVariablesTypedDict(TypedDict):
-    r"""Variables for request"""
-
-
-class CommunicationRequestResultRequestVariables(BaseModel):
-    r"""Variables for request"""
 
 
 class InsightsTypedDict(TypedDict):
@@ -36,7 +28,7 @@ class CommunicationRequestResultTypedDict(TypedDict):
     r"""ID for target outreach (unique within batch)"""
     target: str
     r"""Target phone number"""
-    request_variables: CommunicationRequestResultRequestVariablesTypedDict
+    request_variables: Dict[str, str]
     r"""Variables for request"""
     channel_manager_sid: NotRequired[Nullable[str]]
     r"""Channel manager SID"""
@@ -67,7 +59,7 @@ class CommunicationRequestResult(BaseModel):
     target: str
     r"""Target phone number"""
 
-    request_variables: CommunicationRequestResultRequestVariables
+    request_variables: Dict[str, str]
     r"""Variables for request"""
 
     channel_manager_sid: OptionalNullable[str] = UNSET
