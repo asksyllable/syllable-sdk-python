@@ -9159,13 +9159,15 @@ components:
         "agent_list":
           anyOf:
             - items:
-                type: "string"
+                anyOf:
+                  - type: "string"
+                  - type: "integer"
               type: "array"
             - type: "null"
           title: "Agent List"
           description: "List of agent IDs"
           examples:
-            - [866324, 826325]
+            - ["866324", "826325"]
         "prompt_list":
           anyOf:
             - items:
@@ -9175,7 +9177,7 @@ components:
           title: "Prompt List"
           description: "List of prompts IDs"
           examples:
-            - [123324]
+            - ["123324"]
         "folder_list":
           anyOf:
             - items:

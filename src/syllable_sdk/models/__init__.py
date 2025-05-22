@@ -345,6 +345,8 @@ if TYPE_CHECKING:
         InsightWorkflowActivateTypedDict,
     )
     from .insightworkflowcondition import (
+        AgentList,
+        AgentListTypedDict,
         InsightWorkflowCondition,
         InsightWorkflowConditionTypedDict,
     )
@@ -737,8 +739,10 @@ __all__ = [
     "AgentGetByIDRequestTypedDict",
     "AgentLanguage",
     "AgentLanguageTypedDict",
+    "AgentList",
     "AgentListRequest",
     "AgentListRequestTypedDict",
+    "AgentListTypedDict",
     "AgentProperties",
     "AgentResponse",
     "AgentResponseTypedDict",
@@ -1473,6 +1477,8 @@ _dynamic_imports: dict[str, str] = {
     "InsightToolTestInputTypedDict": ".insighttooltestinput",
     "InsightWorkflowActivate": ".insightworkflowactivate",
     "InsightWorkflowActivateTypedDict": ".insightworkflowactivate",
+    "AgentList": ".insightworkflowcondition",
+    "AgentListTypedDict": ".insightworkflowcondition",
     "InsightWorkflowCondition": ".insightworkflowcondition",
     "InsightWorkflowConditionTypedDict": ".insightworkflowcondition",
     "InsightWorkflowEstimate": ".insightworkflowestimate",
