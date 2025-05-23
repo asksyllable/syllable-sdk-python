@@ -1,17 +1,19 @@
 # AgentList
 
+List of agent IDs
+
 
 ## Supported Types
 
-### `str`
+### `List[int]`
 
 ```python
-value: str = /* values here */
+value: List[int] = /* values here */
 ```
 
-### `int`
+### `List[str]`
 
 ```python
-value: int = /* values here */
+value: List[str] = /* values here */
 ```
 
