@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: b3a273edb4935a0f283f5826878bd89d
+  docChecksum: 3e7e6b813beb36aeafd66e737a6f8bad
   docVersion: 0.0.2
-  speakeasyVersion: 1.550.0
+  speakeasyVersion: 1.551.0
   generationVersion: 2.610.0
-  releaseVersion: 0.34.3
-  configChecksum: 69345ad3180a5ee23dcb056449cad9b7
+  releaseVersion: 0.34.4
+  configChecksum: 13d67e757b584030a4325ce36f98e31f
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -239,6 +239,8 @@ generatedFiles:
   - docs/models/outboundcampaigninput.md
   - docs/models/outboundcampaignlistrequest.md
   - docs/models/outboundcampaignupdaterequest.md
+  - docs/models/permissionresponse.md
+  - docs/models/permissions.md
   - docs/models/postgetdashboardrequest.md
   - docs/models/postlistdashboardrequest.md
   - docs/models/promptcreaterequest.md
@@ -341,6 +343,7 @@ generatedFiles:
   - docs/sdks/latency/README.md
   - docs/sdks/numbers/README.md
   - docs/sdks/outbound/README.md
+  - docs/sdks/permissionssdk/README.md
   - docs/sdks/prompts/README.md
   - docs/sdks/services/README.md
   - docs/sdks/sessiondebug/README.md
@@ -571,6 +574,8 @@ generatedFiles:
   - src/syllable_sdk/models/outbound_campaign_updateop.py
   - src/syllable_sdk/models/outboundcampaign.py
   - src/syllable_sdk/models/outboundcampaigninput.py
+  - src/syllable_sdk/models/permissionresponse.py
+  - src/syllable_sdk/models/permissions.py
   - src/syllable_sdk/models/post_get_dashboardop.py
   - src/syllable_sdk/models/post_list_dashboardop.py
   - src/syllable_sdk/models/promptcreaterequest.py
@@ -654,6 +659,7 @@ generatedFiles:
   - src/syllable_sdk/models/voicesamplecreaterequest.py
   - src/syllable_sdk/numbers.py
   - src/syllable_sdk/outbound.py
+  - src/syllable_sdk/permissions_sdk.py
   - src/syllable_sdk/prompts.py
   - src/syllable_sdk/py.typed
   - src/syllable_sdk/sdk.py
@@ -1981,5 +1987,10 @@ examples:
       responses:
         "200":
           application/json: "<value>"
+  permissions_list:
+    speakeasy-default-permissions-list:
+      responses:
+        "200":
+          application/json: [{"name": "organizations_read", "description": "Fetch agent information"}, {"name": "organizations_read", "description": "Fetch agent information"}, {"name": "organizations_read", "description": "Fetch agent information"}]
 examplesVersion: 1.0.2
 generatedTests: {}

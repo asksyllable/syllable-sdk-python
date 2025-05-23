@@ -539,6 +539,8 @@ if TYPE_CHECKING:
         OutboundCampaignInput,
         OutboundCampaignInputTypedDict,
     )
+    from .permissionresponse import PermissionResponse, PermissionResponseTypedDict
+    from .permissions import Permissions
     from .post_get_dashboardop import (
         PostGetDashboardRequest,
         PostGetDashboardRequestTypedDict,
@@ -1086,6 +1088,9 @@ __all__ = [
     "OutboundCampaignTypedDict",
     "OutboundCampaignUpdateRequest",
     "OutboundCampaignUpdateRequestTypedDict",
+    "PermissionResponse",
+    "PermissionResponseTypedDict",
+    "Permissions",
     "PostGetDashboardRequest",
     "PostGetDashboardRequestTypedDict",
     "PostListDashboardRequest",
@@ -1589,6 +1594,9 @@ _dynamic_imports: dict[str, str] = {
     "OutboundCampaignTypedDict": ".outboundcampaign",
     "OutboundCampaignInput": ".outboundcampaigninput",
     "OutboundCampaignInputTypedDict": ".outboundcampaigninput",
+    "PermissionResponse": ".permissionresponse",
+    "PermissionResponseTypedDict": ".permissionresponse",
+    "Permissions": ".permissions",
     "PostGetDashboardRequest": ".post_get_dashboardop",
     "PostGetDashboardRequestTypedDict": ".post_get_dashboardop",
     "PostListDashboardRequest": ".post_list_dashboardop",

@@ -25,6 +25,7 @@ if TYPE_CHECKING:
     from syllable_sdk.insights_sdk import InsightsSDK
     from syllable_sdk.language_groups import LanguageGroups
     from syllable_sdk.outbound import Outbound
+    from syllable_sdk.permissions_sdk import PermissionsSDK
     from syllable_sdk.prompts import Prompts
     from syllable_sdk.services import Services
     from syllable_sdk.session_debug import SessionDebug
@@ -75,6 +76,8 @@ class SyllableSDK(BaseSDK):
     r"""Operations related to insights results. An insight is a tool that processes          conversation data to extract information and generate reports."""
     custom_messages: "CustomMessages"
     r"""Operations related to custom message configuration.           A custom message is a pre-configured message delivered by an agent as a greeting at the           beginning of a conversation. Multiple agents can use the same custom mesasage. A custom           message has one or more rules defined, which allow for different messages to be           dynamically selected and delivered at runtime based on the current time and either           date or day of the week. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Messages)."""
+    permissions: "PermissionsSDK"
+    r"""Operations related to permissions. A permission is a specific           capability or access level granted to a user within the Syllable system.           Permissions are used to control access to various features and functionalities."""
     prompts: "Prompts"
     r"""Operations related to prompts. A prompt defines the behavior of an           agent by delivering instructions to the LLM about how the agent should behave.           A prompt can be linked to one or more agents. A prompt can also be linked to tools to           allow an agent using the prompt to use them. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Prompts)."""
     services: "Services"
@@ -103,6 +106,7 @@ class SyllableSDK(BaseSDK):
         "incidents": ("syllable_sdk.incidents", "Incidents"),
         "insights": ("syllable_sdk.insights_sdk", "InsightsSDK"),
         "custom_messages": ("syllable_sdk.custom_messages", "CustomMessages"),
+        "permissions": ("syllable_sdk.permissions_sdk", "PermissionsSDK"),
         "prompts": ("syllable_sdk.prompts", "Prompts"),
         "services": ("syllable_sdk.services", "Services"),
         "session_labels": ("syllable_sdk.session_labels", "SessionLabels"),

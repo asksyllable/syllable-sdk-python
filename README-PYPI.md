@@ -353,6 +353,10 @@ with SyllableSDK(
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/campaigns/README.md#update) - Update Outbound Communication Campaign
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/campaigns/README.md#delete) - Delete Outbound Communication Campaign
 
+### [permissions](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/permissionssdk/README.md)
+
+* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/permissionssdk/README.md#list) - List Permissions
+
 ### [prompts](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/prompts/README.md)
 
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/prompts/README.md#list) - Prompt List

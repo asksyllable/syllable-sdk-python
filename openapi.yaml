@@ -2816,6 +2816,24 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+  "/api/v1/permissions/":
+    get:
+      tags:
+        - "permissions"
+      summary: "List Permissions"
+      description: "Get all available permissions in the system."
+      operationId: "permissions_list"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema:
+                items: {"$ref": "#/components/schemas/PermissionResponse"}
+                type: "array"
+                title: "Response Permissions List"
+      security:
+        - APIKeyHeader: []
   "/api/v1/prompts/":
     get:
       tags:
@@ -11369,6 +11387,84 @@ components:
         - "caller_id"
         - "active_days"
       title: "OutboundCampaignInput"
+    "PermissionResponse":
+      properties:
+        "name": {"$ref": "#/components/schemas/Permissions", "description": "Name of the permission", "examples": ["agents_read"]}
+        "description":
+          type: "string"
+          title: "Description"
+          description: "Description of the permission"
+          examples:
+            - "Fetch agent information"
+      type: "object"
+      required:
+        - "name"
+        - "description"
+      title: "PermissionResponse"
+      description: "Information about a permission."
+    "Permissions":
+      type: "string"
+      enum:
+        - "agents_read"
+        - "agents_write"
+        - "agents_delete"
+        - "api_token_read"
+        - "api_token_write"
+        - "api_token_delete"
+        - "channels_read"
+        - "channels_write"
+        - "channels_delete"
+        - "chat"
+        - "conversations_read"
+        - "custom_messages_read"
+        - "custom_messages_write"
+        - "custom_messages_delete"
+        - "data_sources_read"
+        - "data_sources_write"
+        - "data_sources_delete"
+        - "directory_read"
+        - "directory_write"
+        - "directory_delete"
+        - "events_read"
+        - "incidents_read"
+        - "insights_read"
+        - "insights_write"
+        - "insights_delete"
+        - "integrations_read"
+        - "integrations_write"
+        - "integrations_delete"
+        - "language_groups_read"
+        - "language_groups_write"
+        - "language_groups_delete"
+        - "organizations_read"
+        - "organizations_write"
+        - "outbound_read"
+        - "outbound_write"
+        - "outbound_delete"
+        - "permissions_read"
+        - "prompts_read"
+        - "prompts_write"
+        - "prompts_delete"
+        - "recording_download"
+        - "reports_read"
+        - "services_read"
+        - "services_write"
+        - "services_delete"
+        - "session_labels_read"
+        - "session_labels_write"
+        - "sessions_read"
+        - "tools_read"
+        - "tools_write"
+        - "tools_delete"
+        - "users_read"
+        - "users_write"
+        - "users_delete"
+        - "sa_incidents_read"
+        - "sa_incidents_write"
+        - "sa_incidents_delete"
+        - "sa_permissions_read"
+        - "super_admin_global"
+      title: "Permissions"
     "PromptCreateRequest":
       properties:
         "name":
@@ -13263,6 +13359,8 @@ tags:
     description: "Operations related to outbound message campaigns"
   - name: "outbound.batches"
     description: "Operations related to outbound campaign batches"
+  - name: "permissions"
+    description: "Operations related to permissions. A permission is a specific           capability or access level granted to a user within the Syllable system.           Permissions are used to control access to various features and functionalities."
   - name: "prompts"
     description: "Operations related to prompts. A prompt defines the behavior of an           agent by delivering instructions to the LLM about how the agent should behave.           A prompt can be linked to one or more agents. A prompt can also be linked to tools to           allow an agent using the prompt to use them. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Prompts)."
   - name: "services"
