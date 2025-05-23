@@ -353,6 +353,10 @@ with SyllableSDK(
 * [update](docs/sdks/campaigns/README.md#update) - Update Outbound Communication Campaign
 * [delete](docs/sdks/campaigns/README.md#delete) - Delete Outbound Communication Campaign
 
+### [permissions](docs/sdks/permissionssdk/README.md)
+
+* [list](docs/sdks/permissionssdk/README.md#list) - List Permissions
+
 ### [prompts](docs/sdks/prompts/README.md)
 
 * [list](docs/sdks/prompts/README.md#list) - Prompt List
