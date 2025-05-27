@@ -14,11 +14,11 @@ from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
 AgentListTypedDict = TypeAliasType("AgentListTypedDict", Union[List[int], List[str]])
-r"""List of agent IDs"""
+r"""List of agents"""
 
 
 AgentList = TypeAliasType("AgentList", Union[List[int], List[str]])
-r"""List of agent IDs"""
+r"""List of agents"""
 
 
 class InsightWorkflowConditionTypedDict(TypedDict):
@@ -31,9 +31,9 @@ class InsightWorkflowConditionTypedDict(TypedDict):
     sample_rate: NotRequired[Nullable[int]]
     r"""Sample rate as a percentage of calls"""
     agent_list: NotRequired[Nullable[AgentListTypedDict]]
-    r"""List of agent IDs"""
+    r"""List of agents"""
     prompt_list: NotRequired[Nullable[List[str]]]
-    r"""List of prompts IDs"""
+    r"""List of prompts"""
     folder_list: NotRequired[Nullable[List[int]]]
     r"""List of folder IDs"""
 
@@ -51,10 +51,10 @@ class InsightWorkflowCondition(BaseModel):
     r"""Sample rate as a percentage of calls"""
 
     agent_list: OptionalNullable[AgentList] = UNSET
-    r"""List of agent IDs"""
+    r"""List of agents"""
 
     prompt_list: OptionalNullable[List[str]] = UNSET
-    r"""List of prompts IDs"""
+    r"""List of prompts"""
 
     folder_list: OptionalNullable[List[int]] = UNSET
     r"""List of folder IDs"""
