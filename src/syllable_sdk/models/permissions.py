@@ -63,4 +63,4 @@ class Permissions(str, Enum):
     SA_INCIDENTS_WRITE = "sa_incidents_write"
     SA_INCIDENTS_DELETE = "sa_incidents_delete"
     SA_PERMISSIONS_READ = "sa_permissions_read"
-    SUPER_ADMIN_GLOBAL = "super_admin_global"
+    SYLLABLE_ADMIN_GLOBAL = "syllable_admin_global"
