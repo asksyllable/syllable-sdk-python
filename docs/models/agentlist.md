@@ -1,6 +1,6 @@
 # AgentList
 
-List of agent IDs
+List of agents
 
 
 ## Supported Types
