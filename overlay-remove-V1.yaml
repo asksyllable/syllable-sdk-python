@@ -8,15 +8,3 @@ actions:
   - target: $["paths"]["/api/v1/channels/{channel_id}"]["delete"]["tags"]
     update:
       - "channels"
-  - target: $["paths"]["/api/v1/sessions/recording/stream"]["get"]["responses"]["200"]["content"]["application/octet-stream"]["schema"]
-    update:
-      "title": "bytes"
-  - target: $["paths"]["/api/v1/sessions/recording/stream"]["get"]["responses"]["200"]["content"]["application/octet-stream"]["schema"]
-    update:
-      "format": "binary"
-  - target: $["paths"]["/api/v1/language_groups/voices/sample"]["post"]["responses"]["200"]["content"]["application/octet-stream"]["schema"]
-    update:
-      "title": "bytes"
-  - target: $["paths"]["/api/v1/language_groups/voices/sample"]["post"]["responses"]["200"]["content"]["application/octet-stream"]["schema"]
-    update:
-      "format": "binary"
