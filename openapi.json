@@ -10474,9 +10474,31 @@
               }
             ],
             "title": "Label",
-            "description": "The agent label",
+            "description": "The agent label (DEPRECATED - use labels instead.)",
+            "deprecated": true,
             "examples": [
               "Information"
+            ]
+          },
+          "labels": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Labels",
+            "description": "The agent labels",
+            "examples": [
+              [
+                "Information",
+                "Weather"
+              ]
             ]
           },
           "type": {
@@ -10684,6 +10706,7 @@
           "name_exact",
           "description",
           "label",
+          "labels",
           "name_description",
           "type",
           "timezone",
@@ -10735,9 +10758,31 @@
               }
             ],
             "title": "Label",
-            "description": "The agent label",
+            "description": "The agent label (DEPRECATED - use labels instead.)",
+            "deprecated": true,
             "examples": [
               "Information"
+            ]
+          },
+          "labels": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Labels",
+            "description": "The agent labels",
+            "examples": [
+              [
+                "Information",
+                "Weather"
+              ]
             ]
           },
           "type": {
@@ -11122,9 +11167,31 @@
               }
             ],
             "title": "Label",
-            "description": "The agent label",
+            "description": "The agent label (DEPRECATED - use labels instead.)",
+            "deprecated": true,
             "examples": [
               "Information"
+            ]
+          },
+          "labels": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Labels",
+            "description": "The agent labels",
+            "examples": [
+              [
+                "Information",
+                "Weather"
+              ]
             ]
           },
           "type": {
