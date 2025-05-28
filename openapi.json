@@ -10383,11 +10383,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful Response",
+            "description": "File content",
             "content": {
               "application/zip": {
                 "schema": {
-                  "type": "string"
+                  "type": "string",
+                  "title": "bytes",
+                  "format": "binary"
                 }
               }
             }
