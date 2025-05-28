@@ -6032,11 +6032,13 @@ paths:
             title: "File Name"
       responses:
         "200":
-          description: "Successful Response"
+          description: "File content"
           content:
             "application/zip":
               schema:
                 type: "string"
+                title: "bytes"
+                format: "binary"
         "422":
           description: "Validation Error"
           content:
