@@ -12,6 +12,7 @@ class AgentProperties(str, Enum):
     NAME_EXACT = "name_exact"
     DESCRIPTION = "description"
     LABEL = "label"
+    LABELS = "labels"
     NAME_DESCRIPTION = "name_description"
     TYPE = "type"
     TIMEZONE = "timezone"

@@ -5960,8 +5960,8 @@ paths:
             "application/octet-stream":
               schema:
                 type: "string"
-                title: "bytes"
                 format: "binary"
+                title: "bytes"
         "422":
           description: "Validation Error"
           content:
@@ -6082,9 +6082,20 @@ components:
             - type: "string"
             - type: "null"
           title: "Label"
-          description: "The agent label"
+          description: "The agent label (DEPRECATED - use labels instead.)"
+          deprecated: true
           examples:
             - "Information"
+        "labels":
+          anyOf:
+            - items:
+                type: "string"
+              type: "array"
+            - type: "null"
+          title: "Labels"
+          description: "The agent labels"
+          examples:
+            - ["Information", "Weather"]
         "type":
           type: "string"
           title: "Type"
@@ -6212,6 +6223,7 @@ components:
         - "name_exact"
         - "description"
         - "label"
+        - "labels"
         - "name_description"
         - "type"
         - "timezone"
@@ -6247,9 +6259,20 @@ components:
             - type: "string"
             - type: "null"
           title: "Label"
-          description: "The agent label"
+          description: "The agent label (DEPRECATED - use labels instead.)"
+          deprecated: true
           examples:
             - "Information"
+        "labels":
+          anyOf:
+            - items:
+                type: "string"
+              type: "array"
+            - type: "null"
+          title: "Labels"
+          description: "The agent labels"
+          examples:
+            - ["Information", "Weather"]
         "type":
           type: "string"
           title: "Type"
@@ -6478,9 +6501,20 @@ components:
             - type: "string"
             - type: "null"
           title: "Label"
-          description: "The agent label"
+          description: "The agent label (DEPRECATED - use labels instead.)"
+          deprecated: true
           examples:
             - "Information"
+        "labels":
+          anyOf:
+            - items:
+                type: "string"
+              type: "array"
+            - type: "null"
+          title: "Labels"
+          description: "The agent labels"
+          examples:
+            - ["Information", "Weather"]
         "type":
           type: "string"
           title: "Type"

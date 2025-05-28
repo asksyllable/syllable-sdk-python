@@ -86,7 +86,10 @@ with SyllableSDK(
     res = ss_client.agents.create(request={
         "name": "Weather agent",
         "description": "Agent for answering questions about weather.",
-        "label": "Information",
+        "labels": [
+            "Information",
+            "Weather",
+        ],
         "type": "ca_v1",
         "prompt_id": 1,
         "custom_message_id": 1,
@@ -155,7 +158,10 @@ with SyllableSDK(
     res = ss_client.agents.update(request={
         "name": "Weather agent",
         "description": "Agent for answering questions about weather.",
-        "label": "Information",
+        "labels": [
+            "Information",
+            "Weather",
+        ],
         "type": "ca_v1",
         "prompt_id": 1,
         "custom_message_id": 1,

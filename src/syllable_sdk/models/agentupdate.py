@@ -39,7 +39,9 @@ class AgentUpdateTypedDict(TypedDict):
     description: NotRequired[Nullable[str]]
     r"""The agent description"""
     label: NotRequired[Nullable[str]]
-    r"""The agent label"""
+    r"""The agent label (DEPRECATED - use labels instead.)"""
+    labels: NotRequired[Nullable[List[str]]]
+    r"""The agent labels"""
     language_group_id: NotRequired[Nullable[int]]
     r"""Internal ID of the language group associated with the agent"""
     prompt_tool_defaults: NotRequired[List[AgentToolDefaultsTypedDict]]
@@ -84,8 +86,16 @@ class AgentUpdate(BaseModel):
     description: OptionalNullable[str] = UNSET
     r"""The agent description"""
 
-    label: OptionalNullable[str] = UNSET
-    r"""The agent label"""
+    label: Annotated[
+        OptionalNullable[str],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
+        ),
+    ] = UNSET
+    r"""The agent label (DEPRECATED - use labels instead.)"""
+
+    labels: OptionalNullable[List[str]] = UNSET
+    r"""The agent labels"""
 
     language_group_id: OptionalNullable[int] = UNSET
     r"""Internal ID of the language group associated with the agent"""
@@ -115,6 +125,7 @@ class AgentUpdate(BaseModel):
         optional_fields = [
             "description",
             "label",
+            "labels",
             "language_group_id",
             "prompt_tool_defaults",
             "languages",
@@ -125,6 +136,7 @@ class AgentUpdate(BaseModel):
         nullable_fields = [
             "description",
             "label",
+            "labels",
             "language_group_id",
             "tool_headers",
             "stt_provider",
