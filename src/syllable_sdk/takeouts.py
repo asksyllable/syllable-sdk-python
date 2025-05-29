@@ -60,6 +60,7 @@ class Takeouts(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="takeouts_create",
                 oauth2_scopes=[],
@@ -144,6 +145,7 @@ class Takeouts(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="takeouts_create",
                 oauth2_scopes=[],
@@ -235,6 +237,7 @@ class Takeouts(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="takeouts_get_by_job_id",
                 oauth2_scopes=[],
@@ -332,6 +335,7 @@ class Takeouts(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="takeouts_get_by_job_id",
                 oauth2_scopes=[],
@@ -432,6 +436,7 @@ class Takeouts(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="takeouts_get_file",
                 oauth2_scopes=[],
@@ -534,6 +539,7 @@ class Takeouts(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="takeouts_get_file",
                 oauth2_scopes=[],

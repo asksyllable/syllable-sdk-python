@@ -353,9 +353,9 @@ with SyllableSDK(
 * [update](docs/sdks/campaigns/README.md#update) - Update Outbound Communication Campaign
 * [delete](docs/sdks/campaigns/README.md#delete) - Delete Outbound Communication Campaign
 
-### [permissions](docs/sdks/permissionssdk/README.md)
+### [permissions](docs/sdks/permissions/README.md)
 
-* [list](docs/sdks/permissionssdk/README.md#list) - List Permissions
+* [list](docs/sdks/permissions/README.md#list) - List Permissions
 
 ### [prompts](docs/sdks/prompts/README.md)
 
@@ -366,6 +366,14 @@ with SyllableSDK(
 * [delete](docs/sdks/prompts/README.md#delete) - Delete Prompt
 * [prompts_history](docs/sdks/prompts/README.md#prompts_history) - Get Prompt History
 * [prompt_get_supported_llms](docs/sdks/prompts/README.md#prompt_get_supported_llms) - Get Supported Llm Configs
+
+### [roles](docs/sdks/roles/README.md)
+
+* [list](docs/sdks/roles/README.md#list) - List Roles
+* [create](docs/sdks/roles/README.md#create) - Create Role
+* [update](docs/sdks/roles/README.md#update) - Update Role
+* [get_by_id](docs/sdks/roles/README.md#get_by_id) - Get Role
+* [delete](docs/sdks/roles/README.md#delete) - Delete Role
 
 ### [services](docs/sdks/services/README.md)
 

@@ -93,6 +93,7 @@ class Folders(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_list",
                 oauth2_scopes=[],
@@ -216,6 +217,7 @@ class Folders(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_list",
                 oauth2_scopes=[],
@@ -318,6 +320,7 @@ class Folders(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_create",
                 oauth2_scopes=[],
@@ -418,6 +421,7 @@ class Folders(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_create",
                 oauth2_scopes=[],
@@ -515,6 +519,7 @@ class Folders(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_get_by_id",
                 oauth2_scopes=[],
@@ -612,6 +617,7 @@ class Folders(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_get_by_id",
                 oauth2_scopes=[],
@@ -709,6 +715,7 @@ class Folders(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_delete",
                 oauth2_scopes=[],
@@ -806,6 +813,7 @@ class Folders(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_delete",
                 oauth2_scopes=[],
@@ -917,6 +925,7 @@ class Folders(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_update",
                 oauth2_scopes=[],
@@ -1028,6 +1037,7 @@ class Folders(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_update",
                 oauth2_scopes=[],
@@ -1164,6 +1174,7 @@ class Folders(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_upload_file",
                 oauth2_scopes=[],
@@ -1300,6 +1311,7 @@ class Folders(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_upload_file",
                 oauth2_scopes=[],
@@ -1424,6 +1436,7 @@ class Folders(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_upload_list_files",
                 oauth2_scopes=[],
@@ -1550,6 +1563,7 @@ class Folders(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_upload_list_files",
                 oauth2_scopes=[],
@@ -1663,6 +1677,7 @@ class Folders(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_upload_move_files",
                 oauth2_scopes=[],
@@ -1774,6 +1789,7 @@ class Folders(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_upload_move_files",
                 oauth2_scopes=[],

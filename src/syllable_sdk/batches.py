@@ -92,6 +92,7 @@ class Batches(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_batch_list",
                 oauth2_scopes=[],
@@ -215,6 +216,7 @@ class Batches(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_batch_list",
                 oauth2_scopes=[],
@@ -319,6 +321,7 @@ class Batches(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_batch_create",
                 oauth2_scopes=[],
@@ -421,6 +424,7 @@ class Batches(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_batch_create",
                 oauth2_scopes=[],
@@ -518,6 +522,7 @@ class Batches(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_batch_get_by_id",
                 oauth2_scopes=[],
@@ -615,6 +620,7 @@ class Batches(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_batch_get_by_id",
                 oauth2_scopes=[],
@@ -726,6 +732,7 @@ class Batches(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_batch_update",
                 oauth2_scopes=[],
@@ -837,6 +844,7 @@ class Batches(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_batch_update",
                 oauth2_scopes=[],
@@ -948,6 +956,7 @@ class Batches(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_batch_delete",
                 oauth2_scopes=[],
@@ -1059,6 +1068,7 @@ class Batches(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_batch_delete",
                 oauth2_scopes=[],
@@ -1172,6 +1182,7 @@ class Batches(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_batch_upload",
                 oauth2_scopes=[],
@@ -1285,6 +1296,7 @@ class Batches(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_batch_upload",
                 oauth2_scopes=[],
@@ -1391,6 +1403,7 @@ class Batches(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_batch_results",
                 oauth2_scopes=[],
@@ -1499,6 +1512,7 @@ class Batches(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_batch_results",
                 oauth2_scopes=[],
@@ -1612,6 +1626,7 @@ class Batches(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_batch_add",
                 oauth2_scopes=[],
@@ -1723,6 +1738,7 @@ class Batches(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_batch_add",
                 oauth2_scopes=[],
@@ -1826,6 +1842,7 @@ class Batches(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_batch_remove",
                 oauth2_scopes=[],
@@ -1929,6 +1946,7 @@ class Batches(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_batch_remove",
                 oauth2_scopes=[],

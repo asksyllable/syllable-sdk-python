@@ -92,6 +92,7 @@ class Campaigns(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_list",
                 oauth2_scopes=[],
@@ -215,6 +216,7 @@ class Campaigns(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_list",
                 oauth2_scopes=[],
@@ -319,6 +321,7 @@ class Campaigns(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_create",
                 oauth2_scopes=[],
@@ -421,6 +424,7 @@ class Campaigns(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_create",
                 oauth2_scopes=[],
@@ -518,6 +522,7 @@ class Campaigns(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_get_by_id",
                 oauth2_scopes=[],
@@ -615,6 +620,7 @@ class Campaigns(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_get_by_id",
                 oauth2_scopes=[],
@@ -726,6 +732,7 @@ class Campaigns(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_update",
                 oauth2_scopes=[],
@@ -837,6 +844,7 @@ class Campaigns(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_update",
                 oauth2_scopes=[],
@@ -934,6 +942,7 @@ class Campaigns(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_delete",
                 oauth2_scopes=[],
@@ -1031,6 +1040,7 @@ class Campaigns(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_delete",
                 oauth2_scopes=[],

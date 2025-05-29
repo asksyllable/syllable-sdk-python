@@ -94,6 +94,7 @@ class Prompts(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_list",
                 oauth2_scopes=[],
@@ -219,6 +220,7 @@ class Prompts(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_list",
                 oauth2_scopes=[],
@@ -323,6 +325,7 @@ class Prompts(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_create",
                 oauth2_scopes=[],
@@ -425,6 +428,7 @@ class Prompts(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_create",
                 oauth2_scopes=[],
@@ -527,6 +531,7 @@ class Prompts(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_update",
                 oauth2_scopes=[],
@@ -629,6 +634,7 @@ class Prompts(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_update",
                 oauth2_scopes=[],
@@ -728,6 +734,7 @@ class Prompts(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_get_by_id",
                 oauth2_scopes=[],
@@ -827,6 +834,7 @@ class Prompts(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_get_by_id",
                 oauth2_scopes=[],
@@ -929,6 +937,7 @@ class Prompts(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_delete",
                 oauth2_scopes=[],
@@ -1031,6 +1040,7 @@ class Prompts(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_delete",
                 oauth2_scopes=[],
@@ -1130,6 +1140,7 @@ class Prompts(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_history",
                 oauth2_scopes=[],
@@ -1229,6 +1240,7 @@ class Prompts(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_history",
                 oauth2_scopes=[],
@@ -1321,6 +1333,7 @@ class Prompts(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompt_get_supported_llms",
                 oauth2_scopes=[],
@@ -1407,6 +1420,7 @@ class Prompts(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompt_get_supported_llms",
                 oauth2_scopes=[],

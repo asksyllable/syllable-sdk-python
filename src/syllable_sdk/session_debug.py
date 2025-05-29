@@ -69,6 +69,7 @@ class SessionDebug(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_session_data_by_sid",
                 oauth2_scopes=[],
@@ -169,6 +170,7 @@ class SessionDebug(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_session_data_by_sid",
                 oauth2_scopes=[],
@@ -266,6 +268,7 @@ class SessionDebug(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_session_data_by_session_id",
                 oauth2_scopes=[],
@@ -363,6 +366,7 @@ class SessionDebug(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_session_data_by_session_id",
                 oauth2_scopes=[],
@@ -463,6 +467,7 @@ class SessionDebug(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_session_tool_call_result_by_id",
                 oauth2_scopes=[],
@@ -563,6 +568,7 @@ class SessionDebug(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_session_tool_call_result_by_id",
                 oauth2_scopes=[],

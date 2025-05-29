@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 3170522e6be69845938c9709a18e11eb
+  docChecksum: 3d8e57e3ccf5e4408e5f57bdc3b825ef
   docVersion: 0.0.2
-  speakeasyVersion: 1.552.0
-  generationVersion: 2.610.0
-  releaseVersion: 0.34.11
-  configChecksum: 80c1afb82c49d400c9b36a16e23e538b
+  speakeasyVersion: 1.554.1
+  generationVersion: 2.616.1
+  releaseVersion: 0.35.0
+  configChecksum: 6e5ee1d89b812927087e01511b93b844
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -14,7 +14,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.19.0
+    core: 5.19.1
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
     devContainers: 3.0.0
@@ -33,7 +33,7 @@ features:
     nullables: 1.0.1
     responseFormat: 1.0.1
     retries: 3.0.2
-    sdkHooks: 1.0.1
+    sdkHooks: 1.1.0
     unions: 3.0.4
     uploadStreams: 1.0.0
 generatedFiles:
@@ -218,6 +218,7 @@ generatedFiles:
   - docs/models/listresponselanguagegroupresponse.md
   - docs/models/listresponseoutboundcampaign.md
   - docs/models/listresponsepromptresponse.md
+  - docs/models/listresponseroleresponse.md
   - docs/models/listresponseserviceresponse.md
   - docs/models/listresponsesession.md
   - docs/models/listresponsesessionlabel.md
@@ -240,7 +241,6 @@ generatedFiles:
   - docs/models/outboundcampaignlistrequest.md
   - docs/models/outboundcampaignupdaterequest.md
   - docs/models/permissionresponse.md
-  - docs/models/permissions.md
   - docs/models/postgetdashboardrequest.md
   - docs/models/postlistdashboardrequest.md
   - docs/models/promptcreaterequest.md
@@ -256,6 +256,13 @@ generatedFiles:
   - docs/models/promptupdaterequest.md
   - docs/models/requeststatus.md
   - docs/models/response.md
+  - docs/models/rolecreaterequest.md
+  - docs/models/roleproperties.md
+  - docs/models/roleresponse.md
+  - docs/models/rolesdeleterequest.md
+  - docs/models/rolesgetbyidrequest.md
+  - docs/models/roleslistrequest.md
+  - docs/models/roleupdaterequest.md
   - docs/models/security.md
   - docs/models/servicecreaterequest.md
   - docs/models/servicedeleterequest.md
@@ -343,8 +350,9 @@ generatedFiles:
   - docs/sdks/latency/README.md
   - docs/sdks/numbers/README.md
   - docs/sdks/outbound/README.md
-  - docs/sdks/permissionssdk/README.md
+  - docs/sdks/permissions/README.md
   - docs/sdks/prompts/README.md
+  - docs/sdks/roles/README.md
   - docs/sdks/services/README.md
   - docs/sdks/sessiondebug/README.md
   - docs/sdks/sessionlabels/README.md
@@ -555,6 +563,7 @@ generatedFiles:
   - src/syllable_sdk/models/listresponse_languagegroupresponse_.py
   - src/syllable_sdk/models/listresponse_outboundcampaign_.py
   - src/syllable_sdk/models/listresponse_promptresponse_.py
+  - src/syllable_sdk/models/listresponse_roleresponse_.py
   - src/syllable_sdk/models/listresponse_serviceresponse_.py
   - src/syllable_sdk/models/listresponse_session_.py
   - src/syllable_sdk/models/listresponse_sessionlabel_.py
@@ -575,7 +584,6 @@ generatedFiles:
   - src/syllable_sdk/models/outboundcampaign.py
   - src/syllable_sdk/models/outboundcampaigninput.py
   - src/syllable_sdk/models/permissionresponse.py
-  - src/syllable_sdk/models/permissions.py
   - src/syllable_sdk/models/post_get_dashboardop.py
   - src/syllable_sdk/models/post_list_dashboardop.py
   - src/syllable_sdk/models/promptcreaterequest.py
@@ -590,6 +598,13 @@ generatedFiles:
   - src/syllable_sdk/models/prompts_listop.py
   - src/syllable_sdk/models/promptupdaterequest.py
   - src/syllable_sdk/models/requeststatus.py
+  - src/syllable_sdk/models/rolecreaterequest.py
+  - src/syllable_sdk/models/roleproperties.py
+  - src/syllable_sdk/models/roleresponse.py
+  - src/syllable_sdk/models/roles_deleteop.py
+  - src/syllable_sdk/models/roles_get_by_idop.py
+  - src/syllable_sdk/models/roles_listop.py
+  - src/syllable_sdk/models/roleupdaterequest.py
   - src/syllable_sdk/models/security.py
   - src/syllable_sdk/models/service_deleteop.py
   - src/syllable_sdk/models/service_listop.py
@@ -659,9 +674,10 @@ generatedFiles:
   - src/syllable_sdk/models/voicesamplecreaterequest.py
   - src/syllable_sdk/numbers.py
   - src/syllable_sdk/outbound.py
-  - src/syllable_sdk/permissions_sdk.py
+  - src/syllable_sdk/permissions.py
   - src/syllable_sdk/prompts.py
   - src/syllable_sdk/py.typed
+  - src/syllable_sdk/roles.py
   - src/syllable_sdk/sdk.py
   - src/syllable_sdk/sdkconfiguration.py
   - src/syllable_sdk/services.py
@@ -1993,5 +2009,60 @@ examples:
       responses:
         "200":
           application/json: [{"name": "organizations_read", "description": "Fetch agent information"}, {"name": "organizations_read", "description": "Fetch agent information"}, {"name": "organizations_read", "description": "Fetch agent information"}]
+  roles_list:
+    speakeasy-default-roles-list:
+      parameters:
+        query:
+          page: 0
+          limit: 25
+          search_fields: ["name"]
+          search_field_values: ["Some Object Name"]
+          start_datetime: "2023-01-01T00:00:00Z"
+          end_datetime: "2024-01-01T00:00:00Z"
+      responses:
+        "200":
+          application/json: {"items": [{"name": "prompt_engineer", "description": "Role for users who can fetch and change prompts", "permissions": ["prompts_read", "prompts_write", "prompts_delete"], "id": 1, "last_updated_comments": "Updated to add delete permission", "is_system_role": false, "last_updated": "2025-06-13T22:39:20.757Z", "last_updated_by": "user@email.com"}], "page": 0, "page_size": 25, "total_pages": 4, "total_count": 100}
+        "422":
+          application/json: {}
+  roles_create:
+    speakeasy-default-roles-create:
+      requestBody:
+        application/json: {"name": "prompt_engineer", "description": "Role for users who can fetch and change prompts", "permissions": ["prompts_read", "prompts_write", "prompts_delete"]}
+      responses:
+        "200":
+          application/json: {"name": "prompt_engineer", "description": "Role for users who can fetch and change prompts", "permissions": ["prompts_read", "prompts_write", "prompts_delete"], "id": 1, "last_updated_comments": "Updated to add delete permission", "is_system_role": false, "last_updated": "2024-10-26T05:36:43.695Z", "last_updated_by": "user@email.com"}
+        "422":
+          application/json: {}
+  roles_update:
+    speakeasy-default-roles-update:
+      requestBody:
+        application/json: {"name": "prompt_engineer", "description": "Role for users who can fetch and change prompts", "permissions": ["prompts_read", "prompts_write", "prompts_delete"], "id": 1, "last_updated_comments": "Updated to add delete permission"}
+      responses:
+        "200":
+          application/json: {"name": "prompt_engineer", "description": "Role for users who can fetch and change prompts", "permissions": ["prompts_read", "prompts_write", "prompts_delete"], "id": 1, "last_updated_comments": "Updated to add delete permission", "is_system_role": false, "last_updated": "2024-03-18T03:22:34.251Z", "last_updated_by": "user@email.com"}
+        "422":
+          application/json: {}
+  roles_get_by_id:
+    speakeasy-default-roles-get-by-id:
+      parameters:
+        path:
+          role_id: 324660
+      responses:
+        "200":
+          application/json: {"name": "prompt_engineer", "description": "Role for users who can fetch and change prompts", "permissions": ["prompts_read", "prompts_write", "prompts_delete"], "id": 1, "last_updated_comments": "Updated to add delete permission", "is_system_role": false, "last_updated": "2024-11-12T10:57:00.366Z", "last_updated_by": "user@email.com"}
+        "422":
+          application/json: {}
+  roles_delete:
+    speakeasy-default-roles-delete:
+      parameters:
+        path:
+          role_id: 458987
+        query:
+          reason: "<value>"
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
