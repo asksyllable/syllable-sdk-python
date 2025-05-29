@@ -472,6 +472,10 @@ if TYPE_CHECKING:
         ListResponsePromptResponse,
         ListResponsePromptResponseTypedDict,
     )
+    from .listresponse_roleresponse_ import (
+        ListResponseRoleResponse,
+        ListResponseRoleResponseTypedDict,
+    )
     from .listresponse_serviceresponse_ import (
         ListResponseServiceResponse,
         ListResponseServiceResponseTypedDict,
@@ -540,7 +544,6 @@ if TYPE_CHECKING:
         OutboundCampaignInputTypedDict,
     )
     from .permissionresponse import PermissionResponse, PermissionResponseTypedDict
-    from .permissions import Permissions
     from .post_get_dashboardop import (
         PostGetDashboardRequest,
         PostGetDashboardRequestTypedDict,
@@ -564,6 +567,13 @@ if TYPE_CHECKING:
     from .prompts_listop import PromptsListRequest, PromptsListRequestTypedDict
     from .promptupdaterequest import PromptUpdateRequest, PromptUpdateRequestTypedDict
     from .requeststatus import RequestStatus
+    from .rolecreaterequest import RoleCreateRequest, RoleCreateRequestTypedDict
+    from .roleproperties import RoleProperties
+    from .roleresponse import RoleResponse, RoleResponseTypedDict
+    from .roles_deleteop import RolesDeleteRequest, RolesDeleteRequestTypedDict
+    from .roles_get_by_idop import RolesGetByIDRequest, RolesGetByIDRequestTypedDict
+    from .roles_listop import RolesListRequest, RolesListRequestTypedDict
+    from .roleupdaterequest import RoleUpdateRequest, RoleUpdateRequestTypedDict
     from .security import Security, SecurityTypedDict
     from .service_deleteop import ServiceDeleteRequest, ServiceDeleteRequestTypedDict
     from .service_listop import ServiceListRequest, ServiceListRequestTypedDict
@@ -1047,6 +1057,8 @@ __all__ = [
     "ListResponseOutboundCampaignTypedDict",
     "ListResponsePromptResponse",
     "ListResponsePromptResponseTypedDict",
+    "ListResponseRoleResponse",
+    "ListResponseRoleResponseTypedDict",
     "ListResponseServiceResponse",
     "ListResponseServiceResponseTypedDict",
     "ListResponseSession",
@@ -1090,7 +1102,6 @@ __all__ = [
     "OutboundCampaignUpdateRequestTypedDict",
     "PermissionResponse",
     "PermissionResponseTypedDict",
-    "Permissions",
     "PostGetDashboardRequest",
     "PostGetDashboardRequestTypedDict",
     "PostListDashboardRequest",
@@ -1118,6 +1129,19 @@ __all__ = [
     "RequestStatus",
     "Response",
     "ResponseTypedDict",
+    "RoleCreateRequest",
+    "RoleCreateRequestTypedDict",
+    "RoleProperties",
+    "RoleResponse",
+    "RoleResponseTypedDict",
+    "RoleUpdateRequest",
+    "RoleUpdateRequestTypedDict",
+    "RolesDeleteRequest",
+    "RolesDeleteRequestTypedDict",
+    "RolesGetByIDRequest",
+    "RolesGetByIDRequestTypedDict",
+    "RolesListRequest",
+    "RolesListRequestTypedDict",
     "Security",
     "SecurityTypedDict",
     "ServiceCreateRequest",
@@ -1557,6 +1581,8 @@ _dynamic_imports: dict[str, str] = {
     "ListResponseOutboundCampaignTypedDict": ".listresponse_outboundcampaign_",
     "ListResponsePromptResponse": ".listresponse_promptresponse_",
     "ListResponsePromptResponseTypedDict": ".listresponse_promptresponse_",
+    "ListResponseRoleResponse": ".listresponse_roleresponse_",
+    "ListResponseRoleResponseTypedDict": ".listresponse_roleresponse_",
     "ListResponseServiceResponse": ".listresponse_serviceresponse_",
     "ListResponseServiceResponseTypedDict": ".listresponse_serviceresponse_",
     "ListResponseSession": ".listresponse_session_",
@@ -1596,7 +1622,6 @@ _dynamic_imports: dict[str, str] = {
     "OutboundCampaignInputTypedDict": ".outboundcampaigninput",
     "PermissionResponse": ".permissionresponse",
     "PermissionResponseTypedDict": ".permissionresponse",
-    "Permissions": ".permissions",
     "PostGetDashboardRequest": ".post_get_dashboardop",
     "PostGetDashboardRequestTypedDict": ".post_get_dashboardop",
     "PostListDashboardRequest": ".post_list_dashboardop",
@@ -1622,6 +1647,19 @@ _dynamic_imports: dict[str, str] = {
     "PromptUpdateRequest": ".promptupdaterequest",
     "PromptUpdateRequestTypedDict": ".promptupdaterequest",
     "RequestStatus": ".requeststatus",
+    "RoleCreateRequest": ".rolecreaterequest",
+    "RoleCreateRequestTypedDict": ".rolecreaterequest",
+    "RoleProperties": ".roleproperties",
+    "RoleResponse": ".roleresponse",
+    "RoleResponseTypedDict": ".roleresponse",
+    "RolesDeleteRequest": ".roles_deleteop",
+    "RolesDeleteRequestTypedDict": ".roles_deleteop",
+    "RolesGetByIDRequest": ".roles_get_by_idop",
+    "RolesGetByIDRequestTypedDict": ".roles_get_by_idop",
+    "RolesListRequest": ".roles_listop",
+    "RolesListRequestTypedDict": ".roles_listop",
+    "RoleUpdateRequest": ".roleupdaterequest",
+    "RoleUpdateRequestTypedDict": ".roleupdaterequest",
     "Security": ".security",
     "SecurityTypedDict": ".security",
     "ServiceDeleteRequest": ".service_deleteop",

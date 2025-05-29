@@ -94,6 +94,7 @@ class Workflows(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_list",
                 oauth2_scopes=[],
@@ -219,6 +220,7 @@ class Workflows(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_list",
                 oauth2_scopes=[],
@@ -325,6 +327,7 @@ class Workflows(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_create",
                 oauth2_scopes=[],
@@ -429,6 +432,7 @@ class Workflows(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_create",
                 oauth2_scopes=[],
@@ -528,6 +532,7 @@ class Workflows(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_get_by_id",
                 oauth2_scopes=[],
@@ -627,6 +632,7 @@ class Workflows(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_get_by_id",
                 oauth2_scopes=[],
@@ -740,6 +746,7 @@ class Workflows(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_update",
                 oauth2_scopes=[],
@@ -853,6 +860,7 @@ class Workflows(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_update",
                 oauth2_scopes=[],
@@ -952,6 +960,7 @@ class Workflows(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_delete",
                 oauth2_scopes=[],
@@ -1051,6 +1060,7 @@ class Workflows(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_delete",
                 oauth2_scopes=[],
@@ -1150,6 +1160,7 @@ class Workflows(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_inactivate",
                 oauth2_scopes=[],
@@ -1249,6 +1260,7 @@ class Workflows(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_inactivate",
                 oauth2_scopes=[],
@@ -1362,6 +1374,7 @@ class Workflows(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_activate",
                 oauth2_scopes=[],
@@ -1475,6 +1488,7 @@ class Workflows(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_activate",
                 oauth2_scopes=[],
@@ -1580,6 +1594,7 @@ class Workflows(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_queue_work",
                 oauth2_scopes=[],
@@ -1685,6 +1700,7 @@ class Workflows(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_queue_work",
                 oauth2_scopes=[],

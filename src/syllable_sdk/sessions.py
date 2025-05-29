@@ -111,6 +111,7 @@ class Sessions(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="sessions_list",
                 oauth2_scopes=[],
@@ -232,6 +233,7 @@ class Sessions(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="sessions_list",
                 oauth2_scopes=[],
@@ -329,6 +331,7 @@ class Sessions(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="session_get_by_id",
                 oauth2_scopes=[],
@@ -426,6 +429,7 @@ class Sessions(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="session_get_by_id",
                 oauth2_scopes=[],
@@ -523,6 +527,7 @@ class Sessions(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="generate_session_recording_urls",
                 oauth2_scopes=[],
@@ -620,6 +625,7 @@ class Sessions(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="generate_session_recording_urls",
                 oauth2_scopes=[],
@@ -717,6 +723,7 @@ class Sessions(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="session_recording_stream",
                 oauth2_scopes=[],
@@ -816,6 +823,7 @@ class Sessions(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="session_recording_stream",
                 oauth2_scopes=[],

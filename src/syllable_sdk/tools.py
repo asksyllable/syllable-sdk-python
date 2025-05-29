@@ -94,6 +94,7 @@ class Tools(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="tool_list",
                 oauth2_scopes=[],
@@ -217,6 +218,7 @@ class Tools(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="tool_list",
                 oauth2_scopes=[],
@@ -319,6 +321,7 @@ class Tools(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="tool_create",
                 oauth2_scopes=[],
@@ -421,6 +424,7 @@ class Tools(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="tool_create",
                 oauth2_scopes=[],
@@ -523,6 +527,7 @@ class Tools(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="tool_update",
                 oauth2_scopes=[],
@@ -625,6 +630,7 @@ class Tools(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="tool_update",
                 oauth2_scopes=[],
@@ -724,6 +730,7 @@ class Tools(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="tool_get_by_name",
                 oauth2_scopes=[],
@@ -823,6 +830,7 @@ class Tools(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="tool_get_by_name",
                 oauth2_scopes=[],
@@ -925,6 +933,7 @@ class Tools(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="tool_delete",
                 oauth2_scopes=[],
@@ -1027,6 +1036,7 @@ class Tools(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="tool_delete",
                 oauth2_scopes=[],

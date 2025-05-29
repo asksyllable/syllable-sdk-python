@@ -34,7 +34,7 @@ class ToolResponseTypedDict(TypedDict):
     id: int
     r"""The internal ID of the tool"""
     last_updated: datetime
-    r"""The timestamp of the most recent update to the service"""
+    r"""The timestamp of the most recent update to the tool"""
     last_updated_by: str
     r"""The email of the user who last updated the tool"""
     last_updated_comments: NotRequired[Nullable[str]]
@@ -68,7 +68,7 @@ class ToolResponse(BaseModel):
     r"""The internal ID of the tool"""
 
     last_updated: datetime
-    r"""The timestamp of the most recent update to the service"""
+    r"""The timestamp of the most recent update to the tool"""
 
     last_updated_by: str
     r"""The email of the user who last updated the tool"""

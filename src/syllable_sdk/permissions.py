@@ -8,7 +8,7 @@ from syllable_sdk.utils import get_security_from_env
 from typing import List, Mapping, Optional
 
 
-class PermissionsSDK(BaseSDK):
+class Permissions(BaseSDK):
     r"""Operations related to permissions. A permission is a specific           capability or access level granted to a user within the Syllable system.           Permissions are used to control access to various features and functionalities."""
 
     def list(
@@ -63,6 +63,7 @@ class PermissionsSDK(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="permissions_list",
                 oauth2_scopes=[],
@@ -149,6 +150,7 @@ class PermissionsSDK(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="permissions_list",
                 oauth2_scopes=[],

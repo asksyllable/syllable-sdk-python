@@ -95,6 +95,7 @@ class LanguageGroups(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="language_groups_list",
                 oauth2_scopes=[],
@@ -220,6 +221,7 @@ class LanguageGroups(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="language_groups_list",
                 oauth2_scopes=[],
@@ -327,6 +329,7 @@ class LanguageGroups(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="language_groups_create",
                 oauth2_scopes=[],
@@ -432,6 +435,7 @@ class LanguageGroups(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="language_groups_create",
                 oauth2_scopes=[],
@@ -537,6 +541,7 @@ class LanguageGroups(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="language_groups_update",
                 oauth2_scopes=[],
@@ -642,6 +647,7 @@ class LanguageGroups(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="language_groups_update",
                 oauth2_scopes=[],
@@ -741,6 +747,7 @@ class LanguageGroups(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="language_groups_get_by_id",
                 oauth2_scopes=[],
@@ -840,6 +847,7 @@ class LanguageGroups(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="language_groups_get_by_id",
                 oauth2_scopes=[],
@@ -942,6 +950,7 @@ class LanguageGroups(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="language_groups_delete",
                 oauth2_scopes=[],
@@ -1044,6 +1053,7 @@ class LanguageGroups(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="language_groups_delete",
                 oauth2_scopes=[],
@@ -1148,6 +1158,7 @@ class LanguageGroups(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="language_groups_create_voice_sample",
                 oauth2_scopes=[],
@@ -1254,6 +1265,7 @@ class LanguageGroups(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="language_groups_create_voice_sample",
                 oauth2_scopes=[],

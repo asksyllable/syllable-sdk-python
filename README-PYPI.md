@@ -353,9 +353,9 @@ with SyllableSDK(
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/campaigns/README.md#update) - Update Outbound Communication Campaign
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/campaigns/README.md#delete) - Delete Outbound Communication Campaign
 
-### [permissions](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/permissionssdk/README.md)
+### [permissions](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/permissions/README.md)
 
-* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/permissionssdk/README.md#list) - List Permissions
+* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/permissions/README.md#list) - List Permissions
 
 ### [prompts](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/prompts/README.md)
 
@@ -366,6 +366,14 @@ with SyllableSDK(
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/prompts/README.md#delete) - Delete Prompt
 * [prompts_history](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/prompts/README.md#prompts_history) - Get Prompt History
 * [prompt_get_supported_llms](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/prompts/README.md#prompt_get_supported_llms) - Get Supported Llm Configs
+
+### [roles](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/roles/README.md)
+
+* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/roles/README.md#list) - List Roles
+* [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/roles/README.md#create) - Create Role
+* [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/roles/README.md#update) - Update Role
+* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/roles/README.md#get_by_id) - Get Role
+* [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/roles/README.md#delete) - Delete Role
 
 ### [services](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/services/README.md)
 
