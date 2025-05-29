@@ -5363,6 +5363,414 @@
         ]
       }
     },
+    "/api/v1/roles/": {
+      "get": {
+        "tags": [
+          "roles"
+        ],
+        "summary": "List Roles",
+        "description": "List the existing roles.",
+        "operationId": "roles_list",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The page number from which to start (0-based)",
+              "examples": [
+                0
+              ],
+              "default": 0,
+              "title": "Page"
+            },
+            "description": "The page number from which to start (0-based)"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "The maximum number of items to return",
+              "examples": [
+                25
+              ],
+              "default": 25,
+              "title": "Limit"
+            },
+            "description": "The maximum number of items to return"
+          },
+          {
+            "name": "search_fields",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/RoleProperties"
+              },
+              "description": "String names of fields to search. Correspond by index to search field values",
+              "examples": [
+                "name"
+              ],
+              "default": [],
+              "title": "Search Fields"
+            },
+            "description": "String names of fields to search. Correspond by index to search field values"
+          },
+          {
+            "name": "search_field_values",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list",
+              "examples": [
+                "Some Object Name"
+              ],
+              "default": [],
+              "title": "Search Field Values"
+            },
+            "description": "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/RoleProperties"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The field whose value should be used to order the results",
+              "examples": [
+                "name"
+              ],
+              "title": "Order By"
+            },
+            "description": "The field whose value should be used to order the results"
+          },
+          {
+            "name": "order_by_direction",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/OrderByDirection"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The direction in which to order the results",
+              "title": "Order By Direction"
+            },
+            "description": "The direction in which to order the results"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleProperties"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The fields to include in the response",
+              "default": [],
+              "title": "Fields"
+            },
+            "description": "The fields to include in the response"
+          },
+          {
+            "name": "start_datetime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The start datetime for filtering results",
+              "examples": [
+                "2023-01-01T00:00:00Z"
+              ],
+              "title": "Start Datetime"
+            },
+            "description": "The start datetime for filtering results"
+          },
+          {
+            "name": "end_datetime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The end datetime for filtering results",
+              "examples": [
+                "2024-01-01T00:00:00Z"
+              ],
+              "title": "End Datetime"
+            },
+            "description": "The end datetime for filtering results"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListResponse_RoleResponse_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "roles"
+        ],
+        "summary": "Create Role",
+        "description": "Create a new role.",
+        "operationId": "roles_create",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RoleCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "roles"
+        ],
+        "summary": "Update Role",
+        "description": "Update an existing role.",
+        "operationId": "roles_update",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RoleUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/roles/{role_id}": {
+      "get": {
+        "tags": [
+          "roles"
+        ],
+        "summary": "Get Role",
+        "description": "Fetch a given role.",
+        "operationId": "roles_get_by_id",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "role_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Role Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "roles"
+        ],
+        "summary": "Delete Role",
+        "description": "Delete a role.",
+        "operationId": "roles_delete",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "role_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Role Id"
+            }
+          },
+          {
+            "name": "reason",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Reason"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/services/": {
       "get": {
         "tags": [
@@ -18314,6 +18722,72 @@
         ],
         "title": "ListResponse[PromptResponse]"
       },
+      "ListResponse_RoleResponse_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/RoleResponse"
+            },
+            "type": "array",
+            "title": "Items",
+            "description": "List of items returned from the query",
+            "examples": []
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page",
+            "description": "The page number of the results (0-based)",
+            "examples": [
+              0
+            ]
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size",
+            "description": "The number of items returned per page",
+            "examples": [
+              25
+            ]
+          },
+          "total_pages": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Pages",
+            "description": "The total number of pages of results given the indicated page size",
+            "examples": [
+              4
+            ]
+          },
+          "total_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Count",
+            "description": "The total number of items returned from the query",
+            "examples": [
+              100
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "page",
+          "page_size"
+        ],
+        "title": "ListResponse[RoleResponse]"
+      },
       "ListResponse_ServiceResponse_": {
         "properties": {
           "items": {
@@ -18985,7 +19459,8 @@
       "PermissionResponse": {
         "properties": {
           "name": {
-            "$ref": "#/components/schemas/Permissions",
+            "type": "string",
+            "title": "Name",
             "description": "Name of the permission",
             "examples": [
               "agents_read"
@@ -19007,71 +19482,6 @@
         ],
         "title": "PermissionResponse",
         "description": "Information about a permission."
-      },
-      "Permissions": {
-        "type": "string",
-        "enum": [
-          "agents_read",
-          "agents_write",
-          "agents_delete",
-          "api_token_read",
-          "api_token_write",
-          "api_token_delete",
-          "channels_read",
-          "channels_write",
-          "channels_delete",
-          "chat",
-          "conversations_read",
-          "custom_messages_read",
-          "custom_messages_write",
-          "custom_messages_delete",
-          "data_sources_read",
-          "data_sources_write",
-          "data_sources_delete",
-          "directory_read",
-          "directory_write",
-          "directory_delete",
-          "events_read",
-          "incidents_read",
-          "insights_read",
-          "insights_write",
-          "insights_delete",
-          "integrations_read",
-          "integrations_write",
-          "integrations_delete",
-          "language_groups_read",
-          "language_groups_write",
-          "language_groups_delete",
-          "organizations_read",
-          "organizations_write",
-          "outbound_read",
-          "outbound_write",
-          "outbound_delete",
-          "permissions_read",
-          "prompts_read",
-          "prompts_write",
-          "prompts_delete",
-          "recording_download",
-          "reports_read",
-          "services_read",
-          "services_write",
-          "services_delete",
-          "session_labels_read",
-          "session_labels_write",
-          "sessions_read",
-          "tools_read",
-          "tools_write",
-          "tools_delete",
-          "users_read",
-          "users_write",
-          "users_delete",
-          "sa_incidents_read",
-          "sa_incidents_write",
-          "sa_incidents_delete",
-          "sa_permissions_read",
-          "syllable_admin_global"
-        ],
-        "title": "Permissions"
       },
       "PromptCreateRequest": {
         "properties": {
@@ -19676,6 +20086,237 @@
         ],
         "title": "RequestStatus",
         "description": "Status of a communication request."
+      },
+      "RoleCreateRequest": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The name of the role.",
+            "examples": [
+              "prompt_engineer"
+            ]
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "The description of the role.",
+            "examples": [
+              "Role for users who can fetch and change prompts"
+            ]
+          },
+          "permissions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Permissions",
+            "description": "The permissions associated with the role. Available permissions can be found by calling `GET /permissions`.",
+            "examples": [
+              [
+                "prompts_read",
+                "prompts_write",
+                "prompts_delete"
+              ]
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "permissions"
+        ],
+        "title": "RoleCreateRequest",
+        "description": "Request model to create a role."
+      },
+      "RoleProperties": {
+        "type": "string",
+        "enum": [
+          "name",
+          "description",
+          "updated_at",
+          "last_updated_by"
+        ],
+        "title": "RoleProperties",
+        "description": "Names of role fields supported for filtering/sorting on list endpoint."
+      },
+      "RoleResponse": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The name of the role.",
+            "examples": [
+              "prompt_engineer"
+            ]
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "The description of the role.",
+            "examples": [
+              "Role for users who can fetch and change prompts"
+            ]
+          },
+          "permissions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Permissions",
+            "description": "The permissions associated with the role. Available permissions can be found by calling `GET /permissions`.",
+            "examples": [
+              [
+                "prompts_read",
+                "prompts_write",
+                "prompts_delete"
+              ]
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id",
+            "description": "The internal ID of the role.",
+            "examples": [
+              1
+            ]
+          },
+          "last_updated_comments": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Updated Comments",
+            "description": "Comments for the most recent edit to the role.",
+            "examples": [
+              "Updated to add delete permission"
+            ]
+          },
+          "is_system_role": {
+            "type": "boolean",
+            "title": "Is System Role",
+            "description": "Whether this is a built-in system role that cannot be updated or deleted",
+            "examples": [
+              false
+            ]
+          },
+          "last_updated": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Last Updated",
+            "description": "The timestamp of the most recent update to the role"
+          },
+          "last_updated_by": {
+            "type": "string",
+            "title": "Last Updated By",
+            "description": "The email of the user who last updated the role",
+            "examples": [
+              "user@email.com"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "permissions",
+          "id",
+          "is_system_role",
+          "last_updated",
+          "last_updated_by"
+        ],
+        "title": "RoleResponse",
+        "description": "Information about a role."
+      },
+      "RoleUpdateRequest": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The name of the role.",
+            "examples": [
+              "prompt_engineer"
+            ]
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "The description of the role.",
+            "examples": [
+              "Role for users who can fetch and change prompts"
+            ]
+          },
+          "permissions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Permissions",
+            "description": "The permissions associated with the role. Available permissions can be found by calling `GET /permissions`.",
+            "examples": [
+              [
+                "prompts_read",
+                "prompts_write",
+                "prompts_delete"
+              ]
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id",
+            "description": "The internal ID of the role.",
+            "examples": [
+              1
+            ]
+          },
+          "last_updated_comments": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Updated Comments",
+            "description": "Comments for the most recent edit to the role.",
+            "examples": [
+              "Updated to add delete permission"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "permissions",
+          "id"
+        ],
+        "title": "RoleUpdateRequest",
+        "description": "Request model to update an existing role."
       },
       "ServiceCreateRequest": {
         "properties": {
@@ -21363,7 +22004,7 @@
             "type": "string",
             "format": "date-time",
             "title": "Last Updated",
-            "description": "The timestamp of the most recent update to the service"
+            "description": "The timestamp of the most recent update to the tool"
           },
           "last_updated_by": {
             "type": "string",
@@ -21759,7 +22400,7 @@
             "type": "string",
             "format": "date-time",
             "title": "Last Updated",
-            "description": "The timestamp of the most recent update to the service"
+            "description": "The timestamp of the most recent update to the tool"
           },
           "last_updated_by": {
             "type": "string",
@@ -22284,6 +22925,10 @@
     {
       "name": "prompts",
       "description": "Operations related to prompts. A prompt defines the behavior of an           agent by delivering instructions to the LLM about how the agent should behave.           A prompt can be linked to one or more agents. A prompt can also be linked to tools to           allow an agent using the prompt to use them. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Prompts)."
+    },
+    {
+      "name": "roles",
+      "description": "Operations related to roles. A role is a collection of permissions           that can be assigned to users to control their access to various features within the           Syllable system."
     },
     {
       "name": "services",
