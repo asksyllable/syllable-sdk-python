@@ -14,3 +14,4 @@
 | `CALLER_ID`          | caller_id            |
 | `UPDATED_AT`         | updated_at           |
 | `LABEL`              | label                |
+| `LABELS`             | labels               |

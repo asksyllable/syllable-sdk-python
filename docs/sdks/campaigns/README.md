@@ -85,7 +85,10 @@ with SyllableSDK(
     res = ss_client.outbound.campaigns.create(request={
         "campaign_name": "Outbound Campaign 1",
         "description": "This is a test campaign",
-        "label": "test",
+        "labels": [
+            "test",
+            "demo",
+        ],
         "campaign_variables": {
             "key": "value",
             "key2": "value2",
@@ -182,7 +185,10 @@ with SyllableSDK(
     res = ss_client.outbound.campaigns.update(campaign_id=187717, outbound_campaign_input={
         "campaign_name": "Outbound Campaign 1",
         "description": "This is a test campaign",
-        "label": "test",
+        "labels": [
+            "test",
+            "demo",
+        ],
         "campaign_variables": {
             "key": "value",
             "key2": "value2",
