@@ -1557,7 +1557,7 @@ actions:
                         {
                             "language_code": syllable_sdk.LanguageCode.ES_US,
                             "voice_provider": syllable_sdk.TtsProvider.GOOGLE,
-                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ALEJANDRO,
+                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ES_US_NEURAL2_B,
                             "dtmf_code": 2,
                         },
                     ],
@@ -1594,7 +1594,7 @@ actions:
                         {
                             "language_code": syllable_sdk.LanguageCode.ES_US,
                             "voice_provider": syllable_sdk.TtsProvider.GOOGLE,
-                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ALEJANDRO,
+                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ES_US_NEURAL2_B,
                             "dtmf_code": 2,
                         },
                     ],
@@ -1895,7 +1895,10 @@ actions:
                 res = ss_client.outbound.campaigns.create(request={
                     "campaign_name": "Outbound Campaign 1",
                     "description": "This is a test campaign",
-                    "label": "test",
+                    "labels": [
+                        "test",
+                        "demo",
+                    ],
                     "campaign_variables": {
                         "key": "value",
                         "key2": "value2",
@@ -1966,7 +1969,10 @@ actions:
                 res = ss_client.outbound.campaigns.update(campaign_id=667849, outbound_campaign_input={
                     "campaign_name": "Outbound Campaign 1",
                     "description": "This is a test campaign",
-                    "label": "test",
+                    "labels": [
+                        "test",
+                        "demo",
+                    ],
                     "campaign_variables": {
                         "key": "value",
                         "key2": "value2",

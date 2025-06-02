@@ -7234,6 +7234,7 @@ components:
         - "caller_id"
         - "updated_at"
         - "label"
+        - "labels"
       title: "CampaignProperties"
     "Channel":
       properties:
@@ -10216,7 +10217,7 @@ components:
           title: "Language Configs"
           description: "Voice and DTMF configurations for each language in the group."
           examples:
-            - [{"dtmf_code": 1, "language_code": "en-US", "voice_display_name": "Alloy", "voice_provider": "OpenAI"}, {"dtmf_code": 2, "language_code": "es-US", "voice_display_name": "Alejandro", "voice_provider": "Google"}]
+            - [{"dtmf_code": 1, "language_code": "en-US", "voice_display_name": "Alloy", "voice_provider": "OpenAI"}, {"dtmf_code": 2, "language_code": "es-US", "voice_display_name": "es-US-Neural2-B", "voice_provider": "Google"}]
         "skip_current_language_in_message":
           type: "boolean"
           title: "Skip Current Language In Message"
@@ -10262,7 +10263,7 @@ components:
           title: "Language Configs"
           description: "Voice and DTMF configurations for each language in the group."
           examples:
-            - [{"dtmf_code": 1, "language_code": "en-US", "voice_display_name": "Alloy", "voice_provider": "OpenAI"}, {"dtmf_code": 2, "language_code": "es-US", "voice_display_name": "Alejandro", "voice_provider": "Google"}]
+            - [{"dtmf_code": 1, "language_code": "en-US", "voice_display_name": "Alloy", "voice_provider": "OpenAI"}, {"dtmf_code": 2, "language_code": "es-US", "voice_display_name": "es-US-Neural2-B", "voice_provider": "Google"}]
         "skip_current_language_in_message":
           type: "boolean"
           title: "Skip Current Language In Message"
@@ -10337,7 +10338,7 @@ components:
           title: "Language Configs"
           description: "Voice and DTMF configurations for each language in the group."
           examples:
-            - [{"dtmf_code": 1, "language_code": "en-US", "voice_display_name": "Alloy", "voice_provider": "OpenAI"}, {"dtmf_code": 2, "language_code": "es-US", "voice_display_name": "Alejandro", "voice_provider": "Google"}]
+            - [{"dtmf_code": 1, "language_code": "en-US", "voice_display_name": "Alloy", "voice_provider": "OpenAI"}, {"dtmf_code": 2, "language_code": "es-US", "voice_display_name": "es-US-Neural2-B", "voice_provider": "Google"}]
         "skip_current_language_in_message":
           type: "boolean"
           title: "Skip Current Language In Message"
@@ -11480,10 +11481,21 @@ components:
             - type: "string"
             - type: "null"
           title: "Label"
-          description: "Label for campaign"
+          description: "Label for campaign (DEPRECATED - use labels instead)"
+          deprecated: true
           examples:
             - "test"
             - "demo"
+        "labels":
+          anyOf:
+            - items:
+                type: "string"
+              type: "array"
+            - type: "null"
+          title: "Labels"
+          description: "Labels for campaign"
+          examples:
+            - ["test", "demo"]
         "campaign_variables":
           additionalProperties:
             type: "string"
@@ -11620,10 +11632,21 @@ components:
             - type: "string"
             - type: "null"
           title: "Label"
-          description: "Label for campaign"
+          description: "Label for campaign (DEPRECATED - use labels instead)"
+          deprecated: true
           examples:
             - "test"
             - "demo"
+        "labels":
+          anyOf:
+            - items:
+                type: "string"
+              type: "array"
+            - type: "null"
+          title: "Labels"
+          description: "Labels for campaign"
+          examples:
+            - ["test", "demo"]
         "campaign_variables":
           additionalProperties:
             type: "string"

@@ -3,6 +3,7 @@
 from __future__ import annotations
 from .daysofweek import DaysOfWeek
 from datetime import datetime
+import pydantic
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -12,7 +13,7 @@ from syllable_sdk.types import (
     UNSET_SENTINEL,
 )
 from typing import Dict, List, Optional
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class OutboundCampaignTypedDict(TypedDict):
@@ -31,7 +32,9 @@ class OutboundCampaignTypedDict(TypedDict):
     description: NotRequired[Nullable[str]]
     r"""Description of campaign"""
     label: NotRequired[Nullable[str]]
-    r"""Label for campaign"""
+    r"""Label for campaign (DEPRECATED - use labels instead)"""
+    labels: NotRequired[Nullable[List[str]]]
+    r"""Labels for campaign"""
     daily_start_time: NotRequired[Nullable[str]]
     r"""Start time of campaign each day"""
     daily_end_time: NotRequired[Nullable[str]]
@@ -74,8 +77,16 @@ class OutboundCampaign(BaseModel):
     description: OptionalNullable[str] = UNSET
     r"""Description of campaign"""
 
-    label: OptionalNullable[str] = UNSET
-    r"""Label for campaign"""
+    label: Annotated[
+        OptionalNullable[str],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
+        ),
+    ] = UNSET
+    r"""Label for campaign (DEPRECATED - use labels instead)"""
+
+    labels: OptionalNullable[List[str]] = UNSET
+    r"""Labels for campaign"""
 
     daily_start_time: OptionalNullable[str] = UNSET
     r"""Start time of campaign each day"""
@@ -109,6 +120,7 @@ class OutboundCampaign(BaseModel):
         optional_fields = [
             "description",
             "label",
+            "labels",
             "daily_start_time",
             "daily_end_time",
             "source",
@@ -122,6 +134,7 @@ class OutboundCampaign(BaseModel):
         nullable_fields = [
             "description",
             "label",
+            "labels",
             "daily_start_time",
             "daily_end_time",
             "source",

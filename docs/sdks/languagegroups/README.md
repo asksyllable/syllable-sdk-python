@@ -96,7 +96,7 @@ with SyllableSDK(
             {
                 "language_code": syllable_sdk.LanguageCode.ES_US,
                 "voice_provider": syllable_sdk.TtsProvider.GOOGLE,
-                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ALEJANDRO,
+                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ES_US_NEURAL2_B,
                 "dtmf_code": 2,
             },
         ],
@@ -155,7 +155,7 @@ with SyllableSDK(
             {
                 "language_code": syllable_sdk.LanguageCode.ES_US,
                 "voice_provider": syllable_sdk.TtsProvider.GOOGLE,
-                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ALEJANDRO,
+                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ES_US_NEURAL2_B,
                 "dtmf_code": 2,
             },
         ],
