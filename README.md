@@ -242,6 +242,8 @@ with SyllableSDK(
 #### [channels.twilio.numbers](docs/sdks/numbers/README.md)
 
 * [add](docs/sdks/numbers/README.md#add) - Add Twilio Number
+* [update](docs/sdks/numbers/README.md#update) - Update Twilio Number
+* [list](docs/sdks/numbers/README.md#list) - List Twilio Phone Numbers
 
 ### [conversations](docs/sdks/conversations/README.md)
 

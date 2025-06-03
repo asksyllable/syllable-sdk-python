@@ -83,6 +83,14 @@ if TYPE_CHECKING:
         ChannelsTwilioNumbersAddRequest,
         ChannelsTwilioNumbersAddRequestTypedDict,
     )
+    from .channels_twilio_numbers_listop import (
+        ChannelsTwilioNumbersListRequest,
+        ChannelsTwilioNumbersListRequestTypedDict,
+    )
+    from .channels_twilio_numbers_updateop import (
+        ChannelsTwilioNumbersUpdateRequest,
+        ChannelsTwilioNumbersUpdateRequestTypedDict,
+    )
     from .channelservices import ChannelServices
     from .channeltargetcreaterequest import (
         ChannelTargetCreateRequest,
@@ -718,6 +726,10 @@ if TYPE_CHECKING:
         TwilioChannelUpdateRequest,
         TwilioChannelUpdateRequestTypedDict,
     )
+    from .twiliolistnumbersresponse import (
+        TwilioListNumbersResponse,
+        TwilioListNumbersResponseTypedDict,
+    )
     from .twilionumberaddrequest import (
         TwilioNumberAddRequest,
         TwilioNumberAddRequestTypedDict,
@@ -726,6 +738,15 @@ if TYPE_CHECKING:
         TwilioNumberAddResponse,
         TwilioNumberAddResponseTypedDict,
     )
+    from .twilionumberupdaterequest import (
+        TwilioNumberUpdateRequest,
+        TwilioNumberUpdateRequestTypedDict,
+    )
+    from .twilionumberupdateresponse import (
+        TwilioNumberUpdateResponse,
+        TwilioNumberUpdateResponseTypedDict,
+    )
+    from .twiliophonenumber import TwilioPhoneNumber, TwilioPhoneNumberTypedDict
     from .validationerror import (
         Loc,
         LocTypedDict,
@@ -821,6 +842,10 @@ __all__ = [
     "ChannelsTwilioGetByIDRequestTypedDict",
     "ChannelsTwilioNumbersAddRequest",
     "ChannelsTwilioNumbersAddRequestTypedDict",
+    "ChannelsTwilioNumbersListRequest",
+    "ChannelsTwilioNumbersListRequestTypedDict",
+    "ChannelsTwilioNumbersUpdateRequest",
+    "ChannelsTwilioNumbersUpdateRequestTypedDict",
     "CommunicationBatch",
     "CommunicationBatchInput",
     "CommunicationBatchInputTypedDict",
@@ -1258,10 +1283,18 @@ __all__ = [
     "TwilioChannelCreateRequestTypedDict",
     "TwilioChannelUpdateRequest",
     "TwilioChannelUpdateRequestTypedDict",
+    "TwilioListNumbersResponse",
+    "TwilioListNumbersResponseTypedDict",
     "TwilioNumberAddRequest",
     "TwilioNumberAddRequestTypedDict",
     "TwilioNumberAddResponse",
     "TwilioNumberAddResponseTypedDict",
+    "TwilioNumberUpdateRequest",
+    "TwilioNumberUpdateRequestTypedDict",
+    "TwilioNumberUpdateResponse",
+    "TwilioNumberUpdateResponseTypedDict",
+    "TwilioPhoneNumber",
+    "TwilioPhoneNumberTypedDict",
     "Type",
     "ValidationError",
     "ValidationErrorTypedDict",
@@ -1335,6 +1368,10 @@ _dynamic_imports: dict[str, str] = {
     "ChannelsTwilioGetByIDRequestTypedDict": ".channels_twilio_get_by_idop",
     "ChannelsTwilioNumbersAddRequest": ".channels_twilio_numbers_addop",
     "ChannelsTwilioNumbersAddRequestTypedDict": ".channels_twilio_numbers_addop",
+    "ChannelsTwilioNumbersListRequest": ".channels_twilio_numbers_listop",
+    "ChannelsTwilioNumbersListRequestTypedDict": ".channels_twilio_numbers_listop",
+    "ChannelsTwilioNumbersUpdateRequest": ".channels_twilio_numbers_updateop",
+    "ChannelsTwilioNumbersUpdateRequestTypedDict": ".channels_twilio_numbers_updateop",
     "ChannelServices": ".channelservices",
     "ChannelTargetCreateRequest": ".channeltargetcreaterequest",
     "ChannelTargetCreateRequestTypedDict": ".channeltargetcreaterequest",
@@ -1782,10 +1819,18 @@ _dynamic_imports: dict[str, str] = {
     "TwilioChannelCreateRequestTypedDict": ".twiliochannelcreaterequest",
     "TwilioChannelUpdateRequest": ".twiliochannelupdaterequest",
     "TwilioChannelUpdateRequestTypedDict": ".twiliochannelupdaterequest",
+    "TwilioListNumbersResponse": ".twiliolistnumbersresponse",
+    "TwilioListNumbersResponseTypedDict": ".twiliolistnumbersresponse",
     "TwilioNumberAddRequest": ".twilionumberaddrequest",
     "TwilioNumberAddRequestTypedDict": ".twilionumberaddrequest",
     "TwilioNumberAddResponse": ".twilionumberaddresponse",
     "TwilioNumberAddResponseTypedDict": ".twilionumberaddresponse",
+    "TwilioNumberUpdateRequest": ".twilionumberupdaterequest",
+    "TwilioNumberUpdateRequestTypedDict": ".twilionumberupdaterequest",
+    "TwilioNumberUpdateResponse": ".twilionumberupdateresponse",
+    "TwilioNumberUpdateResponseTypedDict": ".twilionumberupdateresponse",
+    "TwilioPhoneNumber": ".twiliophonenumber",
+    "TwilioPhoneNumberTypedDict": ".twiliophonenumber",
     "Loc": ".validationerror",
     "LocTypedDict": ".validationerror",
     "ValidationError": ".validationerror",

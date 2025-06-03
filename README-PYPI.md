@@ -242,6 +242,8 @@ with SyllableSDK(
 #### [channels.twilio.numbers](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/numbers/README.md)
 
 * [add](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/numbers/README.md#add) - Add Twilio Number
+* [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/numbers/README.md#update) - Update Twilio Number
+* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/numbers/README.md#list) - List Twilio Phone Numbers
 
 ### [conversations](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/conversations/README.md)
 
