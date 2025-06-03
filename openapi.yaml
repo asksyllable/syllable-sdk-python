@@ -6338,12 +6338,247 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+  "/api/v1/users/":
+    get:
+      tags:
+        - "users"
+        - "V1"
+      summary: "List Users"
+      description: "List the existing users."
+      operationId: "users_list"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "page"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - type: "integer"
+                minimum: 0
+              - type: "null"
+            description: "The page number from which to start (0-based)"
+            examples:
+              - 0
+            default: 0
+            title: "Page"
+          description: "The page number from which to start (0-based)"
+        - name: "limit"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
+            default: 25
+            title: "Limit"
+          description: "The maximum number of items to return"
+        - name: "search_fields"
+          in: "query"
+          required: false
+          schema:
+            type: "array"
+            items: {"$ref": "#/components/schemas/UserProperties"}
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
+            default: []
+            title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
+        - name: "search_field_values"
+          in: "query"
+          required: false
+          schema:
+            type: "array"
+            items:
+              type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
+            default: []
+            title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+        - name: "order_by"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - {"$ref": "#/components/schemas/UserProperties"}
+              - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
+            title: "Order By"
+          description: "The field whose value should be used to order the results"
+        - name: "order_by_direction"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - {"$ref": "#/components/schemas/OrderByDirection"}
+              - type: "null"
+            description: "The direction in which to order the results"
+            title: "Order By Direction"
+          description: "The direction in which to order the results"
+        - name: "fields"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - type: "array"
+                items: {"$ref": "#/components/schemas/UserProperties"}
+              - type: "null"
+            description: "The fields to include in the response"
+            default: []
+            title: "Fields"
+          description: "The fields to include in the response"
+        - name: "start_datetime"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - type: "string"
+              - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
+            title: "Start Datetime"
+          description: "The start datetime for filtering results"
+        - name: "end_datetime"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - type: "string"
+              - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
+            title: "End Datetime"
+          description: "The end datetime for filtering results"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/ListResponse_UserResponse_"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+    post:
+      tags:
+        - "users"
+        - "V1"
+      summary: "Create User"
+      description: "Create a new user."
+      operationId: "users_create"
+      security:
+        - APIKeyHeader: []
+      requestBody:
+        required: true
+        content:
+          "application/json":
+            schema: {"$ref": "#/components/schemas/UserCreateRequest"}
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/UserResponse"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+    put:
+      tags:
+        - "users"
+        - "V1"
+      summary: "Update User"
+      description: "Update an existing user."
+      operationId: "users_update"
+      security:
+        - APIKeyHeader: []
+      requestBody:
+        required: true
+        content:
+          "application/json":
+            schema: {"$ref": "#/components/schemas/UserUpdateRequest"}
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/UserResponse"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+    delete:
+      tags:
+        - "users"
+        - "V1"
+      summary: "Delete User"
+      description: "Delete a user."
+      operationId: "users_delete"
+      security:
+        - APIKeyHeader: []
+      requestBody:
+        required: true
+        content:
+          "application/json":
+            schema: {"$ref": "#/components/schemas/UserDeleteRequest"}
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+  "/api/v1/users/{user_email}":
+    get:
+      tags:
+        - "users"
+        - "V1"
+      summary: "Get User"
+      description: "Fetch a given user."
+      operationId: "users_get_by_email"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "user_email"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            title: "User Email"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/UserResponse"}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
   "/api/v1/users/delete_account":
     delete:
       tags:
         - "users"
         - "V1"
       summary: "Request Removal Of This Account"
+      description: "Request removal of the account of the user calling this endpoint. Intended for removing trial\naccounts."
       operationId: "users_delete_account"
       responses:
         "200":
@@ -11512,6 +11747,47 @@ components:
         - "page"
         - "page_size"
       title: "ListResponse[ToolResponse]"
+    "ListResponse_UserResponse_":
+      properties:
+        "items":
+          items: {"$ref": "#/components/schemas/UserResponse"}
+          type: "array"
+          title: "Items"
+          description: "List of items returned from the query"
+        "page":
+          type: "integer"
+          title: "Page"
+          description: "The page number of the results (0-based)"
+          examples:
+            - 0
+        "page_size":
+          type: "integer"
+          title: "Page Size"
+          description: "The number of items returned per page"
+          examples:
+            - 25
+        "total_pages":
+          anyOf:
+            - type: "integer"
+            - type: "null"
+          title: "Total Pages"
+          description: "The total number of pages of results given the indicated page size"
+          examples:
+            - 4
+        "total_count":
+          anyOf:
+            - type: "integer"
+            - type: "null"
+          title: "Total Count"
+          description: "The total number of items returned from the query"
+          examples:
+            - 100
+      type: "object"
+      required:
+        - "items"
+        - "page"
+        - "page_size"
+      title: "ListResponse[UserResponse]"
     "OrderByDirection":
       type: "string"
       enum:
@@ -13825,6 +14101,189 @@ components:
         - "friendly_name"
         - "trunk_sid"
       title: "TwilioPhoneNumber"
+    "UserCreateRequest":
+      properties:
+        "email":
+          type: "string"
+          title: "Email"
+          description: "Email address of the user"
+          examples:
+            - "user@email.com"
+        "first_name":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "First Name"
+          description: "First name of the user"
+          examples:
+            - "Jane"
+        "last_name":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Last Name"
+          description: "Last name of the user"
+          examples:
+            - "Smith"
+        "role_id":
+          type: "integer"
+          title: "Role Id"
+          description: "ID of the role assigned to the user"
+          examples:
+            - 1
+      type: "object"
+      required:
+        - "email"
+        - "role_id"
+      title: "UserCreateRequest"
+      description: "Request model to create a user."
+    "UserDeleteRequest":
+      properties:
+        "email":
+          type: "string"
+          title: "Email"
+          description: "The email address of the user to delete"
+          examples:
+            - "user@email.com"
+        "reason":
+          type: "string"
+          title: "Reason"
+          description: "The reason for deleting the user"
+          examples:
+            - "User left the organization"
+      type: "object"
+      required:
+        - "email"
+        - "reason"
+      title: "UserDeleteRequest"
+      description: "Request model to delete a user."
+    "UserProperties":
+      type: "string"
+      enum:
+        - "email"
+        - "first_name"
+        - "last_name"
+        - "role_id"
+      title: "UserProperties"
+      description: "Names of user fields supported for filtering/sorting on list endpoint."
+    "UserResponse":
+      properties:
+        "email":
+          type: "string"
+          title: "Email"
+          description: "Email address of the user"
+          examples:
+            - "user@email.com"
+        "first_name":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "First Name"
+          description: "First name of the user"
+          examples:
+            - "Jane"
+        "last_name":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Last Name"
+          description: "Last name of the user"
+          examples:
+            - "Smith"
+        "role_id":
+          type: "integer"
+          title: "Role Id"
+          description: "ID of the role assigned to the user"
+          examples:
+            - 1
+        "last_updated_comments":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Last Updated Comments"
+          description: "Comments for the most recent edit to the user."
+          examples:
+            - "Updated to change which role was assigned"
+        "id":
+          type: "integer"
+          title: "Id"
+          description: "Internal ID of the user"
+          examples:
+            - 1
+        "last_updated":
+          type: "string"
+          format: "date-time"
+          title: "Last Updated"
+          description: "The timestamp of the most recent update to the user"
+        "last_updated_by":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Last Updated By"
+          description: "The email address of the user who last updated the user"
+          examples:
+            - "admin@email.com"
+        "last_session_at":
+          anyOf:
+            - type: "string"
+              format: "date-time"
+            - type: "null"
+          title: "Last Session At"
+          description: "The timestamp of the user's last session"
+          examples:
+            - "2025-01-01T12:00:00Z"
+      type: "object"
+      required:
+        - "email"
+        - "role_id"
+        - "id"
+        - "last_updated"
+      title: "UserResponse"
+      description: "Information about a user."
+    "UserUpdateRequest":
+      properties:
+        "email":
+          type: "string"
+          title: "Email"
+          description: "Email address of the user"
+          examples:
+            - "user@email.com"
+        "first_name":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "First Name"
+          description: "First name of the user"
+          examples:
+            - "Jane"
+        "last_name":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Last Name"
+          description: "Last name of the user"
+          examples:
+            - "Smith"
+        "role_id":
+          type: "integer"
+          title: "Role Id"
+          description: "ID of the role assigned to the user"
+          examples:
+            - 1
+        "last_updated_comments":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Last Updated Comments"
+          description: "Comments for the most recent edit to the user."
+          examples:
+            - "Updated to change which role was assigned"
+      type: "object"
+      required:
+        - "email"
+        - "role_id"
+      title: "UserUpdateRequest"
+      description: "Request model to update an existing user."
     "ValidationError":
       properties:
         "loc":
