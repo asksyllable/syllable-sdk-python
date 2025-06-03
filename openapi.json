@@ -883,6 +883,108 @@
             }
           }
         }
+      },
+      "put": {
+        "tags": [
+          "channels.twilio.numbers"
+        ],
+        "summary": "Update Twilio Number",
+        "description": "Update a Twilio number and associate it with a channel.",
+        "operationId": "channels_twilio_numbers_update",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "channel_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Channel Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TwilioNumberUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TwilioNumberUpdateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "channels.twilio.numbers"
+        ],
+        "summary": "List Twilio Phone Numbers",
+        "description": "List Twilio phone numbers.",
+        "operationId": "channels_twilio_numbers_list",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "channel_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Channel Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TwilioListNumbersResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/agents/test/messages": {
@@ -22734,6 +22836,34 @@
         "title": "TwilioChannelUpdateRequest",
         "description": "Request model for updating a Twilio channel."
       },
+      "TwilioListNumbersResponse": {
+        "properties": {
+          "phone_numbers": {
+            "items": {
+              "$ref": "#/components/schemas/TwilioPhoneNumber"
+            },
+            "type": "array",
+            "title": "Phone Numbers",
+            "description": "List of phone numbers.",
+            "examples": [
+              [
+                {
+                  "friendly_name": "Test number",
+                  "phone_number": "+19876543210",
+                  "sid": "PN123",
+                  "trunk_sid": "TK123"
+                }
+              ]
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "phone_numbers"
+        ],
+        "title": "TwilioListNumbersResponse",
+        "description": "Response model for a list of Twilio phone numbers"
+      },
       "TwilioNumberAddRequest": {
         "properties": {
           "friendly_name": {
@@ -22778,6 +22908,83 @@
         ],
         "title": "TwilioNumberAddResponse",
         "description": "Response model for purchasing a Twilio number and associating it with a channel."
+      },
+      "TwilioNumberUpdateRequest": {
+        "properties": {
+          "friendly_name": {
+            "type": "string",
+            "title": "Friendly Name",
+            "description": "Friendly name for the Twilio number",
+            "examples": [
+              "Support Line"
+            ]
+          },
+          "phone_sid": {
+            "type": "string",
+            "title": "Phone Sid",
+            "description": "Twilio number SID",
+            "examples": [
+              "PN123"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "friendly_name",
+          "phone_sid"
+        ],
+        "title": "TwilioNumberUpdateRequest",
+        "description": "Request model for updating a Twilio number and associating it with a channel."
+      },
+      "TwilioNumberUpdateResponse": {
+        "properties": {
+          "phone_number": {
+            "type": "string",
+            "title": "Phone Number",
+            "description": "The updated Twilio phone number",
+            "examples": [
+              "+18042221111"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "phone_number"
+        ],
+        "title": "TwilioNumberUpdateResponse",
+        "description": "Response model for updating a Twilio number and associating it with a channel."
+      },
+      "TwilioPhoneNumber": {
+        "properties": {
+          "sid": {
+            "type": "string",
+            "title": "Sid",
+            "description": "The unique identifier for the phone number."
+          },
+          "phone_number": {
+            "type": "string",
+            "title": "Phone Number",
+            "description": "The phone number."
+          },
+          "friendly_name": {
+            "type": "string",
+            "title": "Friendly Name",
+            "description": "A user-friendly name for the number."
+          },
+          "trunk_sid": {
+            "type": "string",
+            "title": "Trunk Sid",
+            "description": "Associated trunk SID, if any."
+          }
+        },
+        "type": "object",
+        "required": [
+          "sid",
+          "phone_number",
+          "friendly_name",
+          "trunk_sid"
+        ],
+        "title": "TwilioPhoneNumber"
       },
       "ValidationError": {
         "properties": {
