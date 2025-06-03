@@ -497,6 +497,10 @@ if TYPE_CHECKING:
         ListResponseToolResponse,
         ListResponseToolResponseTypedDict,
     )
+    from .listresponse_userresponse_ import (
+        ListResponseUserResponse,
+        ListResponseUserResponseTypedDict,
+    )
     from .orderbydirection import OrderByDirection
     from .outbound_batch_addop import (
         OutboundBatchAddRequest,
@@ -747,6 +751,16 @@ if TYPE_CHECKING:
         TwilioNumberUpdateResponseTypedDict,
     )
     from .twiliophonenumber import TwilioPhoneNumber, TwilioPhoneNumberTypedDict
+    from .usercreaterequest import UserCreateRequest, UserCreateRequestTypedDict
+    from .userdeleterequest import UserDeleteRequest, UserDeleteRequestTypedDict
+    from .userproperties import UserProperties
+    from .userresponse import UserResponse, UserResponseTypedDict
+    from .users_get_by_emailop import (
+        UsersGetByEmailRequest,
+        UsersGetByEmailRequestTypedDict,
+    )
+    from .users_listop import UsersListRequest, UsersListRequestTypedDict
+    from .userupdaterequest import UserUpdateRequest, UserUpdateRequestTypedDict
     from .validationerror import (
         Loc,
         LocTypedDict,
@@ -1092,6 +1106,8 @@ __all__ = [
     "ListResponseSessionTypedDict",
     "ListResponseToolResponse",
     "ListResponseToolResponseTypedDict",
+    "ListResponseUserResponse",
+    "ListResponseUserResponseTypedDict",
     "Loc",
     "LocTypedDict",
     "Metadata",
@@ -1296,6 +1312,19 @@ __all__ = [
     "TwilioPhoneNumber",
     "TwilioPhoneNumberTypedDict",
     "Type",
+    "UserCreateRequest",
+    "UserCreateRequestTypedDict",
+    "UserDeleteRequest",
+    "UserDeleteRequestTypedDict",
+    "UserProperties",
+    "UserResponse",
+    "UserResponseTypedDict",
+    "UserUpdateRequest",
+    "UserUpdateRequestTypedDict",
+    "UsersGetByEmailRequest",
+    "UsersGetByEmailRequestTypedDict",
+    "UsersListRequest",
+    "UsersListRequestTypedDict",
     "ValidationError",
     "ValidationErrorTypedDict",
     "VoiceSampleCreateRequest",
@@ -1628,6 +1657,8 @@ _dynamic_imports: dict[str, str] = {
     "ListResponseSessionLabelTypedDict": ".listresponse_sessionlabel_",
     "ListResponseToolResponse": ".listresponse_toolresponse_",
     "ListResponseToolResponseTypedDict": ".listresponse_toolresponse_",
+    "ListResponseUserResponse": ".listresponse_userresponse_",
+    "ListResponseUserResponseTypedDict": ".listresponse_userresponse_",
     "OrderByDirection": ".orderbydirection",
     "OutboundBatchAddRequest": ".outbound_batch_addop",
     "OutboundBatchAddRequestTypedDict": ".outbound_batch_addop",
@@ -1831,6 +1862,19 @@ _dynamic_imports: dict[str, str] = {
     "TwilioNumberUpdateResponseTypedDict": ".twilionumberupdateresponse",
     "TwilioPhoneNumber": ".twiliophonenumber",
     "TwilioPhoneNumberTypedDict": ".twiliophonenumber",
+    "UserCreateRequest": ".usercreaterequest",
+    "UserCreateRequestTypedDict": ".usercreaterequest",
+    "UserDeleteRequest": ".userdeleterequest",
+    "UserDeleteRequestTypedDict": ".userdeleterequest",
+    "UserProperties": ".userproperties",
+    "UserResponse": ".userresponse",
+    "UserResponseTypedDict": ".userresponse",
+    "UsersGetByEmailRequest": ".users_get_by_emailop",
+    "UsersGetByEmailRequestTypedDict": ".users_get_by_emailop",
+    "UsersListRequest": ".users_listop",
+    "UsersListRequestTypedDict": ".users_listop",
+    "UserUpdateRequest": ".userupdaterequest",
+    "UserUpdateRequestTypedDict": ".userupdaterequest",
     "Loc": ".validationerror",
     "LocTypedDict": ".validationerror",
     "ValidationError": ".validationerror",

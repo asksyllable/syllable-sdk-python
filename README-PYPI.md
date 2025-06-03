@@ -433,10 +433,20 @@ with SyllableSDK(
 
 ### [users](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/users/README.md)
 
+* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/users/README.md#list) - List Users
+* [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/users/README.md#create) - Create User
+* [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/users/README.md#update) - Update User
+* [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/users/README.md#delete) - Delete User
+* [users_get_by_email](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/users/README.md#users_get_by_email) - Get User
 * [users_delete_account](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/users/README.md#users_delete_account) - Request Removal Of This Account
 
 ### [v1](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md)
 
+* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md#list) - List Users
+* [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md#create) - Create User
+* [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md#update) - Update User
+* [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md#delete) - Delete User
+* [users_get_by_email](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md#users_get_by_email) - Get User
 * [users_delete_account](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/v1/README.md#users_delete_account) - Request Removal Of This Account
 
 </details>

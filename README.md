@@ -433,10 +433,20 @@ with SyllableSDK(
 
 ### [users](docs/sdks/users/README.md)
 
+* [list](docs/sdks/users/README.md#list) - List Users
+* [create](docs/sdks/users/README.md#create) - Create User
+* [update](docs/sdks/users/README.md#update) - Update User
+* [delete](docs/sdks/users/README.md#delete) - Delete User
+* [users_get_by_email](docs/sdks/users/README.md#users_get_by_email) - Get User
 * [users_delete_account](docs/sdks/users/README.md#users_delete_account) - Request Removal Of This Account
 
 ### [v1](docs/sdks/v1/README.md)
 
+* [list](docs/sdks/v1/README.md#list) - List Users
+* [create](docs/sdks/v1/README.md#create) - Create User
+* [update](docs/sdks/v1/README.md#update) - Update User
+* [delete](docs/sdks/v1/README.md#delete) - Delete User
+* [users_get_by_email](docs/sdks/v1/README.md#users_get_by_email) - Get User
 * [users_delete_account](docs/sdks/v1/README.md#users_delete_account) - Request Removal Of This Account
 
 </details>
