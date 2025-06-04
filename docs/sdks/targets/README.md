@@ -29,7 +29,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.channels.targets.available_targets(page=0, search_fields=[
+    res = ss_client.channels.targets.available_targets(page=0, limit=25, search_fields=[
         syllable_sdk.AvailableTargetProperties.TARGET,
     ], search_field_values=[
         "Some Object Name",
@@ -82,7 +82,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.channels.targets.list(page=0, search_fields=[
+    res = ss_client.channels.targets.list(page=0, limit=25, search_fields=[
         syllable_sdk.ChannelTargetProperties.AGENT_ID,
     ], search_field_values=[
         "Some Object Name",
@@ -141,6 +141,7 @@ with SyllableSDK(
         "target": "+19995551234",
         "target_mode": syllable_sdk.TargetModes.EMAIL,
         "fallback_target": "+19995551235",
+        "is_test": True,
     })
 
     # Handle response
@@ -230,6 +231,7 @@ with SyllableSDK(
         "target": "+19995551234",
         "target_mode": syllable_sdk.TargetModes.EMAIL,
         "fallback_target": "+19995551235",
+        "is_test": True,
         "id": 1,
     })
 

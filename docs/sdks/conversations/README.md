@@ -25,7 +25,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.conversations.list(page=0, search_fields=[
+    res = ss_client.conversations.list(page=0, limit=25, search_fields=[
         syllable_sdk.ConversationProperties.AGENT_NAME,
     ], search_field_values=[
         "Some Object Name",

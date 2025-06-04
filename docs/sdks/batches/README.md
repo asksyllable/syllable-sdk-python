@@ -33,7 +33,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.outbound.batches.list(page=0, search_fields=[
+    res = ss_client.outbound.batches.list(page=0, limit=25, search_fields=[
         syllable_sdk.BatchProperties.LAST_UPDATED_AT,
     ], search_field_values=[
         "Some Object Name",
@@ -87,9 +87,9 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.outbound.batches.create(request={
-        "batch_id": "20250603.9",
+        "batch_id": "20250604.9",
         "campaign_id": 1,
-        "expires_on": parse_datetime("2025-06-04T00:00:00Z"),
+        "expires_on": parse_datetime("2025-06-05T00:00:00Z"),
         "paused": True,
     })
 

@@ -32,7 +32,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.folders.list(page=0, search_fields=[
+    res = ss_client.insights.folders.list(page=0, limit=25, search_fields=[
         syllable_sdk.InsightsFolderProperties.NAME,
     ], search_field_values=[
         "Some Object Name",
@@ -302,7 +302,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.folders.list_files(folder_id=55293, page=0, search_fields=[
+    res = ss_client.insights.folders.list_files(folder_id=55293, page=0, limit=25, search_fields=[
         syllable_sdk.InsightsUploadFileProperties.FILENAME,
     ], search_field_values=[
         "Some Object Name",
@@ -358,7 +358,9 @@ with SyllableSDK(
     res = ss_client.insights.folders.move_files(folder_id=815114, insights_folder_file_move={
         "destination_folder_id": 182764,
         "file_id_list": [
-            None,
+            12334,
+            23445,
+            34556,
         ],
     })
 

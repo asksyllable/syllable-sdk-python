@@ -29,7 +29,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.outbound.campaigns.list(page=0, search_fields=[
+    res = ss_client.outbound.campaigns.list(page=0, limit=25, search_fields=[
         syllable_sdk.CampaignProperties.ID,
     ], search_field_values=[
         "Some Object Name",
@@ -97,9 +97,15 @@ with SyllableSDK(
         "daily_end_time": "17:00:00",
         "source": "+19032900844",
         "caller_id": "19995551234",
+        "hourly_rate": 25,
+        "retry_count": 1,
         "retry_interval": "30m",
         "active_days": [
+            syllable_sdk.DaysOfWeek.MON,
             syllable_sdk.DaysOfWeek.TUE,
+            syllable_sdk.DaysOfWeek.WED,
+            syllable_sdk.DaysOfWeek.THU,
+            syllable_sdk.DaysOfWeek.FRI,
         ],
     })
 
@@ -197,8 +203,14 @@ with SyllableSDK(
         "daily_end_time": "17:00:00",
         "source": "+19032900844",
         "caller_id": "19995551234",
+        "hourly_rate": 25,
+        "retry_count": 1,
         "retry_interval": "30m",
         "active_days": [
+            syllable_sdk.DaysOfWeek.MON,
+            syllable_sdk.DaysOfWeek.TUE,
+            syllable_sdk.DaysOfWeek.WED,
+            syllable_sdk.DaysOfWeek.THU,
             syllable_sdk.DaysOfWeek.FRI,
         ],
     })
