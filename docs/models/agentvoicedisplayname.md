@@ -7,7 +7,6 @@ Display names of voices that Syllable supports.
 
 | Name                | Value               |
 | ------------------- | ------------------- |
-| `ALEJANDRO`         | Alejandro           |
 | `ALICE`             | Alice               |
 | `ALLOY`             | Alloy               |
 | `ASH`               | Ash                 |
@@ -17,7 +16,6 @@ Display names of voices that Syllable supports.
 | `CHARLIE`           | Charlie             |
 | `CHARLOTTE`         | Charlotte           |
 | `CHRIS`             | Chris               |
-| `CLARA`             | Clara               |
 | `CMN_TW_WAVENET_A`  | cmn-TW-Wavenet-A    |
 | `CORAL`             | Coral               |
 | `DANIEL`            | Daniel              |
@@ -31,18 +29,12 @@ Display names of voices that Syllable supports.
 | `ES_US_NEURAL2_B`   | es-US-Neural2-B     |
 | `FABLE`             | Fable               |
 | `GEORGE`            | George              |
-| `ISABELLA`          | Isabella            |
-| `JERRY`             | Jerry               |
 | `JESSICA`           | Jessica             |
 | `KO_KR_NEURAL2_A`   | ko-KR-Neural2-A     |
 | `LAURA`             | Laura               |
 | `LIAM`              | Liam                |
 | `LILY`              | Lily                |
-| `LINA`              | Lina                |
-| `MARK`              | Mark                |
 | `MATILDA`           | Matilda             |
-| `MELANIE`           | Melanie             |
-| `MILA`              | Mila                |
 | `NOVA`              | Nova                |
 | `ONYX`              | Onyx                |
 | `RIVER`             | River               |
@@ -50,8 +42,6 @@ Display names of voices that Syllable supports.
 | `SARAH`             | Sarah               |
 | `SAGE`              | Sage                |
 | `SHIMMER`           | Shimmer             |
-| `SIENNA`            | Sienna              |
-| `TARA`              | Tara                |
 | `VI_VN_NEURAL2_A`   | vi-VN-Neural2-A     |
 | `WILL`              | Will                |
 | `YUE_HK_STANDARD_C` | yue-HK-Standard-C   |
