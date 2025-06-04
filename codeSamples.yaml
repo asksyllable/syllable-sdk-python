@@ -18,7 +18,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.agents.list(page=0, search_fields=[
+                res = ss_client.agents.list(page=0, limit=25, search_fields=[
                     syllable_sdk.AgentProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
@@ -220,7 +220,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.channels.list(page=0, search_fields=[
+                res = ss_client.channels.list(page=0, limit=25, search_fields=[
                     syllable_sdk.ChannelProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
@@ -243,7 +243,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.channels.targets.available_targets(page=0, search_fields=[
+                res = ss_client.channels.targets.available_targets(page=0, limit=25, search_fields=[
                     syllable_sdk.AvailableTargetProperties.TARGET,
                 ], search_field_values=[
                     "Some Object Name",
@@ -266,7 +266,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.channels.targets.list(page=0, search_fields=[
+                res = ss_client.channels.targets.list(page=0, limit=25, search_fields=[
                     syllable_sdk.ChannelTargetProperties.AGENT_ID,
                 ], search_field_values=[
                     "Some Object Name",
@@ -437,6 +437,7 @@ actions:
                     "target": "+19995551234",
                     "target_mode": syllable_sdk.TargetModes.EMAIL,
                     "fallback_target": "+19995551235",
+                    "is_test": True,
                 })
 
                 # Handle response
@@ -480,6 +481,7 @@ actions:
                     "target": "+19995551234",
                     "target_mode": syllable_sdk.TargetModes.EMAIL,
                     "fallback_target": "+19995551235",
+                    "is_test": True,
                     "id": 1,
                 })
 
@@ -500,7 +502,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.conversations.list(page=0, search_fields=[
+                res = ss_client.conversations.list(page=0, limit=25, search_fields=[
                     syllable_sdk.ConversationProperties.AGENT_NAME,
                 ], search_field_values=[
                     "Some Object Name",
@@ -523,7 +525,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.custom_messages.list(page=0, search_fields=[
+                res = ss_client.custom_messages.list(page=0, limit=25, search_fields=[
                     syllable_sdk.CustomMessageProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
@@ -689,7 +691,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.dashboards.post_list_dashboard(page=0, search_fields=[
+                res = ss_client.dashboards.post_list_dashboard(page=0, limit=25, search_fields=[
                     syllable_sdk.DashboardProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
@@ -712,7 +714,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.data_sources.list(page=0, search_fields=[
+                res = ss_client.data_sources.list(page=0, limit=25, search_fields=[
                     syllable_sdk.DataSourceProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
@@ -839,7 +841,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.events.list(page=0, search_fields=[
+                res = ss_client.events.list(page=0, limit=25, search_fields=[
                     syllable_sdk.EventProperties.DESCRIPTION,
                 ], search_field_values=[
                     "Some Object Name",
@@ -862,7 +864,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.incidents.list(page=0, search_fields=[
+                res = ss_client.incidents.list(page=0, limit=25, search_fields=[
                     syllable_sdk.IncidentProperties.UPDATED_AT,
                 ], search_field_values=[
                     "Some Object Name",
@@ -1000,7 +1002,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.list(page=0, search_fields=[
+                res = ss_client.insights.list(page=0, limit=25, search_fields=[
                     syllable_sdk.InsightsProperties.UPLOAD_FILE_ID,
                 ], search_field_values=[
                     "Some Object Name",
@@ -1023,7 +1025,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.folders.list(page=0, search_fields=[
+                res = ss_client.insights.folders.list(page=0, limit=25, search_fields=[
                     syllable_sdk.InsightsFolderProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
@@ -1126,7 +1128,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.folders.list_files(folder_id=55293, page=0, search_fields=[
+                res = ss_client.insights.folders.list_files(folder_id=55293, page=0, limit=25, search_fields=[
                     syllable_sdk.InsightsUploadFileProperties.CUSTOMER_NUMBER,
                 ], search_field_values=[
                     "Some Object Name",
@@ -1151,7 +1153,9 @@ actions:
                 res = ss_client.insights.folders.move_files(folder_id=815114, insights_folder_file_move={
                     "destination_folder_id": 182764,
                     "file_id_list": [
-                        None,
+                        12334,
+                        23445,
+                        34556,
                     ],
                 })
 
@@ -1190,7 +1194,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.tools.list(page=0, search_fields=[
+                res = ss_client.insights.tools.list(page=0, limit=25, search_fields=[
                     syllable_sdk.InsightToolProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
@@ -1341,7 +1345,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.workflows.list(page=0, search_fields=[
+                res = ss_client.insights.workflows.list(page=0, limit=25, search_fields=[
                     syllable_sdk.InsightWorkflowProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
@@ -1387,8 +1391,8 @@ actions:
                             67535,
                         ],
                     },
-                    "start_datetime": parse_datetime("2025-06-02T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-06-03T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-06-03T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-06-04T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1410,10 +1414,14 @@ actions:
                 res = ss_client.insights.workflows.queue_work(request={
                     "workflow_name": "summary-workflow",
                     "session_id_list": [
-                        None,
+                        12334,
+                        23445,
+                        34556,
                     ],
                     "file_id_list": [
-                        None,
+                        1234,
+                        1678,
+                        2224,
                     ],
                 })
 
@@ -1493,8 +1501,8 @@ actions:
                             67535,
                         ],
                     },
-                    "start_datetime": parse_datetime("2025-06-02T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-06-03T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-06-03T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-06-04T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1560,7 +1568,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.language_groups.list(page=0, search_fields=[
+                res = ss_client.language_groups.list(page=0, limit=25, search_fields=[
                     syllable_sdk.LanguageGroupProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
@@ -1720,7 +1728,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.outbound.batches.list(page=0, search_fields=[
+                res = ss_client.outbound.batches.list(page=0, limit=25, search_fields=[
                     syllable_sdk.BatchProperties.LAST_UPDATED_AT,
                 ], search_field_values=[
                     "Some Object Name",
@@ -1744,9 +1752,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20250603.9",
+                    "batch_id": "20250604.9",
                     "campaign_id": 1,
-                    "expires_on": parse_datetime("2025-06-04T00:00:00Z"),
+                    "expires_on": parse_datetime("2025-06-05T00:00:00Z"),
                     "paused": True,
                 })
 
@@ -1908,7 +1916,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.outbound.campaigns.list(page=0, search_fields=[
+                res = ss_client.outbound.campaigns.list(page=0, limit=25, search_fields=[
                     syllable_sdk.CampaignProperties.ID,
                 ], search_field_values=[
                     "Some Object Name",
@@ -1946,9 +1954,15 @@ actions:
                     "daily_end_time": "17:00:00",
                     "source": "+19032900844",
                     "caller_id": "19995551234",
+                    "hourly_rate": 25,
+                    "retry_count": 1,
                     "retry_interval": "30m",
                     "active_days": [
+                        syllable_sdk.DaysOfWeek.MON,
                         syllable_sdk.DaysOfWeek.TUE,
+                        syllable_sdk.DaysOfWeek.WED,
+                        syllable_sdk.DaysOfWeek.THU,
+                        syllable_sdk.DaysOfWeek.FRI,
                     ],
                 })
 
@@ -2005,7 +2019,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.outbound.campaigns.update(campaign_id=667849, outbound_campaign_input={
+                res = ss_client.outbound.campaigns.update(campaign_id=679645, outbound_campaign_input={
                     "campaign_name": "Outbound Campaign 1",
                     "description": "This is a test campaign",
                     "labels": [
@@ -2020,8 +2034,14 @@ actions:
                     "daily_end_time": "17:00:00",
                     "source": "+19032900844",
                     "caller_id": "19995551234",
+                    "hourly_rate": 25,
+                    "retry_count": 1,
                     "retry_interval": "30m",
                     "active_days": [
+                        syllable_sdk.DaysOfWeek.MON,
+                        syllable_sdk.DaysOfWeek.TUE,
+                        syllable_sdk.DaysOfWeek.WED,
+                        syllable_sdk.DaysOfWeek.THU,
                         syllable_sdk.DaysOfWeek.FRI,
                     ],
                 })
@@ -2061,7 +2081,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.prompts.list(page=0, search_fields=[
+                res = ss_client.prompts.list(page=0, limit=25, search_fields=[
                     syllable_sdk.PromptProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
@@ -2224,7 +2244,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.roles.list(page=0, search_fields=[
+                res = ss_client.roles.list(page=0, limit=25, search_fields=[
                     syllable_sdk.RoleProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
@@ -2337,7 +2357,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.services.list(page=0, search_fields=[
+                res = ss_client.services.list(page=0, limit=25, search_fields=[
                     syllable_sdk.ServiceProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
@@ -2494,7 +2514,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.session_labels.list(page=0, search_fields=[
+                res = ss_client.session_labels.list(page=0, limit=25, search_fields=[
                     syllable_sdk.SessionLabelProperties.CODE,
                 ], search_field_values=[
                     "Some Object Name",
@@ -2561,7 +2581,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.sessions.list(page=0, search_fields=[
+                res = ss_client.sessions.list(page=0, limit=25, search_fields=[
                     syllable_sdk.SessionProperties.CONVERSATION_ID,
                 ], search_field_values=[
                     "Some Object Name",
@@ -2746,7 +2766,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.tools.list(page=0, search_fields=[
+                res = ss_client.tools.list(page=0, limit=25, search_fields=[
                     syllable_sdk.ToolProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
@@ -2774,7 +2794,6 @@ actions:
                     "definition": {
                         "type": syllable_sdk.Type.ENDPOINT,
                         "tool": {
-                            "type": "function",
                             "function": {
                                 "name": "get_weather",
                                 "description": "Get the weather for a city",
@@ -2824,7 +2843,6 @@ actions:
                     "definition": {
                         "type": syllable_sdk.Type.ENDPOINT,
                         "tool": {
-                            "type": "function",
                             "function": {
                                 "name": "get_weather",
                                 "description": "Get the weather for a city",
@@ -2946,7 +2964,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.users.list(page=0, search_fields=[
+                res = ss_client.users.list(page=0, limit=25, search_fields=[
                     syllable_sdk.UserProperties.ROLE_ID,
                 ], search_field_values=[
                     "Some Object Name",
@@ -2966,7 +2984,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.v1.list(page=0, search_fields=[
+                res = ss_client.v1.list(page=0, limit=25, search_fields=[
                     syllable_sdk.UserProperties.ROLE_ID,
                 ], search_field_values=[
                     "Some Object Name",

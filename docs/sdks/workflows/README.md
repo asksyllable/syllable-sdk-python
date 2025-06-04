@@ -32,7 +32,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.insights.workflows.list(page=0, search_fields=[
+    res = ss_client.insights.workflows.list(page=0, limit=25, search_fields=[
         syllable_sdk.InsightWorkflowProperties.NAME,
     ], search_field_values=[
         "Some Object Name",
@@ -108,8 +108,8 @@ with SyllableSDK(
                 67535,
             ],
         },
-        "start_datetime": parse_datetime("2025-06-02T00:00:00Z"),
-        "end_datetime": parse_datetime("2025-06-03T00:00:00Z"),
+        "start_datetime": parse_datetime("2025-06-03T00:00:00Z"),
+        "end_datetime": parse_datetime("2025-06-04T00:00:00Z"),
     })
 
     # Handle response
@@ -214,8 +214,8 @@ with SyllableSDK(
                 67535,
             ],
         },
-        "start_datetime": parse_datetime("2025-06-02T00:00:00Z"),
-        "end_datetime": parse_datetime("2025-06-03T00:00:00Z"),
+        "start_datetime": parse_datetime("2025-06-03T00:00:00Z"),
+        "end_datetime": parse_datetime("2025-06-04T00:00:00Z"),
     })
 
     # Handle response
@@ -391,10 +391,14 @@ with SyllableSDK(
     res = ss_client.insights.workflows.queue_work(request={
         "workflow_name": "summary-workflow",
         "session_id_list": [
-            None,
+            12334,
+            23445,
+            34556,
         ],
         "file_id_list": [
-            None,
+            1234,
+            1678,
+            2224,
         ],
     })
 
