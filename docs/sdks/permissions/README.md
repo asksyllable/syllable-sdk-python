@@ -39,7 +39,7 @@ with SyllableSDK(
 
 ### Response
 
-**[List[models.PermissionResponse]](../../models/.md)**
+**[List[models.PermissionGroupResponse]](../../models/.md)**
 
 ### Errors
 
