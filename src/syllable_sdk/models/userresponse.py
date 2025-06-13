@@ -22,6 +22,8 @@ class UserResponseTypedDict(TypedDict):
     r"""ID of the role assigned to the user"""
     id: int
     r"""Internal ID of the user"""
+    role_name: str
+    r"""Name of the role assigned to the user"""
     last_updated: datetime
     r"""The timestamp of the most recent update to the user"""
     first_name: NotRequired[Nullable[str]]
@@ -47,6 +49,9 @@ class UserResponse(BaseModel):
 
     id: int
     r"""Internal ID of the user"""
+
+    role_name: str
+    r"""Name of the role assigned to the user"""
 
     last_updated: datetime
     r"""The timestamp of the most recent update to the user"""

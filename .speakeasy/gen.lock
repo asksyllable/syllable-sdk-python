@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 51138357f477f080bb6a830aebfd071d
+  docChecksum: 93cbcf6e51234d64b5d32ec4a33fb11a
   docVersion: 0.0.2
   speakeasyVersion: 1.563.0
   generationVersion: 2.629.1
-  releaseVersion: 0.35.12
-  configChecksum: 22f6d2702b098e0e3552742bb6f338e0
+  releaseVersion: 0.35.13
+  configChecksum: 801fad7b98aa60472289af82608f9b80
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -2128,7 +2128,7 @@ examples:
           end_datetime: "2024-01-01T00:00:00Z"
       responses:
         "200":
-          application/json: {"items": [{"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "last_updated": "2023-05-14T13:30:57.305Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}, {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "last_updated": "2023-05-14T13:30:57.305Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}, {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "last_updated": "2023-05-14T13:30:57.305Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}], "page": 0, "page_size": 25, "total_pages": 4, "total_count": 100}
+          application/json: {"items": [{"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "role_name": "admin", "last_updated": "2023-05-14T13:30:57.305Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}, {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "role_name": "admin", "last_updated": "2023-05-14T13:30:57.305Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}, {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "role_name": "admin", "last_updated": "2023-05-14T13:30:57.305Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}], "page": 0, "page_size": 25, "total_pages": 4, "total_count": 100}
         "422":
           application/json: {}
   users_create:
@@ -2137,7 +2137,7 @@ examples:
         application/json: {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1}
       responses:
         "200":
-          application/json: {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "last_updated": "2024-06-21T05:54:26.670Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}
+          application/json: {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "role_name": "admin", "last_updated": "2024-06-21T05:54:26.670Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}
         "422":
           application/json: {}
   users_update:
@@ -2146,7 +2146,7 @@ examples:
         application/json: {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned"}
       responses:
         "200":
-          application/json: {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "last_updated": "2024-09-29T21:34:27.623Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}
+          application/json: {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "role_name": "admin", "last_updated": "2024-09-29T21:34:27.623Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}
         "422":
           application/json: {}
   users_delete:
@@ -2165,7 +2165,7 @@ examples:
           user_email: "<value>"
       responses:
         "200":
-          application/json: {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "last_updated": "2024-09-14T02:53:37.916Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}
+          application/json: {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "role_name": "admin", "last_updated": "2024-09-14T02:53:37.916Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}
         "422":
           application/json: {}
 examplesVersion: 1.0.2
