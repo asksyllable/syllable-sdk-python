@@ -18,7 +18,7 @@ class Permissions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.PermissionResponse]:
+    ) -> List[models.PermissionGroupResponse]:
         r"""List Permissions
 
         Get all available permissions in the system.
@@ -77,7 +77,9 @@ class Permissions(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, List[models.PermissionResponse])
+            return utils.unmarshal_json(
+                http_res.text, List[models.PermissionGroupResponse]
+            )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.APIError(
@@ -105,7 +107,7 @@ class Permissions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.PermissionResponse]:
+    ) -> List[models.PermissionGroupResponse]:
         r"""List Permissions
 
         Get all available permissions in the system.
@@ -164,7 +166,9 @@ class Permissions(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, List[models.PermissionResponse])
+            return utils.unmarshal_json(
+                http_res.text, List[models.PermissionGroupResponse]
+            )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.APIError(
