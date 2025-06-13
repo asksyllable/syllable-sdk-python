@@ -23662,6 +23662,14 @@
               1
             ]
           },
+          "role_name": {
+            "type": "string",
+            "title": "Role Name",
+            "description": "Name of the role assigned to the user",
+            "examples": [
+              "admin"
+            ]
+          },
           "last_updated": {
             "type": "string",
             "format": "date-time",
@@ -23705,6 +23713,7 @@
           "email",
           "role_id",
           "id",
+          "role_name",
           "last_updated"
         ],
         "title": "UserResponse",
