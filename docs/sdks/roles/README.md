@@ -206,7 +206,7 @@ with SyllableSDK(
 
 ## delete
 
-Delete a role.
+Delete a role. Optionally, reassign existing users with that role to a new role.
 
 ### Example Usage
 
@@ -228,11 +228,12 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `role_id`                                                           | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `reason`                                                            | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `role_id`                                                                                    | *int*                                                                                        | :heavy_check_mark:                                                                           | The ID of the role to delete                                                                 |
+| `reason`                                                                                     | *str*                                                                                        | :heavy_check_mark:                                                                           | The reason for deleting the role                                                             |
+| `new_role_id`                                                                                | *OptionalNullable[int]*                                                                      | :heavy_minus_sign:                                                                           | Users with the deleted role will be reassigned to the new role, if a new role ID is provided |
+| `retries`                                                                                    | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                             | :heavy_minus_sign:                                                                           | Configuration to override the default retry behavior of the client.                          |
 
 ### Response
 

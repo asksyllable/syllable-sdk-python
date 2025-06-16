@@ -3385,7 +3385,7 @@ paths:
       tags:
         - "roles"
       summary: "Delete Role"
-      description: "Delete a role."
+      description: "Delete a role. Optionally, reassign existing users with that role to a new role."
       operationId: "roles_delete"
       security:
         - APIKeyHeader: []
@@ -3395,13 +3395,27 @@ paths:
           required: true
           schema:
             type: "integer"
+            description: "The ID of the role to delete"
             title: "Role Id"
+          description: "The ID of the role to delete"
         - name: "reason"
           in: "query"
           required: true
           schema:
             type: "string"
+            description: "The reason for deleting the role"
             title: "Reason"
+          description: "The reason for deleting the role"
+        - name: "new_role_id"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - type: "integer"
+              - type: "null"
+            description: "Users with the deleted role will be reassigned to the new role, if a new role ID is provided"
+            title: "New Role Id"
+          description: "Users with the deleted role will be reassigned to the new role, if a new role ID is provided"
       responses:
         "200":
           description: "Successful Response"
