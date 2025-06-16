@@ -12,3 +12,4 @@ Names of user fields supported for filtering/sorting on list endpoint.
 | `LAST_NAME`                  | last_name                    |
 | `ROLE_ID`                    | role_id                      |
 | `EMAIL_FIRST_NAME_LAST_NAME` | email_first_name_last_name   |
+| `LAST_UPDATED`               | last_updated                 |
