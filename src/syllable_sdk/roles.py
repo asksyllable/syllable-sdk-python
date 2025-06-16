@@ -876,6 +876,7 @@ class Roles(BaseSDK):
         *,
         role_id: int,
         reason: str,
+        new_role_id: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -883,10 +884,11 @@ class Roles(BaseSDK):
     ) -> Any:
         r"""Delete Role
 
-        Delete a role.
+        Delete a role. Optionally, reassign existing users with that role to a new role.
 
-        :param role_id:
-        :param reason:
+        :param role_id: The ID of the role to delete
+        :param reason: The reason for deleting the role
+        :param new_role_id: Users with the deleted role will be reassigned to the new role, if a new role ID is provided
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -905,6 +907,7 @@ class Roles(BaseSDK):
         request = models.RolesDeleteRequest(
             role_id=role_id,
             reason=reason,
+            new_role_id=new_role_id,
         )
 
         req = self._build_request(
@@ -979,6 +982,7 @@ class Roles(BaseSDK):
         *,
         role_id: int,
         reason: str,
+        new_role_id: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -986,10 +990,11 @@ class Roles(BaseSDK):
     ) -> Any:
         r"""Delete Role
 
-        Delete a role.
+        Delete a role. Optionally, reassign existing users with that role to a new role.
 
-        :param role_id:
-        :param reason:
+        :param role_id: The ID of the role to delete
+        :param reason: The reason for deleting the role
+        :param new_role_id: Users with the deleted role will be reassigned to the new role, if a new role ID is provided
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1008,6 +1013,7 @@ class Roles(BaseSDK):
         request = models.RolesDeleteRequest(
             role_id=role_id,
             reason=reason,
+            new_role_id=new_role_id,
         )
 
         req = self._build_request_async(
