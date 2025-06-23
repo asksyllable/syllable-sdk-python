@@ -9244,6 +9244,165 @@
         ]
       }
     },
+    "/api/v1/organizations/": {
+      "get": {
+        "tags": [
+          "organizations"
+        ],
+        "summary": "Get Current Organization",
+        "description": "Fetch the current organization.",
+        "operationId": "organizations_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "organizations"
+        ],
+        "summary": "Update Current Organization",
+        "description": "Update the current organization.",
+        "operationId": "organizations_update",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_organizations_update"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "organizations"
+        ],
+        "summary": "Create Organization",
+        "description": "Create a new organization.",
+        "operationId": "organizations_create",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_organizations_create"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "organizations"
+        ],
+        "summary": "Delete Current Organization",
+        "description": "Delete the current organization and all its users.",
+        "operationId": "organizations_delete",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_organizations_delete"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
     "/api/v1/outbound/batches": {
       "get": {
         "tags": [
@@ -12583,7 +12742,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20250620.9"
+              "20250623.9"
             ]
           },
           "campaign_id": {
@@ -12607,7 +12766,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-06-21T00:00:00Z"
+              "2025-06-24T00:00:00Z"
             ]
           },
           "paused": {
@@ -12660,7 +12819,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2025-06-20T00:00:00Z"
+              "2025-06-23T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -12676,7 +12835,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2025-06-20T00:00:00Z"
+              "2025-06-23T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -12707,7 +12866,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2025-06-20T00:00:00Z"
+              "2025-06-23T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -12816,6 +12975,141 @@
         },
         "type": "object",
         "title": "Body_insights_folder_upload_file"
+      },
+      "Body_organizations_create": {
+        "properties": {
+          "logo": {
+            "type": "string",
+            "format": "binary",
+            "title": "Logo",
+            "description": "The organization logo image file to upload. Must be a PNG file and 120x120 pixels."
+          },
+          "display_name": {
+            "type": "string",
+            "title": "Display Name",
+            "description": "The human-readable display name of the organization",
+            "examples": [
+              "My Great Org"
+            ]
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "Description of the organization",
+            "examples": [
+              "An organization that does great things with agentic AI"
+            ]
+          },
+          "domains": {
+            "type": "string",
+            "title": "Domains",
+            "description": "Comma-delimited list of domains that users at the organization may have in their email addresses",
+            "examples": [
+              "mygreatorg.com,mygreatorg.org"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "logo",
+          "display_name",
+          "domains"
+        ],
+        "title": "Body_organizations_create"
+      },
+      "Body_organizations_delete": {
+        "properties": {
+          "delete_comments": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Delete Comments",
+            "description": "Comments explaining the deletion"
+          }
+        },
+        "type": "object",
+        "title": "Body_organizations_delete"
+      },
+      "Body_organizations_update": {
+        "properties": {
+          "logo": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "binary"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Logo",
+            "description": "The organization logo image file to upload. Must be a PNG file and 120x120 pixels. If not provided, the logo will not be updated."
+          },
+          "display_name": {
+            "type": "string",
+            "title": "Display Name",
+            "description": "The human-readable display name of the organization",
+            "examples": [
+              "My Great Org"
+            ]
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "Description of the organization",
+            "examples": [
+              "An organization that does great things with agentic AI"
+            ]
+          },
+          "domains": {
+            "type": "string",
+            "title": "Domains",
+            "description": "Comma-delimited list of domains that users at the organization may have in their email addresses",
+            "examples": [
+              "mygreatorg.com,mygreatorg.org"
+            ]
+          },
+          "update_comments": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Update Comments",
+            "description": "Comments about the update",
+            "examples": [
+              "Updated the organization to add a new domain"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "display_name",
+          "domains"
+        ],
+        "title": "Body_organizations_update"
       },
       "Body_outbound_batch_delete": {
         "properties": {
@@ -13223,7 +13517,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20250620.9"
+              "20250623.9"
             ]
           },
           "campaign_id": {
@@ -13247,7 +13541,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-06-21T00:00:00Z"
+              "2025-06-24T00:00:00Z"
             ]
           },
           "paused": {
@@ -13300,7 +13594,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2025-06-20T00:00:00Z"
+              "2025-06-23T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -13316,7 +13610,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2025-06-20T00:00:00Z"
+              "2025-06-23T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -13347,7 +13641,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2025-06-20T00:00:00Z"
+              "2025-06-23T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -13390,7 +13684,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20250620.9"
+              "20250623.9"
             ]
           },
           "campaign_id": {
@@ -13414,7 +13708,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-06-21T00:00:00Z"
+              "2025-06-24T00:00:00Z"
             ]
           },
           "paused": {
@@ -13563,7 +13857,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2025-06-19T00:00:00Z"
+              "2025-06-22T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -13579,7 +13873,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2025-06-20T00:00:00Z"
+              "2025-06-23T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -15479,7 +15773,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2025-06-19T00:00:00Z"
+              "2025-06-22T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -15488,7 +15782,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2025-06-20T00:00:00Z"
+              "2025-06-23T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -16203,7 +16497,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2025-06-19T00:00:00Z"
+              "2025-06-22T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -16212,7 +16506,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2025-06-20T00:00:00Z"
+              "2025-06-23T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -16567,7 +16861,7 @@
             "title": "Start Datetime",
             "description": "Timestamp for when the insight workflow should start. An empty value indicates start on activation",
             "examples": [
-              "2025-06-19T00:00:00Z"
+              "2025-06-22T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -16583,7 +16877,7 @@
             "title": "End Datetime",
             "description": "Timestamp of when the insight workflow should end. An empty value indicates no end",
             "examples": [
-              "2025-06-20T00:00:00Z"
+              "2025-06-23T00:00:00Z"
             ]
           }
         },
@@ -16657,7 +16951,7 @@
             "title": "Start Datetime",
             "description": "Timestamp for when the insight workflow should start. An empty value indicates start on activation",
             "examples": [
-              "2025-06-19T00:00:00Z"
+              "2025-06-22T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -16673,7 +16967,7 @@
             "title": "End Datetime",
             "description": "Timestamp of when the insight workflow should end. An empty value indicates no end",
             "examples": [
-              "2025-06-20T00:00:00Z"
+              "2025-06-23T00:00:00Z"
             ]
           },
           "id": {
@@ -16726,7 +17020,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2025-06-19T00:00:00Z"
+              "2025-06-22T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -16735,7 +17029,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2025-06-20T00:00:00Z"
+              "2025-06-23T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -16831,7 +17125,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2025-06-19T00:00:00Z"
+              "2025-06-22T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -16840,7 +17134,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2025-06-20T00:00:00Z"
+              "2025-06-23T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -17075,7 +17369,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2025-06-19T00:00:00Z"
+              "2025-06-22T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -17084,7 +17378,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2025-06-20T00:00:00Z"
+              "2025-06-23T00:00:00Z"
             ]
           }
         },
@@ -17219,7 +17513,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2025-06-19T00:00:00Z"
+              "2025-06-22T00:00:00Z"
             ]
           },
           "end_time": {
@@ -17235,7 +17529,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2025-06-20T00:00:00Z"
+              "2025-06-23T00:00:00Z"
             ]
           },
           "error_message": {
@@ -17290,7 +17584,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2025-06-19T00:00:00Z"
+              "2025-06-22T00:00:00Z"
             ]
           }
         },
@@ -19653,6 +19947,102 @@
         "title": "OrderByDirection",
         "description": "The direction in which to order list results, either ascending or descending."
       },
+      "OrganizationResponse": {
+        "properties": {
+          "display_name": {
+            "type": "string",
+            "title": "Display Name",
+            "description": "The human-readable display name of the organization.",
+            "examples": [
+              "My Great Org"
+            ]
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "Description of the organization.",
+            "examples": [
+              "An organization that does great things with agentic AI."
+            ]
+          },
+          "domains": {
+            "type": "string",
+            "title": "Domains",
+            "description": "Comma-delimited list of domains that users at the organization may have in their email addresses.",
+            "examples": [
+              "mygreatorg.com,myothergreatorg.org"
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id",
+            "description": "The internal ID of the organization.",
+            "examples": [
+              1
+            ]
+          },
+          "last_updated_comments": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Updated Comments",
+            "description": "Comments for the most recent edit to the organization.",
+            "examples": [
+              "Updated to add an additional domain"
+            ]
+          },
+          "last_updated": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Last Updated",
+            "description": "The timestamp of the most recent update to the organization"
+          },
+          "last_updated_by": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Updated By",
+            "description": "The email of the user who most recently updated the organization"
+          },
+          "logo_str": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Logo Str"
+          }
+        },
+        "type": "object",
+        "required": [
+          "display_name",
+          "domains",
+          "id",
+          "last_updated",
+          "logo_str"
+        ],
+        "title": "OrganizationResponse"
+      },
       "OutboundCampaign": {
         "properties": {
           "campaign_name": {
@@ -19866,7 +20256,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2025-06-20T00:00:00Z"
+              "2025-06-23T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -19875,7 +20265,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2025-06-20T00:00:00Z"
+              "2025-06-23T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -23992,6 +24382,10 @@
     {
       "name": "language_groups",
       "description": "Operations related to language groups. A language group is a           collection of language, voice, and DTMF configuration that can be linked to an agent to           define the languages and voices it supports. For more information, see           [Console docs](https://docs.syllable.ai/Resources/LanguageGroups)."
+    },
+    {
+      "name": "organizations",
+      "description": "Operations related to organizations."
     },
     {
       "name": "outbound.campaigns",
