@@ -24,6 +24,7 @@ if TYPE_CHECKING:
     from syllable_sdk.incidents import Incidents
     from syllable_sdk.insights_sdk import InsightsSDK
     from syllable_sdk.language_groups import LanguageGroups
+    from syllable_sdk.organizations import Organizations
     from syllable_sdk.outbound import Outbound
     from syllable_sdk.permissions import Permissions
     from syllable_sdk.prompts import Prompts
@@ -94,6 +95,8 @@ class SyllableSDK(BaseSDK):
     r"""Operations related to tool configuration. A tool is a function that an           agent can call to perform actions like accessing databases, making API calls, or           processing data. For an agent to have access to a tool, the prompt associated with that           agent should be linked to the tool and include instructions to use it. For more           information, see [Console docs](https://docs.syllable.ai/Resources/Tools)."""
     dashboards: "Dashboards"
     r"""Operations related to dashboards. Currently the API/SDK           only supports fetching basic information about dashboards."""
+    organizations: "Organizations"
+    r"""Operations related to organizations."""
     outbound: "Outbound"
     language_groups: "LanguageGroups"
     r"""Operations related to language groups. A language group is a           collection of language, voice, and DTMF configuration that can be linked to an agent to           define the languages and voices it supports. For more information, see           [Console docs](https://docs.syllable.ai/Resources/LanguageGroups)."""
@@ -118,6 +121,7 @@ class SyllableSDK(BaseSDK):
         "session_debug": ("syllable_sdk.session_debug", "SessionDebug"),
         "tools": ("syllable_sdk.tools", "Tools"),
         "dashboards": ("syllable_sdk.dashboards", "Dashboards"),
+        "organizations": ("syllable_sdk.organizations", "Organizations"),
         "outbound": ("syllable_sdk.outbound", "Outbound"),
         "language_groups": ("syllable_sdk.language_groups", "LanguageGroups"),
         "takeouts": ("syllable_sdk.takeouts", "Takeouts"),
