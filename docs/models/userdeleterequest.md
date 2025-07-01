@@ -7,5 +7,5 @@ Request model to delete a user.
 
 | Field                                   | Type                                    | Required                                | Description                             | Example                                 |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| `email`                                 | *str*                                   | :heavy_check_mark:                      | The email address of the user to delete | user@email.com                          |
+| `email`                                 | *str*                                   | :heavy_check_mark:                      | The email address of the user to delete | user@syllable.ai                        |
 | `reason`                                | *str*                                   | :heavy_check_mark:                      | The reason for deleting the user        | User left the organization              |

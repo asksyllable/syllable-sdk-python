@@ -14494,6 +14494,13 @@ components:
         - "friendly_name"
         - "trunk_sid"
       title: "TwilioPhoneNumber"
+    "UserActivityStatus":
+      type: "string"
+      enum:
+        - "not_invited"
+        - "invited"
+        - "active"
+      title: "UserActivityStatus"
     "UserCreateRequest":
       properties:
         "email":
@@ -14501,7 +14508,7 @@ components:
           title: "Email"
           description: "Email address of the user"
           examples:
-            - "user@email.com"
+            - "user@syllable.ai"
         "first_name":
           anyOf:
             - type: "string"
@@ -14537,7 +14544,7 @@ components:
           title: "Email"
           description: "The email address of the user to delete"
           examples:
-            - "user@email.com"
+            - "user@syllable.ai"
         "reason":
           type: "string"
           title: "Reason"
@@ -14557,7 +14564,9 @@ components:
         - "first_name"
         - "last_name"
         - "role_id"
+        - "role_name"
         - "email_first_name_last_name"
+        - "activity_status"
         - "last_updated"
       title: "UserProperties"
       description: "Names of user fields supported for filtering/sorting on list endpoint."
@@ -14568,7 +14577,7 @@ components:
           title: "Email"
           description: "Email address of the user"
           examples:
-            - "user@email.com"
+            - "user@syllable.ai"
         "first_name":
           anyOf:
             - type: "string"
@@ -14610,13 +14619,14 @@ components:
           title: "Role Name"
           description: "Name of the role assigned to the user"
           examples:
-            - "admin"
+            - "Admin"
         "email_sent":
           type: "boolean"
           title: "Email Sent"
           description: "Whether the welcome email has been sent to the user"
           examples:
             - true
+        "activity_status": {"$ref": "#/components/schemas/UserActivityStatus", "description": "The activity status of the user", "examples": ["invited"]}
         "last_updated":
           type: "string"
           format: "date-time"
@@ -14646,6 +14656,7 @@ components:
         - "id"
         - "role_name"
         - "email_sent"
+        - "activity_status"
         - "last_updated"
       title: "UserResponse"
       description: "Information about a user."
@@ -14656,7 +14667,7 @@ components:
           title: "Email"
           description: "Email address of the user"
           examples:
-            - "user@email.com"
+            - "user@syllable.ai"
         "first_name":
           anyOf:
             - type: "string"
