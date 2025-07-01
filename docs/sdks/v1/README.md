@@ -82,7 +82,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.v1.create(request={
-        "email": "user@email.com",
+        "email": "user@syllable.ai",
         "first_name": "Jane",
         "last_name": "Smith",
         "role_id": 1,
@@ -127,7 +127,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.v1.update(request={
-        "email": "user@email.com",
+        "email": "user@syllable.ai",
         "first_name": "Jane",
         "last_name": "Smith",
         "role_id": 1,
@@ -173,7 +173,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.v1.delete(request={
-        "email": "user@email.com",
+        "email": "user@syllable.ai",
         "reason": "User left the organization",
     })
 

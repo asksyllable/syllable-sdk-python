@@ -517,6 +517,7 @@ if TYPE_CHECKING:
         ListResponseUserResponse,
         ListResponseUserResponseTypedDict,
     )
+    from .no_response_error import NoResponseError
     from .orderbydirection import OrderByDirection
     from .organizationresponse import (
         OrganizationResponse,
@@ -603,6 +604,7 @@ if TYPE_CHECKING:
     from .prompts_listop import PromptsListRequest, PromptsListRequestTypedDict
     from .promptupdaterequest import PromptUpdateRequest, PromptUpdateRequestTypedDict
     from .requeststatus import RequestStatus
+    from .responsevalidationerror import ResponseValidationError
     from .rolecreaterequest import RoleCreateRequest, RoleCreateRequestTypedDict
     from .roleproperties import RoleProperties
     from .roleresponse import RoleResponse, RoleResponseTypedDict
@@ -681,6 +683,7 @@ if TYPE_CHECKING:
     from .statictoolparametertype import StaticToolParameterType
     from .summaryentry import SummaryEntry, SummaryEntryTypedDict
     from .supportedllm import SupportedLlm, SupportedLlmTypedDict
+    from .syllablesdkerror import SyllableSDKError
     from .takeoutrequeststatus import TakeoutRequestStatus
     from .takeouts_get_by_job_idop import (
         TakeoutsGetByJobIDRequest,
@@ -775,6 +778,7 @@ if TYPE_CHECKING:
         TwilioNumberUpdateResponseTypedDict,
     )
     from .twiliophonenumber import TwilioPhoneNumber, TwilioPhoneNumberTypedDict
+    from .useractivitystatus import UserActivityStatus
     from .usercreaterequest import UserCreateRequest, UserCreateRequestTypedDict
     from .userdeleterequest import UserDeleteRequest, UserDeleteRequestTypedDict
     from .userproperties import UserProperties
@@ -1150,6 +1154,7 @@ __all__ = [
     "LocTypedDict",
     "Metadata",
     "MetadataTypedDict",
+    "NoResponseError",
     "OrderByDirection",
     "OrganizationResponse",
     "OrganizationResponseTypedDict",
@@ -1212,6 +1217,7 @@ __all__ = [
     "RequestStatus",
     "Response",
     "ResponseTypedDict",
+    "ResponseValidationError",
     "RoleCreateRequest",
     "RoleCreateRequestTypedDict",
     "RoleProperties",
@@ -1285,6 +1291,7 @@ __all__ = [
     "SummaryEntryTypedDict",
     "SupportedLlm",
     "SupportedLlmTypedDict",
+    "SyllableSDKError",
     "TakeoutRequestStatus",
     "TakeoutStatusResponse",
     "TakeoutStatusResponseTypedDict",
@@ -1354,6 +1361,7 @@ __all__ = [
     "TwilioPhoneNumber",
     "TwilioPhoneNumberTypedDict",
     "Type",
+    "UserActivityStatus",
     "UserCreateRequest",
     "UserCreateRequestTypedDict",
     "UserDeleteRequest",
@@ -1713,6 +1721,7 @@ _dynamic_imports: dict[str, str] = {
     "ListResponseToolResponseTypedDict": ".listresponse_toolresponse_",
     "ListResponseUserResponse": ".listresponse_userresponse_",
     "ListResponseUserResponseTypedDict": ".listresponse_userresponse_",
+    "NoResponseError": ".no_response_error",
     "OrderByDirection": ".orderbydirection",
     "OrganizationResponse": ".organizationresponse",
     "OrganizationResponseTypedDict": ".organizationresponse",
@@ -1773,6 +1782,7 @@ _dynamic_imports: dict[str, str] = {
     "PromptUpdateRequest": ".promptupdaterequest",
     "PromptUpdateRequestTypedDict": ".promptupdaterequest",
     "RequestStatus": ".requeststatus",
+    "ResponseValidationError": ".responsevalidationerror",
     "RoleCreateRequest": ".rolecreaterequest",
     "RoleCreateRequestTypedDict": ".rolecreaterequest",
     "RoleProperties": ".roleproperties",
@@ -1846,6 +1856,7 @@ _dynamic_imports: dict[str, str] = {
     "SummaryEntryTypedDict": ".summaryentry",
     "SupportedLlm": ".supportedllm",
     "SupportedLlmTypedDict": ".supportedllm",
+    "SyllableSDKError": ".syllablesdkerror",
     "TakeoutRequestStatus": ".takeoutrequeststatus",
     "TakeoutsGetByJobIDRequest": ".takeouts_get_by_job_idop",
     "TakeoutsGetByJobIDRequestTypedDict": ".takeouts_get_by_job_idop",
@@ -1920,6 +1931,7 @@ _dynamic_imports: dict[str, str] = {
     "TwilioNumberUpdateResponseTypedDict": ".twilionumberupdateresponse",
     "TwilioPhoneNumber": ".twiliophonenumber",
     "TwilioPhoneNumberTypedDict": ".twiliophonenumber",
+    "UserActivityStatus": ".useractivitystatus",
     "UserCreateRequest": ".usercreaterequest",
     "UserCreateRequestTypedDict": ".usercreaterequest",
     "UserDeleteRequest": ".userdeleterequest",

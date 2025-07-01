@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: e10d488600317e5a19ce3cabc4018cd1
+  docChecksum: 1ad284897ea524d6747d9d37eb09ccda
   docVersion: 0.0.2
-  speakeasyVersion: 1.573.0
-  generationVersion: 2.644.1
-  releaseVersion: 0.35.24
-  configChecksum: 39a57b1845776dc18ca3f6b420e236e8
+  speakeasyVersion: 1.574.0
+  generationVersion: 2.647.1
+  releaseVersion: 0.35.25
+  configChecksum: 8fd4ffd845afe7c74ef56bed6986b9d6
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -343,6 +343,7 @@ generatedFiles:
   - docs/models/twilionumberupdateresponse.md
   - docs/models/twiliophonenumber.md
   - docs/models/type.md
+  - docs/models/useractivitystatus.md
   - docs/models/usercreaterequest.md
   - docs/models/userdeleterequest.md
   - docs/models/userproperties.md
@@ -597,6 +598,7 @@ generatedFiles:
   - src/syllable_sdk/models/listresponse_sessionlabel_.py
   - src/syllable_sdk/models/listresponse_toolresponse_.py
   - src/syllable_sdk/models/listresponse_userresponse_.py
+  - src/syllable_sdk/models/no_response_error.py
   - src/syllable_sdk/models/orderbydirection.py
   - src/syllable_sdk/models/organizationresponse.py
   - src/syllable_sdk/models/outbound_batch_addop.py
@@ -629,6 +631,7 @@ generatedFiles:
   - src/syllable_sdk/models/prompts_listop.py
   - src/syllable_sdk/models/promptupdaterequest.py
   - src/syllable_sdk/models/requeststatus.py
+  - src/syllable_sdk/models/responsevalidationerror.py
   - src/syllable_sdk/models/rolecreaterequest.py
   - src/syllable_sdk/models/roleproperties.py
   - src/syllable_sdk/models/roleresponse.py
@@ -668,6 +671,7 @@ generatedFiles:
   - src/syllable_sdk/models/statictoolparametertype.py
   - src/syllable_sdk/models/summaryentry.py
   - src/syllable_sdk/models/supportedllm.py
+  - src/syllable_sdk/models/syllablesdkerror.py
   - src/syllable_sdk/models/takeoutrequeststatus.py
   - src/syllable_sdk/models/takeouts_get_by_job_idop.py
   - src/syllable_sdk/models/takeouts_get_fileop.py
@@ -705,6 +709,7 @@ generatedFiles:
   - src/syllable_sdk/models/twilionumberupdaterequest.py
   - src/syllable_sdk/models/twilionumberupdateresponse.py
   - src/syllable_sdk/models/twiliophonenumber.py
+  - src/syllable_sdk/models/useractivitystatus.py
   - src/syllable_sdk/models/usercreaterequest.py
   - src/syllable_sdk/models/userdeleterequest.py
   - src/syllable_sdk/models/userproperties.py
@@ -2142,31 +2147,31 @@ examples:
           end_datetime: "2024-01-01T00:00:00Z"
       responses:
         "200":
-          application/json: {"items": [{"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "role_name": "admin", "email_sent": true, "last_updated": "2023-05-14T13:30:57.305Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}, {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "role_name": "admin", "email_sent": true, "last_updated": "2023-05-14T13:30:57.305Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}, {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "role_name": "admin", "email_sent": true, "last_updated": "2023-05-14T13:30:57.305Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}], "page": 0, "page_size": 25, "total_pages": 4, "total_count": 100}
+          application/json: {"items": [{"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "role_name": "admin", "email_sent": true, "activity_status": "active", "last_updated": "2023-05-14T13:30:57.305Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}, {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "role_name": "admin", "email_sent": true, "activity_status": "active", "last_updated": "2023-05-14T13:30:57.305Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}, {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "role_name": "admin", "email_sent": true, "activity_status": "not_invited", "last_updated": "2023-05-14T13:30:57.305Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}], "page": 0, "page_size": 25, "total_pages": 4, "total_count": 100}
         "422":
           application/json: {}
   users_create:
     speakeasy-default-users-create:
       requestBody:
-        application/json: {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1}
+        application/json: {"email": "user@syllable.ai", "first_name": "Jane", "last_name": "Smith", "role_id": 1}
       responses:
         "200":
-          application/json: {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "role_name": "admin", "email_sent": true, "last_updated": "2024-06-21T05:54:26.670Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}
+          application/json: {"email": "user@syllable.ai", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "role_name": "Admin", "email_sent": true, "activity_status": "invited", "last_updated": "2024-06-21T05:54:26.670Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}
         "422":
           application/json: {}
   users_update:
     speakeasy-default-users-update:
       requestBody:
-        application/json: {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned"}
+        application/json: {"email": "user@syllable.ai", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned"}
       responses:
         "200":
-          application/json: {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "role_name": "admin", "email_sent": true, "last_updated": "2024-09-29T21:34:27.623Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}
+          application/json: {"email": "user@syllable.ai", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "role_name": "Admin", "email_sent": true, "activity_status": "invited", "last_updated": "2024-09-29T21:34:27.623Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}
         "422":
           application/json: {}
   users_delete:
     speakeasy-default-users-delete:
       requestBody:
-        application/json: {"email": "user@email.com", "reason": "User left the organization"}
+        application/json: {"email": "user@syllable.ai", "reason": "User left the organization"}
       responses:
         "200":
           application/json: "<value>"
@@ -2179,7 +2184,7 @@ examples:
           user_email: "<value>"
       responses:
         "200":
-          application/json: {"email": "user@email.com", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "role_name": "admin", "email_sent": true, "last_updated": "2024-09-14T02:53:37.916Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}
+          application/json: {"email": "user@syllable.ai", "first_name": "Jane", "last_name": "Smith", "role_id": 1, "last_updated_comments": "Updated to change which role was assigned", "id": 1, "role_name": "Admin", "email_sent": true, "activity_status": "invited", "last_updated": "2024-09-14T02:53:37.916Z", "last_updated_by": "admin@email.com", "last_session_at": "2025-01-01T12:00:00Z"}
         "422":
           application/json: {}
   organizations_get:

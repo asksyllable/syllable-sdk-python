@@ -3004,7 +3004,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.users.delete(request={
-                    "email": "user@email.com",
+                    "email": "user@syllable.ai",
                     "reason": "User left the organization",
                 })
 
@@ -3022,7 +3022,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.v1.delete(request={
-                    "email": "user@email.com",
+                    "email": "user@syllable.ai",
                     "reason": "User left the organization",
                 })
 
@@ -3044,7 +3044,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.users.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.UserProperties.LAST_UPDATED,
+                    syllable_sdk.UserProperties.ACTIVITY_STATUS,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -3064,7 +3064,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.v1.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.UserProperties.LAST_UPDATED,
+                    syllable_sdk.UserProperties.ACTIVITY_STATUS,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -3086,7 +3086,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.users.create(request={
-                    "email": "user@email.com",
+                    "email": "user@syllable.ai",
                     "first_name": "Jane",
                     "last_name": "Smith",
                     "role_id": 1,
@@ -3106,7 +3106,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.v1.create(request={
-                    "email": "user@email.com",
+                    "email": "user@syllable.ai",
                     "first_name": "Jane",
                     "last_name": "Smith",
                     "role_id": 1,
@@ -3129,7 +3129,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.users.update(request={
-                    "email": "user@email.com",
+                    "email": "user@syllable.ai",
                     "first_name": "Jane",
                     "last_name": "Smith",
                     "role_id": 1,
@@ -3150,7 +3150,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.v1.update(request={
-                    "email": "user@email.com",
+                    "email": "user@syllable.ai",
                     "first_name": "Jane",
                     "last_name": "Smith",
                     "role_id": 1,
