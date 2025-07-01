@@ -24,6 +24,8 @@ class UserResponseTypedDict(TypedDict):
     r"""Internal ID of the user"""
     role_name: str
     r"""Name of the role assigned to the user"""
+    email_sent: bool
+    r"""Whether the welcome email has been sent to the user"""
     last_updated: datetime
     r"""The timestamp of the most recent update to the user"""
     first_name: NotRequired[Nullable[str]]
@@ -52,6 +54,9 @@ class UserResponse(BaseModel):
 
     role_name: str
     r"""Name of the role assigned to the user"""
+
+    email_sent: bool
+    r"""Whether the welcome email has been sent to the user"""
 
     last_updated: datetime
     r"""The timestamp of the most recent update to the user"""
