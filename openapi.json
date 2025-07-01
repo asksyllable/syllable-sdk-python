@@ -24052,6 +24052,15 @@
         ],
         "title": "TwilioPhoneNumber"
       },
+      "UserActivityStatus": {
+        "type": "string",
+        "enum": [
+          "not_invited",
+          "invited",
+          "active"
+        ],
+        "title": "UserActivityStatus"
+      },
       "UserCreateRequest": {
         "properties": {
           "email": {
@@ -24059,7 +24068,7 @@
             "title": "Email",
             "description": "Email address of the user",
             "examples": [
-              "user@email.com"
+              "user@syllable.ai"
             ]
           },
           "first_name": {
@@ -24116,7 +24125,7 @@
             "title": "Email",
             "description": "The email address of the user to delete",
             "examples": [
-              "user@email.com"
+              "user@syllable.ai"
             ]
           },
           "reason": {
@@ -24143,7 +24152,9 @@
           "first_name",
           "last_name",
           "role_id",
+          "role_name",
           "email_first_name_last_name",
+          "activity_status",
           "last_updated"
         ],
         "title": "UserProperties",
@@ -24156,7 +24167,7 @@
             "title": "Email",
             "description": "Email address of the user",
             "examples": [
-              "user@email.com"
+              "user@syllable.ai"
             ]
           },
           "first_name": {
@@ -24225,7 +24236,7 @@
             "title": "Role Name",
             "description": "Name of the role assigned to the user",
             "examples": [
-              "admin"
+              "Admin"
             ]
           },
           "email_sent": {
@@ -24234,6 +24245,13 @@
             "description": "Whether the welcome email has been sent to the user",
             "examples": [
               true
+            ]
+          },
+          "activity_status": {
+            "$ref": "#/components/schemas/UserActivityStatus",
+            "description": "The activity status of the user",
+            "examples": [
+              "invited"
             ]
           },
           "last_updated": {
@@ -24281,6 +24299,7 @@
           "id",
           "role_name",
           "email_sent",
+          "activity_status",
           "last_updated"
         ],
         "title": "UserResponse",
@@ -24293,7 +24312,7 @@
             "title": "Email",
             "description": "Email address of the user",
             "examples": [
-              "user@email.com"
+              "user@syllable.ai"
             ]
           },
           "first_name": {
