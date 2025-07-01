@@ -6672,6 +6672,34 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+  "/api/v1/users/{user_email}/send_email":
+    post:
+      tags:
+        - "users"
+        - "V1"
+      summary: "Send User Email"
+      description: "Send a welcome email to a user."
+      operationId: "users_send_email"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "user_email"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            title: "User Email"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            "application/json":
+              schema: {}
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
   "/api/v1/users/delete_account":
     delete:
       tags:
@@ -7291,12 +7319,24 @@ components:
       enum:
         - "Alice"
         - "Alloy"
+        - "Aoede (English)"
+        - "Aoede (Korean)"
+        - "Aoede (Mandarin)"
+        - "Aoede (Spanish)"
+        - "Aoede (Thai)"
+        - "Aoede (Vietnamese)"
         - "Ash"
         - "Bill"
         - "Brian"
         - "Callum"
         - "Charlie"
         - "Charlotte"
+        - "Charon (English)"
+        - "Charon (Korean)"
+        - "Charon (Mandarin)"
+        - "Charon (Spanish)"
+        - "Charon (Thai)"
+        - "Charon (Vietnamese)"
         - "Chris"
         - "cmn-TW-Wavenet-A"
         - "Coral"
@@ -7310,15 +7350,45 @@ components:
         - "es-US-Neural2-A"
         - "es-US-Neural2-B"
         - "Fable"
+        - "Fenrir (English)"
+        - "Fenrir (Korean)"
+        - "Fenrir (Mandarin)"
+        - "Fenrir (Spanish)"
+        - "Fenrir (Thai)"
+        - "Fenrir (Vietnamese)"
         - "George"
         - "Jessica"
         - "ko-KR-Neural2-A"
+        - "Kore (English)"
+        - "Kore (Korean)"
+        - "Kore (Mandarin)"
+        - "Kore (Spanish)"
+        - "Kore (Thai)"
+        - "Kore (Vietnamese)"
         - "Laura"
+        - "Leda (English)"
+        - "Leda (Korean)"
+        - "Leda (Mandarin)"
+        - "Leda (Spanish)"
+        - "Leda (Thai)"
+        - "Leda (Vietnamese)"
         - "Liam"
         - "Lily"
         - "Matilda"
         - "Nova"
         - "Onyx"
+        - "Orus (English)"
+        - "Orus (Korean)"
+        - "Orus (Mandarin)"
+        - "Orus (Spanish)"
+        - "Orus (Thai)"
+        - "Orus (Vietnamese)"
+        - "Puck (English)"
+        - "Puck (Korean)"
+        - "Puck (Mandarin)"
+        - "Puck (Spanish)"
+        - "Puck (Thai)"
+        - "Puck (Vietnamese)"
         - "River"
         - "Roger"
         - "Sarah"
@@ -7327,6 +7397,12 @@ components:
         - "vi-VN-Neural2-A"
         - "Will"
         - "yue-HK-Standard-C"
+        - "Zephyr (English)"
+        - "Zephyr (Korean)"
+        - "Zephyr (Mandarin)"
+        - "Zephyr (Spanish)"
+        - "Zephyr (Thai)"
+        - "Zephyr (Vietnamese)"
       title: "AgentVoiceDisplayName"
       description: "Display names of voices that Syllable supports."
     "AgentVoiceGender":
@@ -7339,6 +7415,7 @@ components:
     "AgentVoiceModel":
       type: "string"
       enum:
+        - "Chirp 3 HD"
         - "eleven_flash_v2_5"
         - "Neural2"
         - "Standard"
@@ -7379,16 +7456,64 @@ components:
         - "elevenlabs:Roger"
         - "elevenlabs:Sarah"
         - "elevenlabs:Will"
+        - "wavenet:female/en-US-Chirp3-HD-Aoede"
+        - "wavenet:female/ko-KR-Chirp3-HD-Aoede"
+        - "wavenet:female/cmn-CN-Chirp3-HD-Aoede"
+        - "wavenet:female/es-US-Chirp3-HD-Aoede"
+        - "wavenet:female/th-TH-Chirp3-HD-Aoede"
+        - "wavenet:female/vi-VN-Chirp3-HD-Aoede"
         - "wavenet:male/es-US-Neural2-B"
+        - "wavenet:male/en-US-Chirp3-HD-Charon"
+        - "wavenet:male/ko-KR-Chirp3-HD-Charon"
+        - "wavenet:male/cmn-CN-Chirp3-HD-Charon"
+        - "wavenet:male/es-US-Chirp3-HD-Charon"
+        - "wavenet:male/th-TH-Chirp3-HD-Charon"
+        - "wavenet:male/vi-VN-Chirp3-HD-Charon"
         - "wavenet:female/en-US-Neural2-F"
+        - "wavenet:male/en-US-Chirp3-HD-Fenrir"
+        - "wavenet:male/ko-KR-Chirp3-HD-Fenrir"
+        - "wavenet:male/cmn-CN-Chirp3-HD-Fenrir"
+        - "wavenet:male/es-US-Chirp3-HD-Fenrir"
+        - "wavenet:male/th-TH-Chirp3-HD-Fenrir"
+        - "wavenet:male/vi-VN-Chirp3-HD-Fenrir"
         - "wavenet:female/es-US-Neural2-A"
         - "wavenet:male/en-US-Neural2-D"
+        - "wavenet:female/en-US-Chirp3-HD-Kore"
+        - "wavenet:female/ko-KR-Chirp3-HD-Kore"
+        - "wavenet:female/cmn-CN-Chirp3-HD-Kore"
+        - "wavenet:female/es-US-Chirp3-HD-Kore"
+        - "wavenet:female/th-TH-Chirp3-HD-Kore"
+        - "wavenet:female/vi-VN-Chirp3-HD-Kore"
+        - "wavenet:female/en-US-Chirp3-HD-Leda"
+        - "wavenet:female/ko-KR-Chirp3-HD-Leda"
+        - "wavenet:female/cmn-CN-Chirp3-HD-Leda"
+        - "wavenet:female/es-US-Chirp3-HD-Leda"
+        - "wavenet:female/th-TH-Chirp3-HD-Leda"
+        - "wavenet:female/vi-VN-Chirp3-HD-Leda"
         - "wavenet:female/cmn-TW-Wavenet-A"
         - "wavenet:male/en-US-Neural2-J"
         - "wavenet:female/yue-HK-Standard-C"
         - "wavenet:female/en-US-Studio-O"
+        - "wavenet:male/en-US-Chirp3-HD-Orus"
+        - "wavenet:male/ko-KR-Chirp3-HD-Orus"
+        - "wavenet:male/cmn-CN-Chirp3-HD-Orus"
+        - "wavenet:male/es-US-Chirp3-HD-Orus"
+        - "wavenet:male/th-TH-Chirp3-HD-Orus"
+        - "wavenet:male/vi-VN-Chirp3-HD-Orus"
+        - "wavenet:male/en-US-Chirp3-HD-Puck"
+        - "wavenet:male/ko-KR-Chirp3-HD-Puck"
+        - "wavenet:male/cmn-CN-Chirp3-HD-Puck"
+        - "wavenet:male/es-US-Chirp3-HD-Puck"
+        - "wavenet:male/th-TH-Chirp3-HD-Puck"
+        - "wavenet:male/vi-VN-Chirp3-HD-Puck"
         - "wavenet:female/ko-KR-Neural2-A"
         - "wavenet:female/vi-VN-Neural2-A"
+        - "wavenet:female/en-US-Chirp3-HD-Zephyr"
+        - "wavenet:female/ko-KR-Chirp3-HD-Zephyr"
+        - "wavenet:female/cmn-CN-Chirp3-HD-Zephyr"
+        - "wavenet:female/es-US-Chirp3-HD-Zephyr"
+        - "wavenet:female/th-TH-Chirp3-HD-Zephyr"
+        - "wavenet:female/vi-VN-Chirp3-HD-Zephyr"
       title: "AgentVoiceVarName"
       description: "The variable name of an agent voice (used when processing messages)."
     "AgentWaitSound":
@@ -7451,7 +7576,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20250626.9"
+            - "20250701.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -7466,7 +7591,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-06-27T00:00:00Z"
+            - "2025-07-02T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -7491,7 +7616,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2025-06-26T00:00:00Z"
+            - "2025-07-01T00:00:00Z"
         "deleted_at":
           anyOf:
             - type: "string"
@@ -7500,7 +7625,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2025-06-26T00:00:00Z"
+            - "2025-07-01T00:00:00Z"
         "deleted_reason":
           anyOf:
             - type: "string"
@@ -7517,7 +7642,7 @@ components:
           title: "Last Updated At"
           description: "Timestamp of last change to batch"
           examples:
-            - "2025-06-26T00:00:00Z"
+            - "2025-07-01T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -7950,7 +8075,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20250626.9"
+            - "20250701.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -7965,7 +8090,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-06-27T00:00:00Z"
+            - "2025-07-02T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -7990,7 +8115,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2025-06-26T00:00:00Z"
+            - "2025-07-01T00:00:00Z"
         "deleted_at":
           anyOf:
             - type: "string"
@@ -7999,7 +8124,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2025-06-26T00:00:00Z"
+            - "2025-07-01T00:00:00Z"
         "deleted_reason":
           anyOf:
             - type: "string"
@@ -8016,7 +8141,7 @@ components:
           title: "Last Updated At"
           description: "Timestamp of last change to batch"
           examples:
-            - "2025-06-26T00:00:00Z"
+            - "2025-07-01T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -8045,7 +8170,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20250626.9"
+            - "20250701.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -8060,7 +8185,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-06-27T00:00:00Z"
+            - "2025-07-02T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -8159,7 +8284,7 @@ components:
           title: "Created At"
           description: "Timestamp of request creation"
           examples:
-            - "2025-06-25T00:00:00Z"
+            - "2025-06-30T00:00:00Z"
         "sent_at":
           anyOf:
             - type: "string"
@@ -8168,7 +8293,7 @@ components:
           title: "Sent At"
           description: "Timestamp at which request was sent"
           examples:
-            - "2025-06-26T00:00:00Z"
+            - "2025-07-01T00:00:00Z"
         "attempt_count":
           type: "integer"
           title: "Attempt Count"
@@ -9322,14 +9447,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload folder was created"
           examples:
-            - "2025-06-25T00:00:00Z"
+            - "2025-06-30T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight upload folder was last updated"
           examples:
-            - "2025-06-26T00:00:00Z"
+            - "2025-07-01T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -9810,14 +9935,14 @@ components:
           title: "Created At"
           description: "Timestamp of at which insight tool configuration was created"
           examples:
-            - "2025-06-25T00:00:00Z"
+            - "2025-06-30T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool configuration was last updated"
           examples:
-            - "2025-06-26T00:00:00Z"
+            - "2025-07-01T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -10041,7 +10166,7 @@ components:
           title: "Start Datetime"
           description: "Timestamp for when the insight workflow should start. An empty value indicates start on activation"
           examples:
-            - "2025-06-25T00:00:00Z"
+            - "2025-06-30T00:00:00Z"
         "end_datetime":
           anyOf:
             - type: "string"
@@ -10050,7 +10175,7 @@ components:
           title: "End Datetime"
           description: "Timestamp of when the insight workflow should end. An empty value indicates no end"
           examples:
-            - "2025-06-26T00:00:00Z"
+            - "2025-07-01T00:00:00Z"
       type: "object"
       required:
         - "name"
@@ -10100,7 +10225,7 @@ components:
           title: "Start Datetime"
           description: "Timestamp for when the insight workflow should start. An empty value indicates start on activation"
           examples:
-            - "2025-06-25T00:00:00Z"
+            - "2025-06-30T00:00:00Z"
         "end_datetime":
           anyOf:
             - type: "string"
@@ -10109,7 +10234,7 @@ components:
           title: "End Datetime"
           description: "Timestamp of when the insight workflow should end. An empty value indicates no end"
           examples:
-            - "2025-06-26T00:00:00Z"
+            - "2025-07-01T00:00:00Z"
         "id":
           type: "integer"
           title: "Id"
@@ -10143,14 +10268,14 @@ components:
           title: "Created At"
           description: "Timestamp at which the insight workflow was created"
           examples:
-            - "2025-06-25T00:00:00Z"
+            - "2025-06-30T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of most recent update to the insight workflow"
           examples:
-            - "2025-06-26T00:00:00Z"
+            - "2025-07-01T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -10219,14 +10344,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload folder was created"
           examples:
-            - "2025-06-25T00:00:00Z"
+            - "2025-06-30T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight upload folder was last updated"
           examples:
-            - "2025-06-26T00:00:00Z"
+            - "2025-07-01T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -10375,14 +10500,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight tool result was created"
           examples:
-            - "2025-06-25T00:00:00Z"
+            - "2025-06-30T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool result was last updated"
           examples:
-            - "2025-06-26T00:00:00Z"
+            - "2025-07-01T00:00:00Z"
       type: "object"
       required:
         - "id"
@@ -10469,7 +10594,7 @@ components:
           title: "Start Time"
           description: "Start time of the uploaded file"
           examples:
-            - "2025-06-25T00:00:00Z"
+            - "2025-06-30T00:00:00Z"
         "end_time":
           anyOf:
             - type: "string"
@@ -10478,7 +10603,7 @@ components:
           title: "End Time"
           description: "End time of the uploaded file"
           examples:
-            - "2025-06-26T00:00:00Z"
+            - "2025-07-01T00:00:00Z"
         "error_message":
           anyOf:
             - type: "string"
@@ -10506,7 +10631,7 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload file was created"
           examples:
-            - "2025-06-25T00:00:00Z"
+            - "2025-06-30T00:00:00Z"
       type: "object"
       required:
         - "id"
@@ -12157,14 +12282,14 @@ components:
           title: "Created At"
           description: "Timestamp of campaign creation"
           examples:
-            - "2025-06-26T00:00:00Z"
+            - "2025-07-01T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of campaign update"
           examples:
-            - "2025-06-26T00:00:00Z"
+            - "2025-07-01T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -12720,7 +12845,7 @@ components:
           title: "Name"
           description: "The name of the role."
           examples:
-            - "prompt_engineer"
+            - "Prompt Engineer"
         "description":
           anyOf:
             - type: "string"
@@ -12759,7 +12884,7 @@ components:
           title: "Name"
           description: "The name of the role."
           examples:
-            - "prompt_engineer"
+            - "Prompt Engineer"
         "description":
           anyOf:
             - type: "string"
@@ -12824,7 +12949,7 @@ components:
           title: "Name"
           description: "The name of the role."
           examples:
-            - "prompt_engineer"
+            - "Prompt Engineer"
         "description":
           anyOf:
             - type: "string"
@@ -14486,6 +14611,12 @@ components:
           description: "Name of the role assigned to the user"
           examples:
             - "admin"
+        "email_sent":
+          type: "boolean"
+          title: "Email Sent"
+          description: "Whether the welcome email has been sent to the user"
+          examples:
+            - true
         "last_updated":
           type: "string"
           format: "date-time"
@@ -14514,6 +14645,7 @@ components:
         - "role_id"
         - "id"
         - "role_name"
+        - "email_sent"
         - "last_updated"
       title: "UserResponse"
       description: "Information about a user."

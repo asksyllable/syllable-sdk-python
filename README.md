@@ -445,6 +445,7 @@ with SyllableSDK(
 * [update](docs/sdks/users/README.md#update) - Update User
 * [delete](docs/sdks/users/README.md#delete) - Delete User
 * [users_get_by_email](docs/sdks/users/README.md#users_get_by_email) - Get User
+* [users_send_email](docs/sdks/users/README.md#users_send_email) - Send User Email
 * [users_delete_account](docs/sdks/users/README.md#users_delete_account) - Request Removal Of This Account
 
 ### [v1](docs/sdks/v1/README.md)
@@ -454,6 +455,7 @@ with SyllableSDK(
 * [update](docs/sdks/v1/README.md#update) - Update User
 * [delete](docs/sdks/v1/README.md#delete) - Delete User
 * [users_get_by_email](docs/sdks/v1/README.md#users_get_by_email) - Get User
+* [users_send_email](docs/sdks/v1/README.md#users_send_email) - Send User Email
 * [users_delete_account](docs/sdks/v1/README.md#users_delete_account) - Request Removal Of This Account
 
 </details>

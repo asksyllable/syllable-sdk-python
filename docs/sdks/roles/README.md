@@ -82,7 +82,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.roles.create(request={
-        "name": "prompt_engineer",
+        "name": "Prompt Engineer",
         "description": "Role for users who can fetch and change prompts",
         "permissions": [
             "prompts_read",
@@ -130,7 +130,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.roles.update(request={
-        "name": "prompt_engineer",
+        "name": "Prompt Engineer",
         "description": "Role for users who can fetch and change prompts",
         "permissions": [
             "prompts_read",

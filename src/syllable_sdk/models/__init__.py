@@ -784,6 +784,10 @@ if TYPE_CHECKING:
         UsersGetByEmailRequestTypedDict,
     )
     from .users_listop import UsersListRequest, UsersListRequestTypedDict
+    from .users_send_emailop import (
+        UsersSendEmailRequest,
+        UsersSendEmailRequestTypedDict,
+    )
     from .userupdaterequest import UserUpdateRequest, UserUpdateRequestTypedDict
     from .validationerror import (
         Loc,
@@ -1363,6 +1367,8 @@ __all__ = [
     "UsersGetByEmailRequestTypedDict",
     "UsersListRequest",
     "UsersListRequestTypedDict",
+    "UsersSendEmailRequest",
+    "UsersSendEmailRequestTypedDict",
     "ValidationError",
     "ValidationErrorTypedDict",
     "VoiceSampleCreateRequest",
@@ -1925,6 +1931,8 @@ _dynamic_imports: dict[str, str] = {
     "UsersGetByEmailRequestTypedDict": ".users_get_by_emailop",
     "UsersListRequest": ".users_listop",
     "UsersListRequestTypedDict": ".users_listop",
+    "UsersSendEmailRequest": ".users_send_emailop",
+    "UsersSendEmailRequestTypedDict": ".users_send_emailop",
     "UserUpdateRequest": ".userupdaterequest",
     "UserUpdateRequestTypedDict": ".userupdaterequest",
     "Loc": ".validationerror",
