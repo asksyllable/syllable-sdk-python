@@ -74,6 +74,7 @@ Create a new user.
 
 ```python
 import os
+import syllable_sdk
 from syllable_sdk import SyllableSDK
 
 
@@ -86,6 +87,7 @@ with SyllableSDK(
         "first_name": "Jane",
         "last_name": "Smith",
         "role_id": 1,
+        "login_type": syllable_sdk.LoginType.USERNAME_AND_PASSWORD,
     })
 
     # Handle response
