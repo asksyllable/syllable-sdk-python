@@ -20082,6 +20082,15 @@
         ],
         "title": "ListResponse[UserResponse]"
       },
+      "LoginType": {
+        "type": "string",
+        "enum": [
+          "google",
+          "username_and_password"
+        ],
+        "title": "LoginType",
+        "description": "The type of login to use for the user."
+      },
       "OrderByDirection": {
         "type": "string",
         "enum": [
@@ -24107,6 +24116,20 @@
             "description": "ID of the role assigned to the user",
             "examples": [
               1
+            ]
+          },
+          "login_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LoginType"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The type of login to use for the user. If not provided, defaults to google for @gmail.com email addresses, and username and password otherwise.",
+            "examples": [
+              "username_and_password"
             ]
           }
         },
