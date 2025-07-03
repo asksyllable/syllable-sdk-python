@@ -22883,7 +22883,12 @@
             "description": "The text of the message that elicited the response"
           },
           "response": {
-            "type": "object",
+            "anyOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ],
             "title": "Response",
             "description": "The response from the agent"
           },
@@ -22896,7 +22901,8 @@
         "type": "object",
         "required": [
           "test_id",
-          "agent_id"
+          "agent_id",
+          "response"
         ],
         "title": "TestMessageResponse",
         "description": "Response from an agent in a test chat."
