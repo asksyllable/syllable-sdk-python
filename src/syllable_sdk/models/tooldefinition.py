@@ -4,6 +4,7 @@ from __future__ import annotations
 from .internaltool import InternalTool, InternalToolTypedDict
 from .statictoolparameter import StaticToolParameter, StaticToolParameterTypedDict
 from .toolhttpendpoint import ToolHTTPEndpoint, ToolHTTPEndpointTypedDict
+from .tooloptions import ToolOptions, ToolOptionsTypedDict
 from .toolparameterdefault import ToolParameterDefault, ToolParameterDefaultTypedDict
 from enum import Enum
 from pydantic import model_serializer
@@ -49,7 +50,9 @@ class ToolDefinitionTypedDict(TypedDict):
     static_parameters: NotRequired[Nullable[List[StaticToolParameterTypedDict]]]
     r"""Parameters for the tool whose values should be set at config time (i.e., not provided by the LLM)."""
     result: NotRequired[Nullable[Any]]
-    r"""The optional result of the tool call. Only used for `context` tools."""
+    r"""The optional result of the tool call."""
+    options: NotRequired[Nullable[ToolOptionsTypedDict]]
+    r"""The options for the tool. Ie allows to propagate the tool result to the caller via propagate_tool_result flag."""
 
 
 class ToolDefinition(BaseModel):
@@ -71,7 +74,10 @@ class ToolDefinition(BaseModel):
     r"""Parameters for the tool whose values should be set at config time (i.e., not provided by the LLM)."""
 
     result: OptionalNullable[Any] = UNSET
-    r"""The optional result of the tool call. Only used for `context` tools."""
+    r"""The optional result of the tool call."""
+
+    options: OptionalNullable[ToolOptions] = UNSET
+    r"""The options for the tool. Ie allows to propagate the tool result to the caller via propagate_tool_result flag."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -81,6 +87,7 @@ class ToolDefinition(BaseModel):
             "defaults",
             "static_parameters",
             "result",
+            "options",
         ]
         nullable_fields = [
             "type",
@@ -88,6 +95,7 @@ class ToolDefinition(BaseModel):
             "defaults",
             "static_parameters",
             "result",
+            "options",
         ]
         null_default_fields = []
 

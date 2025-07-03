@@ -723,6 +723,7 @@ if TYPE_CHECKING:
     from .toolfunction import ToolFunction, ToolFunctionTypedDict
     from .toolhttpendpoint import ToolHTTPEndpoint, ToolHTTPEndpointTypedDict
     from .toolhttpmethod import ToolHTTPMethod
+    from .tooloptions import ToolOptions, ToolOptionsTypedDict
     from .toolparameterdefault import (
         ToolParameterDefault,
         ToolParameterDefaultTypedDict,
@@ -1326,6 +1327,8 @@ __all__ = [
     "ToolHTTPMethod",
     "ToolListRequest",
     "ToolListRequestTypedDict",
+    "ToolOptions",
+    "ToolOptionsTypedDict",
     "ToolParameterDefault",
     "ToolParameterDefaultTypedDict",
     "ToolParameterTransform",
@@ -1897,6 +1900,8 @@ _dynamic_imports: dict[str, str] = {
     "ToolHTTPEndpoint": ".toolhttpendpoint",
     "ToolHTTPEndpointTypedDict": ".toolhttpendpoint",
     "ToolHTTPMethod": ".toolhttpmethod",
+    "ToolOptions": ".tooloptions",
+    "ToolOptionsTypedDict": ".tooloptions",
     "ToolParameterDefault": ".toolparameterdefault",
     "ToolParameterDefaultTypedDict": ".toolparameterdefault",
     "Action": ".toolparametertransform",
