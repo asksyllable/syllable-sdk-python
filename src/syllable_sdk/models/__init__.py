@@ -700,12 +700,7 @@ if TYPE_CHECKING:
     )
     from .targetmodes import TargetModes
     from .testmessage import TestMessage, TestMessageTypedDict
-    from .testmessageresponse import (
-        Response,
-        ResponseTypedDict,
-        TestMessageResponse,
-        TestMessageResponseTypedDict,
-    )
+    from .testmessageresponse import TestMessageResponse, TestMessageResponseTypedDict
     from .tool_deleteop import ToolDeleteRequest, ToolDeleteRequestTypedDict
     from .tool_get_by_nameop import ToolGetByNameRequest, ToolGetByNameRequestTypedDict
     from .tool_listop import ToolListRequest, ToolListRequestTypedDict
@@ -1218,8 +1213,6 @@ __all__ = [
     "PromptsListRequest",
     "PromptsListRequestTypedDict",
     "RequestStatus",
-    "Response",
-    "ResponseTypedDict",
     "ResponseValidationError",
     "RoleCreateRequest",
     "RoleCreateRequestTypedDict",
@@ -1873,8 +1866,6 @@ _dynamic_imports: dict[str, str] = {
     "TargetModes": ".targetmodes",
     "TestMessage": ".testmessage",
     "TestMessageTypedDict": ".testmessage",
-    "Response": ".testmessageresponse",
-    "ResponseTypedDict": ".testmessageresponse",
     "TestMessageResponse": ".testmessageresponse",
     "TestMessageResponseTypedDict": ".testmessageresponse",
     "ToolDeleteRequest": ".tool_deleteop",
