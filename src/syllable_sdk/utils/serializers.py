@@ -13,8 +13,6 @@ from pydantic import ConfigDict, create_model
 from pydantic_core import from_json
 
 from ..types.basemodel import BaseModel, Nullable, OptionalNullable, Unset
-from syllable_sdk import models
-
 
 def serialize_decimal(as_str: bool):
     def serialize(d):
