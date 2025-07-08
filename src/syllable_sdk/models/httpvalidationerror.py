@@ -2,8 +2,7 @@
 
 from __future__ import annotations
 from .validationerror import ValidationError
-import httpx
-from syllable_sdk.models import SyllableSDKError
+from syllable_sdk import utils
 from syllable_sdk.types import BaseModel
 from typing import List, Optional
 
@@ -12,15 +11,11 @@ class HTTPValidationErrorData(BaseModel):
     detail: Optional[List[ValidationError]] = None
 
 
-class HTTPValidationError(SyllableSDKError):
+class HTTPValidationError(Exception):
     data: HTTPValidationErrorData
 
-    def __init__(
-        self,
-        data: HTTPValidationErrorData,
-        raw_response: httpx.Response,
-        body: Optional[str] = None,
-    ):
-        message = body or raw_response.text
-        super().__init__(message, raw_response, body)
+    def __init__(self, data: HTTPValidationErrorData):
         self.data = data
+
+    def __str__(self) -> str:
+        return utils.marshal_json(self.data, HTTPValidationErrorData)

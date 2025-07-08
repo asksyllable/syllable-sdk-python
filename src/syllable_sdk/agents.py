@@ -122,22 +122,31 @@ class Agents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(
-                models.ListResponseAgentResponse, http_res
-            )
+            return utils.unmarshal_json(http_res.text, models.ListResponseAgentResponse)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = utils.stream_to_text(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     async def list_async(
         self,
@@ -237,22 +246,31 @@ class Agents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(
-                models.ListResponseAgentResponse, http_res
-            )
+            return utils.unmarshal_json(http_res.text, models.ListResponseAgentResponse)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = await utils.stream_to_text_async(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     def create(
         self,
@@ -331,20 +349,31 @@ class Agents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.AgentResponse, http_res)
+            return utils.unmarshal_json(http_res.text, models.AgentResponse)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, ["400", "4XX"], "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, ["500", "5XX"], "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = utils.stream_to_text(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     async def create_async(
         self,
@@ -423,20 +452,31 @@ class Agents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.AgentResponse, http_res)
+            return utils.unmarshal_json(http_res.text, models.AgentResponse)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, ["400", "4XX"], "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, ["500", "5XX"], "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = await utils.stream_to_text_async(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     def update(
         self,
@@ -515,20 +555,31 @@ class Agents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.AgentResponse, http_res)
+            return utils.unmarshal_json(http_res.text, models.AgentResponse)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, ["400", "404", "4XX"], "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, ["500", "5XX"], "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = utils.stream_to_text(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     async def update_async(
         self,
@@ -607,20 +658,31 @@ class Agents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.AgentResponse, http_res)
+            return utils.unmarshal_json(http_res.text, models.AgentResponse)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, ["400", "404", "4XX"], "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, ["500", "5XX"], "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = await utils.stream_to_text_async(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     def get_by_id(
         self,
@@ -696,20 +758,31 @@ class Agents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.AgentResponse, http_res)
+            return utils.unmarshal_json(http_res.text, models.AgentResponse)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = utils.stream_to_text(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     async def get_by_id_async(
         self,
@@ -785,20 +858,31 @@ class Agents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.AgentResponse, http_res)
+            return utils.unmarshal_json(http_res.text, models.AgentResponse)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = await utils.stream_to_text_async(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     def delete(
         self,
@@ -875,20 +959,31 @@ class Agents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(Any, http_res)
+            return utils.unmarshal_json(http_res.text, Any)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, ["400", "404", "4XX"], "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, ["500", "5XX"], "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = utils.stream_to_text(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     async def delete_async(
         self,
@@ -965,20 +1060,31 @@ class Agents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(Any, http_res)
+            return utils.unmarshal_json(http_res.text, Any)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, ["400", "404", "4XX"], "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, ["500", "5XX"], "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = await utils.stream_to_text_async(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     def agent_get_available_voices(
         self,
@@ -1046,15 +1152,26 @@ class Agents(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(List[models.AgentVoice], http_res)
+            return utils.unmarshal_json(http_res.text, List[models.AgentVoice])
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = utils.stream_to_text(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     async def agent_get_available_voices_async(
         self,
@@ -1122,12 +1239,23 @@ class Agents(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(List[models.AgentVoice], http_res)
+            return utils.unmarshal_json(http_res.text, List[models.AgentVoice])
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = await utils.stream_to_text_async(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )

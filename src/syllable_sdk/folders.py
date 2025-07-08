@@ -108,22 +108,33 @@ class Folders(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(
-                models.ListResponseInsightsFolder, http_res
+            return utils.unmarshal_json(
+                http_res.text, models.ListResponseInsightsFolder
             )
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = utils.stream_to_text(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     async def list_async(
         self,
@@ -221,22 +232,33 @@ class Folders(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(
-                models.ListResponseInsightsFolder, http_res
+            return utils.unmarshal_json(
+                http_res.text, models.ListResponseInsightsFolder
             )
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = await utils.stream_to_text_async(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     def create(
         self,
@@ -313,20 +335,31 @@ class Folders(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.InsightsFolder, http_res)
+            return utils.unmarshal_json(http_res.text, models.InsightsFolder)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = utils.stream_to_text(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     async def create_async(
         self,
@@ -403,20 +436,31 @@ class Folders(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.InsightsFolder, http_res)
+            return utils.unmarshal_json(http_res.text, models.InsightsFolder)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = await utils.stream_to_text_async(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     def get_by_id(
         self,
@@ -490,20 +534,31 @@ class Folders(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.FolderDetails, http_res)
+            return utils.unmarshal_json(http_res.text, models.FolderDetails)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = utils.stream_to_text(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     async def get_by_id_async(
         self,
@@ -577,20 +632,31 @@ class Folders(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.FolderDetails, http_res)
+            return utils.unmarshal_json(http_res.text, models.FolderDetails)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = await utils.stream_to_text_async(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     def delete(
         self,
@@ -664,20 +730,31 @@ class Folders(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(bool, http_res)
+            return utils.unmarshal_json(http_res.text, bool)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = utils.stream_to_text(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     async def delete_async(
         self,
@@ -751,20 +828,31 @@ class Folders(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(bool, http_res)
+            return utils.unmarshal_json(http_res.text, bool)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = await utils.stream_to_text_async(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     def update(
         self,
@@ -852,20 +940,31 @@ class Folders(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.InsightsFolder, http_res)
+            return utils.unmarshal_json(http_res.text, models.InsightsFolder)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = utils.stream_to_text(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     async def update_async(
         self,
@@ -953,20 +1052,31 @@ class Folders(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.InsightsFolder, http_res)
+            return utils.unmarshal_json(http_res.text, models.InsightsFolder)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = await utils.stream_to_text_async(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     def upload_file(
         self,
@@ -1079,20 +1189,31 @@ class Folders(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.InsightsUploadFile, http_res)
+            return utils.unmarshal_json(http_res.text, models.InsightsUploadFile)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = utils.stream_to_text(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     async def upload_file_async(
         self,
@@ -1205,20 +1326,31 @@ class Folders(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.InsightsUploadFile, http_res)
+            return utils.unmarshal_json(http_res.text, models.InsightsUploadFile)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = await utils.stream_to_text_async(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     def list_files(
         self,
@@ -1319,22 +1451,33 @@ class Folders(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(
-                models.ListResponseInsightsUploadFile, http_res
+            return utils.unmarshal_json(
+                http_res.text, models.ListResponseInsightsUploadFile
             )
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = utils.stream_to_text(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     async def list_files_async(
         self,
@@ -1435,22 +1578,33 @@ class Folders(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(
-                models.ListResponseInsightsUploadFile, http_res
+            return utils.unmarshal_json(
+                http_res.text, models.ListResponseInsightsUploadFile
             )
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = await utils.stream_to_text_async(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     def move_files(
         self,
@@ -1538,22 +1692,31 @@ class Folders(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(
-                List[models.InsightsUploadFile], http_res
-            )
+            return utils.unmarshal_json(http_res.text, List[models.InsightsUploadFile])
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = utils.stream_to_text(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
 
     async def move_files_async(
         self,
@@ -1641,19 +1804,28 @@ class Folders(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(
-                List[models.InsightsUploadFile], http_res
-            )
+            return utils.unmarshal_json(http_res.text, List[models.InsightsUploadFile])
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
-                models.HTTPValidationErrorData, http_res
+            response_data = utils.unmarshal_json(
+                http_res.text, models.HTTPValidationErrorData
             )
-            raise models.HTTPValidationError(response_data, http_res)
+            raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
         if utils.match_response(http_res, "5XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            raise models.APIError("API error occurred", http_res, http_res_text)
+            raise models.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
 
-        raise models.APIError("Unexpected response received", http_res)
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = await utils.stream_to_text_async(http_res)
+        raise models.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )

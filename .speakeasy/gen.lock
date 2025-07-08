@@ -3,10 +3,10 @@ id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
   docChecksum: f71acf1a9b0e48760aa92d6ca61563b3
   docVersion: 0.0.2
-  speakeasyVersion: 1.576.1
-  generationVersion: 2.651.2
-  releaseVersion: 0.35.30
-  configChecksum: e4f7c6419d0b8e3bad64f45d897aff7e
+  speakeasyVersion: 1.573.0
+  generationVersion: 2.644.1
+  releaseVersion: 0.35.31
+  configChecksum: 251f1ae4cae3f8c5de393f59867a3804
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -14,7 +14,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.19.4
+    core: 5.19.3
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
     devContainers: 3.0.0
@@ -600,7 +600,6 @@ generatedFiles:
   - src/syllable_sdk/models/listresponse_toolresponse_.py
   - src/syllable_sdk/models/listresponse_userresponse_.py
   - src/syllable_sdk/models/logintype.py
-  - src/syllable_sdk/models/no_response_error.py
   - src/syllable_sdk/models/orderbydirection.py
   - src/syllable_sdk/models/organizationresponse.py
   - src/syllable_sdk/models/outbound_batch_addop.py
@@ -633,7 +632,6 @@ generatedFiles:
   - src/syllable_sdk/models/prompts_listop.py
   - src/syllable_sdk/models/promptupdaterequest.py
   - src/syllable_sdk/models/requeststatus.py
-  - src/syllable_sdk/models/responsevalidationerror.py
   - src/syllable_sdk/models/rolecreaterequest.py
   - src/syllable_sdk/models/roleproperties.py
   - src/syllable_sdk/models/roleresponse.py
@@ -673,7 +671,6 @@ generatedFiles:
   - src/syllable_sdk/models/statictoolparametertype.py
   - src/syllable_sdk/models/summaryentry.py
   - src/syllable_sdk/models/supportedllm.py
-  - src/syllable_sdk/models/syllablesdkerror.py
   - src/syllable_sdk/models/takeoutrequeststatus.py
   - src/syllable_sdk/models/takeouts_get_by_job_idop.py
   - src/syllable_sdk/models/takeouts_get_fileop.py
