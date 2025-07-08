@@ -6,6 +6,7 @@ from syllable_sdk import errors, models, utils
 from syllable_sdk._hooks import HookContext
 from syllable_sdk.types import BaseModel, OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
+from syllable_sdk.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Any, List, Mapping, Optional, Union, cast
 
 
@@ -110,11 +111,11 @@ class LanguageGroups(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(
+            return unmarshal_json_response(
                 models.ListResponseLanguageGroupResponse, http_res
             )
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
@@ -225,11 +226,11 @@ class LanguageGroups(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(
+            return unmarshal_json_response(
                 models.ListResponseLanguageGroupResponse, http_res
             )
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
@@ -322,9 +323,9 @@ class LanguageGroups(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.LanguageGroupResponse, http_res)
+            return unmarshal_json_response(models.LanguageGroupResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
@@ -417,9 +418,9 @@ class LanguageGroups(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.LanguageGroupResponse, http_res)
+            return unmarshal_json_response(models.LanguageGroupResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
@@ -512,9 +513,9 @@ class LanguageGroups(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.LanguageGroupResponse, http_res)
+            return unmarshal_json_response(models.LanguageGroupResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
@@ -607,9 +608,9 @@ class LanguageGroups(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.LanguageGroupResponse, http_res)
+            return unmarshal_json_response(models.LanguageGroupResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
@@ -696,9 +697,9 @@ class LanguageGroups(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.LanguageGroupResponse, http_res)
+            return unmarshal_json_response(models.LanguageGroupResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
@@ -785,9 +786,9 @@ class LanguageGroups(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.LanguageGroupResponse, http_res)
+            return unmarshal_json_response(models.LanguageGroupResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
@@ -877,9 +878,9 @@ class LanguageGroups(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(Any, http_res)
+            return unmarshal_json_response(Any, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
@@ -969,9 +970,9 @@ class LanguageGroups(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(Any, http_res)
+            return unmarshal_json_response(Any, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
@@ -1067,7 +1068,7 @@ class LanguageGroups(BaseSDK):
             return http_res
         if utils.match_response(http_res, "422", "application/json"):
             http_res_text = utils.stream_to_text(http_res)
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res, http_res_text
             )
             raise errors.HTTPValidationError(response_data, http_res, http_res_text)
@@ -1164,7 +1165,7 @@ class LanguageGroups(BaseSDK):
             return http_res
         if utils.match_response(http_res, "422", "application/json"):
             http_res_text = await utils.stream_to_text_async(http_res)
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res, http_res_text
             )
             raise errors.HTTPValidationError(response_data, http_res, http_res_text)

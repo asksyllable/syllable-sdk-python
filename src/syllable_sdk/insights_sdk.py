@@ -8,6 +8,7 @@ from syllable_sdk.folders import Folders
 from syllable_sdk.insights_tools import InsightsTools
 from syllable_sdk.types import OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
+from syllable_sdk.utils.unmarshal_json_response import unmarshal_json_response
 from syllable_sdk.workflows import Workflows
 from typing import Any, List, Mapping, Optional
 
@@ -130,11 +131,9 @@ class InsightsSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(
-                models.ListResponseInsightsOutput, http_res
-            )
+            return unmarshal_json_response(models.ListResponseInsightsOutput, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
@@ -245,11 +244,9 @@ class InsightsSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(
-                models.ListResponseInsightsOutput, http_res
-            )
+            return unmarshal_json_response(models.ListResponseInsightsOutput, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
