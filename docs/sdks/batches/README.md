@@ -25,8 +25,7 @@ List Outbound Communication Batches
 
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -34,7 +33,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.outbound.batches.list(page=0, limit=25, search_fields=[
-        syllable_sdk.BatchProperties.LAST_UPDATED_AT,
+        models.BatchProperties.LAST_UPDATED_AT,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -67,8 +66,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## create
 
@@ -113,8 +112,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## get_by_id
 
@@ -153,8 +152,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## update
 
@@ -198,8 +197,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## delete
 
@@ -241,8 +240,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## upload
 
@@ -282,8 +281,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## results
 
@@ -325,8 +324,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## add
 
@@ -372,8 +371,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## remove
 
@@ -416,5 +415,5 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |

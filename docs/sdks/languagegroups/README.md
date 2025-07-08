@@ -22,8 +22,7 @@ Fetch language groups.
 
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -31,7 +30,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.language_groups.list(page=0, limit=25, search_fields=[
-        syllable_sdk.LanguageGroupProperties.NAME,
+        models.LanguageGroupProperties.NAME,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -64,8 +63,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## create
 
@@ -75,8 +74,7 @@ Create a new language group.
 
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -88,15 +86,15 @@ with SyllableSDK(
         "description": "Languages spoken by operators at Call Center 1",
         "language_configs": [
             {
-                "language_code": syllable_sdk.LanguageCode.EN_US,
-                "voice_provider": syllable_sdk.TtsProvider.OPEN_AI,
-                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ALLOY,
+                "language_code": models.LanguageCode.EN_US,
+                "voice_provider": models.TtsProvider.OPEN_AI,
+                "voice_display_name": models.AgentVoiceDisplayName.ALLOY,
                 "dtmf_code": 1,
             },
             {
-                "language_code": syllable_sdk.LanguageCode.ES_US,
-                "voice_provider": syllable_sdk.TtsProvider.GOOGLE,
-                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ES_US_NEURAL2_B,
+                "language_code": models.LanguageCode.ES_US,
+                "voice_provider": models.TtsProvider.GOOGLE,
+                "voice_display_name": models.AgentVoiceDisplayName.ES_US_NEURAL2_B,
                 "dtmf_code": 2,
             },
         ],
@@ -123,8 +121,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## update
 
@@ -134,8 +132,7 @@ Update an existing language group
 
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -147,15 +144,15 @@ with SyllableSDK(
         "description": "Languages spoken by operators at Call Center 1",
         "language_configs": [
             {
-                "language_code": syllable_sdk.LanguageCode.EN_US,
-                "voice_provider": syllable_sdk.TtsProvider.OPEN_AI,
-                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ALLOY,
+                "language_code": models.LanguageCode.EN_US,
+                "voice_provider": models.TtsProvider.OPEN_AI,
+                "voice_display_name": models.AgentVoiceDisplayName.ALLOY,
                 "dtmf_code": 1,
             },
             {
-                "language_code": syllable_sdk.LanguageCode.ES_US,
-                "voice_provider": syllable_sdk.TtsProvider.GOOGLE,
-                "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ES_US_NEURAL2_B,
+                "language_code": models.LanguageCode.ES_US,
+                "voice_provider": models.TtsProvider.GOOGLE,
+                "voice_display_name": models.AgentVoiceDisplayName.ES_US_NEURAL2_B,
                 "dtmf_code": 2,
             },
         ],
@@ -184,8 +181,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## get_by_id
 
@@ -224,8 +221,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## delete
 
@@ -265,8 +262,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## language_groups_create_voice_sample
 
@@ -276,8 +273,7 @@ Generate voice sample.
 
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -285,9 +281,9 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.language_groups.language_groups_create_voice_sample(request={
-        "language_code": syllable_sdk.LanguageCode.ZH_CN,
-        "voice_provider": syllable_sdk.TtsProvider.GOOGLE,
-        "voice_display_name": syllable_sdk.AgentVoiceDisplayName.EN_US_NEURAL2_F,
+        "language_code": models.LanguageCode.ZH_CN,
+        "voice_provider": models.TtsProvider.GOOGLE,
+        "voice_display_name": models.AgentVoiceDisplayName.EN_US_NEURAL2_F,
         "voice_speed": 1,
         "voice_pitch": 0,
     })
@@ -312,5 +308,5 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |

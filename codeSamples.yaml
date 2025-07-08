@@ -10,8 +10,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -19,7 +18,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.agents.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.AgentProperties.NAME,
+                    models.AgentProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -33,8 +32,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -70,8 +68,8 @@ actions:
                     "tool_headers": {
                         "Authorization": "Basic sometoken",
                     },
-                    "stt_provider": syllable_sdk.AgentSttProvider.GOOGLE_STT_V1,
-                    "wait_sound": syllable_sdk.AgentWaitSound.NO_SOUND,
+                    "stt_provider": models.AgentSttProvider.GOOGLE_STT_V1,
+                    "wait_sound": models.AgentWaitSound.NO_SOUND,
                 })
 
                 # Handle response
@@ -83,8 +81,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -120,8 +117,8 @@ actions:
                     "tool_headers": {
                         "Authorization": "Basic sometoken",
                     },
-                    "stt_provider": syllable_sdk.AgentSttProvider.GOOGLE_STT_V1,
-                    "wait_sound": syllable_sdk.AgentWaitSound.NO_SOUND,
+                    "stt_provider": models.AgentSttProvider.GOOGLE_STT_V1,
+                    "wait_sound": models.AgentWaitSound.NO_SOUND,
                     "id": 1,
                 })
 
@@ -212,8 +209,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -221,7 +217,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.channels.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.ChannelProperties.NAME,
+                    models.ChannelProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -235,8 +231,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -244,7 +239,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.channels.targets.available_targets(page=0, limit=25, search_fields=[
-                    syllable_sdk.AvailableTargetProperties.TARGET,
+                    models.AvailableTargetProperties.TARGET,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -258,8 +253,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -267,7 +261,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.channels.targets.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.ChannelTargetProperties.AGENT_ID,
+                    models.ChannelTargetProperties.AGENT_ID,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -423,8 +417,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -435,7 +428,7 @@ actions:
                     "agent_id": 1,
                     "channel_id": 1,
                     "target": "+19995551234",
-                    "target_mode": syllable_sdk.TargetModes.EMAIL,
+                    "target_mode": models.TargetModes.EMAIL,
                     "fallback_target": "+19995551235",
                     "is_test": True,
                 })
@@ -467,8 +460,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -479,7 +471,7 @@ actions:
                     "agent_id": 1,
                     "channel_id": 1,
                     "target": "+19995551234",
-                    "target_mode": syllable_sdk.TargetModes.EMAIL,
+                    "target_mode": models.TargetModes.EMAIL,
                     "fallback_target": "+19995551235",
                     "is_test": True,
                     "id": 1,
@@ -494,8 +486,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -503,7 +494,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.conversations.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.ConversationProperties.AGENT_NAME,
+                    models.ConversationProperties.AGENT_NAME,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -517,8 +508,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -526,7 +516,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.custom_messages.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.CustomMessageProperties.NAME,
+                    models.CustomMessageProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -540,8 +530,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -566,8 +555,8 @@ actions:
                             "time_range_start": "09:00",
                             "time_range_end": "17:00",
                             "days_of_week": [
-                                syllable_sdk.DayOfWeek.SA,
-                                syllable_sdk.DayOfWeek.SU,
+                                models.DayOfWeek.SA,
+                                models.DayOfWeek.SU,
                             ],
                             "invert": False,
                             "text": "Hello, thank you for calling. Sorry, we're closed on weekends.",
@@ -584,8 +573,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -610,8 +598,8 @@ actions:
                             "time_range_start": "09:00",
                             "time_range_end": "17:00",
                             "days_of_week": [
-                                syllable_sdk.DayOfWeek.SA,
-                                syllable_sdk.DayOfWeek.SU,
+                                models.DayOfWeek.SA,
+                                models.DayOfWeek.SU,
                             ],
                             "invert": False,
                             "text": "Hello, thank you for calling. Sorry, we're closed on weekends.",
@@ -683,8 +671,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -692,7 +679,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.dashboards.post_list_dashboard(page=0, limit=25, search_fields=[
-                    syllable_sdk.DashboardProperties.NAME,
+                    models.DashboardProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -706,8 +693,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -715,7 +701,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.data_sources.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.DataSourceProperties.NAME,
+                    models.DataSourceProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -833,8 +819,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -842,7 +827,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.events.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.EventProperties.DESCRIPTION,
+                    models.EventProperties.DESCRIPTION,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -856,8 +841,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -865,7 +849,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.incidents.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.IncidentProperties.UPDATED_AT,
+                    models.IncidentProperties.UPDATED_AT,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -994,8 +978,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -1003,7 +986,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.insights.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.InsightsProperties.UPLOAD_FILE_ID,
+                    models.InsightsProperties.UPLOAD_FILE_ID,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -1017,8 +1000,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -1026,7 +1008,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.insights.folders.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.InsightsFolderProperties.NAME,
+                    models.InsightsFolderProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -1120,8 +1102,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -1129,7 +1110,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.insights.folders.list_files(folder_id=55293, page=0, limit=25, search_fields=[
-                    syllable_sdk.InsightsUploadFileProperties.CUSTOMER_NUMBER,
+                    models.InsightsUploadFileProperties.CUSTOMER_NUMBER,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -1186,8 +1167,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -1195,7 +1175,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.insights.tools.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.InsightToolProperties.NAME,
+                    models.InsightToolProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -1337,8 +1317,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -1346,7 +1325,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.insights.workflows.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.InsightWorkflowProperties.NAME,
+                    models.InsightWorkflowProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -1560,8 +1539,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -1569,7 +1547,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.language_groups.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.LanguageGroupProperties.NAME,
+                    models.LanguageGroupProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -1583,8 +1561,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -1596,15 +1573,15 @@ actions:
                     "description": "Languages spoken by operators at Call Center 1",
                     "language_configs": [
                         {
-                            "language_code": syllable_sdk.LanguageCode.EN_US,
-                            "voice_provider": syllable_sdk.TtsProvider.OPEN_AI,
-                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ALLOY,
+                            "language_code": models.LanguageCode.EN_US,
+                            "voice_provider": models.TtsProvider.OPEN_AI,
+                            "voice_display_name": models.AgentVoiceDisplayName.ALLOY,
                             "dtmf_code": 1,
                         },
                         {
-                            "language_code": syllable_sdk.LanguageCode.ES_US,
-                            "voice_provider": syllable_sdk.TtsProvider.GOOGLE,
-                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ES_US_NEURAL2_B,
+                            "language_code": models.LanguageCode.ES_US,
+                            "voice_provider": models.TtsProvider.GOOGLE,
+                            "voice_display_name": models.AgentVoiceDisplayName.ES_US_NEURAL2_B,
                             "dtmf_code": 2,
                         },
                     ],
@@ -1620,8 +1597,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -1633,15 +1609,15 @@ actions:
                     "description": "Languages spoken by operators at Call Center 1",
                     "language_configs": [
                         {
-                            "language_code": syllable_sdk.LanguageCode.EN_US,
-                            "voice_provider": syllable_sdk.TtsProvider.OPEN_AI,
-                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ALLOY,
+                            "language_code": models.LanguageCode.EN_US,
+                            "voice_provider": models.TtsProvider.OPEN_AI,
+                            "voice_display_name": models.AgentVoiceDisplayName.ALLOY,
                             "dtmf_code": 1,
                         },
                         {
-                            "language_code": syllable_sdk.LanguageCode.ES_US,
-                            "voice_provider": syllable_sdk.TtsProvider.GOOGLE,
-                            "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ES_US_NEURAL2_B,
+                            "language_code": models.LanguageCode.ES_US,
+                            "voice_provider": models.TtsProvider.GOOGLE,
+                            "voice_display_name": models.AgentVoiceDisplayName.ES_US_NEURAL2_B,
                             "dtmf_code": 2,
                         },
                     ],
@@ -1659,8 +1635,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -1668,9 +1643,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.language_groups.language_groups_create_voice_sample(request={
-                    "language_code": syllable_sdk.LanguageCode.FA_IR,
-                    "voice_provider": syllable_sdk.TtsProvider.GOOGLE,
-                    "voice_display_name": syllable_sdk.AgentVoiceDisplayName.ERIC,
+                    "language_code": models.LanguageCode.FA_IR,
+                    "voice_provider": models.TtsProvider.GOOGLE,
+                    "voice_display_name": models.AgentVoiceDisplayName.ERIC,
                     "voice_speed": 1,
                     "voice_pitch": 0,
                 })
@@ -1805,8 +1780,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -1814,7 +1788,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.BatchProperties.LAST_UPDATED_AT,
+                    models.BatchProperties.LAST_UPDATED_AT,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -1993,8 +1967,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -2002,7 +1975,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.campaigns.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.CampaignProperties.ID,
+                    models.CampaignProperties.ID,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -2016,8 +1989,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -2043,11 +2015,11 @@ actions:
                     "retry_count": 1,
                     "retry_interval": "30m",
                     "active_days": [
-                        syllable_sdk.DaysOfWeek.MON,
-                        syllable_sdk.DaysOfWeek.TUE,
-                        syllable_sdk.DaysOfWeek.WED,
-                        syllable_sdk.DaysOfWeek.THU,
-                        syllable_sdk.DaysOfWeek.FRI,
+                        models.DaysOfWeek.MON,
+                        models.DaysOfWeek.TUE,
+                        models.DaysOfWeek.WED,
+                        models.DaysOfWeek.THU,
+                        models.DaysOfWeek.FRI,
                     ],
                 })
 
@@ -2096,8 +2068,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -2123,11 +2094,11 @@ actions:
                     "retry_count": 1,
                     "retry_interval": "30m",
                     "active_days": [
-                        syllable_sdk.DaysOfWeek.MON,
-                        syllable_sdk.DaysOfWeek.TUE,
-                        syllable_sdk.DaysOfWeek.WED,
-                        syllable_sdk.DaysOfWeek.THU,
-                        syllable_sdk.DaysOfWeek.FRI,
+                        models.DaysOfWeek.MON,
+                        models.DaysOfWeek.TUE,
+                        models.DaysOfWeek.WED,
+                        models.DaysOfWeek.THU,
+                        models.DaysOfWeek.FRI,
                     ],
                 })
 
@@ -2158,8 +2129,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -2167,7 +2137,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.prompts.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.PromptProperties.NAME,
+                    models.PromptProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -2315,8 +2285,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -2324,7 +2293,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.roles.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.RoleProperties.NAME,
+                    models.RoleProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -2428,8 +2397,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -2437,7 +2405,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.services.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.ServiceProperties.NAME,
+                    models.ServiceProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -2585,8 +2553,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -2594,7 +2561,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.session_labels.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.SessionLabelProperties.CODE,
+                    models.SessionLabelProperties.CODE,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -2652,8 +2619,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -2661,7 +2627,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.sessions.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.SessionProperties.CONVERSATION_ID,
+                    models.SessionProperties.CONVERSATION_ID,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -2837,8 +2803,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -2846,7 +2811,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.tools.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.ToolProperties.NAME,
+                    models.ToolProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -2860,8 +2825,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -2871,7 +2835,7 @@ actions:
                 res = ss_client.tools.create(request={
                     "name": "Weather Fetcher",
                     "definition": {
-                        "type": syllable_sdk.Type.ENDPOINT,
+                        "type": models.Type.ENDPOINT,
                         "tool": {
                             "function": {
                                 "name": "get_weather",
@@ -2883,8 +2847,8 @@ actions:
                         },
                         "endpoint": {
                             "url": "https://api.example.com",
-                            "method": syllable_sdk.ToolHTTPMethod.POST,
-                            "argument_location": syllable_sdk.ToolArgumentLocation.PATH,
+                            "method": models.ToolHTTPMethod.POST,
+                            "argument_location": models.ToolArgumentLocation.PATH,
                         },
                         "defaults": "<value>",
                         "static_parameters": [
@@ -2892,7 +2856,7 @@ actions:
                                 "name": "temperature_unit",
                                 "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit",
                                 "required": False,
-                                "type": syllable_sdk.StaticToolParameterType.STRING,
+                                "type": models.StaticToolParameterType.STRING,
                                 "default": "fahrenheit",
                             },
                         ],
@@ -2909,8 +2873,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -2920,7 +2883,7 @@ actions:
                 res = ss_client.tools.update(request={
                     "name": "Weather Fetcher",
                     "definition": {
-                        "type": syllable_sdk.Type.ENDPOINT,
+                        "type": models.Type.ENDPOINT,
                         "tool": {
                             "function": {
                                 "name": "get_weather",
@@ -2932,8 +2895,8 @@ actions:
                         },
                         "endpoint": {
                             "url": "https://api.example.com",
-                            "method": syllable_sdk.ToolHTTPMethod.GET,
-                            "argument_location": syllable_sdk.ToolArgumentLocation.FORM,
+                            "method": models.ToolHTTPMethod.GET,
+                            "argument_location": models.ToolArgumentLocation.FORM,
                         },
                         "defaults": "<value>",
                         "static_parameters": [
@@ -2941,7 +2904,7 @@ actions:
                                 "name": "temperature_unit",
                                 "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit",
                                 "required": False,
-                                "type": syllable_sdk.StaticToolParameterType.STRING,
+                                "type": models.StaticToolParameterType.STRING,
                                 "default": "fahrenheit",
                             },
                         ],
@@ -3035,8 +2998,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -3044,7 +3006,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.users.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.UserProperties.ACTIVITY_STATUS,
+                    models.UserProperties.ACTIVITY_STATUS,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -3055,8 +3017,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -3064,7 +3025,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.v1.list(page=0, limit=25, search_fields=[
-                    syllable_sdk.UserProperties.ACTIVITY_STATUS,
+                    models.UserProperties.ACTIVITY_STATUS,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -3078,8 +3039,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -3091,7 +3051,7 @@ actions:
                     "first_name": "Jane",
                     "last_name": "Smith",
                     "role_id": 1,
-                    "login_type": syllable_sdk.LoginType.USERNAME_AND_PASSWORD,
+                    "login_type": models.LoginType.USERNAME_AND_PASSWORD,
                 })
 
                 # Handle response
@@ -3100,8 +3060,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            import syllable_sdk
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -3113,7 +3072,7 @@ actions:
                     "first_name": "Jane",
                     "last_name": "Smith",
                     "role_id": 1,
-                    "login_type": syllable_sdk.LoginType.USERNAME_AND_PASSWORD,
+                    "login_type": models.LoginType.USERNAME_AND_PASSWORD,
                 })
 
                 # Handle response

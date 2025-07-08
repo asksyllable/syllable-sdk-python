@@ -120,8 +120,7 @@ Generally, the SDK will work well with most IDEs out of the box. However, when u
 ```python
 # Synchronous Example
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -129,7 +128,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.agents.list(page=0, limit=25, search_fields=[
-        syllable_sdk.AgentProperties.NAME,
+        models.AgentProperties.NAME,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -145,8 +144,7 @@ The same SDK client can also be used to make asychronous requests by importing a
 # Asynchronous Example
 import asyncio
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 async def main():
 
@@ -155,7 +153,7 @@ async def main():
     ) as ss_client:
 
         res = await ss_client.agents.list_async(page=0, limit=25, search_fields=[
-            syllable_sdk.AgentProperties.NAME,
+            models.AgentProperties.NAME,
         ], search_field_values=[
             "Some Object Name",
         ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -181,8 +179,7 @@ This SDK supports the following security scheme globally:
 To authenticate with the API the `api_key_header` parameter must be set when initializing the SDK client instance. For example:
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -190,7 +187,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.agents.list(page=0, limit=25, search_fields=[
-        syllable_sdk.AgentProperties.NAME,
+        models.AgentProperties.NAME,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -496,8 +493,7 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 To change the default retry strategy for a single API call, simply provide a `RetryConfig` object to the call:
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 from syllable_sdk.utils import BackoffStrategy, RetryConfig
 
 
@@ -506,7 +502,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.agents.list(page=0, limit=25, search_fields=[
-        syllable_sdk.AgentProperties.NAME,
+        models.AgentProperties.NAME,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z",
@@ -520,8 +516,7 @@ with SyllableSDK(
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `retry_config` optional parameter when initializing the SDK:
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 from syllable_sdk.utils import BackoffStrategy, RetryConfig
 
 
@@ -531,7 +526,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.agents.list(page=0, limit=25, search_fields=[
-        syllable_sdk.AgentProperties.NAME,
+        models.AgentProperties.NAME,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -545,30 +540,21 @@ with SyllableSDK(
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations. All operations return a response object or raise an exception.
+[`SyllableSDKError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/syllablesdkerror.py) is the base class for all HTTP error responses. It has the following properties:
 
-By default, an API error will raise a models.APIError exception, which has the following properties:
-
-| Property        | Type             | Description           |
-|-----------------|------------------|-----------------------|
-| `.status_code`  | *int*            | The HTTP status code  |
-| `.message`      | *str*            | The error message     |
-| `.raw_response` | *httpx.Response* | The raw HTTP response |
-| `.body`         | *str*            | The response content  |
-
-When custom error responses are specified for an operation, the SDK may also raise their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `list_async` method may raise the following exceptions:
-
-| Error Type                 | Status Code | Content Type     |
-| -------------------------- | ----------- | ---------------- |
-| models.HTTPValidationError | 422         | application/json |
-| models.APIError            | 4XX, 5XX    | \*/\*            |
+| Property           | Type             | Description                                                                             |
+| ------------------ | ---------------- | --------------------------------------------------------------------------------------- |
+| `err.message`      | `str`            | Error message                                                                           |
+| `err.status_code`  | `int`            | HTTP response status code eg `404`                                                      |
+| `err.headers`      | `httpx.Headers`  | HTTP response headers                                                                   |
+| `err.body`         | `str`            | HTTP body. Can be empty string if no body is returned.                                  |
+| `err.raw_response` | `httpx.Response` | Raw HTTP response                                                                       |
+| `err.data`         |                  | Optional. Some errors may contain structured data. [See Error Classes](https://github.com/asksyllable/syllable-sdk-python/blob/master/#error-classes). |
 
 ### Example
-
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK, models
+from syllable_sdk import SyllableSDK, errors, models
 
 
 with SyllableSDK(
@@ -578,7 +564,7 @@ with SyllableSDK(
     try:
 
         res = ss_client.agents.list(page=0, limit=25, search_fields=[
-            syllable_sdk.AgentProperties.NAME,
+            models.AgentProperties.NAME,
         ], search_field_values=[
             "Some Object Name",
         ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -586,13 +572,41 @@ with SyllableSDK(
         # Handle response
         print(res)
 
-    except models.HTTPValidationError as e:
-        # handle e.data: models.HTTPValidationErrorData
-        raise(e)
-    except models.APIError as e:
-        # handle exception
-        raise(e)
+
+    except errors.SyllableSDKError as e:
+        # The base class for HTTP error responses
+        print(e.message)
+        print(e.status_code)
+        print(e.body)
+        print(e.headers)
+        print(e.raw_response)
+
+        # Depending on the method different errors may be thrown
+        if isinstance(e, errors.HTTPValidationError):
+            print(e.data.detail)  # Optional[List[models.ValidationError]]
 ```
+
+### Error Classes
+**Primary errors:**
+* [`SyllableSDKError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/syllablesdkerror.py): The base class for HTTP error responses.
+  * [`HTTPValidationError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/httpvalidationerror.py): Validation Error. Status code `422`. *
+
+<details><summary>Less common errors (5)</summary>
+
+<br />
+
+**Network errors:**
+* [`httpx.RequestError`](https://www.python-httpx.org/exceptions/#httpx.RequestError): Base class for request errors.
+    * [`httpx.ConnectError`](https://www.python-httpx.org/exceptions/#httpx.ConnectError): HTTP client was unable to make a request to a server.
+    * [`httpx.TimeoutException`](https://www.python-httpx.org/exceptions/#httpx.TimeoutException): HTTP request timed out.
+
+
+**Inherit from [`SyllableSDKError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/syllablesdkerror.py)**:
+* [`ResponseValidationError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
+
+</details>
+
+\* Check [the method documentation](https://github.com/asksyllable/syllable-sdk-python/blob/master/#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
@@ -603,8 +617,7 @@ with SyllableSDK(
 The default server can be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -613,7 +626,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.agents.list(page=0, limit=25, search_fields=[
-        syllable_sdk.AgentProperties.NAME,
+        models.AgentProperties.NAME,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")

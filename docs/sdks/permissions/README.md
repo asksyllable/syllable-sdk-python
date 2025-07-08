@@ -45,4 +45,4 @@ with SyllableSDK(
 
 | Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| models.APIError | 4XX, 5XX        | \*/\*           |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
