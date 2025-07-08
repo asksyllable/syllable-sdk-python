@@ -21,8 +21,7 @@ List the existing tools
 
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -30,7 +29,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.tools.list(page=0, limit=25, search_fields=[
-        syllable_sdk.ToolProperties.NAME,
+        models.ToolProperties.NAME,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -63,8 +62,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## create
 
@@ -74,8 +73,7 @@ Create a new tool
 
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -85,7 +83,7 @@ with SyllableSDK(
     res = ss_client.tools.create(request={
         "name": "Weather Fetcher",
         "definition": {
-            "type": syllable_sdk.Type.ENDPOINT,
+            "type": models.Type.ENDPOINT,
             "tool": {
                 "function": {
                     "name": "get_weather",
@@ -97,8 +95,8 @@ with SyllableSDK(
             },
             "endpoint": {
                 "url": "https://api.example.com",
-                "method": syllable_sdk.ToolHTTPMethod.POST,
-                "argument_location": syllable_sdk.ToolArgumentLocation.QUERY,
+                "method": models.ToolHTTPMethod.POST,
+                "argument_location": models.ToolArgumentLocation.QUERY,
             },
             "defaults": {
                 "key": {
@@ -117,7 +115,7 @@ with SyllableSDK(
                     "name": "temperature_unit",
                     "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit",
                     "required": False,
-                    "type": syllable_sdk.StaticToolParameterType.STRING,
+                    "type": models.StaticToolParameterType.STRING,
                     "default": "fahrenheit",
                 },
             ],
@@ -145,8 +143,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## update
 
@@ -156,8 +154,7 @@ Update an existing tool
 
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -167,7 +164,7 @@ with SyllableSDK(
     res = ss_client.tools.update(request={
         "name": "Weather Fetcher",
         "definition": {
-            "type": syllable_sdk.Type.ENDPOINT,
+            "type": models.Type.ENDPOINT,
             "tool": {
                 "function": {
                     "name": "get_weather",
@@ -179,8 +176,8 @@ with SyllableSDK(
             },
             "endpoint": {
                 "url": "https://api.example.com",
-                "method": syllable_sdk.ToolHTTPMethod.GET,
-                "argument_location": syllable_sdk.ToolArgumentLocation.FORM,
+                "method": models.ToolHTTPMethod.GET,
+                "argument_location": models.ToolArgumentLocation.FORM,
             },
             "defaults": "<value>",
             "static_parameters": [
@@ -188,7 +185,7 @@ with SyllableSDK(
                     "name": "temperature_unit",
                     "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit",
                     "required": False,
-                    "type": syllable_sdk.StaticToolParameterType.STRING,
+                    "type": models.StaticToolParameterType.STRING,
                     "default": "fahrenheit",
                 },
             ],
@@ -218,8 +215,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## get_by_name
 
@@ -258,8 +255,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## delete
 
@@ -299,5 +296,5 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |

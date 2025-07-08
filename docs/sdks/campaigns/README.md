@@ -21,8 +21,7 @@ List Outbound Communication Campaigns
 
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -30,7 +29,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.outbound.campaigns.list(page=0, limit=25, search_fields=[
-        syllable_sdk.CampaignProperties.ID,
+        models.CampaignProperties.ID,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -63,8 +62,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## create
 
@@ -74,8 +73,7 @@ Create Outbound Communication Campaign
 
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -101,11 +99,11 @@ with SyllableSDK(
         "retry_count": 1,
         "retry_interval": "30m",
         "active_days": [
-            syllable_sdk.DaysOfWeek.MON,
-            syllable_sdk.DaysOfWeek.TUE,
-            syllable_sdk.DaysOfWeek.WED,
-            syllable_sdk.DaysOfWeek.THU,
-            syllable_sdk.DaysOfWeek.FRI,
+            models.DaysOfWeek.MON,
+            models.DaysOfWeek.TUE,
+            models.DaysOfWeek.WED,
+            models.DaysOfWeek.THU,
+            models.DaysOfWeek.FRI,
         ],
     })
 
@@ -129,8 +127,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## get_by_id
 
@@ -169,8 +167,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## update
 
@@ -180,8 +178,7 @@ Update Outbound Communication Campaign
 
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -207,11 +204,11 @@ with SyllableSDK(
         "retry_count": 1,
         "retry_interval": "30m",
         "active_days": [
-            syllable_sdk.DaysOfWeek.MON,
-            syllable_sdk.DaysOfWeek.TUE,
-            syllable_sdk.DaysOfWeek.WED,
-            syllable_sdk.DaysOfWeek.THU,
-            syllable_sdk.DaysOfWeek.FRI,
+            models.DaysOfWeek.MON,
+            models.DaysOfWeek.TUE,
+            models.DaysOfWeek.WED,
+            models.DaysOfWeek.THU,
+            models.DaysOfWeek.FRI,
         ],
     })
 
@@ -236,8 +233,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## delete
 
@@ -276,5 +273,5 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |

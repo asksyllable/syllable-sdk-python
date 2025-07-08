@@ -25,7 +25,6 @@ if TYPE_CHECKING:
     from .agentvoicemodel import AgentVoiceModel
     from .agentvoicevarname import AgentVoiceVarName
     from .agentwaitsound import AgentWaitSound
-    from .apierror import APIError
     from .available_targetsop import (
         AvailableTargetsRequest,
         AvailableTargetsRequestTypedDict,
@@ -238,7 +237,6 @@ if TYPE_CHECKING:
         GetSessionToolCallResultByIDRequest,
         GetSessionToolCallResultByIDRequestTypedDict,
     )
-    from .httpvalidationerror import HTTPValidationError, HTTPValidationErrorData
     from .incident_deleteop import IncidentDeleteRequest, IncidentDeleteRequestTypedDict
     from .incident_get_by_idop import (
         IncidentGetByIDRequest,
@@ -802,7 +800,6 @@ ChannelTargetResponse.model_rebuild()
 
 
 __all__ = [
-    "APIError",
     "Action",
     "AgentCreate",
     "AgentCreateTypedDict",
@@ -976,8 +973,6 @@ __all__ = [
     "GetSessionDataBySidRequestTypedDict",
     "GetSessionToolCallResultByIDRequest",
     "GetSessionToolCallResultByIDRequestTypedDict",
-    "HTTPValidationError",
-    "HTTPValidationErrorData",
     "IncidentCreateRequest",
     "IncidentCreateRequestTypedDict",
     "IncidentDeleteRequest",
@@ -1401,7 +1396,6 @@ _dynamic_imports: dict[str, str] = {
     "AgentVoiceModel": ".agentvoicemodel",
     "AgentVoiceVarName": ".agentvoicevarname",
     "AgentWaitSound": ".agentwaitsound",
-    "APIError": ".apierror",
     "AvailableTargetsRequest": ".available_targetsop",
     "AvailableTargetsRequestTypedDict": ".available_targetsop",
     "AvailableTarget": ".availabletarget",
@@ -1543,8 +1537,6 @@ _dynamic_imports: dict[str, str] = {
     "GetSessionDataBySidRequestTypedDict": ".get_session_data_by_sidop",
     "GetSessionToolCallResultByIDRequest": ".get_session_tool_call_result_by_idop",
     "GetSessionToolCallResultByIDRequestTypedDict": ".get_session_tool_call_result_by_idop",
-    "HTTPValidationError": ".httpvalidationerror",
-    "HTTPValidationErrorData": ".httpvalidationerror",
     "IncidentDeleteRequest": ".incident_deleteop",
     "IncidentDeleteRequestTypedDict": ".incident_deleteop",
     "IncidentGetByIDRequest": ".incident_get_by_idop",

@@ -3,10 +3,10 @@ id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
   docChecksum: f71acf1a9b0e48760aa92d6ca61563b3
   docVersion: 0.0.2
-  speakeasyVersion: 1.573.0
-  generationVersion: 2.644.1
-  releaseVersion: 0.35.32
-  configChecksum: 4b4c7a8be04d65fa872f5823a44fbdb5
+  speakeasyVersion: 1.576.1
+  generationVersion: 2.651.2
+  releaseVersion: 0.35.33
+  configChecksum: 295cbdb3b989675c28c6702f3b404d42
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -14,7 +14,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.19.3
+    core: 5.19.4
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
     devContainers: 3.0.0
@@ -44,6 +44,7 @@ generatedFiles:
   - .python-version
   - .vscode/settings.json
   - USAGE.md
+  - docs/errors/httpvalidationerror.md
   - docs/models/action.md
   - docs/models/agentcreate.md
   - docs/models/agentdeleterequest.md
@@ -142,7 +143,6 @@ generatedFiles:
   - docs/models/getsessiondatabysessionidrequest.md
   - docs/models/getsessiondatabysidrequest.md
   - docs/models/getsessiontoolcallresultbyidrequest.md
-  - docs/models/httpvalidationerror.md
   - docs/models/incidentcreaterequest.md
   - docs/models/incidentdeleterequest.md
   - docs/models/incidentgetbyidrequest.md
@@ -412,6 +412,12 @@ generatedFiles:
   - src/syllable_sdk/custom_messages.py
   - src/syllable_sdk/dashboards.py
   - src/syllable_sdk/data_sources.py
+  - src/syllable_sdk/errors/__init__.py
+  - src/syllable_sdk/errors/apierror.py
+  - src/syllable_sdk/errors/httpvalidationerror.py
+  - src/syllable_sdk/errors/no_response_error.py
+  - src/syllable_sdk/errors/responsevalidationerror.py
+  - src/syllable_sdk/errors/syllablesdkerror.py
   - src/syllable_sdk/events.py
   - src/syllable_sdk/folders.py
   - src/syllable_sdk/full_summary.py
@@ -439,7 +445,6 @@ generatedFiles:
   - src/syllable_sdk/models/agentvoicemodel.py
   - src/syllable_sdk/models/agentvoicevarname.py
   - src/syllable_sdk/models/agentwaitsound.py
-  - src/syllable_sdk/models/apierror.py
   - src/syllable_sdk/models/available_targetsop.py
   - src/syllable_sdk/models/availabletarget.py
   - src/syllable_sdk/models/availabletargetproperties.py
@@ -512,7 +517,6 @@ generatedFiles:
   - src/syllable_sdk/models/get_session_data_by_session_idop.py
   - src/syllable_sdk/models/get_session_data_by_sidop.py
   - src/syllable_sdk/models/get_session_tool_call_result_by_idop.py
-  - src/syllable_sdk/models/httpvalidationerror.py
   - src/syllable_sdk/models/incident_deleteop.py
   - src/syllable_sdk/models/incident_get_by_idop.py
   - src/syllable_sdk/models/incident_listop.py

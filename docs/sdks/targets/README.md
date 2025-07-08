@@ -21,8 +21,7 @@ List the available phone numbers
 
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -30,7 +29,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.channels.targets.available_targets(page=0, limit=25, search_fields=[
-        syllable_sdk.AvailableTargetProperties.TARGET,
+        models.AvailableTargetProperties.TARGET,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -63,8 +62,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## list
 
@@ -74,8 +73,7 @@ Get Channel Targets
 
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -83,7 +81,7 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.channels.targets.list(page=0, limit=25, search_fields=[
-        syllable_sdk.ChannelTargetProperties.AGENT_ID,
+        models.ChannelTargetProperties.AGENT_ID,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -116,8 +114,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## create
 
@@ -127,8 +125,7 @@ Assign A Channel Target
 
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -139,7 +136,7 @@ with SyllableSDK(
         "agent_id": 1,
         "channel_id": 1,
         "target": "+19995551234",
-        "target_mode": syllable_sdk.TargetModes.EMAIL,
+        "target_mode": models.TargetModes.EMAIL,
         "fallback_target": "+19995551235",
         "is_test": True,
     })
@@ -165,8 +162,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## get_by_id
 
@@ -206,8 +203,8 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## update
 
@@ -217,8 +214,7 @@ Update channel target by ID
 
 ```python
 import os
-import syllable_sdk
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -229,7 +225,7 @@ with SyllableSDK(
         "agent_id": 1,
         "channel_id": 1,
         "target": "+19995551234",
-        "target_mode": syllable_sdk.TargetModes.EMAIL,
+        "target_mode": models.TargetModes.EMAIL,
         "fallback_target": "+19995551235",
         "is_test": True,
         "id": 1,
@@ -257,5 +253,5 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
