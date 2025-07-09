@@ -107,8 +107,8 @@ with SyllableSDK(
                 67535,
             ],
         },
-        "start_datetime": parse_datetime("2025-07-07T00:00:00Z"),
-        "end_datetime": parse_datetime("2025-07-08T00:00:00Z"),
+        "start_datetime": parse_datetime("2025-07-08T00:00:00Z"),
+        "end_datetime": parse_datetime("2025-07-09T00:00:00Z"),
     })
 
     # Handle response
@@ -213,8 +213,8 @@ with SyllableSDK(
                 67535,
             ],
         },
-        "start_datetime": parse_datetime("2025-07-07T00:00:00Z"),
-        "end_datetime": parse_datetime("2025-07-08T00:00:00Z"),
+        "start_datetime": parse_datetime("2025-07-08T00:00:00Z"),
+        "end_datetime": parse_datetime("2025-07-09T00:00:00Z"),
     })
 
     # Handle response
