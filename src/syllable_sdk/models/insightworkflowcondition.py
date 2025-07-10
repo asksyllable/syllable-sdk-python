@@ -9,7 +9,7 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import List, Union
+from typing import Dict, List, Union
 from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
@@ -36,6 +36,8 @@ class InsightWorkflowConditionTypedDict(TypedDict):
     r"""List of prompts"""
     folder_list: NotRequired[Nullable[List[int]]]
     r"""List of folder IDs"""
+    sheet_info: NotRequired[Nullable[Dict[str, str]]]
+    r"""Information about the sheet to be used for the workflow"""
 
 
 class InsightWorkflowCondition(BaseModel):
@@ -59,6 +61,9 @@ class InsightWorkflowCondition(BaseModel):
     folder_list: OptionalNullable[List[int]] = UNSET
     r"""List of folder IDs"""
 
+    sheet_info: OptionalNullable[Dict[str, str]] = UNSET
+    r"""Information about the sheet to be used for the workflow"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -68,6 +73,7 @@ class InsightWorkflowCondition(BaseModel):
             "agent_list",
             "prompt_list",
             "folder_list",
+            "sheet_info",
         ]
         nullable_fields = [
             "min_duration",
@@ -76,6 +82,7 @@ class InsightWorkflowCondition(BaseModel):
             "agent_list",
             "prompt_list",
             "folder_list",
+            "sheet_info",
         ]
         null_default_fields = []
 

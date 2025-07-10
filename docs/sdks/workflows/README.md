@@ -106,6 +106,10 @@ with SyllableSDK(
                 16754,
                 67535,
             ],
+            "sheet_info": {
+                "sheet_id": "1AGOCYz05AZYYOMzow2EYlgdDXSXaWIhyA3-zCxBm4go",
+                "sheet_name": "Q1 Sales Data",
+            },
         },
         "start_datetime": parse_datetime("2025-07-09T00:00:00Z"),
         "end_datetime": parse_datetime("2025-07-10T00:00:00Z"),
@@ -212,6 +216,10 @@ with SyllableSDK(
                 16754,
                 67535,
             ],
+            "sheet_info": {
+                "sheet_id": "1AGOCYz05AZYYOMzow2EYlgdDXSXaWIhyA3-zCxBm4go",
+                "sheet_name": "Q1 Sales Data",
+            },
         },
         "start_datetime": parse_datetime("2025-07-09T00:00:00Z"),
         "end_datetime": parse_datetime("2025-07-10T00:00:00Z"),

@@ -29,11 +29,11 @@ class InsightWorkflowOutputTypedDict(TypedDict):
     name: str
     r"""Human-readable name of insight workflow"""
     source: str
-    r"""Source of the insight workflow"""
+    r"""Source of the workflow"""
     description: str
-    r"""Text description of insight workflow"""
+    r"""Text description of workflow"""
     insight_tool_ids: List[int]
-    r"""List of IDs of insight tool configurations used in the workflow"""
+    r"""Ordered list of IDs of tool configurations to be executed in the workflow"""
     conditions: InsightWorkflowConditionTypedDict
     r"""Model for the conditions that trigger an insight workflow."""
     id: int
@@ -47,9 +47,9 @@ class InsightWorkflowOutputTypedDict(TypedDict):
     last_updated_by: str
     r"""Email of user who last updated Insight Workflow"""
     start_datetime: NotRequired[Nullable[datetime]]
-    r"""Timestamp for when the insight workflow should start. An empty value indicates start on activation"""
+    r"""Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only"""
     end_datetime: NotRequired[Nullable[datetime]]
-    r"""Timestamp of when the insight workflow should end. An empty value indicates no end"""
+    r"""Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation"""
     queue_count: NotRequired[Nullable[int]]
     r"""Number of calls in the workflow queue (pending or processing)"""
     created_at: NotRequired[datetime]
@@ -65,13 +65,13 @@ class InsightWorkflowOutput(BaseModel):
     r"""Human-readable name of insight workflow"""
 
     source: str
-    r"""Source of the insight workflow"""
+    r"""Source of the workflow"""
 
     description: str
-    r"""Text description of insight workflow"""
+    r"""Text description of workflow"""
 
     insight_tool_ids: List[int]
-    r"""List of IDs of insight tool configurations used in the workflow"""
+    r"""Ordered list of IDs of tool configurations to be executed in the workflow"""
 
     conditions: InsightWorkflowCondition
     r"""Model for the conditions that trigger an insight workflow."""
@@ -92,10 +92,10 @@ class InsightWorkflowOutput(BaseModel):
     r"""Email of user who last updated Insight Workflow"""
 
     start_datetime: OptionalNullable[datetime] = UNSET
-    r"""Timestamp for when the insight workflow should start. An empty value indicates start on activation"""
+    r"""Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only"""
 
     end_datetime: OptionalNullable[datetime] = UNSET
-    r"""Timestamp of when the insight workflow should end. An empty value indicates no end"""
+    r"""Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation"""
 
     queue_count: OptionalNullable[int] = UNSET
     r"""Number of calls in the workflow queue (pending or processing)"""

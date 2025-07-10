@@ -1,7 +1,7 @@
 openapi: "3.1.0"
 info:
   title: "SyllableSDK"
-  description: "\n# Syllable Platform SDK\n\nSyllable SDK gives you the power of awesome AI agentry. \U0001F680\n\n## Overview\n\nThe Syllable SDK provides a comprehensive set of tools and APIs to integrate powerful AI\ncapabilities into your communication applications. Whether you're building chatbots, virtual\nassistants, or any other AI-driven solutions, Syllable SDK has got you covered.\n\n## Features\n\n- **Natural Language Processing (NLP)**: Understand and generate human language with ease.\n- **Machine Learning Models**: Leverage pre-trained models or train your own custom models.\n- **Speech Recognition**: Convert speech to text and vice versa.\n- **Data Analytics**: Analyze and visualize data to gain insights.\n- **Integration**: Seamlessly integrate with other services and platforms.\n\n"
+  description: "\n# Syllable Platform SDK\n\nSyllable SDK gives you the power of awesome AI agentry. \U0001F680\n\n## Overview\n\nThe Syllable SDK provides a comprehensive set of tools and APIs to integrate powerful AI\ncapabilities into your communication applications. Whether you're building phone agents, chatbots,\nvirtual assistants, or any other AI-driven solutions, Syllable SDK has got you covered.\n\n## Features\n\n- **Agent Configuration**: Create and manage agents that can interact with users across various \nchannels.\n- **Channel Management**: Configure channels like SMS, web chat, and more to connect agents with \nusers.\n- **Custom Messages**: Set up custom messages that agents can deliver as greetings or responses.\n- **Conversations**: Track and manage conversations between users and agents, including session \nmanagement.\n- **Tools and Workflows**: Leverage tools and workflows to enhance agent capabilities, such as data \nprocessing and API calls.\n- **Data Sources**: Integrate data sources to provide agents with additional context and \ninformation.\n- **Insights and Analytics**: Analyze conversations and sessions to gain insights into user \ninteractions.\n- **Permissions and Security**: Manage permissions to control access to various features and \nfunctionalities.\n- **Language Support**: Define language groups to enable multilingual support for agents.\n- **Outbound Campaigns**: Create and manage outbound communication campaigns to reach users \neffectively.\n- **Session Labels**: Label sessions with evaluations of quality and descriptions of issues \nencountered.\n- **Incident Management**: Track and manage incidents related to agent interactions.\n"
   version: "0.0.2"
 servers:
   - url: "https://api.syllable.cloud"
@@ -10084,6 +10084,16 @@ components:
           description: "List of folder IDs"
           examples:
             - [16754, 67535]
+        "sheet_info":
+          anyOf:
+            - additionalProperties:
+                type: "string"
+              type: "object"
+            - type: "null"
+          title: "Sheet Info"
+          description: "Information about the sheet to be used for the workflow"
+          examples:
+            - {"sheet_id": "1AGOCYz05AZYYOMzow2EYlgdDXSXaWIhyA3-zCxBm4go", "sheet_name": "Q1 Sales Data"}
       type: "object"
       title: "InsightWorkflowCondition"
       description: "Model for the conditions that trigger an insight workflow."
@@ -10146,16 +10156,17 @@ components:
         "source":
           type: "string"
           title: "Source"
-          description: "Source of the insight workflow"
+          description: "Source of the workflow"
           examples:
             - "agent"
             - "transfer"
             - "upload"
+            - "sheet"
             - "manual"
         "description":
           type: "string"
           title: "Description"
-          description: "Text description of insight workflow"
+          description: "Text description of workflow"
           examples:
             - "Default workflow - generates a summary of the call"
         "insight_tool_ids":
@@ -10163,17 +10174,17 @@ components:
             type: "integer"
           type: "array"
           title: "Insight Tool Ids"
-          description: "List of IDs of insight tool configurations used in the workflow"
+          description: "Ordered list of IDs of tool configurations to be executed in the workflow"
           examples:
             - [1]
-        "conditions": {"$ref": "#/components/schemas/InsightWorkflowCondition", "description": "Conditions for insight workflow to trigger on a given call recording."}
+        "conditions": {"$ref": "#/components/schemas/InsightWorkflowCondition", "description": "Conditions (filters) on which a workflow should be triggered."}
         "start_datetime":
           anyOf:
             - type: "string"
               format: "date-time"
             - type: "null"
           title: "Start Datetime"
-          description: "Timestamp for when the insight workflow should start. An empty value indicates start on activation"
+          description: "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only"
           examples:
             - "2025-07-09T00:00:00Z"
         "end_datetime":
@@ -10182,7 +10193,7 @@ components:
               format: "date-time"
             - type: "null"
           title: "End Datetime"
-          description: "Timestamp of when the insight workflow should end. An empty value indicates no end"
+          description: "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation"
           examples:
             - "2025-07-10T00:00:00Z"
       type: "object"
@@ -10205,16 +10216,17 @@ components:
         "source":
           type: "string"
           title: "Source"
-          description: "Source of the insight workflow"
+          description: "Source of the workflow"
           examples:
             - "agent"
             - "transfer"
             - "upload"
+            - "sheet"
             - "manual"
         "description":
           type: "string"
           title: "Description"
-          description: "Text description of insight workflow"
+          description: "Text description of workflow"
           examples:
             - "Default workflow - generates a summary of the call"
         "insight_tool_ids":
@@ -10222,17 +10234,17 @@ components:
             type: "integer"
           type: "array"
           title: "Insight Tool Ids"
-          description: "List of IDs of insight tool configurations used in the workflow"
+          description: "Ordered list of IDs of tool configurations to be executed in the workflow"
           examples:
             - [1]
-        "conditions": {"$ref": "#/components/schemas/InsightWorkflowCondition", "description": "Conditions for insight workflow to trigger on a given call recording."}
+        "conditions": {"$ref": "#/components/schemas/InsightWorkflowCondition", "description": "Conditions (filters) on which a workflow should be triggered."}
         "start_datetime":
           anyOf:
             - type: "string"
               format: "date-time"
             - type: "null"
           title: "Start Datetime"
-          description: "Timestamp for when the insight workflow should start. An empty value indicates start on activation"
+          description: "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only"
           examples:
             - "2025-07-09T00:00:00Z"
         "end_datetime":
@@ -10241,7 +10253,7 @@ components:
               format: "date-time"
             - type: "null"
           title: "End Datetime"
-          description: "Timestamp of when the insight workflow should end. An empty value indicates no end"
+          description: "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation"
           examples:
             - "2025-07-10T00:00:00Z"
         "id":
