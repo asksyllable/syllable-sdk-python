@@ -110,7 +110,7 @@ with SyllableSDK(
         "tool_headers": {
             "Authorization": "Basic sometoken",
         },
-        "stt_provider": models.AgentSttProvider.GOOGLE_STT_V1,
+        "stt_provider": models.AgentSttProvider.GOOGLE_STT_V2,
         "wait_sound": models.AgentWaitSound.NO_SOUND,
     })
 
@@ -181,7 +181,7 @@ with SyllableSDK(
         "tool_headers": {
             "Authorization": "Basic sometoken",
         },
-        "stt_provider": models.AgentSttProvider.GOOGLE_STT_V1,
+        "stt_provider": models.AgentSttProvider.GOOGLE_STT_V2,
         "wait_sound": models.AgentWaitSound.NO_SOUND,
         "id": 1,
     })
