@@ -20,6 +20,8 @@ class OrganizationResponseTypedDict(TypedDict):
     r"""Comma-delimited list of domains that users at the organization may have in their email addresses."""
     id: int
     r"""The internal ID of the organization."""
+    slug: str
+    r"""The slug of the organization used for URLs in the Console UI"""
     last_updated: datetime
     r"""The timestamp of the most recent update to the organization"""
     logo_str: Nullable[str]
@@ -40,6 +42,9 @@ class OrganizationResponse(BaseModel):
 
     id: int
     r"""The internal ID of the organization."""
+
+    slug: str
+    r"""The slug of the organization used for URLs in the Console UI"""
 
     last_updated: datetime
     r"""The timestamp of the most recent update to the organization"""
