@@ -12158,6 +12158,12 @@ components:
           description: "Comments for the most recent edit to the organization."
           examples:
             - "Updated to add an additional domain"
+        "slug":
+          type: "string"
+          title: "Slug"
+          description: "The slug of the organization used for URLs in the Console UI"
+          examples:
+            - "my-great-org"
         "last_updated":
           type: "string"
           format: "date-time"
@@ -12179,6 +12185,7 @@ components:
         - "display_name"
         - "domains"
         - "id"
+        - "slug"
         - "last_updated"
         - "logo_str"
       title: "OrganizationResponse"
