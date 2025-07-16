@@ -12175,11 +12175,14 @@ components:
             - type: "null"
           title: "Last Updated By"
           description: "The email of the user who most recently updated the organization"
-        "logo_str":
+        "logo_url":
           anyOf:
             - type: "string"
             - type: "null"
-          title: "Logo Str"
+          title: "Logo Url"
+          description: "CDN URL. The org will always have a logo, but this value will be null on a response to an update where no logo was provided on the request"
+          examples:
+            - "https://image.png"
       type: "object"
       required:
         - "display_name"
@@ -12187,7 +12190,6 @@ components:
         - "id"
         - "slug"
         - "last_updated"
-        - "logo_str"
       title: "OrganizationResponse"
     "OutboundCampaign":
       properties:
