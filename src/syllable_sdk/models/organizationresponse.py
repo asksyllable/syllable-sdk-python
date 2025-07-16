@@ -24,13 +24,14 @@ class OrganizationResponseTypedDict(TypedDict):
     r"""The slug of the organization used for URLs in the Console UI"""
     last_updated: datetime
     r"""The timestamp of the most recent update to the organization"""
-    logo_str: Nullable[str]
     description: NotRequired[Nullable[str]]
     r"""Description of the organization."""
     last_updated_comments: NotRequired[Nullable[str]]
     r"""Comments for the most recent edit to the organization."""
     last_updated_by: NotRequired[Nullable[str]]
     r"""The email of the user who most recently updated the organization"""
+    logo_url: NotRequired[Nullable[str]]
+    r"""CDN URL. The org will always have a logo, but this value will be null on a response to an update where no logo was provided on the request"""
 
 
 class OrganizationResponse(BaseModel):
@@ -49,8 +50,6 @@ class OrganizationResponse(BaseModel):
     last_updated: datetime
     r"""The timestamp of the most recent update to the organization"""
 
-    logo_str: Nullable[str]
-
     description: OptionalNullable[str] = UNSET
     r"""Description of the organization."""
 
@@ -60,14 +59,22 @@ class OrganizationResponse(BaseModel):
     last_updated_by: OptionalNullable[str] = UNSET
     r"""The email of the user who most recently updated the organization"""
 
+    logo_url: OptionalNullable[str] = UNSET
+    r"""CDN URL. The org will always have a logo, but this value will be null on a response to an update where no logo was provided on the request"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["description", "last_updated_comments", "last_updated_by"]
+        optional_fields = [
+            "description",
+            "last_updated_comments",
+            "last_updated_by",
+            "logo_url",
+        ]
         nullable_fields = [
             "description",
             "last_updated_comments",
             "last_updated_by",
-            "logo_str",
+            "logo_url",
         ]
         null_default_fields = []
 
