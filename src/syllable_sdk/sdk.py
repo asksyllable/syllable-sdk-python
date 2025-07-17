@@ -100,7 +100,7 @@ class SyllableSDK(BaseSDK):
     roles: "Roles"
     r"""Operations related to roles. A role is a collection of permissions           that can be assigned to users to control their access to various features within the           Syllable system."""
     services: "Services"
-    r"""Operations related to service configuration. A service is a collection of           tools."""
+    r"""Operations related to service configuration. A service is a collection of           tools. You can specify an authentication method and values on a service, and any linked           tools will use that auth information to generate headers for HTTP calls."""
     session_labels: "SessionLabels"
     r"""Operations related to labeling sessions with evaluations of quality and           descriptions of issues the user encountered or other details. For more information, see           [Console docs](https://docs.syllable.ai/workspaces/Sessions)."""
     sessions: "Sessions"

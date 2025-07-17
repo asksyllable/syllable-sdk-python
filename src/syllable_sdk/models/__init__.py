@@ -614,6 +614,8 @@ if TYPE_CHECKING:
     from .service_listop import ServiceListRequest, ServiceListRequestTypedDict
     from .servicecreaterequest import (
         ServiceCreateRequest,
+        ServiceCreateRequestAuthValues,
+        ServiceCreateRequestAuthValuesTypedDict,
         ServiceCreateRequestTypedDict,
     )
     from .serviceproperties import ServiceProperties
@@ -624,6 +626,8 @@ if TYPE_CHECKING:
     )
     from .serviceupdaterequest import (
         ServiceUpdateRequest,
+        ServiceUpdateRequestAuthValues,
+        ServiceUpdateRequestAuthValuesTypedDict,
         ServiceUpdateRequestTypedDict,
     )
     from .session import Session, SessionTypedDict
@@ -701,6 +705,7 @@ if TYPE_CHECKING:
     from .tool_listop import ToolListRequest, ToolListRequestTypedDict
     from .toolagentinfo import ToolAgentInfo, ToolAgentInfoTypedDict
     from .toolargumentlocation import ToolArgumentLocation
+    from .toolauthtype import ToolAuthType
     from .toolcreaterequest import ToolCreateRequest, ToolCreateRequestTypedDict
     from .tooldefinition import (
         Defaults,
@@ -1220,6 +1225,8 @@ __all__ = [
     "Security",
     "SecurityTypedDict",
     "ServiceCreateRequest",
+    "ServiceCreateRequestAuthValues",
+    "ServiceCreateRequestAuthValuesTypedDict",
     "ServiceCreateRequestTypedDict",
     "ServiceDeleteRequest",
     "ServiceDeleteRequestTypedDict",
@@ -1229,6 +1236,8 @@ __all__ = [
     "ServiceResponse",
     "ServiceResponseTypedDict",
     "ServiceUpdateRequest",
+    "ServiceUpdateRequestAuthValues",
+    "ServiceUpdateRequestAuthValuesTypedDict",
     "ServiceUpdateRequestTypedDict",
     "ServicesGetByIDRequest",
     "ServicesGetByIDRequestTypedDict",
@@ -1292,6 +1301,7 @@ __all__ = [
     "ToolAgentInfo",
     "ToolAgentInfoTypedDict",
     "ToolArgumentLocation",
+    "ToolAuthType",
     "ToolCreateRequest",
     "ToolCreateRequestTypedDict",
     "ToolDefinition",
@@ -1786,6 +1796,8 @@ _dynamic_imports: dict[str, str] = {
     "ServiceListRequest": ".service_listop",
     "ServiceListRequestTypedDict": ".service_listop",
     "ServiceCreateRequest": ".servicecreaterequest",
+    "ServiceCreateRequestAuthValues": ".servicecreaterequest",
+    "ServiceCreateRequestAuthValuesTypedDict": ".servicecreaterequest",
     "ServiceCreateRequestTypedDict": ".servicecreaterequest",
     "ServiceProperties": ".serviceproperties",
     "ServiceResponse": ".serviceresponse",
@@ -1793,6 +1805,8 @@ _dynamic_imports: dict[str, str] = {
     "ServicesGetByIDRequest": ".services_get_by_idop",
     "ServicesGetByIDRequestTypedDict": ".services_get_by_idop",
     "ServiceUpdateRequest": ".serviceupdaterequest",
+    "ServiceUpdateRequestAuthValues": ".serviceupdaterequest",
+    "ServiceUpdateRequestAuthValuesTypedDict": ".serviceupdaterequest",
     "ServiceUpdateRequestTypedDict": ".serviceupdaterequest",
     "Session": ".session",
     "SessionTypedDict": ".session",
@@ -1860,6 +1874,7 @@ _dynamic_imports: dict[str, str] = {
     "ToolAgentInfo": ".toolagentinfo",
     "ToolAgentInfoTypedDict": ".toolagentinfo",
     "ToolArgumentLocation": ".toolargumentlocation",
+    "ToolAuthType": ".toolauthtype",
     "ToolCreateRequest": ".toolcreaterequest",
     "ToolCreateRequestTypedDict": ".toolcreaterequest",
     "Defaults": ".tooldefinition",

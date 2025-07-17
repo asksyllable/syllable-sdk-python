@@ -3,7 +3,7 @@
 
 ## Overview
 
-Operations related to service configuration. A service is a collection of           tools.
+Operations related to service configuration. A service is a collection of           tools. You can specify an authentication method and values on a service, and any linked           tools will use that auth information to generate headers for HTTP calls.
 
 ### Available Operations
 
@@ -73,7 +73,7 @@ Create a new service.
 
 ```python
 import os
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -83,6 +83,8 @@ with SyllableSDK(
     res = ss_client.services.create(request={
         "name": "Weather tools",
         "description": "Service containing tools for fetching weather information",
+        "auth_type": models.ToolAuthType.BASIC,
+        "auth_values": {},
     })
 
     # Handle response
@@ -116,7 +118,7 @@ Update an existing service.
 
 ```python
 import os
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -126,6 +128,8 @@ with SyllableSDK(
     res = ss_client.services.update(request={
         "name": "Weather tools",
         "description": "Service containing tools for fetching weather information",
+        "auth_type": models.ToolAuthType.BASIC,
+        "auth_values": {},
         "id": 1,
         "last_updated_comments": "Updated description to correct typo",
     })
