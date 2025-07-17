@@ -66,7 +66,7 @@ actions:
                         "vars.location_name": "Main Street Pizza",
                     },
                     "tool_headers": {
-                        "Authorization": "Basic sometoken",
+                        "some-header": "some-value",
                     },
                     "stt_provider": models.AgentSttProvider.GOOGLE_STT_V2,
                     "wait_sound": models.AgentWaitSound.NO_SOUND,
@@ -115,7 +115,7 @@ actions:
                         "vars.location_name": "Main Street Pizza",
                     },
                     "tool_headers": {
-                        "Authorization": "Basic sometoken",
+                        "some-header": "some-value",
                     },
                     "stt_provider": models.AgentSttProvider.GOOGLE_STT_V2,
                     "wait_sound": models.AgentWaitSound.NO_SOUND,
@@ -1374,8 +1374,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-07-15T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-07-16T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-07-16T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-07-17T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1488,8 +1488,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-07-15T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-07-16T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-07-16T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-07-17T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1819,9 +1819,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20250716.9",
+                    "batch_id": "20250717.9",
                     "campaign_id": 1,
-                    "expires_on": parse_datetime("2025-07-17T00:00:00Z"),
+                    "expires_on": parse_datetime("2025-07-18T00:00:00Z"),
                     "paused": True,
                 })
 
@@ -2427,7 +2427,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -2437,6 +2437,8 @@ actions:
                 res = ss_client.services.create(request={
                     "name": "Weather tools",
                     "description": "Service containing tools for fetching weather information",
+                    "auth_type": models.ToolAuthType.BASIC,
+                    "auth_values": {},
                 })
 
                 # Handle response
@@ -2448,7 +2450,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -2458,6 +2460,8 @@ actions:
                 res = ss_client.services.update(request={
                     "name": "Weather tools",
                     "description": "Service containing tools for fetching weather information",
+                    "auth_type": models.ToolAuthType.BASIC,
+                    "auth_values": {},
                     "id": 1,
                     "last_updated_comments": "Updated description to correct typo",
                 })

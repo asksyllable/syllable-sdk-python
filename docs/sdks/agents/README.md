@@ -108,7 +108,7 @@ with SyllableSDK(
             "vars.location_name": "Main Street Pizza",
         },
         "tool_headers": {
-            "Authorization": "Basic sometoken",
+            "some-header": "some-value",
         },
         "stt_provider": models.AgentSttProvider.GOOGLE_STT_V2,
         "wait_sound": models.AgentWaitSound.NO_SOUND,
@@ -179,7 +179,7 @@ with SyllableSDK(
             "vars.location_name": "Main Street Pizza",
         },
         "tool_headers": {
-            "Authorization": "Basic sometoken",
+            "some-header": "some-value",
         },
         "stt_provider": models.AgentSttProvider.GOOGLE_STT_V2,
         "wait_sound": models.AgentWaitSound.NO_SOUND,

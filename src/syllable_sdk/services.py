@@ -10,7 +10,7 @@ from typing import Any, List, Mapping, Optional, Union, cast
 
 
 class Services(BaseSDK):
-    r"""Operations related to service configuration. A service is a collection of           tools."""
+    r"""Operations related to service configuration. A service is a collection of           tools. You can specify an authentication method and values on a service, and any linked           tools will use that auth information to generate headers for HTTP calls."""
 
     def list(
         self,

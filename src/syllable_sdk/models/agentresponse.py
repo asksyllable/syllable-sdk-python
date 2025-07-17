@@ -47,7 +47,7 @@ class AgentResponseTypedDict(TypedDict):
     variables: Dict[str, str]
     r"""Custom context variables for the conversation session. Keys should be prefixed with \"vars.\"."""
     tool_headers: Nullable[Dict[str, str]]
-    r"""Optional headers to include in tool calls for agent."""
+    r"""Optional headers to include in tool calls for agent. (It is discouraged to use this field for \"Authorization\" headers, as values here are not encrypted. Instead, set up a service with either basic, bearer, or custom header auth; attach the appropriate tools to that service, and the attached tools will automatically use the auth configured on the service.)"""
     id: int
     r"""Internal ID of the agent"""
     updated_at: datetime
@@ -111,7 +111,7 @@ class AgentResponse(BaseModel):
     r"""Custom context variables for the conversation session. Keys should be prefixed with \"vars.\"."""
 
     tool_headers: Nullable[Dict[str, str]]
-    r"""Optional headers to include in tool calls for agent."""
+    r"""Optional headers to include in tool calls for agent. (It is discouraged to use this field for \"Authorization\" headers, as values here are not encrypted. Instead, set up a service with either basic, bearer, or custom header auth; attach the appropriate tools to that service, and the attached tools will automatically use the auth configured on the service.)"""
 
     id: int
     r"""Internal ID of the agent"""
