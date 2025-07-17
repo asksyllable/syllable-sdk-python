@@ -11753,10 +11753,10 @@
               }
             ],
             "title": "Tool Headers",
-            "description": "Optional headers to include in tool calls for agent.",
+            "description": "Optional headers to include in tool calls for agent. (It is discouraged to use this field for \"Authorization\" headers, as values here are not encrypted. Instead, set up a service with either basic, bearer, or custom header auth; attach the appropriate tools to that service, and the attached tools will automatically use the auth configured on the service.)",
             "examples": [
               {
-                "Authorization": "Basic sometoken"
+                "some-header": "some-value"
               }
             ]
           },
@@ -12039,10 +12039,10 @@
               }
             ],
             "title": "Tool Headers",
-            "description": "Optional headers to include in tool calls for agent.",
+            "description": "Optional headers to include in tool calls for agent. (It is discouraged to use this field for \"Authorization\" headers, as values here are not encrypted. Instead, set up a service with either basic, bearer, or custom header auth; attach the appropriate tools to that service, and the attached tools will automatically use the auth configured on the service.)",
             "examples": [
               {
-                "Authorization": "Basic sometoken"
+                "some-header": "some-value"
               }
             ]
           },
@@ -12450,10 +12450,10 @@
               }
             ],
             "title": "Tool Headers",
-            "description": "Optional headers to include in tool calls for agent.",
+            "description": "Optional headers to include in tool calls for agent. (It is discouraged to use this field for \"Authorization\" headers, as values here are not encrypted. Instead, set up a service with either basic, bearer, or custom header auth; attach the appropriate tools to that service, and the attached tools will automatically use the auth configured on the service.)",
             "examples": [
               {
-                "Authorization": "Basic sometoken"
+                "some-header": "some-value"
               }
             ]
           },
@@ -12886,7 +12886,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20250716.9"
+              "20250717.9"
             ]
           },
           "campaign_id": {
@@ -12910,7 +12910,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-07-17T00:00:00Z"
+              "2025-07-18T00:00:00Z"
             ]
           },
           "paused": {
@@ -12963,7 +12963,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2025-07-16T00:00:00Z"
+              "2025-07-17T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -12979,7 +12979,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2025-07-16T00:00:00Z"
+              "2025-07-17T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -13010,7 +13010,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2025-07-16T00:00:00Z"
+              "2025-07-17T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -13661,7 +13661,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20250716.9"
+              "20250717.9"
             ]
           },
           "campaign_id": {
@@ -13685,7 +13685,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-07-17T00:00:00Z"
+              "2025-07-18T00:00:00Z"
             ]
           },
           "paused": {
@@ -13738,7 +13738,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2025-07-16T00:00:00Z"
+              "2025-07-17T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -13754,7 +13754,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2025-07-16T00:00:00Z"
+              "2025-07-17T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -13785,7 +13785,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2025-07-16T00:00:00Z"
+              "2025-07-17T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -13828,7 +13828,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20250716.9"
+              "20250717.9"
             ]
           },
           "campaign_id": {
@@ -13852,7 +13852,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-07-17T00:00:00Z"
+              "2025-07-18T00:00:00Z"
             ]
           },
           "paused": {
@@ -14001,7 +14001,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2025-07-15T00:00:00Z"
+              "2025-07-16T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -14017,7 +14017,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2025-07-16T00:00:00Z"
+              "2025-07-17T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -15933,7 +15933,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2025-07-15T00:00:00Z"
+              "2025-07-16T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -15942,7 +15942,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2025-07-16T00:00:00Z"
+              "2025-07-17T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -16657,7 +16657,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2025-07-15T00:00:00Z"
+              "2025-07-16T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -16666,7 +16666,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2025-07-16T00:00:00Z"
+              "2025-07-17T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -17043,7 +17043,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2025-07-15T00:00:00Z"
+              "2025-07-16T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -17059,7 +17059,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2025-07-16T00:00:00Z"
+              "2025-07-17T00:00:00Z"
             ]
           }
         },
@@ -17134,7 +17134,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2025-07-15T00:00:00Z"
+              "2025-07-16T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -17150,7 +17150,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2025-07-16T00:00:00Z"
+              "2025-07-17T00:00:00Z"
             ]
           },
           "id": {
@@ -17203,7 +17203,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2025-07-15T00:00:00Z"
+              "2025-07-16T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -17212,7 +17212,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2025-07-16T00:00:00Z"
+              "2025-07-17T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -17308,7 +17308,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2025-07-15T00:00:00Z"
+              "2025-07-16T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -17317,7 +17317,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2025-07-16T00:00:00Z"
+              "2025-07-17T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -17552,7 +17552,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2025-07-15T00:00:00Z"
+              "2025-07-16T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -17561,7 +17561,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2025-07-16T00:00:00Z"
+              "2025-07-17T00:00:00Z"
             ]
           }
         },
@@ -17696,7 +17696,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2025-07-15T00:00:00Z"
+              "2025-07-16T00:00:00Z"
             ]
           },
           "end_time": {
@@ -17712,7 +17712,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2025-07-16T00:00:00Z"
+              "2025-07-17T00:00:00Z"
             ]
           },
           "error_message": {
@@ -17767,7 +17767,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2025-07-15T00:00:00Z"
+              "2025-07-16T00:00:00Z"
             ]
           }
         },
@@ -20460,7 +20460,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2025-07-16T00:00:00Z"
+              "2025-07-17T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -20469,7 +20469,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2025-07-16T00:00:00Z"
+              "2025-07-17T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -21610,6 +21610,35 @@
             "examples": [
               "Service containing tools for fetching weather information"
             ]
+          },
+          "auth_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ToolAuthType"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The type of authentication to use for the service's tools",
+            "examples": [
+              "basic"
+            ]
+          },
+          "auth_values": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Auth Values",
+            "description": "The values to use for the authentication. Should contain \"username\" and \"password\" keys if auth type is basic, \"token\" key if auth type is bearer, or arbitrary header keys if auth type is custom_headers. On an update, leave a value for a given key null and the value in the database will not be updated. (If a key is omitted entirely, any existing value for that key will be removed.)",
+            "examples": [
+              "{\"username\": \"my-username\", \"password\": \"my-password\"}"
+            ]
           }
         },
         "type": "object",
@@ -21634,6 +21663,14 @@
       },
       "ServiceResponse": {
         "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id",
+            "description": "The internal ID of the service",
+            "examples": [
+              1
+            ]
+          },
           "name": {
             "type": "string",
             "title": "Name",
@@ -21650,12 +21687,39 @@
               "Service containing tools for fetching weather information"
             ]
           },
-          "id": {
-            "type": "integer",
-            "title": "Id",
-            "description": "The internal ID of the service",
+          "auth_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ToolAuthType"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The type of authentication to use for the service's tools",
             "examples": [
-              1
+              "basic"
+            ]
+          },
+          "auth_value_keys": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Auth Value Keys",
+            "description": "Auth value keys (values omitted for security)",
+            "examples": [
+              [
+                "username",
+                "password"
+              ]
             ]
           },
           "last_updated_comments": {
@@ -21707,9 +21771,9 @@
         },
         "type": "object",
         "required": [
+          "id",
           "name",
           "description",
-          "id",
           "last_updated",
           "last_updated_by",
           "tools"
@@ -21733,6 +21797,35 @@
             "description": "The description of the service",
             "examples": [
               "Service containing tools for fetching weather information"
+            ]
+          },
+          "auth_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ToolAuthType"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The type of authentication to use for the service's tools",
+            "examples": [
+              "basic"
+            ]
+          },
+          "auth_values": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Auth Values",
+            "description": "The values to use for the authentication. Should contain \"username\" and \"password\" keys if auth type is basic, \"token\" key if auth type is bearer, or arbitrary header keys if auth type is custom_headers. On an update, leave a value for a given key null and the value in the database will not be updated. (If a key is omitted entirely, any existing value for that key will be removed.)",
+            "examples": [
+              "{\"username\": \"my-username\", \"password\": \"my-password\"}"
             ]
           },
           "id": {
@@ -22979,6 +23072,15 @@
         ],
         "title": "ToolArgumentLocation",
         "description": "The location of the argument in a tool HTTP request.\n'body' is used for JSON data in the POST request body.\n'form' is used for form data in the POST request body.\n'path' is used for URL path parameters.\n'query' is used for query parameters in the URL."
+      },
+      "ToolAuthType": {
+        "type": "string",
+        "enum": [
+          "basic",
+          "bearer",
+          "custom_headers"
+        ],
+        "title": "ToolAuthType"
       },
       "ToolCreateRequest": {
         "properties": {
@@ -24686,7 +24788,7 @@
     },
     {
       "name": "services",
-      "description": "Operations related to service configuration. A service is a collection of           tools."
+      "description": "Operations related to service configuration. A service is a collection of           tools. You can specify an authentication method and values on a service, and any linked           tools will use that auth information to generate headers for HTTP calls."
     },
     {
       "name": "sessions",
