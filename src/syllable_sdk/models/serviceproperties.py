@@ -10,5 +10,5 @@ class ServiceProperties(str, Enum):
     ID = "id"
     NAME = "name"
     DESCRIPTION = "description"
-    UPDATED_AT = "updated_at"
+    LAST_UPDATED = "last_updated"
     LAST_UPDATED_BY = "last_updated_by"
