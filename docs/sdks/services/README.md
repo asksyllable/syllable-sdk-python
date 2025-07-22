@@ -84,7 +84,10 @@ with SyllableSDK(
         "name": "Weather tools",
         "description": "Service containing tools for fetching weather information",
         "auth_type": models.ToolAuthType.BASIC,
-        "auth_values": {},
+        "auth_values": {
+            "username": "my-username",
+            "password": "my-password",
+        },
     })
 
     # Handle response
@@ -129,7 +132,10 @@ with SyllableSDK(
         "name": "Weather tools",
         "description": "Service containing tools for fetching weather information",
         "auth_type": models.ToolAuthType.BASIC,
-        "auth_values": {},
+        "auth_values": {
+            "username": "my-username",
+            "password": "my-password",
+        },
         "id": 1,
         "last_updated_comments": "Updated description to correct typo",
     })

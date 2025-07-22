@@ -1374,8 +1374,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-07-20T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-07-21T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-07-21T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-07-22T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1488,8 +1488,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-07-20T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-07-21T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-07-21T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-07-22T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1819,9 +1819,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20250721.9",
+                    "batch_id": "20250722.9",
                     "campaign_id": 1,
-                    "expires_on": parse_datetime("2025-07-22T00:00:00Z"),
+                    "expires_on": parse_datetime("2025-07-23T00:00:00Z"),
                     "paused": True,
                 })
 
@@ -2438,7 +2438,10 @@ actions:
                     "name": "Weather tools",
                     "description": "Service containing tools for fetching weather information",
                     "auth_type": models.ToolAuthType.BASIC,
-                    "auth_values": {},
+                    "auth_values": {
+                        "username": "my-username",
+                        "password": "my-password",
+                    },
                 })
 
                 # Handle response
@@ -2461,7 +2464,10 @@ actions:
                     "name": "Weather tools",
                     "description": "Service containing tools for fetching weather information",
                     "auth_type": models.ToolAuthType.BASIC,
-                    "auth_values": {},
+                    "auth_values": {
+                        "username": "my-username",
+                        "password": "my-password",
+                    },
                     "id": 1,
                     "last_updated_comments": "Updated description to correct typo",
                 })
