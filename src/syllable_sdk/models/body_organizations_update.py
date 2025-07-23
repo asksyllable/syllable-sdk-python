@@ -43,12 +43,12 @@ class BodyOrganizationsUpdateLogo(BaseModel):
 class BodyOrganizationsUpdateTypedDict(TypedDict):
     display_name: str
     r"""The human-readable display name of the organization"""
-    domains: str
-    r"""Comma-delimited list of domains that users at the organization may have in their email addresses"""
     logo: NotRequired[BodyOrganizationsUpdateLogoTypedDict]
     r"""The organization logo image file to upload. Must be a PNG file and 120x120 pixels. If not provided, the logo will not be updated."""
     description: NotRequired[Nullable[str]]
     r"""Description of the organization"""
+    domains: NotRequired[Nullable[str]]
+    r"""Comma-delimited list of domains that users at the organization may have in their email addresses"""
     update_comments: NotRequired[Nullable[str]]
     r"""Comments about the update"""
 
@@ -56,9 +56,6 @@ class BodyOrganizationsUpdateTypedDict(TypedDict):
 class BodyOrganizationsUpdate(BaseModel):
     display_name: Annotated[str, FieldMetadata(multipart=True)]
     r"""The human-readable display name of the organization"""
-
-    domains: Annotated[str, FieldMetadata(multipart=True)]
-    r"""Comma-delimited list of domains that users at the organization may have in their email addresses"""
 
     logo: Annotated[
         Optional[BodyOrganizationsUpdateLogo],
@@ -69,6 +66,9 @@ class BodyOrganizationsUpdate(BaseModel):
     description: Annotated[OptionalNullable[str], FieldMetadata(multipart=True)] = UNSET
     r"""Description of the organization"""
 
+    domains: Annotated[OptionalNullable[str], FieldMetadata(multipart=True)] = UNSET
+    r"""Comma-delimited list of domains that users at the organization may have in their email addresses"""
+
     update_comments: Annotated[OptionalNullable[str], FieldMetadata(multipart=True)] = (
         UNSET
     )
@@ -76,8 +76,8 @@ class BodyOrganizationsUpdate(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["logo", "description", "update_comments"]
-        nullable_fields = ["description", "update_comments"]
+        optional_fields = ["logo", "description", "domains", "update_comments"]
+        nullable_fields = ["description", "domains", "update_comments"]
         null_default_fields = []
 
         serialized = handler(self)

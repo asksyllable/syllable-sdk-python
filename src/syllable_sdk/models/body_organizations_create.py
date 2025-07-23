@@ -45,10 +45,10 @@ class BodyOrganizationsCreateTypedDict(TypedDict):
     r"""The organization logo image file to upload. Must be a PNG file and 120x120 pixels."""
     display_name: str
     r"""The human-readable display name of the organization"""
-    domains: str
-    r"""Comma-delimited list of domains that users at the organization may have in their email addresses"""
     description: NotRequired[Nullable[str]]
     r"""Description of the organization"""
+    domains: NotRequired[Nullable[str]]
+    r"""Comma-delimited list of domains that users at the organization may have in their email addresses"""
 
 
 class BodyOrganizationsCreate(BaseModel):
@@ -61,16 +61,16 @@ class BodyOrganizationsCreate(BaseModel):
     display_name: Annotated[str, FieldMetadata(multipart=True)]
     r"""The human-readable display name of the organization"""
 
-    domains: Annotated[str, FieldMetadata(multipart=True)]
-    r"""Comma-delimited list of domains that users at the organization may have in their email addresses"""
-
     description: Annotated[OptionalNullable[str], FieldMetadata(multipart=True)] = UNSET
     r"""Description of the organization"""
 
+    domains: Annotated[OptionalNullable[str], FieldMetadata(multipart=True)] = UNSET
+    r"""Comma-delimited list of domains that users at the organization may have in their email addresses"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["description"]
-        nullable_fields = ["description"]
+        optional_fields = ["description", "domains"]
+        nullable_fields = ["description", "domains"]
         null_default_fields = []
 
         serialized = handler(self)

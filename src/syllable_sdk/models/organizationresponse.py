@@ -16,8 +16,6 @@ from typing_extensions import NotRequired, TypedDict
 class OrganizationResponseTypedDict(TypedDict):
     display_name: str
     r"""The human-readable display name of the organization."""
-    domains: str
-    r"""Comma-delimited list of domains that users at the organization may have in their email addresses."""
     id: int
     r"""The internal ID of the organization."""
     slug: str
@@ -26,6 +24,8 @@ class OrganizationResponseTypedDict(TypedDict):
     r"""The timestamp of the most recent update to the organization"""
     description: NotRequired[Nullable[str]]
     r"""Description of the organization."""
+    domains: NotRequired[Nullable[str]]
+    r"""Comma-delimited list of domains that users at the organization may have in their email addresses."""
     last_updated_comments: NotRequired[Nullable[str]]
     r"""Comments for the most recent edit to the organization."""
     last_updated_by: NotRequired[Nullable[str]]
@@ -38,9 +38,6 @@ class OrganizationResponse(BaseModel):
     display_name: str
     r"""The human-readable display name of the organization."""
 
-    domains: str
-    r"""Comma-delimited list of domains that users at the organization may have in their email addresses."""
-
     id: int
     r"""The internal ID of the organization."""
 
@@ -52,6 +49,9 @@ class OrganizationResponse(BaseModel):
 
     description: OptionalNullable[str] = UNSET
     r"""Description of the organization."""
+
+    domains: OptionalNullable[str] = UNSET
+    r"""Comma-delimited list of domains that users at the organization may have in their email addresses."""
 
     last_updated_comments: OptionalNullable[str] = UNSET
     r"""Comments for the most recent edit to the organization."""
@@ -66,12 +66,14 @@ class OrganizationResponse(BaseModel):
     def serialize_model(self, handler):
         optional_fields = [
             "description",
+            "domains",
             "last_updated_comments",
             "last_updated_by",
             "logo_url",
         ]
         nullable_fields = [
             "description",
+            "domains",
             "last_updated_comments",
             "last_updated_by",
             "logo_url",
