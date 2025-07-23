@@ -13152,7 +13152,14 @@
             ]
           },
           "domains": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Domains",
             "description": "Comma-delimited list of domains that users at the organization may have in their email addresses",
             "examples": [
@@ -13163,8 +13170,7 @@
         "type": "object",
         "required": [
           "logo",
-          "display_name",
-          "domains"
+          "display_name"
         ],
         "title": "Body_organizations_create"
       },
@@ -13225,7 +13231,14 @@
             ]
           },
           "domains": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Domains",
             "description": "Comma-delimited list of domains that users at the organization may have in their email addresses",
             "examples": [
@@ -13250,8 +13263,7 @@
         },
         "type": "object",
         "required": [
-          "display_name",
-          "domains"
+          "display_name"
         ],
         "title": "Body_organizations_update"
       },
@@ -20165,7 +20177,14 @@
             ]
           },
           "domains": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Domains",
             "description": "Comma-delimited list of domains that users at the organization may have in their email addresses.",
             "examples": [
@@ -20240,7 +20259,6 @@
         "type": "object",
         "required": [
           "display_name",
-          "domains",
           "id",
           "slug",
           "last_updated"
