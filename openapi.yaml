@@ -13050,16 +13050,12 @@ components:
             - "basic"
         "auth_values":
           anyOf:
-            - additionalProperties:
-                anyOf:
-                  - type: "string"
-                  - type: "null"
-              type: "object"
+            - {}
             - type: "null"
           title: "Auth Values"
-          description: "The values to use for the authentication. Should contain \"username\" and \"password\" keys if auth type is basic, \"token\" key if auth type is bearer, or arbitrary header keys if auth type is custom_headers. On an update, leave a value for a given key null and the value in the database will not be updated. (If a key is omitted entirely, any existing value for that key will be removed.)"
+          description: "The values to use for the authentication, as a dict. Should contain \"username\" and \"password\" keys if auth type is basic, \"token\" key if auth type is bearer, or arbitrary header keys if auth type is custom_headers. On an update, leave a value for a given key null and the value in the database will not be updated. (If a key is omitted entirely, any existing value for that key will be removed.)"
           examples:
-            - "{\"username\": \"my-username\", \"password\": \"my-password\"}"
+            - {"password": "my-password", "username": "my-username"}
       type: "object"
       required:
         - "name"
@@ -13175,16 +13171,12 @@ components:
             - "basic"
         "auth_values":
           anyOf:
-            - additionalProperties:
-                anyOf:
-                  - type: "string"
-                  - type: "null"
-              type: "object"
+            - {}
             - type: "null"
           title: "Auth Values"
-          description: "The values to use for the authentication. Should contain \"username\" and \"password\" keys if auth type is basic, \"token\" key if auth type is bearer, or arbitrary header keys if auth type is custom_headers. On an update, leave a value for a given key null and the value in the database will not be updated. (If a key is omitted entirely, any existing value for that key will be removed.)"
+          description: "The values to use for the authentication, as a dict. Should contain \"username\" and \"password\" keys if auth type is basic, \"token\" key if auth type is bearer, or arbitrary header keys if auth type is custom_headers. On an update, leave a value for a given key null and the value in the database will not be updated. (If a key is omitted entirely, any existing value for that key will be removed.)"
           examples:
-            - "{\"username\": \"my-username\", \"password\": \"my-password\"}"
+            - {"password": "my-password", "username": "my-username"}
         "id":
           type: "integer"
           title: "Id"

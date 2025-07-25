@@ -85,8 +85,8 @@ with SyllableSDK(
         "description": "Service containing tools for fetching weather information",
         "auth_type": models.ToolAuthType.BASIC,
         "auth_values": {
-            "username": "my-username",
             "password": "my-password",
+            "username": "my-username",
         },
     })
 
@@ -133,8 +133,8 @@ with SyllableSDK(
         "description": "Service containing tools for fetching weather information",
         "auth_type": models.ToolAuthType.BASIC,
         "auth_values": {
-            "username": "my-username",
             "password": "my-password",
+            "username": "my-username",
         },
         "id": 1,
         "last_updated_comments": "Updated description to correct typo",
