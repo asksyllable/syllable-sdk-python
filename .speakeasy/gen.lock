@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 0989f642b6028b881b126c73a94529dd
+  docChecksum: 8bd60a54c5eb8d209ecc3606980fbbe4
   docVersion: 0.0.2
   speakeasyVersion: 1.590.0
   generationVersion: 2.666.0
-  releaseVersion: 0.35.51
-  configChecksum: ff52411df68c790c893389e52ba4e6a6
+  releaseVersion: 0.35.52
+  configChecksum: 080dc4d9cd6b4bf111ffba793bb60dcf
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -1526,7 +1526,7 @@ examples:
   service_create:
     speakeasy-default-service-create:
       requestBody:
-        application/json: {"name": "Weather tools", "description": "Service containing tools for fetching weather information", "auth_type": "basic", "auth_values": {"username": "my-username", "password": "my-password"}}
+        application/json: {"name": "Weather tools", "description": "Service containing tools for fetching weather information", "auth_type": "basic", "auth_values": {"password": "my-password", "username": "my-username"}}
       responses:
         "200":
           application/json: {"id": 1, "name": "Weather tools", "description": "Service containing tools for fetching weather information", "auth_type": "basic", "auth_value_keys": ["username", "password"], "last_updated_comments": "Updated description to correct typo", "last_updated": "2024-01-01T12:00:00Z", "last_updated_by": "user@email.com", "tools": ["hangup", "summary"]}
@@ -1535,7 +1535,7 @@ examples:
   service_update:
     speakeasy-default-service-update:
       requestBody:
-        application/json: {"name": "Weather tools", "description": "Service containing tools for fetching weather information", "auth_type": "basic", "auth_values": {"username": "my-username", "password": "my-password"}, "id": 1, "last_updated_comments": "Updated description to correct typo"}
+        application/json: {"name": "Weather tools", "description": "Service containing tools for fetching weather information", "auth_type": "basic", "auth_values": {"password": "my-password", "username": "my-username"}, "id": 1, "last_updated_comments": "Updated description to correct typo"}
       responses:
         "200":
           application/json: {"id": 1, "name": "Weather tools", "description": "Service containing tools for fetching weather information", "auth_type": "basic", "auth_value_keys": ["username", "password"], "last_updated_comments": "Updated description to correct typo", "last_updated": "2024-01-01T12:00:00Z", "last_updated_by": "user@email.com", "tools": ["hangup", "summary"]}
