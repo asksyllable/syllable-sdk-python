@@ -6,6 +6,7 @@ from enum import Enum
 
 class InsightsUploadFileProperties(str, Enum):
     FILENAME = "filename"
+    FILENAME_EXACT = "filename_exact"
     CALL_ID = "call_id"
     AGENT_NUMBER = "agent_number"
     CUSTOMER_NUMBER = "customer_number"

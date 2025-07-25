@@ -6,6 +6,7 @@
 | Name              | Value             |
 | ----------------- | ----------------- |
 | `FILENAME`        | filename          |
+| `FILENAME_EXACT`  | filename_exact    |
 | `CALL_ID`         | call_id           |
 | `AGENT_NUMBER`    | agent_number      |
 | `CUSTOMER_NUMBER` | customer_number   |
