@@ -19,6 +19,7 @@ List the existing users.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="users_list" method="get" path="/api/v1/users/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -71,6 +72,7 @@ Create a new user.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="users_create" method="post" path="/api/v1/users/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -117,6 +119,7 @@ Update an existing user.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="users_update" method="put" path="/api/v1/users/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -163,6 +166,7 @@ Delete a user.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="users_delete" method="delete" path="/api/v1/users/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -206,6 +210,7 @@ Fetch a given user.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="users_get_by_email" method="get" path="/api/v1/users/{user_email}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -246,6 +251,7 @@ Send a welcome email to a user.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="users_send_email" method="post" path="/api/v1/users/{user_email}/send_email" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -287,6 +293,7 @@ accounts.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="users_delete_account" method="delete" path="/api/v1/users/delete_account" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

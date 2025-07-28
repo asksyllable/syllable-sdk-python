@@ -15,6 +15,7 @@ List the evaluated insights for sessions.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_list" method="get" path="/api/v1/insights/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models

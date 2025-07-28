@@ -16,6 +16,7 @@ Get Channels
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="channels_list" method="get" path="/api/v1/channels/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -68,6 +69,7 @@ Hard-delete a channel target by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="channel_targets_delete" method="delete" path="/api/v1/channels/{channel_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

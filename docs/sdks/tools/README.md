@@ -19,6 +19,7 @@ List the existing tools
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="tool_list" method="get" path="/api/v1/tools/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -71,6 +72,7 @@ Create a new tool
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="tool_create" method="post" path="/api/v1/tools/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -152,6 +154,7 @@ Update an existing tool
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="tool_update" method="put" path="/api/v1/tools/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -224,6 +227,7 @@ Get the details of a specific tool
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="tool_get_by_name" method="get" path="/api/v1/tools/{tool_name}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -264,6 +268,7 @@ Delete a tool.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="tool_delete" method="delete" path="/api/v1/tools/{tool_name}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

@@ -23,6 +23,7 @@ RETURNS: List of dashboards
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="post_list_dashboard" method="post" path="/api/v1/dashboards/list" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -78,6 +79,7 @@ RETURNS: Dashboard info for embedding
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="post_get_dashboard" method="post" path="/api/v1/dashboards/fetch_info" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -124,6 +126,7 @@ DEPRECATED: This endpoint is deprecated. Please use /dashboard/list instead
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="post_session_events_dashboard" method="post" path="/api/v1/dashboards/session_events" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -168,6 +171,7 @@ DEPRECATED: This endpoint is deprecated. Please use /dashboard/list instead
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="post_session_summary_dashboard" method="post" path="/api/v1/dashboards/session_summary" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -212,6 +216,7 @@ DEPRECATED: This endpoint is deprecated. Please use /dashboard/list instead
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="post_session_transfers_dashboard" method="post" path="/api/v1/dashboards/session_transfers" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -256,6 +261,7 @@ DEPRECATED: This endpoint is deprecated. Please use /dashboard/list instead
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="post_sessions_dashboard" method="post" path="/api/v1/dashboards/sessions" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

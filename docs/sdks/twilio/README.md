@@ -17,6 +17,7 @@ Get Twilio Channel By Id
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="channels_twilio_get_by_id" method="get" path="/api/v1/channels/twilio/{channel_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -57,6 +58,7 @@ Update Twilio Channel
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="channels_twilio_update" method="put" path="/api/v1/channels/twilio/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -104,6 +106,7 @@ Create Twilio Channel
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="channels_twilio_create" method="post" path="/api/v1/channels/twilio/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

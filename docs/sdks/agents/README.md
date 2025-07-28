@@ -20,6 +20,7 @@ List the existing agents
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="agent_list" method="get" path="/api/v1/agents/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -72,6 +73,7 @@ Create a new agent
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="agent_create" method="post" path="/api/v1/agents/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -143,6 +145,7 @@ Update an existing agent
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="agent_update" method="put" path="/api/v1/agents/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -215,6 +218,7 @@ Get an agent by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="agent_get_by_id" method="get" path="/api/v1/agents/{agent_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -255,6 +259,7 @@ Delete Agent
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="agent_delete" method="delete" path="/api/v1/agents/{agent_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -296,6 +301,7 @@ Get available agent voices.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="agent_get_available_voices" method="get" path="/api/v1/agents/voices/available" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

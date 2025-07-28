@@ -18,6 +18,7 @@ Sessions List
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="sessions_list" method="get" path="/api/v1/sessions/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -70,6 +71,7 @@ Get A Single Session By Id
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="session_get_by_id" method="get" path="/api/v1/sessions/{session_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -110,6 +112,7 @@ Generate Recording Urls
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="generate_session_recording_urls" method="post" path="/api/v1/sessions/recording/{session_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -150,6 +153,7 @@ Stream Recording
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="session_recording_stream" method="get" path="/api/v1/sessions/recording/stream" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

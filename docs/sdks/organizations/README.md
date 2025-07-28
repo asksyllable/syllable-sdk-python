@@ -18,6 +18,7 @@ Fetch the current organization.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="organizations_get" method="get" path="/api/v1/organizations/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -56,6 +57,7 @@ Update the current organization.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="organizations_update" method="put" path="/api/v1/organizations/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -101,6 +103,7 @@ Create a new organization.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="organizations_create" method="post" path="/api/v1/organizations/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -149,6 +152,7 @@ Delete the current organization and all its users.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="organizations_delete" method="delete" path="/api/v1/organizations/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

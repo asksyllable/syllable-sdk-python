@@ -19,6 +19,7 @@ Fetch metadata about all data sources, not including their text.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="data_sources_list" method="get" path="/api/v1/data_sources/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -71,6 +72,7 @@ Create a new data source.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="data_sources_create" method="post" path="/api/v1/data_sources/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -126,6 +128,7 @@ Update an existing data source.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="data_sources_update" method="put" path="/api/v1/data_sources/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -183,6 +186,7 @@ Fetch a given data source, including its text.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="data_sources_get_by_id" method="get" path="/api/v1/data_sources/{data_source_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -223,6 +227,7 @@ Delete a given data source.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="data_sources_delete" method="delete" path="/api/v1/data_sources/{data_source_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

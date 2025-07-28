@@ -15,6 +15,7 @@ Conversations List
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="conversations_list" method="get" path="/api/v1/conversations/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models

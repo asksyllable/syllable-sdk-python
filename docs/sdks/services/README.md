@@ -19,6 +19,7 @@ List the existing services
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="service_list" method="get" path="/api/v1/services/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -71,6 +72,7 @@ Create a new service.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="service_create" method="post" path="/api/v1/services/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -119,6 +121,7 @@ Update an existing service.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="service_update" method="put" path="/api/v1/services/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -169,6 +172,7 @@ Get a service by its ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="services_get_by_id" method="get" path="/api/v1/services/{service_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -209,6 +213,7 @@ Delete a service. A service with linked tools cannot be deleted.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="service_delete" method="delete" path="/api/v1/services/{service_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

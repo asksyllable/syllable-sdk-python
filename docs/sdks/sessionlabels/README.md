@@ -17,6 +17,7 @@ Get Label By Id
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="session_label_get_by_id" method="get" path="/api/v1/session_labels/{session_label_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -57,6 +58,7 @@ Create a new label
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="session_label_create" method="post" path="/api/v1/session_labels/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -105,6 +107,7 @@ Session Labels List
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="session_labels_list" method="get" path="/api/v1/session_labels/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models

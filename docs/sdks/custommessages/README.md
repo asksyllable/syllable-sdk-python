@@ -19,6 +19,7 @@ List the existing custom_messages
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="custom_messages_list" method="get" path="/api/v1/custom_messages/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -71,6 +72,7 @@ Create a new custom message
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="custom_messages_create" method="post" path="/api/v1/custom_messages/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -136,6 +138,7 @@ Update a custom message
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="custom_messages_update" method="put" path="/api/v1/custom_messages/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -202,6 +205,7 @@ Get the custom message by its ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="custom_message_get_by_id" method="get" path="/api/v1/custom_messages/{custom_message_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -242,6 +246,7 @@ Delete custom message by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="custom_messages_delete" method="delete" path="/api/v1/custom_messages/{custom_message_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
