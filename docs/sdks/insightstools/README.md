@@ -21,6 +21,7 @@ List the existing insight_tools
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insight_tool_list" method="get" path="/api/v1/insights/tool-configurations" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -73,6 +74,7 @@ Create a new insight tool.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_tool_create" method="post" path="/api/v1/insights/tool-configurations" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -121,6 +123,7 @@ Get a InsightTool by Name.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insight_tool_get_by_id" method="get" path="/api/v1/insights/tool-configurations/{tool_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -161,6 +164,7 @@ Delete an Insights tool configuration.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_tool_delete" method="delete" path="/api/v1/insights/tool-configurations/{tool_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -201,6 +205,7 @@ Update an Insights tool.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_tool_update" method="put" path="/api/v1/insights/tool-configurations/{tool_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -250,6 +255,7 @@ Manually run the given insight tool against a session and return the response.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_tool_test" method="post" path="/api/v1/insights/tools-test" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -294,6 +300,7 @@ Get a InsightTool by Name.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insight_tool_get_definitions" method="get" path="/api/v1/insights/tool-definitions" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

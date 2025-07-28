@@ -19,6 +19,7 @@ List the available phone numbers
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="available_targets" method="get" path="/api/v1/channels/available-targets" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -71,6 +72,7 @@ Get Channel Targets
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="channel_targets_list" method="get" path="/api/v1/channels/targets" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -123,6 +125,7 @@ Assign A Channel Target
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="channel_targets_create" method="post" path="/api/v1/channels/{channel_id}/targets" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -171,6 +174,7 @@ Get A Channel Target
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="channel_targets_get_by_id" method="get" path="/api/v1/channels/{channel_id}/targets/{target_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -212,6 +216,7 @@ Update channel target by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="channel_targets_update" method="put" path="/api/v1/channels/{channel_id}/targets/{target_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models

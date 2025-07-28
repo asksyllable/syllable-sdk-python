@@ -19,6 +19,7 @@ List the existing roles.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="roles_list" method="get" path="/api/v1/roles/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -71,6 +72,7 @@ Create a new role.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="roles_create" method="post" path="/api/v1/roles/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -119,6 +121,7 @@ Update an existing role.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="roles_update" method="put" path="/api/v1/roles/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -169,6 +172,7 @@ Fetch a given role.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="roles_get_by_id" method="get" path="/api/v1/roles/{role_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -209,6 +213,7 @@ Delete a role. Optionally, reassign existing users with that role to a new role.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="roles_delete" method="delete" path="/api/v1/roles/{role_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

@@ -20,6 +20,7 @@ Fetch language groups.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="language_groups_list" method="get" path="/api/v1/language_groups/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -72,6 +73,7 @@ Create a new language group.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="language_groups_create" method="post" path="/api/v1/language_groups/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -130,6 +132,7 @@ Update an existing language group
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="language_groups_update" method="put" path="/api/v1/language_groups/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -190,6 +193,7 @@ Fetch a given language group.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="language_groups_get_by_id" method="get" path="/api/v1/language_groups/{language_group_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -230,6 +234,7 @@ Delete a language group.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="language_groups_delete" method="delete" path="/api/v1/language_groups/{language_group_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -271,6 +276,7 @@ Generate voice sample.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="language_groups_create_voice_sample" method="post" path="/api/v1/language_groups/voices/sample" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models

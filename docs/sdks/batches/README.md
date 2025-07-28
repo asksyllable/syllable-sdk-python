@@ -23,6 +23,7 @@ List Outbound Communication Batches
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="outbound_batch_list" method="get" path="/api/v1/outbound/batches" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -75,6 +76,7 @@ Create Outbound Communication Batch
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="outbound_batch_create" method="post" path="/api/v1/outbound/batches" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -86,9 +88,9 @@ with SyllableSDK(
 ) as ss_client:
 
     res = ss_client.outbound.batches.create(request={
-        "batch_id": "20250725.9",
+        "batch_id": "20250728.9",
         "campaign_id": 1,
-        "expires_on": parse_datetime("2025-07-26T00:00:00Z"),
+        "expires_on": parse_datetime("2025-07-29T00:00:00Z"),
         "paused": True,
     })
 
@@ -121,6 +123,7 @@ Get Outbound Communication Batch
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="outbound_batch_get_by_id" method="get" path="/api/v1/outbound/batches/{batch_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -161,6 +164,7 @@ Update Outbound Communication Batch
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="outbound_batch_update" method="put" path="/api/v1/outbound/batches/{batch_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -206,6 +210,7 @@ Delete Outbound Communication Batch
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="outbound_batch_delete" method="delete" path="/api/v1/outbound/batches/{batch_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -249,6 +254,7 @@ Upload Outbound Communication Batch
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="outbound_batch_upload" method="post" path="/api/v1/outbound/batches/{batch_id}/upload_batch" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -290,6 +296,7 @@ Fetch Outbound Communication Batch Results
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="outbound_batch_results" method="get" path="/api/v1/outbound/batches/{batch_id}/results" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -333,6 +340,7 @@ Create Outbound Communication Request
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="outbound_batch_add" method="post" path="/api/v1/outbound/batches/{batch_id}/requests" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -380,6 +388,7 @@ Delete Requests By List Of Reference Ids
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="outbound_batch_remove" method="post" path="/api/v1/outbound/batches/{batch_id}/remove-requests" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

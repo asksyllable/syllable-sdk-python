@@ -13,6 +13,7 @@ Get Session Transcript By Id
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="session_transcript_get_by_id" method="get" path="/api/v1/sessions/transcript/{session_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

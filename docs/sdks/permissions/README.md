@@ -15,6 +15,7 @@ Get all available permissions in the system.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="permissions_list" method="get" path="/api/v1/permissions/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

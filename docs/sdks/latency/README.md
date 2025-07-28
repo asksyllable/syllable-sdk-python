@@ -13,6 +13,7 @@ Inspect Latency For Session
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="session_latency_get_by_id" method="get" path="/api/v1/sessions/latency/{session_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

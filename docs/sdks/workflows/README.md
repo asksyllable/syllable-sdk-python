@@ -22,6 +22,7 @@ List the existing insight_workflows
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_workflow_list" method="get" path="/api/v1/insights/workflows/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -74,6 +75,7 @@ Create a new tool in the insights
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_workflow_create" method="post" path="/api/v1/insights/workflows/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -111,8 +113,8 @@ with SyllableSDK(
                 "sheet_name": "Q1 Sales Data",
             },
         },
-        "start_datetime": parse_datetime("2025-07-24T00:00:00Z"),
-        "end_datetime": parse_datetime("2025-07-25T00:00:00Z"),
+        "start_datetime": parse_datetime("2025-07-27T00:00:00Z"),
+        "end_datetime": parse_datetime("2025-07-28T00:00:00Z"),
     })
 
     # Handle response
@@ -144,6 +146,7 @@ Get a InsightWorkflow by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_workflow_get_by_id" method="get" path="/api/v1/insights/workflows/{workflow_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -184,6 +187,7 @@ Update a InsightWorkflow.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_workflow_update" method="put" path="/api/v1/insights/workflows/{workflow_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -221,8 +225,8 @@ with SyllableSDK(
                 "sheet_name": "Q1 Sales Data",
             },
         },
-        "start_datetime": parse_datetime("2025-07-24T00:00:00Z"),
-        "end_datetime": parse_datetime("2025-07-25T00:00:00Z"),
+        "start_datetime": parse_datetime("2025-07-27T00:00:00Z"),
+        "end_datetime": parse_datetime("2025-07-28T00:00:00Z"),
     })
 
     # Handle response
@@ -255,6 +259,7 @@ Delete an Insights workflow.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_workflow_delete" method="delete" path="/api/v1/insights/workflows/{workflow_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -295,6 +300,7 @@ Inactivate an InsightWorkflow.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_workflow_inactivate" method="put" path="/api/v1/insights/workflows/{workflow_id}/inactivate" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -335,6 +341,7 @@ Activate an InsightWorkflow.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_workflow_activate" method="put" path="/api/v1/insights/workflows/{workflow_id}/activate" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -386,6 +393,7 @@ Manually queue sessions for insights workflow evaluation.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_workflow_queue_work" method="post" path="/api/v1/insights/workflows/queue-work" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

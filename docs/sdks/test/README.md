@@ -15,6 +15,7 @@ Send a new message
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="send_test_message" method="post" path="/api/v1/agents/test/messages" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

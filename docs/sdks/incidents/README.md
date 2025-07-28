@@ -20,6 +20,7 @@ List service incidents with pagination and filtering
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="incident_list" method="get" path="/api/v1/incidents/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -72,6 +73,7 @@ Create a new incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="incident_create" method="post" path="/api/v1/incidents/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -123,6 +125,7 @@ Update an existing incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="incident_update" method="put" path="/api/v1/incidents/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -177,6 +180,7 @@ Get all organizations
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="incident_get_organizations" method="get" path="/api/v1/incidents/organizations" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -215,6 +219,7 @@ Get incident by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="incident_get_by_id" method="get" path="/api/v1/incidents/{incident_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -255,6 +260,7 @@ Delete an incident by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="incident_delete" method="delete" path="/api/v1/incidents/{incident_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

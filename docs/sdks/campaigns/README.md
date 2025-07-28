@@ -19,6 +19,7 @@ List Outbound Communication Campaigns
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="outbound_campaign_list" method="get" path="/api/v1/outbound/campaigns" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -71,6 +72,7 @@ Create Outbound Communication Campaign
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="outbound_campaign_create" method="post" path="/api/v1/outbound/campaigns" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -136,6 +138,7 @@ Get Outbound Communication Campaign
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="outbound_campaign_get_by_id" method="get" path="/api/v1/outbound/campaigns/{campaign_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -176,6 +179,7 @@ Update Outbound Communication Campaign
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="outbound_campaign_update" method="put" path="/api/v1/outbound/campaigns/{campaign_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -242,6 +246,7 @@ Delete Outbound Communication Campaign
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="outbound_campaign_delete" method="delete" path="/api/v1/outbound/campaigns/{campaign_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

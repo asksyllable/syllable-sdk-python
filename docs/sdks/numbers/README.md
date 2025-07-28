@@ -17,6 +17,7 @@ Purchase a Twilio number and associate it with a channel.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="channels_twilio_numbers_add" method="post" path="/api/v1/channels/twilio/{channel_id}/numbers" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -61,6 +62,7 @@ Update a Twilio number and associate it with a channel.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="channels_twilio_numbers_update" method="put" path="/api/v1/channels/twilio/{channel_id}/numbers" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -105,6 +107,7 @@ List Twilio phone numbers.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="channels_twilio_numbers_list" method="get" path="/api/v1/channels/twilio/{channel_id}/numbers" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

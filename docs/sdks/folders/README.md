@@ -22,6 +22,7 @@ List Insights Upload Folders
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_folder_list" method="get" path="/api/v1/insights/folders/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -74,6 +75,7 @@ Create Insights Upload Folder
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_folder_create" method="post" path="/api/v1/insights/folders/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -118,6 +120,7 @@ Get Insights Folder Details
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_folder_get_by_id" method="get" path="/api/v1/insights/folders/{folder_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -158,6 +161,7 @@ Delete Insights Folder
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_folder_delete" method="delete" path="/api/v1/insights/folders/{folder_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -198,6 +202,7 @@ Update Insights Folder
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_folder_update" method="put" path="/api/v1/insights/folders/{folder_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -243,6 +248,7 @@ Upload Insights  Upload Folder
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_folder_upload_file" method="post" path="/api/v1/insights/folders/{folder_id}/upload-file" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -291,6 +297,7 @@ Fetch Insights Upload Files
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_upload_list_files" method="get" path="/api/v1/insights/folders/{folder_id}/files" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -344,6 +351,7 @@ Move Insights Upload Files
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="insights_upload_move_files" method="post" path="/api/v1/insights/folders/{folder_id}/move-files" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

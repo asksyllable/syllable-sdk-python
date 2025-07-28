@@ -15,6 +15,7 @@ Events List
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="events_list" method="get" path="/api/v1/events/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models

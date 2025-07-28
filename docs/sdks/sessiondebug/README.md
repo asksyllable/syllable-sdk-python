@@ -15,6 +15,7 @@ Get Session Data By Sid
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_session_data_by_sid" method="get" path="/api/v1/session_debug/sid/{channel_manager_service}/{channel_manager_sid}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -56,6 +57,7 @@ Get Session Data By Session Id
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_session_data_by_session_id" method="get" path="/api/v1/session_debug/session_id/{session_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -96,6 +98,7 @@ Get Session Tool Call Result By Id
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_session_tool_call_result_by_id" method="get" path="/api/v1/session_debug/tool_result/{session_id}/{tool_call_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

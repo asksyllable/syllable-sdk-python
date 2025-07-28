@@ -21,6 +21,7 @@ List the existing prompts
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="prompts_list" method="get" path="/api/v1/prompts/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -73,6 +74,7 @@ Create a new prompt
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="prompts_create" method="post" path="/api/v1/prompts/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -125,6 +127,7 @@ Update an existing prompt
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="prompts_update" method="put" path="/api/v1/prompts/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -179,6 +182,7 @@ Get a prompt by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="prompts_get_by_id" method="get" path="/api/v1/prompts/{prompt_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -219,6 +223,7 @@ Delete a prompt
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="prompts_delete" method="delete" path="/api/v1/prompts/{prompt_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -260,6 +265,7 @@ Get a prompt by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="prompts_history" method="get" path="/api/v1/prompts/{prompt_id}/history" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -300,6 +306,7 @@ Get supported LLM configs.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="prompt_get_supported_llms" method="get" path="/api/v1/prompts/llms/supported" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

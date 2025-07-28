@@ -13,6 +13,7 @@ Get Full Session Summary By Id
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="session_full_summary_get_by_id" method="get" path="/api/v1/sessions/full-summary/{session_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK

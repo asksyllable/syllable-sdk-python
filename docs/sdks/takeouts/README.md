@@ -15,6 +15,7 @@ Create Takeout
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="takeouts_create" method="post" path="/api/v1/takeouts/create" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -53,6 +54,7 @@ Get Takeout
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="takeouts_get_by_job_id" method="get" path="/api/v1/takeouts/get/{job_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -93,6 +95,7 @@ Get File
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="takeouts_get_file" method="get" path="/api/v1/takeouts/get/{job_id}/file/{file_name}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
