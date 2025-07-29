@@ -371,6 +371,8 @@ if TYPE_CHECKING:
         AgentListTypedDict,
         InsightWorkflowCondition,
         InsightWorkflowConditionTypedDict,
+        SampleRate,
+        SampleRateTypedDict,
     )
     from .insightworkflowestimate import (
         InsightWorkflowEstimate,
@@ -1218,6 +1220,8 @@ __all__ = [
     "RolesGetByIDRequestTypedDict",
     "RolesListRequest",
     "RolesListRequestTypedDict",
+    "SampleRate",
+    "SampleRateTypedDict",
     "Security",
     "SecurityTypedDict",
     "ServiceCreateRequest",
@@ -1624,6 +1628,8 @@ _dynamic_imports: dict[str, str] = {
     "AgentListTypedDict": ".insightworkflowcondition",
     "InsightWorkflowCondition": ".insightworkflowcondition",
     "InsightWorkflowConditionTypedDict": ".insightworkflowcondition",
+    "SampleRate": ".insightworkflowcondition",
+    "SampleRateTypedDict": ".insightworkflowcondition",
     "InsightWorkflowEstimate": ".insightworkflowestimate",
     "InsightWorkflowEstimateTypedDict": ".insightworkflowestimate",
     "InsightWorkflowInput": ".insightworkflowinput",

@@ -96,7 +96,7 @@ with SyllableSDK(
         "conditions": {
             "min_duration": 120,
             "max_duration": 600,
-            "sample_rate": 2,
+            "sample_rate": 0.1,
             "agent_list": [
                 866324,
                 826325,
@@ -208,7 +208,7 @@ with SyllableSDK(
         "conditions": {
             "min_duration": 120,
             "max_duration": 600,
-            "sample_rate": 2,
+            "sample_rate": 0.1,
             "agent_list": [
                 866324,
                 826325,
