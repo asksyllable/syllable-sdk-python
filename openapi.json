@@ -16825,13 +16825,17 @@
                 "type": "integer"
               },
               {
+                "type": "number"
+              },
+              {
                 "type": "null"
               }
             ],
             "title": "Sample Rate",
             "description": "Sample rate as a percentage of calls",
             "examples": [
-              2
+              0.1,
+              10
             ]
           },
           "agent_list": {
