@@ -13,6 +13,14 @@ from typing import Dict, List, Union
 from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
+SampleRateTypedDict = TypeAliasType("SampleRateTypedDict", Union[int, float])
+r"""Sample rate as a percentage of calls"""
+
+
+SampleRate = TypeAliasType("SampleRate", Union[int, float])
+r"""Sample rate as a percentage of calls"""
+
+
 AgentListTypedDict = TypeAliasType("AgentListTypedDict", Union[List[int], List[str]])
 r"""List of agents"""
 
@@ -28,7 +36,7 @@ class InsightWorkflowConditionTypedDict(TypedDict):
     r"""Minimum duration of the calls in seconds"""
     max_duration: NotRequired[Nullable[int]]
     r"""Maximum duration of the calls in seconds"""
-    sample_rate: NotRequired[Nullable[int]]
+    sample_rate: NotRequired[Nullable[SampleRateTypedDict]]
     r"""Sample rate as a percentage of calls"""
     agent_list: NotRequired[Nullable[AgentListTypedDict]]
     r"""List of agents"""
@@ -49,7 +57,7 @@ class InsightWorkflowCondition(BaseModel):
     max_duration: OptionalNullable[int] = UNSET
     r"""Maximum duration of the calls in seconds"""
 
-    sample_rate: OptionalNullable[int] = UNSET
+    sample_rate: OptionalNullable[SampleRate] = UNSET
     r"""Sample rate as a percentage of calls"""
 
     agent_list: OptionalNullable[AgentList] = UNSET
