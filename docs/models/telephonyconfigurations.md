@@ -1,0 +1,12 @@
+# TelephonyConfigurations
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `pre_input_timeout`                                                             | *OptionalNullable[float]*                                                       | :heavy_minus_sign:                                                              | Pre input silence threshold                                                     |
+| `post_speech_input_timeout`                                                     | *OptionalNullable[float]*                                                       | :heavy_minus_sign:                                                              | Post speech silence timeout to determine input as ended.                        |
+| `post_dtmf_input_timeout`                                                       | *OptionalNullable[float]*                                                       | :heavy_minus_sign:                                                              | Post dtmf silence timeout to determine input as ended.                          |
+| `overall_input_timeout`                                                         | *OptionalNullable[float]*                                                       | :heavy_minus_sign:                                                              | Total input timeout                                                             |
+| `output_padding`                                                                | *OptionalNullable[float]*                                                       | :heavy_minus_sign:                                                              | Number of seconds to start listening to user input before assistant speech ends |

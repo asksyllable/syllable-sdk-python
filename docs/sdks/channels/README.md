@@ -8,6 +8,8 @@ Operations related to channel configuration.           A channel is an organizat
 ### Available Operations
 
 * [list](#list) - Get Channels
+* [create](#create) - Create Channel
+* [update](#update) - Update Channel
 * [delete](#delete) - Delete Channel Target
 
 ## list
@@ -55,6 +57,115 @@ with SyllableSDK(
 ### Response
 
 **[models.ListResponseChannel](../../models/listresponsechannel.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## create
+
+Create Channel
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="channels_create" method="post" path="/api/v1/channels/" -->
+```python
+import os
+from syllable_sdk import SyllableSDK, models
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.channels.create(request={
+        "name": "twilio",
+        "channel_service": models.ChannelServices.SIP,
+        "supported_modes": "chat,voice",
+        "is_system_channel": False,
+        "config": {
+            "account_sid": "AC123...",
+            "auth_token": "sometoken",
+            "telephony": {
+                "pre_input_timeout": 1.2,
+                "overall_input_timeout": 20,
+            },
+        },
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `request`                                                                                   | [models.OrganizationChannelCreateRequest](../../models/organizationchannelcreaterequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+| `retries`                                                                                   | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                            | :heavy_minus_sign:                                                                          | Configuration to override the default retry behavior of the client.                         |
+
+### Response
+
+**[models.Channel](../../models/channel.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## update
+
+Update Channel
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="channels_update" method="put" path="/api/v1/channels/" -->
+```python
+import os
+from syllable_sdk import SyllableSDK, models
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.channels.update(request={
+        "name": "twilio",
+        "channel_service": models.ChannelServices.SIP,
+        "supported_modes": "chat,voice",
+        "is_system_channel": False,
+        "config": {
+            "account_sid": "AC123...",
+            "auth_token": "sometoken",
+            "telephony": {
+                "pre_input_timeout": 1.2,
+                "overall_input_timeout": 20,
+            },
+        },
+        "id": 1,
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `request`                                                                                   | [models.OrganizationChannelUpdateRequest](../../models/organizationchannelupdaterequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+| `retries`                                                                                   | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                            | :heavy_minus_sign:                                                                          | Configuration to override the default retry behavior of the client.                         |
+
+### Response
+
+**[models.Channel](../../models/channel.md)**
 
 ### Errors
 

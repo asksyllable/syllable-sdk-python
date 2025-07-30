@@ -236,6 +236,8 @@ with SyllableSDK(
 ### [channels](docs/sdks/channels/README.md)
 
 * [list](docs/sdks/channels/README.md#list) - Get Channels
+* [create](docs/sdks/channels/README.md#create) - Create Channel
+* [update](docs/sdks/channels/README.md#update) - Update Channel
 * [delete](docs/sdks/channels/README.md#delete) - Delete Channel Target
 
 #### [channels.targets](docs/sdks/targets/README.md)

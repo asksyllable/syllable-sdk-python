@@ -1,0 +1,12 @@
+# OrganizationChannelConfig
+
+Channel config information for creates / updates through the organizations API
+
+
+## Fields
+
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              | Example                                                                                  |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `account_sid`                                                                            | *OptionalNullable[str]*                                                                  | :heavy_minus_sign:                                                                       | SID of the Twilio account                                                                | AC123...                                                                                 |
+| `auth_token`                                                                             | *OptionalNullable[str]*                                                                  | :heavy_minus_sign:                                                                       | The Twilio auth token                                                                    | sometoken                                                                                |
+| `telephony`                                                                              | [OptionalNullable[models.TelephonyConfigurations]](../models/telephonyconfigurations.md) | :heavy_minus_sign:                                                                       | Telephony configurations to be applied to the targets under the channel                  | {<br/>"overall_input_timeout": 20,<br/>"pre_input_timeout": 1.2<br/>}                    |
