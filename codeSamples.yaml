@@ -224,6 +224,69 @@ actions:
 
                 # Handle response
                 print(res)
+  - target: $["paths"]["/api/v1/channels/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK, models
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.channels.create(request={
+                    "name": "twilio",
+                    "channel_service": models.ChannelServices.SIP,
+                    "supported_modes": "chat,voice",
+                    "is_system_channel": False,
+                    "config": {
+                        "account_sid": "AC123...",
+                        "auth_token": "sometoken",
+                        "telephony": {
+                            "pre_input_timeout": 1.2,
+                            "overall_input_timeout": 20,
+                        },
+                    },
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/channels/"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK, models
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.channels.update(request={
+                    "name": "twilio",
+                    "channel_service": models.ChannelServices.SIP,
+                    "supported_modes": "chat,voice",
+                    "is_system_channel": False,
+                    "config": {
+                        "account_sid": "AC123...",
+                        "auth_token": "sometoken",
+                        "telephony": {
+                            "pre_input_timeout": 1.2,
+                            "overall_input_timeout": 20,
+                        },
+                    },
+                    "id": 1,
+                })
+
+                # Handle response
+                print(res)
   - target: $["paths"]["/api/v1/channels/available-targets"]["get"]
     update:
       x-codeSamples:
@@ -1374,8 +1437,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-07-28T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-07-29T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-07-29T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-07-30T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1488,8 +1551,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-07-28T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-07-29T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-07-29T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-07-30T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1819,9 +1882,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20250729.9",
+                    "batch_id": "20250730.9",
                     "campaign_id": 1,
-                    "expires_on": parse_datetime("2025-07-30T00:00:00Z"),
+                    "expires_on": parse_datetime("2025-07-31T00:00:00Z"),
                     "paused": True,
                 })
 

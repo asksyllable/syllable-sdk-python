@@ -236,6 +236,8 @@ with SyllableSDK(
 ### [channels](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md)
 
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#list) - Get Channels
+* [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#create) - Create Channel
+* [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#update) - Update Channel
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#delete) - Delete Channel Target
 
 #### [channels.targets](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/targets/README.md)

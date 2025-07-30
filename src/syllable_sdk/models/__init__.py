@@ -88,6 +88,7 @@ if TYPE_CHECKING:
         ChannelTargetsUpdateRequest,
         ChannelTargetsUpdateRequestTypedDict,
     )
+    from .channelconfigview import ChannelConfigView, ChannelConfigViewTypedDict
     from .channelproperties import ChannelProperties
     from .channels_listop import ChannelsListRequest, ChannelsListRequestTypedDict
     from .channels_twilio_get_by_idop import (
@@ -519,6 +520,18 @@ if TYPE_CHECKING:
     )
     from .logintype import LoginType
     from .orderbydirection import OrderByDirection
+    from .organizationchannelconfig import (
+        OrganizationChannelConfig,
+        OrganizationChannelConfigTypedDict,
+    )
+    from .organizationchannelcreaterequest import (
+        OrganizationChannelCreateRequest,
+        OrganizationChannelCreateRequestTypedDict,
+    )
+    from .organizationchannelupdaterequest import (
+        OrganizationChannelUpdateRequest,
+        OrganizationChannelUpdateRequestTypedDict,
+    )
     from .organizationresponse import (
         OrganizationResponse,
         OrganizationResponseTypedDict,
@@ -696,6 +709,10 @@ if TYPE_CHECKING:
         TakeoutStatusResponseTypedDict,
     )
     from .targetmodes import TargetModes
+    from .telephonyconfigurations import (
+        TelephonyConfigurations,
+        TelephonyConfigurationsTypedDict,
+    )
     from .testmessage import TestMessage, TestMessageTypedDict
     from .testmessageresponse import TestMessageResponse, TestMessageResponseTypedDict
     from .tool_deleteop import ToolDeleteRequest, ToolDeleteRequestTypedDict
@@ -866,6 +883,8 @@ __all__ = [
     "BodyOutboundBatchUploadTypedDict",
     "CampaignProperties",
     "Channel",
+    "ChannelConfigView",
+    "ChannelConfigViewTypedDict",
     "ChannelProperties",
     "ChannelServices",
     "ChannelTargetCreateRequest",
@@ -1148,6 +1167,12 @@ __all__ = [
     "Metadata",
     "MetadataTypedDict",
     "OrderByDirection",
+    "OrganizationChannelConfig",
+    "OrganizationChannelConfigTypedDict",
+    "OrganizationChannelCreateRequest",
+    "OrganizationChannelCreateRequestTypedDict",
+    "OrganizationChannelUpdateRequest",
+    "OrganizationChannelUpdateRequestTypedDict",
     "OrganizationResponse",
     "OrganizationResponseTypedDict",
     "OutboundBatchAddRequest",
@@ -1290,6 +1315,8 @@ __all__ = [
     "TakeoutsGetFileRequest",
     "TakeoutsGetFileRequestTypedDict",
     "TargetModes",
+    "TelephonyConfigurations",
+    "TelephonyConfigurationsTypedDict",
     "TestMessage",
     "TestMessageResponse",
     "TestMessageResponseTypedDict",
@@ -1444,6 +1471,8 @@ _dynamic_imports: dict[str, str] = {
     "ChannelTargetsListRequestTypedDict": ".channel_targets_listop",
     "ChannelTargetsUpdateRequest": ".channel_targets_updateop",
     "ChannelTargetsUpdateRequestTypedDict": ".channel_targets_updateop",
+    "ChannelConfigView": ".channelconfigview",
+    "ChannelConfigViewTypedDict": ".channelconfigview",
     "ChannelProperties": ".channelproperties",
     "ChannelsListRequest": ".channels_listop",
     "ChannelsListRequestTypedDict": ".channels_listop",
@@ -1715,6 +1744,12 @@ _dynamic_imports: dict[str, str] = {
     "ListResponseUserResponseTypedDict": ".listresponse_userresponse_",
     "LoginType": ".logintype",
     "OrderByDirection": ".orderbydirection",
+    "OrganizationChannelConfig": ".organizationchannelconfig",
+    "OrganizationChannelConfigTypedDict": ".organizationchannelconfig",
+    "OrganizationChannelCreateRequest": ".organizationchannelcreaterequest",
+    "OrganizationChannelCreateRequestTypedDict": ".organizationchannelcreaterequest",
+    "OrganizationChannelUpdateRequest": ".organizationchannelupdaterequest",
+    "OrganizationChannelUpdateRequestTypedDict": ".organizationchannelupdaterequest",
     "OrganizationResponse": ".organizationresponse",
     "OrganizationResponseTypedDict": ".organizationresponse",
     "OutboundBatchAddRequest": ".outbound_batch_addop",
@@ -1855,6 +1890,8 @@ _dynamic_imports: dict[str, str] = {
     "TakeoutStatusResponse": ".takeoutstatusresponse",
     "TakeoutStatusResponseTypedDict": ".takeoutstatusresponse",
     "TargetModes": ".targetmodes",
+    "TelephonyConfigurations": ".telephonyconfigurations",
+    "TelephonyConfigurationsTypedDict": ".telephonyconfigurations",
     "TestMessage": ".testmessage",
     "TestMessageTypedDict": ".testmessage",
     "TestMessageResponse": ".testmessageresponse",
