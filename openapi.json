@@ -688,6 +688,94 @@
             }
           }
         }
+      },
+      "post": {
+        "tags": [
+          "channels"
+        ],
+        "summary": "Create Channel",
+        "operationId": "channels_create",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrganizationChannelCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Channel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "channels"
+        ],
+        "summary": "Update Channel",
+        "operationId": "channels_update",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrganizationChannelUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Channel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/channels/twilio/{channel_id}": {
@@ -12886,7 +12974,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20250729.9"
+              "20250730.9"
             ]
           },
           "campaign_id": {
@@ -12910,7 +12998,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-07-30T00:00:00Z"
+              "2025-07-31T00:00:00Z"
             ]
           },
           "paused": {
@@ -12963,7 +13051,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2025-07-29T00:00:00Z"
+              "2025-07-30T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -12979,7 +13067,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2025-07-29T00:00:00Z"
+              "2025-07-30T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -13010,7 +13098,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2025-07-29T00:00:00Z"
+              "2025-07-30T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -13336,10 +13424,7 @@
             "title": "Supported Modes",
             "description": "The comma-delimited list of supported modes for the channel, which defines the       possible communication methods for channel targets linked to it.",
             "examples": [
-              [
-                "chat",
-                "voice"
-              ]
+              "chat,voice"
             ]
           },
           "is_system_channel": {
@@ -13355,6 +13440,25 @@
             "type": "integer",
             "title": "Id",
             "description": "The channel ID"
+          },
+          "config": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ChannelConfigView"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Configuration for the channel",
+            "examples": [
+              {
+                "telephony": {
+                  "overall_input_timeout": 20.0,
+                  "pre_input_timeout": 1.2
+                }
+              }
+            ]
           }
         },
         "type": "object",
@@ -13364,6 +13468,29 @@
           "id"
         ],
         "title": "Channel"
+      },
+      "ChannelConfigView": {
+        "properties": {
+          "telephony": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TelephonyConfigurations"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Telephony configurations to be applied to targets belonging to the channel.       Only applies to voice supported channels.",
+            "examples": [
+              {
+                "overall_input_timeout": 20.0,
+                "pre_input_timeout": 1.2
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "ChannelConfigView"
       },
       "ChannelProperties": {
         "type": "string",
@@ -13673,7 +13800,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20250729.9"
+              "20250730.9"
             ]
           },
           "campaign_id": {
@@ -13697,7 +13824,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-07-30T00:00:00Z"
+              "2025-07-31T00:00:00Z"
             ]
           },
           "paused": {
@@ -13750,7 +13877,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2025-07-29T00:00:00Z"
+              "2025-07-30T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -13766,7 +13893,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2025-07-29T00:00:00Z"
+              "2025-07-30T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -13797,7 +13924,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2025-07-29T00:00:00Z"
+              "2025-07-30T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -13840,7 +13967,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20250729.9"
+              "20250730.9"
             ]
           },
           "campaign_id": {
@@ -13864,7 +13991,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-07-30T00:00:00Z"
+              "2025-07-31T00:00:00Z"
             ]
           },
           "paused": {
@@ -14013,7 +14140,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2025-07-28T00:00:00Z"
+              "2025-07-29T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -14029,7 +14156,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2025-07-29T00:00:00Z"
+              "2025-07-30T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -15945,7 +16072,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2025-07-28T00:00:00Z"
+              "2025-07-29T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -15954,7 +16081,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2025-07-29T00:00:00Z"
+              "2025-07-30T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -16669,7 +16796,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2025-07-28T00:00:00Z"
+              "2025-07-29T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -16678,7 +16805,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2025-07-29T00:00:00Z"
+              "2025-07-30T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -17059,7 +17186,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2025-07-28T00:00:00Z"
+              "2025-07-29T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -17075,7 +17202,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2025-07-29T00:00:00Z"
+              "2025-07-30T00:00:00Z"
             ]
           }
         },
@@ -17150,7 +17277,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2025-07-28T00:00:00Z"
+              "2025-07-29T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -17166,7 +17293,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2025-07-29T00:00:00Z"
+              "2025-07-30T00:00:00Z"
             ]
           },
           "id": {
@@ -17219,7 +17346,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2025-07-28T00:00:00Z"
+              "2025-07-29T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -17228,7 +17355,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2025-07-29T00:00:00Z"
+              "2025-07-30T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -17324,7 +17451,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2025-07-28T00:00:00Z"
+              "2025-07-29T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -17333,7 +17460,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2025-07-29T00:00:00Z"
+              "2025-07-30T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -17568,7 +17695,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2025-07-28T00:00:00Z"
+              "2025-07-29T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -17577,7 +17704,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2025-07-29T00:00:00Z"
+              "2025-07-30T00:00:00Z"
             ]
           }
         },
@@ -17712,7 +17839,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2025-07-28T00:00:00Z"
+              "2025-07-29T00:00:00Z"
             ]
           },
           "end_time": {
@@ -17728,7 +17855,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2025-07-29T00:00:00Z"
+              "2025-07-30T00:00:00Z"
             ]
           },
           "error_message": {
@@ -17783,7 +17910,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2025-07-28T00:00:00Z"
+              "2025-07-29T00:00:00Z"
             ]
           }
         },
@@ -20156,6 +20283,197 @@
         "title": "OrderByDirection",
         "description": "The direction in which to order list results, either ascending or descending."
       },
+      "OrganizationChannelConfig": {
+        "properties": {
+          "account_sid": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Account Sid",
+            "description": "SID of the Twilio account",
+            "examples": [
+              "AC123..."
+            ]
+          },
+          "auth_token": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Auth Token",
+            "description": "The Twilio auth token",
+            "examples": [
+              "sometoken"
+            ]
+          },
+          "telephony": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TelephonyConfigurations"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Telephony configurations to be applied to the targets under the channel",
+            "examples": [
+              {
+                "overall_input_timeout": 20.0,
+                "pre_input_timeout": 1.2
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "OrganizationChannelConfig",
+        "description": "Channel config information for creates / updates through the organizations API"
+      },
+      "OrganizationChannelCreateRequest": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The channel name",
+            "examples": [
+              "twilio"
+            ]
+          },
+          "channel_service": {
+            "$ref": "#/components/schemas/ChannelServices",
+            "description": "The service that facilitates communication on the channel",
+            "examples": [
+              "webchat"
+            ]
+          },
+          "supported_modes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Supported Modes",
+            "description": "The comma-delimited list of supported modes for the channel, which defines the       possible communication methods for channel targets linked to it.",
+            "examples": [
+              "chat,voice"
+            ]
+          },
+          "is_system_channel": {
+            "type": "boolean",
+            "title": "Is System Channel",
+            "description": "Whether the channel is a built-in system channel (i.e., is not customizable)",
+            "default": true,
+            "examples": [
+              false
+            ]
+          },
+          "config": {
+            "$ref": "#/components/schemas/OrganizationChannelConfig",
+            "description": "The configuration of the channel",
+            "examples": [
+              {
+                "account_sid": "AC123",
+                "auth_token": "sometoken",
+                "telephony": {
+                  "pre_input_timeout": 3.0
+                }
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "channel_service",
+          "config"
+        ],
+        "title": "OrganizationChannelCreateRequest",
+        "description": "Request model to create a channel through the organizations API"
+      },
+      "OrganizationChannelUpdateRequest": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The channel name",
+            "examples": [
+              "twilio"
+            ]
+          },
+          "channel_service": {
+            "$ref": "#/components/schemas/ChannelServices",
+            "description": "The service that facilitates communication on the channel",
+            "examples": [
+              "webchat"
+            ]
+          },
+          "supported_modes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Supported Modes",
+            "description": "The comma-delimited list of supported modes for the channel, which defines the       possible communication methods for channel targets linked to it.",
+            "examples": [
+              "chat,voice"
+            ]
+          },
+          "is_system_channel": {
+            "type": "boolean",
+            "title": "Is System Channel",
+            "description": "Whether the channel is a built-in system channel (i.e., is not customizable)",
+            "default": true,
+            "examples": [
+              false
+            ]
+          },
+          "config": {
+            "$ref": "#/components/schemas/OrganizationChannelConfig",
+            "description": "The configuration of the channel",
+            "examples": [
+              {
+                "account_sid": "AC123",
+                "auth_token": "sometoken",
+                "telephony": {
+                  "pre_input_timeout": 3.0
+                }
+              }
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id",
+            "description": "The internal ID of the channel",
+            "examples": [
+              1
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "channel_service",
+          "config",
+          "id"
+        ],
+        "title": "OrganizationChannelUpdateRequest",
+        "description": "Request model to update a channel through the organizations API"
+      },
       "OrganizationResponse": {
         "properties": {
           "display_name": {
@@ -20483,7 +20801,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2025-07-29T00:00:00Z"
+              "2025-07-30T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -20492,7 +20810,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2025-07-29T00:00:00Z"
+              "2025-07-30T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -22935,6 +23253,82 @@
         ],
         "title": "TargetModes",
         "description": "Available modes (communication methods) for channel targets."
+      },
+      "TelephonyConfigurations": {
+        "properties": {
+          "pre_input_timeout": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 10.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pre Input Timeout",
+            "description": "Pre input silence threshold"
+          },
+          "post_speech_input_timeout": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 10.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Post Speech Input Timeout",
+            "description": "Post speech silence timeout to determine input as ended."
+          },
+          "post_dtmf_input_timeout": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 10.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Post Dtmf Input Timeout",
+            "description": "Post dtmf silence timeout to determine input as ended."
+          },
+          "overall_input_timeout": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 300.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Overall Input Timeout",
+            "description": "Total input timeout"
+          },
+          "output_padding": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 5.0,
+                "minimum": -5.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Output Padding",
+            "description": "Number of seconds to start listening to user input before assistant speech ends"
+          }
+        },
+        "type": "object",
+        "title": "TelephonyConfigurations"
       },
       "TestMessage": {
         "properties": {
