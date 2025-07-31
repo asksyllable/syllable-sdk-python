@@ -10,6 +10,7 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
+from typing import Optional
 from typing_extensions import NotRequired, TypedDict
 
 
@@ -26,6 +27,8 @@ class UserCreateRequestTypedDict(TypedDict):
     r"""Last name of the user"""
     login_type: NotRequired[Nullable[LoginType]]
     r"""The type of login to use for the user. If not provided, defaults to google for @gmail.com email addresses, and username and password otherwise."""
+    skip_auth: NotRequired[bool]
+    r"""Whether to skip authentication for the user."""
 
 
 class UserCreateRequest(BaseModel):
@@ -46,9 +49,12 @@ class UserCreateRequest(BaseModel):
     login_type: OptionalNullable[LoginType] = UNSET
     r"""The type of login to use for the user. If not provided, defaults to google for @gmail.com email addresses, and username and password otherwise."""
 
+    skip_auth: Optional[bool] = False
+    r"""Whether to skip authentication for the user."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["first_name", "last_name", "login_type"]
+        optional_fields = ["first_name", "last_name", "login_type", "skip_auth"]
         nullable_fields = ["first_name", "last_name", "login_type"]
         null_default_fields = []
 

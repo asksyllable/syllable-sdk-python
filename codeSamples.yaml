@@ -3283,7 +3283,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.users.users_send_email(user_email="<value>")
+                res = ss_client.users.users_send_email(user_email="<value>", skip_auth=False)
 
                 # Handle response
                 print(res)
@@ -3298,7 +3298,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.v1.users_send_email(user_email="<value>")
+                res = ss_client.v1.users_send_email(user_email="<value>", skip_auth=False)
 
                 # Handle response
                 print(res)

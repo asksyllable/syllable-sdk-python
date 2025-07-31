@@ -261,7 +261,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.users.users_send_email(user_email="<value>")
+    res = ss_client.users.users_send_email(user_email="<value>", skip_auth=False)
 
     # Handle response
     print(res)
@@ -273,6 +273,7 @@ with SyllableSDK(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `user_email`                                                        | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `skip_auth`                                                         | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response

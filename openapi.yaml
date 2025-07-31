@@ -6735,6 +6735,13 @@ paths:
           schema:
             type: "string"
             title: "User Email"
+        - name: "skip_auth"
+          in: "query"
+          required: false
+          schema:
+            type: "boolean"
+            default: false
+            title: "Skip Auth"
       responses:
         "200":
           description: "Successful Response"
@@ -14860,6 +14867,11 @@ components:
           description: "The type of login to use for the user. If not provided, defaults to google for @gmail.com email addresses, and username and password otherwise."
           examples:
             - "username_and_password"
+        "skip_auth":
+          type: "boolean"
+          title: "Skip Auth"
+          description: "Whether to skip authentication for the user."
+          default: false
       type: "object"
       required:
         - "email"
