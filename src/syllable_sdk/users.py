@@ -970,6 +970,7 @@ class Users(BaseSDK):
         self,
         *,
         user_email: str,
+        skip_auth: Optional[bool] = False,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -980,6 +981,7 @@ class Users(BaseSDK):
         Send a welcome email to a user.
 
         :param user_email:
+        :param skip_auth:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -997,6 +999,7 @@ class Users(BaseSDK):
 
         request = models.UsersSendEmailRequest(
             user_email=user_email,
+            skip_auth=skip_auth,
         )
 
         req = self._build_request(
@@ -1059,6 +1062,7 @@ class Users(BaseSDK):
         self,
         *,
         user_email: str,
+        skip_auth: Optional[bool] = False,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1069,6 +1073,7 @@ class Users(BaseSDK):
         Send a welcome email to a user.
 
         :param user_email:
+        :param skip_auth:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1086,6 +1091,7 @@ class Users(BaseSDK):
 
         request = models.UsersSendEmailRequest(
             user_email=user_email,
+            skip_auth=skip_auth,
         )
 
         req = self._build_request_async(

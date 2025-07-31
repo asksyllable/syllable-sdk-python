@@ -2,15 +2,22 @@
 
 from __future__ import annotations
 from syllable_sdk.types import BaseModel
-from syllable_sdk.utils import FieldMetadata, PathParamMetadata
-from typing_extensions import Annotated, TypedDict
+from syllable_sdk.utils import FieldMetadata, PathParamMetadata, QueryParamMetadata
+from typing import Optional
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class UsersSendEmailRequestTypedDict(TypedDict):
     user_email: str
+    skip_auth: NotRequired[bool]
 
 
 class UsersSendEmailRequest(BaseModel):
     user_email: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
+
+    skip_auth: Annotated[
+        Optional[bool],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = False
