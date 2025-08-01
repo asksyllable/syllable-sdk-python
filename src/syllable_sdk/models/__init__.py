@@ -4,6 +4,7 @@ from .agentresponse import AgentResponse, AgentResponseTypedDict
 from .channeltargetresponse import ChannelTargetResponse, ChannelTargetResponseTypedDict
 from typing import TYPE_CHECKING
 from importlib import import_module
+import builtins
 
 if TYPE_CHECKING:
     from .agent_deleteop import AgentDeleteRequest, AgentDeleteRequestTypedDict
@@ -2006,5 +2007,5 @@ def __getattr__(attr_name: str) -> object:
 
 
 def __dir__():
-    lazy_attrs = list(_dynamic_imports.keys())
-    return sorted(lazy_attrs)
+    lazy_attrs = builtins.list(_dynamic_imports.keys())
+    return builtins.sorted(lazy_attrs)
