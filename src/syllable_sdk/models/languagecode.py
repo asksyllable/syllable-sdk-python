@@ -15,3 +15,5 @@ class LanguageCode(str, Enum):
     ES_US = "es-US"
     TH_TH = "th-TH"
     VI_VN = "vi-VN"
+    BS_BA = "bs-BA"
+    SW = "sw"
