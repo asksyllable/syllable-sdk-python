@@ -35,6 +35,14 @@ class AgentVoiceVarName(str, Enum):
     ELEVENLABS_ROGER = "elevenlabs:Roger"
     ELEVENLABS_SARAH = "elevenlabs:Sarah"
     ELEVENLABS_WILL = "elevenlabs:Will"
+    WAVENET_FEMALE_EN_US_CHIRP3_HD_ACHERNAR = "wavenet:female/en-US-Chirp3-HD-Achernar"
+    WAVENET_FEMALE_KO_KR_CHIRP3_HD_ACHERNAR = "wavenet:female/ko-KR-Chirp3-HD-Achernar"
+    WAVENET_FEMALE_CMN_CN_CHIRP3_HD_ACHERNAR = (
+        "wavenet:female/cmn-CN-Chirp3-HD-Achernar"
+    )
+    WAVENET_FEMALE_ES_US_CHIRP3_HD_ACHERNAR = "wavenet:female/es-US-Chirp3-HD-Achernar"
+    WAVENET_FEMALE_TH_TH_CHIRP3_HD_ACHERNAR = "wavenet:female/th-TH-Chirp3-HD-Achernar"
+    WAVENET_FEMALE_VI_VN_CHIRP3_HD_ACHERNAR = "wavenet:female/vi-VN-Chirp3-HD-Achernar"
     WAVENET_FEMALE_EN_US_CHIRP3_HD_AOEDE = "wavenet:female/en-US-Chirp3-HD-Aoede"
     WAVENET_FEMALE_KO_KR_CHIRP3_HD_AOEDE = "wavenet:female/ko-KR-Chirp3-HD-Aoede"
     WAVENET_FEMALE_CMN_CN_CHIRP3_HD_AOEDE = "wavenet:female/cmn-CN-Chirp3-HD-Aoede"
@@ -42,6 +50,24 @@ class AgentVoiceVarName(str, Enum):
     WAVENET_FEMALE_TH_TH_CHIRP3_HD_AOEDE = "wavenet:female/th-TH-Chirp3-HD-Aoede"
     WAVENET_FEMALE_VI_VN_CHIRP3_HD_AOEDE = "wavenet:female/vi-VN-Chirp3-HD-Aoede"
     WAVENET_MALE_ES_US_NEURAL2_B = "wavenet:male/es-US-Neural2-B"
+    WAVENET_FEMALE_EN_US_CHIRP3_HD_CALLIRRHOE = (
+        "wavenet:female/en-US-Chirp3-HD-Callirrhoe"
+    )
+    WAVENET_FEMALE_KO_KR_CHIRP3_HD_CALLIRRHOE = (
+        "wavenet:female/ko-KR-Chirp3-HD-Callirrhoe"
+    )
+    WAVENET_FEMALE_CMN_CN_CHIRP3_HD_CALLIRRHOE = (
+        "wavenet:female/cmn-CN-Chirp3-HD-Callirrhoe"
+    )
+    WAVENET_FEMALE_ES_US_CHIRP3_HD_CALLIRRHOE = (
+        "wavenet:female/es-US-Chirp3-HD-Callirrhoe"
+    )
+    WAVENET_FEMALE_TH_TH_CHIRP3_HD_CALLIRRHOE = (
+        "wavenet:female/th-TH-Chirp3-HD-Callirrhoe"
+    )
+    WAVENET_FEMALE_VI_VN_CHIRP3_HD_CALLIRRHOE = (
+        "wavenet:female/vi-VN-Chirp3-HD-Callirrhoe"
+    )
     WAVENET_MALE_EN_US_CHIRP3_HD_CHARON = "wavenet:male/en-US-Chirp3-HD-Charon"
     WAVENET_MALE_KO_KR_CHIRP3_HD_CHARON = "wavenet:male/ko-KR-Chirp3-HD-Charon"
     WAVENET_MALE_CMN_CN_CHIRP3_HD_CHARON = "wavenet:male/cmn-CN-Chirp3-HD-Charon"
@@ -87,6 +113,30 @@ class AgentVoiceVarName(str, Enum):
     WAVENET_MALE_VI_VN_CHIRP3_HD_PUCK = "wavenet:male/vi-VN-Chirp3-HD-Puck"
     WAVENET_FEMALE_KO_KR_NEURAL2_A = "wavenet:female/ko-KR-Neural2-A"
     WAVENET_FEMALE_VI_VN_NEURAL2_A = "wavenet:female/vi-VN-Neural2-A"
+    WAVENET_MALE_EN_US_CHIRP3_HD_UMBRIEL = "wavenet:male/en-US-Chirp3-HD-Umbriel"
+    WAVENET_MALE_KO_KR_CHIRP3_HD_UMBRIEL = "wavenet:male/ko-KR-Chirp3-HD-Umbriel"
+    WAVENET_MALE_CMN_CN_CHIRP3_HD_UMBRIEL = "wavenet:male/cmn-CN-Chirp3-HD-Umbriel"
+    WAVENET_MALE_ES_US_CHIRP3_HD_UMBRIEL = "wavenet:male/es-US-Chirp3-HD-Umbriel"
+    WAVENET_MALE_TH_TH_CHIRP3_HD_UMBRIEL = "wavenet:male/th-TH-Chirp3-HD-Umbriel"
+    WAVENET_MALE_VI_VN_CHIRP3_HD_UMBRIEL = "wavenet:male/vi-VN-Chirp3-HD-Umbriel"
+    WAVENET_FEMALE_EN_US_CHIRP3_HD_VINDEMIATRIX = (
+        "wavenet:female/en-US-Chirp3-HD-Vindemiatrix"
+    )
+    WAVENET_FEMALE_KO_KR_CHIRP3_HD_VINDEMIATRIX = (
+        "wavenet:female/ko-KR-Chirp3-HD-Vindemiatrix"
+    )
+    WAVENET_FEMALE_CMN_CN_CHIRP3_HD_VINDEMIATRIX = (
+        "wavenet:female/cmn-CN-Chirp3-HD-Vindemiatrix"
+    )
+    WAVENET_FEMALE_ES_US_CHIRP3_HD_VINDEMIATRIX = (
+        "wavenet:female/es-US-Chirp3-HD-Vindemiatrix"
+    )
+    WAVENET_FEMALE_TH_TH_CHIRP3_HD_VINDEMIATRIX = (
+        "wavenet:female/th-TH-Chirp3-HD-Vindemiatrix"
+    )
+    WAVENET_FEMALE_VI_VN_CHIRP3_HD_VINDEMIATRIX = (
+        "wavenet:female/vi-VN-Chirp3-HD-Vindemiatrix"
+    )
     WAVENET_FEMALE_EN_US_CHIRP3_HD_ZEPHYR = "wavenet:female/en-US-Chirp3-HD-Zephyr"
     WAVENET_FEMALE_KO_KR_CHIRP3_HD_ZEPHYR = "wavenet:female/ko-KR-Chirp3-HD-Zephyr"
     WAVENET_FEMALE_CMN_CN_CHIRP3_HD_ZEPHYR = "wavenet:female/cmn-CN-Chirp3-HD-Zephyr"
