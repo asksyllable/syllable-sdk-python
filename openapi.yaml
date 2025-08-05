@@ -14005,7 +14005,9 @@ components:
           examples:
             - "GPT-4o"
         "version":
-          type: "string"
+          anyOf:
+            - type: "string"
+            - type: "null"
           title: "Version"
           description: "Model version."
           examples:
