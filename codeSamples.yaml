@@ -1716,7 +1716,7 @@ actions:
                 res = ss_client.language_groups.language_groups_create_voice_sample(request={
                     "language_code": models.LanguageCode.FA_IR,
                     "voice_provider": models.TtsProvider.GOOGLE,
-                    "voice_display_name": models.AgentVoiceDisplayName.ERIC,
+                    "voice_display_name": models.AgentVoiceDisplayName.EN_US_NEURAL2_D,
                     "voice_speed": 1,
                     "voice_pitch": 0,
                 })
