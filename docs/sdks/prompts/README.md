@@ -261,7 +261,7 @@ with SyllableSDK(
 
 ## prompts_history
 
-Get a prompt by ID
+Get a list of historical versions of a prompt by its ID
 
 ### Example Usage
 

@@ -605,6 +605,10 @@ if TYPE_CHECKING:
     )
     from .promptcreaterequest import PromptCreateRequest, PromptCreateRequestTypedDict
     from .prompthistory import PromptHistory, PromptHistoryTypedDict
+    from .prompthistorylinkedtool import (
+        PromptHistoryLinkedTool,
+        PromptHistoryLinkedToolTypedDict,
+    )
     from .promptllmconfig import PromptLlmConfig, PromptLlmConfigTypedDict
     from .promptllmprovider import PromptLlmProvider
     from .promptproperties import PromptProperties
@@ -1215,6 +1219,8 @@ __all__ = [
     "PromptCreateRequest",
     "PromptCreateRequestTypedDict",
     "PromptHistory",
+    "PromptHistoryLinkedTool",
+    "PromptHistoryLinkedToolTypedDict",
     "PromptHistoryTypedDict",
     "PromptLlmConfig",
     "PromptLlmConfigTypedDict",
@@ -1793,6 +1799,8 @@ _dynamic_imports: dict[str, str] = {
     "PromptCreateRequestTypedDict": ".promptcreaterequest",
     "PromptHistory": ".prompthistory",
     "PromptHistoryTypedDict": ".prompthistory",
+    "PromptHistoryLinkedTool": ".prompthistorylinkedtool",
+    "PromptHistoryLinkedToolTypedDict": ".prompthistorylinkedtool",
     "PromptLlmConfig": ".promptllmconfig",
     "PromptLlmConfigTypedDict": ".promptllmconfig",
     "PromptLlmProvider": ".promptllmprovider",
