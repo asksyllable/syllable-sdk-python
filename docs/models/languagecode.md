@@ -16,4 +16,4 @@ BCP 47 codes of languages that Syllable supports.
 | `TH_TH`  | th-TH    |
 | `VI_VN`  | vi-VN    |
 | `BS_BA`  | bs-BA    |
-| `SW`     | sw       |
+| `SW_KE`  | sw-KE    |
