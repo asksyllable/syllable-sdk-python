@@ -979,7 +979,7 @@ class Prompts(BaseSDK):
     ) -> List[models.PromptHistory]:
         r"""Get Prompt History
 
-        Get a prompt by ID
+        Get a list of historical versions of a prompt by its ID
 
         :param prompt_id:
         :param retries: Override the default retry configuration for this method
@@ -1068,7 +1068,7 @@ class Prompts(BaseSDK):
     ) -> List[models.PromptHistory]:
         r"""Get Prompt History
 
-        Get a prompt by ID
+        Get a list of historical versions of a prompt by its ID
 
         :param prompt_id:
         :param retries: Override the default retry configuration for this method
