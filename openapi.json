@@ -5476,7 +5476,7 @@
           "prompts"
         ],
         "summary": "Get Prompt History",
-        "description": "Get a prompt by ID",
+        "description": "Get a list of historical versions of a prompt by its ID",
         "operationId": "prompts_history",
         "security": [
           {
@@ -21261,7 +21261,7 @@
             "type": "string",
             "format": "date-time",
             "title": "Timestamp",
-            "description": "Timestamp of the change",
+            "description": "Timestamp of the change resulting in this version",
             "examples": [
               "2024-01-01T12:00:00Z"
             ]
@@ -21274,10 +21274,18 @@
               "1"
             ]
           },
+          "version_number": {
+            "type": "integer",
+            "title": "Version Number",
+            "description": "Version number of this version. Starts at 1 when prompt is created, and incremented on each change.",
+            "examples": [
+              1
+            ]
+          },
           "prompt_text": {
             "type": "string",
             "title": "Prompt Text",
-            "description": "Text of the prompt",
+            "description": "Text of the prompt at this version",
             "examples": [
               "You are a weather agent. Answer the user's questions about weather and nothing else."
             ]
@@ -21292,7 +21300,7 @@
               }
             ],
             "title": "Prompt Description",
-            "description": "Description of the prompt",
+            "description": "Description of the prompt at this version",
             "examples": [
               "Prompt for a weather agent."
             ]
@@ -21300,7 +21308,7 @@
           "prompt_name": {
             "type": "string",
             "title": "Prompt Name",
-            "description": "Name of the prompt",
+            "description": "Name of the prompt at this version",
             "examples": [
               "Weather Agent Prompt"
             ]
@@ -21315,7 +21323,7 @@
               }
             ],
             "title": "Llm Config",
-            "description": "String representation of LLM config for the prompt"
+            "description": "String representation of LLM config for the prompt at this version"
           },
           "comments": {
             "anyOf": [
@@ -21327,7 +21335,7 @@
               }
             ],
             "title": "Comments",
-            "description": "Comments describing the change",
+            "description": "Comments describing the change that resulted in this version",
             "examples": [
               "Updated prompt text to include requirement to not answer questions that aren't about weather."
             ]
@@ -21335,9 +21343,26 @@
           "user_email": {
             "type": "string",
             "title": "User Email",
-            "description": "Email address of the user who made the change",
+            "description": "Email address of the user who made the change that resulted in this version",
             "examples": [
               "user@email.com"
+            ]
+          },
+          "linked_tools": {
+            "items": {
+              "$ref": "#/components/schemas/PromptHistoryLinkedTool"
+            },
+            "type": "array",
+            "title": "Linked Tools",
+            "description": "Tools that were linked to this version of the prompt",
+            "default": []
+          },
+          "is_pre_enhancements": {
+            "type": "boolean",
+            "title": "Is Pre Enhancements",
+            "description": "Whether this version of the prompt was created before history of tool-prompt linking was tracked",
+            "examples": [
+              true
             ]
           }
         },
@@ -21345,12 +21370,59 @@
         "required": [
           "timestamp",
           "prompt_id",
+          "version_number",
           "prompt_text",
           "prompt_name",
-          "user_email"
+          "user_email",
+          "is_pre_enhancements"
         ],
         "title": "PromptHistory",
-        "description": "Record of a change to a prompt. Values reflect post-change state."
+        "description": "Record of a specific version of a prompt."
+      },
+      "PromptHistoryLinkedTool": {
+        "properties": {
+          "tool_id": {
+            "type": "integer",
+            "title": "Tool Id",
+            "description": "ID of the tool",
+            "examples": [
+              1
+            ]
+          },
+          "current_tool_name": {
+            "type": "string",
+            "title": "Current Tool Name",
+            "description": "Current name of the tool (may have been different at the time the given version of the prompt was created)",
+            "examples": [
+              "hangup"
+            ]
+          },
+          "out_of_date": {
+            "type": "boolean",
+            "title": "Out Of Date",
+            "description": "Whether the tool has changed (not including being deleted) since the given version of the prompt was created",
+            "examples": [
+              false
+            ]
+          },
+          "deleted": {
+            "type": "boolean",
+            "title": "Deleted",
+            "description": "Whether the tool has been deleted since the given version of the prompt was created",
+            "examples": [
+              false
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "tool_id",
+          "current_tool_name",
+          "out_of_date",
+          "deleted"
+        ],
+        "title": "PromptHistoryLinkedTool",
+        "description": "Record of a tool linked to a previous prompt version in the prompt history."
       },
       "PromptLlmConfig": {
         "properties": {
