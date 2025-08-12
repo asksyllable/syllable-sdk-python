@@ -1837,3 +1837,13 @@ Based on:
 - [python v0.35.69] .
 ### Releases
 - [PyPI v0.35.69] https://pypi.org/project/syllable-sdk/0.35.69 - .
+
+## 2025-08-12 15:55:41
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.603.0 (2.681.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.35.70] .
+### Releases
+- [PyPI v0.35.70] https://pypi.org/project/syllable-sdk/0.35.70 - .
