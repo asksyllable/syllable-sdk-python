@@ -1437,8 +1437,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-08-14T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-08-15T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-08-17T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-08-18T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1551,8 +1551,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-08-14T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-08-15T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-08-17T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-08-18T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1882,9 +1882,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20250815.9",
+                    "batch_id": "20250818.9",
                     "campaign_id": 1,
-                    "expires_on": parse_datetime("2025-08-16T00:00:00Z"),
+                    "expires_on": parse_datetime("2025-08-19T00:00:00Z"),
                     "paused": True,
                 })
 
