@@ -46,6 +46,8 @@ class PromptResponseTypedDict(TypedDict):
     r"""Email address of the user who most recently updated the prompt"""
     agent_count: NotRequired[Nullable[int]]
     r"""The number of agents using the prompt"""
+    version_number: NotRequired[Nullable[int]]
+    r"""The version number of the current version of the prompt"""
     tools_full: NotRequired[Nullable[List[ToolResponseTypedDict]]]
     r"""Full definitions of tools to which the prompt has access"""
 
@@ -96,6 +98,9 @@ class PromptResponse(BaseModel):
     agent_count: OptionalNullable[int] = UNSET
     r"""The number of agents using the prompt"""
 
+    version_number: OptionalNullable[int] = UNSET
+    r"""The version number of the current version of the prompt"""
+
     tools_full: OptionalNullable[List[ToolResponse]] = UNSET
     r"""Full definitions of tools to which the prompt has access"""
 
@@ -108,6 +113,7 @@ class PromptResponse(BaseModel):
             "edit_comments",
             "last_updated_by",
             "agent_count",
+            "version_number",
             "tools_full",
         ]
         nullable_fields = [
@@ -117,6 +123,7 @@ class PromptResponse(BaseModel):
             "last_updated",
             "last_updated_by",
             "agent_count",
+            "version_number",
             "tools_full",
         ]
         null_default_fields = []
