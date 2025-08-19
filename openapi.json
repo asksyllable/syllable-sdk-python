@@ -21679,6 +21679,21 @@
               5
             ]
           },
+          "version_number": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version Number",
+            "description": "The version number of the current version of the prompt",
+            "examples": [
+              1
+            ]
+          },
           "tools_full": {
             "anyOf": [
               {
