@@ -8,3 +8,4 @@ class ToolAuthType(str, Enum):
     BASIC = "basic"
     BEARER = "bearer"
     CUSTOM_HEADERS = "custom_headers"
+    OAUTH2 = "oauth2"
