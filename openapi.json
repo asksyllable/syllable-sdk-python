@@ -21316,13 +21316,12 @@
           "llm_config": {
             "anyOf": [
               {
-                "type": "string"
+                "$ref": "#/components/schemas/PromptLlmConfig"
               },
               {
                 "type": "null"
               }
             ],
-            "title": "Llm Config",
             "description": "String representation of LLM config for the prompt at this version"
           },
           "comments": {
