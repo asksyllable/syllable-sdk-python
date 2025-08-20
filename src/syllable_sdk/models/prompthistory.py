@@ -5,6 +5,7 @@ from .prompthistorylinkedtool import (
     PromptHistoryLinkedTool,
     PromptHistoryLinkedToolTypedDict,
 )
+from .promptllmconfig import PromptLlmConfig, PromptLlmConfigTypedDict
 from datetime import datetime
 from pydantic import model_serializer
 from syllable_sdk.types import (
@@ -37,7 +38,7 @@ class PromptHistoryTypedDict(TypedDict):
     r"""Whether this version of the prompt was created before history of tool-prompt linking was tracked"""
     prompt_description: NotRequired[Nullable[str]]
     r"""Description of the prompt at this version"""
-    llm_config: NotRequired[Nullable[str]]
+    llm_config: NotRequired[Nullable[PromptLlmConfigTypedDict]]
     r"""String representation of LLM config for the prompt at this version"""
     comments: NotRequired[Nullable[str]]
     r"""Comments describing the change that resulted in this version"""
@@ -72,7 +73,7 @@ class PromptHistory(BaseModel):
     prompt_description: OptionalNullable[str] = UNSET
     r"""Description of the prompt at this version"""
 
-    llm_config: OptionalNullable[str] = UNSET
+    llm_config: OptionalNullable[PromptLlmConfig] = UNSET
     r"""String representation of LLM config for the prompt at this version"""
 
     comments: OptionalNullable[str] = UNSET
