@@ -68,7 +68,7 @@ actions:
                     "tool_headers": {
                         "some-header": "some-value",
                     },
-                    "stt_provider": models.AgentSttProvider.GOOGLE_STT_V2,
+                    "stt_provider": models.AgentSttProvider.GOOGLE_STT_V2_CHIRP_2_,
                     "wait_sound": models.AgentWaitSound.NO_SOUND,
                 })
 
@@ -117,7 +117,7 @@ actions:
                     "tool_headers": {
                         "some-header": "some-value",
                     },
-                    "stt_provider": models.AgentSttProvider.GOOGLE_STT_V2,
+                    "stt_provider": models.AgentSttProvider.GOOGLE_STT_V2_CHIRP_2_,
                     "wait_sound": models.AgentWaitSound.NO_SOUND,
                     "id": 1,
                 })
@@ -1437,8 +1437,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-08-21T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-08-22T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-08-24T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-08-25T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1551,8 +1551,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-08-21T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-08-22T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-08-24T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-08-25T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1882,9 +1882,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20250822.9",
+                    "batch_id": "20250825.9",
                     "campaign_id": 1,
-                    "expires_on": parse_datetime("2025-08-23T00:00:00Z"),
+                    "expires_on": parse_datetime("2025-08-26T00:00:00Z"),
                     "paused": True,
                 })
 
