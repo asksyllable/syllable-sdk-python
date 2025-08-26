@@ -26,7 +26,7 @@ class ServiceUpdateRequestTypedDict(TypedDict):
     auth_type: NotRequired[Nullable[ToolAuthType]]
     r"""The type of authentication to use for the service's tools"""
     auth_values: NotRequired[Nullable[Any]]
-    r"""The values to use for the authentication, as a dict. Should contain \"username\" and \"password\" keys if auth type is basic, \"token\" key if auth type is bearer, or arbitrary header keys if auth type is custom_headers. On an update, leave a value for a given key null and the value in the database will not be updated. (If a key is omitted entirely, any existing value for that key will be removed.)"""
+    r"""The values to use for the authentication, as a dict. Should contain \"username\" and \"password\" keys if auth type is basic, \"token\" key if auth type is bearer, arbitrary header keys if auth type is custom_headers. or \"client_id\", \"client_secret\", and \"auth_url\" keys if auth type is oauth2. On an update, leave a value for a given key null and the value in the database will not be updated. (If a key is omitted entirely, any existing value for that key will be removed.)"""
     last_updated_comments: NotRequired[Nullable[str]]
     r"""Free text providing comment about what was updated"""
 
@@ -47,7 +47,7 @@ class ServiceUpdateRequest(BaseModel):
     r"""The type of authentication to use for the service's tools"""
 
     auth_values: OptionalNullable[Any] = UNSET
-    r"""The values to use for the authentication, as a dict. Should contain \"username\" and \"password\" keys if auth type is basic, \"token\" key if auth type is bearer, or arbitrary header keys if auth type is custom_headers. On an update, leave a value for a given key null and the value in the database will not be updated. (If a key is omitted entirely, any existing value for that key will be removed.)"""
+    r"""The values to use for the authentication, as a dict. Should contain \"username\" and \"password\" keys if auth type is basic, \"token\" key if auth type is bearer, arbitrary header keys if auth type is custom_headers. or \"client_id\", \"client_secret\", and \"auth_url\" keys if auth type is oauth2. On an update, leave a value for a given key null and the value in the database will not be updated. (If a key is omitted entirely, any existing value for that key will be removed.)"""
 
     last_updated_comments: OptionalNullable[str] = UNSET
     r"""Free text providing comment about what was updated"""
