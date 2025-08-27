@@ -23,15 +23,17 @@ class InsightsSDK(BaseSDK):
     tools: InsightsTools
     r"""Operations related to insights tool configurationss. An insight is a tool           that processes conversation data to extract information and generate reports."""
 
-    def __init__(self, sdk_config: SDKConfiguration) -> None:
-        BaseSDK.__init__(self, sdk_config)
+    def __init__(
+        self, sdk_config: SDKConfiguration, parent_ref: Optional[object] = None
+    ) -> None:
+        BaseSDK.__init__(self, sdk_config, parent_ref=parent_ref)
         self.sdk_configuration = sdk_config
         self._init_sdks()
 
     def _init_sdks(self):
-        self.folders = Folders(self.sdk_configuration)
-        self.workflows = Workflows(self.sdk_configuration)
-        self.tools = InsightsTools(self.sdk_configuration)
+        self.folders = Folders(self.sdk_configuration, parent_ref=self.parent_ref)
+        self.workflows = Workflows(self.sdk_configuration, parent_ref=self.parent_ref)
+        self.tools = InsightsTools(self.sdk_configuration, parent_ref=self.parent_ref)
 
     def list(
         self,
