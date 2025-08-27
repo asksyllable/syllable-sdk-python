@@ -112,7 +112,7 @@ with SyllableSDK(
         "tool_headers": {
             "some-header": "some-value",
         },
-        "stt_provider": models.AgentSttProvider.GOOGLE_STT_V2_CHIRP_2_,
+        "stt_provider": models.AgentSttProvider.GOOGLE_STT_V2,
         "wait_sound": models.AgentWaitSound.NO_SOUND,
     })
 
@@ -184,7 +184,7 @@ with SyllableSDK(
         "tool_headers": {
             "some-header": "some-value",
         },
-        "stt_provider": models.AgentSttProvider.GOOGLE_STT_V2_CHIRP_2_,
+        "stt_provider": models.AgentSttProvider.GOOGLE_STT_V2,
         "wait_sound": models.AgentWaitSound.NO_SOUND,
         "id": 1,
     })
