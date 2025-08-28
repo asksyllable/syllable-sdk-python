@@ -6886,6 +6886,8 @@ components:
             - type: "null"
           description: "Speech-to-text provider for the agent."
           examples:
+            - "Google STT V2 (Chirp 2)"
+            - "Deepgram Nova 3"
             - "Google STT V2"
             - "Google STT V1"
             - "Deepgram Nova 2"
@@ -7064,6 +7066,8 @@ components:
           title: "Stt Provider"
           description: "Speech-to-text provider for the agent."
           examples:
+            - "Google STT V2 (Chirp 2)"
+            - "Deepgram Nova 3"
             - "Google STT V2"
             - "Google STT V1"
             - "Deepgram Nova 2"
@@ -7145,6 +7149,8 @@ components:
     "AgentSttProvider":
       type: "string"
       enum:
+        - "Google STT V2 (Chirp 2)"
+        - "Deepgram Nova 3"
         - "Google STT V2"
         - "Google STT V1"
         - "Deepgram Nova 2"
@@ -7305,6 +7311,8 @@ components:
             - type: "null"
           description: "Speech-to-text provider for the agent."
           examples:
+            - "Google STT V2 (Chirp 2)"
+            - "Deepgram Nova 3"
             - "Google STT V2"
             - "Google STT V1"
             - "Deepgram Nova 2"
