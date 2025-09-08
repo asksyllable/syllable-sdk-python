@@ -23,6 +23,12 @@ class TelephonyConfigurationsTypedDict(TypedDict):
     r"""Total input timeout"""
     output_padding: NotRequired[Nullable[float]]
     r"""Number of seconds to start listening to user input before assistant speech ends"""
+    interruptibility: NotRequired[Nullable[str]]
+    r"""Interruptibility setting for user input.Valid values: none, dtmf_only, speech_only, all"""
+    passive_speech_input_enabled: NotRequired[Nullable[bool]]
+    r"""Whether passive speech input is enabled (input while assistant is speaking)"""
+    passive_input_start: NotRequired[Nullable[float]]
+    r"""Waiting time to start passive input (in seconds) after start of assistant speech"""
 
 
 class TelephonyConfigurations(BaseModel):
@@ -41,6 +47,15 @@ class TelephonyConfigurations(BaseModel):
     output_padding: OptionalNullable[float] = UNSET
     r"""Number of seconds to start listening to user input before assistant speech ends"""
 
+    interruptibility: OptionalNullable[str] = UNSET
+    r"""Interruptibility setting for user input.Valid values: none, dtmf_only, speech_only, all"""
+
+    passive_speech_input_enabled: OptionalNullable[bool] = UNSET
+    r"""Whether passive speech input is enabled (input while assistant is speaking)"""
+
+    passive_input_start: OptionalNullable[float] = UNSET
+    r"""Waiting time to start passive input (in seconds) after start of assistant speech"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -49,6 +64,9 @@ class TelephonyConfigurations(BaseModel):
             "post_dtmf_input_timeout",
             "overall_input_timeout",
             "output_padding",
+            "interruptibility",
+            "passive_speech_input_enabled",
+            "passive_input_start",
         ]
         nullable_fields = [
             "pre_input_timeout",
@@ -56,6 +74,9 @@ class TelephonyConfigurations(BaseModel):
             "post_dtmf_input_timeout",
             "overall_input_timeout",
             "output_padding",
+            "interruptibility",
+            "passive_speech_input_enabled",
+            "passive_input_start",
         ]
         null_default_fields = []
 

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 8e4144acdd43d561fd0adf239f10c540
+  docChecksum: 7d684d1b2d8814dd3be98996f4a6c82e
   docVersion: 0.0.2
   speakeasyVersion: 1.612.1
   generationVersion: 2.695.1
-  releaseVersion: 0.36.6
-  configChecksum: f50a9e5a6977093fda500b2b475222b4
+  releaseVersion: 0.36.7
+  configChecksum: 949f012a0ed356b636ec7b4c9b03f4e8
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -883,7 +883,7 @@ examples:
           channel_id: 627671
       responses:
         "200":
-          application/json: {"name": "syllable-webchat", "channel_service": "sip", "supported_modes": "chat,voice", "is_system_channel": false, "id": 730258, "config": {"telephony": {"pre_input_timeout": 1.2, "overall_input_timeout": 20}}}
+          application/json: {"name": "syllable-webchat", "channel_service": "sip", "supported_modes": "chat,voice", "is_system_channel": false, "id": 730258, "config": {"telephony": {"pre_input_timeout": 1.2, "overall_input_timeout": 20, "interruptibility": "dtmf_only", "passive_speech_input_enabled": true, "passive_input_start": 0.5}}}
         "422":
           application/json: {}
   channels_twilio_update:
@@ -892,7 +892,7 @@ examples:
         application/json: {"id": 1, "name": "syllable-webchat", "config": {"account_sid": "AC123...", "auth_token": "sometoken"}}
       responses:
         "200":
-          application/json: {"name": "syllable-webchat", "channel_service": "sip", "supported_modes": "chat,voice", "is_system_channel": false, "id": 964580, "config": {"telephony": {"pre_input_timeout": 1.2, "overall_input_timeout": 20}}}
+          application/json: {"name": "syllable-webchat", "channel_service": "sip", "supported_modes": "chat,voice", "is_system_channel": false, "id": 964580, "config": {"telephony": {"pre_input_timeout": 1.2, "overall_input_timeout": 20, "interruptibility": "dtmf_only", "passive_speech_input_enabled": true, "passive_input_start": 0.5}}}
         "422":
           application/json: {}
   channels_twilio_create:
@@ -901,7 +901,7 @@ examples:
         application/json: {"name": "syllable-webchat", "config": {"account_sid": "AC123...", "auth_token": "sometoken"}}
       responses:
         "200":
-          application/json: {"name": "syllable-webchat", "channel_service": "twilio", "supported_modes": "chat,voice", "is_system_channel": false, "id": 402205, "config": {"telephony": {"pre_input_timeout": 1.2, "overall_input_timeout": 20}}}
+          application/json: {"name": "syllable-webchat", "channel_service": "twilio", "supported_modes": "chat,voice", "is_system_channel": false, "id": 402205, "config": {"telephony": {"pre_input_timeout": 1.2, "overall_input_timeout": 20, "interruptibility": "dtmf_only", "passive_speech_input_enabled": true, "passive_input_start": 0.5}}}
         "422":
           application/json: {}
   channels_twilio_numbers_add:
@@ -2251,20 +2251,21 @@ examples:
   channels_create:
     speakeasy-default-channels-create:
       requestBody:
-        application/json: {"name": "twilio", "channel_service": "sip", "supported_modes": "chat,voice", "is_system_channel": false, "config": {"account_sid": "AC123...", "auth_token": "sometoken", "telephony": {"pre_input_timeout": 1.2, "overall_input_timeout": 20}}}
+        application/json: {"name": "twilio", "channel_service": "sip", "supported_modes": "chat,voice", "is_system_channel": false, "config": {"account_sid": "AC123...", "auth_token": "sometoken", "telephony": {"pre_input_timeout": 1.2, "overall_input_timeout": 20, "interruptibility": "dtmf_only", "passive_speech_input_enabled": true, "passive_input_start": 0.5}}}
       responses:
         "200":
-          application/json: {"name": "syllable-webchat", "channel_service": "twilio", "supported_modes": "chat,voice", "is_system_channel": false, "id": 354216, "config": {"telephony": {"pre_input_timeout": 1.2, "overall_input_timeout": 20}}}
+          application/json: {"name": "syllable-webchat", "channel_service": "twilio", "supported_modes": "chat,voice", "is_system_channel": false, "id": 354216, "config": {"telephony": {"pre_input_timeout": 1.2, "overall_input_timeout": 20, "interruptibility": "dtmf_only", "passive_speech_input_enabled": true, "passive_input_start": 0.5}}}
         "422":
           application/json: {}
   channels_update:
     speakeasy-default-channels-update:
       requestBody:
-        application/json: {"name": "twilio", "channel_service": "sip", "supported_modes": "chat,voice", "is_system_channel": false, "config": {"account_sid": "AC123...", "auth_token": "sometoken", "telephony": {"pre_input_timeout": 1.2, "overall_input_timeout": 20}}, "id": 1}
+        application/json: {"name": "twilio", "channel_service": "sip", "supported_modes": "chat,voice", "is_system_channel": false, "config": {"account_sid": "AC123...", "auth_token": "sometoken", "telephony": {"pre_input_timeout": 1.2, "overall_input_timeout": 20, "interruptibility": "dtmf_only", "passive_speech_input_enabled": true, "passive_input_start": 0.5}}, "id": 1}
       responses:
         "200":
-          application/json: {"name": "syllable-webchat", "channel_service": "twilio", "supported_modes": "chat,voice", "is_system_channel": false, "id": 769881, "config": {"telephony": {"pre_input_timeout": 1.2, "overall_input_timeout": 20}}}
+          application/json: {"name": "syllable-webchat", "channel_service": "twilio", "supported_modes": "chat,voice", "is_system_channel": false, "id": 769881, "config": {"telephony": {"pre_input_timeout": 1.2, "overall_input_timeout": 20, "interruptibility": "dtmf_only", "passive_speech_input_enabled": true, "passive_input_start": 0.5}}}
         "422":
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Python SDK Changes Detected:\n* `syllable_sdk.channels.list()`:  `response.items.[].config.telephony` **Changed**\n* `syllable_sdk.channels.create()`: \n  *  `request.config.telephony` **Changed**\n  *  `response.config.telephony` **Changed**\n* `syllable_sdk.channels.update()`: \n  *  `request.config.telephony` **Changed**\n  *  `response.config.telephony` **Changed**\n* `syllable_sdk.channels.twilio.get_by_id()`:  `response.config.telephony` **Changed**\n* `syllable_sdk.channels.twilio.update()`:  `response.config.telephony` **Changed**\n* `syllable_sdk.channels.twilio.create()`:  `response.config.telephony` **Changed**\n"

@@ -7973,7 +7973,7 @@ components:
             - type: "null"
           description: "Configuration for the channel"
           examples:
-            - {"telephony": {"overall_input_timeout": 20, "pre_input_timeout": 1.2}}
+            - {"telephony": {"interruptibility": "dtmf_only", "overall_input_timeout": 20, "passive_input_start": 0.5, "passive_speech_input_enabled": true, "pre_input_timeout": 1.2}}
       type: "object"
       required:
         - "name"
@@ -7988,7 +7988,7 @@ components:
             - type: "null"
           description: "Telephony configurations to be applied to targets belonging to the channel.       Only applies to voice supported channels."
           examples:
-            - {"overall_input_timeout": 20, "pre_input_timeout": 1.2}
+            - {"interruptibility": "dtmf_only", "overall_input_timeout": 20, "passive_input_start": 0.5, "passive_speech_input_enabled": true, "pre_input_timeout": 1.2}
       type: "object"
       title: "ChannelConfigView"
     "ChannelProperties":
@@ -12280,7 +12280,7 @@ components:
             - type: "null"
           description: "Telephony configurations to be applied to the targets under the channel"
           examples:
-            - {"overall_input_timeout": 20, "pre_input_timeout": 1.2}
+            - {"interruptibility": "dtmf_only", "overall_input_timeout": 20, "passive_input_start": 0.5, "passive_speech_input_enabled": true, "pre_input_timeout": 1.2}
       type: "object"
       title: "OrganizationChannelConfig"
       description: "Channel config information for creates / updates through the organizations API"
@@ -12308,7 +12308,7 @@ components:
           default: true
           examples:
             - false
-        "config": {"$ref": "#/components/schemas/OrganizationChannelConfig", "description": "The configuration of the channel", "examples": [{"account_sid": "AC123", "auth_token": "sometoken", "telephony": {"pre_input_timeout": 3}}]}
+        "config": {"$ref": "#/components/schemas/OrganizationChannelConfig", "description": "The configuration of the channel", "examples": [{"account_sid": "AC123", "auth_token": "sometoken", "telephony": {"interruptibility": "dtmf_only", "passive_input_start": 0.5, "passive_speech_input_enabled": true, "pre_input_timeout": 3}}]}
       type: "object"
       required:
         - "name"
@@ -12340,7 +12340,7 @@ components:
           default: true
           examples:
             - false
-        "config": {"$ref": "#/components/schemas/OrganizationChannelConfig", "description": "The configuration of the channel", "examples": [{"account_sid": "AC123", "auth_token": "sometoken", "telephony": {"pre_input_timeout": 3}}]}
+        "config": {"$ref": "#/components/schemas/OrganizationChannelConfig", "description": "The configuration of the channel", "examples": [{"account_sid": "AC123", "auth_token": "sometoken", "telephony": {"interruptibility": "dtmf_only", "passive_input_start": 0.5, "passive_speech_input_enabled": true, "pre_input_timeout": 3}}]}
         "id":
           type: "integer"
           title: "Id"
@@ -14187,6 +14187,26 @@ components:
             - type: "null"
           title: "Output Padding"
           description: "Number of seconds to start listening to user input before assistant speech ends"
+        "interruptibility":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Interruptibility"
+          description: "Interruptibility setting for user input.Valid values: none, dtmf_only, speech_only, all"
+        "passive_speech_input_enabled":
+          anyOf:
+            - type: "boolean"
+            - type: "null"
+          title: "Passive Speech Input Enabled"
+          description: "Whether passive speech input is enabled (input while assistant is speaking)"
+        "passive_input_start":
+          anyOf:
+            - type: "number"
+              maximum: 5
+              minimum: 0
+            - type: "null"
+          title: "Passive Input Start"
+          description: "Waiting time to start passive input (in seconds) after start of assistant speech"
       type: "object"
       title: "TelephonyConfigurations"
     "TestMessage":
