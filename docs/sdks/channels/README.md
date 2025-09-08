@@ -92,6 +92,9 @@ with SyllableSDK(
             "telephony": {
                 "pre_input_timeout": 1.2,
                 "overall_input_timeout": 20,
+                "interruptibility": "dtmf_only",
+                "passive_speech_input_enabled": True,
+                "passive_input_start": 0.5,
             },
         },
     })
@@ -146,6 +149,9 @@ with SyllableSDK(
             "telephony": {
                 "pre_input_timeout": 1.2,
                 "overall_input_timeout": 20,
+                "interruptibility": "dtmf_only",
+                "passive_speech_input_enabled": True,
+                "passive_input_start": 0.5,
             },
         },
         "id": 1,
