@@ -13520,7 +13520,10 @@
             "examples": [
               {
                 "telephony": {
+                  "interruptibility": "dtmf_only",
                   "overall_input_timeout": 20.0,
+                  "passive_input_start": 0.5,
+                  "passive_speech_input_enabled": true,
                   "pre_input_timeout": 1.2
                 }
               }
@@ -13549,7 +13552,10 @@
             "description": "Telephony configurations to be applied to targets belonging to the channel.       Only applies to voice supported channels.",
             "examples": [
               {
+                "interruptibility": "dtmf_only",
                 "overall_input_timeout": 20.0,
+                "passive_input_start": 0.5,
+                "passive_speech_input_enabled": true,
                 "pre_input_timeout": 1.2
               }
             ]
@@ -20395,7 +20401,10 @@
             "description": "Telephony configurations to be applied to the targets under the channel",
             "examples": [
               {
+                "interruptibility": "dtmf_only",
                 "overall_input_timeout": 20.0,
+                "passive_input_start": 0.5,
+                "passive_speech_input_enabled": true,
                 "pre_input_timeout": 1.2
               }
             ]
@@ -20454,6 +20463,9 @@
                 "account_sid": "AC123",
                 "auth_token": "sometoken",
                 "telephony": {
+                  "interruptibility": "dtmf_only",
+                  "passive_input_start": 0.5,
+                  "passive_speech_input_enabled": true,
                   "pre_input_timeout": 3.0
                 }
               }
@@ -20518,6 +20530,9 @@
                 "account_sid": "AC123",
                 "auth_token": "sometoken",
                 "telephony": {
+                  "interruptibility": "dtmf_only",
+                  "passive_input_start": 0.5,
+                  "passive_speech_input_enabled": true,
                   "pre_input_timeout": 3.0
                 }
               }
@@ -23486,6 +23501,44 @@
             ],
             "title": "Output Padding",
             "description": "Number of seconds to start listening to user input before assistant speech ends"
+          },
+          "interruptibility": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Interruptibility",
+            "description": "Interruptibility setting for user input.Valid values: none, dtmf_only, speech_only, all"
+          },
+          "passive_speech_input_enabled": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Passive Speech Input Enabled",
+            "description": "Whether passive speech input is enabled (input while assistant is speaking)"
+          },
+          "passive_input_start": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 5.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Passive Input Start",
+            "description": "Waiting time to start passive input (in seconds) after start of assistant speech"
           }
         },
         "type": "object",
