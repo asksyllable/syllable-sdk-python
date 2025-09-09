@@ -11,6 +11,7 @@ class CampaignProperties(str, Enum):
     DAILY_START_TIME = "daily_start_time"
     DAILY_END_TIME = "daily_end_time"
     SOURCE = "source"
+    MODE = "mode"
     CALLER_ID = "caller_id"
     UPDATED_AT = "updated_at"
     LABEL = "label"
