@@ -31,6 +31,10 @@ class OutboundCampaignTypedDict(TypedDict):
     r"""Email of user who last updated campaign"""
     description: NotRequired[Nullable[str]]
     r"""Description of campaign"""
+    mode: NotRequired[Nullable[str]]
+    r"""Mode of the campaign (e.g. voice, sms)"""
+    sms_session_ttl: NotRequired[Nullable[int]]
+    r"""Time to live for SMS session in minutes"""
     label: NotRequired[Nullable[str]]
     r"""Label for campaign (DEPRECATED - use labels instead)"""
     labels: NotRequired[Nullable[List[str]]]
@@ -77,6 +81,12 @@ class OutboundCampaign(BaseModel):
     description: OptionalNullable[str] = UNSET
     r"""Description of campaign"""
 
+    mode: OptionalNullable[str] = UNSET
+    r"""Mode of the campaign (e.g. voice, sms)"""
+
+    sms_session_ttl: OptionalNullable[int] = UNSET
+    r"""Time to live for SMS session in minutes"""
+
     label: Annotated[
         OptionalNullable[str],
         pydantic.Field(
@@ -119,6 +129,8 @@ class OutboundCampaign(BaseModel):
     def serialize_model(self, handler):
         optional_fields = [
             "description",
+            "mode",
+            "sms_session_ttl",
             "label",
             "labels",
             "daily_start_time",
@@ -133,6 +145,8 @@ class OutboundCampaign(BaseModel):
         ]
         nullable_fields = [
             "description",
+            "mode",
+            "sms_session_ttl",
             "label",
             "labels",
             "daily_start_time",
