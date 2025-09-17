@@ -71,6 +71,7 @@ with SyllableSDK(
         "display_name": "My Great Org",
         "description": "An organization that does great things with agentic AI",
         "domains": "mygreatorg.com,mygreatorg.org",
+        "saml_provider_id": "saml.syllablesso",
         "update_comments": "Updated the organization to add a new domain",
     })
 
@@ -121,6 +122,7 @@ with SyllableSDK(
         "display_name": "My Great Org",
         "description": "An organization that does great things with agentic AI",
         "domains": "mygreatorg.com,mygreatorg.org",
+        "saml_provider_id": "saml.syllablesso",
     })
 
     # Handle response

@@ -49,6 +49,8 @@ class BodyOrganizationsCreateTypedDict(TypedDict):
     r"""Description of the organization"""
     domains: NotRequired[Nullable[str]]
     r"""Comma-delimited list of domains that users at the organization may have in their email addresses"""
+    saml_provider_id: NotRequired[Nullable[str]]
+    r"""SAML provider ID for user authentication"""
 
 
 class BodyOrganizationsCreate(BaseModel):
@@ -67,10 +69,15 @@ class BodyOrganizationsCreate(BaseModel):
     domains: Annotated[OptionalNullable[str], FieldMetadata(multipart=True)] = UNSET
     r"""Comma-delimited list of domains that users at the organization may have in their email addresses"""
 
+    saml_provider_id: Annotated[
+        OptionalNullable[str], FieldMetadata(multipart=True)
+    ] = UNSET
+    r"""SAML provider ID for user authentication"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["description", "domains"]
-        nullable_fields = ["description", "domains"]
+        optional_fields = ["description", "domains", "saml_provider_id"]
+        nullable_fields = ["description", "domains", "saml_provider_id"]
         null_default_fields = []
 
         serialized = handler(self)
