@@ -26,6 +26,8 @@ class OrganizationResponseTypedDict(TypedDict):
     r"""Description of the organization."""
     domains: NotRequired[Nullable[str]]
     r"""Comma-delimited list of domains that users at the organization may have in their email addresses."""
+    saml_provider_id: NotRequired[Nullable[str]]
+    r"""SAML provider ID for user authentication"""
     last_updated_comments: NotRequired[Nullable[str]]
     r"""Comments for the most recent edit to the organization."""
     last_updated_by: NotRequired[Nullable[str]]
@@ -53,6 +55,9 @@ class OrganizationResponse(BaseModel):
     domains: OptionalNullable[str] = UNSET
     r"""Comma-delimited list of domains that users at the organization may have in their email addresses."""
 
+    saml_provider_id: OptionalNullable[str] = UNSET
+    r"""SAML provider ID for user authentication"""
+
     last_updated_comments: OptionalNullable[str] = UNSET
     r"""Comments for the most recent edit to the organization."""
 
@@ -67,6 +72,7 @@ class OrganizationResponse(BaseModel):
         optional_fields = [
             "description",
             "domains",
+            "saml_provider_id",
             "last_updated_comments",
             "last_updated_by",
             "logo_url",
@@ -74,6 +80,7 @@ class OrganizationResponse(BaseModel):
         nullable_fields = [
             "description",
             "domains",
+            "saml_provider_id",
             "last_updated_comments",
             "last_updated_by",
             "logo_url",

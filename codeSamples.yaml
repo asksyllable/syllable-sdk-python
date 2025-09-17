@@ -1443,8 +1443,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-09-10T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-09-11T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-09-16T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-09-17T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1557,8 +1557,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-09-10T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-09-11T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-09-16T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-09-17T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1823,6 +1823,7 @@ actions:
                     "display_name": "My Great Org",
                     "description": "An organization that does great things with agentic AI",
                     "domains": "mygreatorg.com,mygreatorg.org",
+                    "saml_provider_id": "saml.syllablesso",
                 })
 
                 # Handle response
@@ -1845,6 +1846,7 @@ actions:
                     "display_name": "My Great Org",
                     "description": "An organization that does great things with agentic AI",
                     "domains": "mygreatorg.com,mygreatorg.org",
+                    "saml_provider_id": "saml.syllablesso",
                     "update_comments": "Updated the organization to add a new domain",
                 })
 
@@ -1888,9 +1890,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20250911.9",
+                    "batch_id": "20250917.9",
                     "campaign_id": 1,
-                    "expires_on": parse_datetime("2025-09-12T00:00:00Z"),
+                    "expires_on": parse_datetime("2025-09-18T00:00:00Z"),
                     "paused": True,
                 })
 
