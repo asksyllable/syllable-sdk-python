@@ -22640,7 +22640,19 @@
               }
             ],
             "title": "Prompt Version",
-            "description": "Version of the prompt used by the agent with which the session occurred"
+            "description": "Legacy prompt version timestamp used by the agent with which the session occurred"
+          },
+          "prompt_version_number": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt Version Number",
+            "description": "Prompt version number used by the agent with which the session occurred (new system)"
           },
           "duration": {
             "anyOf": [
