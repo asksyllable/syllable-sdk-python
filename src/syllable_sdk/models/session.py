@@ -41,7 +41,9 @@ class SessionTypedDict(TypedDict):
     prompt_name: NotRequired[Nullable[str]]
     r"""Name of the prompt used by the agent with which the session occurred"""
     prompt_version: NotRequired[Nullable[str]]
-    r"""Version of the prompt used by the agent with which the session occurred"""
+    r"""Legacy prompt version timestamp used by the agent with which the session occurred"""
+    prompt_version_number: NotRequired[Nullable[int]]
+    r"""Prompt version number used by the agent with which the session occurred (new system)"""
     duration: NotRequired[Nullable[float]]
     r"""Duration of the session in seconds"""
     session_label_id: NotRequired[Nullable[str]]
@@ -96,7 +98,10 @@ class Session(BaseModel):
     r"""Name of the prompt used by the agent with which the session occurred"""
 
     prompt_version: OptionalNullable[str] = UNSET
-    r"""Version of the prompt used by the agent with which the session occurred"""
+    r"""Legacy prompt version timestamp used by the agent with which the session occurred"""
+
+    prompt_version_number: OptionalNullable[int] = UNSET
+    r"""Prompt version number used by the agent with which the session occurred (new system)"""
 
     duration: OptionalNullable[float] = UNSET
     r"""Duration of the session in seconds"""
@@ -131,6 +136,7 @@ class Session(BaseModel):
             "prompt_id",
             "prompt_name",
             "prompt_version",
+            "prompt_version_number",
             "duration",
             "session_label_id",
             "source",
@@ -151,6 +157,7 @@ class Session(BaseModel):
             "prompt_id",
             "prompt_name",
             "prompt_version",
+            "prompt_version_number",
             "duration",
             "session_label_id",
             "source",
