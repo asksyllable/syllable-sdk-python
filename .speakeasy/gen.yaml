@@ -25,13 +25,14 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 python:
-  version: 0.36.17
+  version: 0.37.0
   additionalDependencies:
     dev: {}
     main: {}
   allowedRedefinedBuiltins:
     - id
     - object
+  asyncMode: both
   authors:
     - Syllable
   baseErrorName: SyllableSDKError
