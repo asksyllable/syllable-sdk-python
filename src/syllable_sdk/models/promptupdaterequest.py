@@ -31,6 +31,8 @@ class PromptUpdateRequestTypedDict(TypedDict):
     r"""The prompt text that will be sent to the LLM at the beginning of the conversation"""
     tools: NotRequired[List[str]]
     r"""Names of tools to which the prompt has access"""
+    session_end_enabled: NotRequired[bool]
+    r"""Whether session end functionality is enabled for this prompt"""
     edit_comments: NotRequired[Nullable[str]]
     r"""The comments for the most recent edit to the prompt"""
     include_default_tools: NotRequired[bool]
@@ -61,6 +63,9 @@ class PromptUpdateRequest(BaseModel):
     tools: Optional[List[str]] = None
     r"""Names of tools to which the prompt has access"""
 
+    session_end_enabled: Optional[bool] = False
+    r"""Whether session end functionality is enabled for this prompt"""
+
     edit_comments: OptionalNullable[str] = UNSET
     r"""The comments for the most recent edit to the prompt"""
 
@@ -73,6 +78,7 @@ class PromptUpdateRequest(BaseModel):
             "description",
             "context",
             "tools",
+            "session_end_enabled",
             "edit_comments",
             "include_default_tools",
         ]
