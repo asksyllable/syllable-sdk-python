@@ -12,5 +12,5 @@ class ToolProperties(str, Enum):
     SERVICE_NAME = "service_name"
     DEFINITION = "definition"
     SERVICE_ID = "service_id"
-    UPDATED_AT = "updated_at"
+    LAST_UPDATED = "last_updated"
     LAST_UPDATED_BY = "last_updated_by"
