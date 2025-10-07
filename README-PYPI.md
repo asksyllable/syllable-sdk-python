@@ -397,6 +397,10 @@ with SyllableSDK(
 * [prompts_history](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/prompts/README.md#prompts_history) - Get Prompt History
 * [prompt_get_supported_llms](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/prompts/README.md#prompt_get_supported_llms) - Get Supported Llm Configs
 
+### [pronunciations](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/pronunciations/README.md)
+
+* [pronunciations_upload_csv](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/pronunciations/README.md#pronunciations_upload_csv) - Upload Pronunciations Csv
+
 ### [roles](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/roles/README.md)
 
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/roles/README.md#list) - List Roles

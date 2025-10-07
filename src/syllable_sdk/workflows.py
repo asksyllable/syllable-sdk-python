@@ -98,7 +98,7 @@ class Workflows(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -213,7 +213,7 @@ class Workflows(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -309,7 +309,7 @@ class Workflows(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -403,7 +403,7 @@ class Workflows(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -492,7 +492,7 @@ class Workflows(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -581,7 +581,7 @@ class Workflows(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -684,7 +684,7 @@ class Workflows(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -787,7 +787,7 @@ class Workflows(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -876,7 +876,7 @@ class Workflows(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_delete",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -965,7 +965,7 @@ class Workflows(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_delete",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1054,7 +1054,7 @@ class Workflows(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_inactivate",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1143,7 +1143,7 @@ class Workflows(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_inactivate",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1246,7 +1246,7 @@ class Workflows(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_activate",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1349,7 +1349,7 @@ class Workflows(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_activate",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1444,7 +1444,7 @@ class Workflows(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_queue_work",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1539,7 +1539,7 @@ class Workflows(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_workflow_queue_work",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

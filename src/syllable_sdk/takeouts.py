@@ -64,7 +64,7 @@ class Takeouts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="takeouts_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -138,7 +138,7 @@ class Takeouts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="takeouts_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -219,7 +219,7 @@ class Takeouts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="takeouts_get_by_job_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -306,7 +306,7 @@ class Takeouts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="takeouts_get_by_job_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -396,7 +396,7 @@ class Takeouts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="takeouts_get_file",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -489,7 +489,7 @@ class Takeouts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="takeouts_get_file",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

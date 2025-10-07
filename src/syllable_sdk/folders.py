@@ -97,7 +97,7 @@ class Folders(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -208,7 +208,7 @@ class Folders(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -298,7 +298,7 @@ class Folders(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -388,7 +388,7 @@ class Folders(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -475,7 +475,7 @@ class Folders(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -562,7 +562,7 @@ class Folders(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -649,7 +649,7 @@ class Folders(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_delete",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -736,7 +736,7 @@ class Folders(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_delete",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -837,7 +837,7 @@ class Folders(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -938,7 +938,7 @@ class Folders(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1064,7 +1064,7 @@ class Folders(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_upload_file",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1190,7 +1190,7 @@ class Folders(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_folder_upload_file",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1304,7 +1304,7 @@ class Folders(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_upload_list_files",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1420,7 +1420,7 @@ class Folders(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_upload_list_files",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1523,7 +1523,7 @@ class Folders(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_upload_move_files",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1624,7 +1624,7 @@ class Folders(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_upload_move_files",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

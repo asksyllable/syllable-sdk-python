@@ -3,27 +3,28 @@
 from .basesdk import BaseSDK
 from syllable_sdk import errors, models, utils
 from syllable_sdk._hooks import HookContext
-from syllable_sdk.types import OptionalNullable, UNSET
+from syllable_sdk.types import BaseModel, OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
 from syllable_sdk.utils.unmarshal_json_response import unmarshal_json_response
-from typing import List, Mapping, Optional
+from typing import Any, Mapping, Optional, Union, cast
 
 
-class Permissions(BaseSDK):
-    r"""Operations related to permissions. A permission is a specific           capability or access level granted to a user within the Syllable system.           Permissions are used to control access to various features and functionalities."""
-
-    def list(
+class Pronunciations(BaseSDK):
+    def pronunciations_upload_csv(
         self,
         *,
+        request: Union[
+            models.BodyPronunciationsUploadCsv,
+            models.BodyPronunciationsUploadCsvTypedDict,
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.PermissionGroupResponse]:
-        r"""List Permissions
+    ) -> models.PronunciationsCsvUploadResponse:
+        r"""Upload Pronunciations Csv
 
-        Get all available permissions in the system.
-
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -38,19 +39,27 @@ class Permissions(BaseSDK):
             base_url = server_url
         else:
             base_url = self._get_url(base_url, url_variables)
+
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.BodyPronunciationsUploadCsv)
+        request = cast(models.BodyPronunciationsUploadCsv, request)
+
         req = self._build_request(
-            method="GET",
-            path="/api/v1/permissions/",
+            method="POST",
+            path="/api/v1/pronunciations/csv",
             base_url=base_url,
             url_variables=url_variables,
-            request=None,
-            request_body_required=False,
+            request=request,
+            request_body_required=True,
             request_has_path_params=False,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request, False, False, "multipart", models.BodyPronunciationsUploadCsv
+            ),
             timeout_ms=timeout_ms,
         )
 
@@ -66,21 +75,27 @@ class Permissions(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="permissions_list",
+                operation_id="pronunciations_upload_csv",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            error_status_codes=["422", "4XX", "5XX"],
             retry_config=retry_config,
         )
 
-        if utils.match_response(http_res, "200", "application/json"):
+        response_data: Any = None
+        if utils.match_response(http_res, "202", "application/json"):
             return unmarshal_json_response(
-                List[models.PermissionGroupResponse], http_res
+                models.PronunciationsCsvUploadResponse, http_res
             )
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise errors.APIError("API error occurred", http_res, http_res_text)
@@ -90,18 +105,21 @@ class Permissions(BaseSDK):
 
         raise errors.APIError("Unexpected response received", http_res)
 
-    async def list_async(
+    async def pronunciations_upload_csv_async(
         self,
         *,
+        request: Union[
+            models.BodyPronunciationsUploadCsv,
+            models.BodyPronunciationsUploadCsvTypedDict,
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.PermissionGroupResponse]:
-        r"""List Permissions
+    ) -> models.PronunciationsCsvUploadResponse:
+        r"""Upload Pronunciations Csv
 
-        Get all available permissions in the system.
-
+        :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -116,19 +134,27 @@ class Permissions(BaseSDK):
             base_url = server_url
         else:
             base_url = self._get_url(base_url, url_variables)
+
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.BodyPronunciationsUploadCsv)
+        request = cast(models.BodyPronunciationsUploadCsv, request)
+
         req = self._build_request_async(
-            method="GET",
-            path="/api/v1/permissions/",
+            method="POST",
+            path="/api/v1/pronunciations/csv",
             base_url=base_url,
             url_variables=url_variables,
-            request=None,
-            request_body_required=False,
+            request=request,
+            request_body_required=True,
             request_has_path_params=False,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request, False, False, "multipart", models.BodyPronunciationsUploadCsv
+            ),
             timeout_ms=timeout_ms,
         )
 
@@ -144,21 +170,27 @@ class Permissions(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="permissions_list",
+                operation_id="pronunciations_upload_csv",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            error_status_codes=["422", "4XX", "5XX"],
             retry_config=retry_config,
         )
 
-        if utils.match_response(http_res, "200", "application/json"):
+        response_data: Any = None
+        if utils.match_response(http_res, "202", "application/json"):
             return unmarshal_json_response(
-                List[models.PermissionGroupResponse], http_res
+                models.PronunciationsCsvUploadResponse, http_res
             )
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.APIError("API error occurred", http_res, http_res_text)

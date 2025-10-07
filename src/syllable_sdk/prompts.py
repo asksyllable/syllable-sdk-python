@@ -98,7 +98,7 @@ class Prompts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -211,7 +211,7 @@ class Prompts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -303,7 +303,7 @@ class Prompts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -395,7 +395,7 @@ class Prompts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -487,7 +487,7 @@ class Prompts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -579,7 +579,7 @@ class Prompts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -668,7 +668,7 @@ class Prompts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -757,7 +757,7 @@ class Prompts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -849,7 +849,7 @@ class Prompts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_delete",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -941,7 +941,7 @@ class Prompts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_delete",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1030,7 +1030,7 @@ class Prompts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_history",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1119,7 +1119,7 @@ class Prompts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompts_history",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1201,7 +1201,7 @@ class Prompts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompt_get_supported_llms",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1277,7 +1277,7 @@ class Prompts(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="prompt_get_supported_llms",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

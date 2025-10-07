@@ -68,6 +68,12 @@ if TYPE_CHECKING:
         BodyOutboundBatchUploadFileTypedDict,
         BodyOutboundBatchUploadTypedDict,
     )
+    from .body_pronunciations_upload_csv import (
+        BodyPronunciationsUploadCsv,
+        BodyPronunciationsUploadCsvFile,
+        BodyPronunciationsUploadCsvFileTypedDict,
+        BodyPronunciationsUploadCsvTypedDict,
+    )
     from .campaignproperties import CampaignProperties
     from .channel import Channel, ChannelTypedDict
     from .channel_targets_createop import (
@@ -622,6 +628,10 @@ if TYPE_CHECKING:
     from .prompts_historyop import PromptsHistoryRequest, PromptsHistoryRequestTypedDict
     from .prompts_listop import PromptsListRequest, PromptsListRequestTypedDict
     from .promptupdaterequest import PromptUpdateRequest, PromptUpdateRequestTypedDict
+    from .pronunciationscsvuploadresponse import (
+        PronunciationsCsvUploadResponse,
+        PronunciationsCsvUploadResponseTypedDict,
+    )
     from .requeststatus import RequestStatus
     from .rolecreaterequest import RoleCreateRequest, RoleCreateRequestTypedDict
     from .roleproperties import RoleProperties
@@ -887,6 +897,10 @@ __all__ = [
     "BodyOutboundBatchUploadFile",
     "BodyOutboundBatchUploadFileTypedDict",
     "BodyOutboundBatchUploadTypedDict",
+    "BodyPronunciationsUploadCsv",
+    "BodyPronunciationsUploadCsvFile",
+    "BodyPronunciationsUploadCsvFileTypedDict",
+    "BodyPronunciationsUploadCsvTypedDict",
     "CampaignProperties",
     "Channel",
     "ChannelConfigView",
@@ -1239,6 +1253,8 @@ __all__ = [
     "PromptsHistoryRequestTypedDict",
     "PromptsListRequest",
     "PromptsListRequestTypedDict",
+    "PronunciationsCsvUploadResponse",
+    "PronunciationsCsvUploadResponseTypedDict",
     "RequestStatus",
     "RoleCreateRequest",
     "RoleCreateRequestTypedDict",
@@ -1466,6 +1482,10 @@ _dynamic_imports: dict[str, str] = {
     "BodyOutboundBatchUploadFile": ".body_outbound_batch_upload",
     "BodyOutboundBatchUploadFileTypedDict": ".body_outbound_batch_upload",
     "BodyOutboundBatchUploadTypedDict": ".body_outbound_batch_upload",
+    "BodyPronunciationsUploadCsv": ".body_pronunciations_upload_csv",
+    "BodyPronunciationsUploadCsvFile": ".body_pronunciations_upload_csv",
+    "BodyPronunciationsUploadCsvFileTypedDict": ".body_pronunciations_upload_csv",
+    "BodyPronunciationsUploadCsvTypedDict": ".body_pronunciations_upload_csv",
     "CampaignProperties": ".campaignproperties",
     "Channel": ".channel",
     "ChannelTypedDict": ".channel",
@@ -1818,6 +1838,8 @@ _dynamic_imports: dict[str, str] = {
     "PromptsListRequestTypedDict": ".prompts_listop",
     "PromptUpdateRequest": ".promptupdaterequest",
     "PromptUpdateRequestTypedDict": ".promptupdaterequest",
+    "PronunciationsCsvUploadResponse": ".pronunciationscsvuploadresponse",
+    "PronunciationsCsvUploadResponseTypedDict": ".pronunciationscsvuploadresponse",
     "RequestStatus": ".requeststatus",
     "RoleCreateRequest": ".rolecreaterequest",
     "RoleCreateRequestTypedDict": ".rolecreaterequest",

@@ -72,7 +72,7 @@ class SessionLabels(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="session_label_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -159,7 +159,7 @@ class SessionLabels(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="session_label_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -251,7 +251,7 @@ class SessionLabels(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="session_label_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -343,7 +343,7 @@ class SessionLabels(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="session_label_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -454,7 +454,7 @@ class SessionLabels(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="session_labels_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -565,7 +565,7 @@ class SessionLabels(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="session_labels_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

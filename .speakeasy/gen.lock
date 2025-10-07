@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 55e827bf506ca32be5d15f286443f868
+  docChecksum: a86cd3959527775462d93b818d1503d0
   docVersion: 0.0.2
-  speakeasyVersion: 1.635.3
-  generationVersion: 2.722.5
-  releaseVersion: 0.38.3
-  configChecksum: 033657526f549f7559329fe3a94a5493
+  speakeasyVersion: 1.636.0
+  generationVersion: 2.723.2
+  releaseVersion: 0.38.4
+  configChecksum: 98f5448424019614f310182eff5bb9d8
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -80,6 +80,8 @@ generatedFiles:
   - docs/models/bodyoutboundbatchdelete.md
   - docs/models/bodyoutboundbatchupload.md
   - docs/models/bodyoutboundbatchuploadfile.md
+  - docs/models/bodypronunciationsuploadcsv.md
+  - docs/models/bodypronunciationsuploadcsvfile.md
   - docs/models/campaignproperties.md
   - docs/models/channel.md
   - docs/models/channelconfigview.md
@@ -269,6 +271,7 @@ generatedFiles:
   - docs/models/promptshistoryrequest.md
   - docs/models/promptslistrequest.md
   - docs/models/promptupdaterequest.md
+  - docs/models/pronunciationscsvuploadresponse.md
   - docs/models/requeststatus.md
   - docs/models/rolecreaterequest.md
   - docs/models/roleproperties.md
@@ -383,6 +386,7 @@ generatedFiles:
   - docs/sdks/organizations/README.md
   - docs/sdks/permissions/README.md
   - docs/sdks/prompts/README.md
+  - docs/sdks/pronunciations/README.md
   - docs/sdks/roles/README.md
   - docs/sdks/services/README.md
   - docs/sdks/sessiondebug/README.md
@@ -462,6 +466,7 @@ generatedFiles:
   - src/syllable_sdk/models/body_organizations_update.py
   - src/syllable_sdk/models/body_outbound_batch_delete.py
   - src/syllable_sdk/models/body_outbound_batch_upload.py
+  - src/syllable_sdk/models/body_pronunciations_upload_csv.py
   - src/syllable_sdk/models/campaignproperties.py
   - src/syllable_sdk/models/channel.py
   - src/syllable_sdk/models/channel_targets_createop.py
@@ -645,6 +650,7 @@ generatedFiles:
   - src/syllable_sdk/models/prompts_historyop.py
   - src/syllable_sdk/models/prompts_listop.py
   - src/syllable_sdk/models/promptupdaterequest.py
+  - src/syllable_sdk/models/pronunciationscsvuploadresponse.py
   - src/syllable_sdk/models/requeststatus.py
   - src/syllable_sdk/models/rolecreaterequest.py
   - src/syllable_sdk/models/roleproperties.py
@@ -741,6 +747,7 @@ generatedFiles:
   - src/syllable_sdk/outbound.py
   - src/syllable_sdk/permissions.py
   - src/syllable_sdk/prompts.py
+  - src/syllable_sdk/pronunciations.py
   - src/syllable_sdk/py.typed
   - src/syllable_sdk/roles.py
   - src/syllable_sdk/sdk.py
@@ -2264,5 +2271,17 @@ examples:
           application/json: {"name": "syllable-webchat", "channel_service": "twilio", "supported_modes": "chat,voice", "is_system_channel": false, "id": 769881, "config": {"telephony": {"pre_input_timeout": 1.2, "overall_input_timeout": 20, "interruptibility": "dtmf_only", "passive_speech_input_enabled": true, "passive_input_start": 0.5}}}
         "422":
           application/json: {}
+  pronunciations_upload_csv:
+    speakeasy-default-pronunciations-upload-csv:
+      requestBody:
+        multipart/form-data: {"file": "x-file: example.file"}
+      responses:
+        "202":
+          application/json: {"revision": 669092}
+        "422":
+          application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Python SDK Changes Detected:
+  * `syllable_sdk.pronunciations.pronunciations_upload_csv()`: **Added**

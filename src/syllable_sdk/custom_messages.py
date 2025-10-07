@@ -98,7 +98,7 @@ class CustomMessages(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="custom_messages_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -213,7 +213,7 @@ class CustomMessages(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="custom_messages_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -310,7 +310,7 @@ class CustomMessages(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="custom_messages_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -405,7 +405,7 @@ class CustomMessages(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="custom_messages_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -500,7 +500,7 @@ class CustomMessages(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="custom_messages_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -595,7 +595,7 @@ class CustomMessages(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="custom_messages_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -684,7 +684,7 @@ class CustomMessages(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="custom_message_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -773,7 +773,7 @@ class CustomMessages(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="custom_message_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -865,7 +865,7 @@ class CustomMessages(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="custom_messages_delete",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -957,7 +957,7 @@ class CustomMessages(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="custom_messages_delete",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
