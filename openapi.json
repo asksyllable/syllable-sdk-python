@@ -5553,6 +5553,52 @@
         ]
       }
     },
+    "/api/v1/pronunciations/csv": {
+      "post": {
+        "tags": [
+          "pronunciations"
+        ],
+        "summary": "Upload Pronunciations Csv",
+        "operationId": "pronunciations_upload_csv",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_pronunciations_upload_csv"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PronunciationsCsvUploadResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
     "/api/v1/roles/": {
       "get": {
         "tags": [
@@ -13474,6 +13520,21 @@
         },
         "type": "object",
         "title": "Body_outbound_batch_upload"
+      },
+      "Body_pronunciations_upload_csv": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File",
+            "description": "CSV file containing pronunciation overrides"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_pronunciations_upload_csv"
       },
       "CampaignProperties": {
         "type": "string",
@@ -21993,6 +22054,58 @@
         ],
         "title": "PromptUpdateRequest",
         "description": "Request model to update an existing prompt."
+      },
+      "PronunciationsCsvUploadResponse": {
+        "properties": {
+          "revision": {
+            "type": "integer",
+            "title": "Revision"
+          },
+          "hash": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Hash"
+          },
+          "entries": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Entries"
+          },
+          "uploaded_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Uploaded At"
+          },
+          "uploaded_by": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Uploaded By"
+          }
+        },
+        "type": "object",
+        "required": [
+          "revision"
+        ],
+        "title": "PronunciationsCsvUploadResponse",
+        "description": "Placeholder response returned after accepting a pronunciations CSV upload."
       },
       "RequestStatus": {
         "type": "string",
