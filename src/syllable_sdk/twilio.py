@@ -87,7 +87,7 @@ class Twilio(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="channels_twilio_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -174,7 +174,7 @@ class Twilio(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="channels_twilio_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -267,7 +267,7 @@ class Twilio(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="channels_twilio_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -360,7 +360,7 @@ class Twilio(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="channels_twilio_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -453,7 +453,7 @@ class Twilio(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="channels_twilio_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -546,7 +546,7 @@ class Twilio(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="channels_twilio_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

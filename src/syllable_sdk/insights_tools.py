@@ -98,7 +98,7 @@ class InsightsTools(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insight_tool_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -213,7 +213,7 @@ class InsightsTools(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insight_tool_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -307,7 +307,7 @@ class InsightsTools(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_tool_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -399,7 +399,7 @@ class InsightsTools(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_tool_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -488,7 +488,7 @@ class InsightsTools(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insight_tool_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -577,7 +577,7 @@ class InsightsTools(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insight_tool_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -666,7 +666,7 @@ class InsightsTools(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_tool_delete",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -755,7 +755,7 @@ class InsightsTools(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_tool_delete",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -858,7 +858,7 @@ class InsightsTools(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_tool_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -961,7 +961,7 @@ class InsightsTools(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_tool_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1055,7 +1055,7 @@ class InsightsTools(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_tool_test",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1149,7 +1149,7 @@ class InsightsTools(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insights_tool_test",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1231,7 +1231,7 @@ class InsightsTools(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insight_tool_get_definitions",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1307,7 +1307,7 @@ class InsightsTools(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="insight_tool_get_definitions",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

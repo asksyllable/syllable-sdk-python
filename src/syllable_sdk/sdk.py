@@ -29,6 +29,7 @@ if TYPE_CHECKING:
     from syllable_sdk.outbound import Outbound
     from syllable_sdk.permissions import Permissions
     from syllable_sdk.prompts import Prompts
+    from syllable_sdk.pronunciations import Pronunciations
     from syllable_sdk.roles import Roles
     from syllable_sdk.services import Services
     from syllable_sdk.session_debug import SessionDebug
@@ -98,6 +99,7 @@ class SyllableSDK(BaseSDK):
     r"""Operations related to permissions. A permission is a specific           capability or access level granted to a user within the Syllable system.           Permissions are used to control access to various features and functionalities."""
     prompts: "Prompts"
     r"""Operations related to prompts. A prompt defines the behavior of an           agent by delivering instructions to the LLM about how the agent should behave.           A prompt can be linked to one or more agents. A prompt can also be linked to tools to           allow an agent using the prompt to use them. For more information, see           [Console docs](https://docs.syllable.ai/Resources/Prompts)."""
+    pronunciations: "Pronunciations"
     roles: "Roles"
     r"""Operations related to roles. A role is a collection of permissions           that can be assigned to users to control their access to various features within the           Syllable system."""
     services: "Services"
@@ -130,6 +132,7 @@ class SyllableSDK(BaseSDK):
         "custom_messages": ("syllable_sdk.custom_messages", "CustomMessages"),
         "permissions": ("syllable_sdk.permissions", "Permissions"),
         "prompts": ("syllable_sdk.prompts", "Prompts"),
+        "pronunciations": ("syllable_sdk.pronunciations", "Pronunciations"),
         "roles": ("syllable_sdk.roles", "Roles"),
         "services": ("syllable_sdk.services", "Services"),
         "session_labels": ("syllable_sdk.session_labels", "SessionLabels"),

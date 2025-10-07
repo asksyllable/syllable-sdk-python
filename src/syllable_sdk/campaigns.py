@@ -96,7 +96,7 @@ class Campaigns(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -209,7 +209,7 @@ class Campaigns(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -303,7 +303,7 @@ class Campaigns(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -395,7 +395,7 @@ class Campaigns(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -482,7 +482,7 @@ class Campaigns(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -569,7 +569,7 @@ class Campaigns(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -670,7 +670,7 @@ class Campaigns(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -771,7 +771,7 @@ class Campaigns(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -858,7 +858,7 @@ class Campaigns(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_delete",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -945,7 +945,7 @@ class Campaigns(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="outbound_campaign_delete",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

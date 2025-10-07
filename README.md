@@ -397,6 +397,10 @@ with SyllableSDK(
 * [prompts_history](docs/sdks/prompts/README.md#prompts_history) - Get Prompt History
 * [prompt_get_supported_llms](docs/sdks/prompts/README.md#prompt_get_supported_llms) - Get Supported Llm Configs
 
+### [pronunciations](docs/sdks/pronunciations/README.md)
+
+* [pronunciations_upload_csv](docs/sdks/pronunciations/README.md#pronunciations_upload_csv) - Upload Pronunciations Csv
+
 ### [roles](docs/sdks/roles/README.md)
 
 * [list](docs/sdks/roles/README.md#list) - List Roles

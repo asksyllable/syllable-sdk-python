@@ -98,7 +98,7 @@ class Roles(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="roles_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -211,7 +211,7 @@ class Roles(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="roles_list",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -303,7 +303,7 @@ class Roles(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="roles_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -395,7 +395,7 @@ class Roles(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="roles_create",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -487,7 +487,7 @@ class Roles(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="roles_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -579,7 +579,7 @@ class Roles(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="roles_update",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -668,7 +668,7 @@ class Roles(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="roles_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -757,7 +757,7 @@ class Roles(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="roles_get_by_id",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -852,7 +852,7 @@ class Roles(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="roles_delete",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -947,7 +947,7 @@ class Roles(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="roles_delete",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

@@ -2361,6 +2361,29 @@ actions:
 
                 # Handle response
                 print(res)
+  - target: $["paths"]["/api/v1/pronunciations/csv"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.pronunciations.pronunciations_upload_csv(request={
+                    "file": {
+                        "file_name": "example.file",
+                        "content": open("example.file", "rb"),
+                    },
+                })
+
+                # Handle response
+                print(res)
   - target: $["paths"]["/api/v1/roles/"]["get"]
     update:
       x-codeSamples:
