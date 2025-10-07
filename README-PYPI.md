@@ -363,9 +363,6 @@ with SyllableSDK(
 * [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/organizations/README.md#create) - Create Organization
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/organizations/README.md#delete) - Delete Current Organization
 
-### [outbound](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/outbound/README.md)
-
-
 #### [outbound.batches](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/batches/README.md)
 
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/batches/README.md#list) - List Outbound Communication Batches
@@ -446,7 +443,6 @@ with SyllableSDK(
 #### [sessions.transcript](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/transcript/README.md)
 
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/transcript/README.md#get_by_id) - Get Session Transcript By Id
-
 
 ### [takeouts](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/takeouts/README.md)
 
