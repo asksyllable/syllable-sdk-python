@@ -363,9 +363,6 @@ with SyllableSDK(
 * [create](docs/sdks/organizations/README.md#create) - Create Organization
 * [delete](docs/sdks/organizations/README.md#delete) - Delete Current Organization
 
-### [outbound](docs/sdks/outbound/README.md)
-
-
 #### [outbound.batches](docs/sdks/batches/README.md)
 
 * [list](docs/sdks/batches/README.md#list) - List Outbound Communication Batches
@@ -446,7 +443,6 @@ with SyllableSDK(
 #### [sessions.transcript](docs/sdks/transcript/README.md)
 
 * [get_by_id](docs/sdks/transcript/README.md#get_by_id) - Get Session Transcript By Id
-
 
 ### [takeouts](docs/sdks/takeouts/README.md)
 
