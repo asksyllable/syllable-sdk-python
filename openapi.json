@@ -5553,7 +5553,76 @@
         ]
       }
     },
+    "/api/v1/pronunciations": {
+      "get": {
+        "tags": [
+          "pronunciations"
+        ],
+        "summary": "Get Pronunciations Dictionary",
+        "operationId": "pronunciations_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PronunciationOverridesDictionary"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/v1/pronunciations/metadata": {
+      "get": {
+        "tags": [
+          "pronunciations"
+        ],
+        "summary": "Get Pronunciations Metadata",
+        "operationId": "pronunciations_get_metadata",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DictionaryMetadata"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
     "/api/v1/pronunciations/csv": {
+      "get": {
+        "tags": [
+          "pronunciations"
+        ],
+        "summary": "Download Pronunciations Csv",
+        "operationId": "pronunciations_download_csv",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      },
       "post": {
         "tags": [
           "pronunciations"
@@ -13086,7 +13155,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20251007.9"
+              "20251008.9"
             ]
           },
           "campaign_id": {
@@ -13110,7 +13179,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-10-08T00:00:00Z"
+              "2025-10-09T00:00:00Z"
             ]
           },
           "paused": {
@@ -13163,7 +13232,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2025-10-07T00:00:00Z"
+              "2025-10-08T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -13179,7 +13248,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2025-10-07T00:00:00Z"
+              "2025-10-08T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -13210,7 +13279,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2025-10-07T00:00:00Z"
+              "2025-10-08T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -13964,7 +14033,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20251007.9"
+              "20251008.9"
             ]
           },
           "campaign_id": {
@@ -13988,7 +14057,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-10-08T00:00:00Z"
+              "2025-10-09T00:00:00Z"
             ]
           },
           "paused": {
@@ -14041,7 +14110,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2025-10-07T00:00:00Z"
+              "2025-10-08T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -14057,7 +14126,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2025-10-07T00:00:00Z"
+              "2025-10-08T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -14088,7 +14157,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2025-10-07T00:00:00Z"
+              "2025-10-08T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -14131,7 +14200,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20251007.9"
+              "20251008.9"
             ]
           },
           "campaign_id": {
@@ -14155,7 +14224,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-10-08T00:00:00Z"
+              "2025-10-09T00:00:00Z"
             ]
           },
           "paused": {
@@ -14304,7 +14373,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2025-10-06T00:00:00Z"
+              "2025-10-07T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -14320,7 +14389,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2025-10-07T00:00:00Z"
+              "2025-10-08T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -15779,6 +15848,37 @@
         ],
         "title": "DialogToolCall"
       },
+      "DictionaryMetadata": {
+        "properties": {
+          "entries": {
+            "type": "integer",
+            "title": "Entries"
+          },
+          "hash": {
+            "type": "string",
+            "title": "Hash"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "entries",
+          "hash"
+        ],
+        "title": "DictionaryMetadata",
+        "description": "Audit metadata associated with a dictionary."
+      },
       "DirectoryExtension": {
         "properties": {
           "name": {
@@ -16236,7 +16336,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2025-10-06T00:00:00Z"
+              "2025-10-07T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -16245,7 +16345,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2025-10-07T00:00:00Z"
+              "2025-10-08T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -16960,7 +17060,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2025-10-06T00:00:00Z"
+              "2025-10-07T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -16969,7 +17069,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2025-10-07T00:00:00Z"
+              "2025-10-08T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -17350,7 +17450,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2025-10-06T00:00:00Z"
+              "2025-10-07T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -17366,7 +17466,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2025-10-07T00:00:00Z"
+              "2025-10-08T00:00:00Z"
             ]
           }
         },
@@ -17441,7 +17541,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2025-10-06T00:00:00Z"
+              "2025-10-07T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -17457,7 +17557,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2025-10-07T00:00:00Z"
+              "2025-10-08T00:00:00Z"
             ]
           },
           "id": {
@@ -17510,7 +17610,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2025-10-06T00:00:00Z"
+              "2025-10-07T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -17519,7 +17619,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2025-10-07T00:00:00Z"
+              "2025-10-08T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -17615,7 +17715,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2025-10-06T00:00:00Z"
+              "2025-10-07T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -17624,7 +17724,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2025-10-07T00:00:00Z"
+              "2025-10-08T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -17859,7 +17959,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2025-10-06T00:00:00Z"
+              "2025-10-07T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -17868,7 +17968,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2025-10-07T00:00:00Z"
+              "2025-10-08T00:00:00Z"
             ]
           }
         },
@@ -18003,7 +18103,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2025-10-06T00:00:00Z"
+              "2025-10-07T00:00:00Z"
             ]
           },
           "end_time": {
@@ -18019,7 +18119,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2025-10-07T00:00:00Z"
+              "2025-10-08T00:00:00Z"
             ]
           },
           "error_message": {
@@ -18074,7 +18174,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2025-10-06T00:00:00Z"
+              "2025-10-07T00:00:00Z"
             ]
           }
         },
@@ -20440,6 +20540,14 @@
         "title": "LoginType",
         "description": "The type of login to use for the user."
       },
+      "MatchType": {
+        "type": "string",
+        "enum": [
+          "exact"
+        ],
+        "title": "MatchType",
+        "description": "Matching strategy for override text."
+      },
       "OrderByDirection": {
         "type": "string",
         "enum": [
@@ -21022,7 +21130,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2025-10-07T00:00:00Z"
+              "2025-10-08T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -21031,7 +21139,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2025-10-07T00:00:00Z"
+              "2025-10-08T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -22054,6 +22162,129 @@
         ],
         "title": "PromptUpdateRequest",
         "description": "Request model to update an existing prompt."
+      },
+      "PronunciationOverride": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Text"
+          },
+          "replacement": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Replacement"
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language"
+          },
+          "provider": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Provider"
+          },
+          "voice": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Voice"
+          },
+          "match_type": {
+            "$ref": "#/components/schemas/MatchType",
+            "default": "exact"
+          },
+          "match_options": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Match Options"
+          },
+          "enabled": {
+            "type": "boolean",
+            "title": "Enabled",
+            "default": true
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "text",
+          "replacement"
+        ],
+        "title": "PronunciationOverride",
+        "description": "A single text replacement rule."
+      },
+      "PronunciationOverridesDictionary": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "pattern": "^pronunciations_v\\d+$",
+            "title": "Type",
+            "default": "pronunciations_v1"
+          },
+          "pronunciations": {
+            "items": {
+              "$ref": "#/components/schemas/PronunciationOverride"
+            },
+            "type": "array",
+            "title": "Pronunciations"
+          },
+          "voices": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/VoiceDisplayInfo"
+            },
+            "type": "object",
+            "title": "Voices"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/DictionaryMetadata"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "pronunciations",
+          "metadata"
+        ],
+        "title": "PronunciationOverridesDictionary",
+        "description": "Container for all TTS pronunciation overrides belonging to the sub-organisation.\n\nStored in the `config_values` table via ConfigDao. The Syllable API persists uploaded CSV\npronunciation rules, and Bubblegum's PronunciationOverridesPlugin reads them to apply text\nreplacements before TTS processing.\n\nExample:\n    dao = ConfigDao(db_session)\n    await dao.register_model('tts.pronunciations', PronunciationOverridesDictionary)\n\n    pod = PronunciationOverridesDictionary(\n        pronunciations=[...],\n        metadata=DictionaryMetadata(entries=10, hash='sha256:...'),\n    )\n    result = await dao.upsert('pronunciations_v1', pod)\n\n    record = await dao.get('pronunciations_v1', PronunciationOverridesDictionary)\n    if record:\n        pronunciations = record.value.pronunciations"
       },
       "PronunciationsCsvUploadResponse": {
         "properties": {
@@ -25517,6 +25748,26 @@
           "type"
         ],
         "title": "ValidationError"
+      },
+      "VoiceDisplayInfo": {
+        "properties": {
+          "display_name": {
+            "type": "string",
+            "title": "Display Name"
+          },
+          "provider": {
+            "type": "string",
+            "title": "Provider"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "display_name",
+          "provider"
+        ],
+        "title": "VoiceDisplayInfo",
+        "description": "Display metadata for a canonical voice identifier."
       },
       "VoiceSampleCreateRequest": {
         "properties": {
