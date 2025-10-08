@@ -399,6 +399,9 @@ with SyllableSDK(
 
 ### [pronunciations](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/pronunciations/README.md)
 
+* [pronunciations_get](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/pronunciations/README.md#pronunciations_get) - Get Pronunciations Dictionary
+* [pronunciations_get_metadata](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/pronunciations/README.md#pronunciations_get_metadata) - Get Pronunciations Metadata
+* [pronunciations_download_csv](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/pronunciations/README.md#pronunciations_download_csv) - Download Pronunciations Csv
 * [pronunciations_upload_csv](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/pronunciations/README.md#pronunciations_upload_csv) - Upload Pronunciations Csv
 
 ### [roles](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/roles/README.md)
