@@ -399,6 +399,9 @@ with SyllableSDK(
 
 ### [pronunciations](docs/sdks/pronunciations/README.md)
 
+* [pronunciations_get](docs/sdks/pronunciations/README.md#pronunciations_get) - Get Pronunciations Dictionary
+* [pronunciations_get_metadata](docs/sdks/pronunciations/README.md#pronunciations_get_metadata) - Get Pronunciations Metadata
+* [pronunciations_download_csv](docs/sdks/pronunciations/README.md#pronunciations_download_csv) - Download Pronunciations Csv
 * [pronunciations_upload_csv](docs/sdks/pronunciations/README.md#pronunciations_upload_csv) - Upload Pronunciations Csv
 
 ### [roles](docs/sdks/roles/README.md)

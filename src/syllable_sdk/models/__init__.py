@@ -221,6 +221,7 @@ if TYPE_CHECKING:
     from .dialogmessage import DialogMessage, DialogMessageTypedDict
     from .dialogrole import DialogRole
     from .dialogtoolcall import DialogToolCall, DialogToolCallTypedDict
+    from .dictionarymetadata import DictionaryMetadata, DictionaryMetadataTypedDict
     from .event import Attributes, AttributesTypedDict, Event, EventTypedDict
     from .eventproperties import EventProperties
     from .events_listop import EventsListRequest, EventsListRequestTypedDict
@@ -527,6 +528,7 @@ if TYPE_CHECKING:
         ListResponseUserResponseTypedDict,
     )
     from .logintype import LoginType
+    from .matchtype import MatchType
     from .orderbydirection import OrderByDirection
     from .organizationchannelconfig import (
         OrganizationChannelConfig,
@@ -628,6 +630,16 @@ if TYPE_CHECKING:
     from .prompts_historyop import PromptsHistoryRequest, PromptsHistoryRequestTypedDict
     from .prompts_listop import PromptsListRequest, PromptsListRequestTypedDict
     from .promptupdaterequest import PromptUpdateRequest, PromptUpdateRequestTypedDict
+    from .pronunciationoverride import (
+        Language,
+        LanguageTypedDict,
+        PronunciationOverride,
+        PronunciationOverrideTypedDict,
+    )
+    from .pronunciationoverridesdictionary import (
+        PronunciationOverridesDictionary,
+        PronunciationOverridesDictionaryTypedDict,
+    )
     from .pronunciationscsvuploadresponse import (
         PronunciationsCsvUploadResponse,
         PronunciationsCsvUploadResponseTypedDict,
@@ -827,6 +839,7 @@ if TYPE_CHECKING:
         ValidationError,
         ValidationErrorTypedDict,
     )
+    from .voicedisplayinfo import VoiceDisplayInfo, VoiceDisplayInfoTypedDict
     from .voicesamplecreaterequest import (
         VoiceSampleCreateRequest,
         VoiceSampleCreateRequestTypedDict,
@@ -998,6 +1011,8 @@ __all__ = [
     "DialogRole",
     "DialogToolCall",
     "DialogToolCallTypedDict",
+    "DictionaryMetadata",
+    "DictionaryMetadataTypedDict",
     "Event",
     "EventProperties",
     "EventTypedDict",
@@ -1109,6 +1124,7 @@ __all__ = [
     "InternalToolTypedDict",
     "JSONValue",
     "JSONValueTypedDict",
+    "Language",
     "LanguageCode",
     "LanguageConfig",
     "LanguageConfigTypedDict",
@@ -1127,6 +1143,7 @@ __all__ = [
     "LanguageGroupsGetByIDRequestTypedDict",
     "LanguageGroupsListRequest",
     "LanguageGroupsListRequestTypedDict",
+    "LanguageTypedDict",
     "LatencyCategory",
     "LatencyEntry",
     "LatencyEntryTypedDict",
@@ -1184,6 +1201,7 @@ __all__ = [
     "Loc",
     "LocTypedDict",
     "LoginType",
+    "MatchType",
     "Metadata",
     "MetadataTypedDict",
     "OrderByDirection",
@@ -1253,6 +1271,10 @@ __all__ = [
     "PromptsHistoryRequestTypedDict",
     "PromptsListRequest",
     "PromptsListRequestTypedDict",
+    "PronunciationOverride",
+    "PronunciationOverrideTypedDict",
+    "PronunciationOverridesDictionary",
+    "PronunciationOverridesDictionaryTypedDict",
     "PronunciationsCsvUploadResponse",
     "PronunciationsCsvUploadResponseTypedDict",
     "RequestStatus",
@@ -1423,6 +1445,8 @@ __all__ = [
     "UsersSendEmailRequestTypedDict",
     "ValidationError",
     "ValidationErrorTypedDict",
+    "VoiceDisplayInfo",
+    "VoiceDisplayInfoTypedDict",
     "VoiceSampleCreateRequest",
     "VoiceSampleCreateRequestTypedDict",
 ]
@@ -1581,6 +1605,8 @@ _dynamic_imports: dict[str, str] = {
     "DialogRole": ".dialogrole",
     "DialogToolCall": ".dialogtoolcall",
     "DialogToolCallTypedDict": ".dialogtoolcall",
+    "DictionaryMetadata": ".dictionarymetadata",
+    "DictionaryMetadataTypedDict": ".dictionarymetadata",
     "Attributes": ".event",
     "AttributesTypedDict": ".event",
     "Event": ".event",
@@ -1771,6 +1797,7 @@ _dynamic_imports: dict[str, str] = {
     "ListResponseUserResponse": ".listresponse_userresponse_",
     "ListResponseUserResponseTypedDict": ".listresponse_userresponse_",
     "LoginType": ".logintype",
+    "MatchType": ".matchtype",
     "OrderByDirection": ".orderbydirection",
     "OrganizationChannelConfig": ".organizationchannelconfig",
     "OrganizationChannelConfigTypedDict": ".organizationchannelconfig",
@@ -1838,6 +1865,12 @@ _dynamic_imports: dict[str, str] = {
     "PromptsListRequestTypedDict": ".prompts_listop",
     "PromptUpdateRequest": ".promptupdaterequest",
     "PromptUpdateRequestTypedDict": ".promptupdaterequest",
+    "Language": ".pronunciationoverride",
+    "LanguageTypedDict": ".pronunciationoverride",
+    "PronunciationOverride": ".pronunciationoverride",
+    "PronunciationOverrideTypedDict": ".pronunciationoverride",
+    "PronunciationOverridesDictionary": ".pronunciationoverridesdictionary",
+    "PronunciationOverridesDictionaryTypedDict": ".pronunciationoverridesdictionary",
     "PronunciationsCsvUploadResponse": ".pronunciationscsvuploadresponse",
     "PronunciationsCsvUploadResponseTypedDict": ".pronunciationscsvuploadresponse",
     "RequestStatus": ".requeststatus",
@@ -2011,6 +2044,8 @@ _dynamic_imports: dict[str, str] = {
     "LocTypedDict": ".validationerror",
     "ValidationError": ".validationerror",
     "ValidationErrorTypedDict": ".validationerror",
+    "VoiceDisplayInfo": ".voicedisplayinfo",
+    "VoiceDisplayInfoTypedDict": ".voicedisplayinfo",
     "VoiceSampleCreateRequest": ".voicesamplecreaterequest",
     "VoiceSampleCreateRequestTypedDict": ".voicesamplecreaterequest",
 }
