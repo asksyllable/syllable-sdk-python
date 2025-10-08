@@ -403,6 +403,7 @@ with SyllableSDK(
 * [pronunciations_get_metadata](docs/sdks/pronunciations/README.md#pronunciations_get_metadata) - Get Pronunciations Metadata
 * [pronunciations_download_csv](docs/sdks/pronunciations/README.md#pronunciations_download_csv) - Download Pronunciations Csv
 * [pronunciations_upload_csv](docs/sdks/pronunciations/README.md#pronunciations_upload_csv) - Upload Pronunciations Csv
+* [pronunciations_delete_csv](docs/sdks/pronunciations/README.md#pronunciations_delete_csv) - Delete Pronunciations Dictionary
 
 ### [roles](docs/sdks/roles/README.md)
 

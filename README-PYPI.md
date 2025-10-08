@@ -403,6 +403,7 @@ with SyllableSDK(
 * [pronunciations_get_metadata](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/pronunciations/README.md#pronunciations_get_metadata) - Get Pronunciations Metadata
 * [pronunciations_download_csv](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/pronunciations/README.md#pronunciations_download_csv) - Download Pronunciations Csv
 * [pronunciations_upload_csv](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/pronunciations/README.md#pronunciations_upload_csv) - Upload Pronunciations Csv
+* [pronunciations_delete_csv](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/pronunciations/README.md#pronunciations_delete_csv) - Delete Pronunciations Dictionary
 
 ### [roles](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/roles/README.md)
 

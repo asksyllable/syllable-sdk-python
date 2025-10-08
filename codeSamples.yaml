@@ -2379,6 +2379,23 @@ actions:
 
                 # Handle response
                 print(res)
+  - target: $["paths"]["/api/v1/pronunciations/csv"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                ss_client.pronunciations.pronunciations_delete_csv()
+
+                # Use the SDK ...
   - target: $["paths"]["/api/v1/pronunciations/csv"]["get"]
     update:
       x-codeSamples:
