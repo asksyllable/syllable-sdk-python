@@ -5666,6 +5666,23 @@
             "APIKeyHeader": []
           }
         ]
+      },
+      "delete": {
+        "tags": [
+          "pronunciations"
+        ],
+        "summary": "Delete Pronunciations Dictionary",
+        "operationId": "pronunciations_delete_csv",
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
       }
     },
     "/api/v1/roles/": {
