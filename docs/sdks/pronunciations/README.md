@@ -9,6 +9,7 @@
 * [pronunciations_get_metadata](#pronunciations_get_metadata) - Get Pronunciations Metadata
 * [pronunciations_download_csv](#pronunciations_download_csv) - Download Pronunciations Csv
 * [pronunciations_upload_csv](#pronunciations_upload_csv) - Upload Pronunciations Csv
+* [pronunciations_delete_csv](#pronunciations_delete_csv) - Delete Pronunciations Dictionary
 
 ## pronunciations_get
 
@@ -167,3 +168,37 @@ with SyllableSDK(
 | -------------------------- | -------------------------- | -------------------------- |
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## pronunciations_delete_csv
+
+Delete Pronunciations Dictionary
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="pronunciations_delete_csv" method="delete" path="/api/v1/pronunciations/csv" -->
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    ss_client.pronunciations.pronunciations_delete_csv()
+
+    # Use the SDK ...
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 8c0e0f1527f96fc4f302ce734bb2d4c8
+  docChecksum: ef205e454f3ff18419f26f9c16c532f0
   docVersion: 0.0.2
-  speakeasyVersion: 1.636.1
-  generationVersion: 2.723.4
-  releaseVersion: 0.38.5
-  configChecksum: 28e8581ba4b7f9518c3b15dfa01f65bc
+  speakeasyVersion: 1.636.2
+  generationVersion: 2.723.8
+  releaseVersion: 0.38.6
+  configChecksum: d3da04f89eefe5e387f0642972191dff
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -2302,10 +2302,9 @@ examples:
         "200":
           application/json: {"entries": 636257, "hash": "<value>"}
   pronunciations_download_csv: {}
+  pronunciations_delete_csv: {}
 examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Python SDK Changes Detected:
-  * `syllable_sdk.pronunciations.pronunciations_get()`: **Added**
-  * `syllable_sdk.pronunciations.pronunciations_get_metadata()`: **Added**
-  * `syllable_sdk.pronunciations.pronunciations_download_csv()`: **Added**
+  * `syllable_sdk.pronunciations.pronunciations_delete_csv()`: **Added**
