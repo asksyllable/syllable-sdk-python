@@ -5614,7 +5614,22 @@
         "operationId": "pronunciations_download_csv",
         "responses": {
           "200": {
-            "description": "Successful Response"
+            "description": "CSV download",
+            "headers": {
+              "Content-Disposition": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "text/csv": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
           }
         },
         "security": [
