@@ -13,7 +13,7 @@ class HTTPValidationErrorData(BaseModel):
     detail: Optional[List[models_validationerror.ValidationError]] = None
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class HTTPValidationError(SyllableSDKError):
     data: HTTPValidationErrorData = field(hash=False)
 

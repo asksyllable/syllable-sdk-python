@@ -109,6 +109,12 @@ with SyllableSDK(
             models.DaysOfWeek.THU,
             models.DaysOfWeek.FRI,
         ],
+        "voicemail_detection": {
+            "voicemail_detection_overall_timeout": 30,
+            "voicemail_detection_post_speech_timeout": 1.2,
+            "voicemail_detection_pre_speech_timeout": 5,
+            "voicemail_detection_speech_threshold": 2.4,
+        },
     })
 
     # Handle response
@@ -218,6 +224,12 @@ with SyllableSDK(
             models.DaysOfWeek.THU,
             models.DaysOfWeek.FRI,
         ],
+        "voicemail_detection": {
+            "voicemail_detection_overall_timeout": 30,
+            "voicemail_detection_post_speech_timeout": 1.2,
+            "voicemail_detection_pre_speech_timeout": 5,
+            "voicemail_detection_speech_threshold": 2.4,
+        },
     })
 
     # Handle response

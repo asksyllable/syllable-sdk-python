@@ -9,7 +9,7 @@ from syllable_sdk.errors import SyllableSDKError
 MAX_MESSAGE_LEN = 10_000
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class APIError(SyllableSDKError):
     """The fallback error class if no more specific error class is matched."""
 
