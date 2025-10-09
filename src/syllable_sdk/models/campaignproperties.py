@@ -16,3 +16,4 @@ class CampaignProperties(str, Enum):
     UPDATED_AT = "updated_at"
     LABEL = "label"
     LABELS = "labels"
+    VOICEMAIL_DETECTION = "voicemail_detection"

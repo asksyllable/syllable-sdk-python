@@ -46,6 +46,8 @@ class OutboundCampaignInputTypedDict(TypedDict):
     r"""Number of retries per target"""
     retry_interval: NotRequired[Nullable[str]]
     r"""How long to wait before retrying"""
+    voicemail_detection: NotRequired[Nullable[Dict[str, float]]]
+    r"""Config for voicemail detection for voice campaigns"""
 
 
 class OutboundCampaignInput(BaseModel):
@@ -99,6 +101,9 @@ class OutboundCampaignInput(BaseModel):
     retry_interval: OptionalNullable[str] = UNSET
     r"""How long to wait before retrying"""
 
+    voicemail_detection: OptionalNullable[Dict[str, float]] = UNSET
+    r"""Config for voicemail detection for voice campaigns"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -113,6 +118,7 @@ class OutboundCampaignInput(BaseModel):
             "hourly_rate",
             "retry_count",
             "retry_interval",
+            "voicemail_detection",
         ]
         nullable_fields = [
             "description",
@@ -125,6 +131,7 @@ class OutboundCampaignInput(BaseModel):
             "source",
             "caller_id",
             "retry_interval",
+            "voicemail_detection",
         ]
         null_default_fields = []
 

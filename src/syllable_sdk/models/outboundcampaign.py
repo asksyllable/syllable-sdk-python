@@ -51,6 +51,8 @@ class OutboundCampaignTypedDict(TypedDict):
     r"""Number of retries per target"""
     retry_interval: NotRequired[Nullable[str]]
     r"""How long to wait before retrying"""
+    voicemail_detection: NotRequired[Nullable[Dict[str, float]]]
+    r"""Config for voicemail detection for voice campaigns"""
     agent_id: NotRequired[Nullable[int]]
     r"""ID of agent assigned to campaign"""
     created_at: NotRequired[datetime]
@@ -116,6 +118,9 @@ class OutboundCampaign(BaseModel):
     retry_interval: OptionalNullable[str] = UNSET
     r"""How long to wait before retrying"""
 
+    voicemail_detection: OptionalNullable[Dict[str, float]] = UNSET
+    r"""Config for voicemail detection for voice campaigns"""
+
     agent_id: OptionalNullable[int] = UNSET
     r"""ID of agent assigned to campaign"""
 
@@ -139,6 +144,7 @@ class OutboundCampaign(BaseModel):
             "hourly_rate",
             "retry_count",
             "retry_interval",
+            "voicemail_detection",
             "agent_id",
             "created_at",
             "updated_at",
@@ -154,6 +160,7 @@ class OutboundCampaign(BaseModel):
             "source",
             "caller_id",
             "retry_interval",
+            "voicemail_detection",
             "agent_id",
         ]
         null_default_fields = []

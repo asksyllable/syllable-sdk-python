@@ -8047,6 +8047,7 @@ components:
         - "updated_at"
         - "label"
         - "labels"
+        - "voicemail_detection"
       title: "CampaignProperties"
     "Channel":
       properties:
@@ -12693,6 +12694,17 @@ components:
           description: "Days of the week when campaign is active"
           examples:
             - "[\"mon\", \"tue\", \"wed\", \"thu\", \"fri\"]"
+        "voicemail_detection":
+          anyOf:
+            - additionalProperties:
+                type: "number"
+              type: "object"
+            - type: "null"
+          title: "Voicemail Detection"
+          description: "Config for voicemail detection for voice campaigns"
+          default: {"voicemail_detection_overall_timeout": 30, "voicemail_detection_speech_threshold": 2.4, "voicemail_detection_pre_speech_timeout": 5, "voicemail_detection_post_speech_timeout": 1.2}
+          examples:
+            - {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.2, "voicemail_detection_pre_speech_timeout": 5, "voicemail_detection_speech_threshold": 2.4}
         "id":
           type: "integer"
           title: "Id"
@@ -12861,6 +12873,17 @@ components:
           description: "Days of the week when campaign is active"
           examples:
             - "[\"mon\", \"tue\", \"wed\", \"thu\", \"fri\"]"
+        "voicemail_detection":
+          anyOf:
+            - additionalProperties:
+                type: "number"
+              type: "object"
+            - type: "null"
+          title: "Voicemail Detection"
+          description: "Config for voicemail detection for voice campaigns"
+          default: {"voicemail_detection_overall_timeout": 30, "voicemail_detection_speech_threshold": 2.4, "voicemail_detection_pre_speech_timeout": 5, "voicemail_detection_post_speech_timeout": 1.2}
+          examples:
+            - {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.2, "voicemail_detection_pre_speech_timeout": 5, "voicemail_detection_speech_threshold": 2.4}
       type: "object"
       required:
         - "campaign_name"
