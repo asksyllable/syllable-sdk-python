@@ -2410,9 +2410,10 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                ss_client.pronunciations.pronunciations_download_csv()
+                res = ss_client.pronunciations.pronunciations_download_csv()
 
-                # Use the SDK ...
+                # Handle response
+                print(res)
   - target: $["paths"]["/api/v1/pronunciations/csv"]["post"]
     update:
       x-codeSamples:
