@@ -21607,6 +21607,21 @@
               false
             ]
           },
+          "edit_comments": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Edit Comments",
+            "description": "The comments for the most recent edit to the prompt",
+            "examples": [
+              "Updated prompt text to include requirement to not answer questions that aren't about weather."
+            ]
+          },
           "include_default_tools": {
             "type": "boolean",
             "title": "Include Default Tools",
@@ -21991,14 +22006,6 @@
               false
             ]
           },
-          "id": {
-            "type": "integer",
-            "title": "Id",
-            "description": "The internal ID of the prompt",
-            "examples": [
-              1
-            ]
-          },
           "edit_comments": {
             "anyOf": [
               {
@@ -22012,6 +22019,14 @@
             "description": "The comments for the most recent edit to the prompt",
             "examples": [
               "Updated prompt text to include requirement to not answer questions that aren't about weather."
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id",
+            "description": "The internal ID of the prompt",
+            "examples": [
+              1
             ]
           },
           "last_updated": {
@@ -22182,14 +22197,6 @@
               false
             ]
           },
-          "id": {
-            "type": "integer",
-            "title": "Id",
-            "description": "The internal ID of the prompt",
-            "examples": [
-              1
-            ]
-          },
           "edit_comments": {
             "anyOf": [
               {
@@ -22203,6 +22210,14 @@
             "description": "The comments for the most recent edit to the prompt",
             "examples": [
               "Updated prompt text to include requirement to not answer questions that aren't about weather."
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id",
+            "description": "The internal ID of the prompt",
+            "examples": [
+              1
             ]
           },
           "include_default_tools": {
