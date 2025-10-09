@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from datetime import datetime
+import pydantic
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -10,7 +11,7 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class IncidentUpdateRequestTypedDict(TypedDict):
@@ -35,11 +36,7 @@ class IncidentUpdateRequestTypedDict(TypedDict):
     sub_organization_id: NotRequired[Nullable[int]]
     r"""The ID of the sub-organization"""
     sub_organization: NotRequired[Nullable[str]]
-    r"""The name of the sub-organization"""
-    created_at: NotRequired[Nullable[datetime]]
-    r"""Creation time of the incident"""
-    updated_at: NotRequired[Nullable[datetime]]
-    r"""Last update time of the incident"""
+    r"""The name of the sub-organization (DEPRECATED)"""
 
 
 class IncidentUpdateRequest(BaseModel):
@@ -72,31 +69,18 @@ class IncidentUpdateRequest(BaseModel):
     sub_organization_id: OptionalNullable[int] = UNSET
     r"""The ID of the sub-organization"""
 
-    sub_organization: OptionalNullable[str] = UNSET
-    r"""The name of the sub-organization"""
-
-    created_at: OptionalNullable[datetime] = UNSET
-    r"""Creation time of the incident"""
-
-    updated_at: OptionalNullable[datetime] = UNSET
-    r"""Last update time of the incident"""
+    sub_organization: Annotated[
+        OptionalNullable[str],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
+        ),
+    ] = UNSET
+    r"""The name of the sub-organization (DEPRECATED)"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = [
-            "organization_id",
-            "sub_organization_id",
-            "sub_organization",
-            "created_at",
-            "updated_at",
-        ]
-        nullable_fields = [
-            "organization_id",
-            "sub_organization_id",
-            "sub_organization",
-            "created_at",
-            "updated_at",
-        ]
+        optional_fields = ["organization_id", "sub_organization_id", "sub_organization"]
+        nullable_fields = ["organization_id", "sub_organization_id", "sub_organization"]
         null_default_fields = []
 
         serialized = handler(self)

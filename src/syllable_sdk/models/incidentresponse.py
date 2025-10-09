@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from datetime import datetime
+import pydantic
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -10,7 +11,7 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class IncidentResponseTypedDict(TypedDict):
@@ -37,7 +38,7 @@ class IncidentResponseTypedDict(TypedDict):
     sub_organization_id: NotRequired[Nullable[int]]
     r"""The ID of the sub-organization"""
     sub_organization: NotRequired[Nullable[str]]
-    r"""The name of the sub-organization"""
+    r"""The name of the sub-organization (DEPRECATED)"""
     created_at: NotRequired[Nullable[datetime]]
     r"""Creation time of the incident"""
     updated_at: NotRequired[Nullable[datetime]]
@@ -77,8 +78,13 @@ class IncidentResponse(BaseModel):
     sub_organization_id: OptionalNullable[int] = UNSET
     r"""The ID of the sub-organization"""
 
-    sub_organization: OptionalNullable[str] = UNSET
-    r"""The name of the sub-organization"""
+    sub_organization: Annotated[
+        OptionalNullable[str],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
+        ),
+    ] = UNSET
+    r"""The name of the sub-organization (DEPRECATED)"""
 
     created_at: OptionalNullable[datetime] = UNSET
     r"""Creation time of the incident"""
