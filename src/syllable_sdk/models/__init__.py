@@ -640,6 +640,10 @@ if TYPE_CHECKING:
         PronunciationOverridesDictionary,
         PronunciationOverridesDictionaryTypedDict,
     )
+    from .pronunciations_download_csvop import (
+        PronunciationsDownloadCsvResponse,
+        PronunciationsDownloadCsvResponseTypedDict,
+    )
     from .pronunciationscsvuploadresponse import (
         PronunciationsCsvUploadResponse,
         PronunciationsCsvUploadResponseTypedDict,
@@ -1277,6 +1281,8 @@ __all__ = [
     "PronunciationOverridesDictionaryTypedDict",
     "PronunciationsCsvUploadResponse",
     "PronunciationsCsvUploadResponseTypedDict",
+    "PronunciationsDownloadCsvResponse",
+    "PronunciationsDownloadCsvResponseTypedDict",
     "RequestStatus",
     "RoleCreateRequest",
     "RoleCreateRequestTypedDict",
@@ -1871,6 +1877,8 @@ _dynamic_imports: dict[str, str] = {
     "PronunciationOverrideTypedDict": ".pronunciationoverride",
     "PronunciationOverridesDictionary": ".pronunciationoverridesdictionary",
     "PronunciationOverridesDictionaryTypedDict": ".pronunciationoverridesdictionary",
+    "PronunciationsDownloadCsvResponse": ".pronunciations_download_csvop",
+    "PronunciationsDownloadCsvResponseTypedDict": ".pronunciations_download_csvop",
     "PronunciationsCsvUploadResponse": ".pronunciationscsvuploadresponse",
     "PronunciationsCsvUploadResponseTypedDict": ".pronunciationscsvuploadresponse",
     "RequestStatus": ".requeststatus",

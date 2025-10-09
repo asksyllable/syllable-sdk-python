@@ -105,9 +105,10 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    ss_client.pronunciations.pronunciations_download_csv()
+    res = ss_client.pronunciations.pronunciations_download_csv()
 
-    # Use the SDK ...
+    # Handle response
+    print(res)
 
 ```
 
@@ -116,6 +117,10 @@ with SyllableSDK(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.PronunciationsDownloadCsvResponse](../../models/pronunciationsdownloadcsvresponse.md)**
 
 ### Errors
 
