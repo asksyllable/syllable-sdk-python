@@ -93,7 +93,6 @@ with SyllableSDK(
         "markdown": "**Incident Details**",
         "organization_id": 123,
         "sub_organization_id": 456,
-        "sub_organization": "SubOrg A",
     })
 
     # Handle response
@@ -145,10 +144,7 @@ with SyllableSDK(
         "markdown": "**Incident Details**",
         "organization_id": 123,
         "sub_organization_id": 456,
-        "sub_organization": "SubOrg A",
         "id": 1,
-        "created_at": parse_datetime("2023-10-01T08:00:00Z"),
-        "updated_at": parse_datetime("2023-10-01T08:00:00Z"),
     })
 
     # Handle response

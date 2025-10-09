@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: b93353919d443a6785c3c6345e5b7398
+  docChecksum: 8349c724a809248ca42fc979b1698219
   docVersion: 0.0.2
   speakeasyVersion: 1.636.3
   generationVersion: 2.723.11
-  releaseVersion: 0.38.9
-  configChecksum: 930570405dd1ccfb9df4234ab3a1c49a
+  releaseVersion: 0.38.10
+  configChecksum: 356af08a8edccbe99ee1eab75327fe89
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -1103,19 +1103,19 @@ examples:
   incident_create:
     speakeasy-default-incident-create:
       requestBody:
-        application/json: {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "sub_organization": "SubOrg A"}
+        application/json: {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456}
       responses:
         "200":
-          application/json: {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "sub_organization": "SubOrg A", "id": 1, "created_at": "2023-10-01T08:00:00Z", "updated_at": "2023-10-01T08:00:00Z", "last_updated_by": "user@mail.com"}
+          application/json: {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "id": 1, "created_at": "2023-10-01T08:00:00Z", "updated_at": "2023-10-01T08:00:00Z", "last_updated_by": "user@mail.com"}
         "422":
           application/json: {}
   incident_update:
     speakeasy-default-incident-update:
       requestBody:
-        application/json: {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "sub_organization": "SubOrg A", "id": 1, "created_at": "2023-10-01T08:00:00Z", "updated_at": "2023-10-01T08:00:00Z"}
+        application/json: {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "id": 1}
       responses:
         "200":
-          application/json: {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "sub_organization": "SubOrg A", "id": 1, "created_at": "2023-10-01T08:00:00Z", "updated_at": "2023-10-01T08:00:00Z", "last_updated_by": "user@mail.com"}
+          application/json: {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "id": 1, "created_at": "2023-10-01T08:00:00Z", "updated_at": "2023-10-01T08:00:00Z", "last_updated_by": "user@mail.com"}
         "422":
           application/json: {}
   incident_get_organizations:
@@ -1130,7 +1130,7 @@ examples:
           incident_id: 835824
       responses:
         "200":
-          application/json: {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "sub_organization": "SubOrg A", "id": 1, "created_at": "2023-10-01T08:00:00Z", "updated_at": "2023-10-01T08:00:00Z", "last_updated_by": "user@mail.com"}
+          application/json: {"description": "Service outage in region X", "start_datetime": "2023-10-01T08:00:00Z", "resolution_datetime": "2023-10-01T12:00:00Z", "impact_category": "High", "sessions_impacted": 1500, "markdown": "**Incident Details**", "organization_id": 123, "sub_organization_id": 456, "id": 1, "created_at": "2023-10-01T08:00:00Z", "updated_at": "2023-10-01T08:00:00Z", "last_updated_by": "user@mail.com"}
         "422":
           application/json: {}
   incident_delete:
@@ -2311,4 +2311,6 @@ examples:
   pronunciations_delete_csv: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes Detected:\n* `syllable_sdk.outbound.campaigns.list()`: \n  *  `request` **Changed**\n  *  `response.items.[].voicemail_detection` **Added**\n* `syllable_sdk.outbound.campaigns.create()`: \n  *  `request.voicemail_detection` **Added**\n  *  `response.voicemail_detection` **Added**\n* `syllable_sdk.outbound.campaigns.get_by_id()`:  `response.voicemail_detection` **Added**\n* `syllable_sdk.outbound.campaigns.update()`: \n  *  `request.outbound_campaign_input.voicemail_detection` **Added**\n  *  `response.voicemail_detection` **Added**\n"
+releaseNotes: |
+  ## Python SDK Changes Detected:
+  * `syllable_sdk.incidents.update()`:  `request` **Changed** **Breaking** :warning:

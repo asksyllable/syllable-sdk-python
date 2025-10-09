@@ -9817,7 +9817,8 @@ components:
             - type: "string"
             - type: "null"
           title: "Sub Organization"
-          description: "The name of the sub-organization"
+          description: "The name of the sub-organization (DEPRECATED)"
+          deprecated: true
           examples:
             - "SubOrg A"
       type: "object"
@@ -9925,7 +9926,8 @@ components:
             - type: "string"
             - type: "null"
           title: "Sub Organization"
-          description: "The name of the sub-organization"
+          description: "The name of the sub-organization (DEPRECATED)"
+          deprecated: true
           examples:
             - "SubOrg A"
         "id":
@@ -10033,7 +10035,8 @@ components:
             - type: "string"
             - type: "null"
           title: "Sub Organization"
-          description: "The name of the sub-organization"
+          description: "The name of the sub-organization (DEPRECATED)"
+          deprecated: true
           examples:
             - "SubOrg A"
         "id":
@@ -10042,24 +10045,6 @@ components:
           description: "The ID of the incident to update"
           examples:
             - 1
-        "created_at":
-          anyOf:
-            - type: "string"
-              format: "date-time"
-            - type: "null"
-          title: "Created At"
-          description: "Creation time of the incident"
-          examples:
-            - "2023-10-01T08:00:00Z"
-        "updated_at":
-          anyOf:
-            - type: "string"
-              format: "date-time"
-            - type: "null"
-          title: "Updated At"
-          description: "Last update time of the incident"
-          examples:
-            - "2023-10-01T08:00:00Z"
       type: "object"
       required:
         - "description"
