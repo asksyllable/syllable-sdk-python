@@ -31,6 +31,8 @@ class PromptCreateRequestTypedDict(TypedDict):
     r"""Names of tools to which the prompt has access"""
     session_end_enabled: NotRequired[bool]
     r"""Whether session end functionality is enabled for this prompt"""
+    edit_comments: NotRequired[Nullable[str]]
+    r"""The comments for the most recent edit to the prompt"""
     include_default_tools: NotRequired[bool]
     r"""Whether to include the default tools (`hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."""
 
@@ -59,6 +61,9 @@ class PromptCreateRequest(BaseModel):
     session_end_enabled: Optional[bool] = False
     r"""Whether session end functionality is enabled for this prompt"""
 
+    edit_comments: OptionalNullable[str] = UNSET
+    r"""The comments for the most recent edit to the prompt"""
+
     include_default_tools: Optional[bool] = True
     r"""Whether to include the default tools (`hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."""
 
@@ -69,9 +74,10 @@ class PromptCreateRequest(BaseModel):
             "context",
             "tools",
             "session_end_enabled",
+            "edit_comments",
             "include_default_tools",
         ]
-        nullable_fields = ["description", "context"]
+        nullable_fields = ["description", "context", "edit_comments"]
         null_default_fields = []
 
         serialized = handler(self)
