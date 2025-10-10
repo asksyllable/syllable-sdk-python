@@ -2,22 +2,9 @@
 
 from __future__ import annotations
 from .matchtype import MatchType
-from pydantic import model_serializer
-from syllable_sdk.types import (
-    BaseModel,
-    Nullable,
-    OptionalNullable,
-    UNSET,
-    UNSET_SENTINEL,
-)
-from typing import List, Optional, Union
-from typing_extensions import NotRequired, TypeAliasType, TypedDict
-
-
-LanguageTypedDict = TypeAliasType("LanguageTypedDict", Union[str, List[str]])
-
-
-Language = TypeAliasType("Language", Union[str, List[str]])
+from syllable_sdk.types import BaseModel
+from typing import List, Optional
+from typing_extensions import NotRequired, TypedDict
 
 
 class PronunciationOverrideTypedDict(TypedDict):
@@ -25,14 +12,14 @@ class PronunciationOverrideTypedDict(TypedDict):
 
     text: str
     replacement: str
-    language: NotRequired[Nullable[LanguageTypedDict]]
-    provider: NotRequired[Nullable[str]]
-    voice: NotRequired[Nullable[str]]
+    languages: NotRequired[List[str]]
+    provider: NotRequired[str]
+    voice: NotRequired[str]
     match_type: NotRequired[MatchType]
     r"""Matching strategy for override text."""
     match_options: NotRequired[List[str]]
     enabled: NotRequired[bool]
-    notes: NotRequired[Nullable[str]]
+    notes: NotRequired[str]
 
 
 class PronunciationOverride(BaseModel):
@@ -42,11 +29,11 @@ class PronunciationOverride(BaseModel):
 
     replacement: str
 
-    language: OptionalNullable[Language] = UNSET
+    languages: Optional[List[str]] = None
 
-    provider: OptionalNullable[str] = UNSET
+    provider: Optional[str] = ""
 
-    voice: OptionalNullable[str] = UNSET
+    voice: Optional[str] = ""
 
     match_type: Optional[MatchType] = None
     r"""Matching strategy for override text."""
@@ -55,42 +42,4 @@ class PronunciationOverride(BaseModel):
 
     enabled: Optional[bool] = True
 
-    notes: OptionalNullable[str] = UNSET
-
-    @model_serializer(mode="wrap")
-    def serialize_model(self, handler):
-        optional_fields = [
-            "language",
-            "provider",
-            "voice",
-            "match_type",
-            "match_options",
-            "enabled",
-            "notes",
-        ]
-        nullable_fields = ["language", "provider", "voice", "notes"]
-        null_default_fields = []
-
-        serialized = handler(self)
-
-        m = {}
-
-        for n, f in type(self).model_fields.items():
-            k = f.alias or n
-            val = serialized.get(k)
-            serialized.pop(k, None)
-
-            optional_nullable = k in optional_fields and k in nullable_fields
-            is_set = (
-                self.__pydantic_fields_set__.intersection({n})
-                or k in null_default_fields
-            )  # pylint: disable=no-member
-
-            if val is not None and val != UNSET_SENTINEL:
-                m[k] = val
-            elif val != UNSET_SENTINEL and (
-                not k in optional_fields or (optional_nullable and is_set)
-            ):
-                m[k] = val
-
-        return m
+    notes: Optional[str] = ""

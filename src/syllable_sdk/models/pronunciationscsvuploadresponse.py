@@ -2,14 +2,7 @@
 
 from __future__ import annotations
 from datetime import datetime
-from pydantic import model_serializer
-from syllable_sdk.types import (
-    BaseModel,
-    Nullable,
-    OptionalNullable,
-    UNSET,
-    UNSET_SENTINEL,
-)
+from syllable_sdk.types import BaseModel
 from typing import Optional
 from typing_extensions import NotRequired, TypedDict
 
@@ -18,10 +11,10 @@ class PronunciationsCsvUploadResponseTypedDict(TypedDict):
     r"""Placeholder response returned after accepting a pronunciations CSV upload."""
 
     revision: int
-    hash: NotRequired[Nullable[str]]
-    entries: NotRequired[Nullable[int]]
+    hash: str
+    entries: int
+    uploaded_by: str
     uploaded_at: NotRequired[datetime]
-    uploaded_by: NotRequired[Nullable[str]]
 
 
 class PronunciationsCsvUploadResponse(BaseModel):
@@ -29,40 +22,10 @@ class PronunciationsCsvUploadResponse(BaseModel):
 
     revision: int
 
-    hash: OptionalNullable[str] = UNSET
+    hash: str
 
-    entries: OptionalNullable[int] = UNSET
+    entries: int
+
+    uploaded_by: str
 
     uploaded_at: Optional[datetime] = None
-
-    uploaded_by: OptionalNullable[str] = UNSET
-
-    @model_serializer(mode="wrap")
-    def serialize_model(self, handler):
-        optional_fields = ["hash", "entries", "uploaded_at", "uploaded_by"]
-        nullable_fields = ["hash", "entries", "uploaded_by"]
-        null_default_fields = []
-
-        serialized = handler(self)
-
-        m = {}
-
-        for n, f in type(self).model_fields.items():
-            k = f.alias or n
-            val = serialized.get(k)
-            serialized.pop(k, None)
-
-            optional_nullable = k in optional_fields and k in nullable_fields
-            is_set = (
-                self.__pydantic_fields_set__.intersection({n})
-                or k in null_default_fields
-            )  # pylint: disable=no-member
-
-            if val is not None and val != UNSET_SENTINEL:
-                m[k] = val
-            elif val != UNSET_SENTINEL and (
-                not k in optional_fields or (optional_nullable and is_set)
-            ):
-                m[k] = val
-
-        return m
