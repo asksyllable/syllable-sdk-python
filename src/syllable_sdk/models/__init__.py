@@ -631,8 +631,6 @@ if TYPE_CHECKING:
     from .prompts_listop import PromptsListRequest, PromptsListRequestTypedDict
     from .promptupdaterequest import PromptUpdateRequest, PromptUpdateRequestTypedDict
     from .pronunciationoverride import (
-        Language,
-        LanguageTypedDict,
         PronunciationOverride,
         PronunciationOverrideTypedDict,
     )
@@ -1128,7 +1126,6 @@ __all__ = [
     "InternalToolTypedDict",
     "JSONValue",
     "JSONValueTypedDict",
-    "Language",
     "LanguageCode",
     "LanguageConfig",
     "LanguageConfigTypedDict",
@@ -1147,7 +1144,6 @@ __all__ = [
     "LanguageGroupsGetByIDRequestTypedDict",
     "LanguageGroupsListRequest",
     "LanguageGroupsListRequestTypedDict",
-    "LanguageTypedDict",
     "LatencyCategory",
     "LatencyEntry",
     "LatencyEntryTypedDict",
@@ -1871,8 +1867,6 @@ _dynamic_imports: dict[str, str] = {
     "PromptsListRequestTypedDict": ".prompts_listop",
     "PromptUpdateRequest": ".promptupdaterequest",
     "PromptUpdateRequestTypedDict": ".promptupdaterequest",
-    "Language": ".pronunciationoverride",
-    "LanguageTypedDict": ".pronunciationoverride",
     "PronunciationOverride": ".pronunciationoverride",
     "PronunciationOverrideTypedDict": ".pronunciationoverride",
     "PronunciationOverridesDictionary": ".pronunciationoverridesdictionary",
