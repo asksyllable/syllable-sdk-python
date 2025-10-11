@@ -8,3 +8,4 @@ class MatchType(str, Enum):
     r"""Matching strategy for override text."""
 
     EXACT = "exact"
+    SUBSTRING = "substring"
