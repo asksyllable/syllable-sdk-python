@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 9449913bc3fbd9951f3c8416f4eb1957
+  docChecksum: ed84a74ec462e041e06b496e4334cd58
   docVersion: 0.0.2
   speakeasyVersion: 1.636.3
   generationVersion: 2.723.11
-  releaseVersion: 0.38.14
-  configChecksum: f2bc68985d3bffc67ce83c1fe1e41a63
+  releaseVersion: 0.38.15
+  configChecksum: 7a4e0902e077f210dd28b0e8e7763648
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -2051,7 +2051,7 @@ examples:
   language_groups_create_voice_sample:
     speakeasy-default-language-groups-create-voice-sample:
       requestBody:
-        application/json: {"language_code": "zh-CN", "voice_provider": "Google", "voice_display_name": "en-US-Neural2-F", "voice_speed": 1, "voice_pitch": 0}
+        application/json: {"language_code": "zh-CN", "voice_provider": "Google", "voice_display_name": "en-US-Neural2-F", "voice_speed": 1, "voice_pitch": 0, "text": "", "apply_pronunciation_overrides": false}
       responses:
         "200":
           application/octet-stream: "x-file: example.file"
@@ -2310,3 +2310,6 @@ examples:
   pronunciations_delete_csv: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Python SDK Changes Detected:
+  * `syllable_sdk.language_groups.language_groups_create_voice_sample()`:  `request` **Changed**

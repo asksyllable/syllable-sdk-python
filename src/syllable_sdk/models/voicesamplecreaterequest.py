@@ -12,6 +12,7 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
+from typing import Optional
 from typing_extensions import NotRequired, TypedDict
 
 
@@ -28,6 +29,10 @@ class VoiceSampleCreateRequestTypedDict(TypedDict):
     r"""Speed of the voice in the range of 0.25 to 4.0 (OpenAI and Google) or 0.7 to 1.2 (ElevenLabs). Standard speed is 1.0."""
     voice_pitch: NotRequired[Nullable[float]]
     r"""Pitch of the voice in the range of -20.0 to 20.0. 20 means increase 20 semitones from the original pitch. -20 means decrease 20 semitones from the original pitch. 0 means use the original pitch. Only supported for Google configs."""
+    text: NotRequired[str]
+    r"""Text to generate for this voice."""
+    apply_pronunciation_overrides: NotRequired[bool]
+    r"""Apply TTS pronunciation fixes."""
 
 
 class VoiceSampleCreateRequest(BaseModel):
@@ -48,9 +53,20 @@ class VoiceSampleCreateRequest(BaseModel):
     voice_pitch: OptionalNullable[float] = UNSET
     r"""Pitch of the voice in the range of -20.0 to 20.0. 20 means increase 20 semitones from the original pitch. -20 means decrease 20 semitones from the original pitch. 0 means use the original pitch. Only supported for Google configs."""
 
+    text: Optional[str] = ""
+    r"""Text to generate for this voice."""
+
+    apply_pronunciation_overrides: Optional[bool] = False
+    r"""Apply TTS pronunciation fixes."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["voice_speed", "voice_pitch"]
+        optional_fields = [
+            "voice_speed",
+            "voice_pitch",
+            "text",
+            "apply_pronunciation_overrides",
+        ]
         nullable_fields = ["voice_speed", "voice_pitch"]
         null_default_fields = []
 
