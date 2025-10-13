@@ -25847,6 +25847,18 @@
             "examples": [
               0.0
             ]
+          },
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "description": "Text to generate for this voice.",
+            "default": ""
+          },
+          "apply_pronunciation_overrides": {
+            "type": "boolean",
+            "title": "Apply Pronunciation Overrides",
+            "description": "Apply TTS pronunciation fixes.",
+            "default": false
           }
         },
         "type": "object",
