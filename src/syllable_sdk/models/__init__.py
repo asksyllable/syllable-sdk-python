@@ -348,6 +348,8 @@ if TYPE_CHECKING:
         InsightsOutputTypedDict,
         JSONValue,
         JSONValueTypedDict,
+        UploadFileMetadata,
+        UploadFileMetadataTypedDict,
     )
     from .insightsproperties import InsightsProperties
     from .insightsuploadfile import (
@@ -1429,6 +1431,8 @@ __all__ = [
     "TwilioPhoneNumber",
     "TwilioPhoneNumberTypedDict",
     "Type",
+    "UploadFileMetadata",
+    "UploadFileMetadataTypedDict",
     "UserActivityStatus",
     "UserCreateRequest",
     "UserCreateRequestTypedDict",
@@ -1690,6 +1694,8 @@ _dynamic_imports: dict[str, str] = {
     "InsightsOutputTypedDict": ".insightsoutput",
     "JSONValue": ".insightsoutput",
     "JSONValueTypedDict": ".insightsoutput",
+    "UploadFileMetadata": ".insightsoutput",
+    "UploadFileMetadataTypedDict": ".insightsoutput",
     "InsightsProperties": ".insightsproperties",
     "InsightsUploadFile": ".insightsuploadfile",
     "InsightsUploadFileTypedDict": ".insightsuploadfile",
