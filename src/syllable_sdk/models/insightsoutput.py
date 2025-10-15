@@ -10,7 +10,7 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import Dict, Optional, Union
+from typing import Any, Dict, Optional, Union
 from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
@@ -18,14 +18,6 @@ JSONValueTypedDict = TypeAliasType("JSONValueTypedDict", Union[str, int, float])
 
 
 JSONValue = TypeAliasType("JSONValue", Union[str, int, float])
-
-
-class UploadFileMetadataTypedDict(TypedDict):
-    pass
-
-
-class UploadFileMetadata(BaseModel):
-    pass
 
 
 class InsightsOutputTypedDict(TypedDict):
@@ -53,7 +45,7 @@ class InsightsOutputTypedDict(TypedDict):
     r"""Timestamp at which insight tool result was created"""
     updated_at: NotRequired[datetime]
     r"""Timestamp at which insight tool result was last updated"""
-    upload_file_metadata: NotRequired[Nullable[UploadFileMetadataTypedDict]]
+    upload_file_metadata: NotRequired[Any]
     r"""Metadata associated with the uploaded file"""
 
 
@@ -93,7 +85,7 @@ class InsightsOutput(BaseModel):
     updated_at: Optional[datetime] = None
     r"""Timestamp at which insight tool result was last updated"""
 
-    upload_file_metadata: OptionalNullable[UploadFileMetadata] = UNSET
+    upload_file_metadata: Optional[Any] = None
     r"""Metadata associated with the uploaded file"""
 
     @model_serializer(mode="wrap")
@@ -112,7 +104,6 @@ class InsightsOutput(BaseModel):
             "upload_file_id",
             "string_value",
             "numeric_value",
-            "upload_file_metadata",
         ]
         null_default_fields = []
 
