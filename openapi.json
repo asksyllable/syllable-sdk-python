@@ -17968,6 +17968,24 @@
             "examples": [
               "2025-10-15T00:00:00Z"
             ]
+          },
+          "upload_file_metadata": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Upload File Metadata",
+            "description": "Metadata associated with the uploaded file",
+            "examples": [
+              {
+                "duration": "00:10:00",
+                "size": "10MB"
+              }
+            ]
           }
         },
         "type": "object",
