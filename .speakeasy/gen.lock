@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 5334ce14a1514af21ba22e692d35bdff
+  docChecksum: f1500550cf664ac6f74762e515db7359
   docVersion: 0.0.2
   speakeasyVersion: 1.636.3
   generationVersion: 2.723.11
-  releaseVersion: 0.38.19
-  configChecksum: ae68fe01f2c10f0f168f96ca94e56cf1
+  releaseVersion: 0.38.20
+  configChecksum: 3656e107aefba31847263e4a58fecfb7
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -1955,10 +1955,10 @@ examples:
   outbound_campaign_create:
     speakeasy-default-outbound-campaign-create:
       requestBody:
-        application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.2, "voicemail_detection_pre_speech_timeout": 5, "voicemail_detection_speech_threshold": 2.4}}
+        application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.75, "voicemail_detection_pre_speech_timeout": 3.5}}
       responses:
         "200":
-          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.2, "voicemail_detection_pre_speech_timeout": 5, "voicemail_detection_speech_threshold": 2.4}, "id": 1, "agent_id": null, "created_at": "2025-10-15T00:00:00Z", "updated_at": "2025-10-15T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.75, "voicemail_detection_pre_speech_timeout": 3.5}, "id": 1, "agent_id": null, "created_at": "2025-10-15T00:00:00Z", "updated_at": "2025-10-15T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   outbound_campaign_get_by_id:
@@ -1968,7 +1968,7 @@ examples:
           campaign_id: 11227
       responses:
         "200":
-          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.2, "voicemail_detection_pre_speech_timeout": 5, "voicemail_detection_speech_threshold": 2.4}, "id": 1, "agent_id": null, "created_at": "2025-10-15T00:00:00Z", "updated_at": "2025-10-15T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.75, "voicemail_detection_pre_speech_timeout": 3.5}, "id": 1, "agent_id": null, "created_at": "2025-10-15T00:00:00Z", "updated_at": "2025-10-15T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   outbound_campaign_update:
@@ -1977,10 +1977,10 @@ examples:
         path:
           campaign_id: 187717
       requestBody:
-        application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.2, "voicemail_detection_pre_speech_timeout": 5, "voicemail_detection_speech_threshold": 2.4}}
+        application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.75, "voicemail_detection_pre_speech_timeout": 3.5}}
       responses:
         "200":
-          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.2, "voicemail_detection_pre_speech_timeout": 5, "voicemail_detection_speech_threshold": 2.4}, "id": 1, "agent_id": null, "created_at": "2025-10-15T00:00:00Z", "updated_at": "2025-10-15T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.75, "voicemail_detection_pre_speech_timeout": 3.5}, "id": 1, "agent_id": null, "created_at": "2025-10-15T00:00:00Z", "updated_at": "2025-10-15T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   outbound_campaign_delete:
@@ -2310,6 +2310,3 @@ examples:
   pronunciations_delete_csv: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Python SDK Changes Detected:
-  * `syllable_sdk.insights.list()`:  `response.items.[].upload_file_metadata` **Changed** **Breaking** :warning:
