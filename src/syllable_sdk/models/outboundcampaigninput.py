@@ -47,7 +47,7 @@ class OutboundCampaignInputTypedDict(TypedDict):
     retry_interval: NotRequired[Nullable[str]]
     r"""How long to wait before retrying"""
     voicemail_detection: NotRequired[Nullable[Dict[str, float]]]
-    r"""Config for voicemail detection for voice campaigns"""
+    r"""Config for voicemail detection for voice campaigns. Set to None to disable."""
 
 
 class OutboundCampaignInput(BaseModel):
@@ -102,7 +102,7 @@ class OutboundCampaignInput(BaseModel):
     r"""How long to wait before retrying"""
 
     voicemail_detection: OptionalNullable[Dict[str, float]] = UNSET
-    r"""Config for voicemail detection for voice campaigns"""
+    r"""Config for voicemail detection for voice campaigns. Set to None to disable."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

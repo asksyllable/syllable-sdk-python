@@ -52,7 +52,7 @@ class OutboundCampaignTypedDict(TypedDict):
     retry_interval: NotRequired[Nullable[str]]
     r"""How long to wait before retrying"""
     voicemail_detection: NotRequired[Nullable[Dict[str, float]]]
-    r"""Config for voicemail detection for voice campaigns"""
+    r"""Config for voicemail detection for voice campaigns. Set to None to disable."""
     agent_id: NotRequired[Nullable[int]]
     r"""ID of agent assigned to campaign"""
     created_at: NotRequired[datetime]
@@ -119,7 +119,7 @@ class OutboundCampaign(BaseModel):
     r"""How long to wait before retrying"""
 
     voicemail_detection: OptionalNullable[Dict[str, float]] = UNSET
-    r"""Config for voicemail detection for voice campaigns"""
+    r"""Config for voicemail detection for voice campaigns. Set to None to disable."""
 
     agent_id: OptionalNullable[int] = UNSET
     r"""ID of agent assigned to campaign"""
