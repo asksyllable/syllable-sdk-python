@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 4a5765b3bb21aec73920dc44d297245e
+  docChecksum: c452c12068a71804f3fc40512551bac9
   docVersion: 0.0.2
   speakeasyVersion: 1.636.3
   generationVersion: 2.723.11
-  releaseVersion: 0.38.17
-  configChecksum: c62d518da9ccae99e3178ad73c201b2f
+  releaseVersion: 0.38.18
+  configChecksum: 196312c68097012c3bb5884612980885
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -359,6 +359,7 @@ generatedFiles:
   - docs/models/twilionumberupdateresponse.md
   - docs/models/twiliophonenumber.md
   - docs/models/type.md
+  - docs/models/uploadfilemetadata.md
   - docs/models/useractivitystatus.md
   - docs/models/usercreaterequest.md
   - docs/models/userdeleterequest.md
@@ -2310,3 +2311,6 @@ examples:
   pronunciations_delete_csv: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Python SDK Changes Detected:
+  * `syllable_sdk.insights.list()`:  `response.items.[].upload_file_metadata` **Added**

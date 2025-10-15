@@ -20,6 +20,14 @@ JSONValueTypedDict = TypeAliasType("JSONValueTypedDict", Union[str, int, float])
 JSONValue = TypeAliasType("JSONValue", Union[str, int, float])
 
 
+class UploadFileMetadataTypedDict(TypedDict):
+    pass
+
+
+class UploadFileMetadata(BaseModel):
+    pass
+
+
 class InsightsOutputTypedDict(TypedDict):
     r"""Response model for an insight tool."""
 
@@ -45,6 +53,8 @@ class InsightsOutputTypedDict(TypedDict):
     r"""Timestamp at which insight tool result was created"""
     updated_at: NotRequired[datetime]
     r"""Timestamp at which insight tool result was last updated"""
+    upload_file_metadata: NotRequired[Nullable[UploadFileMetadataTypedDict]]
+    r"""Metadata associated with the uploaded file"""
 
 
 class InsightsOutput(BaseModel):
@@ -83,6 +93,9 @@ class InsightsOutput(BaseModel):
     updated_at: Optional[datetime] = None
     r"""Timestamp at which insight tool result was last updated"""
 
+    upload_file_metadata: OptionalNullable[UploadFileMetadata] = UNSET
+    r"""Metadata associated with the uploaded file"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -92,12 +105,14 @@ class InsightsOutput(BaseModel):
             "numeric_value",
             "created_at",
             "updated_at",
+            "upload_file_metadata",
         ]
         nullable_fields = [
             "session_id",
             "upload_file_id",
             "string_value",
             "numeric_value",
+            "upload_file_metadata",
         ]
         null_default_fields = []
 
