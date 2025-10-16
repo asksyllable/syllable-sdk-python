@@ -11,3 +11,4 @@ class ChannelServices(str, Enum):
     TWILIO = "twilio"
     EMAIL = "email"
     WEBCHAT = "webchat"
+    AFRICASTALKING = "africastalking"

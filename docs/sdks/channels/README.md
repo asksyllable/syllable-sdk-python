@@ -89,6 +89,10 @@ with SyllableSDK(
         "config": {
             "account_sid": "AC123...",
             "auth_token": "sometoken",
+            "provider_credentials": {
+                "api_key": "atk123",
+                "username": "test_username",
+            },
             "telephony": {
                 "pre_input_timeout": 1.2,
                 "overall_input_timeout": 20,
@@ -146,6 +150,10 @@ with SyllableSDK(
         "config": {
             "account_sid": "AC123...",
             "auth_token": "sometoken",
+            "provider_credentials": {
+                "api_key": "atk123",
+                "username": "test_username",
+            },
             "telephony": {
                 "pre_input_timeout": 1.2,
                 "overall_input_timeout": 20,
