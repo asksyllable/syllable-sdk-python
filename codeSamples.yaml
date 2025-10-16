@@ -246,6 +246,10 @@ actions:
                     "config": {
                         "account_sid": "AC123...",
                         "auth_token": "sometoken",
+                        "provider_credentials": {
+                            "api_key": "atk123",
+                            "username": "test_username",
+                        },
                         "telephony": {
                             "pre_input_timeout": 1.2,
                             "overall_input_timeout": 20,
@@ -280,6 +284,10 @@ actions:
                     "config": {
                         "account_sid": "AC123...",
                         "auth_token": "sometoken",
+                        "provider_credentials": {
+                            "api_key": "atk123",
+                            "username": "test_username",
+                        },
                         "telephony": {
                             "pre_input_timeout": 1.2,
                             "overall_input_timeout": 20,
@@ -1439,8 +1447,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-10-14T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-10-15T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-10-15T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-10-16T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1553,8 +1561,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-10-14T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-10-15T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-10-15T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-10-16T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1886,9 +1894,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20251015.9",
+                    "batch_id": "20251016.9",
                     "campaign_id": 1,
-                    "expires_on": parse_datetime("2025-10-16T00:00:00Z"),
+                    "expires_on": parse_datetime("2025-10-17T00:00:00Z"),
                     "paused": True,
                 })
 
