@@ -8,35 +8,29 @@ from syllable_sdk.types import BaseModel, OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
 from syllable_sdk.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Any, List, Mapping, Optional, Union, cast
-from typing_extensions import deprecated
 
 
-class LanguageGroups(BaseSDK):
-    r"""Operations related to language groups. A language group is a           collection of language, voice, and DTMF configuration that can be linked to an agent to           define the languages and voices it supports. For more information, see           [Console docs](https://docs.syllable.ai/Resources/LanguageGroups)."""
-
-    @deprecated(
-        "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-    )
+class VoiceGroups(BaseSDK):
     def list(
         self,
         *,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
-        search_fields: Optional[List[models.LanguageGroupProperties]] = None,
+        search_fields: Optional[List[models.VoiceGroupProperties]] = None,
         search_field_values: Optional[List[str]] = None,
-        order_by: OptionalNullable[models.LanguageGroupProperties] = UNSET,
+        order_by: OptionalNullable[models.VoiceGroupProperties] = UNSET,
         order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
-        fields: OptionalNullable[List[models.LanguageGroupProperties]] = UNSET,
+        fields: OptionalNullable[List[models.VoiceGroupProperties]] = UNSET,
         start_datetime: OptionalNullable[str] = UNSET,
         end_datetime: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ListResponseLanguageGroupResponse:
-        r"""List Language Groups
+    ) -> models.ListResponseVoiceGroupResponse:
+        r"""List Voice Groups
 
-        Deprecated alias for `GET /api/v1/voice_groups/`.
+        Fetch voice groups.
 
         :param page: The page number from which to start (0-based)
         :param limit: The maximum number of items to return
@@ -62,7 +56,7 @@ class LanguageGroups(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.LanguageGroupsListRequest(
+        request = models.VoiceGroupsListRequest(
             page=page,
             limit=limit,
             search_fields=search_fields,
@@ -76,7 +70,7 @@ class LanguageGroups(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/language_groups/",
+            path="/api/v1/voice_groups/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -102,7 +96,7 @@ class LanguageGroups(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="language_groups_list",
+                operation_id="voice_groups_list",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -116,7 +110,7 @@ class LanguageGroups(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.ListResponseLanguageGroupResponse, http_res
+                models.ListResponseVoiceGroupResponse, http_res
             )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
@@ -132,29 +126,26 @@ class LanguageGroups(BaseSDK):
 
         raise errors.APIError("Unexpected response received", http_res)
 
-    @deprecated(
-        "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-    )
     async def list_async(
         self,
         *,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
-        search_fields: Optional[List[models.LanguageGroupProperties]] = None,
+        search_fields: Optional[List[models.VoiceGroupProperties]] = None,
         search_field_values: Optional[List[str]] = None,
-        order_by: OptionalNullable[models.LanguageGroupProperties] = UNSET,
+        order_by: OptionalNullable[models.VoiceGroupProperties] = UNSET,
         order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
-        fields: OptionalNullable[List[models.LanguageGroupProperties]] = UNSET,
+        fields: OptionalNullable[List[models.VoiceGroupProperties]] = UNSET,
         start_datetime: OptionalNullable[str] = UNSET,
         end_datetime: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ListResponseLanguageGroupResponse:
-        r"""List Language Groups
+    ) -> models.ListResponseVoiceGroupResponse:
+        r"""List Voice Groups
 
-        Deprecated alias for `GET /api/v1/voice_groups/`.
+        Fetch voice groups.
 
         :param page: The page number from which to start (0-based)
         :param limit: The maximum number of items to return
@@ -180,7 +171,7 @@ class LanguageGroups(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.LanguageGroupsListRequest(
+        request = models.VoiceGroupsListRequest(
             page=page,
             limit=limit,
             search_fields=search_fields,
@@ -194,7 +185,7 @@ class LanguageGroups(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/language_groups/",
+            path="/api/v1/voice_groups/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -220,7 +211,7 @@ class LanguageGroups(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="language_groups_list",
+                operation_id="voice_groups_list",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -234,7 +225,7 @@ class LanguageGroups(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.ListResponseLanguageGroupResponse, http_res
+                models.ListResponseVoiceGroupResponse, http_res
             )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
@@ -250,24 +241,20 @@ class LanguageGroups(BaseSDK):
 
         raise errors.APIError("Unexpected response received", http_res)
 
-    @deprecated(
-        "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-    )
     def create(
         self,
         *,
         request: Union[
-            models.LanguageGroupCreateRequest,
-            models.LanguageGroupCreateRequestTypedDict,
+            models.VoiceGroupCreateRequest, models.VoiceGroupCreateRequestTypedDict
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.LanguageGroupResponse:
-        r"""Create Language Group
+    ) -> models.VoiceGroupResponse:
+        r"""Create Voice Group
 
-        Deprecated alias for `POST /api/v1/voice_groups/`.
+        Create a new voice group.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
@@ -286,12 +273,12 @@ class LanguageGroups(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         if not isinstance(request, BaseModel):
-            request = utils.unmarshal(request, models.LanguageGroupCreateRequest)
-        request = cast(models.LanguageGroupCreateRequest, request)
+            request = utils.unmarshal(request, models.VoiceGroupCreateRequest)
+        request = cast(models.VoiceGroupCreateRequest, request)
 
         req = self._build_request(
             method="POST",
-            path="/api/v1/language_groups/",
+            path="/api/v1/voice_groups/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -303,7 +290,7 @@ class LanguageGroups(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.LanguageGroupCreateRequest
+                request, False, False, "json", models.VoiceGroupCreateRequest
             ),
             timeout_ms=timeout_ms,
         )
@@ -320,7 +307,7 @@ class LanguageGroups(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="language_groups_create",
+                operation_id="voice_groups_create",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -333,7 +320,7 @@ class LanguageGroups(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.LanguageGroupResponse, http_res)
+            return unmarshal_json_response(models.VoiceGroupResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
@@ -348,24 +335,20 @@ class LanguageGroups(BaseSDK):
 
         raise errors.APIError("Unexpected response received", http_res)
 
-    @deprecated(
-        "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-    )
     async def create_async(
         self,
         *,
         request: Union[
-            models.LanguageGroupCreateRequest,
-            models.LanguageGroupCreateRequestTypedDict,
+            models.VoiceGroupCreateRequest, models.VoiceGroupCreateRequestTypedDict
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.LanguageGroupResponse:
-        r"""Create Language Group
+    ) -> models.VoiceGroupResponse:
+        r"""Create Voice Group
 
-        Deprecated alias for `POST /api/v1/voice_groups/`.
+        Create a new voice group.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
@@ -384,12 +367,12 @@ class LanguageGroups(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         if not isinstance(request, BaseModel):
-            request = utils.unmarshal(request, models.LanguageGroupCreateRequest)
-        request = cast(models.LanguageGroupCreateRequest, request)
+            request = utils.unmarshal(request, models.VoiceGroupCreateRequest)
+        request = cast(models.VoiceGroupCreateRequest, request)
 
         req = self._build_request_async(
             method="POST",
-            path="/api/v1/language_groups/",
+            path="/api/v1/voice_groups/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -401,7 +384,7 @@ class LanguageGroups(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.LanguageGroupCreateRequest
+                request, False, False, "json", models.VoiceGroupCreateRequest
             ),
             timeout_ms=timeout_ms,
         )
@@ -418,7 +401,7 @@ class LanguageGroups(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="language_groups_create",
+                operation_id="voice_groups_create",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -431,7 +414,7 @@ class LanguageGroups(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.LanguageGroupResponse, http_res)
+            return unmarshal_json_response(models.VoiceGroupResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
@@ -446,24 +429,20 @@ class LanguageGroups(BaseSDK):
 
         raise errors.APIError("Unexpected response received", http_res)
 
-    @deprecated(
-        "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-    )
     def update(
         self,
         *,
         request: Union[
-            models.LanguageGroupUpdateRequest,
-            models.LanguageGroupUpdateRequestTypedDict,
+            models.VoiceGroupUpdateRequest, models.VoiceGroupUpdateRequestTypedDict
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.LanguageGroupResponse:
-        r"""Update Language Group
+    ) -> models.VoiceGroupResponse:
+        r"""Update Voice Group
 
-        Deprecated alias for `PUT /api/v1/voice_groups/`.
+        Update an existing voice group
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
@@ -482,12 +461,12 @@ class LanguageGroups(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         if not isinstance(request, BaseModel):
-            request = utils.unmarshal(request, models.LanguageGroupUpdateRequest)
-        request = cast(models.LanguageGroupUpdateRequest, request)
+            request = utils.unmarshal(request, models.VoiceGroupUpdateRequest)
+        request = cast(models.VoiceGroupUpdateRequest, request)
 
         req = self._build_request(
             method="PUT",
-            path="/api/v1/language_groups/",
+            path="/api/v1/voice_groups/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -499,7 +478,7 @@ class LanguageGroups(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.LanguageGroupUpdateRequest
+                request, False, False, "json", models.VoiceGroupUpdateRequest
             ),
             timeout_ms=timeout_ms,
         )
@@ -516,7 +495,7 @@ class LanguageGroups(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="language_groups_update",
+                operation_id="voice_groups_update",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -529,7 +508,7 @@ class LanguageGroups(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.LanguageGroupResponse, http_res)
+            return unmarshal_json_response(models.VoiceGroupResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
@@ -544,24 +523,20 @@ class LanguageGroups(BaseSDK):
 
         raise errors.APIError("Unexpected response received", http_res)
 
-    @deprecated(
-        "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-    )
     async def update_async(
         self,
         *,
         request: Union[
-            models.LanguageGroupUpdateRequest,
-            models.LanguageGroupUpdateRequestTypedDict,
+            models.VoiceGroupUpdateRequest, models.VoiceGroupUpdateRequestTypedDict
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.LanguageGroupResponse:
-        r"""Update Language Group
+    ) -> models.VoiceGroupResponse:
+        r"""Update Voice Group
 
-        Deprecated alias for `PUT /api/v1/voice_groups/`.
+        Update an existing voice group
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
@@ -580,12 +555,12 @@ class LanguageGroups(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         if not isinstance(request, BaseModel):
-            request = utils.unmarshal(request, models.LanguageGroupUpdateRequest)
-        request = cast(models.LanguageGroupUpdateRequest, request)
+            request = utils.unmarshal(request, models.VoiceGroupUpdateRequest)
+        request = cast(models.VoiceGroupUpdateRequest, request)
 
         req = self._build_request_async(
             method="PUT",
-            path="/api/v1/language_groups/",
+            path="/api/v1/voice_groups/",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -597,7 +572,7 @@ class LanguageGroups(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.LanguageGroupUpdateRequest
+                request, False, False, "json", models.VoiceGroupUpdateRequest
             ),
             timeout_ms=timeout_ms,
         )
@@ -614,7 +589,7 @@ class LanguageGroups(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="language_groups_update",
+                operation_id="voice_groups_update",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -627,7 +602,7 @@ class LanguageGroups(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.LanguageGroupResponse, http_res)
+            return unmarshal_json_response(models.VoiceGroupResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
@@ -642,23 +617,20 @@ class LanguageGroups(BaseSDK):
 
         raise errors.APIError("Unexpected response received", http_res)
 
-    @deprecated(
-        "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-    )
     def get_by_id(
         self,
         *,
-        language_group_id: int,
+        voice_group_id: int,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.LanguageGroupResponse:
-        r"""Get Language Group
+    ) -> models.VoiceGroupResponse:
+        r"""Get Voice Group
 
-        Deprecated alias for `GET /api/v1/voice_groups/{voice_group_id}`.
+        Fetch a given voice group.
 
-        :param language_group_id:
+        :param voice_group_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -674,13 +646,13 @@ class LanguageGroups(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.LanguageGroupsGetByIDRequest(
-            language_group_id=language_group_id,
+        request = models.VoiceGroupsGetByIDRequest(
+            voice_group_id=voice_group_id,
         )
 
         req = self._build_request(
             method="GET",
-            path="/api/v1/language_groups/{language_group_id}",
+            path="/api/v1/voice_groups/{voice_group_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -706,7 +678,7 @@ class LanguageGroups(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="language_groups_get_by_id",
+                operation_id="voice_groups_get_by_id",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -719,7 +691,7 @@ class LanguageGroups(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.LanguageGroupResponse, http_res)
+            return unmarshal_json_response(models.VoiceGroupResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
@@ -734,23 +706,20 @@ class LanguageGroups(BaseSDK):
 
         raise errors.APIError("Unexpected response received", http_res)
 
-    @deprecated(
-        "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-    )
     async def get_by_id_async(
         self,
         *,
-        language_group_id: int,
+        voice_group_id: int,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.LanguageGroupResponse:
-        r"""Get Language Group
+    ) -> models.VoiceGroupResponse:
+        r"""Get Voice Group
 
-        Deprecated alias for `GET /api/v1/voice_groups/{voice_group_id}`.
+        Fetch a given voice group.
 
-        :param language_group_id:
+        :param voice_group_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -766,13 +735,13 @@ class LanguageGroups(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.LanguageGroupsGetByIDRequest(
-            language_group_id=language_group_id,
+        request = models.VoiceGroupsGetByIDRequest(
+            voice_group_id=voice_group_id,
         )
 
         req = self._build_request_async(
             method="GET",
-            path="/api/v1/language_groups/{language_group_id}",
+            path="/api/v1/voice_groups/{voice_group_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -798,7 +767,7 @@ class LanguageGroups(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="language_groups_get_by_id",
+                operation_id="voice_groups_get_by_id",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -811,7 +780,7 @@ class LanguageGroups(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.LanguageGroupResponse, http_res)
+            return unmarshal_json_response(models.VoiceGroupResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
@@ -826,24 +795,21 @@ class LanguageGroups(BaseSDK):
 
         raise errors.APIError("Unexpected response received", http_res)
 
-    @deprecated(
-        "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-    )
     def delete(
         self,
         *,
-        language_group_id: int,
+        voice_group_id: int,
         reason: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Any:
-        r"""Delete Language Group
+        r"""Delete Voice Group
 
-        Deprecated alias for `DELETE /api/v1/voice_groups/{voice_group_id}`.
+        Delete a voice group.
 
-        :param language_group_id:
+        :param voice_group_id:
         :param reason:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -860,14 +826,14 @@ class LanguageGroups(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.LanguageGroupsDeleteRequest(
-            language_group_id=language_group_id,
+        request = models.VoiceGroupsDeleteRequest(
+            voice_group_id=voice_group_id,
             reason=reason,
         )
 
         req = self._build_request(
             method="DELETE",
-            path="/api/v1/language_groups/{language_group_id}",
+            path="/api/v1/voice_groups/{voice_group_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -893,7 +859,7 @@ class LanguageGroups(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="language_groups_delete",
+                operation_id="voice_groups_delete",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -921,24 +887,21 @@ class LanguageGroups(BaseSDK):
 
         raise errors.APIError("Unexpected response received", http_res)
 
-    @deprecated(
-        "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-    )
     async def delete_async(
         self,
         *,
-        language_group_id: int,
+        voice_group_id: int,
         reason: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Any:
-        r"""Delete Language Group
+        r"""Delete Voice Group
 
-        Deprecated alias for `DELETE /api/v1/voice_groups/{voice_group_id}`.
+        Delete a voice group.
 
-        :param language_group_id:
+        :param voice_group_id:
         :param reason:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -955,14 +918,14 @@ class LanguageGroups(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.LanguageGroupsDeleteRequest(
-            language_group_id=language_group_id,
+        request = models.VoiceGroupsDeleteRequest(
+            voice_group_id=voice_group_id,
             reason=reason,
         )
 
         req = self._build_request_async(
             method="DELETE",
-            path="/api/v1/language_groups/{language_group_id}",
+            path="/api/v1/voice_groups/{voice_group_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -988,7 +951,7 @@ class LanguageGroups(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="language_groups_delete",
+                operation_id="voice_groups_delete",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -1016,15 +979,11 @@ class LanguageGroups(BaseSDK):
 
         raise errors.APIError("Unexpected response received", http_res)
 
-    @deprecated(
-        "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-    )
-    def language_groups_create_voice_sample(
+    def voice_groups_create_voice_sample(
         self,
         *,
         request: Union[
-            models.LanguageSampleCreateRequest,
-            models.LanguageSampleCreateRequestTypedDict,
+            models.VoiceSampleCreateRequest, models.VoiceSampleCreateRequestTypedDict
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1033,7 +992,7 @@ class LanguageGroups(BaseSDK):
     ) -> httpx.Response:
         r"""Create Voice Sample
 
-        Deprecated alias for `POST /api/v1/voice_groups/voices/sample`.
+        Generate voice sample.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
@@ -1052,12 +1011,12 @@ class LanguageGroups(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         if not isinstance(request, BaseModel):
-            request = utils.unmarshal(request, models.LanguageSampleCreateRequest)
-        request = cast(models.LanguageSampleCreateRequest, request)
+            request = utils.unmarshal(request, models.VoiceSampleCreateRequest)
+        request = cast(models.VoiceSampleCreateRequest, request)
 
         req = self._build_request(
             method="POST",
-            path="/api/v1/language_groups/voices/sample",
+            path="/api/v1/voice_groups/voices/sample",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1069,7 +1028,7 @@ class LanguageGroups(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.LanguageSampleCreateRequest
+                request, False, False, "json", models.VoiceSampleCreateRequest
             ),
             timeout_ms=timeout_ms,
         )
@@ -1086,7 +1045,7 @@ class LanguageGroups(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="language_groups_create_voice_sample",
+                operation_id="voice_groups_create_voice_sample",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -1117,15 +1076,11 @@ class LanguageGroups(BaseSDK):
         http_res_text = utils.stream_to_text(http_res)
         raise errors.APIError("Unexpected response received", http_res, http_res_text)
 
-    @deprecated(
-        "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-    )
-    async def language_groups_create_voice_sample_async(
+    async def voice_groups_create_voice_sample_async(
         self,
         *,
         request: Union[
-            models.LanguageSampleCreateRequest,
-            models.LanguageSampleCreateRequestTypedDict,
+            models.VoiceSampleCreateRequest, models.VoiceSampleCreateRequestTypedDict
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1134,7 +1089,7 @@ class LanguageGroups(BaseSDK):
     ) -> httpx.Response:
         r"""Create Voice Sample
 
-        Deprecated alias for `POST /api/v1/voice_groups/voices/sample`.
+        Generate voice sample.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
@@ -1153,12 +1108,12 @@ class LanguageGroups(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         if not isinstance(request, BaseModel):
-            request = utils.unmarshal(request, models.LanguageSampleCreateRequest)
-        request = cast(models.LanguageSampleCreateRequest, request)
+            request = utils.unmarshal(request, models.VoiceSampleCreateRequest)
+        request = cast(models.VoiceSampleCreateRequest, request)
 
         req = self._build_request_async(
             method="POST",
-            path="/api/v1/language_groups/voices/sample",
+            path="/api/v1/voice_groups/voices/sample",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1170,7 +1125,7 @@ class LanguageGroups(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.LanguageSampleCreateRequest
+                request, False, False, "json", models.VoiceSampleCreateRequest
             ),
             timeout_ms=timeout_ms,
         )
@@ -1187,7 +1142,7 @@ class LanguageGroups(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="language_groups_create_voice_sample",
+                operation_id="voice_groups_create_voice_sample",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security

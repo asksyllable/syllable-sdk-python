@@ -1,28 +1,24 @@
-# LanguageGroups
-(*language_groups*)
+# VoiceGroups
+(*voice_groups*)
 
 ## Overview
 
-Operations related to language groups. A language group is a           collection of language, voice, and DTMF configuration that can be linked to an agent to           define the languages and voices it supports. For more information, see           [Console docs](https://docs.syllable.ai/Resources/LanguageGroups).
-
 ### Available Operations
 
-* [~~list~~](#list) - List Language Groups :warning: **Deprecated**
-* [~~create~~](#create) - Create Language Group :warning: **Deprecated**
-* [~~update~~](#update) - Update Language Group :warning: **Deprecated**
-* [~~get_by_id~~](#get_by_id) - Get Language Group :warning: **Deprecated**
-* [~~delete~~](#delete) - Delete Language Group :warning: **Deprecated**
-* [~~language_groups_create_voice_sample~~](#language_groups_create_voice_sample) - Create Voice Sample :warning: **Deprecated**
+* [list](#list) - List Voice Groups
+* [create](#create) - Create Voice Group
+* [update](#update) - Update Voice Group
+* [get_by_id](#get_by_id) - Get Voice Group
+* [delete](#delete) - Delete Voice Group
+* [voice_groups_create_voice_sample](#voice_groups_create_voice_sample) - Create Voice Sample
 
-## ~~list~~
+## list
 
-Deprecated alias for `GET /api/v1/voice_groups/`.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+Fetch voice groups.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="language_groups_list" method="get" path="/api/v1/language_groups/" -->
+<!-- UsageSnippet language="python" operationID="voice_groups_list" method="get" path="/api/v1/voice_groups/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -32,8 +28,8 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.language_groups.list(page=0, limit=25, search_fields=[
-        models.LanguageGroupProperties.NAME,
+    res = ss_client.voice_groups.list(page=0, limit=25, search_fields=[
+        models.VoiceGroupProperties.NAME,
     ], search_field_values=[
         "Some Object Name",
     ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -49,18 +45,18 @@ with SyllableSDK(
 | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-based)                                                                                                          | 0                                                                                                                                                      |
 | `limit`                                                                                                                                                | *Optional[int]*                                                                                                                                        | :heavy_minus_sign:                                                                                                                                     | The maximum number of items to return                                                                                                                  | 25                                                                                                                                                     |
-| `search_fields`                                                                                                                                        | List[[models.LanguageGroupProperties](../../models/languagegroupproperties.md)]                                                                        | :heavy_minus_sign:                                                                                                                                     | String names of fields to search. Correspond by index to search field values                                                                           | name                                                                                                                                                   |
+| `search_fields`                                                                                                                                        | List[[models.VoiceGroupProperties](../../models/voicegroupproperties.md)]                                                                              | :heavy_minus_sign:                                                                                                                                     | String names of fields to search. Correspond by index to search field values                                                                           | name                                                                                                                                                   |
 | `search_field_values`                                                                                                                                  | List[*str*]                                                                                                                                            | :heavy_minus_sign:                                                                                                                                     | Values of fields to search. Correspond by index to search fields. Unless field name contains "list", an individual search field value cannot be a list | Some Object Name                                                                                                                                       |
-| `order_by`                                                                                                                                             | [OptionalNullable[models.LanguageGroupProperties]](../../models/languagegroupproperties.md)                                                            | :heavy_minus_sign:                                                                                                                                     | The field whose value should be used to order the results                                                                                              |                                                                                                                                                        |
+| `order_by`                                                                                                                                             | [OptionalNullable[models.VoiceGroupProperties]](../../models/voicegroupproperties.md)                                                                  | :heavy_minus_sign:                                                                                                                                     | The field whose value should be used to order the results                                                                                              |                                                                                                                                                        |
 | `order_by_direction`                                                                                                                                   | [OptionalNullable[models.OrderByDirection]](../../models/orderbydirection.md)                                                                          | :heavy_minus_sign:                                                                                                                                     | The direction in which to order the results                                                                                                            |                                                                                                                                                        |
-| `fields`                                                                                                                                               | List[[models.LanguageGroupProperties](../../models/languagegroupproperties.md)]                                                                        | :heavy_minus_sign:                                                                                                                                     | The fields to include in the response                                                                                                                  |                                                                                                                                                        |
+| `fields`                                                                                                                                               | List[[models.VoiceGroupProperties](../../models/voicegroupproperties.md)]                                                                              | :heavy_minus_sign:                                                                                                                                     | The fields to include in the response                                                                                                                  |                                                                                                                                                        |
 | `start_datetime`                                                                                                                                       | *OptionalNullable[str]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The start datetime for filtering results                                                                                                               | 2023-01-01T00:00:00Z                                                                                                                                   |
 | `end_datetime`                                                                                                                                         | *OptionalNullable[str]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The end datetime for filtering results                                                                                                                 | 2024-01-01T00:00:00Z                                                                                                                                   |
 | `retries`                                                                                                                                              | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                       | :heavy_minus_sign:                                                                                                                                     | Configuration to override the default retry behavior of the client.                                                                                    |                                                                                                                                                        |
 
 ### Response
 
-**[models.ListResponseLanguageGroupResponse](../../models/listresponselanguagegroupresponse.md)**
+**[models.ListResponseVoiceGroupResponse](../../models/listresponsevoicegroupresponse.md)**
 
 ### Errors
 
@@ -69,15 +65,13 @@ with SyllableSDK(
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## ~~create~~
+## create
 
-Deprecated alias for `POST /api/v1/voice_groups/`.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+Create a new voice group.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="language_groups_create" method="post" path="/api/v1/language_groups/" -->
+<!-- UsageSnippet language="python" operationID="voice_groups_create" method="post" path="/api/v1/voice_groups/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -87,7 +81,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.language_groups.create(request={
+    res = ss_client.voice_groups.create(request={
         "name": "Call Center 1 Languages",
         "description": "Languages spoken by operators at Call Center 1",
         "language_configs": [
@@ -114,14 +108,14 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `request`                                                                       | [models.LanguageGroupCreateRequest](../../models/languagegroupcreaterequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
-| `retries`                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                | :heavy_minus_sign:                                                              | Configuration to override the default retry behavior of the client.             |
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `request`                                                                 | [models.VoiceGroupCreateRequest](../../models/voicegroupcreaterequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+| `retries`                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)          | :heavy_minus_sign:                                                        | Configuration to override the default retry behavior of the client.       |
 
 ### Response
 
-**[models.LanguageGroupResponse](../../models/languagegroupresponse.md)**
+**[models.VoiceGroupResponse](../../models/voicegroupresponse.md)**
 
 ### Errors
 
@@ -130,15 +124,13 @@ with SyllableSDK(
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## ~~update~~
+## update
 
-Deprecated alias for `PUT /api/v1/voice_groups/`.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+Update an existing voice group
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="language_groups_update" method="put" path="/api/v1/language_groups/" -->
+<!-- UsageSnippet language="python" operationID="voice_groups_update" method="put" path="/api/v1/voice_groups/" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -148,7 +140,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.language_groups.update(request={
+    res = ss_client.voice_groups.update(request={
         "name": "Call Center 1 Languages",
         "description": "Languages spoken by operators at Call Center 1",
         "language_configs": [
@@ -177,14 +169,14 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `request`                                                                       | [models.LanguageGroupUpdateRequest](../../models/languagegroupupdaterequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
-| `retries`                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                | :heavy_minus_sign:                                                              | Configuration to override the default retry behavior of the client.             |
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `request`                                                                 | [models.VoiceGroupUpdateRequest](../../models/voicegroupupdaterequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+| `retries`                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)          | :heavy_minus_sign:                                                        | Configuration to override the default retry behavior of the client.       |
 
 ### Response
 
-**[models.LanguageGroupResponse](../../models/languagegroupresponse.md)**
+**[models.VoiceGroupResponse](../../models/voicegroupresponse.md)**
 
 ### Errors
 
@@ -193,15 +185,13 @@ with SyllableSDK(
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## ~~get_by_id~~
+## get_by_id
 
-Deprecated alias for `GET /api/v1/voice_groups/{voice_group_id}`.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+Fetch a given voice group.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="language_groups_get_by_id" method="get" path="/api/v1/language_groups/{language_group_id}" -->
+<!-- UsageSnippet language="python" operationID="voice_groups_get_by_id" method="get" path="/api/v1/voice_groups/{voice_group_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -211,7 +201,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.language_groups.get_by_id(language_group_id=453313)
+    res = ss_client.voice_groups.get_by_id(voice_group_id=431245)
 
     # Handle response
     print(res)
@@ -222,12 +212,12 @@ with SyllableSDK(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `language_group_id`                                                 | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `voice_group_id`                                                    | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
-**[models.LanguageGroupResponse](../../models/languagegroupresponse.md)**
+**[models.VoiceGroupResponse](../../models/voicegroupresponse.md)**
 
 ### Errors
 
@@ -236,15 +226,13 @@ with SyllableSDK(
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## ~~delete~~
+## delete
 
-Deprecated alias for `DELETE /api/v1/voice_groups/{voice_group_id}`.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+Delete a voice group.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="language_groups_delete" method="delete" path="/api/v1/language_groups/{language_group_id}" -->
+<!-- UsageSnippet language="python" operationID="voice_groups_delete" method="delete" path="/api/v1/voice_groups/{voice_group_id}" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK
@@ -254,7 +242,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.language_groups.delete(language_group_id=572805, reason="<value>")
+    res = ss_client.voice_groups.delete(voice_group_id=225046, reason="<value>")
 
     # Handle response
     print(res)
@@ -265,7 +253,7 @@ with SyllableSDK(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `language_group_id`                                                 | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `voice_group_id`                                                    | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `reason`                                                            | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
@@ -280,15 +268,13 @@ with SyllableSDK(
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## ~~language_groups_create_voice_sample~~
+## voice_groups_create_voice_sample
 
-Deprecated alias for `POST /api/v1/voice_groups/voices/sample`.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+Generate voice sample.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="language_groups_create_voice_sample" method="post" path="/api/v1/language_groups/voices/sample" -->
+<!-- UsageSnippet language="python" operationID="voice_groups_create_voice_sample" method="post" path="/api/v1/voice_groups/voices/sample" -->
 ```python
 import os
 from syllable_sdk import SyllableSDK, models
@@ -298,10 +284,10 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.language_groups.language_groups_create_voice_sample(request={
-        "language_code": models.LanguageCode.ZH_CN,
+    res = ss_client.voice_groups.voice_groups_create_voice_sample(request={
+        "language_code": models.LanguageCode.FA_IR,
         "voice_provider": models.TtsProvider.GOOGLE,
-        "voice_display_name": models.AgentVoiceDisplayName.EN_US_NEURAL2_F,
+        "voice_display_name": models.AgentVoiceDisplayName.VINDEMIATRIX_ENGLISH_,
         "voice_speed": 1,
         "voice_pitch": 0,
     })
@@ -313,10 +299,10 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
-| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `request`                                                                         | [models.LanguageSampleCreateRequest](../../models/languagesamplecreaterequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
-| `retries`                                                                         | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                  | :heavy_minus_sign:                                                                | Configuration to override the default retry behavior of the client.               |
+| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `request`                                                                   | [models.VoiceSampleCreateRequest](../../models/voicesamplecreaterequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
+| `retries`                                                                   | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)            | :heavy_minus_sign:                                                          | Configuration to override the default retry behavior of the client.         |
 
 ### Response
 

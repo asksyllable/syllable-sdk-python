@@ -1613,162 +1613,6 @@ actions:
 
                 # Handle response
                 print(res)
-  - target: $["paths"]["/api/v1/language_groups/"]["get"]
-    update:
-      x-codeSamples:
-        - lang: python
-          label: Python (SDK)
-          source: |-
-            import os
-            from syllable_sdk import SyllableSDK, models
-
-
-            with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-            ) as ss_client:
-
-                res = ss_client.language_groups.list(page=0, limit=25, search_fields=[
-                    models.LanguageGroupProperties.NAME,
-                ], search_field_values=[
-                    "Some Object Name",
-                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
-
-                # Handle response
-                print(res)
-  - target: $["paths"]["/api/v1/language_groups/"]["post"]
-    update:
-      x-codeSamples:
-        - lang: python
-          label: Python (SDK)
-          source: |-
-            import os
-            from syllable_sdk import SyllableSDK, models
-
-
-            with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-            ) as ss_client:
-
-                res = ss_client.language_groups.create(request={
-                    "name": "Call Center 1 Languages",
-                    "description": "Languages spoken by operators at Call Center 1",
-                    "language_configs": [
-                        {
-                            "language_code": models.LanguageCode.EN_US,
-                            "voice_provider": models.TtsProvider.OPEN_AI,
-                            "voice_display_name": models.AgentVoiceDisplayName.ALLOY,
-                            "dtmf_code": 1,
-                        },
-                        {
-                            "language_code": models.LanguageCode.ES_US,
-                            "voice_provider": models.TtsProvider.GOOGLE,
-                            "voice_display_name": models.AgentVoiceDisplayName.ES_US_NEURAL2_B,
-                            "dtmf_code": 2,
-                        },
-                    ],
-                    "skip_current_language_in_message": True,
-                })
-
-                # Handle response
-                print(res)
-  - target: $["paths"]["/api/v1/language_groups/"]["put"]
-    update:
-      x-codeSamples:
-        - lang: python
-          label: Python (SDK)
-          source: |-
-            import os
-            from syllable_sdk import SyllableSDK, models
-
-
-            with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-            ) as ss_client:
-
-                res = ss_client.language_groups.update(request={
-                    "name": "Call Center 1 Languages",
-                    "description": "Languages spoken by operators at Call Center 1",
-                    "language_configs": [
-                        {
-                            "language_code": models.LanguageCode.EN_US,
-                            "voice_provider": models.TtsProvider.OPEN_AI,
-                            "voice_display_name": models.AgentVoiceDisplayName.ALLOY,
-                            "dtmf_code": 1,
-                        },
-                        {
-                            "language_code": models.LanguageCode.ES_US,
-                            "voice_provider": models.TtsProvider.GOOGLE,
-                            "voice_display_name": models.AgentVoiceDisplayName.ES_US_NEURAL2_B,
-                            "dtmf_code": 2,
-                        },
-                    ],
-                    "skip_current_language_in_message": True,
-                    "id": 1,
-                    "edit_comments": "Added Spanish support.",
-                })
-
-                # Handle response
-                print(res)
-  - target: $["paths"]["/api/v1/language_groups/voices/sample"]["post"]
-    update:
-      x-codeSamples:
-        - lang: python
-          label: Python (SDK)
-          source: |-
-            import os
-            from syllable_sdk import SyllableSDK, models
-
-
-            with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-            ) as ss_client:
-
-                res = ss_client.language_groups.language_groups_create_voice_sample(request={
-                    "language_code": models.LanguageCode.ES_US,
-                    "voice_provider": models.TtsProvider.GOOGLE,
-                    "voice_display_name": models.AgentVoiceDisplayName.EN_US_NEURAL2_D,
-                    "voice_speed": 1,
-                    "voice_pitch": 0,
-                })
-
-                # Handle response
-                print(res)
-  - target: $["paths"]["/api/v1/language_groups/{language_group_id}"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: python
-          label: Python (SDK)
-          source: |-
-            import os
-            from syllable_sdk import SyllableSDK
-
-
-            with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-            ) as ss_client:
-
-                res = ss_client.language_groups.delete(language_group_id=572805, reason="<value>")
-
-                # Handle response
-                print(res)
-  - target: $["paths"]["/api/v1/language_groups/{language_group_id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: python
-          label: Python (SDK)
-          source: |-
-            import os
-            from syllable_sdk import SyllableSDK
-
-
-            with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-            ) as ss_client:
-
-                res = ss_client.language_groups.get_by_id(language_group_id=453313)
-
-                # Handle response
-                print(res)
   - target: $["paths"]["/api/v1/organizations/"]["delete"]
     update:
       x-codeSamples:
@@ -3420,6 +3264,162 @@ actions:
             ) as ss_client:
 
                 res = ss_client.v1.users_send_email(user_email="<value>", skip_auth=False)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/voice_groups/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK, models
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.voice_groups.list(page=0, limit=25, search_fields=[
+                    models.VoiceGroupProperties.NAME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/voice_groups/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK, models
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.voice_groups.create(request={
+                    "name": "Call Center 1 Languages",
+                    "description": "Languages spoken by operators at Call Center 1",
+                    "language_configs": [
+                        {
+                            "language_code": models.LanguageCode.EN_US,
+                            "voice_provider": models.TtsProvider.OPEN_AI,
+                            "voice_display_name": models.AgentVoiceDisplayName.ALLOY,
+                            "dtmf_code": 1,
+                        },
+                        {
+                            "language_code": models.LanguageCode.ES_US,
+                            "voice_provider": models.TtsProvider.GOOGLE,
+                            "voice_display_name": models.AgentVoiceDisplayName.ES_US_NEURAL2_B,
+                            "dtmf_code": 2,
+                        },
+                    ],
+                    "skip_current_language_in_message": True,
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/voice_groups/"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK, models
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.voice_groups.update(request={
+                    "name": "Call Center 1 Languages",
+                    "description": "Languages spoken by operators at Call Center 1",
+                    "language_configs": [
+                        {
+                            "language_code": models.LanguageCode.EN_US,
+                            "voice_provider": models.TtsProvider.OPEN_AI,
+                            "voice_display_name": models.AgentVoiceDisplayName.ALLOY,
+                            "dtmf_code": 1,
+                        },
+                        {
+                            "language_code": models.LanguageCode.ES_US,
+                            "voice_provider": models.TtsProvider.GOOGLE,
+                            "voice_display_name": models.AgentVoiceDisplayName.ES_US_NEURAL2_B,
+                            "dtmf_code": 2,
+                        },
+                    ],
+                    "skip_current_language_in_message": True,
+                    "id": 1,
+                    "edit_comments": "Added Spanish support.",
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/voice_groups/voices/sample"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK, models
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.voice_groups.voice_groups_create_voice_sample(request={
+                    "language_code": models.LanguageCode.FA_IR,
+                    "voice_provider": models.TtsProvider.GOOGLE,
+                    "voice_display_name": models.AgentVoiceDisplayName.VINDEMIATRIX_ENGLISH_,
+                    "voice_speed": 1,
+                    "voice_pitch": 0,
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/voice_groups/{voice_group_id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.voice_groups.delete(voice_group_id=225046, reason="<value>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/voice_groups/{voice_group_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.voice_groups.get_by_id(voice_group_id=431245)
 
                 # Handle response
                 print(res)

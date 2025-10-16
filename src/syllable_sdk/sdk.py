@@ -39,6 +39,7 @@ if TYPE_CHECKING:
     from syllable_sdk.tools import Tools
     from syllable_sdk.users import Users
     from syllable_sdk.v1 import V1
+    from syllable_sdk.voice_groups import VoiceGroups
 
 
 class SyllableSDK(BaseSDK):
@@ -118,6 +119,7 @@ class SyllableSDK(BaseSDK):
     outbound: "Outbound"
     language_groups: "LanguageGroups"
     r"""Operations related to language groups. A language group is a           collection of language, voice, and DTMF configuration that can be linked to an agent to           define the languages and voices it supports. For more information, see           [Console docs](https://docs.syllable.ai/Resources/LanguageGroups)."""
+    voice_groups: "VoiceGroups"
     takeouts: "Takeouts"
     users: "Users"
     v1: "V1"
@@ -143,6 +145,7 @@ class SyllableSDK(BaseSDK):
         "organizations": ("syllable_sdk.organizations", "Organizations"),
         "outbound": ("syllable_sdk.outbound", "Outbound"),
         "language_groups": ("syllable_sdk.language_groups", "LanguageGroups"),
+        "voice_groups": ("syllable_sdk.voice_groups", "VoiceGroups"),
         "takeouts": ("syllable_sdk.takeouts", "Takeouts"),
         "users": ("syllable_sdk.users", "Users"),
         "v1": ("syllable_sdk.v1", "V1"),

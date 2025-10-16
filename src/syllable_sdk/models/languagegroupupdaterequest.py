@@ -15,7 +15,7 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class LanguageGroupUpdateRequestTypedDict(TypedDict):
-    r"""Request model to update an existing language group."""
+    r"""Request model to update an existing voice group."""
 
     name: str
     r"""The name of the language group."""
@@ -32,7 +32,7 @@ class LanguageGroupUpdateRequestTypedDict(TypedDict):
 
 
 class LanguageGroupUpdateRequest(BaseModel):
-    r"""Request model to update an existing language group."""
+    r"""Request model to update an existing voice group."""
 
     name: str
     r"""The name of the language group."""
