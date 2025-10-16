@@ -2,11 +2,6 @@
 
 from __future__ import annotations
 from .languageconfig import LanguageConfig, LanguageConfigTypedDict
-from .languagegroupagentinfo import (
-    LanguageGroupAgentInfo,
-    LanguageGroupAgentInfoTypedDict,
-)
-from datetime import datetime
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -19,12 +14,8 @@ from typing import List
 from typing_extensions import NotRequired, TypedDict
 
 
-class LanguageGroupResponseTypedDict(TypedDict):
-    r"""Response model for voice group operations.
-    A voice group is a collection of language, voice, and DTMF configuration that can be
-    linked to an agent to define the languages and voices it supports. For more information, see
-    [Console docs](https://docs.syllable.ai/Resources/VoiceGroups).
-    """
+class VoiceGroupUpdateRequestTypedDict(TypedDict):
+    r"""Request model to update an existing voice group."""
 
     name: str
     r"""The name of the language group."""
@@ -34,24 +25,14 @@ class LanguageGroupResponseTypedDict(TypedDict):
     r"""Whether a custom message using the language group to generate a language DTMF menu should skip the agent's current language in the menu."""
     id: int
     r"""The ID of the language group to update."""
-    updated_at: datetime
-    r"""Timestamp of the last update to the language group."""
-    last_updated_by: str
-    r"""Email of the user who last updated the language group."""
     description: NotRequired[Nullable[str]]
     r"""Description of the language group."""
     edit_comments: NotRequired[Nullable[str]]
     r"""Comments for the most recent edit to the language group."""
-    agents_info: NotRequired[Nullable[List[LanguageGroupAgentInfoTypedDict]]]
-    r"""IDs and names of the agents linked to the language group"""
 
 
-class LanguageGroupResponse(BaseModel):
-    r"""Response model for voice group operations.
-    A voice group is a collection of language, voice, and DTMF configuration that can be
-    linked to an agent to define the languages and voices it supports. For more information, see
-    [Console docs](https://docs.syllable.ai/Resources/VoiceGroups).
-    """
+class VoiceGroupUpdateRequest(BaseModel):
+    r"""Request model to update an existing voice group."""
 
     name: str
     r"""The name of the language group."""
@@ -65,25 +46,16 @@ class LanguageGroupResponse(BaseModel):
     id: int
     r"""The ID of the language group to update."""
 
-    updated_at: datetime
-    r"""Timestamp of the last update to the language group."""
-
-    last_updated_by: str
-    r"""Email of the user who last updated the language group."""
-
     description: OptionalNullable[str] = UNSET
     r"""Description of the language group."""
 
     edit_comments: OptionalNullable[str] = UNSET
     r"""Comments for the most recent edit to the language group."""
 
-    agents_info: OptionalNullable[List[LanguageGroupAgentInfo]] = UNSET
-    r"""IDs and names of the agents linked to the language group"""
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["description", "edit_comments", "agents_info"]
-        nullable_fields = ["description", "edit_comments", "agents_info"]
+        optional_fields = ["description", "edit_comments"]
+        nullable_fields = ["description", "edit_comments"]
         null_default_fields = []
 
         serialized = handler(self)

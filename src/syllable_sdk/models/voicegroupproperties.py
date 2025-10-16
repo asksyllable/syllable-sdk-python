@@ -4,8 +4,8 @@ from __future__ import annotations
 from enum import Enum
 
 
-class LanguageGroupProperties(str, Enum):
-    r"""Deprecated enum mirroring `VoiceGroupProperties` values."""
+class VoiceGroupProperties(str, Enum):
+    r"""Names of voice group fields supported for filtering/sorting on list endpoint."""
 
     NAME = "name"
     DESCRIPTION = "description"

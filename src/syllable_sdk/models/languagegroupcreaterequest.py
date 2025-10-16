@@ -15,7 +15,7 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class LanguageGroupCreateRequestTypedDict(TypedDict):
-    r"""Request model to create a language group."""
+    r"""Request model to create a voice group."""
 
     name: str
     r"""The name of the language group."""
@@ -28,7 +28,7 @@ class LanguageGroupCreateRequestTypedDict(TypedDict):
 
 
 class LanguageGroupCreateRequest(BaseModel):
-    r"""Request model to create a language group."""
+    r"""Request model to create a voice group."""
 
     name: str
     r"""The name of the language group."""

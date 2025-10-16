@@ -433,6 +433,10 @@ if TYPE_CHECKING:
         LanguageGroupUpdateRequest,
         LanguageGroupUpdateRequestTypedDict,
     )
+    from .languagesamplecreaterequest import (
+        LanguageSampleCreateRequest,
+        LanguageSampleCreateRequestTypedDict,
+    )
     from .latencycategory import LatencyCategory
     from .latencyentry import LatencyEntry, LatencyEntryTypedDict
     from .latencyunittype import LatencyUnitType
@@ -526,6 +530,10 @@ if TYPE_CHECKING:
     from .listresponse_userresponse_ import (
         ListResponseUserResponse,
         ListResponseUserResponseTypedDict,
+    )
+    from .listresponse_voicegroupresponse_ import (
+        ListResponseVoiceGroupResponse,
+        ListResponseVoiceGroupResponseTypedDict,
     )
     from .logintype import LoginType
     from .matchtype import MatchType
@@ -841,7 +849,29 @@ if TYPE_CHECKING:
         ValidationError,
         ValidationErrorTypedDict,
     )
+    from .voice_groups_deleteop import (
+        VoiceGroupsDeleteRequest,
+        VoiceGroupsDeleteRequestTypedDict,
+    )
+    from .voice_groups_get_by_idop import (
+        VoiceGroupsGetByIDRequest,
+        VoiceGroupsGetByIDRequestTypedDict,
+    )
+    from .voice_groups_listop import (
+        VoiceGroupsListRequest,
+        VoiceGroupsListRequestTypedDict,
+    )
     from .voicedisplayinfo import VoiceDisplayInfo, VoiceDisplayInfoTypedDict
+    from .voicegroupcreaterequest import (
+        VoiceGroupCreateRequest,
+        VoiceGroupCreateRequestTypedDict,
+    )
+    from .voicegroupproperties import VoiceGroupProperties
+    from .voicegroupresponse import VoiceGroupResponse, VoiceGroupResponseTypedDict
+    from .voicegroupupdaterequest import (
+        VoiceGroupUpdateRequest,
+        VoiceGroupUpdateRequestTypedDict,
+    )
     from .voicesamplecreaterequest import (
         VoiceSampleCreateRequest,
         VoiceSampleCreateRequestTypedDict,
@@ -1144,6 +1174,8 @@ __all__ = [
     "LanguageGroupsGetByIDRequestTypedDict",
     "LanguageGroupsListRequest",
     "LanguageGroupsListRequestTypedDict",
+    "LanguageSampleCreateRequest",
+    "LanguageSampleCreateRequestTypedDict",
     "LatencyCategory",
     "LatencyEntry",
     "LatencyEntryTypedDict",
@@ -1198,6 +1230,8 @@ __all__ = [
     "ListResponseToolResponseTypedDict",
     "ListResponseUserResponse",
     "ListResponseUserResponseTypedDict",
+    "ListResponseVoiceGroupResponse",
+    "ListResponseVoiceGroupResponseTypedDict",
     "Loc",
     "LocTypedDict",
     "LoginType",
@@ -1449,6 +1483,19 @@ __all__ = [
     "ValidationErrorTypedDict",
     "VoiceDisplayInfo",
     "VoiceDisplayInfoTypedDict",
+    "VoiceGroupCreateRequest",
+    "VoiceGroupCreateRequestTypedDict",
+    "VoiceGroupProperties",
+    "VoiceGroupResponse",
+    "VoiceGroupResponseTypedDict",
+    "VoiceGroupUpdateRequest",
+    "VoiceGroupUpdateRequestTypedDict",
+    "VoiceGroupsDeleteRequest",
+    "VoiceGroupsDeleteRequestTypedDict",
+    "VoiceGroupsGetByIDRequest",
+    "VoiceGroupsGetByIDRequestTypedDict",
+    "VoiceGroupsListRequest",
+    "VoiceGroupsListRequestTypedDict",
     "VoiceSampleCreateRequest",
     "VoiceSampleCreateRequestTypedDict",
 ]
@@ -1744,6 +1791,8 @@ _dynamic_imports: dict[str, str] = {
     "LanguageGroupResponseTypedDict": ".languagegroupresponse",
     "LanguageGroupUpdateRequest": ".languagegroupupdaterequest",
     "LanguageGroupUpdateRequestTypedDict": ".languagegroupupdaterequest",
+    "LanguageSampleCreateRequest": ".languagesamplecreaterequest",
+    "LanguageSampleCreateRequestTypedDict": ".languagesamplecreaterequest",
     "LatencyCategory": ".latencycategory",
     "LatencyEntry": ".latencyentry",
     "LatencyEntryTypedDict": ".latencyentry",
@@ -1798,6 +1847,8 @@ _dynamic_imports: dict[str, str] = {
     "ListResponseToolResponseTypedDict": ".listresponse_toolresponse_",
     "ListResponseUserResponse": ".listresponse_userresponse_",
     "ListResponseUserResponseTypedDict": ".listresponse_userresponse_",
+    "ListResponseVoiceGroupResponse": ".listresponse_voicegroupresponse_",
+    "ListResponseVoiceGroupResponseTypedDict": ".listresponse_voicegroupresponse_",
     "LoginType": ".logintype",
     "MatchType": ".matchtype",
     "OrderByDirection": ".orderbydirection",
@@ -2046,8 +2097,21 @@ _dynamic_imports: dict[str, str] = {
     "LocTypedDict": ".validationerror",
     "ValidationError": ".validationerror",
     "ValidationErrorTypedDict": ".validationerror",
+    "VoiceGroupsDeleteRequest": ".voice_groups_deleteop",
+    "VoiceGroupsDeleteRequestTypedDict": ".voice_groups_deleteop",
+    "VoiceGroupsGetByIDRequest": ".voice_groups_get_by_idop",
+    "VoiceGroupsGetByIDRequestTypedDict": ".voice_groups_get_by_idop",
+    "VoiceGroupsListRequest": ".voice_groups_listop",
+    "VoiceGroupsListRequestTypedDict": ".voice_groups_listop",
     "VoiceDisplayInfo": ".voicedisplayinfo",
     "VoiceDisplayInfoTypedDict": ".voicedisplayinfo",
+    "VoiceGroupCreateRequest": ".voicegroupcreaterequest",
+    "VoiceGroupCreateRequestTypedDict": ".voicegroupcreaterequest",
+    "VoiceGroupProperties": ".voicegroupproperties",
+    "VoiceGroupResponse": ".voicegroupresponse",
+    "VoiceGroupResponseTypedDict": ".voicegroupresponse",
+    "VoiceGroupUpdateRequest": ".voicegroupupdaterequest",
+    "VoiceGroupUpdateRequestTypedDict": ".voicegroupupdaterequest",
     "VoiceSampleCreateRequest": ".voicesamplecreaterequest",
     "VoiceSampleCreateRequestTypedDict": ".voicesamplecreaterequest",
 }

@@ -19,7 +19,7 @@ from typing import List
 from typing_extensions import NotRequired, TypedDict
 
 
-class LanguageGroupResponseTypedDict(TypedDict):
+class VoiceGroupResponseTypedDict(TypedDict):
     r"""Response model for voice group operations.
     A voice group is a collection of language, voice, and DTMF configuration that can be
     linked to an agent to define the languages and voices it supports. For more information, see
@@ -46,7 +46,7 @@ class LanguageGroupResponseTypedDict(TypedDict):
     r"""IDs and names of the agents linked to the language group"""
 
 
-class LanguageGroupResponse(BaseModel):
+class VoiceGroupResponse(BaseModel):
     r"""Response model for voice group operations.
     A voice group is a collection of language, voice, and DTMF configuration that can be
     linked to an agent to define the languages and voices it supports. For more information, see

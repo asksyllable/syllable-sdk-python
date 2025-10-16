@@ -1,6 +1,6 @@
-# LanguageGroupProperties
+# VoiceGroupProperties
 
-Deprecated enum mirroring `VoiceGroupProperties` values.
+Names of voice group fields supported for filtering/sorting on list endpoint.
 
 
 ## Values

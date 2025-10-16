@@ -1,4 +1,4 @@
-# LanguageGroupCreateRequest
+# VoiceGroupCreateRequest
 
 Request model to create a voice group.
 

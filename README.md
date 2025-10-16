@@ -347,14 +347,14 @@ with SyllableSDK(
 * [activate](docs/sdks/workflows/README.md#activate) - Activate Insights Workflow
 * [queue_work](docs/sdks/workflows/README.md#queue_work) - Queue Insights Workflow For Sessions/Files
 
-### [language_groups](docs/sdks/languagegroups/README.md)
+### [~~language_groups~~](docs/sdks/languagegroups/README.md)
 
-* [list](docs/sdks/languagegroups/README.md#list) - List Language Groups
-* [create](docs/sdks/languagegroups/README.md#create) - Create Language Group
-* [update](docs/sdks/languagegroups/README.md#update) - Update Language Group
-* [get_by_id](docs/sdks/languagegroups/README.md#get_by_id) - Get Language Group
-* [delete](docs/sdks/languagegroups/README.md#delete) - Delete Language Group
-* [language_groups_create_voice_sample](docs/sdks/languagegroups/README.md#language_groups_create_voice_sample) - Create Voice Sample
+* [~~list~~](docs/sdks/languagegroups/README.md#list) - List Language Groups :warning: **Deprecated**
+* [~~create~~](docs/sdks/languagegroups/README.md#create) - Create Language Group :warning: **Deprecated**
+* [~~update~~](docs/sdks/languagegroups/README.md#update) - Update Language Group :warning: **Deprecated**
+* [~~get_by_id~~](docs/sdks/languagegroups/README.md#get_by_id) - Get Language Group :warning: **Deprecated**
+* [~~delete~~](docs/sdks/languagegroups/README.md#delete) - Delete Language Group :warning: **Deprecated**
+* [~~language_groups_create_voice_sample~~](docs/sdks/languagegroups/README.md#language_groups_create_voice_sample) - Create Voice Sample :warning: **Deprecated**
 
 ### [organizations](docs/sdks/organizations/README.md)
 
@@ -485,6 +485,15 @@ with SyllableSDK(
 * [users_get_by_email](docs/sdks/v1/README.md#users_get_by_email) - Get User
 * [users_send_email](docs/sdks/v1/README.md#users_send_email) - Send User Email
 * [users_delete_account](docs/sdks/v1/README.md#users_delete_account) - Request Removal Of This Account
+
+### [voice_groups](docs/sdks/voicegroups/README.md)
+
+* [list](docs/sdks/voicegroups/README.md#list) - List Voice Groups
+* [create](docs/sdks/voicegroups/README.md#create) - Create Voice Group
+* [update](docs/sdks/voicegroups/README.md#update) - Update Voice Group
+* [get_by_id](docs/sdks/voicegroups/README.md#get_by_id) - Get Voice Group
+* [delete](docs/sdks/voicegroups/README.md#delete) - Delete Voice Group
+* [voice_groups_create_voice_sample](docs/sdks/voicegroups/README.md#voice_groups_create_voice_sample) - Create Voice Sample
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
