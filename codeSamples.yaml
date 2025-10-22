@@ -3378,7 +3378,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.voice_groups.voice_groups_create_voice_sample(request={
-                    "language_code": models.LanguageCode.FA_IR,
+                    "language_code": models.LanguageCode.ES_US,
                     "voice_provider": models.TtsProvider.GOOGLE,
                     "voice_display_name": models.AgentVoiceDisplayName.VINDEMIATRIX_ENGLISH_,
                     "voice_speed": 1,
