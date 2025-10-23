@@ -298,6 +298,16 @@ with SyllableSDK(
 * [get_by_id](docs/sdks/datasources/README.md#get_by_id) - Get Data Source
 * [delete](docs/sdks/datasources/README.md#delete) - Delete Data Source
 
+### [directory](docs/sdks/directory/README.md)
+
+* [list](docs/sdks/directory/README.md#list) - Directory Member List
+* [create](docs/sdks/directory/README.md#create) - Create Directory Member
+* [get_by_id](docs/sdks/directory/README.md#get_by_id) - Get Directory Member By Id
+* [update](docs/sdks/directory/README.md#update) - Update Directory Member
+* [delete](docs/sdks/directory/README.md#delete) - Delete Directory Member
+* [directory_member_bulk_load](docs/sdks/directory/README.md#directory_member_bulk_load) - Bulk Load Directory Members
+* [directory_member_download](docs/sdks/directory/README.md#directory_member_download) - Download Directory Members
+
 ### [events](docs/sdks/events/README.md)
 
 * [list](docs/sdks/events/README.md#list) - Events List

@@ -21,6 +21,7 @@ if TYPE_CHECKING:
     from syllable_sdk.custom_messages import CustomMessages
     from syllable_sdk.dashboards import Dashboards
     from syllable_sdk.data_sources import DataSources
+    from syllable_sdk.directory import Directory
     from syllable_sdk.events import Events
     from syllable_sdk.incidents import Incidents
     from syllable_sdk.insights_sdk import InsightsSDK
@@ -112,6 +113,8 @@ class SyllableSDK(BaseSDK):
     session_debug: "SessionDebug"
     tools: "Tools"
     r"""Operations related to tool configuration. A tool is a function that an           agent can call to perform actions like accessing databases, making API calls, or           processing data. For an agent to have access to a tool, the prompt associated with that           agent should be linked to the tool and include instructions to use it. For more           information, see [Console docs](https://docs.syllable.ai/Resources/Tools)."""
+    directory: "Directory"
+    r"""Operations related to directory"""
     dashboards: "Dashboards"
     r"""Operations related to dashboards. Currently the API/SDK           only supports fetching basic information about dashboards."""
     organizations: "Organizations"
@@ -141,6 +144,7 @@ class SyllableSDK(BaseSDK):
         "sessions": ("syllable_sdk.sessions", "Sessions"),
         "session_debug": ("syllable_sdk.session_debug", "SessionDebug"),
         "tools": ("syllable_sdk.tools", "Tools"),
+        "directory": ("syllable_sdk.directory", "Directory"),
         "dashboards": ("syllable_sdk.dashboards", "Dashboards"),
         "organizations": ("syllable_sdk.organizations", "Organizations"),
         "outbound": ("syllable_sdk.outbound", "Outbound"),

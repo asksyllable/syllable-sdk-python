@@ -889,6 +889,164 @@ actions:
 
                 # Handle response
                 print(res)
+  - target: $["paths"]["/api/v1/directory_members/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK, models
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.directory.list(page=0, limit=25, search_fields=[
+                    models.DirectoryMemberProperties.NAME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/directory_members/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.directory.create(request={
+                    "name": "Jane Doe",
+                    "type": "contact",
+                    "extensions": [
+                        {
+                            "name": "work",
+                            "numbers": [
+                                {},
+                            ],
+                        },
+                    ],
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/directory_members/download/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.directory.directory_member_download()
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/directory_members/upload/"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.directory.directory_member_bulk_load(request={
+                    "file": {
+                        "file_name": "example.file",
+                        "content": open("example.file", "rb"),
+                    },
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/directory_members/{member_id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.directory.delete(member_id=569311)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/directory_members/{member_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.directory.get_by_id(member_id=562571)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/directory_members/{member_id}"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.directory.update(member_id=941217, directory_member={
+                    "name": "Jane Doe",
+                    "type": "contact",
+                    "extensions": [
+                        {
+                            "name": "work",
+                            "numbers": [
+                                {},
+                            ],
+                        },
+                    ],
+                    "id": 1,
+                })
+
+                # Handle response
+                print(res)
   - target: $["paths"]["/api/v1/events/"]["get"]
     update:
       x-codeSamples:
@@ -1447,8 +1605,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-10-21T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-10-22T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-10-22T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-10-23T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1561,8 +1719,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-10-21T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-10-22T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-10-22T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-10-23T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1738,9 +1896,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20251022.9",
+                    "batch_id": "20251023.9",
                     "campaign_id": 1,
-                    "expires_on": parse_datetime("2025-10-23T00:00:00Z"),
+                    "expires_on": parse_datetime("2025-10-24T00:00:00Z"),
                     "paused": True,
                 })
 
