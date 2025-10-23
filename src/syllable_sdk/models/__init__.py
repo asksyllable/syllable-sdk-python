@@ -36,6 +36,12 @@ if TYPE_CHECKING:
     from .batchdetails import BatchDetails, BatchDetailsTypedDict
     from .batchproperties import BatchProperties
     from .batchstatus import BatchStatus
+    from .body_directory_member_bulk_load import (
+        BodyDirectoryMemberBulkLoad,
+        BodyDirectoryMemberBulkLoadFile,
+        BodyDirectoryMemberBulkLoadFileTypedDict,
+        BodyDirectoryMemberBulkLoadTypedDict,
+    )
     from .body_insights_folder_upload_file import (
         BodyInsightsFolderUploadFile,
         BodyInsightsFolderUploadFileFile,
@@ -222,6 +228,41 @@ if TYPE_CHECKING:
     from .dialogrole import DialogRole
     from .dialogtoolcall import DialogToolCall, DialogToolCallTypedDict
     from .dictionarymetadata import DictionaryMetadata, DictionaryMetadataTypedDict
+    from .directory_member_deleteop import (
+        DirectoryMemberDeleteRequest,
+        DirectoryMemberDeleteRequestTypedDict,
+    )
+    from .directory_member_get_by_idop import (
+        DirectoryMemberGetByIDRequest,
+        DirectoryMemberGetByIDRequestTypedDict,
+    )
+    from .directory_member_listop import (
+        DirectoryMemberListRequest,
+        DirectoryMemberListRequestTypedDict,
+    )
+    from .directory_member_updateop import (
+        DirectoryMemberUpdateRequest,
+        DirectoryMemberUpdateRequestTypedDict,
+    )
+    from .directoryextension import (
+        DirectoryExtension,
+        DirectoryExtensionTypedDict,
+        Number,
+        NumberTypedDict,
+    )
+    from .directorymember import (
+        DirectoryMember,
+        DirectoryMemberContactTags,
+        DirectoryMemberContactTagsTypedDict,
+        DirectoryMemberTypedDict,
+    )
+    from .directorymembercreate import (
+        DirectoryMemberCreate,
+        DirectoryMemberCreateContactTags,
+        DirectoryMemberCreateContactTagsTypedDict,
+        DirectoryMemberCreateTypedDict,
+    )
+    from .directorymemberproperties import DirectoryMemberProperties
     from .event import Attributes, AttributesTypedDict, Event, EventTypedDict
     from .eventproperties import EventProperties
     from .events_listop import EventsListRequest, EventsListRequestTypedDict
@@ -472,6 +513,10 @@ if TYPE_CHECKING:
     from .listresponse_datasourcemetadataresponse_ import (
         ListResponseDataSourceMetadataResponse,
         ListResponseDataSourceMetadataResponseTypedDict,
+    )
+    from .listresponse_directorymember_ import (
+        ListResponseDirectoryMember,
+        ListResponseDirectoryMemberTypedDict,
     )
     from .listresponse_event_ import ListResponseEvent, ListResponseEventTypedDict
     from .listresponse_incidentresponse_ import (
@@ -922,6 +967,10 @@ __all__ = [
     "BatchDetailsTypedDict",
     "BatchProperties",
     "BatchStatus",
+    "BodyDirectoryMemberBulkLoad",
+    "BodyDirectoryMemberBulkLoadFile",
+    "BodyDirectoryMemberBulkLoadFileTypedDict",
+    "BodyDirectoryMemberBulkLoadTypedDict",
     "BodyInsightsFolderUploadFile",
     "BodyInsightsFolderUploadFileFile",
     "BodyInsightsFolderUploadFileFileTypedDict",
@@ -1045,6 +1094,25 @@ __all__ = [
     "DialogToolCallTypedDict",
     "DictionaryMetadata",
     "DictionaryMetadataTypedDict",
+    "DirectoryExtension",
+    "DirectoryExtensionTypedDict",
+    "DirectoryMember",
+    "DirectoryMemberContactTags",
+    "DirectoryMemberContactTagsTypedDict",
+    "DirectoryMemberCreate",
+    "DirectoryMemberCreateContactTags",
+    "DirectoryMemberCreateContactTagsTypedDict",
+    "DirectoryMemberCreateTypedDict",
+    "DirectoryMemberDeleteRequest",
+    "DirectoryMemberDeleteRequestTypedDict",
+    "DirectoryMemberGetByIDRequest",
+    "DirectoryMemberGetByIDRequestTypedDict",
+    "DirectoryMemberListRequest",
+    "DirectoryMemberListRequestTypedDict",
+    "DirectoryMemberProperties",
+    "DirectoryMemberTypedDict",
+    "DirectoryMemberUpdateRequest",
+    "DirectoryMemberUpdateRequestTypedDict",
     "Event",
     "EventProperties",
     "EventTypedDict",
@@ -1198,6 +1266,8 @@ __all__ = [
     "ListResponseDashboardResponseTypedDict",
     "ListResponseDataSourceMetadataResponse",
     "ListResponseDataSourceMetadataResponseTypedDict",
+    "ListResponseDirectoryMember",
+    "ListResponseDirectoryMemberTypedDict",
     "ListResponseEvent",
     "ListResponseEventTypedDict",
     "ListResponseIncidentResponse",
@@ -1238,6 +1308,8 @@ __all__ = [
     "MatchType",
     "Metadata",
     "MetadataTypedDict",
+    "Number",
+    "NumberTypedDict",
     "OrderByDirection",
     "OrganizationChannelConfig",
     "OrganizationChannelConfigTypedDict",
@@ -1535,6 +1607,10 @@ _dynamic_imports: dict[str, str] = {
     "BatchDetailsTypedDict": ".batchdetails",
     "BatchProperties": ".batchproperties",
     "BatchStatus": ".batchstatus",
+    "BodyDirectoryMemberBulkLoad": ".body_directory_member_bulk_load",
+    "BodyDirectoryMemberBulkLoadFile": ".body_directory_member_bulk_load",
+    "BodyDirectoryMemberBulkLoadFileTypedDict": ".body_directory_member_bulk_load",
+    "BodyDirectoryMemberBulkLoadTypedDict": ".body_directory_member_bulk_load",
     "BodyInsightsFolderUploadFile": ".body_insights_folder_upload_file",
     "BodyInsightsFolderUploadFileFile": ".body_insights_folder_upload_file",
     "BodyInsightsFolderUploadFileFileTypedDict": ".body_insights_folder_upload_file",
@@ -1656,6 +1732,27 @@ _dynamic_imports: dict[str, str] = {
     "DialogToolCallTypedDict": ".dialogtoolcall",
     "DictionaryMetadata": ".dictionarymetadata",
     "DictionaryMetadataTypedDict": ".dictionarymetadata",
+    "DirectoryMemberDeleteRequest": ".directory_member_deleteop",
+    "DirectoryMemberDeleteRequestTypedDict": ".directory_member_deleteop",
+    "DirectoryMemberGetByIDRequest": ".directory_member_get_by_idop",
+    "DirectoryMemberGetByIDRequestTypedDict": ".directory_member_get_by_idop",
+    "DirectoryMemberListRequest": ".directory_member_listop",
+    "DirectoryMemberListRequestTypedDict": ".directory_member_listop",
+    "DirectoryMemberUpdateRequest": ".directory_member_updateop",
+    "DirectoryMemberUpdateRequestTypedDict": ".directory_member_updateop",
+    "DirectoryExtension": ".directoryextension",
+    "DirectoryExtensionTypedDict": ".directoryextension",
+    "Number": ".directoryextension",
+    "NumberTypedDict": ".directoryextension",
+    "DirectoryMember": ".directorymember",
+    "DirectoryMemberContactTags": ".directorymember",
+    "DirectoryMemberContactTagsTypedDict": ".directorymember",
+    "DirectoryMemberTypedDict": ".directorymember",
+    "DirectoryMemberCreate": ".directorymembercreate",
+    "DirectoryMemberCreateContactTags": ".directorymembercreate",
+    "DirectoryMemberCreateContactTagsTypedDict": ".directorymembercreate",
+    "DirectoryMemberCreateTypedDict": ".directorymembercreate",
+    "DirectoryMemberProperties": ".directorymemberproperties",
     "Attributes": ".event",
     "AttributesTypedDict": ".event",
     "Event": ".event",
@@ -1815,6 +1912,8 @@ _dynamic_imports: dict[str, str] = {
     "ListResponseDashboardResponseTypedDict": ".listresponse_dashboardresponse_",
     "ListResponseDataSourceMetadataResponse": ".listresponse_datasourcemetadataresponse_",
     "ListResponseDataSourceMetadataResponseTypedDict": ".listresponse_datasourcemetadataresponse_",
+    "ListResponseDirectoryMember": ".listresponse_directorymember_",
+    "ListResponseDirectoryMemberTypedDict": ".listresponse_directorymember_",
     "ListResponseEvent": ".listresponse_event_",
     "ListResponseEventTypedDict": ".listresponse_event_",
     "ListResponseIncidentResponse": ".listresponse_incidentresponse_",

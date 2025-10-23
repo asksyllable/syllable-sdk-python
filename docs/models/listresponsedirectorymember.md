@@ -1,0 +1,12 @@
+# ListResponseDirectoryMember
+
+
+## Fields
+
+| Field                                                              | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `items`                                                            | List[[models.DirectoryMember](../models/directorymember.md)]       | :heavy_check_mark:                                                 | List of items returned from the query                              |                                                                    |
+| `page`                                                             | *int*                                                              | :heavy_check_mark:                                                 | The page number of the results (0-based)                           | 0                                                                  |
+| `page_size`                                                        | *int*                                                              | :heavy_check_mark:                                                 | The number of items returned per page                              | 25                                                                 |
+| `total_pages`                                                      | *OptionalNullable[int]*                                            | :heavy_minus_sign:                                                 | The total number of pages of results given the indicated page size | 4                                                                  |
+| `total_count`                                                      | *OptionalNullable[int]*                                            | :heavy_minus_sign:                                                 | The total number of items returned from the query                  | 100                                                                |
