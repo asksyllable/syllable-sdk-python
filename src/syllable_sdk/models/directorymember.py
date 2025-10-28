@@ -30,13 +30,16 @@ class DirectoryMemberTypedDict(TypedDict):
     r"""Name of the directory member"""
     type: str
     r"""Type of the directory member"""
+    updated_at: datetime
+    r"""Timestamp of most recent update"""
     extensions: NotRequired[Nullable[List[DirectoryExtensionTypedDict]]]
     r"""List of extensions for the directory member"""
     contact_tags: NotRequired[Nullable[DirectoryMemberContactTagsTypedDict]]
-    updated_at: NotRequired[Nullable[datetime]]
-    last_updated_by: NotRequired[Nullable[str]]
+    r"""Tags for the directory member"""
     id: NotRequired[Nullable[int]]
     r"""Internal ID of the directory member"""
+    last_updated_by: NotRequired[Nullable[str]]
+    r"""Email of the user who last updated the directory member"""
 
 
 class DirectoryMember(BaseModel):
@@ -48,34 +51,25 @@ class DirectoryMember(BaseModel):
     type: str
     r"""Type of the directory member"""
 
+    updated_at: datetime
+    r"""Timestamp of most recent update"""
+
     extensions: OptionalNullable[List[DirectoryExtension]] = UNSET
     r"""List of extensions for the directory member"""
 
     contact_tags: OptionalNullable[DirectoryMemberContactTags] = UNSET
-
-    updated_at: OptionalNullable[datetime] = UNSET
-
-    last_updated_by: OptionalNullable[str] = UNSET
+    r"""Tags for the directory member"""
 
     id: OptionalNullable[int] = UNSET
     r"""Internal ID of the directory member"""
 
+    last_updated_by: OptionalNullable[str] = UNSET
+    r"""Email of the user who last updated the directory member"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = [
-            "extensions",
-            "contact_tags",
-            "updated_at",
-            "last_updated_by",
-            "id",
-        ]
-        nullable_fields = [
-            "extensions",
-            "contact_tags",
-            "updated_at",
-            "last_updated_by",
-            "id",
-        ]
+        optional_fields = ["extensions", "contact_tags", "id", "last_updated_by"]
+        nullable_fields = ["extensions", "contact_tags", "id", "last_updated_by"]
         null_default_fields = []
 
         serialized = handler(self)

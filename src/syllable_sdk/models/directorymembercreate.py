@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 from .directoryextension import DirectoryExtension, DirectoryExtensionTypedDict
-from datetime import datetime
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -33,8 +32,7 @@ class DirectoryMemberCreateTypedDict(TypedDict):
     extensions: NotRequired[Nullable[List[DirectoryExtensionTypedDict]]]
     r"""List of extensions for the directory member"""
     contact_tags: NotRequired[Nullable[DirectoryMemberCreateContactTagsTypedDict]]
-    updated_at: NotRequired[Nullable[datetime]]
-    last_updated_by: NotRequired[Nullable[str]]
+    r"""Tags for the directory member"""
 
 
 class DirectoryMemberCreate(BaseModel):
@@ -50,25 +48,12 @@ class DirectoryMemberCreate(BaseModel):
     r"""List of extensions for the directory member"""
 
     contact_tags: OptionalNullable[DirectoryMemberCreateContactTags] = UNSET
-
-    updated_at: OptionalNullable[datetime] = UNSET
-
-    last_updated_by: OptionalNullable[str] = UNSET
+    r"""Tags for the directory member"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = [
-            "extensions",
-            "contact_tags",
-            "updated_at",
-            "last_updated_by",
-        ]
-        nullable_fields = [
-            "extensions",
-            "contact_tags",
-            "updated_at",
-            "last_updated_by",
-        ]
+        optional_fields = ["extensions", "contact_tags"]
+        nullable_fields = ["extensions", "contact_tags"]
         null_default_fields = []
 
         serialized = handler(self)
