@@ -240,6 +240,10 @@ if TYPE_CHECKING:
         DirectoryMemberListRequest,
         DirectoryMemberListRequestTypedDict,
     )
+    from .directory_member_test_extensionop import (
+        DirectoryMemberTestExtensionRequest,
+        DirectoryMemberTestExtensionRequestTypedDict,
+    )
     from .directory_member_updateop import (
         DirectoryMemberUpdateRequest,
         DirectoryMemberUpdateRequestTypedDict,
@@ -263,6 +267,10 @@ if TYPE_CHECKING:
         DirectoryMemberCreateTypedDict,
     )
     from .directorymemberproperties import DirectoryMemberProperties
+    from .directorymembertestresponse import (
+        DirectoryMemberTestResponse,
+        DirectoryMemberTestResponseTypedDict,
+    )
     from .event import Attributes, AttributesTypedDict, Event, EventTypedDict
     from .eventproperties import EventProperties
     from .events_listop import EventsListRequest, EventsListRequestTypedDict
@@ -1110,6 +1118,10 @@ __all__ = [
     "DirectoryMemberListRequest",
     "DirectoryMemberListRequestTypedDict",
     "DirectoryMemberProperties",
+    "DirectoryMemberTestExtensionRequest",
+    "DirectoryMemberTestExtensionRequestTypedDict",
+    "DirectoryMemberTestResponse",
+    "DirectoryMemberTestResponseTypedDict",
     "DirectoryMemberTypedDict",
     "DirectoryMemberUpdateRequest",
     "DirectoryMemberUpdateRequestTypedDict",
@@ -1738,6 +1750,8 @@ _dynamic_imports: dict[str, str] = {
     "DirectoryMemberGetByIDRequestTypedDict": ".directory_member_get_by_idop",
     "DirectoryMemberListRequest": ".directory_member_listop",
     "DirectoryMemberListRequestTypedDict": ".directory_member_listop",
+    "DirectoryMemberTestExtensionRequest": ".directory_member_test_extensionop",
+    "DirectoryMemberTestExtensionRequestTypedDict": ".directory_member_test_extensionop",
     "DirectoryMemberUpdateRequest": ".directory_member_updateop",
     "DirectoryMemberUpdateRequestTypedDict": ".directory_member_updateop",
     "DirectoryExtension": ".directoryextension",
@@ -1753,6 +1767,8 @@ _dynamic_imports: dict[str, str] = {
     "DirectoryMemberCreateContactTagsTypedDict": ".directorymembercreate",
     "DirectoryMemberCreateTypedDict": ".directorymembercreate",
     "DirectoryMemberProperties": ".directorymemberproperties",
+    "DirectoryMemberTestResponse": ".directorymembertestresponse",
+    "DirectoryMemberTestResponseTypedDict": ".directorymembertestresponse",
     "Attributes": ".event",
     "AttributesTypedDict": ".event",
     "Event": ".event",

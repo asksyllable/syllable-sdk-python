@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 590b580a4f838ee9408c30ce58d4d774
+  docChecksum: d54e2aa5ba0d9c2419298c46baa44997
   docVersion: 0.0.2
-  speakeasyVersion: 1.642.0
+  speakeasyVersion: 1.642.1
   generationVersion: 2.731.4
-  releaseVersion: 0.40.4
-  configChecksum: f63dfb40d42e57c36e32ffa7f36eab25
+  releaseVersion: 0.40.5
+  configChecksum: 6ce98e11706c810058a78919e510f7b5
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -147,6 +147,8 @@ generatedFiles:
   - docs/models/directorymembergetbyidrequest.md
   - docs/models/directorymemberlistrequest.md
   - docs/models/directorymemberproperties.md
+  - docs/models/directorymembertestextensionrequest.md
+  - docs/models/directorymembertestresponse.md
   - docs/models/directorymemberupdaterequest.md
   - docs/models/event.md
   - docs/models/eventproperties.md
@@ -556,11 +558,13 @@ generatedFiles:
   - src/syllable_sdk/models/directory_member_deleteop.py
   - src/syllable_sdk/models/directory_member_get_by_idop.py
   - src/syllable_sdk/models/directory_member_listop.py
+  - src/syllable_sdk/models/directory_member_test_extensionop.py
   - src/syllable_sdk/models/directory_member_updateop.py
   - src/syllable_sdk/models/directoryextension.py
   - src/syllable_sdk/models/directorymember.py
   - src/syllable_sdk/models/directorymembercreate.py
   - src/syllable_sdk/models/directorymemberproperties.py
+  - src/syllable_sdk/models/directorymembertestresponse.py
   - src/syllable_sdk/models/event.py
   - src/syllable_sdk/models/eventproperties.py
   - src/syllable_sdk/models/events_listop.py
@@ -2487,6 +2491,20 @@ examples:
       responses:
         "200":
           application/json: "<value>"
+  directory_member_test_extension:
+    speakeasy-default-directory-member-test-extension:
+      parameters:
+        path:
+          member_id: 922412
+        query:
+          timestamp: "2024-07-02T14:32:47.235Z"
+      responses:
+        "200":
+          application/json: {}
+        "422":
+          application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes Detected:\n* `syllable_sdk.directory.list()`:  `response.items.[].updated_at` **Changed** **Breaking** :warning:\n* `syllable_sdk.directory.create()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response.updated_at` **Changed** **Breaking** :warning:\n* `syllable_sdk.directory.get_by_id()`:  `response.updated_at` **Changed** **Breaking** :warning:\n* `syllable_sdk.directory.update()`: \n  *  `request.directory_member.updated_at` **Changed** **Breaking** :warning:\n  *  `response.updated_at` **Changed** **Breaking** :warning:\n"
+releaseNotes: |
+  ## Python SDK Changes Detected:
+  * `syllable_sdk.directory.directory_member_test_extension()`: **Added**
