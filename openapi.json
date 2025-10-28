@@ -9010,6 +9010,84 @@
         }
       }
     },
+    "/api/v1/directory_members/{member_id}/test": {
+      "get": {
+        "tags": [
+          "directory"
+        ],
+        "summary": "Test Directory Member Extension",
+        "description": "Test directory member extension at a specific timestamp and language.",
+        "operationId": "directory_member_test_extension",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "member_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Member Id"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Timestamp for test",
+              "title": "Timestamp"
+            },
+            "description": "Timestamp for test"
+          },
+          {
+            "name": "language_code",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/LanguageCode"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Optional language code for test",
+              "title": "Language Code"
+            },
+            "description": "Optional language code for test"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DirectoryMemberTestResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/directory_members/upload/": {
       "put": {
         "tags": [
@@ -16662,6 +16740,24 @@
           "updated_at"
         ],
         "title": "DirectoryMemberProperties"
+      },
+      "DirectoryMemberTestResponse": {
+        "properties": {
+          "extension": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Extension",
+            "description": "Extension to which the user will be transferred if they call at the provided timestamp in the given language"
+          }
+        },
+        "type": "object",
+        "title": "DirectoryMemberTestResponse"
       },
       "Event": {
         "properties": {
