@@ -95,6 +95,7 @@ with SyllableSDK(
                 ],
             },
         ],
+        "contact_tags": {},
     })
 
     # Handle response
@@ -171,6 +172,7 @@ Update a DirectoryMember.
 ```python
 import os
 from syllable_sdk import SyllableSDK
+from syllable_sdk.utils import parse_datetime
 
 
 with SyllableSDK(
@@ -188,7 +190,10 @@ with SyllableSDK(
                 ],
             },
         ],
+        "contact_tags": {},
         "id": 1,
+        "updated_at": parse_datetime("2024-01-01T00:00:00Z"),
+        "last_updated_by": "user@email.com",
     })
 
     # Handle response
