@@ -12,6 +12,7 @@ Operations related to directory
 * [get_by_id](#get_by_id) - Get Directory Member By Id
 * [update](#update) - Update Directory Member
 * [delete](#delete) - Delete Directory Member
+* [directory_member_test_extension](#directory_member_test_extension) - Test Directory Member Extension
 * [directory_member_bulk_load](#directory_member_bulk_load) - Bulk Load Directory Members
 * [directory_member_download](#directory_member_download) - Download Directory Members
 
@@ -253,6 +254,50 @@ with SyllableSDK(
 ### Response
 
 **[Any](../../models/.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## directory_member_test_extension
+
+Test directory member extension at a specific timestamp and language.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="directory_member_test_extension" method="get" path="/api/v1/directory_members/{member_id}/test" -->
+```python
+import os
+from syllable_sdk import SyllableSDK
+from syllable_sdk.utils import parse_datetime
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.directory.directory_member_test_extension(member_id=922412, timestamp=parse_datetime("2024-07-02T14:32:47.235Z"))
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `member_id`                                                           | *int*                                                                 | :heavy_check_mark:                                                    | N/A                                                                   |
+| `timestamp`                                                           | [date](https://docs.python.org/3/library/datetime.html#date-objects)  | :heavy_check_mark:                                                    | Timestamp for test                                                    |
+| `language_code`                                                       | [OptionalNullable[models.LanguageCode]](../../models/languagecode.md) | :heavy_minus_sign:                                                    | Optional language code for test                                       |
+| `retries`                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)      | :heavy_minus_sign:                                                    | Configuration to override the default retry behavior of the client.   |
+
+### Response
+
+**[models.DirectoryMemberTestResponse](../../models/directorymembertestresponse.md)**
 
 ### Errors
 

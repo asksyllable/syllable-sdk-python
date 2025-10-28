@@ -305,6 +305,7 @@ with SyllableSDK(
 * [get_by_id](docs/sdks/directory/README.md#get_by_id) - Get Directory Member By Id
 * [update](docs/sdks/directory/README.md#update) - Update Directory Member
 * [delete](docs/sdks/directory/README.md#delete) - Delete Directory Member
+* [directory_member_test_extension](docs/sdks/directory/README.md#directory_member_test_extension) - Test Directory Member Extension
 * [directory_member_bulk_load](docs/sdks/directory/README.md#directory_member_bulk_load) - Bulk Load Directory Members
 * [directory_member_download](docs/sdks/directory/README.md#directory_member_download) - Download Directory Members
 
