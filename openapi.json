@@ -25456,7 +25456,9 @@
         "type": "string",
         "enum": [
           "get",
-          "post"
+          "post",
+          "put",
+          "delete"
         ],
         "title": "ToolHttpMethod",
         "description": "The HTTP method to use for a tool HTTP request."
