@@ -9,3 +9,5 @@ class ToolHTTPMethod(str, Enum):
 
     GET = "get"
     POST = "post"
+    PUT = "put"
+    DELETE = "delete"

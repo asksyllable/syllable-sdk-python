@@ -3075,7 +3075,7 @@ actions:
                         },
                         "endpoint": {
                             "url": "https://api.example.com",
-                            "method": models.ToolHTTPMethod.POST,
+                            "method": models.ToolHTTPMethod.DELETE,
                             "argument_location": models.ToolArgumentLocation.PATH,
                         },
                         "defaults": "<value>",
@@ -3123,7 +3123,7 @@ actions:
                         },
                         "endpoint": {
                             "url": "https://api.example.com",
-                            "method": models.ToolHTTPMethod.GET,
+                            "method": models.ToolHTTPMethod.POST,
                             "argument_location": models.ToolArgumentLocation.FORM,
                         },
                         "defaults": "<value>",
