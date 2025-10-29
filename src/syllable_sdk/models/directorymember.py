@@ -11,16 +11,8 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import List
+from typing import Dict, List
 from typing_extensions import NotRequired, TypedDict
-
-
-class DirectoryMemberContactTagsTypedDict(TypedDict):
-    pass
-
-
-class DirectoryMemberContactTags(BaseModel):
-    pass
 
 
 class DirectoryMemberTypedDict(TypedDict):
@@ -32,7 +24,7 @@ class DirectoryMemberTypedDict(TypedDict):
     r"""Type of the directory member"""
     extensions: NotRequired[Nullable[List[DirectoryExtensionTypedDict]]]
     r"""List of extensions for the directory member"""
-    contact_tags: NotRequired[Nullable[DirectoryMemberContactTagsTypedDict]]
+    contact_tags: NotRequired[Nullable[Dict[str, List[str]]]]
     r"""Tags for the directory member"""
     id: NotRequired[Nullable[int]]
     r"""Internal ID of the directory member"""
@@ -54,7 +46,7 @@ class DirectoryMember(BaseModel):
     extensions: OptionalNullable[List[DirectoryExtension]] = UNSET
     r"""List of extensions for the directory member"""
 
-    contact_tags: OptionalNullable[DirectoryMemberContactTags] = UNSET
+    contact_tags: OptionalNullable[Dict[str, List[str]]] = UNSET
     r"""Tags for the directory member"""
 
     id: OptionalNullable[int] = UNSET

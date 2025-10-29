@@ -9907,12 +9907,16 @@ components:
             - [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}]
         "contact_tags":
           anyOf:
-            - type: "object"
+            - additionalProperties:
+                items:
+                  type: "string"
+                type: "array"
+              type: "object"
             - type: "null"
           title: "Contact Tags"
           description: "Tags for the directory member"
           examples:
-            - {"tag1": "value1", "tag2": "value2"}
+            - {"tag1": ["value1"], "tag2": ["value2"]}
         "id":
           anyOf:
             - type: "integer"
@@ -9969,12 +9973,16 @@ components:
             - [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}]
         "contact_tags":
           anyOf:
-            - type: "object"
+            - additionalProperties:
+                items:
+                  type: "string"
+                type: "array"
+              type: "object"
             - type: "null"
           title: "Contact Tags"
           description: "Tags for the directory member"
           examples:
-            - {"tag1": "value1", "tag2": "value2"}
+            - {"tag1": ["value1"], "tag2": ["value2"]}
       type: "object"
       required:
         - "name"

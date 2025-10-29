@@ -103,7 +103,14 @@ with SyllableSDK(
                 ],
             },
         ],
-        "contact_tags": {},
+        "contact_tags": {
+            "tag1": [
+                "value1",
+            ],
+            "tag2": [
+                "value2",
+            ],
+        },
     })
 
     # Handle response
@@ -205,7 +212,14 @@ with SyllableSDK(
                 ],
             },
         ],
-        "contact_tags": {},
+        "contact_tags": {
+            "tag1": [
+                "value1",
+            ],
+            "tag2": [
+                "value2",
+            ],
+        },
         "id": 1,
         "updated_at": parse_datetime("2024-01-01T00:00:00Z"),
         "last_updated_by": "user@email.com",
