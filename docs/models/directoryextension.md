@@ -3,7 +3,7 @@
 
 ## Fields
 
-| Field                                      | Type                                       | Required                                   | Description                                |
-| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| `name`                                     | *str*                                      | :heavy_check_mark:                         | N/A                                        |
-| `numbers`                                  | List[[models.Number](../models/number.md)] | :heavy_minus_sign:                         | N/A                                        |
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    | Example                                                                        |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `name`                                                                         | *str*                                                                          | :heavy_check_mark:                                                             | Directory extension name                                                       | work                                                                           |
+| `numbers`                                                                      | List[[models.DirectoryExtensionNumber](../models/directoryextensionnumber.md)] | :heavy_minus_sign:                                                             | Directory extension numbers.                                                   |                                                                                |
