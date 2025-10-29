@@ -16632,6 +16632,12 @@
           "contact_tags": {
             "anyOf": [
               {
+                "additionalProperties": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
                 "type": "object"
               },
               {
@@ -16642,8 +16648,12 @@
             "description": "Tags for the directory member",
             "examples": [
               {
-                "tag1": "value1",
-                "tag2": "value2"
+                "tag1": [
+                  "value1"
+                ],
+                "tag2": [
+                  "value2"
+                ]
               }
             ]
           },
@@ -16755,6 +16765,12 @@
           "contact_tags": {
             "anyOf": [
               {
+                "additionalProperties": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
                 "type": "object"
               },
               {
@@ -16765,8 +16781,12 @@
             "description": "Tags for the directory member",
             "examples": [
               {
-                "tag1": "value1",
-                "tag2": "value2"
+                "tag1": [
+                  "value1"
+                ],
+                "tag2": [
+                  "value2"
+                ]
               }
             ]
           }
