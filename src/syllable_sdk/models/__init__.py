@@ -248,11 +248,10 @@ if TYPE_CHECKING:
         DirectoryMemberUpdateRequest,
         DirectoryMemberUpdateRequestTypedDict,
     )
-    from .directoryextension import (
-        DirectoryExtension,
-        DirectoryExtensionTypedDict,
-        Number,
-        NumberTypedDict,
+    from .directoryextension import DirectoryExtension, DirectoryExtensionTypedDict
+    from .directoryextensionnumber import (
+        DirectoryExtensionNumber,
+        DirectoryExtensionNumberTypedDict,
     )
     from .directorymember import (
         DirectoryMember,
@@ -1103,6 +1102,8 @@ __all__ = [
     "DictionaryMetadata",
     "DictionaryMetadataTypedDict",
     "DirectoryExtension",
+    "DirectoryExtensionNumber",
+    "DirectoryExtensionNumberTypedDict",
     "DirectoryExtensionTypedDict",
     "DirectoryMember",
     "DirectoryMemberContactTags",
@@ -1320,8 +1321,6 @@ __all__ = [
     "MatchType",
     "Metadata",
     "MetadataTypedDict",
-    "Number",
-    "NumberTypedDict",
     "OrderByDirection",
     "OrganizationChannelConfig",
     "OrganizationChannelConfigTypedDict",
@@ -1756,8 +1755,8 @@ _dynamic_imports: dict[str, str] = {
     "DirectoryMemberUpdateRequestTypedDict": ".directory_member_updateop",
     "DirectoryExtension": ".directoryextension",
     "DirectoryExtensionTypedDict": ".directoryextension",
-    "Number": ".directoryextension",
-    "NumberTypedDict": ".directoryextension",
+    "DirectoryExtensionNumber": ".directoryextensionnumber",
+    "DirectoryExtensionNumberTypedDict": ".directoryextensionnumber",
     "DirectoryMember": ".directorymember",
     "DirectoryMemberContactTags": ".directorymember",
     "DirectoryMemberContactTagsTypedDict": ".directorymember",

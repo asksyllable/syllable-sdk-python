@@ -9844,17 +9844,44 @@ components:
         "name":
           type: "string"
           title: "Name"
+          description: "Directory extension name"
+          examples:
+            - "work"
         "numbers":
           anyOf:
-            - items:
-                type: "object"
+            - items: {"$ref": "#/components/schemas/DirectoryExtensionNumber"}
               type: "array"
             - type: "null"
           title: "Numbers"
+          description: "Directory extension numbers."
       type: "object"
       required:
         - "name"
       title: "DirectoryExtension"
+    "DirectoryExtensionNumber":
+      properties:
+        "number":
+          type: "string"
+          title: "Number"
+          description: "Phone number"
+          examples:
+            - "+1234567890"
+        "rules":
+          anyOf:
+            - items:
+                additionalProperties:
+                  type: "string"
+                type: "object"
+              type: "array"
+            - type: "null"
+          title: "Rules"
+          description: "Directory extension number rules. To include a language rule, use key \"language\" with a language code value."
+          examples:
+            - [{"language": "en"}]
+      type: "object"
+      required:
+        - "number"
+      title: "DirectoryExtensionNumber"
     "DirectoryMember":
       properties:
         "name":
