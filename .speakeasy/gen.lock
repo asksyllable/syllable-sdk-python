@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 74eac416b01b6a6881078db63d67d0fe
+  docChecksum: 4a67c7c90b45c12818910c47597143fb
   docVersion: 0.0.2
   speakeasyVersion: 1.642.2
   generationVersion: 2.731.6
-  releaseVersion: 0.40.8
-  configChecksum: cfc4e0ba6dc7060568aa6150abd80200
+  releaseVersion: 0.40.9
+  configChecksum: b82fdb07ab16d47dfa3b404137293f41
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -141,9 +141,7 @@ generatedFiles:
   - docs/models/directoryextension.md
   - docs/models/directoryextensionnumber.md
   - docs/models/directorymember.md
-  - docs/models/directorymembercontacttags.md
   - docs/models/directorymembercreate.md
-  - docs/models/directorymembercreatecontacttags.md
   - docs/models/directorymemberdeleterequest.md
   - docs/models/directorymembergetbyidrequest.md
   - docs/models/directorymemberlistrequest.md
@@ -2440,10 +2438,10 @@ examples:
   directory_member_create:
     speakeasy-default-directory-member-create:
       requestBody:
-        application/json: {"name": "Jane Doe", "type": "contact", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {}}
+        application/json: {"name": "Jane Doe", "type": "contact", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {"tag1": ["value1"], "tag2": ["value2"]}}
       responses:
         "200":
-          application/json: {"name": "Jane Doe", "type": "contact", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {}, "id": 1, "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"name": "Jane Doe", "type": "contact", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {"tag1": ["value1"], "tag2": ["value2"]}, "id": 1, "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   directory_member_get_by_id:
@@ -2453,7 +2451,7 @@ examples:
           member_id: 562571
       responses:
         "200":
-          application/json: {"name": "Jane Doe", "type": "contact", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {}, "id": 1, "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"name": "Jane Doe", "type": "contact", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {"tag1": ["value1"], "tag2": ["value2"]}, "id": 1, "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   directory_member_update:
@@ -2462,10 +2460,10 @@ examples:
         path:
           member_id: 941217
       requestBody:
-        application/json: {"name": "Jane Doe", "type": "contact", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {}, "id": 1, "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
+        application/json: {"name": "Jane Doe", "type": "contact", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {"tag1": ["value1"], "tag2": ["value2"]}, "id": 1, "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
       responses:
         "200":
-          application/json: {"name": "Jane Doe", "type": "contact", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {}, "id": 1, "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"name": "Jane Doe", "type": "contact", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {"tag1": ["value1"], "tag2": ["value2"]}, "id": 1, "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   directory_member_delete:
@@ -2506,4 +2504,4 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes Detected:\n* `syllable_sdk.directory.create()`: \n  *  `request.extensions.[].numbers.[]` **Changed** **Breaking** :warning:\n  *  `response.extensions.[].numbers.[]` **Changed**\n* `syllable_sdk.directory.update()`: \n  *  `request.directory_member.extensions.[].numbers.[]` **Changed** **Breaking** :warning:\n  *  `response.extensions.[].numbers.[]` **Changed**\n* `syllable_sdk.directory.list()`:  `response.items.[].extensions.[].numbers.[]` **Changed**\n* `syllable_sdk.directory.get_by_id()`:  `response.extensions.[].numbers.[]` **Changed**\n"
+releaseNotes: "## Python SDK Changes Detected:\n* `syllable_sdk.directory.list()`:  `response.items.[].contact_tags` **Changed** **Breaking** :warning:\n* `syllable_sdk.directory.create()`: \n  *  `request.contact_tags` **Changed** **Breaking** :warning:\n  *  `response.contact_tags` **Changed** **Breaking** :warning:\n* `syllable_sdk.directory.get_by_id()`:  `response.contact_tags` **Changed** **Breaking** :warning:\n* `syllable_sdk.directory.update()`: \n  *  `request.directory_member.contact_tags` **Changed** **Breaking** :warning:\n  *  `response.contact_tags` **Changed** **Breaking** :warning:\n"

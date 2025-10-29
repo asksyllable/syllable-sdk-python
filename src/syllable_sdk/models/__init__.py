@@ -253,16 +253,9 @@ if TYPE_CHECKING:
         DirectoryExtensionNumber,
         DirectoryExtensionNumberTypedDict,
     )
-    from .directorymember import (
-        DirectoryMember,
-        DirectoryMemberContactTags,
-        DirectoryMemberContactTagsTypedDict,
-        DirectoryMemberTypedDict,
-    )
+    from .directorymember import DirectoryMember, DirectoryMemberTypedDict
     from .directorymembercreate import (
         DirectoryMemberCreate,
-        DirectoryMemberCreateContactTags,
-        DirectoryMemberCreateContactTagsTypedDict,
         DirectoryMemberCreateTypedDict,
     )
     from .directorymemberproperties import DirectoryMemberProperties
@@ -1106,11 +1099,7 @@ __all__ = [
     "DirectoryExtensionNumberTypedDict",
     "DirectoryExtensionTypedDict",
     "DirectoryMember",
-    "DirectoryMemberContactTags",
-    "DirectoryMemberContactTagsTypedDict",
     "DirectoryMemberCreate",
-    "DirectoryMemberCreateContactTags",
-    "DirectoryMemberCreateContactTagsTypedDict",
     "DirectoryMemberCreateTypedDict",
     "DirectoryMemberDeleteRequest",
     "DirectoryMemberDeleteRequestTypedDict",
@@ -1758,12 +1747,8 @@ _dynamic_imports: dict[str, str] = {
     "DirectoryExtensionNumber": ".directoryextensionnumber",
     "DirectoryExtensionNumberTypedDict": ".directoryextensionnumber",
     "DirectoryMember": ".directorymember",
-    "DirectoryMemberContactTags": ".directorymember",
-    "DirectoryMemberContactTagsTypedDict": ".directorymember",
     "DirectoryMemberTypedDict": ".directorymember",
     "DirectoryMemberCreate": ".directorymembercreate",
-    "DirectoryMemberCreateContactTags": ".directorymembercreate",
-    "DirectoryMemberCreateContactTagsTypedDict": ".directorymembercreate",
     "DirectoryMemberCreateTypedDict": ".directorymembercreate",
     "DirectoryMemberProperties": ".directorymemberproperties",
     "DirectoryMemberTestResponse": ".directorymembertestresponse",

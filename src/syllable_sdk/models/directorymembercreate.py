@@ -10,16 +10,8 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import List
+from typing import Dict, List
 from typing_extensions import NotRequired, TypedDict
-
-
-class DirectoryMemberCreateContactTagsTypedDict(TypedDict):
-    pass
-
-
-class DirectoryMemberCreateContactTags(BaseModel):
-    pass
 
 
 class DirectoryMemberCreateTypedDict(TypedDict):
@@ -31,7 +23,7 @@ class DirectoryMemberCreateTypedDict(TypedDict):
     r"""Type of the directory member"""
     extensions: NotRequired[Nullable[List[DirectoryExtensionTypedDict]]]
     r"""List of extensions for the directory member"""
-    contact_tags: NotRequired[Nullable[DirectoryMemberCreateContactTagsTypedDict]]
+    contact_tags: NotRequired[Nullable[Dict[str, List[str]]]]
     r"""Tags for the directory member"""
 
 
@@ -47,7 +39,7 @@ class DirectoryMemberCreate(BaseModel):
     extensions: OptionalNullable[List[DirectoryExtension]] = UNSET
     r"""List of extensions for the directory member"""
 
-    contact_tags: OptionalNullable[DirectoryMemberCreateContactTags] = UNSET
+    contact_tags: OptionalNullable[Dict[str, List[str]]] = UNSET
     r"""Tags for the directory member"""
 
     @model_serializer(mode="wrap")
