@@ -609,8 +609,8 @@ class Directory(BaseSDK):
         self,
         *,
         member_id: int,
-        directory_member: Union[
-            models.DirectoryMember, models.DirectoryMemberTypedDict
+        directory_member_update: Union[
+            models.DirectoryMemberUpdate, models.DirectoryMemberUpdateTypedDict
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -622,7 +622,7 @@ class Directory(BaseSDK):
         Update a DirectoryMember.
 
         :param member_id:
-        :param directory_member:
+        :param directory_member_update:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -640,8 +640,8 @@ class Directory(BaseSDK):
 
         request = models.DirectoryMemberUpdateRequest(
             member_id=member_id,
-            directory_member=utils.get_pydantic_model(
-                directory_member, models.DirectoryMember
+            directory_member_update=utils.get_pydantic_model(
+                directory_member_update, models.DirectoryMemberUpdate
             ),
         )
 
@@ -659,7 +659,11 @@ class Directory(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.directory_member, False, False, "json", models.DirectoryMember
+                request.directory_member_update,
+                False,
+                False,
+                "json",
+                models.DirectoryMemberUpdate,
             ),
             timeout_ms=timeout_ms,
         )
@@ -708,8 +712,8 @@ class Directory(BaseSDK):
         self,
         *,
         member_id: int,
-        directory_member: Union[
-            models.DirectoryMember, models.DirectoryMemberTypedDict
+        directory_member_update: Union[
+            models.DirectoryMemberUpdate, models.DirectoryMemberUpdateTypedDict
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -721,7 +725,7 @@ class Directory(BaseSDK):
         Update a DirectoryMember.
 
         :param member_id:
-        :param directory_member:
+        :param directory_member_update:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -739,8 +743,8 @@ class Directory(BaseSDK):
 
         request = models.DirectoryMemberUpdateRequest(
             member_id=member_id,
-            directory_member=utils.get_pydantic_model(
-                directory_member, models.DirectoryMember
+            directory_member_update=utils.get_pydantic_model(
+                directory_member_update, models.DirectoryMemberUpdate
             ),
         )
 
@@ -758,7 +762,11 @@ class Directory(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.directory_member, False, False, "json", models.DirectoryMember
+                request.directory_member_update,
+                False,
+                False,
+                "json",
+                models.DirectoryMemberUpdate,
             ),
             timeout_ms=timeout_ms,
         )

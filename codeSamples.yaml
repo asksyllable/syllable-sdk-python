@@ -1040,14 +1040,13 @@ actions:
           source: |-
             import os
             from syllable_sdk import SyllableSDK
-            from syllable_sdk.utils import parse_datetime
 
 
             with SyllableSDK(
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.directory.update(member_id=941217, directory_member={
+                res = ss_client.directory.update(member_id=941217, directory_member_update={
                     "name": "Jane Doe",
                     "type": "contact",
                     "extensions": [
@@ -1074,8 +1073,6 @@ actions:
                         ],
                     },
                     "id": 1,
-                    "updated_at": parse_datetime("2024-01-01T00:00:00Z"),
-                    "last_updated_by": "user@email.com",
                 })
 
                 # Handle response
@@ -1657,8 +1654,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-10-28T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-10-29T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-10-29T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-10-30T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1771,8 +1768,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-10-28T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-10-29T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-10-29T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-10-30T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1948,9 +1945,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20251029.9",
+                    "batch_id": "20251030.9",
                     "campaign_id": 1,
-                    "expires_on": parse_datetime("2025-10-30T00:00:00Z"),
+                    "expires_on": parse_datetime("2025-10-31T00:00:00Z"),
                     "paused": True,
                 })
 

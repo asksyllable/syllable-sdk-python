@@ -187,14 +187,13 @@ Update a DirectoryMember.
 ```python
 import os
 from syllable_sdk import SyllableSDK
-from syllable_sdk.utils import parse_datetime
 
 
 with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.directory.update(member_id=941217, directory_member={
+    res = ss_client.directory.update(member_id=941217, directory_member_update={
         "name": "Jane Doe",
         "type": "contact",
         "extensions": [
@@ -221,8 +220,6 @@ with SyllableSDK(
             ],
         },
         "id": 1,
-        "updated_at": parse_datetime("2024-01-01T00:00:00Z"),
-        "last_updated_by": "user@email.com",
     })
 
     # Handle response
@@ -232,11 +229,11 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `member_id`                                                         | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `directory_member`                                                  | [models.DirectoryMember](../../models/directorymember.md)           | :heavy_check_mark:                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `member_id`                                                           | *int*                                                                 | :heavy_check_mark:                                                    | N/A                                                                   |
+| `directory_member_update`                                             | [models.DirectoryMemberUpdate](../../models/directorymemberupdate.md) | :heavy_check_mark:                                                    | N/A                                                                   |
+| `retries`                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)      | :heavy_minus_sign:                                                    | Configuration to override the default retry behavior of the client.   |
 
 ### Response
 

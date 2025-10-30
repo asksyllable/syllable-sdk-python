@@ -263,6 +263,10 @@ if TYPE_CHECKING:
         DirectoryMemberTestResponse,
         DirectoryMemberTestResponseTypedDict,
     )
+    from .directorymemberupdate import (
+        DirectoryMemberUpdate,
+        DirectoryMemberUpdateTypedDict,
+    )
     from .event import Attributes, AttributesTypedDict, Event, EventTypedDict
     from .eventproperties import EventProperties
     from .events_listop import EventsListRequest, EventsListRequestTypedDict
@@ -1113,8 +1117,10 @@ __all__ = [
     "DirectoryMemberTestResponse",
     "DirectoryMemberTestResponseTypedDict",
     "DirectoryMemberTypedDict",
+    "DirectoryMemberUpdate",
     "DirectoryMemberUpdateRequest",
     "DirectoryMemberUpdateRequestTypedDict",
+    "DirectoryMemberUpdateTypedDict",
     "Event",
     "EventProperties",
     "EventTypedDict",
@@ -1753,6 +1759,8 @@ _dynamic_imports: dict[str, str] = {
     "DirectoryMemberProperties": ".directorymemberproperties",
     "DirectoryMemberTestResponse": ".directorymembertestresponse",
     "DirectoryMemberTestResponseTypedDict": ".directorymembertestresponse",
+    "DirectoryMemberUpdate": ".directorymemberupdate",
+    "DirectoryMemberUpdateTypedDict": ".directorymemberupdate",
     "Attributes": ".event",
     "AttributesTypedDict": ".event",
     "Event": ".event",
