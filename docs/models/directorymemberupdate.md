@@ -1,6 +1,6 @@
-# DirectoryMember
+# DirectoryMemberUpdate
 
-Model for a directory member (i.e. a contact).
+Request model to update a directory member.
 
 
 ## Fields
@@ -12,5 +12,3 @@ Model for a directory member (i.e. a contact).
 | `extensions`                                                                                          | List[[models.DirectoryExtension](../models/directoryextension.md)]                                    | :heavy_minus_sign:                                                                                    | List of extensions for the directory member                                                           | [<br/>{<br/>"name": "work",<br/>"numbers": [<br/>{<br/>"number": "+1234567890",<br/>"rules": [<br/>{<br/>"language": "en"<br/>}<br/>]<br/>}<br/>]<br/>}<br/>] |
 | `contact_tags`                                                                                        | Dict[str, List[*str*]]                                                                                | :heavy_minus_sign:                                                                                    | Tags for the directory member                                                                         | {<br/>"tag1": [<br/>"value1"<br/>],<br/>"tag2": [<br/>"value2"<br/>]<br/>}                            |
 | `id`                                                                                                  | *int*                                                                                                 | :heavy_check_mark:                                                                                    | Internal ID of the directory member                                                                   | 1                                                                                                     |
-| `updated_at`                                                                                          | [date](https://docs.python.org/3/library/datetime.html#date-objects)                                  | :heavy_check_mark:                                                                                    | Timestamp of most recent update                                                                       | 2024-01-01T00:00:00Z                                                                                  |
-| `last_updated_by`                                                                                     | *OptionalNullable[str]*                                                                               | :heavy_minus_sign:                                                                                    | Email of the user who last updated the directory member                                               | user@email.com                                                                                        |

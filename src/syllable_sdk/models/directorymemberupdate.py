@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 from .directoryextension import DirectoryExtension, DirectoryExtensionTypedDict
-from datetime import datetime
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -15,8 +14,8 @@ from typing import Dict, List
 from typing_extensions import NotRequired, TypedDict
 
 
-class DirectoryMemberTypedDict(TypedDict):
-    r"""Model for a directory member (i.e. a contact)."""
+class DirectoryMemberUpdateTypedDict(TypedDict):
+    r"""Request model to update a directory member."""
 
     name: str
     r"""Name of the directory member"""
@@ -24,18 +23,14 @@ class DirectoryMemberTypedDict(TypedDict):
     r"""Type of the directory member"""
     id: int
     r"""Internal ID of the directory member"""
-    updated_at: datetime
-    r"""Timestamp of most recent update"""
     extensions: NotRequired[Nullable[List[DirectoryExtensionTypedDict]]]
     r"""List of extensions for the directory member"""
     contact_tags: NotRequired[Nullable[Dict[str, List[str]]]]
     r"""Tags for the directory member"""
-    last_updated_by: NotRequired[Nullable[str]]
-    r"""Email of the user who last updated the directory member"""
 
 
-class DirectoryMember(BaseModel):
-    r"""Model for a directory member (i.e. a contact)."""
+class DirectoryMemberUpdate(BaseModel):
+    r"""Request model to update a directory member."""
 
     name: str
     r"""Name of the directory member"""
@@ -45,9 +40,6 @@ class DirectoryMember(BaseModel):
 
     id: int
     r"""Internal ID of the directory member"""
-
-    updated_at: datetime
-    r"""Timestamp of most recent update"""
 
     extensions: OptionalNullable[List[DirectoryExtension]] = UNSET
     r"""List of extensions for the directory member"""
@@ -55,13 +47,10 @@ class DirectoryMember(BaseModel):
     contact_tags: OptionalNullable[Dict[str, List[str]]] = UNSET
     r"""Tags for the directory member"""
 
-    last_updated_by: OptionalNullable[str] = UNSET
-    r"""Email of the user who last updated the directory member"""
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["extensions", "contact_tags", "last_updated_by"]
-        nullable_fields = ["extensions", "contact_tags", "last_updated_by"]
+        optional_fields = ["extensions", "contact_tags"]
+        nullable_fields = ["extensions", "contact_tags"]
         null_default_fields = []
 
         serialized = handler(self)
