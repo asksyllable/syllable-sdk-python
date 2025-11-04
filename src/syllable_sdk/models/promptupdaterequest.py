@@ -33,6 +33,8 @@ class PromptUpdateRequestTypedDict(TypedDict):
     r"""Names of tools to which the prompt has access"""
     session_end_enabled: NotRequired[bool]
     r"""Whether session end functionality is enabled for this prompt"""
+    session_end_tool_id: NotRequired[Nullable[int]]
+    r"""ID of the optional session end tool associated with the prompt"""
     edit_comments: NotRequired[Nullable[str]]
     r"""The comments for the most recent edit to the prompt"""
     include_default_tools: NotRequired[bool]
@@ -66,6 +68,9 @@ class PromptUpdateRequest(BaseModel):
     session_end_enabled: Optional[bool] = False
     r"""Whether session end functionality is enabled for this prompt"""
 
+    session_end_tool_id: OptionalNullable[int] = UNSET
+    r"""ID of the optional session end tool associated with the prompt"""
+
     edit_comments: OptionalNullable[str] = UNSET
     r"""The comments for the most recent edit to the prompt"""
 
@@ -79,10 +84,16 @@ class PromptUpdateRequest(BaseModel):
             "context",
             "tools",
             "session_end_enabled",
+            "session_end_tool_id",
             "edit_comments",
             "include_default_tools",
         ]
-        nullable_fields = ["description", "context", "edit_comments"]
+        nullable_fields = [
+            "description",
+            "context",
+            "session_end_tool_id",
+            "edit_comments",
+        ]
         null_default_fields = []
 
         serialized = handler(self)
