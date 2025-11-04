@@ -96,6 +96,7 @@ with SyllableSDK(
             "temperature": 1,
             "seed": 123,
         },
+        "session_end_tool_id": 1,
         "edit_comments": "Updated prompt text to include requirement to not answer questions that aren't about weather.",
     })
 
@@ -150,6 +151,7 @@ with SyllableSDK(
             "temperature": 1,
             "seed": 123,
         },
+        "session_end_tool_id": 1,
         "edit_comments": "Updated prompt text to include requirement to not answer questions that aren't about weather.",
         "id": 1,
     })

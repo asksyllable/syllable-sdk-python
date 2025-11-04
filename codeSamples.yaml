@@ -1654,8 +1654,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-11-02T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-11-03T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-11-03T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-11-04T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1768,8 +1768,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-11-02T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-11-03T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-11-03T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-11-04T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1945,9 +1945,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20251103.9",
+                    "batch_id": "20251104.9",
                     "campaign_id": 1,
-                    "expires_on": parse_datetime("2025-11-04T00:00:00Z"),
+                    "expires_on": parse_datetime("2025-11-05T00:00:00Z"),
                     "paused": True,
                 })
 
@@ -2318,6 +2318,7 @@ actions:
                         "temperature": 1,
                         "seed": 123,
                     },
+                    "session_end_tool_id": 1,
                     "edit_comments": "Updated prompt text to include requirement to not answer questions that aren't about weather.",
                 })
 
@@ -2349,6 +2350,7 @@ actions:
                         "temperature": 1,
                         "seed": 123,
                     },
+                    "session_end_tool_id": 1,
                     "edit_comments": "Updated prompt text to include requirement to not answer questions that aren't about weather.",
                     "id": 1,
                 })
