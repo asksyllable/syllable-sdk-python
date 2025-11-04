@@ -13785,7 +13785,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20251103.9"
+              "20251104.9"
             ]
           },
           "campaign_id": {
@@ -13809,7 +13809,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-11-04T00:00:00Z"
+              "2025-11-05T00:00:00Z"
             ]
           },
           "paused": {
@@ -13862,7 +13862,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2025-11-03T00:00:00Z"
+              "2025-11-04T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -13878,7 +13878,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2025-11-03T00:00:00Z"
+              "2025-11-04T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -13909,7 +13909,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2025-11-03T00:00:00Z"
+              "2025-11-04T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -14665,7 +14665,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20251103.9"
+              "20251104.9"
             ]
           },
           "campaign_id": {
@@ -14689,7 +14689,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-11-04T00:00:00Z"
+              "2025-11-05T00:00:00Z"
             ]
           },
           "paused": {
@@ -14742,7 +14742,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2025-11-03T00:00:00Z"
+              "2025-11-04T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -14758,7 +14758,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2025-11-03T00:00:00Z"
+              "2025-11-04T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -14789,7 +14789,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2025-11-03T00:00:00Z"
+              "2025-11-04T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -14832,7 +14832,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20251103.9"
+              "20251104.9"
             ]
           },
           "campaign_id": {
@@ -14856,7 +14856,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-11-04T00:00:00Z"
+              "2025-11-05T00:00:00Z"
             ]
           },
           "paused": {
@@ -15005,7 +15005,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2025-11-02T00:00:00Z"
+              "2025-11-03T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -15021,7 +15021,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2025-11-03T00:00:00Z"
+              "2025-11-04T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -15761,6 +15761,159 @@
         ],
         "title": "CustomMessageUpdateRequest",
         "description": "Request model to update an existing custom message."
+      },
+      "DaoToolResponse": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The name of the tool",
+            "examples": [
+              "Weather Fetcher"
+            ]
+          },
+          "definition": {
+            "$ref": "#/components/schemas/ToolDefinition",
+            "description": "The definition of the tool",
+            "examples": [
+              {
+                "endpoint": {
+                  "argument_location": "query",
+                  "method": "get",
+                  "url": "https://api.open-meteo.com/v1/forecast"
+                },
+                "tool": {
+                  "function": {
+                    "description": "Get the weather for a city",
+                    "name": "get_weather",
+                    "parameters": {
+                      "properties": {
+                        "latitude": {
+                          "description": "Latitude of the city",
+                          "type": "number"
+                        },
+                        "longitude": {
+                          "description": "Longitude of the city",
+                          "type": "number"
+                        },
+                        "current": {
+                          "default": "temperature_2m,relative_humidity_2m,precipitation,rain,showers",
+                          "description": "Information to retrieve from the open-meteo API, comma-separated",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "latitude",
+                        "longitude",
+                        "current"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "type": "function"
+                },
+                "type": "endpoint"
+              }
+            ]
+          },
+          "service_id": {
+            "type": "integer",
+            "title": "Service Id",
+            "description": "Internal ID of the service to which the tool belongs",
+            "examples": [
+              1
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id",
+            "description": "The internal ID of the tool",
+            "examples": [
+              1
+            ]
+          },
+          "last_updated_comments": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Updated Comments",
+            "description": "Comments for the most recent edit to the tool.",
+            "examples": [
+              "Updated to use new API endpoint"
+            ]
+          },
+          "service_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Service Name",
+            "description": "The name of the service to which the tool belongs"
+          },
+          "prompts_info": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ToolPromptInfo"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompts Info",
+            "description": "IDs and names of the prompts linked to the tool"
+          },
+          "agents_info": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ToolAgentInfo"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Agents Info",
+            "description": "IDs and names of the agents linked to the tool via a prompt"
+          },
+          "last_updated": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Last Updated",
+            "description": "The timestamp of the most recent update to the tool"
+          },
+          "last_updated_by": {
+            "type": "string",
+            "title": "Last Updated By",
+            "description": "The email of the user who last updated the tool",
+            "examples": [
+              "user@email.com"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "definition",
+          "service_id",
+          "id",
+          "last_updated",
+          "last_updated_by"
+        ],
+        "title": "DaoToolResponse"
       },
       "Dashboard": {
         "properties": {
@@ -17123,7 +17276,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2025-11-02T00:00:00Z"
+              "2025-11-03T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -17132,7 +17285,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2025-11-03T00:00:00Z"
+              "2025-11-04T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -17818,7 +17971,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2025-11-02T00:00:00Z"
+              "2025-11-03T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -17827,7 +17980,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2025-11-03T00:00:00Z"
+              "2025-11-04T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -18208,7 +18361,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2025-11-02T00:00:00Z"
+              "2025-11-03T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -18224,7 +18377,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2025-11-03T00:00:00Z"
+              "2025-11-04T00:00:00Z"
             ]
           }
         },
@@ -18299,7 +18452,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2025-11-02T00:00:00Z"
+              "2025-11-03T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -18315,7 +18468,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2025-11-03T00:00:00Z"
+              "2025-11-04T00:00:00Z"
             ]
           },
           "id": {
@@ -18368,7 +18521,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2025-11-02T00:00:00Z"
+              "2025-11-03T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -18377,7 +18530,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2025-11-03T00:00:00Z"
+              "2025-11-04T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -18473,7 +18626,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2025-11-02T00:00:00Z"
+              "2025-11-03T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -18482,7 +18635,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2025-11-03T00:00:00Z"
+              "2025-11-04T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -18717,7 +18870,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2025-11-02T00:00:00Z"
+              "2025-11-03T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -18726,7 +18879,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2025-11-03T00:00:00Z"
+              "2025-11-04T00:00:00Z"
             ]
           },
           "upload_file_metadata": {
@@ -18871,7 +19024,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2025-11-02T00:00:00Z"
+              "2025-11-03T00:00:00Z"
             ]
           },
           "end_time": {
@@ -18887,7 +19040,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2025-11-03T00:00:00Z"
+              "2025-11-04T00:00:00Z"
             ]
           },
           "error_message": {
@@ -18942,7 +19095,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2025-11-02T00:00:00Z"
+              "2025-11-03T00:00:00Z"
             ]
           }
         },
@@ -22115,7 +22268,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2025-11-03T00:00:00Z"
+              "2025-11-04T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -22124,7 +22277,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2025-11-03T00:00:00Z"
+              "2025-11-04T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -22557,6 +22710,21 @@
               false
             ]
           },
+          "session_end_tool_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Session End Tool Id",
+            "description": "ID of the optional session end tool associated with the prompt",
+            "examples": [
+              1
+            ]
+          },
           "edit_comments": {
             "anyOf": [
               {
@@ -22956,6 +23124,21 @@
               false
             ]
           },
+          "session_end_tool_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Session End Tool Id",
+            "description": "ID of the optional session end tool associated with the prompt",
+            "examples": [
+              1
+            ]
+          },
           "edit_comments": {
             "anyOf": [
               {
@@ -23008,6 +23191,18 @@
             "examples": [
               "user@email.com"
             ]
+          },
+          "session_end_tool": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DaoToolResponse"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The session end tool associated with the prompt",
+            "examples": []
           },
           "agent_count": {
             "anyOf": [
@@ -23145,6 +23340,21 @@
             "default": false,
             "examples": [
               false
+            ]
+          },
+          "session_end_tool_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Session End Tool Id",
+            "description": "ID of the optional session end tool associated with the prompt",
+            "examples": [
+              1
             ]
           },
           "edit_comments": {
