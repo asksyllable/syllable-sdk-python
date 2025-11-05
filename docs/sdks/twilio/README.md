@@ -8,8 +8,8 @@ Operations related to Twilio channel configuration.
 ### Available Operations
 
 * [get_by_id](#get_by_id) - Get Twilio Channel By Id
-* [update](#update) - Update Twilio Channel
-* [create](#create) - Create Twilio Channel
+* [~~update~~](#update) - Update Twilio Channel :warning: **Deprecated**
+* [~~create~~](#create) - Create Twilio Channel :warning: **Deprecated**
 
 ## get_by_id
 
@@ -52,9 +52,11 @@ with SyllableSDK(
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## update
+## ~~update~~
 
 Update Twilio Channel
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -100,9 +102,11 @@ with SyllableSDK(
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
-## create
+## ~~create~~
 
 Create Twilio Channel
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
