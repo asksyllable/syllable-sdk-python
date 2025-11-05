@@ -260,8 +260,8 @@ with SyllableSDK(
 #### [channels.twilio](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/twilio/README.md)
 
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/twilio/README.md#get_by_id) - Get Twilio Channel By Id
-* [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/twilio/README.md#update) - Update Twilio Channel
-* [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/twilio/README.md#create) - Create Twilio Channel
+* [~~update~~](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/twilio/README.md#update) - Update Twilio Channel :warning: **Deprecated**
+* [~~create~~](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/twilio/README.md#create) - Create Twilio Channel :warning: **Deprecated**
 
 #### [channels.twilio.numbers](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/numbers/README.md)
 

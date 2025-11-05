@@ -500,6 +500,7 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+      deprecated: true
       security:
         - APIKeyHeader: []
     post:
@@ -523,6 +524,7 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/HTTPValidationError"}
+      deprecated: true
       security:
         - APIKeyHeader: []
   "/api/v1/channels/twilio/{channel_id}/numbers":

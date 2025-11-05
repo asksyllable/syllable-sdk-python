@@ -345,52 +345,6 @@ actions:
 
                 # Handle response
                 print(res)
-  - target: $["paths"]["/api/v1/channels/twilio/"]["post"]
-    update:
-      x-codeSamples:
-        - lang: python
-          label: Python (SDK)
-          source: |-
-            import os
-            from syllable_sdk import SyllableSDK
-
-
-            with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-            ) as ss_client:
-
-                res = ss_client.channels.twilio.create(request={
-                    "name": "syllable-webchat",
-                    "config": {
-                        "account_sid": "AC123...",
-                        "auth_token": "sometoken",
-                    },
-                })
-
-                # Handle response
-                print(res)
-  - target: $["paths"]["/api/v1/channels/twilio/"]["put"]
-    update:
-      x-codeSamples:
-        - lang: python
-          label: Python (SDK)
-          source: |-
-            import os
-            from syllable_sdk import SyllableSDK
-
-
-            with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
-            ) as ss_client:
-
-                res = ss_client.channels.twilio.update(request={
-                    "id": 1,
-                    "name": "syllable-webchat",
-                    "config": None,
-                })
-
-                # Handle response
-                print(res)
   - target: $["paths"]["/api/v1/channels/twilio/{channel_id}"]["get"]
     update:
       x-codeSamples:
