@@ -864,7 +864,6 @@
             }
           }
         },
-        "deprecated": true,
         "security": [
           {
             "APIKeyHeader": []
@@ -909,7 +908,6 @@
             }
           }
         },
-        "deprecated": true,
         "security": [
           {
             "APIKeyHeader": []
@@ -25224,18 +25222,6 @@
             ],
             "title": "Passive Input Start",
             "description": "Waiting time to start passive input (in seconds) after start of assistant speech"
-          },
-          "async_enabled": {
-            "anyOf": [
-              {
-                "type": "boolean"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Async Enabled",
-            "description": "Whether asynchronous mode is enabled for the conversation"
           }
         },
         "type": "object",
