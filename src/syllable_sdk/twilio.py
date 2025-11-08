@@ -9,7 +9,6 @@ from syllable_sdk.types import BaseModel, OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
 from syllable_sdk.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Any, Mapping, Optional, Union, cast
-from typing_extensions import deprecated
 
 
 class Twilio(BaseSDK):
@@ -202,9 +201,6 @@ class Twilio(BaseSDK):
 
         raise errors.APIError("Unexpected response received", http_res)
 
-    @deprecated(
-        "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-    )
     def update(
         self,
         *,
@@ -298,9 +294,6 @@ class Twilio(BaseSDK):
 
         raise errors.APIError("Unexpected response received", http_res)
 
-    @deprecated(
-        "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-    )
     async def update_async(
         self,
         *,
@@ -394,9 +387,6 @@ class Twilio(BaseSDK):
 
         raise errors.APIError("Unexpected response received", http_res)
 
-    @deprecated(
-        "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-    )
     def create(
         self,
         *,
@@ -490,9 +480,6 @@ class Twilio(BaseSDK):
 
         raise errors.APIError("Unexpected response received", http_res)
 
-    @deprecated(
-        "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-    )
     async def create_async(
         self,
         *,
