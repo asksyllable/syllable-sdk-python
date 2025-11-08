@@ -500,7 +500,6 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/HTTPValidationError"}
-      deprecated: true
       security:
         - APIKeyHeader: []
     post:
@@ -524,7 +523,6 @@ paths:
           content:
             "application/json":
               schema: {"$ref": "#/components/schemas/HTTPValidationError"}
-      deprecated: true
       security:
         - APIKeyHeader: []
   "/api/v1/channels/twilio/{channel_id}/numbers":
@@ -15186,12 +15184,6 @@ components:
             - type: "null"
           title: "Passive Input Start"
           description: "Waiting time to start passive input (in seconds) after start of assistant speech"
-        "async_enabled":
-          anyOf:
-            - type: "boolean"
-            - type: "null"
-          title: "Async Enabled"
-          description: "Whether asynchronous mode is enabled for the conversation"
       type: "object"
       title: "TelephonyConfigurations"
     "TestMessage":

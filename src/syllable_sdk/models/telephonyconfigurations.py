@@ -29,8 +29,6 @@ class TelephonyConfigurationsTypedDict(TypedDict):
     r"""Whether passive speech input is enabled (input while assistant is speaking)"""
     passive_input_start: NotRequired[Nullable[float]]
     r"""Waiting time to start passive input (in seconds) after start of assistant speech"""
-    async_enabled: NotRequired[Nullable[bool]]
-    r"""Whether asynchronous mode is enabled for the conversation"""
 
 
 class TelephonyConfigurations(BaseModel):
@@ -58,9 +56,6 @@ class TelephonyConfigurations(BaseModel):
     passive_input_start: OptionalNullable[float] = UNSET
     r"""Waiting time to start passive input (in seconds) after start of assistant speech"""
 
-    async_enabled: OptionalNullable[bool] = UNSET
-    r"""Whether asynchronous mode is enabled for the conversation"""
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -72,7 +67,6 @@ class TelephonyConfigurations(BaseModel):
             "interruptibility",
             "passive_speech_input_enabled",
             "passive_input_start",
-            "async_enabled",
         ]
         nullable_fields = [
             "pre_input_timeout",
@@ -83,7 +77,6 @@ class TelephonyConfigurations(BaseModel):
             "interruptibility",
             "passive_speech_input_enabled",
             "passive_input_start",
-            "async_enabled",
         ]
         null_default_fields = []
 

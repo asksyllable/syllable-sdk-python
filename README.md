@@ -260,8 +260,8 @@ with SyllableSDK(
 #### [channels.twilio](docs/sdks/twilio/README.md)
 
 * [get_by_id](docs/sdks/twilio/README.md#get_by_id) - Get Twilio Channel By Id
-* [~~update~~](docs/sdks/twilio/README.md#update) - Update Twilio Channel :warning: **Deprecated**
-* [~~create~~](docs/sdks/twilio/README.md#create) - Create Twilio Channel :warning: **Deprecated**
+* [update](docs/sdks/twilio/README.md#update) - Update Twilio Channel
+* [create](docs/sdks/twilio/README.md#create) - Create Twilio Channel
 
 #### [channels.twilio.numbers](docs/sdks/numbers/README.md)
 
