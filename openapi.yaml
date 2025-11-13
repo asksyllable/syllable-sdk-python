@@ -13709,6 +13709,11 @@ components:
           title: "Linked Tools"
           description: "Tools that were linked to this version of the prompt"
           default: []
+        "session_end_tool":
+          anyOf:
+            - {"$ref": "#/components/schemas/PromptHistoryLinkedTool"}
+            - type: "null"
+          description: "Session end tool that was configured on this version of the prompt, if any"
         "is_pre_enhancements":
           type: "boolean"
           title: "Is Pre Enhancements"
