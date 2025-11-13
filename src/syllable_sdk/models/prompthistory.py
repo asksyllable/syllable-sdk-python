@@ -44,8 +44,6 @@ class PromptHistoryTypedDict(TypedDict):
     r"""Comments describing the change that resulted in this version"""
     linked_tools: NotRequired[List[PromptHistoryLinkedToolTypedDict]]
     r"""Tools that were linked to this version of the prompt"""
-    session_end_tool: NotRequired[Nullable[PromptHistoryLinkedToolTypedDict]]
-    r"""Session end tool that was configured on this version of the prompt, if any"""
 
 
 class PromptHistory(BaseModel):
@@ -84,9 +82,6 @@ class PromptHistory(BaseModel):
     linked_tools: Optional[List[PromptHistoryLinkedTool]] = None
     r"""Tools that were linked to this version of the prompt"""
 
-    session_end_tool: OptionalNullable[PromptHistoryLinkedTool] = UNSET
-    r"""Session end tool that was configured on this version of the prompt, if any"""
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -94,14 +89,8 @@ class PromptHistory(BaseModel):
             "llm_config",
             "comments",
             "linked_tools",
-            "session_end_tool",
         ]
-        nullable_fields = [
-            "prompt_description",
-            "llm_config",
-            "comments",
-            "session_end_tool",
-        ]
+        nullable_fields = ["prompt_description", "llm_config", "comments"]
         null_default_fields = []
 
         serialized = handler(self)
