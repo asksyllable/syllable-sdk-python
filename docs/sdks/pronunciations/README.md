@@ -120,7 +120,7 @@ with SyllableSDK(
 
 ### Response
 
-**[models.PronunciationsDownloadCsvResponse](../../models/pronunciationsdownloadcsvresponse.md)**
+**[httpx.Response](../../models/.md)**
 
 ### Errors
 
