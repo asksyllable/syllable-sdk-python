@@ -107,7 +107,6 @@ with SyllableSDK(
                 "text": "Hello, thank you for calling. Sorry, we're closed on weekends.",
             },
         ],
-        "config": {},
     })
 
     # Handle response
@@ -174,7 +173,6 @@ with SyllableSDK(
                 "text": "Hello, thank you for calling. Sorry, we're closed on weekends.",
             },
         ],
-        "config": {},
         "id": 1,
     })
 
