@@ -172,7 +172,6 @@ if TYPE_CHECKING:
         CustomMessagesListRequest,
         CustomMessagesListRequestTypedDict,
     )
-    from .custommessageconfig import CustomMessageConfig, CustomMessageConfigTypedDict
     from .custommessagecreaterequest import (
         CustomMessageCreateRequest,
         CustomMessageCreateRequestTypedDict,
@@ -1048,8 +1047,6 @@ __all__ = [
     "ConversationsListRequestTypedDict",
     "CreateTakeoutResponse",
     "CreateTakeoutResponseTypedDict",
-    "CustomMessageConfig",
-    "CustomMessageConfigTypedDict",
     "CustomMessageCreateRequest",
     "CustomMessageCreateRequestTypedDict",
     "CustomMessageGetByIDRequest",
@@ -1698,8 +1695,6 @@ _dynamic_imports: dict[str, str] = {
     "CustomMessagesDeleteRequestTypedDict": ".custom_messages_deleteop",
     "CustomMessagesListRequest": ".custom_messages_listop",
     "CustomMessagesListRequestTypedDict": ".custom_messages_listop",
-    "CustomMessageConfig": ".custommessageconfig",
-    "CustomMessageConfigTypedDict": ".custommessageconfig",
     "CustomMessageCreateRequest": ".custommessagecreaterequest",
     "CustomMessageCreateRequestTypedDict": ".custommessagecreaterequest",
     "CustomMessageProperties": ".custommessageproperties",

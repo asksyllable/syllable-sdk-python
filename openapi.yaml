@@ -9084,18 +9084,6 @@ components:
         - "job_id"
         - "created_at"
       title: "CreateTakeoutResponse"
-    "CustomMessageConfig":
-      properties:
-        "user_initiated_non_voice_session_behavior":
-          type: "string"
-          title: "User Initiated Non Voice Session Behavior"
-          description: "The behavior of an agent assigned this message at the beginning of a user-initiated non-voice session (e.g., SMS, email, etc.). 'respond_only' will skip the message and respond to the user's message. 'greet_and_respond' will deliver the message and respond to the user's message. 'greet_only' will deliver the message and not respond to the user's message. Defaults to 'greet_only'."
-          default: "greet_only"
-          examples:
-            - "greet_only"
-      type: "object"
-      title: "CustomMessageConfig"
-      description: "Additional configuration options for the message."
     "CustomMessageCreateRequest":
       properties:
         "name":
@@ -9126,7 +9114,6 @@ components:
           default: []
           examples:
             - [{"date": "2025-01-01", "description": "Closed on New Year's Day", "invert": false, "text": "Hello, thank you for calling. Sorry, we're closed today.", "time_range_end": "17:00", "time_range_start": "09:00"}, {"days_of_week": ["sa", "su"], "description": "Closed on weekends", "invert": false, "text": "Hello, thank you for calling. Sorry, we're closed on weekends.", "time_range_end": "17:00", "time_range_start": "09:00"}]
-        "config": {"$ref": "#/components/schemas/CustomMessageConfig", "description": "Additional configuration options for the message", "default": {"user_initiated_non_voice_session_behavior": "greet_only"}, "examples": [{"user_initiated_non_voice_session_behavior": "greet_only"}]}
         "type":
           type: "string"
           title: "Type"
@@ -9180,7 +9167,6 @@ components:
           default: []
           examples:
             - [{"date": "2025-01-01", "description": "Closed on New Year's Day", "invert": false, "text": "Hello, thank you for calling. Sorry, we're closed today.", "time_range_end": "17:00", "time_range_start": "09:00"}, {"days_of_week": ["sa", "su"], "description": "Closed on weekends", "invert": false, "text": "Hello, thank you for calling. Sorry, we're closed on weekends.", "time_range_end": "17:00", "time_range_start": "09:00"}]
-        "config": {"$ref": "#/components/schemas/CustomMessageConfig", "description": "Additional configuration options for the message", "default": {"user_initiated_non_voice_session_behavior": "greet_only"}, "examples": [{"user_initiated_non_voice_session_behavior": "greet_only"}]}
         "id":
           type: "integer"
           title: "Id"
@@ -9317,7 +9303,6 @@ components:
           default: []
           examples:
             - [{"date": "2025-01-01", "description": "Closed on New Year's Day", "invert": false, "text": "Hello, thank you for calling. Sorry, we're closed today.", "time_range_end": "17:00", "time_range_start": "09:00"}, {"days_of_week": ["sa", "su"], "description": "Closed on weekends", "invert": false, "text": "Hello, thank you for calling. Sorry, we're closed on weekends.", "time_range_end": "17:00", "time_range_start": "09:00"}]
-        "config": {"$ref": "#/components/schemas/CustomMessageConfig", "description": "Additional configuration options for the message", "default": {"user_initiated_non_voice_session_behavior": "greet_only"}, "examples": [{"user_initiated_non_voice_session_behavior": "greet_only"}]}
         "id":
           type: "integer"
           title: "Id"
