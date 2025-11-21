@@ -82,25 +82,25 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.tools.create(request={
-        "name": "Weather Fetcher",
-        "definition": {
-            "type": models.Type.ENDPOINT,
-            "tool": {
-                "function": {
-                    "name": "get_weather",
-                    "description": "Get the weather for a city",
-                    "parameters": {
+    res = ss_client.tools.create(request=models.ToolCreateRequest(
+        name="Weather Fetcher",
+        definition=models.ToolDefinition(
+            type=models.Type.ENDPOINT,
+            tool=models.InternalTool(
+                function=models.ToolFunction(
+                    name="get_weather",
+                    description="Get the weather for a city",
+                    parameters={
 
                     },
-                },
-            },
-            "endpoint": {
-                "url": "https://api.example.com",
-                "method": models.ToolHTTPMethod.POST,
-                "argument_location": models.ToolArgumentLocation.QUERY,
-            },
-            "defaults": {
+                ),
+            ),
+            endpoint=models.ToolHTTPEndpoint(
+                url="https://api.example.com",
+                method=models.ToolHTTPMethod.POST,
+                argument_location=models.ToolArgumentLocation.QUERY,
+            ),
+            defaults={
                 "key": {
                     "transform": {
                         "action": "default",
@@ -112,18 +112,18 @@ with SyllableSDK(
                     },
                 },
             },
-            "static_parameters": [
-                {
-                    "name": "temperature_unit",
-                    "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit",
-                    "required": False,
-                    "type": models.StaticToolParameterType.STRING,
-                    "default": "fahrenheit",
-                },
+            static_parameters=[
+                models.StaticToolParameter(
+                    name="temperature_unit",
+                    description="Whether the temperature information should be fetched in Celsius or Fahrenheit",
+                    required=False,
+                    type=models.StaticToolParameterType.STRING,
+                    default="fahrenheit",
+                ),
             ],
-        },
-        "service_id": 1,
-    })
+        ),
+        service_id=1,
+    ))
 
     # Handle response
     print(res)
@@ -164,39 +164,39 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.tools.update(request={
-        "name": "Weather Fetcher",
-        "definition": {
-            "type": models.Type.ENDPOINT,
-            "tool": {
-                "function": {
-                    "name": "get_weather",
-                    "description": "Get the weather for a city",
-                    "parameters": {
+    res = ss_client.tools.update(request=models.ToolUpdateRequest(
+        name="Weather Fetcher",
+        definition=models.ToolDefinition(
+            type=models.Type.ENDPOINT,
+            tool=models.InternalTool(
+                function=models.ToolFunction(
+                    name="get_weather",
+                    description="Get the weather for a city",
+                    parameters={
 
                     },
-                },
-            },
-            "endpoint": {
-                "url": "https://api.example.com",
-                "method": models.ToolHTTPMethod.GET,
-                "argument_location": models.ToolArgumentLocation.FORM,
-            },
-            "defaults": "<value>",
-            "static_parameters": [
-                {
-                    "name": "temperature_unit",
-                    "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit",
-                    "required": False,
-                    "type": models.StaticToolParameterType.STRING,
-                    "default": "fahrenheit",
-                },
+                ),
+            ),
+            endpoint=models.ToolHTTPEndpoint(
+                url="https://api.example.com",
+                method=models.ToolHTTPMethod.GET,
+                argument_location=models.ToolArgumentLocation.FORM,
+            ),
+            defaults="<value>",
+            static_parameters=[
+                models.StaticToolParameter(
+                    name="temperature_unit",
+                    description="Whether the temperature information should be fetched in Celsius or Fahrenheit",
+                    required=False,
+                    type=models.StaticToolParameterType.STRING,
+                    default="fahrenheit",
+                ),
             ],
-        },
-        "service_id": 1,
-        "id": 1,
-        "last_updated_comments": "Updated to use new API endpoint",
-    })
+        ),
+        service_id=1,
+        id=1,
+        last_updated_comments="Updated to use new API endpoint",
+    ))
 
     # Handle response
     print(res)
