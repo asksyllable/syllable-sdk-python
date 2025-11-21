@@ -15836,6 +15836,15 @@
                   "method": "get",
                   "url": "https://api.open-meteo.com/v1/forecast"
                 },
+                "static_parameters": [
+                  {
+                    "default": "fahrenheit",
+                    "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit",
+                    "name": "temperature_unit",
+                    "required": false,
+                    "type": "string"
+                  }
+                ],
                 "tool": {
                   "function": {
                     "description": "Get the weather for a city",
@@ -25497,6 +25506,15 @@
                   "method": "get",
                   "url": "https://api.open-meteo.com/v1/forecast"
                 },
+                "static_parameters": [
+                  {
+                    "default": "fahrenheit",
+                    "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit",
+                    "name": "temperature_unit",
+                    "required": false,
+                    "type": "string"
+                  }
+                ],
                 "tool": {
                   "function": {
                     "description": "Get the weather for a city",
@@ -25694,6 +25712,15 @@
                   "method": "get",
                   "url": "https://api.open-meteo.com/v1/forecast"
                 },
+                "static_parameters": [
+                  {
+                    "default": "fahrenheit",
+                    "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit",
+                    "name": "temperature_unit",
+                    "required": false,
+                    "type": "string"
+                  }
+                ],
                 "tool": {
                   "function": {
                     "description": "Get the weather for a city",
@@ -26105,6 +26132,15 @@
                   "method": "get",
                   "url": "https://api.open-meteo.com/v1/forecast"
                 },
+                "static_parameters": [
+                  {
+                    "default": "fahrenheit",
+                    "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit",
+                    "name": "temperature_unit",
+                    "required": false,
+                    "type": "string"
+                  }
+                ],
                 "tool": {
                   "function": {
                     "description": "Get the weather for a city",
@@ -26286,6 +26322,15 @@
                   "method": "get",
                   "url": "https://api.open-meteo.com/v1/forecast"
                 },
+                "static_parameters": [
+                  {
+                    "default": "fahrenheit",
+                    "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit",
+                    "name": "temperature_unit",
+                    "required": false,
+                    "type": "string"
+                  }
+                ],
                 "tool": {
                   "function": {
                     "description": "Get the weather for a city",
