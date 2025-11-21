@@ -150,6 +150,8 @@ if TYPE_CHECKING:
         Insights,
         InsightsTypedDict,
     )
+    from .context import Context, ContextTypedDict, Task, TaskTypedDict
+    from .contexttask import ContextTask, ContextTaskTypedDict
     from .conversation import Conversation, ConversationTypedDict
     from .conversationproperties import ConversationProperties
     from .conversations_listop import (
@@ -1040,6 +1042,10 @@ __all__ = [
     "CommunicationRequestResult",
     "CommunicationRequestResultTypedDict",
     "CommunicationRequestTypedDict",
+    "Context",
+    "ContextTask",
+    "ContextTaskTypedDict",
+    "ContextTypedDict",
     "Conversation",
     "ConversationProperties",
     "ConversationTypedDict",
@@ -1472,6 +1478,8 @@ __all__ = [
     "TakeoutsGetFileRequest",
     "TakeoutsGetFileRequestTypedDict",
     "TargetModes",
+    "Task",
+    "TaskTypedDict",
     "TelephonyConfigurations",
     "TelephonyConfigurationsTypedDict",
     "TestMessage",
@@ -1682,6 +1690,12 @@ _dynamic_imports: dict[str, str] = {
     "CommunicationRequestResultTypedDict": ".communicationrequestresult",
     "Insights": ".communicationrequestresult",
     "InsightsTypedDict": ".communicationrequestresult",
+    "Context": ".context",
+    "ContextTypedDict": ".context",
+    "Task": ".context",
+    "TaskTypedDict": ".context",
+    "ContextTask": ".contexttask",
+    "ContextTaskTypedDict": ".contexttask",
     "Conversation": ".conversation",
     "ConversationTypedDict": ".conversation",
     "ConversationProperties": ".conversationproperties",

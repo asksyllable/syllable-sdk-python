@@ -1608,8 +1608,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-11-19T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-11-20T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-11-20T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-11-21T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1722,8 +1722,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-11-19T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-11-20T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-11-20T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-11-21T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1899,9 +1899,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20251120.9",
+                    "batch_id": "20251121.9",
                     "campaign_id": 1,
-                    "expires_on": parse_datetime("2025-11-21T00:00:00Z"),
+                    "expires_on": parse_datetime("2025-11-22T00:00:00Z"),
                     "paused": True,
                 })
 
@@ -3041,37 +3041,37 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.tools.create(request={
-                    "name": "Weather Fetcher",
-                    "definition": {
-                        "type": models.Type.ENDPOINT,
-                        "tool": {
-                            "function": {
-                                "name": "get_weather",
-                                "description": "Get the weather for a city",
-                                "parameters": {
+                res = ss_client.tools.create(request=models.ToolCreateRequest(
+                    name="Weather Fetcher",
+                    definition=models.ToolDefinition(
+                        type=models.Type.ENDPOINT,
+                        tool=models.InternalTool(
+                            function=models.ToolFunction(
+                                name="get_weather",
+                                description="Get the weather for a city",
+                                parameters={
 
                                 },
-                            },
-                        },
-                        "endpoint": {
-                            "url": "https://api.example.com",
-                            "method": models.ToolHTTPMethod.DELETE,
-                            "argument_location": models.ToolArgumentLocation.PATH,
-                        },
-                        "defaults": "<value>",
-                        "static_parameters": [
-                            {
-                                "name": "temperature_unit",
-                                "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit",
-                                "required": False,
-                                "type": models.StaticToolParameterType.STRING,
-                                "default": "fahrenheit",
-                            },
+                            ),
+                        ),
+                        endpoint=models.ToolHTTPEndpoint(
+                            url="https://api.example.com",
+                            method=models.ToolHTTPMethod.DELETE,
+                            argument_location=models.ToolArgumentLocation.PATH,
+                        ),
+                        defaults="<value>",
+                        static_parameters=[
+                            models.StaticToolParameter(
+                                name="temperature_unit",
+                                description="Whether the temperature information should be fetched in Celsius or Fahrenheit",
+                                required=False,
+                                type=models.StaticToolParameterType.STRING,
+                                default="fahrenheit",
+                            ),
                         ],
-                    },
-                    "service_id": 1,
-                })
+                    ),
+                    service_id=1,
+                ))
 
                 # Handle response
                 print(res)
@@ -3089,39 +3089,39 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.tools.update(request={
-                    "name": "Weather Fetcher",
-                    "definition": {
-                        "type": models.Type.ENDPOINT,
-                        "tool": {
-                            "function": {
-                                "name": "get_weather",
-                                "description": "Get the weather for a city",
-                                "parameters": {
+                res = ss_client.tools.update(request=models.ToolUpdateRequest(
+                    name="Weather Fetcher",
+                    definition=models.ToolDefinition(
+                        type=models.Type.ENDPOINT,
+                        tool=models.InternalTool(
+                            function=models.ToolFunction(
+                                name="get_weather",
+                                description="Get the weather for a city",
+                                parameters={
 
                                 },
-                            },
-                        },
-                        "endpoint": {
-                            "url": "https://api.example.com",
-                            "method": models.ToolHTTPMethod.POST,
-                            "argument_location": models.ToolArgumentLocation.FORM,
-                        },
-                        "defaults": "<value>",
-                        "static_parameters": [
-                            {
-                                "name": "temperature_unit",
-                                "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit",
-                                "required": False,
-                                "type": models.StaticToolParameterType.STRING,
-                                "default": "fahrenheit",
-                            },
+                            ),
+                        ),
+                        endpoint=models.ToolHTTPEndpoint(
+                            url="https://api.example.com",
+                            method=models.ToolHTTPMethod.POST,
+                            argument_location=models.ToolArgumentLocation.FORM,
+                        ),
+                        defaults="<value>",
+                        static_parameters=[
+                            models.StaticToolParameter(
+                                name="temperature_unit",
+                                description="Whether the temperature information should be fetched in Celsius or Fahrenheit",
+                                required=False,
+                                type=models.StaticToolParameterType.STRING,
+                                default="fahrenheit",
+                            ),
                         ],
-                    },
-                    "service_id": 1,
-                    "id": 1,
-                    "last_updated_comments": "Updated to use new API endpoint",
-                })
+                    ),
+                    service_id=1,
+                    id=1,
+                    last_updated_comments="Updated to use new API endpoint",
+                ))
 
                 # Handle response
                 print(res)
