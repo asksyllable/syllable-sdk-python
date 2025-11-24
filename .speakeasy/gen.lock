@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: fb4b15ac33985c820aba7414611b3fc7
+  docChecksum: 0fe0eb4b29f819d8023719fbdd64950e
   docVersion: 0.0.2
   speakeasyVersion: 1.660.0
   generationVersion: 2.760.2
-  releaseVersion: 0.43.0
-  configChecksum: 76c524a2cb04bdc016c40dfbf4574de7
+  releaseVersion: 0.43.1
+  configChecksum: d8fb714bc1cc2f0b2ca4f51d54709cd4
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -2597,4 +2597,7 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes Detected:\n* `syllable_sdk.tools.create()`: \n  *  `request.definition.context.task` **Changed** **Breaking** :warning:\n  *  `response.definition.context.task` **Changed**\n* `syllable_sdk.tools.update()`: \n  *  `request.definition.context.task` **Changed** **Breaking** :warning:\n  *  `response.definition.context.task` **Changed**\n* `syllable_sdk.prompts.list()`:  `response.items.[].session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.prompts.create()`:  `response.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.channels.targets.list()`:  `response.items.[].agent.prompt.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.channels.targets.create()`:  `response.agent.prompt.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.channels.targets.get_by_id()`:  `response.agent.prompt.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.channels.targets.update()`:  `response.agent.prompt.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.agents.list()`:  `response.items.[].prompt.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.agents.get_by_id()`:  `response.prompt.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.prompts.update()`:  `response.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.prompts.get_by_id()`:  `response.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.tools.list()`:  `response.items.[].definition.context.task` **Changed**\n* `syllable_sdk.agents.update()`:  `response.prompt.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.agents.create()`:  `response.prompt.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.tools.get_by_name()`:  `response.definition.context.task` **Changed**\n"
+releaseNotes: |
+  ## Python SDK Changes Detected:
+  * `syllable_sdk.sessions.list()`:  `response.items.[].user_terminated` **Added**
+  * `syllable_sdk.sessions.get_by_id()`:  `response.user_terminated` **Added**
