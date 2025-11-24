@@ -1,10 +1,8 @@
 # Context
 
-Context configuration carried alongside a context tool call.
-
 
 ## Fields
 
-| Field                                              | Type                                               | Required                                           | Description                                        |
-| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
-| `task`                                             | [OptionalNullable[models.Task]](../models/task.md) | :heavy_minus_sign:                                 | Task implementation details                        |
+| Field                                                | Type                                                 | Required                                             | Description                                          |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| `task`                                               | [OptionalNullable[models.Task3]](../models/task3.md) | :heavy_minus_sign:                                   | Task implementation details                          |

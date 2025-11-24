@@ -8139,7 +8139,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20251121.9"
+            - "20251124.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -8154,7 +8154,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-11-22T00:00:00Z"
+            - "2025-11-25T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -8179,7 +8179,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2025-11-21T00:00:00Z"
+            - "2025-11-24T00:00:00Z"
         "deleted_at":
           anyOf:
             - type: "string"
@@ -8188,7 +8188,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2025-11-21T00:00:00Z"
+            - "2025-11-24T00:00:00Z"
         "deleted_reason":
           anyOf:
             - type: "string"
@@ -8205,7 +8205,7 @@ components:
           title: "Last Updated At"
           description: "Timestamp of last change to batch"
           examples:
-            - "2025-11-21T00:00:00Z"
+            - "2025-11-24T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -8406,6 +8406,52 @@ components:
       required:
         - "file"
       title: "Body_pronunciations_upload_csv"
+    "CallAction":
+      properties:
+        "if":
+          anyOf:
+            - oneOf:
+                - {"$ref": "#/components/schemas/CelExpression"}
+                - {"$ref": "#/components/schemas/JMESPathExpression"}
+              discriminator:
+                propertyName: "type"
+                mapping:
+                  "cel": "#/components/schemas/CelExpression"
+                  "jmespath": "#/components/schemas/JMESPathExpression"
+                  "jp": "#/components/schemas/JMESPathExpression"
+            - {"$ref": "#/components/schemas/CaseExpression"}
+            - type: "string"
+            - type: "null"
+          title: "If"
+          description: "An expression that must evaluate to true for the action to be applied."
+        "action":
+          type: "string"
+          const: "call"
+          title: "Action"
+          default: "call"
+        "name":
+          type: "string"
+          title: "Name"
+          description: "The name of the tool to call."
+        "arguments":
+          anyOf:
+            - additionalProperties: {"$ref": "#/components/schemas/JsonValue"}
+              type: "object"
+            - type: "null"
+          title: "Arguments"
+          description: "Optional arguments to pass to the tool (supports template strings)"
+        "auto_populate":
+          anyOf:
+            - type: "boolean"
+            - type: "string"
+              const: "required"
+          title: "Auto Populate"
+          description: "Auto-population strategy: True (hybrid - synthetic or LLM), False (always LLM), \"required\" (synthetic only if all required args available, else LLM)"
+          default: true
+      type: "object"
+      required:
+        - "name"
+      title: "CallAction"
     "CampaignProperties":
       type: "string"
       enum:
@@ -8422,6 +8468,33 @@ components:
         - "labels"
         - "voicemail_detection"
       title: "CampaignProperties"
+    "CaseExpression":
+      properties:
+        "case":
+          items: {"$ref": "#/components/schemas/ConditionalValue"}
+          type: "array"
+          title: "Case"
+      type: "object"
+      required:
+        - "case"
+      title: "CaseExpression"
+    "CelExpression":
+      properties:
+        "expression":
+          type: "string"
+          title: "Expression"
+          description: "The expression to evaluate."
+        "type":
+          type: "string"
+          const: "cel"
+          title: "Type"
+          description: "Google Common Expression Language."
+          default: "cel"
+      type: "object"
+      required:
+        - "expression"
+      title: "CelExpression"
+      description: "See https://github.com/google/cel-spec/blob/master/doc/langdef.md"
     "Channel":
       properties:
         "name":
@@ -8688,7 +8761,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20251121.9"
+            - "20251124.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -8703,7 +8776,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-11-22T00:00:00Z"
+            - "2025-11-25T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -8728,7 +8801,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2025-11-21T00:00:00Z"
+            - "2025-11-24T00:00:00Z"
         "deleted_at":
           anyOf:
             - type: "string"
@@ -8737,7 +8810,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2025-11-21T00:00:00Z"
+            - "2025-11-24T00:00:00Z"
         "deleted_reason":
           anyOf:
             - type: "string"
@@ -8754,7 +8827,7 @@ components:
           title: "Last Updated At"
           description: "Timestamp of last change to batch"
           examples:
-            - "2025-11-21T00:00:00Z"
+            - "2025-11-24T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -8783,7 +8856,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20251121.9"
+            - "20251124.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -8798,7 +8871,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-11-22T00:00:00Z"
+            - "2025-11-25T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -8897,7 +8970,7 @@ components:
           title: "Created At"
           description: "Timestamp of request creation"
           examples:
-            - "2025-11-20T00:00:00Z"
+            - "2025-11-23T00:00:00Z"
         "sent_at":
           anyOf:
             - type: "string"
@@ -8906,7 +8979,7 @@ components:
           title: "Sent At"
           description: "Timestamp at which request was sent"
           examples:
-            - "2025-11-21T00:00:00Z"
+            - "2025-11-24T00:00:00Z"
         "attempt_count":
           type: "integer"
           title: "Attempt Count"
@@ -8967,37 +9040,139 @@ components:
         - "target"
         - "request_variables"
       title: "CommunicationRequestResult"
+    "ConditionalText":
+      properties:
+        "if":
+          anyOf:
+            - oneOf:
+                - {"$ref": "#/components/schemas/CelExpression"}
+                - {"$ref": "#/components/schemas/JMESPathExpression"}
+              discriminator:
+                propertyName: "type"
+                mapping:
+                  "cel": "#/components/schemas/CelExpression"
+                  "jmespath": "#/components/schemas/JMESPathExpression"
+                  "jp": "#/components/schemas/JMESPathExpression"
+            - {"$ref": "#/components/schemas/CaseExpression"}
+            - type: "string"
+            - type: "null"
+          title: "If"
+          description: "An expression that must evaluate to true for the action to be applied."
+        "text":
+          type: "string"
+          title: "Text"
+          description: "Text to apply if the condition is true."
+      type: "object"
+      required:
+        - "text"
+      title: "ConditionalText"
+    "ConditionalValue":
+      properties:
+        "value":
+          anyOf:
+            - {"$ref": "#/components/schemas/JsonValue"}
+            - type: "null"
+          description: "Initial value of the variable."
+        "value_from":
+          anyOf:
+            - oneOf:
+                - {"$ref": "#/components/schemas/CelExpression"}
+                - {"$ref": "#/components/schemas/JMESPathExpression"}
+              discriminator:
+                propertyName: "type"
+                mapping:
+                  "cel": "#/components/schemas/CelExpression"
+                  "jmespath": "#/components/schemas/JMESPathExpression"
+                  "jp": "#/components/schemas/JMESPathExpression"
+            - {"$ref": "#/components/schemas/CaseExpression"}
+            - type: "string"
+            - type: "null"
+          title: "Value From"
+          description: "Expression to compute initial value (mutually exclusive with value)."
+        "if":
+          anyOf:
+            - oneOf:
+                - {"$ref": "#/components/schemas/CelExpression"}
+                - {"$ref": "#/components/schemas/JMESPathExpression"}
+              discriminator:
+                propertyName: "type"
+                mapping:
+                  "cel": "#/components/schemas/CelExpression"
+                  "jmespath": "#/components/schemas/JMESPathExpression"
+                  "jp": "#/components/schemas/JMESPathExpression"
+            - {"$ref": "#/components/schemas/CaseExpression"}
+            - type: "string"
+            - type: "null"
+          title: "If"
+          description: "An expression that must evaluate to true for the action to be applied."
+      type: "object"
+      title: "ConditionalValue"
     "Context":
       properties:
         "task":
           anyOf:
-            - {"$ref": "#/components/schemas/ContextTask"}
-            - items: {"$ref": "#/components/schemas/ContextTask"}
+            - oneOf:
+                - {"$ref": "#/components/schemas/ExpressionTask"}
+                - {"$ref": "#/components/schemas/LoadToolFromFileTask"}
+                - {"$ref": "#/components/schemas/EventTask"}
+                - {"$ref": "#/components/schemas/StepsTask"}
+              discriminator:
+                propertyName: "type"
+                mapping:
+                  "event": "#/components/schemas/EventTask"
+                  "expression": "#/components/schemas/ExpressionTask"
+                  "import": "#/components/schemas/LoadToolFromFileTask"
+                  "steps": "#/components/schemas/StepsTask"
+            - items:
+                oneOf:
+                  - {"$ref": "#/components/schemas/ExpressionTask"}
+                  - {"$ref": "#/components/schemas/LoadToolFromFileTask"}
+                  - {"$ref": "#/components/schemas/EventTask"}
+                  - {"$ref": "#/components/schemas/StepsTask"}
+                discriminator:
+                  propertyName: "type"
+                  mapping:
+                    "event": "#/components/schemas/EventTask"
+                    "expression": "#/components/schemas/ExpressionTask"
+                    "import": "#/components/schemas/LoadToolFromFileTask"
+                    "steps": "#/components/schemas/StepsTask"
               type: "array"
             - type: "null"
           title: "Task"
           description: "Task implementation details"
       type: "object"
       title: "Context"
-      description: "Context configuration carried alongside a context tool call."
-    "ContextTask":
+    "ContextTaskMetadata":
       properties:
-        "type":
+        "priority":
+          anyOf:
+            - type: "integer"
+            - type: "null"
+          title: "Priority"
+        "parent_tool_name":
           anyOf:
             - type: "string"
             - type: "null"
-          title: "Type"
-          description: "The type of the task."
-        "id":
-          anyOf:
-            - type: "string"
-            - type: "null"
-          title: "Id"
-          description: "A unique identifier for the task."
-      additionalProperties: true
+          title: "Parent Tool Name"
+          description: "Name of the ToolDefinition that defined this task"
       type: "object"
-      title: "ContextTask"
-      description: "Metadata describing a context task driven by a tool call."
+      title: "ContextTaskMetadata"
+    "ContextToolInfo":
+      properties:
+        "name":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Name"
+          description: "The name of the generated tool."
+        "description":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Description"
+          description: "The description of the tool."
+      type: "object"
+      title: "ContextToolInfo"
     "Conversation":
       properties:
         "timestamp":
@@ -9362,7 +9537,7 @@ components:
           description: "The name of the tool"
           examples:
             - "Weather Fetcher"
-        "definition": {"$ref": "#/components/schemas/ToolDefinition", "description": "The definition of the tool", "examples": [{"endpoint": {"argument_location": "query", "method": "get", "url": "https://api.open-meteo.com/v1/forecast"}, "tool": {"function": {"description": "Get the weather for a city", "name": "get_weather", "parameters": {"properties": {"latitude": {"description": "Latitude of the city", "type": "number"}, "longitude": {"description": "Longitude of the city", "type": "number"}, "current": {"default": "temperature_2m,relative_humidity_2m,precipitation,rain,showers", "description": "Information to retrieve from the open-meteo API, comma-separated", "type": "string"}}, "required": ["latitude", "longitude", "current"], "type": "object"}}, "type": "function"}, "type": "endpoint"}]}
+        "definition": {"$ref": "#/components/schemas/ToolDefinition", "description": "The definition of the tool", "examples": [{"endpoint": {"argument_location": "query", "method": "get", "url": "https://api.open-meteo.com/v1/forecast"}, "static_parameters": [{"default": "fahrenheit", "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit", "name": "temperature_unit", "required": false, "type": "string"}], "tool": {"function": {"description": "Get the weather for a city", "name": "get_weather", "parameters": {"properties": {"latitude": {"description": "Latitude of the city", "type": "number"}, "longitude": {"description": "Longitude of the city", "type": "number"}, "current": {"default": "temperature_2m,relative_humidity_2m,precipitation,rain,showers", "description": "Information to retrieve from the open-meteo API, comma-separated", "type": "string"}}, "required": ["latitude", "longitude", "current"], "type": "object"}}, "type": "function"}, "type": "endpoint"}]}
         "service_id":
           type: "integer"
           title: "Service Id"
@@ -10245,6 +10420,183 @@ components:
         - "description"
         - "attributes"
       title: "EventProperties"
+    "EventTask":
+      properties:
+        "id":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Id"
+          description: "A unique identifier for the task."
+        "config":
+          anyOf:
+            - additionalProperties: {"$ref": "#/components/schemas/JsonValue"}
+              type: "object"
+            - type: "null"
+          title: "Config"
+        "variables":
+          anyOf:
+            - items: {"$ref": "#/components/schemas/Variable"}
+              type: "array"
+            - type: "null"
+          title: "Variables"
+        "metadata":
+          anyOf:
+            - {"$ref": "#/components/schemas/ContextTaskMetadata"}
+            - type: "null"
+        "tool":
+          anyOf:
+            - {"$ref": "#/components/schemas/ContextToolInfo"}
+            - type: "null"
+        "type":
+          type: "string"
+          const: "event"
+          title: "Type"
+          default: "event"
+        "version":
+          type: "string"
+          const: "v1alpha"
+          title: "Version"
+          default: "v1alpha"
+        "on": {"$ref": "#/components/schemas/EventTaskEvents", "description": "Actions to execute when the configured events occur."}
+      type: "object"
+      title: "EventTask"
+    "EventTaskEvents":
+      properties:
+        "start":
+          anyOf:
+            - items:
+                oneOf:
+                  - {"$ref": "#/components/schemas/SetValueAction"}
+                  - {"$ref": "#/components/schemas/SayAction"}
+                  - {"$ref": "#/components/schemas/SaveAction"}
+                  - {"$ref": "#/components/schemas/IncrementAction"}
+                  - {"$ref": "#/components/schemas/CallAction"}
+                discriminator:
+                  propertyName: "action"
+                  mapping:
+                    "call": "#/components/schemas/CallAction"
+                    "inc": "#/components/schemas/IncrementAction"
+                    "save": "#/components/schemas/SaveAction"
+                    "say": "#/components/schemas/SayAction"
+                    "set": "#/components/schemas/SetValueAction"
+              type: "array"
+            - type: "null"
+          title: "Start"
+          description: "Actions to execute on the first input from the user."
+      type: "object"
+      title: "EventTaskEvents"
+    "ExpressionTask":
+      properties:
+        "id":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Id"
+          description: "A unique identifier for the task."
+        "config":
+          anyOf:
+            - additionalProperties: {"$ref": "#/components/schemas/JsonValue"}
+              type: "object"
+            - type: "null"
+          title: "Config"
+        "variables":
+          anyOf:
+            - items: {"$ref": "#/components/schemas/Variable"}
+              type: "array"
+            - type: "null"
+          title: "Variables"
+        "metadata":
+          anyOf:
+            - {"$ref": "#/components/schemas/ContextTaskMetadata"}
+            - type: "null"
+        "tool":
+          anyOf:
+            - {"$ref": "#/components/schemas/ContextToolInfo"}
+            - type: "null"
+        "type":
+          type: "string"
+          const: "expression"
+          title: "Type"
+          default: "expression"
+        "version":
+          type: "string"
+          const: "v1alpha"
+          title: "Version"
+          default: "v1alpha"
+        "inputs":
+          items: {"$ref": "#/components/schemas/InputParameter"}
+          type: "array"
+          title: "Inputs"
+        "expression":
+          anyOf:
+            - oneOf:
+                - {"$ref": "#/components/schemas/CelExpression"}
+                - {"$ref": "#/components/schemas/JMESPathExpression"}
+              discriminator:
+                propertyName: "type"
+                mapping:
+                  "cel": "#/components/schemas/CelExpression"
+                  "jmespath": "#/components/schemas/JMESPathExpression"
+                  "jp": "#/components/schemas/JMESPathExpression"
+            - {"$ref": "#/components/schemas/CaseExpression"}
+            - type: "string"
+            - type: "null"
+          title: "Expression"
+        "output":
+          anyOf:
+            - {"$ref": "#/components/schemas/JsonValue"}
+            - type: "null"
+        "on": {"$ref": "#/components/schemas/ExpressionTaskEvents", "description": "Actions to execute when the configured events occur."}
+      type: "object"
+      title: "ExpressionTask"
+    "ExpressionTaskEvents":
+      properties:
+        "start":
+          anyOf:
+            - items:
+                oneOf:
+                  - {"$ref": "#/components/schemas/SetValueAction"}
+                  - {"$ref": "#/components/schemas/SayAction"}
+                  - {"$ref": "#/components/schemas/SaveAction"}
+                  - {"$ref": "#/components/schemas/IncrementAction"}
+                  - {"$ref": "#/components/schemas/CallAction"}
+                discriminator:
+                  propertyName: "action"
+                  mapping:
+                    "call": "#/components/schemas/CallAction"
+                    "inc": "#/components/schemas/IncrementAction"
+                    "save": "#/components/schemas/SaveAction"
+                    "say": "#/components/schemas/SayAction"
+                    "set": "#/components/schemas/SetValueAction"
+              type: "array"
+            - type: "null"
+          title: "Start"
+          description: "Actions to execute on the first input from the user."
+        "submit":
+          anyOf:
+            - items:
+                oneOf:
+                  - {"$ref": "#/components/schemas/SetValueAction"}
+                  - {"$ref": "#/components/schemas/IncrementAction"}
+                  - {"$ref": "#/components/schemas/SayAction"}
+                  - {"$ref": "#/components/schemas/SaveAction"}
+                  - {"$ref": "#/components/schemas/CallAction"}
+                discriminator:
+                  propertyName: "action"
+                  mapping:
+                    "call": "#/components/schemas/CallAction"
+                    "inc": "#/components/schemas/IncrementAction"
+                    "save": "#/components/schemas/SaveAction"
+                    "say": "#/components/schemas/SayAction"
+                    "set": "#/components/schemas/SetValueAction"
+              type: "array"
+            - type: "null"
+          title: "Submit"
+          description: "Actions to execute when the tool/step is submitted by the LLM."
+      type: "object"
+      title: "ExpressionTaskEvents"
+      description: "Actions to perform when events occur (enter, submit)."
     "FolderDetails":
       properties:
         "name":
@@ -10281,14 +10633,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload folder was created"
           examples:
-            - "2025-11-20T00:00:00Z"
+            - "2025-11-23T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight upload folder was last updated"
           examples:
-            - "2025-11-21T00:00:00Z"
+            - "2025-11-24T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -10622,6 +10974,102 @@ components:
         - "id"
       title: "IncidentUpdateRequest"
       description: "Request model to update an existing service incident."
+    "IncrementAction":
+      properties:
+        "if":
+          anyOf:
+            - oneOf:
+                - {"$ref": "#/components/schemas/CelExpression"}
+                - {"$ref": "#/components/schemas/JMESPathExpression"}
+              discriminator:
+                propertyName: "type"
+                mapping:
+                  "cel": "#/components/schemas/CelExpression"
+                  "jmespath": "#/components/schemas/JMESPathExpression"
+                  "jp": "#/components/schemas/JMESPathExpression"
+            - {"$ref": "#/components/schemas/CaseExpression"}
+            - type: "string"
+            - type: "null"
+          title: "If"
+          description: "An expression that must evaluate to true for the action to be applied."
+        "action":
+          type: "string"
+          const: "inc"
+          title: "Action"
+          default: "inc"
+        "name":
+          type: "string"
+          title: "Name"
+          description: "Numeric destination path to increment."
+        "by":
+          type: "integer"
+          title: "By"
+          description: "Increment amount (defaults to 1)."
+          default: 1
+      type: "object"
+      required:
+        - "name"
+      title: "IncrementAction"
+    "InputParameter":
+      properties:
+        "name":
+          type: "string"
+          title: "Name"
+          description: "The name of the property."
+        "type":
+          anyOf:
+            - type: "string"
+              enum:
+                - "string"
+                - "number"
+                - "integer"
+                - "boolean"
+                - "object"
+                - "array"
+                - "null"
+            - type: "null"
+          title: "Type"
+        "description":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Description"
+        "title":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Title"
+        "format":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Format"
+        "pattern":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Pattern"
+        "enum":
+          anyOf:
+            - items:
+                type: "string"
+              type: "array"
+            - type: "null"
+          title: "Enum"
+        "examples":
+          anyOf:
+            - items: {"$ref": "#/components/schemas/JsonValue"}
+              type: "array"
+            - type: "null"
+          title: "Examples"
+        "required":
+          type: "boolean"
+          title: "Required"
+          default: true
+      type: "object"
+      required:
+        - "name"
+      title: "InputParameter"
     "InsightToolDefinition":
       properties:
         "id":
@@ -10754,14 +11202,14 @@ components:
           title: "Created At"
           description: "Timestamp of at which insight tool configuration was created"
           examples:
-            - "2025-11-20T00:00:00Z"
+            - "2025-11-23T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool configuration was last updated"
           examples:
-            - "2025-11-21T00:00:00Z"
+            - "2025-11-24T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -10998,7 +11446,7 @@ components:
           title: "Start Datetime"
           description: "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only"
           examples:
-            - "2025-11-20T00:00:00Z"
+            - "2025-11-23T00:00:00Z"
         "end_datetime":
           anyOf:
             - type: "string"
@@ -11007,7 +11455,7 @@ components:
           title: "End Datetime"
           description: "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation"
           examples:
-            - "2025-11-21T00:00:00Z"
+            - "2025-11-24T00:00:00Z"
       type: "object"
       required:
         - "name"
@@ -11058,7 +11506,7 @@ components:
           title: "Start Datetime"
           description: "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only"
           examples:
-            - "2025-11-20T00:00:00Z"
+            - "2025-11-23T00:00:00Z"
         "end_datetime":
           anyOf:
             - type: "string"
@@ -11067,7 +11515,7 @@ components:
           title: "End Datetime"
           description: "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation"
           examples:
-            - "2025-11-21T00:00:00Z"
+            - "2025-11-24T00:00:00Z"
         "id":
           type: "integer"
           title: "Id"
@@ -11101,14 +11549,14 @@ components:
           title: "Created At"
           description: "Timestamp at which the insight workflow was created"
           examples:
-            - "2025-11-20T00:00:00Z"
+            - "2025-11-23T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of most recent update to the insight workflow"
           examples:
-            - "2025-11-21T00:00:00Z"
+            - "2025-11-24T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -11177,14 +11625,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload folder was created"
           examples:
-            - "2025-11-20T00:00:00Z"
+            - "2025-11-23T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight upload folder was last updated"
           examples:
-            - "2025-11-21T00:00:00Z"
+            - "2025-11-24T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -11333,14 +11781,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight tool result was created"
           examples:
-            - "2025-11-20T00:00:00Z"
+            - "2025-11-23T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool result was last updated"
           examples:
-            - "2025-11-21T00:00:00Z"
+            - "2025-11-24T00:00:00Z"
         "upload_file_metadata":
           title: "Upload File Metadata"
           description: "Metadata associated with the uploaded file"
@@ -11432,7 +11880,7 @@ components:
           title: "Start Time"
           description: "Start time of the uploaded file"
           examples:
-            - "2025-11-20T00:00:00Z"
+            - "2025-11-23T00:00:00Z"
         "end_time":
           anyOf:
             - type: "string"
@@ -11441,7 +11889,7 @@ components:
           title: "End Time"
           description: "End time of the uploaded file"
           examples:
-            - "2025-11-21T00:00:00Z"
+            - "2025-11-24T00:00:00Z"
         "error_message":
           anyOf:
             - type: "string"
@@ -11469,7 +11917,7 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload file was created"
           examples:
-            - "2025-11-20T00:00:00Z"
+            - "2025-11-23T00:00:00Z"
       type: "object"
       required:
         - "id"
@@ -11559,6 +12007,26 @@ components:
         - "function"
       title: "InternalTool"
       description: "A tool definition to be used by the OpenAI API."
+    "JMESPathExpression":
+      properties:
+        "expression":
+          type: "string"
+          title: "Expression"
+          description: "The expression to evaluate."
+        "type":
+          type: "string"
+          enum:
+            - "jp"
+            - "jmespath"
+          title: "Type"
+          description: "JMESPath expression."
+          default: "jp"
+      type: "object"
+      required:
+        - "expression"
+      title: "JMESPathExpression"
+      description: "See https://jmespath.org/specification.html#grammar"
+    "JsonValue": {}
     "LanguageCode":
       type: "string"
       enum:
@@ -13010,6 +13478,57 @@ components:
         - "page"
         - "page_size"
       title: "ListResponse[VoiceGroupResponse]"
+    "LoadToolFromFileTask":
+      properties:
+        "id":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Id"
+          description: "A unique identifier for the task."
+        "config":
+          anyOf:
+            - additionalProperties: {"$ref": "#/components/schemas/JsonValue"}
+              type: "object"
+            - type: "null"
+          title: "Config"
+        "variables":
+          anyOf:
+            - items: {"$ref": "#/components/schemas/Variable"}
+              type: "array"
+            - type: "null"
+          title: "Variables"
+        "metadata":
+          anyOf:
+            - {"$ref": "#/components/schemas/ContextTaskMetadata"}
+            - type: "null"
+        "tool":
+          anyOf:
+            - {"$ref": "#/components/schemas/ContextToolInfo"}
+            - type: "null"
+        "type":
+          type: "string"
+          const: "import"
+          title: "Type"
+          default: "import"
+        "version":
+          type: "string"
+          const: "v1alpha"
+          title: "Version"
+          default: "v1alpha"
+        "file":
+          anyOf:
+            - type: "string"
+            - items:
+                type: "string"
+              type: "array"
+          title: "File"
+          description: "The local path of the tool definition JSON file."
+      type: "object"
+      required:
+        - "file"
+      title: "LoadToolFromFileTask"
+      description: "Bootstraps a tool from a file (for internal developer use only if ENV.local=True)."
     "LoginType":
       type: "string"
       enum:
@@ -13024,6 +13543,41 @@ components:
         - "substring"
       title: "MatchType"
       description: "Matching strategy for override text."
+    "NextStep":
+      properties:
+        "if":
+          anyOf:
+            - oneOf:
+                - {"$ref": "#/components/schemas/CelExpression"}
+                - {"$ref": "#/components/schemas/JMESPathExpression"}
+              discriminator:
+                propertyName: "type"
+                mapping:
+                  "cel": "#/components/schemas/CelExpression"
+                  "jmespath": "#/components/schemas/JMESPathExpression"
+                  "jp": "#/components/schemas/JMESPathExpression"
+            - {"$ref": "#/components/schemas/CaseExpression"}
+            - type: "string"
+            - type: "null"
+          title: "If"
+          description: "An expression that must evaluate to true for the action to be applied."
+        "id":
+          type: "string"
+          title: "Id"
+          description: "The identifier of the next step."
+        "requires":
+          anyOf:
+            - items:
+                type: "string"
+              type: "array"
+            - type: "null"
+          title: "Requires"
+          description: "List of input field names required for this transition. Validates that specified inputs are collected before allowing transition."
+      type: "object"
+      required:
+        - "id"
+      title: "NextStep"
+      description: "Represents a conditional transition to the next step."
     "OrderByDirection":
       type: "string"
       enum:
@@ -13374,14 +13928,14 @@ components:
           title: "Created At"
           description: "Timestamp of campaign creation"
           examples:
-            - "2025-11-21T00:00:00Z"
+            - "2025-11-24T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of campaign update"
           examples:
-            - "2025-11-21T00:00:00Z"
+            - "2025-11-24T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -14326,6 +14880,84 @@ components:
         - "id"
       title: "RoleUpdateRequest"
       description: "Request model to update an existing role."
+    "SaveAction":
+      properties:
+        "if":
+          anyOf:
+            - oneOf:
+                - {"$ref": "#/components/schemas/CelExpression"}
+                - {"$ref": "#/components/schemas/JMESPathExpression"}
+              discriminator:
+                propertyName: "type"
+                mapping:
+                  "cel": "#/components/schemas/CelExpression"
+                  "jmespath": "#/components/schemas/JMESPathExpression"
+                  "jp": "#/components/schemas/JMESPathExpression"
+            - {"$ref": "#/components/schemas/CaseExpression"}
+            - type: "string"
+            - type: "null"
+          title: "If"
+          description: "An expression that must evaluate to true for the action to be applied."
+        "action":
+          type: "string"
+          const: "save"
+          title: "Action"
+          default: "save"
+        "name":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Name"
+          description: "Target name to save (defaults to global variable)."
+        "inputs":
+          anyOf:
+            - items:
+                type: "string"
+              type: "array"
+            - type: "null"
+          title: "Inputs"
+          description: "Input field names to persist; None saves all collected inputs."
+      type: "object"
+      title: "SaveAction"
+    "SayAction":
+      properties:
+        "if":
+          anyOf:
+            - oneOf:
+                - {"$ref": "#/components/schemas/CelExpression"}
+                - {"$ref": "#/components/schemas/JMESPathExpression"}
+              discriminator:
+                propertyName: "type"
+                mapping:
+                  "cel": "#/components/schemas/CelExpression"
+                  "jmespath": "#/components/schemas/JMESPathExpression"
+                  "jp": "#/components/schemas/JMESPathExpression"
+            - {"$ref": "#/components/schemas/CaseExpression"}
+            - type: "string"
+            - type: "null"
+          title: "If"
+          description: "An expression that must evaluate to true for the action to be applied."
+        "text":
+          type: "string"
+          title: "Text"
+          description: "Text to apply if the condition is true."
+        "action":
+          type: "string"
+          const: "say"
+          title: "Action"
+          default: "say"
+        "role":
+          type: "string"
+          enum:
+            - "user"
+            - "assistant"
+          title: "Role"
+          description: "The role of the message."
+          default: "assistant"
+      type: "object"
+      required:
+        - "text"
+      title: "SayAction"
     "ServiceCreateRequest":
       properties:
         "name":
@@ -14992,6 +15624,58 @@ components:
         - "actions"
       title: "SessionTranscriptionResponse"
       description: "Text transcript of a given session. For more information, see\n[Console docs](https://docs.syllable.ai/workspaces/Sessions)."
+    "SetValueAction":
+      properties:
+        "value":
+          anyOf:
+            - {"$ref": "#/components/schemas/JsonValue"}
+            - type: "null"
+          description: "Initial value of the variable."
+        "value_from":
+          anyOf:
+            - oneOf:
+                - {"$ref": "#/components/schemas/CelExpression"}
+                - {"$ref": "#/components/schemas/JMESPathExpression"}
+              discriminator:
+                propertyName: "type"
+                mapping:
+                  "cel": "#/components/schemas/CelExpression"
+                  "jmespath": "#/components/schemas/JMESPathExpression"
+                  "jp": "#/components/schemas/JMESPathExpression"
+            - {"$ref": "#/components/schemas/CaseExpression"}
+            - type: "string"
+            - type: "null"
+          title: "Value From"
+          description: "Expression to compute initial value (mutually exclusive with value)."
+        "if":
+          anyOf:
+            - oneOf:
+                - {"$ref": "#/components/schemas/CelExpression"}
+                - {"$ref": "#/components/schemas/JMESPathExpression"}
+              discriminator:
+                propertyName: "type"
+                mapping:
+                  "cel": "#/components/schemas/CelExpression"
+                  "jmespath": "#/components/schemas/JMESPathExpression"
+                  "jp": "#/components/schemas/JMESPathExpression"
+            - {"$ref": "#/components/schemas/CaseExpression"}
+            - type: "string"
+            - type: "null"
+          title: "If"
+          description: "An expression that must evaluate to true for the action to be applied."
+        "action":
+          type: "string"
+          const: "set"
+          title: "Action"
+          default: "set"
+        "name":
+          type: "string"
+          title: "Name"
+          description: "Destination path to mutate (e.g. output.foo)."
+      type: "object"
+      required:
+        - "name"
+      title: "SetValueAction"
     "StaticToolParameter":
       properties:
         "name":
@@ -15039,6 +15723,181 @@ components:
         - "data_source_list"
       title: "StaticToolParameterType"
       description: "The expected type for a static tool parameter."
+    "Step":
+      properties:
+        "id":
+          type: "string"
+          title: "Id"
+          description: "The unique identifier of the step."
+        "goal":
+          type: "string"
+          title: "Goal"
+          description: "The goal of the step."
+        "instructions":
+          items:
+            anyOf:
+              - {"$ref": "#/components/schemas/ConditionalText"}
+              - type: "string"
+          type: "array"
+          title: "Instructions"
+          description: "The instructions for the step."
+        "tools": {"$ref": "#/components/schemas/StepTools", "description": "The tools configuration for the step."}
+        "inputs":
+          items: {"$ref": "#/components/schemas/InputParameter"}
+          type: "array"
+          title: "Inputs"
+          description: "The inputs for the step."
+        "on": {"$ref": "#/components/schemas/StepEventActions", "description": "The events that trigger the actions to be executed."}
+        "next":
+          items:
+            anyOf:
+              - {"$ref": "#/components/schemas/NextStep"}
+              - type: "string"
+          type: "array"
+          title: "Next"
+          description: "The next steps to execute."
+      type: "object"
+      required:
+        - "id"
+        - "goal"
+      title: "Step"
+    "StepEventActions":
+      properties:
+        "start":
+          anyOf:
+            - items:
+                oneOf:
+                  - {"$ref": "#/components/schemas/SetValueAction"}
+                  - {"$ref": "#/components/schemas/SayAction"}
+                  - {"$ref": "#/components/schemas/SaveAction"}
+                  - {"$ref": "#/components/schemas/IncrementAction"}
+                  - {"$ref": "#/components/schemas/CallAction"}
+                discriminator:
+                  propertyName: "action"
+                  mapping:
+                    "call": "#/components/schemas/CallAction"
+                    "inc": "#/components/schemas/IncrementAction"
+                    "save": "#/components/schemas/SaveAction"
+                    "say": "#/components/schemas/SayAction"
+                    "set": "#/components/schemas/SetValueAction"
+              type: "array"
+            - type: "null"
+          title: "Start"
+          description: "Actions to execute on the first input from the user."
+        "enter":
+          anyOf:
+            - items:
+                oneOf:
+                  - {"$ref": "#/components/schemas/SetValueAction"}
+                  - {"$ref": "#/components/schemas/IncrementAction"}
+                  - {"$ref": "#/components/schemas/SayAction"}
+                  - {"$ref": "#/components/schemas/SaveAction"}
+                  - {"$ref": "#/components/schemas/CallAction"}
+                discriminator:
+                  propertyName: "action"
+                  mapping:
+                    "call": "#/components/schemas/CallAction"
+                    "inc": "#/components/schemas/IncrementAction"
+                    "save": "#/components/schemas/SaveAction"
+                    "say": "#/components/schemas/SayAction"
+                    "set": "#/components/schemas/SetValueAction"
+              type: "array"
+            - type: "null"
+          title: "Enter"
+          description: "Actions to execute when entering a step (before collecting inputs)."
+        "submit":
+          anyOf:
+            - items:
+                oneOf:
+                  - {"$ref": "#/components/schemas/SetValueAction"}
+                  - {"$ref": "#/components/schemas/IncrementAction"}
+                  - {"$ref": "#/components/schemas/SayAction"}
+                  - {"$ref": "#/components/schemas/SaveAction"}
+                  - {"$ref": "#/components/schemas/CallAction"}
+                discriminator:
+                  propertyName: "action"
+                  mapping:
+                    "call": "#/components/schemas/CallAction"
+                    "inc": "#/components/schemas/IncrementAction"
+                    "save": "#/components/schemas/SaveAction"
+                    "say": "#/components/schemas/SayAction"
+                    "set": "#/components/schemas/SetValueAction"
+              type: "array"
+            - type: "null"
+          title: "Submit"
+          description: "Actions to execute when the tool/step is submitted by the LLM."
+      type: "object"
+      title: "StepEventActions"
+      description: "Actions to perform when events occur (enter, submit)."
+    "StepTools":
+      properties:
+        "call":
+          anyOf:
+            - type: "boolean"
+            - type: "null"
+          title: "Call"
+          description: "Whether to force immediate tool call without user interaction."
+        "allow":
+          anyOf:
+            - items:
+                type: "string"
+              type: "array"
+            - type: "null"
+          title: "Allow"
+          description: "List of allowed tool names for this step."
+        "allow_go_to_step":
+          anyOf:
+            - type: "boolean"
+            - type: "null"
+          title: "Allow Go To Step"
+          description: "Whether to expose the go_to_step escape hatch to the LLM. Defaults to disabled."
+      type: "object"
+      title: "StepTools"
+      description: "Configuration for tools available in a step."
+    "StepsTask":
+      properties:
+        "id":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Id"
+          description: "A unique identifier for the task."
+        "config":
+          anyOf:
+            - additionalProperties: {"$ref": "#/components/schemas/JsonValue"}
+              type: "object"
+            - type: "null"
+          title: "Config"
+        "variables":
+          anyOf:
+            - items: {"$ref": "#/components/schemas/Variable"}
+              type: "array"
+            - type: "null"
+          title: "Variables"
+        "metadata":
+          anyOf:
+            - {"$ref": "#/components/schemas/ContextTaskMetadata"}
+            - type: "null"
+        "tool":
+          anyOf:
+            - {"$ref": "#/components/schemas/ContextToolInfo"}
+            - type: "null"
+        "type":
+          type: "string"
+          const: "steps"
+          title: "Type"
+          default: "steps"
+        "version":
+          type: "string"
+          const: "v1alpha"
+          title: "Version"
+          default: "v1alpha"
+        "steps":
+          items: {"$ref": "#/components/schemas/Step"}
+          type: "array"
+          title: "Steps"
+      type: "object"
+      title: "StepsTask"
     "SummaryEntry":
       properties:
         "category": {"$ref": "#/components/schemas/LatencyCategory"}
@@ -15358,7 +16217,7 @@ components:
           description: "The name of the tool"
           examples:
             - "Weather Fetcher"
-        "definition": {"$ref": "#/components/schemas/ToolDefinition", "description": "The definition of the tool", "examples": [{"endpoint": {"argument_location": "query", "method": "get", "url": "https://api.open-meteo.com/v1/forecast"}, "tool": {"function": {"description": "Get the weather for a city", "name": "get_weather", "parameters": {"properties": {"latitude": {"description": "Latitude of the city", "type": "number"}, "longitude": {"description": "Longitude of the city", "type": "number"}, "current": {"default": "temperature_2m,relative_humidity_2m,precipitation,rain,showers", "description": "Information to retrieve from the open-meteo API, comma-separated", "type": "string"}}, "required": ["latitude", "longitude", "current"], "type": "object"}}, "type": "function"}, "type": "endpoint"}]}
+        "definition": {"$ref": "#/components/schemas/ToolDefinition", "description": "The definition of the tool", "examples": [{"endpoint": {"argument_location": "query", "method": "get", "url": "https://api.open-meteo.com/v1/forecast"}, "static_parameters": [{"default": "fahrenheit", "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit", "name": "temperature_unit", "required": false, "type": "string"}], "tool": {"function": {"description": "Get the weather for a city", "name": "get_weather", "parameters": {"properties": {"latitude": {"description": "Latitude of the city", "type": "number"}, "longitude": {"description": "Longitude of the city", "type": "number"}, "current": {"default": "temperature_2m,relative_humidity_2m,precipitation,rain,showers", "description": "Information to retrieve from the open-meteo API, comma-separated", "type": "string"}}, "required": ["latitude", "longitude", "current"], "type": "object"}}, "type": "function"}, "type": "endpoint"}]}
         "service_id":
           type: "integer"
           title: "Service Id"
@@ -15439,7 +16298,7 @@ components:
           description: "The name of the tool"
           examples:
             - "Weather Fetcher"
-        "definition": {"$ref": "#/components/schemas/ToolDefinition", "description": "The definition of the tool", "examples": [{"endpoint": {"argument_location": "query", "method": "get", "url": "https://api.open-meteo.com/v1/forecast"}, "tool": {"function": {"description": "Get the weather for a city", "name": "get_weather", "parameters": {"properties": {"latitude": {"description": "Latitude of the city", "type": "number"}, "longitude": {"description": "Longitude of the city", "type": "number"}, "current": {"default": "temperature_2m,relative_humidity_2m,precipitation,rain,showers", "description": "Information to retrieve from the open-meteo API, comma-separated", "type": "string"}}, "required": ["latitude", "longitude", "current"], "type": "object"}}, "type": "function"}, "type": "endpoint"}]}
+        "definition": {"$ref": "#/components/schemas/ToolDefinition", "description": "The definition of the tool", "examples": [{"endpoint": {"argument_location": "query", "method": "get", "url": "https://api.open-meteo.com/v1/forecast"}, "static_parameters": [{"default": "fahrenheit", "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit", "name": "temperature_unit", "required": false, "type": "string"}], "tool": {"function": {"description": "Get the weather for a city", "name": "get_weather", "parameters": {"properties": {"latitude": {"description": "Latitude of the city", "type": "number"}, "longitude": {"description": "Longitude of the city", "type": "number"}, "current": {"default": "temperature_2m,relative_humidity_2m,precipitation,rain,showers", "description": "Information to retrieve from the open-meteo API, comma-separated", "type": "string"}}, "required": ["latitude", "longitude", "current"], "type": "object"}}, "type": "function"}, "type": "endpoint"}]}
         "service_id":
           type: "integer"
           title: "Service Id"
@@ -15679,7 +16538,7 @@ components:
           description: "The name of the tool"
           examples:
             - "Weather Fetcher"
-        "definition": {"$ref": "#/components/schemas/ToolDefinition", "description": "The definition of the tool", "examples": [{"endpoint": {"argument_location": "query", "method": "get", "url": "https://api.open-meteo.com/v1/forecast"}, "tool": {"function": {"description": "Get the weather for a city", "name": "get_weather", "parameters": {"properties": {"latitude": {"description": "Latitude of the city", "type": "number"}, "longitude": {"description": "Longitude of the city", "type": "number"}, "current": {"default": "temperature_2m,relative_humidity_2m,precipitation,rain,showers", "description": "Information to retrieve from the open-meteo API, comma-separated", "type": "string"}}, "required": ["latitude", "longitude", "current"], "type": "object"}}, "type": "function"}, "type": "endpoint"}]}
+        "definition": {"$ref": "#/components/schemas/ToolDefinition", "description": "The definition of the tool", "examples": [{"endpoint": {"argument_location": "query", "method": "get", "url": "https://api.open-meteo.com/v1/forecast"}, "static_parameters": [{"default": "fahrenheit", "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit", "name": "temperature_unit", "required": false, "type": "string"}], "tool": {"function": {"description": "Get the weather for a city", "name": "get_weather", "parameters": {"properties": {"latitude": {"description": "Latitude of the city", "type": "number"}, "longitude": {"description": "Longitude of the city", "type": "number"}, "current": {"default": "temperature_2m,relative_humidity_2m,precipitation,rain,showers", "description": "Information to retrieve from the open-meteo API, comma-separated", "type": "string"}}, "required": ["latitude", "longitude", "current"], "type": "object"}}, "type": "function"}, "type": "endpoint"}]}
         "service_id":
           type: "integer"
           title: "Service Id"
@@ -15767,7 +16626,7 @@ components:
           description: "The name of the tool"
           examples:
             - "Weather Fetcher"
-        "definition": {"$ref": "#/components/schemas/ToolDefinition", "description": "The definition of the tool", "examples": [{"endpoint": {"argument_location": "query", "method": "get", "url": "https://api.open-meteo.com/v1/forecast"}, "tool": {"function": {"description": "Get the weather for a city", "name": "get_weather", "parameters": {"properties": {"latitude": {"description": "Latitude of the city", "type": "number"}, "longitude": {"description": "Longitude of the city", "type": "number"}, "current": {"default": "temperature_2m,relative_humidity_2m,precipitation,rain,showers", "description": "Information to retrieve from the open-meteo API, comma-separated", "type": "string"}}, "required": ["latitude", "longitude", "current"], "type": "object"}}, "type": "function"}, "type": "endpoint"}]}
+        "definition": {"$ref": "#/components/schemas/ToolDefinition", "description": "The definition of the tool", "examples": [{"endpoint": {"argument_location": "query", "method": "get", "url": "https://api.open-meteo.com/v1/forecast"}, "static_parameters": [{"default": "fahrenheit", "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit", "name": "temperature_unit", "required": false, "type": "string"}], "tool": {"function": {"description": "Get the weather for a city", "name": "get_weather", "parameters": {"properties": {"latitude": {"description": "Latitude of the city", "type": "number"}, "longitude": {"description": "Longitude of the city", "type": "number"}, "current": {"default": "temperature_2m,relative_humidity_2m,precipitation,rain,showers", "description": "Information to retrieve from the open-meteo API, comma-separated", "type": "string"}}, "required": ["latitude", "longitude", "current"], "type": "object"}}, "type": "function"}, "type": "endpoint"}]}
         "service_id":
           type: "integer"
           title: "Service Id"
@@ -16234,6 +17093,83 @@ components:
         - "msg"
         - "type"
       title: "ValidationError"
+    "Variable":
+      properties:
+        "value":
+          anyOf:
+            - {"$ref": "#/components/schemas/JsonValue"}
+            - type: "null"
+          description: "Initial value of the variable."
+        "value_from":
+          anyOf:
+            - oneOf:
+                - {"$ref": "#/components/schemas/CelExpression"}
+                - {"$ref": "#/components/schemas/JMESPathExpression"}
+              discriminator:
+                propertyName: "type"
+                mapping:
+                  "cel": "#/components/schemas/CelExpression"
+                  "jmespath": "#/components/schemas/JMESPathExpression"
+                  "jp": "#/components/schemas/JMESPathExpression"
+            - {"$ref": "#/components/schemas/CaseExpression"}
+            - type: "string"
+            - type: "null"
+          title: "Value From"
+          description: "Expression to compute initial value (mutually exclusive with value)."
+        "name":
+          type: "string"
+          title: "Name"
+          description: "The name of the property."
+        "type":
+          anyOf:
+            - type: "string"
+              enum:
+                - "string"
+                - "number"
+                - "integer"
+                - "boolean"
+                - "object"
+                - "array"
+                - "null"
+            - type: "null"
+          title: "Type"
+        "description":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Description"
+        "title":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Title"
+        "format":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Format"
+        "pattern":
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Pattern"
+        "enum":
+          anyOf:
+            - items:
+                type: "string"
+              type: "array"
+            - type: "null"
+          title: "Enum"
+        "examples":
+          anyOf:
+            - items: {"$ref": "#/components/schemas/JsonValue"}
+              type: "array"
+            - type: "null"
+          title: "Examples"
+      type: "object"
+      required:
+        - "name"
+      title: "Variable"
     "VoiceDisplayInfo":
       properties:
         "display_name":

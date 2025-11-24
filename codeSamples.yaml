@@ -1608,8 +1608,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-11-20T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-11-21T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-11-23T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-11-24T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1722,8 +1722,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-11-20T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-11-21T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-11-23T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-11-24T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1899,9 +1899,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20251121.9",
+                    "batch_id": "20251124.9",
                     "campaign_id": 1,
-                    "expires_on": parse_datetime("2025-11-22T00:00:00Z"),
+                    "expires_on": parse_datetime("2025-11-25T00:00:00Z"),
                     "paused": True,
                 })
 
@@ -3044,7 +3044,7 @@ actions:
                 res = ss_client.tools.create(request=models.ToolCreateRequest(
                     name="Weather Fetcher",
                     definition=models.ToolDefinition(
-                        type=models.Type.ENDPOINT,
+                        type=models.ToolDefinitionType.ENDPOINT,
                         tool=models.InternalTool(
                             function=models.ToolFunction(
                                 name="get_weather",
@@ -3092,7 +3092,7 @@ actions:
                 res = ss_client.tools.update(request=models.ToolUpdateRequest(
                     name="Weather Fetcher",
                     definition=models.ToolDefinition(
-                        type=models.Type.ENDPOINT,
+                        type=models.ToolDefinitionType.ENDPOINT,
                         tool=models.InternalTool(
                             function=models.ToolFunction(
                                 name="get_weather",

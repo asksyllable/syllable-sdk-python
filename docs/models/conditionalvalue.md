@@ -1,0 +1,10 @@
+# ConditionalValue
+
+
+## Fields
+
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `value`                                                                                        | *OptionalNullable[Any]*                                                                        | :heavy_minus_sign:                                                                             | Initial value of the variable.                                                                 |
+| `value_from`                                                                                   | [OptionalNullable[models.ConditionalValueValueFrom2]](../models/conditionalvaluevaluefrom2.md) | :heavy_minus_sign:                                                                             | Expression to compute initial value (mutually exclusive with value).                           |
+| `if_`                                                                                          | [OptionalNullable[models.ConditionalValueIf2]](../models/conditionalvalueif2.md)               | :heavy_minus_sign:                                                                             | An expression that must evaluate to true for the action to be applied.                         |
