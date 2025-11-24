@@ -20,7 +20,7 @@ from typing import Any, Dict, List, Union
 from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
-class Type(str, Enum):
+class ToolDefinitionType(str, Enum):
     ACTION = "action"
     ENDPOINT = "endpoint"
     CONTEXT = "context"
@@ -42,7 +42,7 @@ class ToolDefinitionTypedDict(TypedDict):
 
     tool: InternalToolTypedDict
     r"""A tool definition to be used by the OpenAI API."""
-    type: NotRequired[Nullable[Type]]
+    type: NotRequired[Nullable[ToolDefinitionType]]
     r"""The action to take when the LLM calls the tool."""
     endpoint: NotRequired[Nullable[ToolHTTPEndpointTypedDict]]
     r"""The configuration for an HTTP API call."""
@@ -64,7 +64,7 @@ class ToolDefinition(BaseModel):
     tool: InternalTool
     r"""A tool definition to be used by the OpenAI API."""
 
-    type: OptionalNullable[Type] = UNSET
+    type: OptionalNullable[ToolDefinitionType] = UNSET
     r"""The action to take when the LLM calls the tool."""
 
     endpoint: OptionalNullable[ToolHTTPEndpoint] = UNSET

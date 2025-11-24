@@ -1,19 +1,18 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 885ffbaf1aa9b5b0bef923646aeb5b95
+  docChecksum: fb4b15ac33985c820aba7414611b3fc7
   docVersion: 0.0.2
   speakeasyVersion: 1.660.0
   generationVersion: 2.760.2
-  releaseVersion: 0.42.0
-  configChecksum: e0351931990f423e598411448084cc2c
+  releaseVersion: 0.43.0
+  configChecksum: 76c524a2cb04bdc016c40dfbf4574de7
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 features:
   python:
     additionalDependencies: 1.0.0
-    additionalProperties: 1.0.1
     constsAndDefaults: 1.0.5
     core: 5.23.10
     defaultEnabledRetries: 0.2.0
@@ -64,6 +63,7 @@ generatedFiles:
   - docs/models/agentvoicevarname.md
   - docs/models/agentwaitsound.md
   - docs/models/attributes.md
+  - docs/models/autopopulate.md
   - docs/models/availabletarget.md
   - docs/models/availabletargetproperties.md
   - docs/models/availabletargetsrequest.md
@@ -84,7 +84,12 @@ generatedFiles:
   - docs/models/bodyoutboundbatchuploadfile.md
   - docs/models/bodypronunciationsuploadcsv.md
   - docs/models/bodypronunciationsuploadcsvfile.md
+  - docs/models/callaction.md
+  - docs/models/callactionif1.md
+  - docs/models/callactionif2.md
   - docs/models/campaignproperties.md
+  - docs/models/caseexpression.md
+  - docs/models/celexpression.md
   - docs/models/channel.md
   - docs/models/channelconfigview.md
   - docs/models/channelproperties.md
@@ -108,8 +113,17 @@ generatedFiles:
   - docs/models/communicationbatchupdate.md
   - docs/models/communicationrequest.md
   - docs/models/communicationrequestresult.md
+  - docs/models/conditionaltext.md
+  - docs/models/conditionaltextif1.md
+  - docs/models/conditionaltextif2.md
+  - docs/models/conditionalvalue.md
+  - docs/models/conditionalvalueif1.md
+  - docs/models/conditionalvalueif2.md
+  - docs/models/conditionalvaluevaluefrom1.md
+  - docs/models/conditionalvaluevaluefrom2.md
   - docs/models/context.md
-  - docs/models/contexttask.md
+  - docs/models/contexttaskmetadata.md
+  - docs/models/contexttoolinfo.md
   - docs/models/conversation.md
   - docs/models/conversationproperties.md
   - docs/models/conversationslistrequest.md
@@ -154,9 +168,20 @@ generatedFiles:
   - docs/models/directorymembertestresponse.md
   - docs/models/directorymemberupdate.md
   - docs/models/directorymemberupdaterequest.md
+  - docs/models/enter.md
   - docs/models/event.md
   - docs/models/eventproperties.md
   - docs/models/eventslistrequest.md
+  - docs/models/eventtask.md
+  - docs/models/eventtaskevents.md
+  - docs/models/eventtaskeventsstart.md
+  - docs/models/expression1.md
+  - docs/models/expression2.md
+  - docs/models/expressiontask.md
+  - docs/models/expressiontaskevents.md
+  - docs/models/expressiontaskeventsstart.md
+  - docs/models/expressiontaskeventssubmit.md
+  - docs/models/file.md
   - docs/models/folderdetails.md
   - docs/models/folderstats.md
   - docs/models/generatesessionrecordingurlsrequest.md
@@ -171,6 +196,11 @@ generatedFiles:
   - docs/models/incidentproperties.md
   - docs/models/incidentresponse.md
   - docs/models/incidentupdaterequest.md
+  - docs/models/incrementaction.md
+  - docs/models/incrementactionif1.md
+  - docs/models/incrementactionif2.md
+  - docs/models/inputparameter.md
+  - docs/models/inputparametertype.md
   - docs/models/insights.md
   - docs/models/insightsfolder.md
   - docs/models/insightsfolderdeleterequest.md
@@ -211,7 +241,10 @@ generatedFiles:
   - docs/models/insightworkflowoutput.md
   - docs/models/insightworkflowproperties.md
   - docs/models/inspectlatencyresponse.md
+  - docs/models/instruction.md
   - docs/models/internaltool.md
+  - docs/models/jmespathexpression.md
+  - docs/models/jmespathexpressiontype.md
   - docs/models/jsonvalue.md
   - docs/models/languagecode.md
   - docs/models/languageconfig.md
@@ -254,10 +287,15 @@ generatedFiles:
   - docs/models/listresponsetoolresponse.md
   - docs/models/listresponseuserresponse.md
   - docs/models/listresponsevoicegroupresponse.md
+  - docs/models/loadtoolfromfiletask.md
   - docs/models/loc.md
   - docs/models/logintype.md
   - docs/models/matchtype.md
   - docs/models/metadata.md
+  - docs/models/next.md
+  - docs/models/nextstep.md
+  - docs/models/nextstepif1.md
+  - docs/models/nextstepif2.md
   - docs/models/orderbydirection.md
   - docs/models/organizationchannelconfig.md
   - docs/models/organizationchannelcreaterequest.md
@@ -297,6 +335,7 @@ generatedFiles:
   - docs/models/pronunciationoverridesdictionary.md
   - docs/models/pronunciationscsvuploadresponse.md
   - docs/models/requeststatus.md
+  - docs/models/role.md
   - docs/models/rolecreaterequest.md
   - docs/models/roleproperties.md
   - docs/models/roleresponse.md
@@ -305,6 +344,12 @@ generatedFiles:
   - docs/models/roleslistrequest.md
   - docs/models/roleupdaterequest.md
   - docs/models/samplerate.md
+  - docs/models/saveaction.md
+  - docs/models/saveactionif1.md
+  - docs/models/saveactionif2.md
+  - docs/models/sayaction.md
+  - docs/models/sayactionif1.md
+  - docs/models/sayactionif2.md
   - docs/models/security.md
   - docs/models/servicecreaterequest.md
   - docs/models/servicedeleterequest.md
@@ -333,8 +378,19 @@ generatedFiles:
   - docs/models/sessiontext.md
   - docs/models/sessiontranscriptgetbyidrequest.md
   - docs/models/sessiontranscriptionresponse.md
+  - docs/models/setvalueaction.md
+  - docs/models/setvalueactionif1.md
+  - docs/models/setvalueactionif2.md
+  - docs/models/setvalueactionvaluefrom1.md
+  - docs/models/setvalueactionvaluefrom2.md
   - docs/models/statictoolparameter.md
   - docs/models/statictoolparametertype.md
+  - docs/models/step.md
+  - docs/models/stepeventactions.md
+  - docs/models/stepeventactionsstart.md
+  - docs/models/stepeventactionssubmit.md
+  - docs/models/stepstask.md
+  - docs/models/steptools.md
   - docs/models/summaryentry.md
   - docs/models/supportedllm.md
   - docs/models/takeoutrequeststatus.md
@@ -342,7 +398,9 @@ generatedFiles:
   - docs/models/takeoutsgetfilerequest.md
   - docs/models/takeoutstatusresponse.md
   - docs/models/targetmodes.md
-  - docs/models/task.md
+  - docs/models/task1.md
+  - docs/models/task2.md
+  - docs/models/task3.md
   - docs/models/telephonyconfigurations.md
   - docs/models/testmessage.md
   - docs/models/testmessageresponse.md
@@ -351,6 +409,7 @@ generatedFiles:
   - docs/models/toolauthtype.md
   - docs/models/toolcreaterequest.md
   - docs/models/tooldefinition.md
+  - docs/models/tooldefinitiontype.md
   - docs/models/tooldeleterequest.md
   - docs/models/tooldetailresponse.md
   - docs/models/toolfunction.md
@@ -378,7 +437,6 @@ generatedFiles:
   - docs/models/twilionumberupdaterequest.md
   - docs/models/twilionumberupdateresponse.md
   - docs/models/twiliophonenumber.md
-  - docs/models/type.md
   - docs/models/useractivitystatus.md
   - docs/models/usercreaterequest.md
   - docs/models/userdeleterequest.md
@@ -390,6 +448,10 @@ generatedFiles:
   - docs/models/userupdaterequest.md
   - docs/models/utils/retryconfig.md
   - docs/models/validationerror.md
+  - docs/models/variable.md
+  - docs/models/variabletype.md
+  - docs/models/variablevaluefrom1.md
+  - docs/models/variablevaluefrom2.md
   - docs/models/voicedisplayinfo.md
   - docs/models/voicegroupcreaterequest.md
   - docs/models/voicegroupproperties.md
@@ -504,7 +566,10 @@ generatedFiles:
   - src/syllable_sdk/models/body_outbound_batch_delete.py
   - src/syllable_sdk/models/body_outbound_batch_upload.py
   - src/syllable_sdk/models/body_pronunciations_upload_csv.py
+  - src/syllable_sdk/models/callaction.py
   - src/syllable_sdk/models/campaignproperties.py
+  - src/syllable_sdk/models/caseexpression.py
+  - src/syllable_sdk/models/celexpression.py
   - src/syllable_sdk/models/channel.py
   - src/syllable_sdk/models/channel_targets_createop.py
   - src/syllable_sdk/models/channel_targets_deleteop.py
@@ -528,8 +593,11 @@ generatedFiles:
   - src/syllable_sdk/models/communicationbatchupdate.py
   - src/syllable_sdk/models/communicationrequest.py
   - src/syllable_sdk/models/communicationrequestresult.py
+  - src/syllable_sdk/models/conditionaltext.py
+  - src/syllable_sdk/models/conditionalvalue.py
   - src/syllable_sdk/models/context.py
-  - src/syllable_sdk/models/contexttask.py
+  - src/syllable_sdk/models/contexttaskmetadata.py
+  - src/syllable_sdk/models/contexttoolinfo.py
   - src/syllable_sdk/models/conversation.py
   - src/syllable_sdk/models/conversationproperties.py
   - src/syllable_sdk/models/conversations_listop.py
@@ -576,6 +644,10 @@ generatedFiles:
   - src/syllable_sdk/models/event.py
   - src/syllable_sdk/models/eventproperties.py
   - src/syllable_sdk/models/events_listop.py
+  - src/syllable_sdk/models/eventtask.py
+  - src/syllable_sdk/models/eventtaskevents.py
+  - src/syllable_sdk/models/expressiontask.py
+  - src/syllable_sdk/models/expressiontaskevents.py
   - src/syllable_sdk/models/folderdetails.py
   - src/syllable_sdk/models/generate_session_recording_urlsop.py
   - src/syllable_sdk/models/get_session_data_by_session_idop.py
@@ -589,6 +661,8 @@ generatedFiles:
   - src/syllable_sdk/models/incidentproperties.py
   - src/syllable_sdk/models/incidentresponse.py
   - src/syllable_sdk/models/incidentupdaterequest.py
+  - src/syllable_sdk/models/incrementaction.py
+  - src/syllable_sdk/models/inputparameter.py
   - src/syllable_sdk/models/insight_tool_get_by_idop.py
   - src/syllable_sdk/models/insight_tool_listop.py
   - src/syllable_sdk/models/insights_folder_deleteop.py
@@ -629,6 +703,7 @@ generatedFiles:
   - src/syllable_sdk/models/insightworkflowproperties.py
   - src/syllable_sdk/models/inspectlatencyresponse.py
   - src/syllable_sdk/models/internaltool.py
+  - src/syllable_sdk/models/jmespathexpression.py
   - src/syllable_sdk/models/language_groups_deleteop.py
   - src/syllable_sdk/models/language_groups_get_by_idop.py
   - src/syllable_sdk/models/language_groups_listop.py
@@ -670,8 +745,10 @@ generatedFiles:
   - src/syllable_sdk/models/listresponse_toolresponse_.py
   - src/syllable_sdk/models/listresponse_userresponse_.py
   - src/syllable_sdk/models/listresponse_voicegroupresponse_.py
+  - src/syllable_sdk/models/loadtoolfromfiletask.py
   - src/syllable_sdk/models/logintype.py
   - src/syllable_sdk/models/matchtype.py
+  - src/syllable_sdk/models/nextstep.py
   - src/syllable_sdk/models/orderbydirection.py
   - src/syllable_sdk/models/organizationchannelconfig.py
   - src/syllable_sdk/models/organizationchannelcreaterequest.py
@@ -718,6 +795,8 @@ generatedFiles:
   - src/syllable_sdk/models/roles_get_by_idop.py
   - src/syllable_sdk/models/roles_listop.py
   - src/syllable_sdk/models/roleupdaterequest.py
+  - src/syllable_sdk/models/saveaction.py
+  - src/syllable_sdk/models/sayaction.py
   - src/syllable_sdk/models/security.py
   - src/syllable_sdk/models/service_deleteop.py
   - src/syllable_sdk/models/service_listop.py
@@ -746,8 +825,13 @@ generatedFiles:
   - src/syllable_sdk/models/sessionsummaryresponse.py
   - src/syllable_sdk/models/sessiontext.py
   - src/syllable_sdk/models/sessiontranscriptionresponse.py
+  - src/syllable_sdk/models/setvalueaction.py
   - src/syllable_sdk/models/statictoolparameter.py
   - src/syllable_sdk/models/statictoolparametertype.py
+  - src/syllable_sdk/models/step.py
+  - src/syllable_sdk/models/stepeventactions.py
+  - src/syllable_sdk/models/stepstask.py
+  - src/syllable_sdk/models/steptools.py
   - src/syllable_sdk/models/summaryentry.py
   - src/syllable_sdk/models/supportedllm.py
   - src/syllable_sdk/models/takeoutrequeststatus.py
@@ -800,6 +884,7 @@ generatedFiles:
   - src/syllable_sdk/models/users_send_emailop.py
   - src/syllable_sdk/models/userupdaterequest.py
   - src/syllable_sdk/models/validationerror.py
+  - src/syllable_sdk/models/variable.py
   - src/syllable_sdk/models/voice_groups_deleteop.py
   - src/syllable_sdk/models/voice_groups_get_by_idop.py
   - src/syllable_sdk/models/voice_groups_listop.py
@@ -1236,7 +1321,7 @@ examples:
         application/json: {"name": "customer-complaints", "label": "support", "description": "Call recordings related to customer complaints"}
       responses:
         "200":
-          application/json: {"name": "customer-complaints", "label": "support", "description": "Call recordings related to customer complaints", "id": 182764, "created_at": "2025-11-20T00:00:00Z", "updated_at": "2025-11-21T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"name": "customer-complaints", "label": "support", "description": "Call recordings related to customer complaints", "id": 182764, "created_at": "2025-11-23T00:00:00Z", "updated_at": "2025-11-24T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   insights_folder_get_by_id:
@@ -1246,7 +1331,7 @@ examples:
           folder_id: 982079
       responses:
         "200":
-          application/json: {"name": "customer-complaints", "label": "support", "description": "Call recordings related to customer complaints", "id": 182764, "created_at": "2025-11-20T00:00:00Z", "updated_at": "2025-11-21T00:00:00Z", "last_updated_by": "user@email.com", "folder_stats": {"count": 10, "total_duration": "10:00:00", "total_size": "213MB"}}
+          application/json: {"name": "customer-complaints", "label": "support", "description": "Call recordings related to customer complaints", "id": 182764, "created_at": "2025-11-23T00:00:00Z", "updated_at": "2025-11-24T00:00:00Z", "last_updated_by": "user@email.com", "folder_stats": {"count": 10, "total_duration": "10:00:00", "total_size": "213MB"}}
         "422":
           application/json: {}
   insights_folder_delete:
@@ -1268,7 +1353,7 @@ examples:
         application/json: {"name": "customer-complaints", "label": "support", "description": "Call recordings related to customer complaints"}
       responses:
         "200":
-          application/json: {"name": "customer-complaints", "label": "support", "description": "Call recordings related to customer complaints", "id": 182764, "created_at": "2025-11-20T00:00:00Z", "updated_at": "2025-11-21T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"name": "customer-complaints", "label": "support", "description": "Call recordings related to customer complaints", "id": 182764, "created_at": "2025-11-23T00:00:00Z", "updated_at": "2025-11-24T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   insights_folder_upload_file:
@@ -1280,7 +1365,7 @@ examples:
           call_id: "<id>"
       responses:
         "200":
-          application/json: {"id": 182764, "folder_id": 182764, "filename": "customer-complaints.wav", "object_key": "UPLOAD_CALL_ID/recording/2025/04/22/15/00/ce7d212e-80b0-4f0b-9e01-74322f146611.mp3", "call_id": "12345", "agent_number": "1234567890", "customer_number": "0987654321", "duration": 305.5, "start_time": "2025-11-20T00:00:00Z", "end_time": "2025-11-21T00:00:00Z", "error_message": "File not found", "metadata": {"duration": "00:10:00", "size": "10MB"}, "created_at": "2025-11-20T00:00:00Z"}
+          application/json: {"id": 182764, "folder_id": 182764, "filename": "customer-complaints.wav", "object_key": "UPLOAD_CALL_ID/recording/2025/04/22/15/00/ce7d212e-80b0-4f0b-9e01-74322f146611.mp3", "call_id": "12345", "agent_number": "1234567890", "customer_number": "0987654321", "duration": 305.5, "start_time": "2025-11-23T00:00:00Z", "end_time": "2025-11-24T00:00:00Z", "error_message": "File not found", "metadata": {"duration": "00:10:00", "size": "10MB"}, "created_at": "2025-11-23T00:00:00Z"}
         "422":
           application/json: {}
   insights_upload_list_files:
@@ -1330,10 +1415,10 @@ examples:
   insights_workflow_create:
     speakeasy-default-insights-workflow-create:
       requestBody:
-        application/json: {"name": "summary-workflow", "source": "agent", "description": "Default workflow - generates a summary of the call", "insight_tool_ids": [1], "conditions": {"min_duration": 120, "max_duration": 600, "sample_rate": 0.1, "agent_list": [866324, 826325], "prompt_list": ["123324"], "folder_list": [16754, 67535], "sheet_info": {"sheet_id": "1AGOCYz05AZYYOMzow2EYlgdDXSXaWIhyA3-zCxBm4go", "sheet_name": "Q1 Sales Data"}}, "start_datetime": "2025-11-20T00:00:00Z", "end_datetime": "2025-11-21T00:00:00Z"}
+        application/json: {"name": "summary-workflow", "source": "agent", "description": "Default workflow - generates a summary of the call", "insight_tool_ids": [1], "conditions": {"min_duration": 120, "max_duration": 600, "sample_rate": 0.1, "agent_list": [866324, 826325], "prompt_list": ["123324"], "folder_list": [16754, 67535], "sheet_info": {"sheet_id": "1AGOCYz05AZYYOMzow2EYlgdDXSXaWIhyA3-zCxBm4go", "sheet_name": "Q1 Sales Data"}}, "start_datetime": "2025-11-23T00:00:00Z", "end_datetime": "2025-11-24T00:00:00Z"}
       responses:
         "200":
-          application/json: {"name": "summary-workflow", "source": "agent", "description": "Default workflow - generates a summary of the call", "insight_tool_ids": [1], "conditions": {"min_duration": 120, "max_duration": 600, "sample_rate": 0.1, "agent_list": [866324, 826325], "prompt_list": ["123324"], "folder_list": [16754, 67535], "sheet_info": {"sheet_id": "1AGOCYz05AZYYOMzow2EYlgdDXSXaWIhyA3-zCxBm4go", "sheet_name": "Q1 Sales Data"}}, "start_datetime": "2025-11-20T00:00:00Z", "end_datetime": "2025-11-21T00:00:00Z", "id": 1, "insight_tools": [{"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}, {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}], "status": "ACTIVE", "estimate": {"backfill_count": 100, "backfill_duration": 1000, "estimated_daily_count": 10, "estimated_daily_duration": 3674.11, "estimated_daily_cost": 45.25, "estimated_backfill_cost": 4561}, "queue_count": 10, "created_at": "2025-11-20T00:00:00Z", "updated_at": "2025-11-21T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"name": "summary-workflow", "source": "agent", "description": "Default workflow - generates a summary of the call", "insight_tool_ids": [1], "conditions": {"min_duration": 120, "max_duration": 600, "sample_rate": 0.1, "agent_list": [866324, 826325], "prompt_list": ["123324"], "folder_list": [16754, 67535], "sheet_info": {"sheet_id": "1AGOCYz05AZYYOMzow2EYlgdDXSXaWIhyA3-zCxBm4go", "sheet_name": "Q1 Sales Data"}}, "start_datetime": "2025-11-23T00:00:00Z", "end_datetime": "2025-11-24T00:00:00Z", "id": 1, "insight_tools": [{"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}, {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}], "status": "ACTIVE", "estimate": {"backfill_count": 100, "backfill_duration": 1000, "estimated_daily_count": 10, "estimated_daily_duration": 3674.11, "estimated_daily_cost": 45.25, "estimated_backfill_cost": 4561}, "queue_count": 10, "created_at": "2025-11-23T00:00:00Z", "updated_at": "2025-11-24T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   insights_workflow_get_by_id:
@@ -1343,7 +1428,7 @@ examples:
           workflow_id: 788857
       responses:
         "200":
-          application/json: {"name": "summary-workflow", "source": "agent", "description": "Default workflow - generates a summary of the call", "insight_tool_ids": [1], "conditions": {"min_duration": 120, "max_duration": 600, "sample_rate": 0.1, "agent_list": [866324, 826325], "prompt_list": ["123324"], "folder_list": [16754, 67535], "sheet_info": {"sheet_id": "1AGOCYz05AZYYOMzow2EYlgdDXSXaWIhyA3-zCxBm4go", "sheet_name": "Q1 Sales Data"}}, "start_datetime": "2025-11-20T00:00:00Z", "end_datetime": "2025-11-21T00:00:00Z", "id": 1, "insight_tools": [{"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}, {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}], "status": "ACTIVE", "estimate": {"backfill_count": 100, "backfill_duration": 1000, "estimated_daily_count": 10, "estimated_daily_duration": 3674.11, "estimated_daily_cost": 45.25, "estimated_backfill_cost": 4561}, "queue_count": 10, "created_at": "2025-11-20T00:00:00Z", "updated_at": "2025-11-21T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"name": "summary-workflow", "source": "agent", "description": "Default workflow - generates a summary of the call", "insight_tool_ids": [1], "conditions": {"min_duration": 120, "max_duration": 600, "sample_rate": 0.1, "agent_list": [866324, 826325], "prompt_list": ["123324"], "folder_list": [16754, 67535], "sheet_info": {"sheet_id": "1AGOCYz05AZYYOMzow2EYlgdDXSXaWIhyA3-zCxBm4go", "sheet_name": "Q1 Sales Data"}}, "start_datetime": "2025-11-23T00:00:00Z", "end_datetime": "2025-11-24T00:00:00Z", "id": 1, "insight_tools": [{"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}, {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}], "status": "ACTIVE", "estimate": {"backfill_count": 100, "backfill_duration": 1000, "estimated_daily_count": 10, "estimated_daily_duration": 3674.11, "estimated_daily_cost": 45.25, "estimated_backfill_cost": 4561}, "queue_count": 10, "created_at": "2025-11-23T00:00:00Z", "updated_at": "2025-11-24T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   insights_workflow_update:
@@ -1352,10 +1437,10 @@ examples:
         path:
           workflow_id: 766381
       requestBody:
-        application/json: {"name": "summary-workflow", "source": "agent", "description": "Default workflow - generates a summary of the call", "insight_tool_ids": [1], "conditions": {"min_duration": 120, "max_duration": 600, "sample_rate": 0.1, "agent_list": [866324, 826325], "prompt_list": ["123324"], "folder_list": [16754, 67535], "sheet_info": {"sheet_id": "1AGOCYz05AZYYOMzow2EYlgdDXSXaWIhyA3-zCxBm4go", "sheet_name": "Q1 Sales Data"}}, "start_datetime": "2025-11-20T00:00:00Z", "end_datetime": "2025-11-21T00:00:00Z"}
+        application/json: {"name": "summary-workflow", "source": "agent", "description": "Default workflow - generates a summary of the call", "insight_tool_ids": [1], "conditions": {"min_duration": 120, "max_duration": 600, "sample_rate": 0.1, "agent_list": [866324, 826325], "prompt_list": ["123324"], "folder_list": [16754, 67535], "sheet_info": {"sheet_id": "1AGOCYz05AZYYOMzow2EYlgdDXSXaWIhyA3-zCxBm4go", "sheet_name": "Q1 Sales Data"}}, "start_datetime": "2025-11-23T00:00:00Z", "end_datetime": "2025-11-24T00:00:00Z"}
       responses:
         "200":
-          application/json: {"name": "summary-workflow", "source": "agent", "description": "Default workflow - generates a summary of the call", "insight_tool_ids": [1], "conditions": {"min_duration": 120, "max_duration": 600, "sample_rate": 0.1, "agent_list": [866324, 826325], "prompt_list": ["123324"], "folder_list": [16754, 67535], "sheet_info": {"sheet_id": "1AGOCYz05AZYYOMzow2EYlgdDXSXaWIhyA3-zCxBm4go", "sheet_name": "Q1 Sales Data"}}, "start_datetime": "2025-11-20T00:00:00Z", "end_datetime": "2025-11-21T00:00:00Z", "id": 1, "insight_tools": [], "status": "ACTIVE", "estimate": {"backfill_count": 100, "backfill_duration": 1000, "estimated_daily_count": 10, "estimated_daily_duration": 3674.11, "estimated_daily_cost": 45.25, "estimated_backfill_cost": 4561}, "queue_count": 10, "created_at": "2025-11-20T00:00:00Z", "updated_at": "2025-11-21T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"name": "summary-workflow", "source": "agent", "description": "Default workflow - generates a summary of the call", "insight_tool_ids": [1], "conditions": {"min_duration": 120, "max_duration": 600, "sample_rate": 0.1, "agent_list": [866324, 826325], "prompt_list": ["123324"], "folder_list": [16754, 67535], "sheet_info": {"sheet_id": "1AGOCYz05AZYYOMzow2EYlgdDXSXaWIhyA3-zCxBm4go", "sheet_name": "Q1 Sales Data"}}, "start_datetime": "2025-11-23T00:00:00Z", "end_datetime": "2025-11-24T00:00:00Z", "id": 1, "insight_tools": [], "status": "ACTIVE", "estimate": {"backfill_count": 100, "backfill_duration": 1000, "estimated_daily_count": 10, "estimated_daily_duration": 3674.11, "estimated_daily_cost": 45.25, "estimated_backfill_cost": 4561}, "queue_count": 10, "created_at": "2025-11-23T00:00:00Z", "updated_at": "2025-11-24T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   insights_workflow_delete:
@@ -1375,7 +1460,7 @@ examples:
           workflow_id: 248768
       responses:
         "200":
-          application/json: {"name": "summary-workflow", "source": "agent", "description": "Default workflow - generates a summary of the call", "insight_tool_ids": [1], "conditions": {"min_duration": 120, "max_duration": 600, "sample_rate": 0.1, "agent_list": [866324, 826325], "prompt_list": ["123324"], "folder_list": [16754, 67535], "sheet_info": {"sheet_id": "1AGOCYz05AZYYOMzow2EYlgdDXSXaWIhyA3-zCxBm4go", "sheet_name": "Q1 Sales Data"}}, "start_datetime": "2025-11-20T00:00:00Z", "end_datetime": "2025-11-21T00:00:00Z", "id": 1, "insight_tools": [{"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}, {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}, {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}], "status": "ACTIVE", "estimate": {"backfill_count": 100, "backfill_duration": 1000, "estimated_daily_count": 10, "estimated_daily_duration": 3674.11, "estimated_daily_cost": 45.25, "estimated_backfill_cost": 4561}, "queue_count": 10, "created_at": "2025-11-20T00:00:00Z", "updated_at": "2025-11-21T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"name": "summary-workflow", "source": "agent", "description": "Default workflow - generates a summary of the call", "insight_tool_ids": [1], "conditions": {"min_duration": 120, "max_duration": 600, "sample_rate": 0.1, "agent_list": [866324, 826325], "prompt_list": ["123324"], "folder_list": [16754, 67535], "sheet_info": {"sheet_id": "1AGOCYz05AZYYOMzow2EYlgdDXSXaWIhyA3-zCxBm4go", "sheet_name": "Q1 Sales Data"}}, "start_datetime": "2025-11-23T00:00:00Z", "end_datetime": "2025-11-24T00:00:00Z", "id": 1, "insight_tools": [{"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}, {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}, {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}], "status": "ACTIVE", "estimate": {"backfill_count": 100, "backfill_duration": 1000, "estimated_daily_count": 10, "estimated_daily_duration": 3674.11, "estimated_daily_cost": 45.25, "estimated_backfill_cost": 4561}, "queue_count": 10, "created_at": "2025-11-23T00:00:00Z", "updated_at": "2025-11-24T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   insights_workflow_activate:
@@ -1387,7 +1472,7 @@ examples:
         application/json: {"is_acknowledged": true, "estimate": {"backfill_count": 100, "backfill_duration": 1000, "estimated_daily_count": 10, "estimated_daily_duration": 3674.11, "estimated_daily_cost": 45.25, "estimated_backfill_cost": 4561}}
       responses:
         "200":
-          application/json: {"name": "summary-workflow", "source": "agent", "description": "Default workflow - generates a summary of the call", "insight_tool_ids": [1], "conditions": {"min_duration": 120, "max_duration": 600, "sample_rate": 0.1, "agent_list": [866324, 826325], "prompt_list": ["123324"], "folder_list": [16754, 67535], "sheet_info": {"sheet_id": "1AGOCYz05AZYYOMzow2EYlgdDXSXaWIhyA3-zCxBm4go", "sheet_name": "Q1 Sales Data"}}, "start_datetime": "2025-11-20T00:00:00Z", "end_datetime": "2025-11-21T00:00:00Z", "id": 1, "insight_tools": [{"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}, {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}, {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}], "status": "ACTIVE", "estimate": {"backfill_count": 100, "backfill_duration": 1000, "estimated_daily_count": 10, "estimated_daily_duration": 3674.11, "estimated_daily_cost": 45.25, "estimated_backfill_cost": 4561}, "queue_count": 10, "created_at": "2025-11-20T00:00:00Z", "updated_at": "2025-11-21T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"name": "summary-workflow", "source": "agent", "description": "Default workflow - generates a summary of the call", "insight_tool_ids": [1], "conditions": {"min_duration": 120, "max_duration": 600, "sample_rate": 0.1, "agent_list": [866324, 826325], "prompt_list": ["123324"], "folder_list": [16754, 67535], "sheet_info": {"sheet_id": "1AGOCYz05AZYYOMzow2EYlgdDXSXaWIhyA3-zCxBm4go", "sheet_name": "Q1 Sales Data"}}, "start_datetime": "2025-11-23T00:00:00Z", "end_datetime": "2025-11-24T00:00:00Z", "id": 1, "insight_tools": [{"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}, {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}, {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-05-15T00:00:00Z", "updated_at": "2025-05-16T00:00:00Z", "last_updated_by": "user@email.com"}], "status": "ACTIVE", "estimate": {"backfill_count": 100, "backfill_duration": 1000, "estimated_daily_count": 10, "estimated_daily_duration": 3674.11, "estimated_daily_cost": 45.25, "estimated_backfill_cost": 4561}, "queue_count": 10, "created_at": "2025-11-23T00:00:00Z", "updated_at": "2025-11-24T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   insights_workflow_queue_work:
@@ -1420,7 +1505,7 @@ examples:
         application/json: {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1}
       responses:
         "200":
-          application/json: {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-11-20T00:00:00Z", "updated_at": "2025-11-21T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-11-23T00:00:00Z", "updated_at": "2025-11-24T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   insight_tool_get_by_id:
@@ -1430,7 +1515,7 @@ examples:
           tool_id: "<id>"
       responses:
         "200":
-          application/json: {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-11-20T00:00:00Z", "updated_at": "2025-11-21T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-11-23T00:00:00Z", "updated_at": "2025-11-24T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   insights_tool_delete:
@@ -1452,7 +1537,7 @@ examples:
         application/json: {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1}
       responses:
         "200":
-          application/json: {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-11-20T00:00:00Z", "updated_at": "2025-11-21T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"name": "summary-tool", "description": "This tool uses GPT4.1 to generate a summary of the call", "version": 1, "tool_arguments": {"prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"}, "insight_tool_definition_id": 1, "id": 1, "insight_tool_definition": {"id": 1, "name": "llm_tool", "type": "<value>", "description": "An LLM tool evaluates a transcript with a given prompt", "tool_parameters": {"prompt": "string"}, "tool_result_set": {"summary": "string"}}, "created_at": "2025-11-23T00:00:00Z", "updated_at": "2025-11-24T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   insights_tool_test:
@@ -1908,10 +1993,10 @@ examples:
   outbound_batch_create:
     speakeasy-default-outbound-batch-create:
       requestBody:
-        application/json: {"batch_id": "20251121.9", "campaign_id": 1, "expires_on": "2025-11-22T00:00:00Z", "paused": true}
+        application/json: {"batch_id": "20251124.9", "campaign_id": 1, "expires_on": "2025-11-25T00:00:00Z", "paused": true}
       responses:
         "200":
-          application/json: {"batch_id": "20251121.9", "campaign_id": 1, "expires_on": "2025-11-22T00:00:00Z", "paused": true, "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2025-11-21T00:00:00Z", "deleted_at": "2025-11-21T00:00:00Z", "deleted_reason": "User request", "last_updated_at": "2025-11-21T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Invalid file format"}
+          application/json: {"batch_id": "20251124.9", "campaign_id": 1, "expires_on": "2025-11-25T00:00:00Z", "paused": true, "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2025-11-24T00:00:00Z", "deleted_at": "2025-11-24T00:00:00Z", "deleted_reason": "User request", "last_updated_at": "2025-11-24T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Invalid file format"}
         "422":
           application/json: {}
   outbound_batch_get_by_id:
@@ -1921,7 +2006,7 @@ examples:
           batch_id: "<id>"
       responses:
         "200":
-          application/json: {"batch_id": "20251121.9", "campaign_id": 1, "expires_on": "2025-11-22T00:00:00Z", "paused": true, "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2025-11-21T00:00:00Z", "deleted_at": "2025-11-21T00:00:00Z", "deleted_reason": "User request", "last_updated_at": "2025-11-21T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Invalid file format", "status_counts": {"CANCELED": 7, "CONNECTED": 100, "DUPLICATE": 5, "FAILED": 10, "INITIATED": 20, "PENDING": 10}}
+          application/json: {"batch_id": "20251124.9", "campaign_id": 1, "expires_on": "2025-11-25T00:00:00Z", "paused": true, "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2025-11-24T00:00:00Z", "deleted_at": "2025-11-24T00:00:00Z", "deleted_reason": "User request", "last_updated_at": "2025-11-24T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Invalid file format", "status_counts": {"CANCELED": 7, "CONNECTED": 100, "DUPLICATE": 5, "FAILED": 10, "INITIATED": 20, "PENDING": 10}}
         "422":
           application/json: {}
   outbound_batch_update:
@@ -1933,7 +2018,7 @@ examples:
         application/json: {"paused": true, "expires_on": "2027-01-01T06:00:00Z"}
       responses:
         "200":
-          application/json: {"batch_id": "20251121.9", "campaign_id": 1, "expires_on": "2025-11-22T00:00:00Z", "paused": true, "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2025-11-21T00:00:00Z", "deleted_at": "2025-11-21T00:00:00Z", "deleted_reason": "User request", "last_updated_at": "2025-11-21T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Invalid file format"}
+          application/json: {"batch_id": "20251124.9", "campaign_id": 1, "expires_on": "2025-11-25T00:00:00Z", "paused": true, "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2025-11-24T00:00:00Z", "deleted_at": "2025-11-24T00:00:00Z", "deleted_reason": "User request", "last_updated_at": "2025-11-24T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Invalid file format"}
         "422":
           application/json: {}
   outbound_batch_delete:
@@ -2014,7 +2099,7 @@ examples:
         application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.75, "voicemail_detection_pre_speech_timeout": 3.5}}
       responses:
         "200":
-          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.75, "voicemail_detection_pre_speech_timeout": 3.5}, "id": 1, "agent_id": null, "created_at": "2025-11-21T00:00:00Z", "updated_at": "2025-11-21T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.75, "voicemail_detection_pre_speech_timeout": 3.5}, "id": 1, "agent_id": null, "created_at": "2025-11-24T00:00:00Z", "updated_at": "2025-11-24T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   outbound_campaign_get_by_id:
@@ -2024,7 +2109,7 @@ examples:
           campaign_id: 11227
       responses:
         "200":
-          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.75, "voicemail_detection_pre_speech_timeout": 3.5}, "id": 1, "agent_id": null, "created_at": "2025-11-21T00:00:00Z", "updated_at": "2025-11-21T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.75, "voicemail_detection_pre_speech_timeout": 3.5}, "id": 1, "agent_id": null, "created_at": "2025-11-24T00:00:00Z", "updated_at": "2025-11-24T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   outbound_campaign_update:
@@ -2036,7 +2121,7 @@ examples:
         application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.75, "voicemail_detection_pre_speech_timeout": 3.5}}
       responses:
         "200":
-          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.75, "voicemail_detection_pre_speech_timeout": 3.5}, "id": 1, "agent_id": null, "created_at": "2025-11-21T00:00:00Z", "updated_at": "2025-11-21T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_post_speech_timeout": 1.75, "voicemail_detection_pre_speech_timeout": 3.5}, "id": 1, "agent_id": null, "created_at": "2025-11-24T00:00:00Z", "updated_at": "2025-11-24T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   outbound_campaign_delete:
@@ -2512,4 +2597,4 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes Detected:\n* `syllable_sdk.agents.list()`:  `response.items.[].prompt.session_end_tool.definition.context` **Added**\n* `syllable_sdk.agents.create()`:  `response.prompt.session_end_tool.definition.context` **Added**\n* `syllable_sdk.agents.update()`:  `response.prompt.session_end_tool.definition.context` **Added**\n* `syllable_sdk.agents.get_by_id()`:  `response.prompt.session_end_tool.definition.context` **Added**\n* `syllable_sdk.channels.targets.list()`:  `response.items.[].agent.prompt.session_end_tool.definition.context` **Added**\n* `syllable_sdk.channels.targets.create()`:  `response.agent.prompt.session_end_tool.definition.context` **Added**\n* `syllable_sdk.channels.targets.get_by_id()`:  `response.agent.prompt.session_end_tool.definition.context` **Added**\n* `syllable_sdk.channels.targets.update()`:  `response.agent.prompt.session_end_tool.definition.context` **Added**\n* `syllable_sdk.prompts.list()`:  `response.items.[].session_end_tool.definition.context` **Added**\n* `syllable_sdk.prompts.create()`:  `response.session_end_tool.definition.context` **Added**\n* `syllable_sdk.prompts.update()`:  `response.session_end_tool.definition.context` **Added**\n* `syllable_sdk.prompts.get_by_id()`:  `response.session_end_tool.definition.context` **Added**\n* `syllable_sdk.tools.list()`:  `response.items.[].definition.context` **Added**\n* `syllable_sdk.tools.create()`: \n  *  `request.definition.context` **Added**\n  *  `response.definition.context` **Added**\n* `syllable_sdk.tools.update()`: \n  *  `request.definition.context` **Added**\n  *  `response.definition.context` **Added**\n* `syllable_sdk.tools.get_by_name()`:  `response.definition.context` **Added**\n"
+releaseNotes: "## Python SDK Changes Detected:\n* `syllable_sdk.tools.create()`: \n  *  `request.definition.context.task` **Changed** **Breaking** :warning:\n  *  `response.definition.context.task` **Changed**\n* `syllable_sdk.tools.update()`: \n  *  `request.definition.context.task` **Changed** **Breaking** :warning:\n  *  `response.definition.context.task` **Changed**\n* `syllable_sdk.prompts.list()`:  `response.items.[].session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.prompts.create()`:  `response.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.channels.targets.list()`:  `response.items.[].agent.prompt.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.channels.targets.create()`:  `response.agent.prompt.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.channels.targets.get_by_id()`:  `response.agent.prompt.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.channels.targets.update()`:  `response.agent.prompt.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.agents.list()`:  `response.items.[].prompt.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.agents.get_by_id()`:  `response.prompt.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.prompts.update()`:  `response.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.prompts.get_by_id()`:  `response.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.tools.list()`:  `response.items.[].definition.context.task` **Changed**\n* `syllable_sdk.agents.update()`:  `response.prompt.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.agents.create()`:  `response.prompt.session_end_tool.definition.context.task` **Changed**\n* `syllable_sdk.tools.get_by_name()`:  `response.definition.context.task` **Changed**\n"

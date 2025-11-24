@@ -1,0 +1,17 @@
+# LoadToolFromFileTask
+
+Bootstraps a tool from a file (for internal developer use only if ENV.local=True).
+
+
+## Fields
+
+| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `id`                                                                             | *OptionalNullable[str]*                                                          | :heavy_minus_sign:                                                               | A unique identifier for the task.                                                |
+| `config`                                                                         | Dict[str, *Any*]                                                                 | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `variables`                                                                      | List[[models.Variable](../models/variable.md)]                                   | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `metadata`                                                                       | [OptionalNullable[models.ContextTaskMetadata]](../models/contexttaskmetadata.md) | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `tool`                                                                           | [OptionalNullable[models.ContextToolInfo]](../models/contexttoolinfo.md)         | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `type`                                                                           | *Optional[Literal["import"]]*                                                    | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `version`                                                                        | *Optional[Literal["v1alpha"]]*                                                   | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `file`                                                                           | [models.File](../models/file.md)                                                 | :heavy_check_mark:                                                               | The local path of the tool definition JSON file.                                 |

@@ -85,7 +85,7 @@ with SyllableSDK(
     res = ss_client.tools.create(request=models.ToolCreateRequest(
         name="Weather Fetcher",
         definition=models.ToolDefinition(
-            type=models.Type.ENDPOINT,
+            type=models.ToolDefinitionType.ENDPOINT,
             tool=models.InternalTool(
                 function=models.ToolFunction(
                     name="get_weather",
@@ -167,7 +167,7 @@ with SyllableSDK(
     res = ss_client.tools.update(request=models.ToolUpdateRequest(
         name="Weather Fetcher",
         definition=models.ToolDefinition(
-            type=models.Type.ENDPOINT,
+            type=models.ToolDefinitionType.ENDPOINT,
             tool=models.InternalTool(
                 function=models.ToolFunction(
                     name="get_weather",
