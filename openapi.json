@@ -1340,6 +1340,164 @@
         }
       }
     },
+    "/api/v1/conversation-config/bridges": {
+      "get": {
+        "tags": [
+          "conversation-config"
+        ],
+        "summary": "Get Bridge Phrases Config",
+        "description": "Get the bridge phrases configuration.",
+        "operationId": "get_bridge_phrases_config",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Agent ID to fetch config for",
+              "title": "Agent Id"
+            },
+            "description": "Agent ID to fetch config for"
+          },
+          {
+            "name": "tool_name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Tool name to fetch config for",
+              "title": "Tool Name"
+            },
+            "description": "Tool name to fetch config for"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BridgePhrasesConfig"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "conversation-config"
+        ],
+        "summary": "Update Bridge Phrases Config",
+        "description": "Update the bridge phrases configuration.",
+        "operationId": "update_bridge_phrases_config",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Agent ID to update config for",
+              "title": "Agent Id"
+            },
+            "description": "Agent ID to update config for"
+          },
+          {
+            "name": "tool_name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Tool name to update config for",
+              "title": "Tool Name"
+            },
+            "description": "Tool name to update config for"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BridgePhrasesConfig"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BridgePhrasesConfig"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/data_sources/": {
       "get": {
         "tags": [
@@ -5594,7 +5752,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DictionaryMetadata"
+                  "$ref": "#/components/schemas/schemas__tts__v1__pronunciations__DictionaryMetadata"
                 }
               }
             }
@@ -13781,7 +13939,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20251124.9"
+              "20251126.9"
             ]
           },
           "campaign_id": {
@@ -13805,7 +13963,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-11-25T00:00:00Z"
+              "2025-11-27T00:00:00Z"
             ]
           },
           "paused": {
@@ -13858,7 +14016,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2025-11-24T00:00:00Z"
+              "2025-11-26T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -13874,7 +14032,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2025-11-24T00:00:00Z"
+              "2025-11-26T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -13905,7 +14063,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2025-11-24T00:00:00Z"
+              "2025-11-26T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -14230,6 +14388,41 @@
           "file"
         ],
         "title": "Body_pronunciations_upload_csv"
+      },
+      "BridgePhrasesConfig": {
+        "properties": {
+          "first_slow_messages": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "First Slow Messages",
+            "description": "Messages to say when the agent is first delayed."
+          },
+          "very_slow_messages": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Very Slow Messages",
+            "description": "Messages to say when the agent is significantly delayed."
+          },
+          "tool_responses": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Tool Responses",
+            "description": "Messages to say when a tool call is in progress."
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/schemas__cortex__v1__bridge_phrases__DictionaryMetadata",
+            "description": "Metadata about the configuration."
+          }
+        },
+        "type": "object",
+        "title": "BridgePhrasesConfig",
+        "description": "Configuration for conversational bridge phrases."
       },
       "CallAction": {
         "properties": {
@@ -14781,7 +14974,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20251124.9"
+              "20251126.9"
             ]
           },
           "campaign_id": {
@@ -14805,7 +14998,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-11-25T00:00:00Z"
+              "2025-11-27T00:00:00Z"
             ]
           },
           "paused": {
@@ -14858,7 +15051,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2025-11-24T00:00:00Z"
+              "2025-11-26T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -14874,7 +15067,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2025-11-24T00:00:00Z"
+              "2025-11-26T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -14905,7 +15098,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2025-11-24T00:00:00Z"
+              "2025-11-26T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -14948,7 +15141,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20251124.9"
+              "20251126.9"
             ]
           },
           "campaign_id": {
@@ -14972,7 +15165,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-11-25T00:00:00Z"
+              "2025-11-27T00:00:00Z"
             ]
           },
           "paused": {
@@ -15121,7 +15314,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2025-11-23T00:00:00Z"
+              "2025-11-25T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -15137,7 +15330,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2025-11-24T00:00:00Z"
+              "2025-11-26T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -17016,31 +17209,6 @@
         ],
         "title": "DialogToolCall"
       },
-      "DictionaryMetadata": {
-        "properties": {
-          "entries": {
-            "type": "integer",
-            "title": "Entries"
-          },
-          "hash": {
-            "type": "string",
-            "title": "Hash"
-          },
-          "source": {
-            "type": "string",
-            "title": "Source",
-            "default": ""
-          }
-        },
-        "additionalProperties": false,
-        "type": "object",
-        "required": [
-          "entries",
-          "hash"
-        ],
-        "title": "DictionaryMetadata",
-        "description": "Audit metadata associated with a dictionary."
-      },
       "DirectoryExtension": {
         "properties": {
           "name": {
@@ -18008,7 +18176,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2025-11-23T00:00:00Z"
+              "2025-11-25T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -18017,7 +18185,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2025-11-24T00:00:00Z"
+              "2025-11-26T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -18873,7 +19041,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2025-11-23T00:00:00Z"
+              "2025-11-25T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -18882,7 +19050,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2025-11-24T00:00:00Z"
+              "2025-11-26T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -19263,7 +19431,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2025-11-23T00:00:00Z"
+              "2025-11-25T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -19279,7 +19447,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2025-11-24T00:00:00Z"
+              "2025-11-26T00:00:00Z"
             ]
           }
         },
@@ -19354,7 +19522,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2025-11-23T00:00:00Z"
+              "2025-11-25T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -19370,7 +19538,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2025-11-24T00:00:00Z"
+              "2025-11-26T00:00:00Z"
             ]
           },
           "id": {
@@ -19423,7 +19591,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2025-11-23T00:00:00Z"
+              "2025-11-25T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -19432,7 +19600,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2025-11-24T00:00:00Z"
+              "2025-11-26T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -19528,7 +19696,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2025-11-23T00:00:00Z"
+              "2025-11-25T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -19537,7 +19705,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2025-11-24T00:00:00Z"
+              "2025-11-26T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -19772,7 +19940,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2025-11-23T00:00:00Z"
+              "2025-11-25T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -19781,7 +19949,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2025-11-24T00:00:00Z"
+              "2025-11-26T00:00:00Z"
             ]
           },
           "upload_file_metadata": {
@@ -19926,7 +20094,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2025-11-23T00:00:00Z"
+              "2025-11-25T00:00:00Z"
             ]
           },
           "end_time": {
@@ -19942,7 +20110,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2025-11-24T00:00:00Z"
+              "2025-11-26T00:00:00Z"
             ]
           },
           "error_message": {
@@ -19997,7 +20165,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2025-11-23T00:00:00Z"
+              "2025-11-25T00:00:00Z"
             ]
           }
         },
@@ -23356,7 +23524,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2025-11-24T00:00:00Z"
+              "2025-11-26T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -23365,7 +23533,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2025-11-24T00:00:00Z"
+              "2025-11-26T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -24582,7 +24750,7 @@
             "title": "Voices"
           },
           "metadata": {
-            "$ref": "#/components/schemas/DictionaryMetadata"
+            "$ref": "#/components/schemas/schemas__tts__v1__pronunciations__DictionaryMetadata"
           }
         },
         "additionalProperties": false,
@@ -29219,6 +29387,68 @@
         ],
         "title": "VoiceSampleCreateRequest",
         "description": "Request model to generate a sample audio file for a given voice and language."
+      },
+      "schemas__cortex__v1__bridge_phrases__DictionaryMetadata": {
+        "properties": {
+          "hash": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Hash",
+            "description": "Hash of the dictionary content."
+          },
+          "source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source",
+            "description": "Source of the dictionary (e.g. filename)."
+          },
+          "entries": {
+            "type": "integer",
+            "title": "Entries",
+            "description": "Number of entries in the dictionary.",
+            "default": 0
+          }
+        },
+        "type": "object",
+        "title": "DictionaryMetadata",
+        "description": "Metadata for the bridge phrases dictionary."
+      },
+      "schemas__tts__v1__pronunciations__DictionaryMetadata": {
+        "properties": {
+          "entries": {
+            "type": "integer",
+            "title": "Entries"
+          },
+          "hash": {
+            "type": "string",
+            "title": "Hash"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "entries",
+          "hash"
+        ],
+        "title": "DictionaryMetadata",
+        "description": "Audit metadata associated with a dictionary."
       }
     },
     "securitySchemes": {
