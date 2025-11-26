@@ -93,6 +93,7 @@ if TYPE_CHECKING:
         BodyPronunciationsUploadCsvFileTypedDict,
         BodyPronunciationsUploadCsvTypedDict,
     )
+    from .bridgephrasesconfig import BridgePhrasesConfig, BridgePhrasesConfigTypedDict
     from .callaction import (
         AutoPopulate,
         AutoPopulateTypedDict,
@@ -272,7 +273,6 @@ if TYPE_CHECKING:
     from .dialogmessage import DialogMessage, DialogMessageTypedDict
     from .dialogrole import DialogRole
     from .dialogtoolcall import DialogToolCall, DialogToolCallTypedDict
-    from .dictionarymetadata import DictionaryMetadata, DictionaryMetadataTypedDict
     from .directory_member_deleteop import (
         DirectoryMemberDeleteRequest,
         DirectoryMemberDeleteRequestTypedDict,
@@ -347,6 +347,10 @@ if TYPE_CHECKING:
     from .generate_session_recording_urlsop import (
         GenerateSessionRecordingUrlsRequest,
         GenerateSessionRecordingUrlsRequestTypedDict,
+    )
+    from .get_bridge_phrases_configop import (
+        GetBridgePhrasesConfigRequest,
+        GetBridgePhrasesConfigRequestTypedDict,
     )
     from .get_session_data_by_session_idop import (
         GetSessionDataBySessionIDRequest,
@@ -824,6 +828,14 @@ if TYPE_CHECKING:
         SayActionIf2TypedDict,
         SayActionTypedDict,
     )
+    from .schemas_cortex_v1_bridge_phrases_dictionarymetadata import (
+        SchemasCortexV1BridgePhrasesDictionaryMetadata,
+        SchemasCortexV1BridgePhrasesDictionaryMetadataTypedDict,
+    )
+    from .schemas_tts_v1_pronunciations_dictionarymetadata import (
+        SchemasTtsV1PronunciationsDictionaryMetadata,
+        SchemasTtsV1PronunciationsDictionaryMetadataTypedDict,
+    )
     from .security import Security, SecurityTypedDict
     from .service_deleteop import ServiceDeleteRequest, ServiceDeleteRequestTypedDict
     from .service_listop import ServiceListRequest, ServiceListRequestTypedDict
@@ -1022,6 +1034,10 @@ if TYPE_CHECKING:
         TwilioNumberUpdateResponseTypedDict,
     )
     from .twiliophonenumber import TwilioPhoneNumber, TwilioPhoneNumberTypedDict
+    from .update_bridge_phrases_configop import (
+        UpdateBridgePhrasesConfigRequest,
+        UpdateBridgePhrasesConfigRequestTypedDict,
+    )
     from .useractivitystatus import UserActivityStatus
     from .usercreaterequest import UserCreateRequest, UserCreateRequestTypedDict
     from .userdeleterequest import UserDeleteRequest, UserDeleteRequestTypedDict
@@ -1157,6 +1173,8 @@ __all__ = [
     "BodyPronunciationsUploadCsvFile",
     "BodyPronunciationsUploadCsvFileTypedDict",
     "BodyPronunciationsUploadCsvTypedDict",
+    "BridgePhrasesConfig",
+    "BridgePhrasesConfigTypedDict",
     "CallAction",
     "CallActionIf1",
     "CallActionIf1TypedDict",
@@ -1288,8 +1306,6 @@ __all__ = [
     "DialogRole",
     "DialogToolCall",
     "DialogToolCallTypedDict",
-    "DictionaryMetadata",
-    "DictionaryMetadataTypedDict",
     "DirectoryExtension",
     "DirectoryExtensionNumber",
     "DirectoryExtensionNumberTypedDict",
@@ -1346,6 +1362,8 @@ __all__ = [
     "FolderStatsTypedDict",
     "GenerateSessionRecordingUrlsRequest",
     "GenerateSessionRecordingUrlsRequestTypedDict",
+    "GetBridgePhrasesConfigRequest",
+    "GetBridgePhrasesConfigRequestTypedDict",
     "GetSessionDataBySessionIDRequest",
     "GetSessionDataBySessionIDRequestTypedDict",
     "GetSessionDataBySidRequest",
@@ -1656,6 +1674,10 @@ __all__ = [
     "SayActionIf2",
     "SayActionIf2TypedDict",
     "SayActionTypedDict",
+    "SchemasCortexV1BridgePhrasesDictionaryMetadata",
+    "SchemasCortexV1BridgePhrasesDictionaryMetadataTypedDict",
+    "SchemasTtsV1PronunciationsDictionaryMetadata",
+    "SchemasTtsV1PronunciationsDictionaryMetadataTypedDict",
     "Security",
     "SecurityTypedDict",
     "ServiceCreateRequest",
@@ -1818,6 +1840,8 @@ __all__ = [
     "TwilioNumberUpdateResponseTypedDict",
     "TwilioPhoneNumber",
     "TwilioPhoneNumberTypedDict",
+    "UpdateBridgePhrasesConfigRequest",
+    "UpdateBridgePhrasesConfigRequestTypedDict",
     "UserActivityStatus",
     "UserCreateRequest",
     "UserCreateRequestTypedDict",
@@ -1925,6 +1949,8 @@ _dynamic_imports: dict[str, str] = {
     "BodyPronunciationsUploadCsvFile": ".body_pronunciations_upload_csv",
     "BodyPronunciationsUploadCsvFileTypedDict": ".body_pronunciations_upload_csv",
     "BodyPronunciationsUploadCsvTypedDict": ".body_pronunciations_upload_csv",
+    "BridgePhrasesConfig": ".bridgephrasesconfig",
+    "BridgePhrasesConfigTypedDict": ".bridgephrasesconfig",
     "AutoPopulate": ".callaction",
     "AutoPopulateTypedDict": ".callaction",
     "CallAction": ".callaction",
@@ -2050,8 +2076,6 @@ _dynamic_imports: dict[str, str] = {
     "DialogRole": ".dialogrole",
     "DialogToolCall": ".dialogtoolcall",
     "DialogToolCallTypedDict": ".dialogtoolcall",
-    "DictionaryMetadata": ".dictionarymetadata",
-    "DictionaryMetadataTypedDict": ".dictionarymetadata",
     "DirectoryMemberDeleteRequest": ".directory_member_deleteop",
     "DirectoryMemberDeleteRequestTypedDict": ".directory_member_deleteop",
     "DirectoryMemberGetByIDRequest": ".directory_member_get_by_idop",
@@ -2106,6 +2130,8 @@ _dynamic_imports: dict[str, str] = {
     "FolderStatsTypedDict": ".folderdetails",
     "GenerateSessionRecordingUrlsRequest": ".generate_session_recording_urlsop",
     "GenerateSessionRecordingUrlsRequestTypedDict": ".generate_session_recording_urlsop",
+    "GetBridgePhrasesConfigRequest": ".get_bridge_phrases_configop",
+    "GetBridgePhrasesConfigRequestTypedDict": ".get_bridge_phrases_configop",
     "GetSessionDataBySessionIDRequest": ".get_session_data_by_session_idop",
     "GetSessionDataBySessionIDRequestTypedDict": ".get_session_data_by_session_idop",
     "GetSessionDataBySidRequest": ".get_session_data_by_sidop",
@@ -2412,6 +2438,10 @@ _dynamic_imports: dict[str, str] = {
     "SayActionIf2": ".sayaction",
     "SayActionIf2TypedDict": ".sayaction",
     "SayActionTypedDict": ".sayaction",
+    "SchemasCortexV1BridgePhrasesDictionaryMetadata": ".schemas_cortex_v1_bridge_phrases_dictionarymetadata",
+    "SchemasCortexV1BridgePhrasesDictionaryMetadataTypedDict": ".schemas_cortex_v1_bridge_phrases_dictionarymetadata",
+    "SchemasTtsV1PronunciationsDictionaryMetadata": ".schemas_tts_v1_pronunciations_dictionarymetadata",
+    "SchemasTtsV1PronunciationsDictionaryMetadataTypedDict": ".schemas_tts_v1_pronunciations_dictionarymetadata",
     "Security": ".security",
     "SecurityTypedDict": ".security",
     "ServiceDeleteRequest": ".service_deleteop",
@@ -2577,6 +2607,8 @@ _dynamic_imports: dict[str, str] = {
     "TwilioNumberUpdateResponseTypedDict": ".twilionumberupdateresponse",
     "TwilioPhoneNumber": ".twiliophonenumber",
     "TwilioPhoneNumberTypedDict": ".twiliophonenumber",
+    "UpdateBridgePhrasesConfigRequest": ".update_bridge_phrases_configop",
+    "UpdateBridgePhrasesConfigRequestTypedDict": ".update_bridge_phrases_configop",
     "UserActivityStatus": ".useractivitystatus",
     "UserCreateRequest": ".usercreaterequest",
     "UserCreateRequestTypedDict": ".usercreaterequest",

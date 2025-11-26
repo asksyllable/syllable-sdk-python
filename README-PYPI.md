@@ -269,6 +269,11 @@ with SyllableSDK(
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/numbers/README.md#update) - Update Twilio Number
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/numbers/README.md#list) - List Twilio Phone Numbers
 
+### [conversation_config](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/conversationconfig/README.md)
+
+* [get_bridge_phrases_config](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/conversationconfig/README.md#get_bridge_phrases_config) - Get Bridge Phrases Config
+* [update_bridge_phrases_config](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/conversationconfig/README.md#update_bridge_phrases_config) - Update Bridge Phrases Config
+
 ### [conversations](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/conversations/README.md)
 
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/conversations/README.md#list) - Conversations List

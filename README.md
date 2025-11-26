@@ -269,6 +269,11 @@ with SyllableSDK(
 * [update](docs/sdks/numbers/README.md#update) - Update Twilio Number
 * [list](docs/sdks/numbers/README.md#list) - List Twilio Phone Numbers
 
+### [conversation_config](docs/sdks/conversationconfig/README.md)
+
+* [get_bridge_phrases_config](docs/sdks/conversationconfig/README.md#get_bridge_phrases_config) - Get Bridge Phrases Config
+* [update_bridge_phrases_config](docs/sdks/conversationconfig/README.md#update_bridge_phrases_config) - Update Bridge Phrases Config
+
 ### [conversations](docs/sdks/conversations/README.md)
 
 * [list](docs/sdks/conversations/README.md#list) - Conversations List
