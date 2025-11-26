@@ -17,6 +17,7 @@ import weakref
 if TYPE_CHECKING:
     from syllable_sdk.agents import Agents
     from syllable_sdk.channels import Channels
+    from syllable_sdk.conversation_config import ConversationConfig
     from syllable_sdk.conversations import Conversations
     from syllable_sdk.custom_messages import CustomMessages
     from syllable_sdk.dashboards import Dashboards
@@ -87,6 +88,7 @@ class SyllableSDK(BaseSDK):
     r"""Operations related to channel configuration.           A channel is an organization-level point of communication, like a phone number or a web           chat. A channel can be associated with an agent by creating a channel target linking           them."""
     conversations: "Conversations"
     r"""Operations related to conversations.           A conversation is a record of messages between a user and an agent, and is composed of           one or more sessions."""
+    conversation_config: "ConversationConfig"
     data_sources: "DataSources"
     r"""Operations related to data sources. A data source is a blob of text that           can be made available to an agent's general info tools to provide more context to the           agent when generating its responses. For more information, see           [Console docs](https://docs.syllable.ai/Resources/DataSources)."""
     events: "Events"
@@ -130,6 +132,10 @@ class SyllableSDK(BaseSDK):
         "agents": ("syllable_sdk.agents", "Agents"),
         "channels": ("syllable_sdk.channels", "Channels"),
         "conversations": ("syllable_sdk.conversations", "Conversations"),
+        "conversation_config": (
+            "syllable_sdk.conversation_config",
+            "ConversationConfig",
+        ),
         "data_sources": ("syllable_sdk.data_sources", "DataSources"),
         "events": ("syllable_sdk.events", "Events"),
         "incidents": ("syllable_sdk.incidents", "Incidents"),

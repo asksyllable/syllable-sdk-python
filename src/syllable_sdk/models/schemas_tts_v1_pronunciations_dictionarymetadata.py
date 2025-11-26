@@ -6,7 +6,7 @@ from typing import Optional
 from typing_extensions import NotRequired, TypedDict
 
 
-class DictionaryMetadataTypedDict(TypedDict):
+class SchemasTtsV1PronunciationsDictionaryMetadataTypedDict(TypedDict):
     r"""Audit metadata associated with a dictionary."""
 
     entries: int
@@ -14,7 +14,7 @@ class DictionaryMetadataTypedDict(TypedDict):
     source: NotRequired[str]
 
 
-class DictionaryMetadata(BaseModel):
+class SchemasTtsV1PronunciationsDictionaryMetadata(BaseModel):
     r"""Audit metadata associated with a dictionary."""
 
     entries: int

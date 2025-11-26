@@ -81,7 +81,7 @@ with SyllableSDK(
 
 ### Response
 
-**[models.DictionaryMetadata](../../models/dictionarymetadata.md)**
+**[models.SchemasTtsV1PronunciationsDictionaryMetadata](../../models/schemasttsv1pronunciationsdictionarymetadata.md)**
 
 ### Errors
 
