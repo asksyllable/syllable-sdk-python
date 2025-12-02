@@ -67,6 +67,22 @@ Enter = Annotated[
 ]
 
 
+PresubmitTypedDict = TypeAliasType(
+    "PresubmitTypedDict",
+    Union[IncrementActionTypedDict, SaveActionTypedDict, SetValueActionTypedDict],
+)
+
+
+Presubmit = Annotated[
+    Union[
+        Annotated[IncrementAction, Tag("inc")],
+        Annotated[SaveAction, Tag("save")],
+        Annotated[SetValueAction, Tag("set")],
+    ],
+    Discriminator(lambda m: get_discriminator(m, "action", "action")),
+]
+
+
 StepEventActionsSubmitTypedDict = TypeAliasType(
     "StepEventActionsSubmitTypedDict",
     Union[
@@ -92,18 +108,20 @@ StepEventActionsSubmit = Annotated[
 
 
 class StepEventActionsTypedDict(TypedDict):
-    r"""Actions to perform when events occur (enter, submit)."""
+    r"""Actions to perform when events occur (enter, presubmit, submit)."""
 
     start: NotRequired[Nullable[List[StepEventActionsStartTypedDict]]]
     r"""Actions to execute on the first input from the user."""
     enter: NotRequired[Nullable[List[EnterTypedDict]]]
     r"""Actions to execute when entering a step (before collecting inputs)."""
+    presubmit: NotRequired[Nullable[List[PresubmitTypedDict]]]
+    r"""Actions to execute before validation (data-mutation only: set, inc, save). Use this to set default values for required fields that would otherwise fail validation."""
     submit: NotRequired[Nullable[List[StepEventActionsSubmitTypedDict]]]
     r"""Actions to execute when the tool/step is submitted by the LLM."""
 
 
 class StepEventActions(BaseModel):
-    r"""Actions to perform when events occur (enter, submit)."""
+    r"""Actions to perform when events occur (enter, presubmit, submit)."""
 
     start: OptionalNullable[List[StepEventActionsStart]] = UNSET
     r"""Actions to execute on the first input from the user."""
@@ -111,13 +129,16 @@ class StepEventActions(BaseModel):
     enter: OptionalNullable[List[Enter]] = UNSET
     r"""Actions to execute when entering a step (before collecting inputs)."""
 
+    presubmit: OptionalNullable[List[Presubmit]] = UNSET
+    r"""Actions to execute before validation (data-mutation only: set, inc, save). Use this to set default values for required fields that would otherwise fail validation."""
+
     submit: OptionalNullable[List[StepEventActionsSubmit]] = UNSET
     r"""Actions to execute when the tool/step is submitted by the LLM."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["start", "enter", "submit"]
-        nullable_fields = ["start", "enter", "submit"]
+        optional_fields = ["start", "enter", "presubmit", "submit"]
+        nullable_fields = ["start", "enter", "presubmit", "submit"]
         null_default_fields = []
 
         serialized = handler(self)
