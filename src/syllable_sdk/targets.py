@@ -82,6 +82,7 @@ class Targets(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -195,6 +196,7 @@ class Targets(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -306,6 +308,7 @@ class Targets(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -419,6 +422,7 @@ class Targets(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -523,6 +527,7 @@ class Targets(BaseSDK):
                 "json",
                 models.ChannelTargetCreateRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -625,6 +630,7 @@ class Targets(BaseSDK):
                 "json",
                 models.ChannelTargetCreateRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -715,6 +721,7 @@ class Targets(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -805,6 +812,7 @@ class Targets(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -912,6 +920,7 @@ class Targets(BaseSDK):
                 "json",
                 models.ChannelTargetUpdateRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1019,6 +1028,7 @@ class Targets(BaseSDK):
                 "json",
                 models.ChannelTargetUpdateRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
