@@ -15902,6 +15902,23 @@ components:
             - type: "null"
           title: "Enter"
           description: "Actions to execute when entering a step (before collecting inputs)."
+        "presubmit":
+          anyOf:
+            - items:
+                oneOf:
+                  - {"$ref": "#/components/schemas/SetValueAction"}
+                  - {"$ref": "#/components/schemas/IncrementAction"}
+                  - {"$ref": "#/components/schemas/SaveAction"}
+                discriminator:
+                  propertyName: "action"
+                  mapping:
+                    "inc": "#/components/schemas/IncrementAction"
+                    "save": "#/components/schemas/SaveAction"
+                    "set": "#/components/schemas/SetValueAction"
+              type: "array"
+            - type: "null"
+          title: "Presubmit"
+          description: "Actions to execute before validation (data-mutation only: set, inc, save). Use this to set default values for required fields that would otherwise fail validation."
         "submit":
           anyOf:
             - items:
@@ -15925,7 +15942,7 @@ components:
           description: "Actions to execute when the tool/step is submitted by the LLM."
       type: "object"
       title: "StepEventActions"
-      description: "Actions to perform when events occur (enter, submit)."
+      description: "Actions to perform when events occur (enter, presubmit, submit)."
     "StepTools":
       properties:
         "call":

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 2924eeca65f46ce2a350c89e151245ed
+  docChecksum: 36772f92b4638ce62aaabcf694ce560c
   docVersion: 0.0.2
-  speakeasyVersion: 1.666.0
-  generationVersion: 2.768.0
-  releaseVersion: 0.44.0
-  configChecksum: d75814c50eb6c61633bd34410eb1e96f
+  speakeasyVersion: 1.666.2
+  generationVersion: 2.768.1
+  releaseVersion: 0.44.1
+  configChecksum: 7831fe4c6eb93c88276476c64bda7fcf
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -320,6 +320,7 @@ generatedFiles:
   - docs/models/permissionresponse.md
   - docs/models/postgetdashboardrequest.md
   - docs/models/postlistdashboardrequest.md
+  - docs/models/presubmit.md
   - docs/models/promptcreaterequest.md
   - docs/models/prompthistory.md
   - docs/models/prompthistorylinkedtool.md
@@ -2623,3 +2624,4 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.agents.list()`:  `response.items.[].prompt.session_end_tool.definition.context.task.[union].[steps].steps.[].on.presubmit` **Added**\n* `syllable_sdk.agents.create()`:  `response.prompt.session_end_tool.definition.context.task.[union].[steps].steps.[].on.presubmit` **Added**\n* `syllable_sdk.agents.update()`:  `response.prompt.session_end_tool.definition.context.task.[union].[steps].steps.[].on.presubmit` **Added**\n* `syllable_sdk.agents.get_by_id()`:  `response.prompt.session_end_tool.definition.context.task.[union].[steps].steps.[].on.presubmit` **Added**\n* `syllable_sdk.channels.targets.list()`:  `response.items.[].agent.prompt.session_end_tool.definition.context.task.[union].[steps].steps.[].on.presubmit` **Added**\n* `syllable_sdk.channels.targets.create()`:  `response.agent.prompt.session_end_tool.definition.context.task.[union].[steps].steps.[].on.presubmit` **Added**\n* `syllable_sdk.channels.targets.get_by_id()`:  `response.agent.prompt.session_end_tool.definition.context.task.[union].[steps].steps.[].on.presubmit` **Added**\n* `syllable_sdk.channels.targets.update()`:  `response.agent.prompt.session_end_tool.definition.context.task.[array].[].[steps].steps.[].on.presubmit` **Added**\n* `syllable_sdk.prompts.list()`:  `response.items.[].session_end_tool.definition.context.task.[union].[steps].steps.[].on.presubmit` **Added**\n* `syllable_sdk.prompts.create()`:  `response.session_end_tool.definition.context.task.[union].[steps].steps.[].on.presubmit` **Added**\n* `syllable_sdk.prompts.update()`:  `response.session_end_tool.definition.context.task.[union].[steps].steps.[].on.presubmit` **Added**\n* `syllable_sdk.prompts.get_by_id()`:  `response.session_end_tool.definition.context.task.[union].[steps].steps.[].on.presubmit` **Added**\n* `syllable_sdk.tools.list()`:  `response.items.[].definition.context.task.[array].[].[steps].steps.[].on.presubmit` **Added**\n* `syllable_sdk.tools.create()`: \n  *  `request.definition.context.task.[union].[steps].steps.[].on.presubmit` **Added**\n  *  `response.definition.context.task.[array].[].[steps].steps.[].on.presubmit` **Added**\n* `syllable_sdk.tools.update()`: \n  *  `request.definition.context.task.[array].[].[steps].steps.[].on.presubmit` **Added**\n  *  `response.definition.context.task.[union].[steps].steps.[].on.presubmit` **Added**\n* `syllable_sdk.tools.get_by_name()`:  `response.definition.context.task.[union].[steps].steps.[].on.presubmit` **Added**\n"

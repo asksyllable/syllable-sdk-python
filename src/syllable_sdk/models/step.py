@@ -37,7 +37,7 @@ class StepTypedDict(TypedDict):
     inputs: NotRequired[List[InputParameterTypedDict]]
     r"""The inputs for the step."""
     on: NotRequired[StepEventActionsTypedDict]
-    r"""Actions to perform when events occur (enter, submit)."""
+    r"""Actions to perform when events occur (enter, presubmit, submit)."""
     next: NotRequired[List[NextTypedDict]]
     r"""The next steps to execute."""
 
@@ -59,7 +59,7 @@ class Step(BaseModel):
     r"""The inputs for the step."""
 
     on: Optional[StepEventActions] = None
-    r"""Actions to perform when events occur (enter, submit)."""
+    r"""Actions to perform when events occur (enter, presubmit, submit)."""
 
     next: Optional[List[Next]] = None
     r"""The next steps to execute."""
