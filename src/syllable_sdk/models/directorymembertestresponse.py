@@ -14,17 +14,22 @@ from typing_extensions import NotRequired, TypedDict
 
 class DirectoryMemberTestResponseTypedDict(TypedDict):
     extension: NotRequired[Nullable[str]]
-    r"""Extension to which the user will be transferred if they call at the provided timestamp in the given language"""
+    r"""Extension to which the user will be transferred if they call at the provided timestamp in the given language, or a status message if no rules match"""
+    status: NotRequired[Nullable[str]]
+    r"""Status message if no rules match"""
 
 
 class DirectoryMemberTestResponse(BaseModel):
     extension: OptionalNullable[str] = UNSET
-    r"""Extension to which the user will be transferred if they call at the provided timestamp in the given language"""
+    r"""Extension to which the user will be transferred if they call at the provided timestamp in the given language, or a status message if no rules match"""
+
+    status: OptionalNullable[str] = UNSET
+    r"""Status message if no rules match"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["extension"]
-        nullable_fields = ["extension"]
+        optional_fields = ["extension", "status"]
+        nullable_fields = ["extension", "status"]
         null_default_fields = []
 
         serialized = handler(self)
