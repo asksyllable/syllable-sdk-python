@@ -5335,10 +5335,9 @@ paths:
           required: true
           schema:
             type: "string"
-            format: "date-time"
-            description: "Timestamp for test"
+            description: "Timestamp for test in ISO 8601 format (e.g., 2025-12-04T14:29:39)"
             title: "Timestamp"
-          description: "Timestamp for test"
+          description: "Timestamp for test in ISO 8601 format (e.g., 2025-12-04T14:29:39)"
         - name: "language_code"
           in: "query"
           required: false

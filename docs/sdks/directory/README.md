@@ -297,14 +297,13 @@ Test directory member extension at a specific timestamp and language.
 ```python
 import os
 from syllable_sdk import SyllableSDK
-from syllable_sdk.utils import parse_datetime
 
 
 with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.directory.directory_member_test_extension(member_id=922412, timestamp=parse_datetime("2024-07-02T14:32:47.235Z"))
+    res = ss_client.directory.directory_member_test_extension(member_id=922412, timestamp="2024-07-02T14:32:47.235Z")
 
     # Handle response
     print(res)
@@ -316,7 +315,7 @@ with SyllableSDK(
 | Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
 | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
 | `member_id`                                                           | *int*                                                                 | :heavy_check_mark:                                                    | N/A                                                                   |
-| `timestamp`                                                           | [date](https://docs.python.org/3/library/datetime.html#date-objects)  | :heavy_check_mark:                                                    | Timestamp for test                                                    |
+| `timestamp`                                                           | *str*                                                                 | :heavy_check_mark:                                                    | Timestamp for test in ISO 8601 format (e.g., 2025-12-04T14:29:39)     |
 | `language_code`                                                       | [OptionalNullable[models.LanguageCode]](../../models/languagecode.md) | :heavy_minus_sign:                                                    | Optional language code for test                                       |
 | `retries`                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)      | :heavy_minus_sign:                                                    | Configuration to override the default retry behavior of the client.   |
 

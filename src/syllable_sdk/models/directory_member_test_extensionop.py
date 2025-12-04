@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 from .languagecode import LanguageCode
-from datetime import datetime
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -17,8 +16,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class DirectoryMemberTestExtensionRequestTypedDict(TypedDict):
     member_id: int
-    timestamp: datetime
-    r"""Timestamp for test"""
+    timestamp: str
+    r"""Timestamp for test in ISO 8601 format (e.g., 2025-12-04T14:29:39)"""
     language_code: NotRequired[Nullable[LanguageCode]]
     r"""Optional language code for test"""
 
@@ -29,9 +28,9 @@ class DirectoryMemberTestExtensionRequest(BaseModel):
     ]
 
     timestamp: Annotated[
-        datetime, FieldMetadata(query=QueryParamMetadata(style="form", explode=True))
+        str, FieldMetadata(query=QueryParamMetadata(style="form", explode=True))
     ]
-    r"""Timestamp for test"""
+    r"""Timestamp for test in ISO 8601 format (e.g., 2025-12-04T14:29:39)"""
 
     language_code: Annotated[
         OptionalNullable[LanguageCode],
