@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 01013d1be7257e4690f4e1513819e183
+  docChecksum: ef051c76e29d965880ce5db918873783
   docVersion: 0.0.2
   speakeasyVersion: 1.668.0
   generationVersion: 2.770.0
-  releaseVersion: 0.44.3
-  configChecksum: 76d2ec7ce7465865ffdbff4b912bcbf2
+  releaseVersion: 0.44.4
+  configChecksum: 2d79439c7b95e1e0e091d6407246bc1a
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
@@ -2624,3 +2624,6 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Python SDK Changes:
+  * `syllable_sdk.directory.directory_member_test_extension()`:  `request.timestamp` **Changed** **Breaking** :warning:

@@ -1075,14 +1075,13 @@ actions:
           source: |-
             import os
             from syllable_sdk import SyllableSDK
-            from syllable_sdk.utils import parse_datetime
 
 
             with SyllableSDK(
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.directory.directory_member_test_extension(member_id=922412, timestamp=parse_datetime("2024-07-02T14:32:47.235Z"))
+                res = ss_client.directory.directory_member_test_extension(member_id=922412, timestamp="<value>")
 
                 # Handle response
                 print(res)
