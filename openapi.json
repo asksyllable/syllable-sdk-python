@@ -13938,7 +13938,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20251204.9"
+              "20251205.9"
             ]
           },
           "campaign_id": {
@@ -13962,7 +13962,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-12-05T00:00:00Z"
+              "2025-12-06T00:00:00Z"
             ]
           },
           "paused": {
@@ -14015,7 +14015,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2025-12-04T00:00:00Z"
+              "2025-12-05T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -14031,7 +14031,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2025-12-04T00:00:00Z"
+              "2025-12-05T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -14062,7 +14062,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2025-12-04T00:00:00Z"
+              "2025-12-05T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -14973,7 +14973,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20251204.9"
+              "20251205.9"
             ]
           },
           "campaign_id": {
@@ -14997,7 +14997,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-12-05T00:00:00Z"
+              "2025-12-06T00:00:00Z"
             ]
           },
           "paused": {
@@ -15050,7 +15050,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2025-12-04T00:00:00Z"
+              "2025-12-05T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -15066,7 +15066,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2025-12-04T00:00:00Z"
+              "2025-12-05T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -15097,7 +15097,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2025-12-04T00:00:00Z"
+              "2025-12-05T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -15140,7 +15140,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20251204.9"
+              "20251205.9"
             ]
           },
           "campaign_id": {
@@ -15164,7 +15164,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2025-12-05T00:00:00Z"
+              "2025-12-06T00:00:00Z"
             ]
           },
           "paused": {
@@ -15313,7 +15313,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2025-12-03T00:00:00Z"
+              "2025-12-04T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -15329,7 +15329,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2025-12-04T00:00:00Z"
+              "2025-12-05T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -17877,16 +17877,13 @@
                       "$ref": "#/components/schemas/SetValueAction"
                     },
                     {
-                      "$ref": "#/components/schemas/SayAction"
-                    },
-                    {
-                      "$ref": "#/components/schemas/SaveAction"
-                    },
-                    {
                       "$ref": "#/components/schemas/IncrementAction"
                     },
                     {
                       "$ref": "#/components/schemas/CallAction"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SayAction"
                     }
                   ],
                   "discriminator": {
@@ -17894,7 +17891,6 @@
                     "mapping": {
                       "call": "#/components/schemas/CallAction",
                       "inc": "#/components/schemas/IncrementAction",
-                      "save": "#/components/schemas/SaveAction",
                       "say": "#/components/schemas/SayAction",
                       "set": "#/components/schemas/SetValueAction"
                     }
@@ -18055,16 +18051,13 @@
                       "$ref": "#/components/schemas/SetValueAction"
                     },
                     {
-                      "$ref": "#/components/schemas/SayAction"
-                    },
-                    {
-                      "$ref": "#/components/schemas/SaveAction"
-                    },
-                    {
                       "$ref": "#/components/schemas/IncrementAction"
                     },
                     {
                       "$ref": "#/components/schemas/CallAction"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SayAction"
                     }
                   ],
                   "discriminator": {
@@ -18072,7 +18065,6 @@
                     "mapping": {
                       "call": "#/components/schemas/CallAction",
                       "inc": "#/components/schemas/IncrementAction",
-                      "save": "#/components/schemas/SaveAction",
                       "say": "#/components/schemas/SayAction",
                       "set": "#/components/schemas/SetValueAction"
                     }
@@ -18099,13 +18091,13 @@
                       "$ref": "#/components/schemas/IncrementAction"
                     },
                     {
-                      "$ref": "#/components/schemas/SayAction"
-                    },
-                    {
                       "$ref": "#/components/schemas/SaveAction"
                     },
                     {
                       "$ref": "#/components/schemas/CallAction"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SayAction"
                     }
                   ],
                   "discriminator": {
@@ -18131,7 +18123,7 @@
         },
         "type": "object",
         "title": "ExpressionTaskEvents",
-        "description": "Actions to perform when events occur (enter, submit)."
+        "description": "Actions to perform when events occur (start, submit)."
       },
       "FolderDetails": {
         "properties": {
@@ -18187,7 +18179,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2025-12-03T00:00:00Z"
+              "2025-12-04T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -18196,7 +18188,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2025-12-04T00:00:00Z"
+              "2025-12-05T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -18242,6 +18234,116 @@
         ],
         "title": "FolderDetails",
         "description": "Response model for an insight upload folder details."
+      },
+      "GetValueAction": {
+        "properties": {
+          "value": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/JsonValue"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Initial value of the variable."
+          },
+          "value_from": {
+            "anyOf": [
+              {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/CelExpression"
+                  },
+                  {
+                    "$ref": "#/components/schemas/JMESPathExpression"
+                  }
+                ],
+                "discriminator": {
+                  "propertyName": "type",
+                  "mapping": {
+                    "cel": "#/components/schemas/CelExpression",
+                    "jmespath": "#/components/schemas/JMESPathExpression",
+                    "jp": "#/components/schemas/JMESPathExpression"
+                  }
+                }
+              },
+              {
+                "$ref": "#/components/schemas/CaseExpression"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value From",
+            "description": "Expression to compute initial value (mutually exclusive with value)."
+          },
+          "if": {
+            "anyOf": [
+              {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/CelExpression"
+                  },
+                  {
+                    "$ref": "#/components/schemas/JMESPathExpression"
+                  }
+                ],
+                "discriminator": {
+                  "propertyName": "type",
+                  "mapping": {
+                    "cel": "#/components/schemas/CelExpression",
+                    "jmespath": "#/components/schemas/JMESPathExpression",
+                    "jp": "#/components/schemas/JMESPathExpression"
+                  }
+                }
+              },
+              {
+                "$ref": "#/components/schemas/CaseExpression"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "If",
+            "description": "An expression that must evaluate to true for the action to be applied."
+          },
+          "action": {
+            "type": "string",
+            "const": "get",
+            "title": "Action",
+            "default": "get"
+          },
+          "inputs": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Inputs",
+            "description": "Input field names to populate; None populates all step inputs."
+          },
+          "overwrite": {
+            "type": "boolean",
+            "title": "Overwrite",
+            "description": "If False (default), only populate empty inputs. If True, always overwrite.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "GetValueAction"
       },
       "HTTPValidationError": {
         "properties": {
@@ -19052,7 +19154,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2025-12-03T00:00:00Z"
+              "2025-12-04T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -19061,7 +19163,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2025-12-04T00:00:00Z"
+              "2025-12-05T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -19442,7 +19544,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2025-12-03T00:00:00Z"
+              "2025-12-04T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -19458,7 +19560,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2025-12-04T00:00:00Z"
+              "2025-12-05T00:00:00Z"
             ]
           }
         },
@@ -19533,7 +19635,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2025-12-03T00:00:00Z"
+              "2025-12-04T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -19549,7 +19651,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2025-12-04T00:00:00Z"
+              "2025-12-05T00:00:00Z"
             ]
           },
           "id": {
@@ -19602,7 +19704,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2025-12-03T00:00:00Z"
+              "2025-12-04T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -19611,7 +19713,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2025-12-04T00:00:00Z"
+              "2025-12-05T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -19707,7 +19809,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2025-12-03T00:00:00Z"
+              "2025-12-04T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -19716,7 +19818,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2025-12-04T00:00:00Z"
+              "2025-12-05T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -19951,7 +20053,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2025-12-03T00:00:00Z"
+              "2025-12-04T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -19960,7 +20062,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2025-12-04T00:00:00Z"
+              "2025-12-05T00:00:00Z"
             ]
           },
           "upload_file_metadata": {
@@ -20105,7 +20207,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2025-12-03T00:00:00Z"
+              "2025-12-04T00:00:00Z"
             ]
           },
           "end_time": {
@@ -20121,7 +20223,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2025-12-04T00:00:00Z"
+              "2025-12-05T00:00:00Z"
             ]
           },
           "error_message": {
@@ -20176,7 +20278,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2025-12-03T00:00:00Z"
+              "2025-12-04T00:00:00Z"
             ]
           }
         },
@@ -23535,7 +23637,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2025-12-04T00:00:00Z"
+              "2025-12-05T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -23544,7 +23646,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2025-12-04T00:00:00Z"
+              "2025-12-05T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -26530,16 +26632,13 @@
                       "$ref": "#/components/schemas/SetValueAction"
                     },
                     {
-                      "$ref": "#/components/schemas/SayAction"
-                    },
-                    {
-                      "$ref": "#/components/schemas/SaveAction"
-                    },
-                    {
                       "$ref": "#/components/schemas/IncrementAction"
                     },
                     {
                       "$ref": "#/components/schemas/CallAction"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SayAction"
                     }
                   ],
                   "discriminator": {
@@ -26547,7 +26646,6 @@
                     "mapping": {
                       "call": "#/components/schemas/CallAction",
                       "inc": "#/components/schemas/IncrementAction",
-                      "save": "#/components/schemas/SaveAction",
                       "say": "#/components/schemas/SayAction",
                       "set": "#/components/schemas/SetValueAction"
                     }
@@ -26568,27 +26666,27 @@
                 "items": {
                   "oneOf": [
                     {
+                      "$ref": "#/components/schemas/GetValueAction"
+                    },
+                    {
                       "$ref": "#/components/schemas/SetValueAction"
                     },
                     {
                       "$ref": "#/components/schemas/IncrementAction"
                     },
                     {
-                      "$ref": "#/components/schemas/SayAction"
-                    },
-                    {
-                      "$ref": "#/components/schemas/SaveAction"
-                    },
-                    {
                       "$ref": "#/components/schemas/CallAction"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SayAction"
                     }
                   ],
                   "discriminator": {
                     "propertyName": "action",
                     "mapping": {
                       "call": "#/components/schemas/CallAction",
+                      "get": "#/components/schemas/GetValueAction",
                       "inc": "#/components/schemas/IncrementAction",
-                      "save": "#/components/schemas/SaveAction",
                       "say": "#/components/schemas/SayAction",
                       "set": "#/components/schemas/SetValueAction"
                     }
@@ -26609,6 +26707,9 @@
                 "items": {
                   "oneOf": [
                     {
+                      "$ref": "#/components/schemas/GetValueAction"
+                    },
+                    {
                       "$ref": "#/components/schemas/SetValueAction"
                     },
                     {
@@ -26621,6 +26722,7 @@
                   "discriminator": {
                     "propertyName": "action",
                     "mapping": {
+                      "get": "#/components/schemas/GetValueAction",
                       "inc": "#/components/schemas/IncrementAction",
                       "save": "#/components/schemas/SaveAction",
                       "set": "#/components/schemas/SetValueAction"
@@ -26648,13 +26750,13 @@
                       "$ref": "#/components/schemas/IncrementAction"
                     },
                     {
-                      "$ref": "#/components/schemas/SayAction"
-                    },
-                    {
                       "$ref": "#/components/schemas/SaveAction"
                     },
                     {
                       "$ref": "#/components/schemas/CallAction"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SayAction"
                     }
                   ],
                   "discriminator": {
