@@ -1,6 +1,6 @@
 # ExpressionTaskEvents
 
-Actions to perform when events occur (enter, submit).
+Actions to perform when events occur (start, submit).
 
 
 ## Fields

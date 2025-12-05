@@ -1,5 +1,4 @@
-# InsightsTools
-(*insights.tools*)
+# Insights.Tools
 
 ## Overview
 

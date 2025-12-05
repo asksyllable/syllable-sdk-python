@@ -1,5 +1,4 @@
-# Twilio
-(*channels.twilio*)
+# Channels.Twilio
 
 ## Overview
 

@@ -229,7 +229,7 @@ with SyllableSDK(
 <details open>
 <summary>Available methods</summary>
 
-### [agents](docs/sdks/agents/README.md)
+### [Agents](docs/sdks/agents/README.md)
 
 * [list](docs/sdks/agents/README.md#list) - Agent List
 * [create](docs/sdks/agents/README.md#create) - Create Agent
@@ -238,18 +238,18 @@ with SyllableSDK(
 * [delete](docs/sdks/agents/README.md#delete) - Delete Agent
 * [agent_get_available_voices](docs/sdks/agents/README.md#agent_get_available_voices) - Get Available Agent Voices
 
-#### [agents.test](docs/sdks/test/README.md)
+#### [Agents.Test](docs/sdks/test/README.md)
 
 * [send_test_message](docs/sdks/test/README.md#send_test_message) - Send New Message
 
-### [channels](docs/sdks/channels/README.md)
+### [Channels](docs/sdks/channels/README.md)
 
 * [list](docs/sdks/channels/README.md#list) - Get Channels
 * [create](docs/sdks/channels/README.md#create) - Create Channel
 * [update](docs/sdks/channels/README.md#update) - Update Channel
 * [delete](docs/sdks/channels/README.md#delete) - Delete Channel Target
 
-#### [channels.targets](docs/sdks/targets/README.md)
+#### [Channels.Targets](docs/sdks/targets/README.md)
 
 * [available_targets](docs/sdks/targets/README.md#available_targets) - Available Targets List
 * [list](docs/sdks/targets/README.md#list) - Get Channel Targets
@@ -257,28 +257,28 @@ with SyllableSDK(
 * [get_by_id](docs/sdks/targets/README.md#get_by_id) - Get A Channel Target
 * [update](docs/sdks/targets/README.md#update) - Edit Channel Target
 
-#### [channels.twilio](docs/sdks/twilio/README.md)
+#### [Channels.Twilio](docs/sdks/twilio/README.md)
 
 * [get_by_id](docs/sdks/twilio/README.md#get_by_id) - Get Twilio Channel By Id
 * [~~update~~](docs/sdks/twilio/README.md#update) - Update Twilio Channel :warning: **Deprecated**
 * [~~create~~](docs/sdks/twilio/README.md#create) - Create Twilio Channel :warning: **Deprecated**
 
-#### [channels.twilio.numbers](docs/sdks/numbers/README.md)
+##### [Channels.Twilio.Numbers](docs/sdks/numbers/README.md)
 
 * [add](docs/sdks/numbers/README.md#add) - Add Twilio Number
 * [update](docs/sdks/numbers/README.md#update) - Update Twilio Number
 * [list](docs/sdks/numbers/README.md#list) - List Twilio Phone Numbers
 
-### [conversation_config](docs/sdks/conversationconfig/README.md)
+### [ConversationConfig](docs/sdks/conversationconfig/README.md)
 
 * [get_bridge_phrases_config](docs/sdks/conversationconfig/README.md#get_bridge_phrases_config) - Get Bridge Phrases Config
 * [update_bridge_phrases_config](docs/sdks/conversationconfig/README.md#update_bridge_phrases_config) - Update Bridge Phrases Config
 
-### [conversations](docs/sdks/conversations/README.md)
+### [Conversations](docs/sdks/conversations/README.md)
 
 * [list](docs/sdks/conversations/README.md#list) - Conversations List
 
-### [custom_messages](docs/sdks/custommessages/README.md)
+### [CustomMessages](docs/sdks/custommessages/README.md)
 
 * [list](docs/sdks/custommessages/README.md#list) - Custom Messages List
 * [create](docs/sdks/custommessages/README.md#create) - Create Custom Message
@@ -286,7 +286,7 @@ with SyllableSDK(
 * [get_by_id](docs/sdks/custommessages/README.md#get_by_id) - Get Custom Message By Id
 * [delete](docs/sdks/custommessages/README.md#delete) - Delete Custom Message
 
-### [dashboards](docs/sdks/dashboards/README.md)
+### [Dashboards](docs/sdks/dashboards/README.md)
 
 * [post_list_dashboard](docs/sdks/dashboards/README.md#post_list_dashboard) - Post List Dashboards
 * [post_get_dashboard](docs/sdks/dashboards/README.md#post_get_dashboard) - Post Fetch Info
@@ -295,7 +295,7 @@ with SyllableSDK(
 * [~~post_session_transfers_dashboard~~](docs/sdks/dashboards/README.md#post_session_transfers_dashboard) - Post Session Transfers :warning: **Deprecated**
 * [~~post_sessions_dashboard~~](docs/sdks/dashboards/README.md#post_sessions_dashboard) - Post Sessions :warning: **Deprecated**
 
-### [data_sources](docs/sdks/datasources/README.md)
+### [DataSources](docs/sdks/datasources/README.md)
 
 * [list](docs/sdks/datasources/README.md#list) - List Data Sources
 * [create](docs/sdks/datasources/README.md#create) - Create Data Source
@@ -303,7 +303,7 @@ with SyllableSDK(
 * [get_by_id](docs/sdks/datasources/README.md#get_by_id) - Get Data Source
 * [delete](docs/sdks/datasources/README.md#delete) - Delete Data Source
 
-### [directory](docs/sdks/directory/README.md)
+### [Directory](docs/sdks/directory/README.md)
 
 * [list](docs/sdks/directory/README.md#list) - Directory Member List
 * [create](docs/sdks/directory/README.md#create) - Create Directory Member
@@ -314,11 +314,11 @@ with SyllableSDK(
 * [directory_member_bulk_load](docs/sdks/directory/README.md#directory_member_bulk_load) - Bulk Load Directory Members
 * [directory_member_download](docs/sdks/directory/README.md#directory_member_download) - Download Directory Members
 
-### [events](docs/sdks/events/README.md)
+### [Events](docs/sdks/events/README.md)
 
 * [list](docs/sdks/events/README.md#list) - Events List
 
-### [incidents](docs/sdks/incidents/README.md)
+### [Incidents](docs/sdks/incidents/README.md)
 
 * [list](docs/sdks/incidents/README.md#list) - List Incidents
 * [create](docs/sdks/incidents/README.md#create) - Create Incident
@@ -327,11 +327,11 @@ with SyllableSDK(
 * [get_by_id](docs/sdks/incidents/README.md#get_by_id) - Get Incident By Id
 * [delete](docs/sdks/incidents/README.md#delete) - Delete Incident
 
-### [insights](docs/sdks/insightssdk/README.md)
+### [Insights](docs/sdks/insightssdk/README.md)
 
 * [list](docs/sdks/insightssdk/README.md#list) - Insights List
 
-#### [insights.folders](docs/sdks/folders/README.md)
+#### [Insights.Folders](docs/sdks/folders/README.md)
 
 * [list](docs/sdks/folders/README.md#list) - List Insights Upload Folders
 * [create](docs/sdks/folders/README.md#create) - Create Insights Upload Folder
@@ -342,7 +342,7 @@ with SyllableSDK(
 * [list_files](docs/sdks/folders/README.md#list_files) - Fetch Insights Upload Files
 * [move_files](docs/sdks/folders/README.md#move_files) - Move Insights Upload Files
 
-#### [insights.tools](docs/sdks/insightstools/README.md)
+#### [Insights.Tools](docs/sdks/insightstools/README.md)
 
 * [list](docs/sdks/insightstools/README.md#list) - List Insight Tool Configurations
 * [create](docs/sdks/insightstools/README.md#create) - Create Insight Tool Configuration
@@ -352,7 +352,7 @@ with SyllableSDK(
 * [insights_tool_test](docs/sdks/insightstools/README.md#insights_tool_test) - Test Insights Tool
 * [insight_tool_get_definitions](docs/sdks/insightstools/README.md#insight_tool_get_definitions) - Get Insight Tool Definitions
 
-#### [insights.workflows](docs/sdks/workflows/README.md)
+#### [Insights.Workflows](docs/sdks/workflows/README.md)
 
 * [list](docs/sdks/workflows/README.md#list) - Insight Workflow List
 * [create](docs/sdks/workflows/README.md#create) - Create Insight Workflow
@@ -363,7 +363,7 @@ with SyllableSDK(
 * [activate](docs/sdks/workflows/README.md#activate) - Activate Insights Workflow
 * [queue_work](docs/sdks/workflows/README.md#queue_work) - Queue Insights Workflow For Sessions/Files
 
-### [~~language_groups~~](docs/sdks/languagegroups/README.md)
+### [~~LanguageGroups~~](docs/sdks/languagegroups/README.md)
 
 * [~~list~~](docs/sdks/languagegroups/README.md#list) - List Language Groups :warning: **Deprecated**
 * [~~create~~](docs/sdks/languagegroups/README.md#create) - Create Language Group :warning: **Deprecated**
@@ -372,14 +372,14 @@ with SyllableSDK(
 * [~~delete~~](docs/sdks/languagegroups/README.md#delete) - Delete Language Group :warning: **Deprecated**
 * [~~language_groups_create_voice_sample~~](docs/sdks/languagegroups/README.md#language_groups_create_voice_sample) - Create Voice Sample :warning: **Deprecated**
 
-### [organizations](docs/sdks/organizations/README.md)
+### [Organizations](docs/sdks/organizations/README.md)
 
 * [organizations_get](docs/sdks/organizations/README.md#organizations_get) - Get Current Organization
 * [update](docs/sdks/organizations/README.md#update) - Update Current Organization
 * [create](docs/sdks/organizations/README.md#create) - Create Organization
 * [delete](docs/sdks/organizations/README.md#delete) - Delete Current Organization
 
-#### [outbound.batches](docs/sdks/batches/README.md)
+### [Outbound.Batches](docs/sdks/batches/README.md)
 
 * [list](docs/sdks/batches/README.md#list) - List Outbound Communication Batches
 * [create](docs/sdks/batches/README.md#create) - Create Outbound Communication Batch
@@ -391,7 +391,7 @@ with SyllableSDK(
 * [add](docs/sdks/batches/README.md#add) - Create Outbound Communication Request
 * [remove](docs/sdks/batches/README.md#remove) - Delete Requests By List Of Reference Ids
 
-#### [outbound.campaigns](docs/sdks/campaigns/README.md)
+### [Outbound.Campaigns](docs/sdks/campaigns/README.md)
 
 * [list](docs/sdks/campaigns/README.md#list) - List Outbound Communication Campaigns
 * [create](docs/sdks/campaigns/README.md#create) - Create Outbound Communication Campaign
@@ -399,11 +399,11 @@ with SyllableSDK(
 * [update](docs/sdks/campaigns/README.md#update) - Update Outbound Communication Campaign
 * [delete](docs/sdks/campaigns/README.md#delete) - Delete Outbound Communication Campaign
 
-### [permissions](docs/sdks/permissions/README.md)
+### [Permissions](docs/sdks/permissions/README.md)
 
 * [list](docs/sdks/permissions/README.md#list) - List Permissions
 
-### [prompts](docs/sdks/prompts/README.md)
+### [Prompts](docs/sdks/prompts/README.md)
 
 * [list](docs/sdks/prompts/README.md#list) - Prompt List
 * [create](docs/sdks/prompts/README.md#create) - Create Prompt
@@ -413,7 +413,7 @@ with SyllableSDK(
 * [prompts_history](docs/sdks/prompts/README.md#prompts_history) - Get Prompt History
 * [prompt_get_supported_llms](docs/sdks/prompts/README.md#prompt_get_supported_llms) - Get Supported Llm Configs
 
-### [pronunciations](docs/sdks/pronunciations/README.md)
+### [Pronunciations](docs/sdks/pronunciations/README.md)
 
 * [pronunciations_get](docs/sdks/pronunciations/README.md#pronunciations_get) - Get Pronunciations Dictionary
 * [pronunciations_get_metadata](docs/sdks/pronunciations/README.md#pronunciations_get_metadata) - Get Pronunciations Metadata
@@ -421,7 +421,7 @@ with SyllableSDK(
 * [pronunciations_upload_csv](docs/sdks/pronunciations/README.md#pronunciations_upload_csv) - Upload Pronunciations Csv
 * [pronunciations_delete_csv](docs/sdks/pronunciations/README.md#pronunciations_delete_csv) - Delete Pronunciations Dictionary
 
-### [roles](docs/sdks/roles/README.md)
+### [Roles](docs/sdks/roles/README.md)
 
 * [list](docs/sdks/roles/README.md#list) - List Roles
 * [create](docs/sdks/roles/README.md#create) - Create Role
@@ -429,7 +429,7 @@ with SyllableSDK(
 * [get_by_id](docs/sdks/roles/README.md#get_by_id) - Get Role
 * [delete](docs/sdks/roles/README.md#delete) - Delete Role
 
-### [services](docs/sdks/services/README.md)
+### [Services](docs/sdks/services/README.md)
 
 * [list](docs/sdks/services/README.md#list) - Service List
 * [create](docs/sdks/services/README.md#create) - Create Service
@@ -437,44 +437,44 @@ with SyllableSDK(
 * [get_by_id](docs/sdks/services/README.md#get_by_id) - Get Service By Id
 * [delete](docs/sdks/services/README.md#delete) - Delete Service
 
-### [session_debug](docs/sdks/sessiondebug/README.md)
+### [SessionDebug](docs/sdks/sessiondebug/README.md)
 
 * [get_session_data_by_sid](docs/sdks/sessiondebug/README.md#get_session_data_by_sid) - Get Session Data By Sid
 * [get_session_data_by_session_id](docs/sdks/sessiondebug/README.md#get_session_data_by_session_id) - Get Session Data By Session Id
 * [get_session_tool_call_result_by_id](docs/sdks/sessiondebug/README.md#get_session_tool_call_result_by_id) - Get Session Tool Call Result By Id
 
-### [session_labels](docs/sdks/sessionlabels/README.md)
+### [SessionLabels](docs/sdks/sessionlabels/README.md)
 
 * [get_by_id](docs/sdks/sessionlabels/README.md#get_by_id) - Get Label By Id
 * [create](docs/sdks/sessionlabels/README.md#create) - Create Label
 * [list](docs/sdks/sessionlabels/README.md#list) - Session Labels List
 
-### [sessions](docs/sdks/sessions/README.md)
+### [Sessions](docs/sdks/sessions/README.md)
 
 * [list](docs/sdks/sessions/README.md#list) - Sessions List
 * [get_by_id](docs/sdks/sessions/README.md#get_by_id) - Get A Single Session By Id
 * [generate_session_recording_urls](docs/sdks/sessions/README.md#generate_session_recording_urls) - Generate Recording Urls
 * [session_recording_stream](docs/sdks/sessions/README.md#session_recording_stream) - Stream Recording
 
-#### [sessions.full_summary](docs/sdks/fullsummary/README.md)
+#### [Sessions.FullSummary](docs/sdks/fullsummary/README.md)
 
 * [get_by_id](docs/sdks/fullsummary/README.md#get_by_id) - Get Full Session Summary By Id
 
-#### [sessions.latency](docs/sdks/latency/README.md)
+#### [Sessions.Latency](docs/sdks/latency/README.md)
 
 * [get_by_id](docs/sdks/latency/README.md#get_by_id) - Inspect Latency For Session
 
-#### [sessions.transcript](docs/sdks/transcript/README.md)
+#### [Sessions.Transcript](docs/sdks/transcript/README.md)
 
 * [get_by_id](docs/sdks/transcript/README.md#get_by_id) - Get Session Transcript By Id
 
-### [takeouts](docs/sdks/takeouts/README.md)
+### [Takeouts](docs/sdks/takeouts/README.md)
 
 * [create](docs/sdks/takeouts/README.md#create) - Create Takeout
 * [takeouts_get_by_job_id](docs/sdks/takeouts/README.md#takeouts_get_by_job_id) - Get Takeout
 * [takeouts_get_file](docs/sdks/takeouts/README.md#takeouts_get_file) - Get File
 
-### [tools](docs/sdks/tools/README.md)
+### [Tools](docs/sdks/tools/README.md)
 
 * [list](docs/sdks/tools/README.md#list) - Tool List
 * [create](docs/sdks/tools/README.md#create) - Create Tool
@@ -482,7 +482,7 @@ with SyllableSDK(
 * [get_by_name](docs/sdks/tools/README.md#get_by_name) - Tool Info
 * [delete](docs/sdks/tools/README.md#delete) - Delete Tool
 
-### [users](docs/sdks/users/README.md)
+### [Users](docs/sdks/users/README.md)
 
 * [list](docs/sdks/users/README.md#list) - List Users
 * [create](docs/sdks/users/README.md#create) - Create User
@@ -492,7 +492,7 @@ with SyllableSDK(
 * [users_send_email](docs/sdks/users/README.md#users_send_email) - Send User Email
 * [users_delete_account](docs/sdks/users/README.md#users_delete_account) - Request Removal Of This Account
 
-### [v1](docs/sdks/v1/README.md)
+### [V1](docs/sdks/v1/README.md)
 
 * [list](docs/sdks/v1/README.md#list) - List Users
 * [create](docs/sdks/v1/README.md#create) - Create User
@@ -502,7 +502,7 @@ with SyllableSDK(
 * [users_send_email](docs/sdks/v1/README.md#users_send_email) - Send User Email
 * [users_delete_account](docs/sdks/v1/README.md#users_delete_account) - Request Removal Of This Account
 
-### [voice_groups](docs/sdks/voicegroups/README.md)
+### [VoiceGroups](docs/sdks/voicegroups/README.md)
 
 * [list](docs/sdks/voicegroups/README.md#list) - List Voice Groups
 * [create](docs/sdks/voicegroups/README.md#create) - Create Voice Group

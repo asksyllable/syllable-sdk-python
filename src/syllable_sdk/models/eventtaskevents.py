@@ -3,7 +3,6 @@
 from __future__ import annotations
 from .callaction import CallAction, CallActionTypedDict
 from .incrementaction import IncrementAction, IncrementActionTypedDict
-from .saveaction import SaveAction, SaveActionTypedDict
 from .sayaction import SayAction, SayActionTypedDict
 from .setvalueaction import SetValueAction, SetValueActionTypedDict
 from pydantic import Discriminator, Tag, model_serializer
@@ -22,9 +21,8 @@ from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 EventTaskEventsStartTypedDict = TypeAliasType(
     "EventTaskEventsStartTypedDict",
     Union[
-        SayActionTypedDict,
-        SaveActionTypedDict,
         IncrementActionTypedDict,
+        SayActionTypedDict,
         SetValueActionTypedDict,
         CallActionTypedDict,
     ],
@@ -35,7 +33,6 @@ EventTaskEventsStart = Annotated[
     Union[
         Annotated[CallAction, Tag("call")],
         Annotated[IncrementAction, Tag("inc")],
-        Annotated[SaveAction, Tag("save")],
         Annotated[SayAction, Tag("say")],
         Annotated[SetValueAction, Tag("set")],
     ],

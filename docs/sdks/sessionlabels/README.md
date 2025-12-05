@@ -1,5 +1,4 @@
 # SessionLabels
-(*session_labels*)
 
 ## Overview
 

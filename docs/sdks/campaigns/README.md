@@ -1,5 +1,4 @@
-# Campaigns
-(*outbound.campaigns*)
+# Outbound.Campaigns
 
 ## Overview
 

@@ -60,7 +60,7 @@ class ExpressionTaskTypedDict(TypedDict):
     expression: NotRequired[Nullable[Expression2TypedDict]]
     output: NotRequired[Nullable[Any]]
     on: NotRequired[ExpressionTaskEventsTypedDict]
-    r"""Actions to perform when events occur (enter, submit)."""
+    r"""Actions to perform when events occur (start, submit)."""
 
 
 class ExpressionTask(BaseModel):
@@ -97,7 +97,7 @@ class ExpressionTask(BaseModel):
     output: OptionalNullable[Any] = UNSET
 
     on: Optional[ExpressionTaskEvents] = None
-    r"""Actions to perform when events occur (enter, submit)."""
+    r"""Actions to perform when events occur (start, submit)."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

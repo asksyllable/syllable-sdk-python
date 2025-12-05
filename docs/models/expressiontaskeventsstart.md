@@ -15,12 +15,6 @@ value: models.CallAction = /* values here */
 value: models.IncrementAction = /* values here */
 ```
 
-### `models.SaveAction`
-
-```python
-value: models.SaveAction = /* values here */
-```
-
 ### `models.SayAction`
 
 ```python
