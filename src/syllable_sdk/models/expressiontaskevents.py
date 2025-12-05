@@ -22,9 +22,8 @@ from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 ExpressionTaskEventsStartTypedDict = TypeAliasType(
     "ExpressionTaskEventsStartTypedDict",
     Union[
-        SayActionTypedDict,
-        SaveActionTypedDict,
         IncrementActionTypedDict,
+        SayActionTypedDict,
         SetValueActionTypedDict,
         CallActionTypedDict,
     ],
@@ -35,7 +34,6 @@ ExpressionTaskEventsStart = Annotated[
     Union[
         Annotated[CallAction, Tag("call")],
         Annotated[IncrementAction, Tag("inc")],
-        Annotated[SaveAction, Tag("save")],
         Annotated[SayAction, Tag("say")],
         Annotated[SetValueAction, Tag("set")],
     ],
@@ -47,8 +45,8 @@ ExpressionTaskEventsSubmitTypedDict = TypeAliasType(
     "ExpressionTaskEventsSubmitTypedDict",
     Union[
         IncrementActionTypedDict,
-        SayActionTypedDict,
         SaveActionTypedDict,
+        SayActionTypedDict,
         SetValueActionTypedDict,
         CallActionTypedDict,
     ],
@@ -68,7 +66,7 @@ ExpressionTaskEventsSubmit = Annotated[
 
 
 class ExpressionTaskEventsTypedDict(TypedDict):
-    r"""Actions to perform when events occur (enter, submit)."""
+    r"""Actions to perform when events occur (start, submit)."""
 
     start: NotRequired[Nullable[List[ExpressionTaskEventsStartTypedDict]]]
     r"""Actions to execute on the first input from the user."""
@@ -77,7 +75,7 @@ class ExpressionTaskEventsTypedDict(TypedDict):
 
 
 class ExpressionTaskEvents(BaseModel):
-    r"""Actions to perform when events occur (enter, submit)."""
+    r"""Actions to perform when events occur (start, submit)."""
 
     start: OptionalNullable[List[ExpressionTaskEventsStart]] = UNSET
     r"""Actions to execute on the first input from the user."""

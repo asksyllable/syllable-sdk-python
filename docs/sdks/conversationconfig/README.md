@@ -1,5 +1,4 @@
 # ConversationConfig
-(*conversation_config*)
 
 ## Overview
 

@@ -1,5 +1,4 @@
 # Pronunciations
-(*pronunciations*)
 
 ## Overview
 

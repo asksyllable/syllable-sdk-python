@@ -1,5 +1,7 @@
-# LanguageGroups
-(*language_groups*)
+# ~~LanguageGroups~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 

@@ -1,5 +1,4 @@
-# Numbers
-(*channels.twilio.numbers*)
+# Channels.Twilio.Numbers
 
 ## Overview
 

@@ -1,5 +1,4 @@
-# InsightsSDK
-(*insights*)
+# Insights
 
 ## Overview
 

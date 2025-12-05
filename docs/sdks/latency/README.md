@@ -1,5 +1,4 @@
-# Latency
-(*sessions.latency*)
+# Sessions.Latency
 
 ## Overview
 

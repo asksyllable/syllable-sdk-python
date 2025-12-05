@@ -1,5 +1,4 @@
 # Dashboards
-(*dashboards*)
 
 ## Overview
 

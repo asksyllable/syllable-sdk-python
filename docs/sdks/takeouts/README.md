@@ -1,5 +1,4 @@
 # Takeouts
-(*takeouts*)
 
 ## Overview
 

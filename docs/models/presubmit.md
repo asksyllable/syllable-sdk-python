@@ -3,6 +3,12 @@
 
 ## Supported Types
 
+### `models.GetValueAction`
+
+```python
+value: models.GetValueAction = /* values here */
+```
+
 ### `models.IncrementAction`
 
 ```python

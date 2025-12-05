@@ -1,5 +1,4 @@
-# Folders
-(*insights.folders*)
+# Insights.Folders
 
 ## Overview
 

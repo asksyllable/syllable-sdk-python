@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from .callaction import CallAction, CallActionTypedDict
+from .getvalueaction import GetValueAction, GetValueActionTypedDict
 from .incrementaction import IncrementAction, IncrementActionTypedDict
 from .saveaction import SaveAction, SaveActionTypedDict
 from .sayaction import SayAction, SayActionTypedDict
@@ -22,9 +23,8 @@ from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 StepEventActionsStartTypedDict = TypeAliasType(
     "StepEventActionsStartTypedDict",
     Union[
-        SayActionTypedDict,
-        SaveActionTypedDict,
         IncrementActionTypedDict,
+        SayActionTypedDict,
         SetValueActionTypedDict,
         CallActionTypedDict,
     ],
@@ -35,7 +35,6 @@ StepEventActionsStart = Annotated[
     Union[
         Annotated[CallAction, Tag("call")],
         Annotated[IncrementAction, Tag("inc")],
-        Annotated[SaveAction, Tag("save")],
         Annotated[SayAction, Tag("say")],
         Annotated[SetValueAction, Tag("set")],
     ],
@@ -48,9 +47,9 @@ EnterTypedDict = TypeAliasType(
     Union[
         IncrementActionTypedDict,
         SayActionTypedDict,
-        SaveActionTypedDict,
         SetValueActionTypedDict,
         CallActionTypedDict,
+        GetValueActionTypedDict,
     ],
 )
 
@@ -58,8 +57,8 @@ EnterTypedDict = TypeAliasType(
 Enter = Annotated[
     Union[
         Annotated[CallAction, Tag("call")],
+        Annotated[GetValueAction, Tag("get")],
         Annotated[IncrementAction, Tag("inc")],
-        Annotated[SaveAction, Tag("save")],
         Annotated[SayAction, Tag("say")],
         Annotated[SetValueAction, Tag("set")],
     ],
@@ -69,12 +68,18 @@ Enter = Annotated[
 
 PresubmitTypedDict = TypeAliasType(
     "PresubmitTypedDict",
-    Union[IncrementActionTypedDict, SaveActionTypedDict, SetValueActionTypedDict],
+    Union[
+        IncrementActionTypedDict,
+        SaveActionTypedDict,
+        SetValueActionTypedDict,
+        GetValueActionTypedDict,
+    ],
 )
 
 
 Presubmit = Annotated[
     Union[
+        Annotated[GetValueAction, Tag("get")],
         Annotated[IncrementAction, Tag("inc")],
         Annotated[SaveAction, Tag("save")],
         Annotated[SetValueAction, Tag("set")],
@@ -87,8 +92,8 @@ StepEventActionsSubmitTypedDict = TypeAliasType(
     "StepEventActionsSubmitTypedDict",
     Union[
         IncrementActionTypedDict,
-        SayActionTypedDict,
         SaveActionTypedDict,
+        SayActionTypedDict,
         SetValueActionTypedDict,
         CallActionTypedDict,
     ],

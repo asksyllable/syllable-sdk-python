@@ -1,5 +1,4 @@
-# Targets
-(*channels.targets*)
+# Channels.Targets
 
 ## Overview
 

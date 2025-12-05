@@ -1,5 +1,4 @@
-# Transcript
-(*sessions.transcript*)
+# Sessions.Transcript
 
 ## Overview
 
