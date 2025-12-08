@@ -21,6 +21,12 @@ value: models.GetValueAction = /* values here */
 value: models.IncrementAction = /* values here */
 ```
 
+### `models.GetValueAction`
+
+```python
+value: models.GetValueAction = /* values here */
+```
+
 ### `models.SayAction`
 
 ```python

@@ -59,6 +59,7 @@ Enter = Annotated[
         Annotated[CallAction, Tag("call")],
         Annotated[GetValueAction, Tag("get")],
         Annotated[IncrementAction, Tag("inc")],
+        Annotated[GetValueAction, Tag("load")],
         Annotated[SayAction, Tag("say")],
         Annotated[SetValueAction, Tag("set")],
     ],
@@ -81,6 +82,7 @@ Presubmit = Annotated[
     Union[
         Annotated[GetValueAction, Tag("get")],
         Annotated[IncrementAction, Tag("inc")],
+        Annotated[GetValueAction, Tag("load")],
         Annotated[SaveAction, Tag("save")],
         Annotated[SetValueAction, Tag("set")],
     ],

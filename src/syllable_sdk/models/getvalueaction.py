@@ -4,9 +4,9 @@ from __future__ import annotations
 from .caseexpression import CaseExpression, CaseExpressionTypedDict
 from .celexpression import CelExpression, CelExpressionTypedDict
 from .jmespathexpression import JMESPathExpression, JMESPathExpressionTypedDict
+from enum import Enum
 import pydantic
 from pydantic import Discriminator, Tag, model_serializer
-from pydantic.functional_validators import AfterValidator
 from syllable_sdk.types import (
     BaseModel,
     Nullable,
@@ -14,8 +14,8 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from syllable_sdk.utils import get_discriminator, validate_const
-from typing import Any, List, Literal, Optional, Union
+from syllable_sdk.utils import get_discriminator
+from typing import Any, List, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
@@ -77,6 +77,13 @@ GetValueActionIf2 = TypeAliasType(
 r"""An expression that must evaluate to true for the action to be applied."""
 
 
+class GetValueActionAction(str, Enum):
+    r"""Populate default input values."""
+
+    GET = "get"
+    LOAD = "load"
+
+
 class GetValueActionTypedDict(TypedDict):
     value: NotRequired[Nullable[Any]]
     r"""Initial value of the variable."""
@@ -84,7 +91,8 @@ class GetValueActionTypedDict(TypedDict):
     r"""Expression to compute initial value (mutually exclusive with value)."""
     if_: NotRequired[Nullable[GetValueActionIf2TypedDict]]
     r"""An expression that must evaluate to true for the action to be applied."""
-    action: Literal["get"]
+    action: NotRequired[GetValueActionAction]
+    r"""Populate default input values."""
     inputs: NotRequired[Nullable[List[str]]]
     r"""Input field names to populate; None populates all step inputs."""
     overwrite: NotRequired[bool]
@@ -103,10 +111,8 @@ class GetValueAction(BaseModel):
     )
     r"""An expression that must evaluate to true for the action to be applied."""
 
-    ACTION: Annotated[
-        Annotated[Optional[Literal["get"]], AfterValidator(validate_const("get"))],
-        pydantic.Field(alias="action"),
-    ] = "get"
+    action: Optional[GetValueActionAction] = GetValueActionAction.GET
+    r"""Populate default input values."""
 
     inputs: OptionalNullable[List[str]] = UNSET
     r"""Input field names to populate; None populates all step inputs."""

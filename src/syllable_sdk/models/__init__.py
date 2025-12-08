@@ -366,6 +366,7 @@ if TYPE_CHECKING:
     )
     from .getvalueaction import (
         GetValueAction,
+        GetValueActionAction,
         GetValueActionIf1,
         GetValueActionIf1TypedDict,
         GetValueActionIf2,
@@ -997,8 +998,8 @@ if TYPE_CHECKING:
         ToolParameterDefaultTypedDict,
     )
     from .toolparametertransform import (
-        Action,
         ToolParameterTransform,
+        ToolParameterTransformAction,
         ToolParameterTransformTypedDict,
     )
     from .toolparametertransformcondition import (
@@ -1116,7 +1117,6 @@ ConditionalValue.model_rebuild()
 
 
 __all__ = [
-    "Action",
     "AgentCreate",
     "AgentCreateTypedDict",
     "AgentDeleteRequest",
@@ -1385,6 +1385,7 @@ __all__ = [
     "GetSessionToolCallResultByIDRequest",
     "GetSessionToolCallResultByIDRequestTypedDict",
     "GetValueAction",
+    "GetValueActionAction",
     "GetValueActionIf1",
     "GetValueActionIf1TypedDict",
     "GetValueActionIf2",
@@ -1833,6 +1834,7 @@ __all__ = [
     "ToolParameterDefault",
     "ToolParameterDefaultTypedDict",
     "ToolParameterTransform",
+    "ToolParameterTransformAction",
     "ToolParameterTransformCondition",
     "ToolParameterTransformConditionTypedDict",
     "ToolParameterTransformTypedDict",
@@ -2165,6 +2167,7 @@ _dynamic_imports: dict[str, str] = {
     "GetSessionToolCallResultByIDRequest": ".get_session_tool_call_result_by_idop",
     "GetSessionToolCallResultByIDRequestTypedDict": ".get_session_tool_call_result_by_idop",
     "GetValueAction": ".getvalueaction",
+    "GetValueActionAction": ".getvalueaction",
     "GetValueActionIf1": ".getvalueaction",
     "GetValueActionIf1TypedDict": ".getvalueaction",
     "GetValueActionIf2": ".getvalueaction",
@@ -2610,8 +2613,8 @@ _dynamic_imports: dict[str, str] = {
     "ToolOptionsTypedDict": ".tooloptions",
     "ToolParameterDefault": ".toolparameterdefault",
     "ToolParameterDefaultTypedDict": ".toolparameterdefault",
-    "Action": ".toolparametertransform",
     "ToolParameterTransform": ".toolparametertransform",
+    "ToolParameterTransformAction": ".toolparametertransform",
     "ToolParameterTransformTypedDict": ".toolparametertransform",
     "ToolParameterTransformCondition": ".toolparametertransformcondition",
     "ToolParameterTransformConditionTypedDict": ".toolparametertransformcondition",
