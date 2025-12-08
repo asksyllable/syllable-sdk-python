@@ -19,7 +19,7 @@ from typing import Any, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class Action(str, Enum):
+class ToolParameterTransformAction(str, Enum):
     r"""The action to perform on the tool parameter value: `default` means only set the value (using the `format` field) if the parameter doesn't exist or is empty, `override` means always set the value,\" and `remove` means \"remove the parameter value.\" """
 
     DEFAULT = "default"
@@ -35,7 +35,7 @@ class ToolParameterTransformTypedDict(TypedDict):
     - `format` is a string composed of other parameters or context variables.
     """
 
-    action: NotRequired[Action]
+    action: NotRequired[ToolParameterTransformAction]
     r"""The action to perform on the tool parameter value: `default` means only set the value (using the `format` field) if the parameter doesn't exist or is empty, `override` means always set the value,\" and `remove` means \"remove the parameter value.\" """
     when: NotRequired[Nullable[ToolParameterTransformConditionTypedDict]]
     r"""Only apply the transform if the condition is met."""
@@ -53,7 +53,9 @@ class ToolParameterTransform(BaseModel):
     - `format` is a string composed of other parameters or context variables.
     """
 
-    action: Optional[Action] = Action.DEFAULT
+    action: Optional[ToolParameterTransformAction] = (
+        ToolParameterTransformAction.DEFAULT
+    )
     r"""The action to perform on the tool parameter value: `default` means only set the value (using the `format` field) if the parameter doesn't exist or is empty, `override` means always set the value,\" and `remove` means \"remove the parameter value.\" """
 
     when: OptionalNullable[ToolParameterTransformCondition] = UNSET
