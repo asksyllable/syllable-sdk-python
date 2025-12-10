@@ -273,6 +273,7 @@ if TYPE_CHECKING:
     from .dialogmessage import DialogMessage, DialogMessageTypedDict
     from .dialogrole import DialogRole
     from .dialogtoolcall import DialogToolCall, DialogToolCallTypedDict
+    from .dictionarymetadata import DictionaryMetadata, DictionaryMetadataTypedDict
     from .directory_member_deleteop import (
         DirectoryMemberDeleteRequest,
         DirectoryMemberDeleteRequestTypedDict,
@@ -841,14 +842,6 @@ if TYPE_CHECKING:
         SayActionIf2TypedDict,
         SayActionTypedDict,
     )
-    from .schemas_cortex_v1_bridge_phrases_dictionarymetadata import (
-        SchemasCortexV1BridgePhrasesDictionaryMetadata,
-        SchemasCortexV1BridgePhrasesDictionaryMetadataTypedDict,
-    )
-    from .schemas_tts_v1_pronunciations_dictionarymetadata import (
-        SchemasTtsV1PronunciationsDictionaryMetadata,
-        SchemasTtsV1PronunciationsDictionaryMetadataTypedDict,
-    )
     from .security import Security, SecurityTypedDict
     from .service_deleteop import ServiceDeleteRequest, ServiceDeleteRequestTypedDict
     from .service_listop import ServiceListRequest, ServiceListRequestTypedDict
@@ -1320,6 +1313,8 @@ __all__ = [
     "DialogRole",
     "DialogToolCall",
     "DialogToolCallTypedDict",
+    "DictionaryMetadata",
+    "DictionaryMetadataTypedDict",
     "DirectoryExtension",
     "DirectoryExtensionNumber",
     "DirectoryExtensionNumberTypedDict",
@@ -1701,10 +1696,6 @@ __all__ = [
     "SayActionIf2",
     "SayActionIf2TypedDict",
     "SayActionTypedDict",
-    "SchemasCortexV1BridgePhrasesDictionaryMetadata",
-    "SchemasCortexV1BridgePhrasesDictionaryMetadataTypedDict",
-    "SchemasTtsV1PronunciationsDictionaryMetadata",
-    "SchemasTtsV1PronunciationsDictionaryMetadataTypedDict",
     "Security",
     "SecurityTypedDict",
     "ServiceCreateRequest",
@@ -2104,6 +2095,8 @@ _dynamic_imports: dict[str, str] = {
     "DialogRole": ".dialogrole",
     "DialogToolCall": ".dialogtoolcall",
     "DialogToolCallTypedDict": ".dialogtoolcall",
+    "DictionaryMetadata": ".dictionarymetadata",
+    "DictionaryMetadataTypedDict": ".dictionarymetadata",
     "DirectoryMemberDeleteRequest": ".directory_member_deleteop",
     "DirectoryMemberDeleteRequestTypedDict": ".directory_member_deleteop",
     "DirectoryMemberGetByIDRequest": ".directory_member_get_by_idop",
@@ -2477,10 +2470,6 @@ _dynamic_imports: dict[str, str] = {
     "SayActionIf2": ".sayaction",
     "SayActionIf2TypedDict": ".sayaction",
     "SayActionTypedDict": ".sayaction",
-    "SchemasCortexV1BridgePhrasesDictionaryMetadata": ".schemas_cortex_v1_bridge_phrases_dictionarymetadata",
-    "SchemasCortexV1BridgePhrasesDictionaryMetadataTypedDict": ".schemas_cortex_v1_bridge_phrases_dictionarymetadata",
-    "SchemasTtsV1PronunciationsDictionaryMetadata": ".schemas_tts_v1_pronunciations_dictionarymetadata",
-    "SchemasTtsV1PronunciationsDictionaryMetadataTypedDict": ".schemas_tts_v1_pronunciations_dictionarymetadata",
     "Security": ".security",
     "SecurityTypedDict": ".security",
     "ServiceDeleteRequest": ".service_deleteop",

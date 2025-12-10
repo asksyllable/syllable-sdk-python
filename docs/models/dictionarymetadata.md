@@ -1,4 +1,4 @@
-# SchemasTtsV1PronunciationsDictionaryMetadata
+# DictionaryMetadata
 
 Audit metadata associated with a dictionary.
 
