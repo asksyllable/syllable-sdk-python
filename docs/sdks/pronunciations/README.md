@@ -80,7 +80,7 @@ with SyllableSDK(
 
 ### Response
 
-**[models.SchemasTtsV1PronunciationsDictionaryMetadata](../../models/schemasttsv1pronunciationsdictionarymetadata.md)**
+**[models.DictionaryMetadata](../../models/dictionarymetadata.md)**
 
 ### Errors
 

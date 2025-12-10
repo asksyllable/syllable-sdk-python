@@ -29,7 +29,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 python:
-  version: 0.44.7
+  version: 0.44.8
   additionalDependencies:
     dev: {}
     main: {}
@@ -70,6 +70,7 @@ python:
   outputModelSuffix: output
   packageManager: poetry
   packageName: syllable-sdk
+  preApplyUnionDiscriminators: false
   pytestFilterWarnings: []
   pytestTimeout: 0
   responseFormat: flat

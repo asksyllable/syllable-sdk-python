@@ -3335,7 +3335,7 @@ paths:
           description: "Successful Response"
           content:
             "application/json":
-              schema: {"$ref": "#/components/schemas/schemas__tts__v1__pronunciations__DictionaryMetadata"}
+              schema: {"$ref": "#/components/schemas/DictionaryMetadata"}
       security:
         - APIKeyHeader: []
   "/api/v1/pronunciations/csv":
@@ -8224,7 +8224,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20251209.9"
+            - "20251210.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -8239,7 +8239,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-12-10T00:00:00Z"
+            - "2025-12-11T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -8264,7 +8264,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2025-12-09T00:00:00Z"
+            - "2025-12-10T00:00:00Z"
         "deleted_at":
           anyOf:
             - type: "string"
@@ -8273,7 +8273,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2025-12-09T00:00:00Z"
+            - "2025-12-10T00:00:00Z"
         "deleted_reason":
           anyOf:
             - type: "string"
@@ -8290,7 +8290,7 @@ components:
           title: "Last Updated At"
           description: "Timestamp of last change to batch"
           examples:
-            - "2025-12-09T00:00:00Z"
+            - "2025-12-10T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -8511,7 +8511,6 @@ components:
           type: "array"
           title: "Tool Responses"
           description: "Messages to say when a tool call is in progress."
-        "metadata": {"$ref": "#/components/schemas/schemas__cortex__v1__bridge_phrases__DictionaryMetadata", "description": "Metadata about the configuration."}
       type: "object"
       title: "BridgePhrasesConfig"
       description: "Configuration for conversational bridge phrases."
@@ -8870,7 +8869,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20251209.9"
+            - "20251210.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -8885,7 +8884,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-12-10T00:00:00Z"
+            - "2025-12-11T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -8910,7 +8909,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2025-12-09T00:00:00Z"
+            - "2025-12-10T00:00:00Z"
         "deleted_at":
           anyOf:
             - type: "string"
@@ -8919,7 +8918,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2025-12-09T00:00:00Z"
+            - "2025-12-10T00:00:00Z"
         "deleted_reason":
           anyOf:
             - type: "string"
@@ -8936,7 +8935,7 @@ components:
           title: "Last Updated At"
           description: "Timestamp of last change to batch"
           examples:
-            - "2025-12-09T00:00:00Z"
+            - "2025-12-10T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -8965,7 +8964,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20251209.9"
+            - "20251210.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -8980,7 +8979,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-12-10T00:00:00Z"
+            - "2025-12-11T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -9079,7 +9078,7 @@ components:
           title: "Created At"
           description: "Timestamp of request creation"
           examples:
-            - "2025-12-08T00:00:00Z"
+            - "2025-12-09T00:00:00Z"
         "sent_at":
           anyOf:
             - type: "string"
@@ -9088,7 +9087,7 @@ components:
           title: "Sent At"
           description: "Timestamp at which request was sent"
           examples:
-            - "2025-12-09T00:00:00Z"
+            - "2025-12-10T00:00:00Z"
         "attempt_count":
           type: "integer"
           title: "Attempt Count"
@@ -10203,6 +10202,25 @@ components:
         - "tool_result"
         - "timestamp"
       title: "DialogToolCall"
+    "DictionaryMetadata":
+      properties:
+        "entries":
+          type: "integer"
+          title: "Entries"
+        "hash":
+          type: "string"
+          title: "Hash"
+        "source":
+          type: "string"
+          title: "Source"
+          default: ""
+      additionalProperties: false
+      type: "object"
+      required:
+        - "entries"
+        - "hash"
+      title: "DictionaryMetadata"
+      description: "Audit metadata associated with a dictionary."
     "DirectoryExtension":
       properties:
         "name":
@@ -10725,14 +10743,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload folder was created"
           examples:
-            - "2025-12-08T00:00:00Z"
+            - "2025-12-09T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight upload folder was last updated"
           examples:
-            - "2025-12-09T00:00:00Z"
+            - "2025-12-10T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -11356,14 +11374,14 @@ components:
           title: "Created At"
           description: "Timestamp of at which insight tool configuration was created"
           examples:
-            - "2025-12-08T00:00:00Z"
+            - "2025-12-09T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool configuration was last updated"
           examples:
-            - "2025-12-09T00:00:00Z"
+            - "2025-12-10T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -11600,7 +11618,7 @@ components:
           title: "Start Datetime"
           description: "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only"
           examples:
-            - "2025-12-08T00:00:00Z"
+            - "2025-12-09T00:00:00Z"
         "end_datetime":
           anyOf:
             - type: "string"
@@ -11609,7 +11627,7 @@ components:
           title: "End Datetime"
           description: "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation"
           examples:
-            - "2025-12-09T00:00:00Z"
+            - "2025-12-10T00:00:00Z"
       type: "object"
       required:
         - "name"
@@ -11660,7 +11678,7 @@ components:
           title: "Start Datetime"
           description: "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only"
           examples:
-            - "2025-12-08T00:00:00Z"
+            - "2025-12-09T00:00:00Z"
         "end_datetime":
           anyOf:
             - type: "string"
@@ -11669,7 +11687,7 @@ components:
           title: "End Datetime"
           description: "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation"
           examples:
-            - "2025-12-09T00:00:00Z"
+            - "2025-12-10T00:00:00Z"
         "id":
           type: "integer"
           title: "Id"
@@ -11703,14 +11721,14 @@ components:
           title: "Created At"
           description: "Timestamp at which the insight workflow was created"
           examples:
-            - "2025-12-08T00:00:00Z"
+            - "2025-12-09T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of most recent update to the insight workflow"
           examples:
-            - "2025-12-09T00:00:00Z"
+            - "2025-12-10T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -11779,14 +11797,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload folder was created"
           examples:
-            - "2025-12-08T00:00:00Z"
+            - "2025-12-09T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight upload folder was last updated"
           examples:
-            - "2025-12-09T00:00:00Z"
+            - "2025-12-10T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -11935,14 +11953,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight tool result was created"
           examples:
-            - "2025-12-08T00:00:00Z"
+            - "2025-12-09T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool result was last updated"
           examples:
-            - "2025-12-09T00:00:00Z"
+            - "2025-12-10T00:00:00Z"
         "upload_file_metadata":
           title: "Upload File Metadata"
           description: "Metadata associated with the uploaded file"
@@ -12034,7 +12052,7 @@ components:
           title: "Start Time"
           description: "Start time of the uploaded file"
           examples:
-            - "2025-12-08T00:00:00Z"
+            - "2025-12-09T00:00:00Z"
         "end_time":
           anyOf:
             - type: "string"
@@ -12043,7 +12061,7 @@ components:
           title: "End Time"
           description: "End time of the uploaded file"
           examples:
-            - "2025-12-09T00:00:00Z"
+            - "2025-12-10T00:00:00Z"
         "error_message":
           anyOf:
             - type: "string"
@@ -12071,7 +12089,7 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload file was created"
           examples:
-            - "2025-12-08T00:00:00Z"
+            - "2025-12-09T00:00:00Z"
       type: "object"
       required:
         - "id"
@@ -14082,14 +14100,14 @@ components:
           title: "Created At"
           description: "Timestamp of campaign creation"
           examples:
-            - "2025-12-09T00:00:00Z"
+            - "2025-12-10T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of campaign update"
           examples:
-            - "2025-12-09T00:00:00Z"
+            - "2025-12-10T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -14838,7 +14856,7 @@ components:
           additionalProperties: {"$ref": "#/components/schemas/VoiceDisplayInfo"}
           type: "object"
           title: "Voices"
-        "metadata": {"$ref": "#/components/schemas/schemas__tts__v1__pronunciations__DictionaryMetadata"}
+        "metadata": {"$ref": "#/components/schemas/DictionaryMetadata"}
       additionalProperties: false
       type: "object"
       required:
@@ -17574,47 +17592,6 @@ components:
         - "voice_display_name"
       title: "VoiceSampleCreateRequest"
       description: "Request model to generate a sample audio file for a given voice and language."
-    "schemas__cortex__v1__bridge_phrases__DictionaryMetadata":
-      properties:
-        "hash":
-          anyOf:
-            - type: "string"
-            - type: "null"
-          title: "Hash"
-          description: "Hash of the dictionary content."
-        "source":
-          anyOf:
-            - type: "string"
-            - type: "null"
-          title: "Source"
-          description: "Source of the dictionary (e.g. filename)."
-        "entries":
-          type: "integer"
-          title: "Entries"
-          description: "Number of entries in the dictionary."
-          default: 0
-      type: "object"
-      title: "DictionaryMetadata"
-      description: "Metadata for the bridge phrases dictionary."
-    "schemas__tts__v1__pronunciations__DictionaryMetadata":
-      properties:
-        "entries":
-          type: "integer"
-          title: "Entries"
-        "hash":
-          type: "string"
-          title: "Hash"
-        "source":
-          type: "string"
-          title: "Source"
-          default: ""
-      additionalProperties: false
-      type: "object"
-      required:
-        - "entries"
-        - "hash"
-      title: "DictionaryMetadata"
-      description: "Audit metadata associated with a dictionary."
   securitySchemes:
     "APIKeyHeader":
       type: "apiKey"
