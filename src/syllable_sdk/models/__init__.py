@@ -274,9 +274,17 @@ if TYPE_CHECKING:
     from .dialogrole import DialogRole
     from .dialogtoolcall import DialogToolCall, DialogToolCallTypedDict
     from .dictionarymetadata import DictionaryMetadata, DictionaryMetadataTypedDict
+    from .directory_member_createop import (
+        DirectoryMemberCreateRequest,
+        DirectoryMemberCreateRequestTypedDict,
+    )
     from .directory_member_deleteop import (
         DirectoryMemberDeleteRequest,
         DirectoryMemberDeleteRequestTypedDict,
+    )
+    from .directory_member_downloadop import (
+        DirectoryMemberDownloadRequest,
+        DirectoryMemberDownloadRequestTypedDict,
     )
     from .directory_member_get_by_idop import (
         DirectoryMemberGetByIDRequest,
@@ -313,6 +321,7 @@ if TYPE_CHECKING:
         DirectoryMemberUpdate,
         DirectoryMemberUpdateTypedDict,
     )
+    from .directoryresponseformat import DirectoryResponseFormat
     from .event import Attributes, AttributesTypedDict, Event, EventTypedDict
     from .eventproperties import EventProperties
     from .events_listop import EventsListRequest, EventsListRequestTypedDict
@@ -1321,9 +1330,13 @@ __all__ = [
     "DirectoryExtensionTypedDict",
     "DirectoryMember",
     "DirectoryMemberCreate",
+    "DirectoryMemberCreateRequest",
+    "DirectoryMemberCreateRequestTypedDict",
     "DirectoryMemberCreateTypedDict",
     "DirectoryMemberDeleteRequest",
     "DirectoryMemberDeleteRequestTypedDict",
+    "DirectoryMemberDownloadRequest",
+    "DirectoryMemberDownloadRequestTypedDict",
     "DirectoryMemberGetByIDRequest",
     "DirectoryMemberGetByIDRequestTypedDict",
     "DirectoryMemberListRequest",
@@ -1338,6 +1351,7 @@ __all__ = [
     "DirectoryMemberUpdateRequest",
     "DirectoryMemberUpdateRequestTypedDict",
     "DirectoryMemberUpdateTypedDict",
+    "DirectoryResponseFormat",
     "Enter",
     "EnterTypedDict",
     "Event",
@@ -2097,8 +2111,12 @@ _dynamic_imports: dict[str, str] = {
     "DialogToolCallTypedDict": ".dialogtoolcall",
     "DictionaryMetadata": ".dictionarymetadata",
     "DictionaryMetadataTypedDict": ".dictionarymetadata",
+    "DirectoryMemberCreateRequest": ".directory_member_createop",
+    "DirectoryMemberCreateRequestTypedDict": ".directory_member_createop",
     "DirectoryMemberDeleteRequest": ".directory_member_deleteop",
     "DirectoryMemberDeleteRequestTypedDict": ".directory_member_deleteop",
+    "DirectoryMemberDownloadRequest": ".directory_member_downloadop",
+    "DirectoryMemberDownloadRequestTypedDict": ".directory_member_downloadop",
     "DirectoryMemberGetByIDRequest": ".directory_member_get_by_idop",
     "DirectoryMemberGetByIDRequestTypedDict": ".directory_member_get_by_idop",
     "DirectoryMemberListRequest": ".directory_member_listop",
@@ -2120,6 +2138,7 @@ _dynamic_imports: dict[str, str] = {
     "DirectoryMemberTestResponseTypedDict": ".directorymembertestresponse",
     "DirectoryMemberUpdate": ".directorymemberupdate",
     "DirectoryMemberUpdateTypedDict": ".directorymemberupdate",
+    "DirectoryResponseFormat": ".directoryresponseformat",
     "Attributes": ".event",
     "AttributesTypedDict": ".event",
     "Event": ".event",

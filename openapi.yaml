@@ -2,7 +2,7 @@ openapi: "3.1.0"
 info:
   title: "SyllableSDK"
   description: "\n# Syllable Platform SDK\n\nSyllable SDK gives you the power of awesome AI agentry. \U0001F680\n\n## Overview\n\nThe Syllable SDK provides a comprehensive set of tools and APIs to integrate powerful AI\ncapabilities into your communication applications. Whether you're building phone agents, chatbots,\nvirtual assistants, or any other AI-driven solutions, Syllable SDK has got you covered.\n\n## Features\n\n- **Agent Configuration**: Create and manage agents that can interact with users across various \nchannels.\n- **Channel Management**: Configure channels like SMS, web chat, and more to connect agents with \nusers.\n- **Custom Messages**: Set up custom messages that agents can deliver as greetings or responses.\n- **Conversations**: Track and manage conversations between users and agents, including session \nmanagement.\n- **Tools and Workflows**: Leverage tools and workflows to enhance agent capabilities, such as data \nprocessing and API calls.\n- **Data Sources**: Integrate data sources to provide agents with additional context and \ninformation.\n- **Insights and Analytics**: Analyze conversations and sessions to gain insights into user \ninteractions.\n- **Permissions and Security**: Manage permissions to control access to various features and \nfunctionalities.\n- **Language Support**: Define language groups to enable multilingual support for agents.\n- **Outbound Campaigns**: Create and manage outbound communication campaigns to reach users \neffectively.\n- **Session Labels**: Label sessions with evaluations of quality and descriptions of issues \nencountered.\n- **Incident Management**: Track and manage incidents related to agent interactions.\n"
-  version: "0.0.2"
+  version: "0.0.3"
 servers:
   - url: "https://api.syllable.cloud"
     description: "API server"
@@ -5072,6 +5072,11 @@ paths:
       security:
         - APIKeyHeader: []
       parameters:
+        - name: "response_format"
+          in: "query"
+          required: false
+          schema: {"$ref": "#/components/schemas/DirectoryResponseFormat", "description": "Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.", "default": "normalized"}
+          description: "Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values."
         - name: "page"
           in: "query"
           required: false
@@ -5080,36 +5085,30 @@ paths:
               - type: "integer"
                 minimum: 0
               - type: "null"
-            description: "The page number from which to start (0-based)"
-            examples:
-              - 0
+            description: "Page number (0-based)"
             default: 0
             title: "Page"
-          description: "The page number from which to start (0-based)"
+          description: "Page number (0-based)"
         - name: "limit"
           in: "query"
           required: false
           schema:
             type: "integer"
             minimum: 0
-            description: "The maximum number of items to return"
-            examples:
-              - 25
+            description: "Items per page"
             default: 25
             title: "Limit"
-          description: "The maximum number of items to return"
+          description: "Items per page"
         - name: "search_fields"
           in: "query"
           required: false
           schema:
             type: "array"
             items: {"$ref": "#/components/schemas/DirectoryMemberProperties"}
-            description: "String names of fields to search. Correspond by index to search field values"
-            examples:
-              - "name"
+            description: "Fields to search; aligns with search_field_values"
             default: []
             title: "Search Fields"
-          description: "String names of fields to search. Correspond by index to search field values"
+          description: "Fields to search; aligns with search_field_values"
         - name: "search_field_values"
           in: "query"
           required: false
@@ -5117,12 +5116,10 @@ paths:
             type: "array"
             items:
               type: "string"
-            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
-            examples:
-              - "Some Object Name"
+            description: "Values for search_fields in matching order"
             default: []
             title: "Search Field Values"
-          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+          description: "Values for search_fields in matching order"
         - name: "order_by"
           in: "query"
           required: false
@@ -5130,11 +5127,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/DirectoryMemberProperties"}
               - type: "null"
-            description: "The field whose value should be used to order the results"
-            examples:
-              - "name"
+            description: "Field to order results by"
             title: "Order By"
-          description: "The field whose value should be used to order the results"
+          description: "Field to order results by"
         - name: "order_by_direction"
           in: "query"
           required: false
@@ -5142,9 +5137,9 @@ paths:
             anyOf:
               - {"$ref": "#/components/schemas/OrderByDirection"}
               - type: "null"
-            description: "The direction in which to order the results"
+            description: "Direction to order results"
             title: "Order By Direction"
-          description: "The direction in which to order the results"
+          description: "Direction to order results"
         - name: "fields"
           in: "query"
           required: false
@@ -5153,10 +5148,10 @@ paths:
               - type: "array"
                 items: {"$ref": "#/components/schemas/DirectoryMemberProperties"}
               - type: "null"
-            description: "The fields to include in the response"
+            description: "Fields to include in response"
             default: []
             title: "Fields"
-          description: "The fields to include in the response"
+          description: "Fields to include in response"
         - name: "start_datetime"
           in: "query"
           required: false
@@ -5164,11 +5159,9 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
-            description: "The start datetime for filtering results"
-            examples:
-              - "2023-01-01T00:00:00Z"
+            description: "Start datetime for filtering results"
             title: "Start Datetime"
-          description: "The start datetime for filtering results"
+          description: "Start datetime for filtering results"
         - name: "end_datetime"
           in: "query"
           required: false
@@ -5176,11 +5169,9 @@ paths:
             anyOf:
               - type: "string"
               - type: "null"
-            description: "The end datetime for filtering results"
-            examples:
-              - "2024-01-01T00:00:00Z"
+            description: "End datetime for filtering results"
             title: "End Datetime"
-          description: "The end datetime for filtering results"
+          description: "End datetime for filtering results"
       responses:
         "200":
           description: "Successful Response"
@@ -5200,6 +5191,12 @@ paths:
       operationId: "directory_member_create"
       security:
         - APIKeyHeader: []
+      parameters:
+        - name: "response_format"
+          in: "query"
+          required: false
+          schema: {"$ref": "#/components/schemas/DirectoryResponseFormat", "description": "Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.", "default": "normalized"}
+          description: "Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values."
       requestBody:
         required: true
         content:
@@ -5232,6 +5229,11 @@ paths:
           schema:
             type: "integer"
             title: "Member Id"
+        - name: "response_format"
+          in: "query"
+          required: false
+          schema: {"$ref": "#/components/schemas/DirectoryResponseFormat", "description": "Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.", "default": "normalized"}
+          description: "Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values."
       responses:
         "200":
           description: "Successful Response"
@@ -5258,6 +5260,11 @@ paths:
           schema:
             type: "integer"
             title: "Member Id"
+        - name: "response_format"
+          in: "query"
+          required: false
+          schema: {"$ref": "#/components/schemas/DirectoryResponseFormat", "description": "Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.", "default": "normalized"}
+          description: "Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values."
       requestBody:
         required: true
         content:
@@ -5399,6 +5406,14 @@ paths:
       summary: "Download Directory Members"
       description: "Download the entire directory as a JSON file."
       operationId: "directory_member_download"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "response_format"
+          in: "query"
+          required: false
+          schema: {"$ref": "#/components/schemas/DirectoryResponseFormat", "description": "Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.", "default": "normalized"}
+          description: "Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values."
       responses:
         "200":
           description: "Directory downloaded successfully"
@@ -5407,8 +5422,11 @@ paths:
               schema: {}
         "500":
           description: "Internal Server Error"
-      security:
-        - APIKeyHeader: []
+        "422":
+          description: "Validation Error"
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/HTTPValidationError"}
   "/api/v1/dashboards/list":
     post:
       tags:
@@ -8228,7 +8246,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20251212.9"
+            - "20251213.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -8243,7 +8261,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-12-13T00:00:00Z"
+            - "2025-12-14T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -8268,7 +8286,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2025-12-12T00:00:00Z"
+            - "2025-12-13T00:00:00Z"
         "deleted_at":
           anyOf:
             - type: "string"
@@ -8277,7 +8295,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2025-12-12T00:00:00Z"
+            - "2025-12-13T00:00:00Z"
         "deleted_reason":
           anyOf:
             - type: "string"
@@ -8294,7 +8312,7 @@ components:
           title: "Last Updated At"
           description: "Timestamp of last change to batch"
           examples:
-            - "2025-12-12T00:00:00Z"
+            - "2025-12-13T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -8873,7 +8891,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20251212.9"
+            - "20251213.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -8888,7 +8906,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-12-13T00:00:00Z"
+            - "2025-12-14T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -8913,7 +8931,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2025-12-12T00:00:00Z"
+            - "2025-12-13T00:00:00Z"
         "deleted_at":
           anyOf:
             - type: "string"
@@ -8922,7 +8940,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2025-12-12T00:00:00Z"
+            - "2025-12-13T00:00:00Z"
         "deleted_reason":
           anyOf:
             - type: "string"
@@ -8939,7 +8957,7 @@ components:
           title: "Last Updated At"
           description: "Timestamp of last change to batch"
           examples:
-            - "2025-12-12T00:00:00Z"
+            - "2025-12-13T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -8968,7 +8986,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20251212.9"
+            - "20251213.9"
         "campaign_id":
           type: "integer"
           title: "Campaign Id"
@@ -8983,7 +9001,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2025-12-13T00:00:00Z"
+            - "2025-12-14T00:00:00Z"
         "paused":
           anyOf:
             - type: "boolean"
@@ -9082,7 +9100,7 @@ components:
           title: "Created At"
           description: "Timestamp of request creation"
           examples:
-            - "2025-12-11T00:00:00Z"
+            - "2025-12-12T00:00:00Z"
         "sent_at":
           anyOf:
             - type: "string"
@@ -9091,7 +9109,7 @@ components:
           title: "Sent At"
           description: "Timestamp at which request was sent"
           examples:
-            - "2025-12-12T00:00:00Z"
+            - "2025-12-13T00:00:00Z"
         "attempt_count":
           type: "integer"
           title: "Attempt Count"
@@ -10448,6 +10466,13 @@ components:
         - "id"
       title: "DirectoryMemberUpdate"
       description: "Request model to update a directory member."
+    "DirectoryResponseFormat":
+      type: "string"
+      enum:
+        - "normalized"
+        - "raw"
+      title: "DirectoryResponseFormat"
+      description: "Response shape selector for directory member APIs."
     "Event":
       properties:
         "timestamp":
@@ -10747,14 +10772,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload folder was created"
           examples:
-            - "2025-12-11T00:00:00Z"
+            - "2025-12-12T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight upload folder was last updated"
           examples:
-            - "2025-12-12T00:00:00Z"
+            - "2025-12-13T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -11378,14 +11403,14 @@ components:
           title: "Created At"
           description: "Timestamp of at which insight tool configuration was created"
           examples:
-            - "2025-12-11T00:00:00Z"
+            - "2025-12-12T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool configuration was last updated"
           examples:
-            - "2025-12-12T00:00:00Z"
+            - "2025-12-13T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -11622,7 +11647,7 @@ components:
           title: "Start Datetime"
           description: "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only"
           examples:
-            - "2025-12-11T00:00:00Z"
+            - "2025-12-12T00:00:00Z"
         "end_datetime":
           anyOf:
             - type: "string"
@@ -11631,7 +11656,7 @@ components:
           title: "End Datetime"
           description: "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation"
           examples:
-            - "2025-12-12T00:00:00Z"
+            - "2025-12-13T00:00:00Z"
       type: "object"
       required:
         - "name"
@@ -11682,7 +11707,7 @@ components:
           title: "Start Datetime"
           description: "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only"
           examples:
-            - "2025-12-11T00:00:00Z"
+            - "2025-12-12T00:00:00Z"
         "end_datetime":
           anyOf:
             - type: "string"
@@ -11691,7 +11716,7 @@ components:
           title: "End Datetime"
           description: "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation"
           examples:
-            - "2025-12-12T00:00:00Z"
+            - "2025-12-13T00:00:00Z"
         "id":
           type: "integer"
           title: "Id"
@@ -11725,14 +11750,14 @@ components:
           title: "Created At"
           description: "Timestamp at which the insight workflow was created"
           examples:
-            - "2025-12-11T00:00:00Z"
+            - "2025-12-12T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of most recent update to the insight workflow"
           examples:
-            - "2025-12-12T00:00:00Z"
+            - "2025-12-13T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -11801,14 +11826,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload folder was created"
           examples:
-            - "2025-12-11T00:00:00Z"
+            - "2025-12-12T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight upload folder was last updated"
           examples:
-            - "2025-12-12T00:00:00Z"
+            - "2025-12-13T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
@@ -11957,14 +11982,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight tool result was created"
           examples:
-            - "2025-12-11T00:00:00Z"
+            - "2025-12-12T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool result was last updated"
           examples:
-            - "2025-12-12T00:00:00Z"
+            - "2025-12-13T00:00:00Z"
         "upload_file_metadata":
           title: "Upload File Metadata"
           description: "Metadata associated with the uploaded file"
@@ -12056,7 +12081,7 @@ components:
           title: "Start Time"
           description: "Start time of the uploaded file"
           examples:
-            - "2025-12-11T00:00:00Z"
+            - "2025-12-12T00:00:00Z"
         "end_time":
           anyOf:
             - type: "string"
@@ -12065,7 +12090,7 @@ components:
           title: "End Time"
           description: "End time of the uploaded file"
           examples:
-            - "2025-12-12T00:00:00Z"
+            - "2025-12-13T00:00:00Z"
         "error_message":
           anyOf:
             - type: "string"
@@ -12093,7 +12118,7 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload file was created"
           examples:
-            - "2025-12-11T00:00:00Z"
+            - "2025-12-12T00:00:00Z"
       type: "object"
       required:
         - "id"
@@ -14104,14 +14129,14 @@ components:
           title: "Created At"
           description: "Timestamp of campaign creation"
           examples:
-            - "2025-12-12T00:00:00Z"
+            - "2025-12-13T00:00:00Z"
         "updated_at":
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of campaign update"
           examples:
-            - "2025-12-12T00:00:00Z"
+            - "2025-12-13T00:00:00Z"
         "last_updated_by":
           type: "string"
           title: "Last Updated By"
