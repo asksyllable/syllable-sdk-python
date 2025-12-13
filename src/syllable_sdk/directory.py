@@ -15,6 +15,7 @@ class Directory(BaseSDK):
     def list(
         self,
         *,
+        response_format: Optional[models.DirectoryResponseFormat] = None,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
         search_fields: Optional[List[models.DirectoryMemberProperties]] = None,
@@ -33,15 +34,16 @@ class Directory(BaseSDK):
 
         List the existing directory_members
 
-        :param page: The page number from which to start (0-based)
-        :param limit: The maximum number of items to return
-        :param search_fields: String names of fields to search. Correspond by index to search field values
-        :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
-        :param order_by: The field whose value should be used to order the results
-        :param order_by_direction: The direction in which to order the results
-        :param fields: The fields to include in the response
-        :param start_datetime: The start datetime for filtering results
-        :param end_datetime: The end datetime for filtering results
+        :param response_format: Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.
+        :param page: Page number (0-based)
+        :param limit: Items per page
+        :param search_fields: Fields to search; aligns with search_field_values
+        :param search_field_values: Values for search_fields in matching order
+        :param order_by: Field to order results by
+        :param order_by_direction: Direction to order results
+        :param fields: Fields to include in response
+        :param start_datetime: Start datetime for filtering results
+        :param end_datetime: End datetime for filtering results
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -58,6 +60,7 @@ class Directory(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.DirectoryMemberListRequest(
+            response_format=response_format,
             page=page,
             limit=limit,
             search_fields=search_fields,
@@ -129,6 +132,7 @@ class Directory(BaseSDK):
     async def list_async(
         self,
         *,
+        response_format: Optional[models.DirectoryResponseFormat] = None,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
         search_fields: Optional[List[models.DirectoryMemberProperties]] = None,
@@ -147,15 +151,16 @@ class Directory(BaseSDK):
 
         List the existing directory_members
 
-        :param page: The page number from which to start (0-based)
-        :param limit: The maximum number of items to return
-        :param search_fields: String names of fields to search. Correspond by index to search field values
-        :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
-        :param order_by: The field whose value should be used to order the results
-        :param order_by_direction: The direction in which to order the results
-        :param fields: The fields to include in the response
-        :param start_datetime: The start datetime for filtering results
-        :param end_datetime: The end datetime for filtering results
+        :param response_format: Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.
+        :param page: Page number (0-based)
+        :param limit: Items per page
+        :param search_fields: Fields to search; aligns with search_field_values
+        :param search_field_values: Values for search_fields in matching order
+        :param order_by: Field to order results by
+        :param order_by_direction: Direction to order results
+        :param fields: Fields to include in response
+        :param start_datetime: Start datetime for filtering results
+        :param end_datetime: End datetime for filtering results
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -172,6 +177,7 @@ class Directory(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.DirectoryMemberListRequest(
+            response_format=response_format,
             page=page,
             limit=limit,
             search_fields=search_fields,
@@ -243,9 +249,10 @@ class Directory(BaseSDK):
     def create(
         self,
         *,
-        request: Union[
+        directory_member_create: Union[
             models.DirectoryMemberCreate, models.DirectoryMemberCreateTypedDict
         ],
+        response_format: Optional[models.DirectoryResponseFormat] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -255,7 +262,8 @@ class Directory(BaseSDK):
 
         Create a new member in the directory
 
-        :param request: The request object to send.
+        :param directory_member_create:
+        :param response_format: Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -271,9 +279,12 @@ class Directory(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        if not isinstance(request, BaseModel):
-            request = utils.unmarshal(request, models.DirectoryMemberCreate)
-        request = cast(models.DirectoryMemberCreate, request)
+        request = models.DirectoryMemberCreateRequest(
+            response_format=response_format,
+            directory_member_create=utils.get_pydantic_model(
+                directory_member_create, models.DirectoryMemberCreate
+            ),
+        )
 
         req = self._build_request(
             method="POST",
@@ -289,7 +300,11 @@ class Directory(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.DirectoryMemberCreate
+                request.directory_member_create,
+                False,
+                False,
+                "json",
+                models.DirectoryMemberCreate,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -338,9 +353,10 @@ class Directory(BaseSDK):
     async def create_async(
         self,
         *,
-        request: Union[
+        directory_member_create: Union[
             models.DirectoryMemberCreate, models.DirectoryMemberCreateTypedDict
         ],
+        response_format: Optional[models.DirectoryResponseFormat] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -350,7 +366,8 @@ class Directory(BaseSDK):
 
         Create a new member in the directory
 
-        :param request: The request object to send.
+        :param directory_member_create:
+        :param response_format: Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -366,9 +383,12 @@ class Directory(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        if not isinstance(request, BaseModel):
-            request = utils.unmarshal(request, models.DirectoryMemberCreate)
-        request = cast(models.DirectoryMemberCreate, request)
+        request = models.DirectoryMemberCreateRequest(
+            response_format=response_format,
+            directory_member_create=utils.get_pydantic_model(
+                directory_member_create, models.DirectoryMemberCreate
+            ),
+        )
 
         req = self._build_request_async(
             method="POST",
@@ -384,7 +404,11 @@ class Directory(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.DirectoryMemberCreate
+                request.directory_member_create,
+                False,
+                False,
+                "json",
+                models.DirectoryMemberCreate,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -434,6 +458,7 @@ class Directory(BaseSDK):
         self,
         *,
         member_id: int,
+        response_format: Optional[models.DirectoryResponseFormat] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -444,6 +469,7 @@ class Directory(BaseSDK):
         Get a DirectoryMember by ID.
 
         :param member_id:
+        :param response_format: Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -461,6 +487,7 @@ class Directory(BaseSDK):
 
         request = models.DirectoryMemberGetByIDRequest(
             member_id=member_id,
+            response_format=response_format,
         )
 
         req = self._build_request(
@@ -524,6 +551,7 @@ class Directory(BaseSDK):
         self,
         *,
         member_id: int,
+        response_format: Optional[models.DirectoryResponseFormat] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -534,6 +562,7 @@ class Directory(BaseSDK):
         Get a DirectoryMember by ID.
 
         :param member_id:
+        :param response_format: Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -551,6 +580,7 @@ class Directory(BaseSDK):
 
         request = models.DirectoryMemberGetByIDRequest(
             member_id=member_id,
+            response_format=response_format,
         )
 
         req = self._build_request_async(
@@ -617,6 +647,7 @@ class Directory(BaseSDK):
         directory_member_update: Union[
             models.DirectoryMemberUpdate, models.DirectoryMemberUpdateTypedDict
         ],
+        response_format: Optional[models.DirectoryResponseFormat] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -628,6 +659,7 @@ class Directory(BaseSDK):
 
         :param member_id:
         :param directory_member_update:
+        :param response_format: Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -645,6 +677,7 @@ class Directory(BaseSDK):
 
         request = models.DirectoryMemberUpdateRequest(
             member_id=member_id,
+            response_format=response_format,
             directory_member_update=utils.get_pydantic_model(
                 directory_member_update, models.DirectoryMemberUpdate
             ),
@@ -721,6 +754,7 @@ class Directory(BaseSDK):
         directory_member_update: Union[
             models.DirectoryMemberUpdate, models.DirectoryMemberUpdateTypedDict
         ],
+        response_format: Optional[models.DirectoryResponseFormat] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -732,6 +766,7 @@ class Directory(BaseSDK):
 
         :param member_id:
         :param directory_member_update:
+        :param response_format: Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -749,6 +784,7 @@ class Directory(BaseSDK):
 
         request = models.DirectoryMemberUpdateRequest(
             member_id=member_id,
+            response_format=response_format,
             directory_member_update=utils.get_pydantic_model(
                 directory_member_update, models.DirectoryMemberUpdate
             ),
@@ -1385,6 +1421,7 @@ class Directory(BaseSDK):
     def directory_member_download(
         self,
         *,
+        response_format: Optional[models.DirectoryResponseFormat] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1394,6 +1431,7 @@ class Directory(BaseSDK):
 
         Download the entire directory as a JSON file.
 
+        :param response_format: Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1408,12 +1446,17 @@ class Directory(BaseSDK):
             base_url = server_url
         else:
             base_url = self._get_url(base_url, url_variables)
+
+        request = models.DirectoryMemberDownloadRequest(
+            response_format=response_format,
+        )
+
         req = self._build_request(
             method="GET",
             path="/api/v1/directory_members/download/",
             base_url=base_url,
             url_variables=url_variables,
-            request=None,
+            request=request,
             request_body_required=False,
             request_has_path_params=False,
             request_has_query_params=True,
@@ -1444,12 +1487,18 @@ class Directory(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "500", "5XX"],
+            error_status_codes=["422", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(Any, http_res)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise errors.APIError("API error occurred", http_res, http_res_text)
@@ -1462,6 +1511,7 @@ class Directory(BaseSDK):
     async def directory_member_download_async(
         self,
         *,
+        response_format: Optional[models.DirectoryResponseFormat] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1471,6 +1521,7 @@ class Directory(BaseSDK):
 
         Download the entire directory as a JSON file.
 
+        :param response_format: Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1485,12 +1536,17 @@ class Directory(BaseSDK):
             base_url = server_url
         else:
             base_url = self._get_url(base_url, url_variables)
+
+        request = models.DirectoryMemberDownloadRequest(
+            response_format=response_format,
+        )
+
         req = self._build_request_async(
             method="GET",
             path="/api/v1/directory_members/download/",
             base_url=base_url,
             url_variables=url_variables,
-            request=None,
+            request=request,
             request_body_required=False,
             request_has_path_params=False,
             request_has_query_params=True,
@@ -1521,12 +1577,18 @@ class Directory(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "500", "5XX"],
+            error_status_codes=["422", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(Any, http_res)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.APIError("API error occurred", http_res, http_res_text)

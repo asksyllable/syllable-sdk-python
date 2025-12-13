@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from .directorymemberproperties import DirectoryMemberProperties
+from .directoryresponseformat import DirectoryResponseFormat
 from .orderbydirection import OrderByDirection
 from pydantic import model_serializer
 from syllable_sdk.types import (
@@ -17,84 +18,93 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class DirectoryMemberListRequestTypedDict(TypedDict):
+    response_format: NotRequired[DirectoryResponseFormat]
+    r"""Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values."""
     page: NotRequired[Nullable[int]]
-    r"""The page number from which to start (0-based)"""
+    r"""Page number (0-based)"""
     limit: NotRequired[int]
-    r"""The maximum number of items to return"""
+    r"""Items per page"""
     search_fields: NotRequired[List[DirectoryMemberProperties]]
-    r"""String names of fields to search. Correspond by index to search field values"""
+    r"""Fields to search; aligns with search_field_values"""
     search_field_values: NotRequired[List[str]]
-    r"""Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"""
+    r"""Values for search_fields in matching order"""
     order_by: NotRequired[Nullable[DirectoryMemberProperties]]
-    r"""The field whose value should be used to order the results"""
+    r"""Field to order results by"""
     order_by_direction: NotRequired[Nullable[OrderByDirection]]
-    r"""The direction in which to order the results"""
+    r"""Direction to order results"""
     fields: NotRequired[Nullable[List[DirectoryMemberProperties]]]
-    r"""The fields to include in the response"""
+    r"""Fields to include in response"""
     start_datetime: NotRequired[Nullable[str]]
-    r"""The start datetime for filtering results"""
+    r"""Start datetime for filtering results"""
     end_datetime: NotRequired[Nullable[str]]
-    r"""The end datetime for filtering results"""
+    r"""End datetime for filtering results"""
 
 
 class DirectoryMemberListRequest(BaseModel):
+    response_format: Annotated[
+        Optional[DirectoryResponseFormat],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+    r"""Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values."""
+
     page: Annotated[
         OptionalNullable[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""The page number from which to start (0-based)"""
+    r"""Page number (0-based)"""
 
     limit: Annotated[
         Optional[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = 25
-    r"""The maximum number of items to return"""
+    r"""Items per page"""
 
     search_fields: Annotated[
         Optional[List[DirectoryMemberProperties]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
-    r"""String names of fields to search. Correspond by index to search field values"""
+    r"""Fields to search; aligns with search_field_values"""
 
     search_field_values: Annotated[
         Optional[List[str]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
-    r"""Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"""
+    r"""Values for search_fields in matching order"""
 
     order_by: Annotated[
         OptionalNullable[DirectoryMemberProperties],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""The field whose value should be used to order the results"""
+    r"""Field to order results by"""
 
     order_by_direction: Annotated[
         OptionalNullable[OrderByDirection],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""The direction in which to order the results"""
+    r"""Direction to order results"""
 
     fields: Annotated[
         OptionalNullable[List[DirectoryMemberProperties]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""The fields to include in the response"""
+    r"""Fields to include in response"""
 
     start_datetime: Annotated[
         OptionalNullable[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""The start datetime for filtering results"""
+    r"""Start datetime for filtering results"""
 
     end_datetime: Annotated[
         OptionalNullable[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""The end datetime for filtering results"""
+    r"""End datetime for filtering results"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
+            "response_format",
             "page",
             "limit",
             "search_fields",
