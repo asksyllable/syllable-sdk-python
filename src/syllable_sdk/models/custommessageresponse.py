@@ -34,6 +34,8 @@ class CustomMessageResponseTypedDict(TypedDict):
     r"""Timestamp of the most recent update to the custom message"""
     last_updated_by: str
     r"""The email address of the user who most recently updated the custom message"""
+    preamble: NotRequired[Nullable[str]]
+    r"""An optional preamble that will be delivered before the main message, regardless of whether the current time and date match a rule or the system uses the default message. Cannot contain the \"{{ language.mode }}\" tag. In the case of a voice conversation, the user will not be able to interrupt the preamble. Can be used for e.g. legal disclaimers that the user must always see/hear."""
     label: NotRequired[Nullable[str]]
     r"""The label of the custom message"""
     rules: NotRequired[List[CustomMessageRuleTypedDict]]
@@ -68,6 +70,9 @@ class CustomMessageResponse(BaseModel):
     last_updated_by: str
     r"""The email address of the user who most recently updated the custom message"""
 
+    preamble: OptionalNullable[str] = UNSET
+    r"""An optional preamble that will be delivered before the main message, regardless of whether the current time and date match a rule or the system uses the default message. Cannot contain the \"{{ language.mode }}\" tag. In the case of a voice conversation, the user will not be able to interrupt the preamble. Can be used for e.g. legal disclaimers that the user must always see/hear."""
+
     label: OptionalNullable[str] = UNSET
     r"""The label of the custom message"""
 
@@ -82,8 +87,8 @@ class CustomMessageResponse(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["label", "rules", "agent_count", "type"]
-        nullable_fields = ["label", "agent_count"]
+        optional_fields = ["preamble", "label", "rules", "agent_count", "type"]
+        nullable_fields = ["preamble", "label", "agent_count"]
         null_default_fields = []
 
         serialized = handler(self)

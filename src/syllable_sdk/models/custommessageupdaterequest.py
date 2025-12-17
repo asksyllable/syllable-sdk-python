@@ -23,6 +23,8 @@ class CustomMessageUpdateRequestTypedDict(TypedDict):
     r"""The default message that the agent will deliver if no rules are set or no rules match the current timestamp."""
     id: int
     r"""The ID of the custom message"""
+    preamble: NotRequired[Nullable[str]]
+    r"""An optional preamble that will be delivered before the main message, regardless of whether the current time and date match a rule or the system uses the default message. Cannot contain the \"{{ language.mode }}\" tag. In the case of a voice conversation, the user will not be able to interrupt the preamble. Can be used for e.g. legal disclaimers that the user must always see/hear."""
     label: NotRequired[Nullable[str]]
     r"""The label of the custom message"""
     rules: NotRequired[List[CustomMessageRuleTypedDict]]
@@ -43,6 +45,9 @@ class CustomMessageUpdateRequest(BaseModel):
     id: int
     r"""The ID of the custom message"""
 
+    preamble: OptionalNullable[str] = UNSET
+    r"""An optional preamble that will be delivered before the main message, regardless of whether the current time and date match a rule or the system uses the default message. Cannot contain the \"{{ language.mode }}\" tag. In the case of a voice conversation, the user will not be able to interrupt the preamble. Can be used for e.g. legal disclaimers that the user must always see/hear."""
+
     label: OptionalNullable[str] = UNSET
     r"""The label of the custom message"""
 
@@ -54,8 +59,8 @@ class CustomMessageUpdateRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["label", "rules", "type"]
-        nullable_fields = ["label"]
+        optional_fields = ["preamble", "label", "rules", "type"]
+        nullable_fields = ["preamble", "label"]
         null_default_fields = []
 
         serialized = handler(self)
