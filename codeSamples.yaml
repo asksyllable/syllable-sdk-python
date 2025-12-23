@@ -799,13 +799,7 @@ actions:
                     ],
                     "chunk": False,
                     "chunk_delimiter": "",
-                    "text": ("The following are names and addresses of pizza shops.\n"
-                    "\n"
-                    "Cool Pizza, 123 Main St.\n"
-                    "\n"
-                    "Really Good Pizza, 456 Water St.\n"
-                    "\n"
-                    "The Best Pizza, 789 Circle Dr."),
+                    "text": "The following are names and addresses of pizza shops.\n\nCool Pizza, 123 Main St.\n\nReally Good Pizza, 456 Water St.\n\nThe Best Pizza, 789 Circle Dr.",
                 })
 
                 # Handle response
@@ -834,13 +828,7 @@ actions:
                     "chunk_delimiter": "",
                     "id": 1,
                     "edit_comments": "Added new info",
-                    "text": ("The following are names and addresses of pizza shops.\n"
-                    "\n"
-                    "Cool Pizza, 123 Main St.\n"
-                    "\n"
-                    "Really Good Pizza, 456 Water St.\n"
-                    "\n"
-                    "The Best Pizza, 789 Circle Dr."),
+                    "text": "The following are names and addresses of pizza shops.\n\nCool Pizza, 123 Main St.\n\nReally Good Pizza, 456 Water St.\n\nThe Best Pizza, 789 Circle Dr.",
                 })
 
                 # Handle response
@@ -1641,8 +1629,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-12-21T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-12-22T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-12-22T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-12-23T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1755,8 +1743,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2025-12-21T00:00:00Z"),
-                    "end_datetime": parse_datetime("2025-12-22T00:00:00Z"),
+                    "start_datetime": parse_datetime("2025-12-22T00:00:00Z"),
+                    "end_datetime": parse_datetime("2025-12-23T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1932,9 +1920,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20251222.9",
+                    "batch_id": "20251223.9",
                     "campaign_id": 1,
-                    "expires_on": parse_datetime("2025-12-23T00:00:00Z"),
+                    "expires_on": parse_datetime("2025-12-24T00:00:00Z"),
                     "paused": True,
                 })
 
