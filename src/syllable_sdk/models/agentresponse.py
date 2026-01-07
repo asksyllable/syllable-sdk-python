@@ -40,8 +40,6 @@ class AgentResponseTypedDict(TypedDict):
     r"""The agent type. Must be \"ca_v1\" currently."""
     prompt_id: int
     r"""ID of the prompt associated with the agent"""
-    custom_message_id: int
-    r"""Internal ID of the custom message that should be delivered at the beginning of a conversation with the agent"""
     timezone: str
     r"""The time zone in which the agent operates"""
     variables: Dict[str, str]
@@ -60,6 +58,8 @@ class AgentResponseTypedDict(TypedDict):
     r"""The agent label (DEPRECATED - use labels instead.)"""
     labels: NotRequired[Nullable[List[str]]]
     r"""The agent labels"""
+    custom_message_id: NotRequired[Nullable[int]]
+    r"""Internal ID of the custom message that should be delivered at the beginning of a conversation with the agent"""
     language_group_id: NotRequired[Nullable[int]]
     r"""Internal ID of the language group associated with the agent"""
     prompt_tool_defaults: NotRequired[List[AgentToolDefaultsTypedDict]]
@@ -101,9 +101,6 @@ class AgentResponse(BaseModel):
     prompt_id: int
     r"""ID of the prompt associated with the agent"""
 
-    custom_message_id: int
-    r"""Internal ID of the custom message that should be delivered at the beginning of a conversation with the agent"""
-
     timezone: str
     r"""The time zone in which the agent operates"""
 
@@ -135,6 +132,9 @@ class AgentResponse(BaseModel):
 
     labels: OptionalNullable[List[str]] = UNSET
     r"""The agent labels"""
+
+    custom_message_id: OptionalNullable[int] = UNSET
+    r"""Internal ID of the custom message that should be delivered at the beginning of a conversation with the agent"""
 
     language_group_id: OptionalNullable[int] = UNSET
     r"""Internal ID of the language group associated with the agent"""
@@ -180,6 +180,7 @@ class AgentResponse(BaseModel):
             "description",
             "label",
             "labels",
+            "custom_message_id",
             "language_group_id",
             "prompt_tool_defaults",
             "languages",
@@ -196,6 +197,7 @@ class AgentResponse(BaseModel):
             "description",
             "label",
             "labels",
+            "custom_message_id",
             "language_group_id",
             "tool_headers",
             "stt_provider",
