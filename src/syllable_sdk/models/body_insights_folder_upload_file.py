@@ -3,7 +3,8 @@
 from __future__ import annotations
 import io
 import pydantic
-from syllable_sdk.types import BaseModel
+from pydantic import model_serializer
+from syllable_sdk.types import BaseModel, UNSET_SENTINEL
 from syllable_sdk.utils import FieldMetadata, MultipartFormMetadata
 from typing import IO, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -32,6 +33,22 @@ class BodyInsightsFolderUploadFileFile(BaseModel):
         FieldMetadata(multipart=True),
     ] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["contentType"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class BodyInsightsFolderUploadFileTypedDict(TypedDict):
     file: NotRequired[BodyInsightsFolderUploadFileFileTypedDict]
@@ -42,3 +59,19 @@ class BodyInsightsFolderUploadFile(BaseModel):
         Optional[BodyInsightsFolderUploadFileFile],
         FieldMetadata(multipart=MultipartFormMetadata(file=True)),
     ] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["file"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

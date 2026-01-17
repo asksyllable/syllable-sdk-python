@@ -5,7 +5,8 @@ from .body_outbound_batch_upload import (
     BodyOutboundBatchUpload,
     BodyOutboundBatchUploadTypedDict,
 )
-from syllable_sdk.types import BaseModel
+from pydantic import model_serializer
+from syllable_sdk.types import BaseModel, UNSET_SENTINEL
 from syllable_sdk.utils import FieldMetadata, PathParamMetadata, RequestMetadata
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -25,3 +26,19 @@ class OutboundBatchUploadRequest(BaseModel):
         Optional[BodyOutboundBatchUpload],
         FieldMetadata(request=RequestMetadata(media_type="multipart/form-data")),
     ] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["Body_outbound_batch_upload"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
