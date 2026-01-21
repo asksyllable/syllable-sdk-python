@@ -322,6 +322,7 @@ if TYPE_CHECKING:
         DirectoryMemberUpdateTypedDict,
     )
     from .directoryresponseformat import DirectoryResponseFormat
+    from .emailconfigurations import EmailConfigurations, EmailConfigurationsTypedDict
     from .event import Attributes, AttributesTypedDict, Event, EventTypedDict
     from .eventproperties import EventProperties
     from .events_listop import EventsListRequest, EventsListRequestTypedDict
@@ -1352,6 +1353,8 @@ __all__ = [
     "DirectoryMemberUpdateRequestTypedDict",
     "DirectoryMemberUpdateTypedDict",
     "DirectoryResponseFormat",
+    "EmailConfigurations",
+    "EmailConfigurationsTypedDict",
     "Enter",
     "EnterTypedDict",
     "Event",
@@ -2139,6 +2142,8 @@ _dynamic_imports: dict[str, str] = {
     "DirectoryMemberUpdate": ".directorymemberupdate",
     "DirectoryMemberUpdateTypedDict": ".directorymemberupdate",
     "DirectoryResponseFormat": ".directoryresponseformat",
+    "EmailConfigurations": ".emailconfigurations",
+    "EmailConfigurationsTypedDict": ".emailconfigurations",
     "Attributes": ".event",
     "AttributesTypedDict": ".event",
     "Event": ".event",
