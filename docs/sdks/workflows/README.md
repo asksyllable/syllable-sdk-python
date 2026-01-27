@@ -112,8 +112,8 @@ with SyllableSDK(
                 "sheet_name": "Q1 Sales Data",
             },
         },
-        "start_datetime": parse_datetime("2026-01-20T00:00:00Z"),
-        "end_datetime": parse_datetime("2026-01-21T00:00:00Z"),
+        "start_datetime": parse_datetime("2026-01-26T00:00:00Z"),
+        "end_datetime": parse_datetime("2026-01-27T00:00:00Z"),
     })
 
     # Handle response
@@ -224,8 +224,8 @@ with SyllableSDK(
                 "sheet_name": "Q1 Sales Data",
             },
         },
-        "start_datetime": parse_datetime("2026-01-20T00:00:00Z"),
-        "end_datetime": parse_datetime("2026-01-21T00:00:00Z"),
+        "start_datetime": parse_datetime("2026-01-26T00:00:00Z"),
+        "end_datetime": parse_datetime("2026-01-27T00:00:00Z"),
     })
 
     # Handle response
@@ -404,16 +404,6 @@ with SyllableSDK(
 
     res = ss_client.insights.workflows.queue_work(request={
         "workflow_name": "summary-workflow",
-        "session_id_list": [
-            12334,
-            23445,
-            34556,
-        ],
-        "file_id_list": [
-            1234,
-            1678,
-            2224,
-        ],
     })
 
     # Handle response

@@ -1565,8 +1565,6 @@ actions:
 
                 res = ss_client.insights.tools.insights_tool_test(request={
                     "tool_name": "summary-tool",
-                    "session_id": 283467,
-                    "upload_file_id": 283467,
                 })
 
                 # Handle response
@@ -1635,8 +1633,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2026-01-20T00:00:00Z"),
-                    "end_datetime": parse_datetime("2026-01-21T00:00:00Z"),
+                    "start_datetime": parse_datetime("2026-01-26T00:00:00Z"),
+                    "end_datetime": parse_datetime("2026-01-27T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1657,16 +1655,6 @@ actions:
 
                 res = ss_client.insights.workflows.queue_work(request={
                     "workflow_name": "summary-workflow",
-                    "session_id_list": [
-                        12334,
-                        23445,
-                        34556,
-                    ],
-                    "file_id_list": [
-                        1234,
-                        1678,
-                        2224,
-                    ],
                 })
 
                 # Handle response
@@ -1749,8 +1737,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2026-01-20T00:00:00Z"),
-                    "end_datetime": parse_datetime("2026-01-21T00:00:00Z"),
+                    "start_datetime": parse_datetime("2026-01-26T00:00:00Z"),
+                    "end_datetime": parse_datetime("2026-01-27T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1926,9 +1914,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20260121.9",
+                    "batch_id": "20260127.9",
                     "campaign_id": 1,
-                    "expires_on": parse_datetime("2026-01-22T00:00:00Z"),
+                    "expires_on": parse_datetime("2026-01-28T00:00:00Z"),
                     "paused": True,
                 })
 
@@ -2127,7 +2115,7 @@ actions:
                     "daily_start_time": "09:00:00",
                     "daily_end_time": "17:00:00",
                     "source": "+19032900844",
-                    "caller_id": "19995551234",
+                    "caller_id": "<id>",
                     "hourly_rate": 25,
                     "retry_count": 1,
                     "retry_interval": "30m",
@@ -2197,7 +2185,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.outbound.campaigns.update(campaign_id=679645, outbound_campaign_input={
+                res = ss_client.outbound.campaigns.update(campaign_id=667849, outbound_campaign_input={
                     "campaign_name": "Outbound Campaign 1",
                     "description": "This is a test campaign",
                     "mode": "voice",
@@ -2213,7 +2201,7 @@ actions:
                     "daily_start_time": "09:00:00",
                     "daily_end_time": "17:00:00",
                     "source": "+19032900844",
-                    "caller_id": "19995551234",
+                    "caller_id": "<id>",
                     "hourly_rate": 25,
                     "retry_count": 1,
                     "retry_interval": "30m",
