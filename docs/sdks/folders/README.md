@@ -186,7 +186,7 @@ with SyllableSDK(
 
 ### Response
 
-**[bool](../../models/.md)**
+**[bool](../../models/responseinsightsfolderdelete.md)**
 
 ### Errors
 
