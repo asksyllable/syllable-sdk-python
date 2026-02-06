@@ -93,6 +93,10 @@ if TYPE_CHECKING:
         BodyPronunciationsUploadCsvFileTypedDict,
         BodyPronunciationsUploadCsvTypedDict,
     )
+    from .bridgephrasemessages import (
+        BridgePhraseMessages,
+        BridgePhraseMessagesTypedDict,
+    )
     from .bridgephrasesconfig import BridgePhrasesConfig, BridgePhrasesConfigTypedDict
     from .callaction import (
         AutoPopulate,
@@ -1190,6 +1194,8 @@ __all__ = [
     "BodyPronunciationsUploadCsvFile",
     "BodyPronunciationsUploadCsvFileTypedDict",
     "BodyPronunciationsUploadCsvTypedDict",
+    "BridgePhraseMessages",
+    "BridgePhraseMessagesTypedDict",
     "BridgePhrasesConfig",
     "BridgePhrasesConfigTypedDict",
     "CallAction",
@@ -1985,6 +1991,8 @@ _dynamic_imports: dict[str, str] = {
     "BodyPronunciationsUploadCsvFile": ".body_pronunciations_upload_csv",
     "BodyPronunciationsUploadCsvFileTypedDict": ".body_pronunciations_upload_csv",
     "BodyPronunciationsUploadCsvTypedDict": ".body_pronunciations_upload_csv",
+    "BridgePhraseMessages": ".bridgephrasemessages",
+    "BridgePhraseMessagesTypedDict": ".bridgephrasemessages",
     "BridgePhrasesConfig": ".bridgephrasesconfig",
     "BridgePhrasesConfigTypedDict": ".bridgephrasesconfig",
     "AutoPopulate": ".callaction",

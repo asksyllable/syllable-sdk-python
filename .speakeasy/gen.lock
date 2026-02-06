@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 70e9ce523a009136befba836baaba8ed
+  docChecksum: 65745d370e641d207f849f6ef65e2240
   docVersion: 0.0.3
-  speakeasyVersion: 1.708.0
+  speakeasyVersion: 1.708.1
   generationVersion: 2.811.2
-  releaseVersion: 0.45.1
-  configChecksum: d0aa9aea697f8f5d50a90a2937857786
+  releaseVersion: 0.45.2
+  configChecksum: 4010091114868d9917105dbb1f2ddef4
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: 63ca1458-d4db-41bb-898a-85f0019e8644
-  pristine_commit_hash: e196cdb10752f4ed87bb635b86363880117639ba
-  pristine_tree_hash: 5fc11ee4c6c830617426a5b1a20d85eeaf21e8a1
+  generation_id: de239d8a-6f16-4afc-91b8-b207652c0fb9
+  pristine_commit_hash: 50a8dc8054ae8010c94191dfe12d56e48d3cdeb7
+  pristine_tree_hash: 69bb92f6c1a70c215928c0e8d49193864015bc12
 features:
   python:
     additionalDependencies: 1.0.0
@@ -228,10 +228,14 @@ trackedFiles:
     id: a1deddcfd1c9
     last_write_checksum: sha1:5377358af16e900c77cd017e420f9d6561887a31
     pristine_git_object: dfbcb9b286084e7d4a9cea4c4253aa43539c1b6a
+  docs/models/bridgephrasemessages.md:
+    id: 9f8bb5bc8620
+    last_write_checksum: sha1:c24b1f773e9ab7905e175f9ccc5af6eb5e2e3967
+    pristine_git_object: e174cf02b0f93e266fd3bc51de93e94311bbc4db
   docs/models/bridgephrasesconfig.md:
     id: b0f899eff267
-    last_write_checksum: sha1:bde442c65dfb8aae2a80a133d3c6b51c1db64153
-    pristine_git_object: af13a74b84471fa36b8eb539bee2d3603f712948
+    last_write_checksum: sha1:4202268066494602c83cea1a61edce4cceccf4fe
+    pristine_git_object: bc6c733afd6edcbc8199ff6cf7332af094e6aa12
   docs/models/callaction.md:
     id: 86afdf0c2f92
     last_write_checksum: sha1:dcd608b300c5237858a5f456e46247c10bfde805
@@ -1962,8 +1966,8 @@ trackedFiles:
     pristine_git_object: bae276c71f2d3cf9e75a412ff5faf3b258756e60
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:dcded985737343b0c026a9a24b89591f980a31db
-    pristine_git_object: c40f8896a12f69907cb2d2d3caa6d5a5236bfb54
+    last_write_checksum: sha1:c0d532e0d3b88b73551fb7a82ddd8f63adfa18ff
+    pristine_git_object: ef507a00fc208e475fba915a850f7541ac63c49a
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -1990,8 +1994,8 @@ trackedFiles:
     pristine_git_object: 80c09ba9b6fc421f9200d202e6a452aeedb2c3e4
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:4dd6669751dcc12c2e9a58310e3d531cdee42d48
-    pristine_git_object: c377ca5d70f4fa5f363dde7443b703d3a0848881
+    last_write_checksum: sha1:ab6df79d4c1fd1fa3388173c514c54a106978a95
+    pristine_git_object: 9b86ba6af43230ab2f0eade2d58cf1ba5d039f87
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:7dc58c44df8ae539ebbc6c0a9069ea9405084cd9
@@ -2098,8 +2102,8 @@ trackedFiles:
     pristine_git_object: ff7976dda254144c36c5404b7dbf047e0a7e934d
   src/syllable_sdk/models/__init__.py:
     id: 984744253da7
-    last_write_checksum: sha1:fd36324ef32751f452ded11580aa1899062e4fbe
-    pristine_git_object: c88760520d88eb0a63ae79289877b5295ca50f77
+    last_write_checksum: sha1:04249ed5a6bf1d6b30f453b20d14ce7fc39b9ef2
+    pristine_git_object: 4a1e3952fa51029e2534e02c1a9616ba22cd0561
   src/syllable_sdk/models/agent_deleteop.py:
     id: 243f308cd260
     last_write_checksum: sha1:678c977fe3701387fedea959158d6edcfa9b77ed
@@ -2224,10 +2228,14 @@ trackedFiles:
     id: 3327db2df4fb
     last_write_checksum: sha1:6ceb3073d61167d8f03b2da1a1a6e90a1afa2867
     pristine_git_object: fd4a26f82c1cf0f29b860447b2b96c03cb848294
+  src/syllable_sdk/models/bridgephrasemessages.py:
+    id: 94845063f80f
+    last_write_checksum: sha1:9718b7cd49e7d4ddffd306024976220b32c4435f
+    pristine_git_object: 46435429d98065c58755ec8da702de4c3fdeca2c
   src/syllable_sdk/models/bridgephrasesconfig.py:
     id: e4afdaf9da62
-    last_write_checksum: sha1:107eb40cd12196ae6cf0ed957d2c5e27b7b99189
-    pristine_git_object: 0fbbd46a3ccb06d15e3c95cc5f3eb5df891422e9
+    last_write_checksum: sha1:271c4124156e2bf6e4a141e6f0a8ba8727c6d50e
+    pristine_git_object: 2cc86d46da5bb3a142b4570c7a6d19dda5b61f93
   src/syllable_sdk/models/callaction.py:
     id: 78ab9176c2ad
     last_write_checksum: sha1:55ca79fa24b6309c9ef3ef7c1693a08fbdd9f74c
@@ -5418,6 +5426,7 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.conversation_config.get_bridge_phrases_config()`:  `response.localized` **Added**\n* `syllable_sdk.conversation_config.update_bridge_phrases_config()`: \n  *  `request.bridge_phrases_config.localized` **Added**\n  *  `response.localized` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

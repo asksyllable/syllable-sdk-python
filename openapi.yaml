@@ -8516,7 +8516,7 @@ components:
       required:
         - "file"
       title: "Body_pronunciations_upload_csv"
-    "BridgePhrasesConfig":
+    "BridgePhraseMessages":
       properties:
         "first_slow_messages":
           items:
@@ -8537,8 +8537,36 @@ components:
           title: "Tool Responses"
           description: "Messages to say when a tool call is in progress."
       type: "object"
+      title: "BridgePhraseMessages"
+      description: "Bridge phrase message lists for a single language."
+    "BridgePhrasesConfig":
+      properties:
+        "first_slow_messages":
+          items:
+            type: "string"
+          type: "array"
+          title: "First Slow Messages"
+          description: "Messages to say when the agent is first delayed."
+        "very_slow_messages":
+          items:
+            type: "string"
+          type: "array"
+          title: "Very Slow Messages"
+          description: "Messages to say when the agent is significantly delayed."
+        "tool_responses":
+          items:
+            type: "string"
+          type: "array"
+          title: "Tool Responses"
+          description: "Messages to say when a tool call is in progress."
+        "localized":
+          additionalProperties: {"$ref": "#/components/schemas/BridgePhraseMessages"}
+          type: "object"
+          title: "Localized"
+          description: "Per-language overrides keyed by BCP-47 tag (e.g. \"es-US\")."
+      type: "object"
       title: "BridgePhrasesConfig"
-      description: "Configuration for conversational bridge phrases."
+      description: "Configuration for conversational bridge phrases.\n\nTop-level fields are the default (English) phrases.\nThe `localized` dict provides per-language overrides keyed by BCP-47 language tag."
     "CallAction":
       properties:
         "if":
