@@ -32,7 +32,7 @@ class OutboundCampaignTypedDict(TypedDict):
     description: NotRequired[Nullable[str]]
     r"""Description of campaign"""
     mode: NotRequired[Nullable[str]]
-    r"""Mode of the campaign (e.g. voice, sms)"""
+    r"""Mode of the campaign (e.g. voice, sms, email)"""
     sms_session_ttl: NotRequired[Nullable[int]]
     r"""Time to live for SMS session in minutes"""
     label: NotRequired[Nullable[str]]
@@ -84,7 +84,7 @@ class OutboundCampaign(BaseModel):
     r"""Description of campaign"""
 
     mode: OptionalNullable[str] = UNSET
-    r"""Mode of the campaign (e.g. voice, sms)"""
+    r"""Mode of the campaign (e.g. voice, sms, email)"""
 
     sms_session_ttl: OptionalNullable[int] = UNSET
     r"""Time to live for SMS session in minutes"""
