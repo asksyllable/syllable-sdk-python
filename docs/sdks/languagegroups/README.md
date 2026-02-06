@@ -322,7 +322,7 @@ with SyllableSDK(
 
 ### Response
 
-**[httpx.Response](../../models/.md)**
+**[httpx.Response](../../models/bytes.md)**
 
 ### Errors
 
