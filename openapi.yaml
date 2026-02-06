@@ -14076,10 +14076,11 @@ components:
             - type: "string"
             - type: "null"
           title: "Mode"
-          description: "Mode of the campaign (e.g. voice, sms)"
+          description: "Mode of the campaign (e.g. voice, sms, email)"
           examples:
             - "voice"
             - "sms"
+            - "email"
         "sms_session_ttl":
           anyOf:
             - type: "integer"
@@ -14255,10 +14256,11 @@ components:
             - type: "string"
             - type: "null"
           title: "Mode"
-          description: "Mode of the campaign (e.g. voice, sms)"
+          description: "Mode of the campaign (e.g. voice, sms, email)"
           examples:
             - "voice"
             - "sms"
+            - "email"
         "sms_session_ttl":
           anyOf:
             - type: "integer"
