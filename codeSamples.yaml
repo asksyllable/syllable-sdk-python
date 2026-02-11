@@ -882,14 +882,18 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.directory.list(limit=25)
+                res = ss_client.directory.list(page=0, limit=25, search_fields=[
+                    models.DirectoryMemberProperties.NAME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
 
                 # Handle response
                 print(res)
@@ -1073,7 +1077,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.directory.directory_member_test_extension(member_id=922412, timestamp="<value>")
+                res = ss_client.directory.directory_member_test_extension(member_id=922412, timestamp="2024-07-02T14:32:47.235Z")
 
                 # Handle response
                 print(res)
@@ -1371,7 +1375,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.insights.folders.list_files(folder_id=55293, page=0, limit=25, search_fields=[
-                    models.InsightsUploadFileProperties.CUSTOMER_NUMBER,
+                    models.InsightsUploadFileProperties.FILENAME,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -1633,8 +1637,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2026-02-06T00:00:00Z"),
-                    "end_datetime": parse_datetime("2026-02-07T00:00:00Z"),
+                    "start_datetime": parse_datetime("2026-02-03T00:00:00Z"),
+                    "end_datetime": parse_datetime("2026-02-04T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1710,7 +1714,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.insights.workflows.update(workflow_id=673493, insight_workflow_input={
+                res = ss_client.insights.workflows.update(workflow_id=766381, insight_workflow_input={
                     "name": "summary-workflow",
                     "source": "agent",
                     "description": "Default workflow - generates a summary of the call",
@@ -1737,8 +1741,8 @@ actions:
                             "sheet_name": "Q1 Sales Data",
                         },
                     },
-                    "start_datetime": parse_datetime("2026-02-06T00:00:00Z"),
-                    "end_datetime": parse_datetime("2026-02-07T00:00:00Z"),
+                    "start_datetime": parse_datetime("2026-02-03T00:00:00Z"),
+                    "end_datetime": parse_datetime("2026-02-04T00:00:00Z"),
                 })
 
                 # Handle response
@@ -1914,9 +1918,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
-                    "batch_id": "20260207.9",
+                    "batch_id": "20260204.9",
                     "campaign_id": 1,
-                    "expires_on": parse_datetime("2026-02-08T00:00:00Z"),
+                    "expires_on": parse_datetime("2026-02-05T00:00:00Z"),
                     "paused": True,
                 })
 
@@ -2115,7 +2119,7 @@ actions:
                     "daily_start_time": "09:00:00",
                     "daily_end_time": "17:00:00",
                     "source": "+19032900844",
-                    "caller_id": "<id>",
+                    "caller_id": "19995551234",
                     "hourly_rate": 25,
                     "retry_count": 1,
                     "retry_interval": "30m",
@@ -2185,7 +2189,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.outbound.campaigns.update(campaign_id=667849, outbound_campaign_input={
+                res = ss_client.outbound.campaigns.update(campaign_id=187717, outbound_campaign_input={
                     "campaign_name": "Outbound Campaign 1",
                     "description": "This is a test campaign",
                     "mode": "voice",
@@ -2201,7 +2205,7 @@ actions:
                     "daily_start_time": "09:00:00",
                     "daily_end_time": "17:00:00",
                     "source": "+19032900844",
-                    "caller_id": "<id>",
+                    "caller_id": "19995551234",
                     "hourly_rate": 25,
                     "retry_count": 1,
                     "retry_interval": "30m",
@@ -3071,10 +3075,21 @@ actions:
                         ),
                         endpoint=models.ToolHTTPEndpoint(
                             url="https://api.example.com",
-                            method=models.ToolHTTPMethod.DELETE,
-                            argument_location=models.ToolArgumentLocation.PATH,
+                            method=models.ToolHTTPMethod.POST,
+                            argument_location=models.ToolArgumentLocation.QUERY,
                         ),
-                        defaults="<value>",
+                        defaults={
+                            "key": {
+                                "transform": {
+                                    "action": "default",
+                                    "when": {
+                                        "key": "key",
+                                        "value": "value",
+                                        "operator": "eq",
+                                    },
+                                },
+                            },
+                        },
                         static_parameters=[
                             models.StaticToolParameter(
                                 name="temperature_unit",
@@ -3119,7 +3134,7 @@ actions:
                         ),
                         endpoint=models.ToolHTTPEndpoint(
                             url="https://api.example.com",
-                            method=models.ToolHTTPMethod.POST,
+                            method=models.ToolHTTPMethod.GET,
                             argument_location=models.ToolArgumentLocation.FORM,
                         ),
                         defaults="<value>",
@@ -3230,7 +3245,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.users.list(page=0, limit=25, search_fields=[
-                    models.UserProperties.ACTIVITY_STATUS,
+                    models.UserProperties.ROLE_ID,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -3249,7 +3264,7 @@ actions:
             ) as ss_client:
 
                 res = ss_client.v1.list(page=0, limit=25, search_fields=[
-                    models.UserProperties.ACTIVITY_STATUS,
+                    models.UserProperties.ROLE_ID,
                 ], search_field_values=[
                     "Some Object Name",
                 ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
@@ -3556,9 +3571,9 @@ actions:
             ) as ss_client:
 
                 res = ss_client.voice_groups.voice_groups_create_voice_sample(request={
-                    "language_code": models.LanguageCode.ES_US,
+                    "language_code": models.LanguageCode.FA_IR,
                     "voice_provider": models.TtsProvider.GOOGLE,
-                    "voice_display_name": models.AgentVoiceDisplayName.VINDEMIATRIX_GUJARATI_,
+                    "voice_display_name": models.AgentVoiceDisplayName.VINDEMIATRIX_ENGLISH_,
                     "voice_speed": 1,
                     "voice_pitch": 0,
                 })
