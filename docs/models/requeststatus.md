@@ -11,6 +11,7 @@ Status of a communication request.
 | `DUPLICATE`      | DUPLICATE        |
 | `INITIATED`      | INITIATED        |
 | `CONNECTED`      | CONNECTED        |
+| `SENT`           | SENT             |
 | `CALL_COMPLETED` | CALL_COMPLETED   |
 | `FAILED`         | FAILED           |
 | `CANCELED`       | CANCELED         |
