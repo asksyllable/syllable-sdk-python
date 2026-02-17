@@ -139,3 +139,9 @@ class ExpressionTask(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    ExpressionTask.model_rebuild()
+except NameError:
+    pass

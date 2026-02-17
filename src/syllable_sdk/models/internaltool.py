@@ -57,3 +57,9 @@ class InternalTool(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    InternalTool.model_rebuild()
+except NameError:
+    pass

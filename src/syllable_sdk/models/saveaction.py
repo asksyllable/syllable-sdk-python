@@ -96,3 +96,9 @@ class SaveAction(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    SaveAction.model_rebuild()
+except NameError:
+    pass

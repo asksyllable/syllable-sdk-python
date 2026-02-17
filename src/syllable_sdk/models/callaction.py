@@ -109,3 +109,9 @@ class CallAction(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    CallAction.model_rebuild()
+except NameError:
+    pass

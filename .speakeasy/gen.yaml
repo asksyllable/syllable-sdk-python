@@ -31,7 +31,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 python:
-  version: 0.45.8
+  version: 0.45.9
   additionalDependencies:
     dev: {}
     main: {}
@@ -50,6 +50,8 @@ python:
   enumFormat: enum
   envVarPrefix: SYLLABLESDK
   fixFlags:
+    asyncPaginationSep2025: false
+    conflictResistantModelImportsFeb2026: false
     responseRequiredSep2024: true
   flattenGlobalSecurity: true
   flattenRequests: false

@@ -93,3 +93,9 @@ class StepsTask(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    StepsTask.model_rebuild()
+except NameError:
+    pass

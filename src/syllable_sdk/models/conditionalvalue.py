@@ -124,3 +124,9 @@ ConditionalValueValueFrom2 = TypeAliasType(
     Union["CaseExpression", ConditionalValueValueFrom1, str],
 )
 r"""Expression to compute initial value (mutually exclusive with value)."""
+
+
+try:
+    ConditionalValue.model_rebuild()
+except NameError:
+    pass

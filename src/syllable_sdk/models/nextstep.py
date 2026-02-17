@@ -90,3 +90,9 @@ class NextStep(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    NextStep.model_rebuild()
+except NameError:
+    pass

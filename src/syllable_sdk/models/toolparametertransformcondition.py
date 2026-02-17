@@ -62,3 +62,9 @@ class ToolParameterTransformCondition(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    ToolParameterTransformCondition.model_rebuild()
+except NameError:
+    pass

@@ -84,3 +84,9 @@ class EventTask(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    EventTask.model_rebuild()
+except NameError:
+    pass

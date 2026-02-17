@@ -99,3 +99,9 @@ class LoadToolFromFileTask(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    LoadToolFromFileTask.model_rebuild()
+except NameError:
+    pass
