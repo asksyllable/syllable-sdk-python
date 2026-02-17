@@ -46,3 +46,9 @@ class CelExpression(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    CelExpression.model_rebuild()
+except NameError:
+    pass

@@ -101,3 +101,9 @@ class SayAction(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    SayAction.model_rebuild()
+except NameError:
+    pass

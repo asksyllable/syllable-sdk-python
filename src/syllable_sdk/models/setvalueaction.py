@@ -133,3 +133,9 @@ class SetValueAction(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    SetValueAction.model_rebuild()
+except NameError:
+    pass

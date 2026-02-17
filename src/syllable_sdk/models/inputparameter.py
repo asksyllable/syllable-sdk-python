@@ -95,3 +95,9 @@ class InputParameter(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    InputParameter.model_rebuild()
+except NameError:
+    pass

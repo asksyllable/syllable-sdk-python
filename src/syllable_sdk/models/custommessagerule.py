@@ -90,3 +90,9 @@ class CustomMessageRule(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    CustomMessageRule.model_rebuild()
+except NameError:
+    pass
