@@ -1,4 +1,4 @@
-# AutoPopulate
+# Autopopulate
 
 Auto-population strategy: True (hybrid - synthetic or LLM), False (always LLM), "required" (synthetic only if all required args available, else LLM)
 

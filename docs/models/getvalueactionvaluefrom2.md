@@ -1,14 +1,14 @@
-# GetValueActionValueFrom2
+# GetValueActionValuefrom2
 
 Expression to compute initial value (mutually exclusive with value).
 
 
 ## Supported Types
 
-### `models.GetValueActionValueFrom1`
+### `models.GetValueActionValuefrom1`
 
 ```python
-value: models.GetValueActionValueFrom1 = /* values here */
+value: models.GetValueActionValuefrom1 = /* values here */
 ```
 
 ### `models.CaseExpression`

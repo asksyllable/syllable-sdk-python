@@ -19,13 +19,13 @@ from typing import Any, List, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
-VariableValueFrom1TypedDict = TypeAliasType(
-    "VariableValueFrom1TypedDict",
+VariableValuefrom1TypedDict = TypeAliasType(
+    "VariableValuefrom1TypedDict",
     Union[CelExpressionTypedDict, JMESPathExpressionTypedDict],
 )
 
 
-VariableValueFrom1 = Annotated[
+VariableValuefrom1 = Annotated[
     Union[
         Annotated[CelExpression, Tag("cel")],
         Annotated[JMESPathExpression, Tag("jmespath")],
@@ -35,15 +35,15 @@ VariableValueFrom1 = Annotated[
 ]
 
 
-VariableValueFrom2TypedDict = TypeAliasType(
-    "VariableValueFrom2TypedDict",
-    Union[CaseExpressionTypedDict, VariableValueFrom1TypedDict, str],
+VariableValuefrom2TypedDict = TypeAliasType(
+    "VariableValuefrom2TypedDict",
+    Union[CaseExpressionTypedDict, VariableValuefrom1TypedDict, str],
 )
 r"""Expression to compute initial value (mutually exclusive with value)."""
 
 
-VariableValueFrom2 = TypeAliasType(
-    "VariableValueFrom2", Union[CaseExpression, VariableValueFrom1, str]
+VariableValuefrom2 = TypeAliasType(
+    "VariableValuefrom2", Union[CaseExpression, VariableValuefrom1, str]
 )
 r"""Expression to compute initial value (mutually exclusive with value)."""
 
@@ -63,7 +63,7 @@ class VariableTypedDict(TypedDict):
     r"""The name of the property."""
     value: NotRequired[Nullable[Any]]
     r"""Initial value of the variable."""
-    value_from: NotRequired[Nullable[VariableValueFrom2TypedDict]]
+    value_from: NotRequired[Nullable[VariableValuefrom2TypedDict]]
     r"""Expression to compute initial value (mutually exclusive with value)."""
     type: NotRequired[Nullable[VariableType]]
     description: NotRequired[Nullable[str]]
@@ -81,7 +81,9 @@ class Variable(BaseModel):
     value: OptionalNullable[Any] = UNSET
     r"""Initial value of the variable."""
 
-    value_from: OptionalNullable[VariableValueFrom2] = UNSET
+    value_from: Annotated[
+        OptionalNullable[VariableValuefrom2], pydantic.Field(alias="valueFrom")
+    ] = UNSET
     r"""Expression to compute initial value (mutually exclusive with value)."""
 
     type: OptionalNullable[VariableType] = UNSET
@@ -103,7 +105,7 @@ class Variable(BaseModel):
         optional_fields = set(
             [
                 "value",
-                "value_from",
+                "valueFrom",
                 "type",
                 "description",
                 "title",
@@ -116,7 +118,7 @@ class Variable(BaseModel):
         nullable_fields = set(
             [
                 "value",
-                "value_from",
+                "valueFrom",
                 "type",
                 "description",
                 "title",

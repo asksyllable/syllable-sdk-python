@@ -9070,12 +9070,12 @@ components:
             - type: "null"
           title: "Arguments"
           description: "Optional arguments to pass to the tool (supports template strings)"
-        auto_populate:
+        autoPopulate:
           anyOf:
             - type: "boolean"
             - type: "string"
               const: "required"
-          title: "Auto Populate"
+          title: "Autopopulate"
           description: "Auto-population strategy: True (hybrid - synthetic or LLM), False (always LLM), \"required\" (synthetic only if all required args available, else LLM)"
           default: true
       type: "object"
@@ -9761,7 +9761,7 @@ components:
             - $ref: "#/components/schemas/JsonValue"
             - type: "null"
           description: "Initial value of the variable."
-        value_from:
+        valueFrom:
           anyOf:
             - oneOf:
                 - $ref: "#/components/schemas/CelExpression"
@@ -9775,7 +9775,7 @@ components:
             - $ref: "#/components/schemas/CaseExpression"
             - type: "string"
             - type: "null"
-          title: "Value From"
+          title: "Valuefrom"
           description: "Expression to compute initial value (mutually exclusive with value)."
         if:
           anyOf:
@@ -9837,11 +9837,11 @@ components:
             - type: "integer"
             - type: "null"
           title: "Priority"
-        parent_tool_name:
+        parentToolName:
           anyOf:
             - type: "string"
             - type: "null"
-          title: "Parent Tool Name"
+          title: "Parenttoolname"
           description: "Name of the ToolDefinition that defined this task"
       type: "object"
       title: "ContextTaskMetadata"
@@ -11528,7 +11528,7 @@ components:
             - $ref: "#/components/schemas/JsonValue"
             - type: "null"
           description: "Initial value of the variable."
-        value_from:
+        valueFrom:
           anyOf:
             - oneOf:
                 - $ref: "#/components/schemas/CelExpression"
@@ -11542,7 +11542,7 @@ components:
             - $ref: "#/components/schemas/CaseExpression"
             - type: "string"
             - type: "null"
-          title: "Value From"
+          title: "Valuefrom"
           description: "Expression to compute initial value (mutually exclusive with value)."
         if:
           anyOf:
@@ -16818,7 +16818,7 @@ components:
             - $ref: "#/components/schemas/JsonValue"
             - type: "null"
           description: "Initial value of the variable."
-        value_from:
+        valueFrom:
           anyOf:
             - oneOf:
                 - $ref: "#/components/schemas/CelExpression"
@@ -16832,7 +16832,7 @@ components:
             - $ref: "#/components/schemas/CaseExpression"
             - type: "string"
             - type: "null"
-          title: "Value From"
+          title: "Valuefrom"
           description: "Expression to compute initial value (mutually exclusive with value)."
         if:
           anyOf:
@@ -17060,11 +17060,11 @@ components:
             - type: "null"
           title: "Allow"
           description: "List of allowed tool names for this step."
-        allow_go_to_step:
+        allowGoToStep:
           anyOf:
             - type: "boolean"
             - type: "null"
-          title: "Allow Go To Step"
+          title: "Allowgotostep"
           description: "Whether to expose the go_to_step escape hatch to the LLM. Defaults to disabled."
       type: "object"
       title: "StepTools"
@@ -18511,7 +18511,7 @@ components:
             - $ref: "#/components/schemas/JsonValue"
             - type: "null"
           description: "Initial value of the variable."
-        value_from:
+        valueFrom:
           anyOf:
             - oneOf:
                 - $ref: "#/components/schemas/CelExpression"
@@ -18525,7 +18525,7 @@ components:
             - $ref: "#/components/schemas/CaseExpression"
             - type: "string"
             - type: "null"
-          title: "Value From"
+          title: "Valuefrom"
           description: "Expression to compute initial value (mutually exclusive with value)."
         name:
           type: "string"
