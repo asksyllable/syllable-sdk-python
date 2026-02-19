@@ -1,14 +1,14 @@
-# VariableValueFrom2
+# VariableValuefrom2
 
 Expression to compute initial value (mutually exclusive with value).
 
 
 ## Supported Types
 
-### `models.VariableValueFrom1`
+### `models.VariableValuefrom1`
 
 ```python
-value: models.VariableValueFrom1 = /* values here */
+value: models.VariableValuefrom1 = /* values here */
 ```
 
 ### `models.CaseExpression`

@@ -1064,7 +1064,7 @@ class Batches(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.body_outbound_batch_upload,
+                request.body_outbound_batch_upload if request is not None else None,
                 False,
                 True,
                 "multipart",
@@ -1168,7 +1168,7 @@ class Batches(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.body_outbound_batch_upload,
+                request.body_outbound_batch_upload if request is not None else None,
                 False,
                 True,
                 "multipart",

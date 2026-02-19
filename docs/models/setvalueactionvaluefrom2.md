@@ -1,14 +1,14 @@
-# SetValueActionValueFrom2
+# SetValueActionValuefrom2
 
 Expression to compute initial value (mutually exclusive with value).
 
 
 ## Supported Types
 
-### `models.SetValueActionValueFrom1`
+### `models.SetValueActionValuefrom1`
 
 ```python
-value: models.SetValueActionValueFrom1 = /* values here */
+value: models.SetValueActionValuefrom1 = /* values here */
 ```
 
 ### `models.CaseExpression`

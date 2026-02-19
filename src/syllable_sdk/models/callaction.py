@@ -47,11 +47,11 @@ CallActionIf2 = TypeAliasType(
 r"""An expression that must evaluate to true for the action to be applied."""
 
 
-AutoPopulateTypedDict = TypeAliasType("AutoPopulateTypedDict", Union[bool, str])
+AutopopulateTypedDict = TypeAliasType("AutopopulateTypedDict", Union[bool, str])
 r"""Auto-population strategy: True (hybrid - synthetic or LLM), False (always LLM), \"required\" (synthetic only if all required args available, else LLM)"""
 
 
-AutoPopulate = TypeAliasType("AutoPopulate", Union[bool, str])
+Autopopulate = TypeAliasType("Autopopulate", Union[bool, str])
 r"""Auto-population strategy: True (hybrid - synthetic or LLM), False (always LLM), \"required\" (synthetic only if all required args available, else LLM)"""
 
 
@@ -63,7 +63,7 @@ class CallActionTypedDict(TypedDict):
     action: Literal["call"]
     arguments: NotRequired[Nullable[Dict[str, Any]]]
     r"""Optional arguments to pass to the tool (supports template strings)"""
-    auto_populate: NotRequired[AutoPopulateTypedDict]
+    auto_populate: NotRequired[AutopopulateTypedDict]
     r"""Auto-population strategy: True (hybrid - synthetic or LLM), False (always LLM), \"required\" (synthetic only if all required args available, else LLM)"""
 
 
@@ -82,12 +82,14 @@ class CallAction(BaseModel):
     arguments: OptionalNullable[Dict[str, Any]] = UNSET
     r"""Optional arguments to pass to the tool (supports template strings)"""
 
-    auto_populate: Optional[AutoPopulate] = None
+    auto_populate: Annotated[
+        Optional[Autopopulate], pydantic.Field(alias="autoPopulate")
+    ] = None
     r"""Auto-population strategy: True (hybrid - synthetic or LLM), False (always LLM), \"required\" (synthetic only if all required args available, else LLM)"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["if", "action", "arguments", "auto_populate"])
+        optional_fields = set(["if", "action", "arguments", "autoPopulate"])
         nullable_fields = set(["if", "arguments"])
         serialized = handler(self)
         m = {}

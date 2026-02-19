@@ -20,13 +20,13 @@ if TYPE_CHECKING:
     from .caseexpression import CaseExpression, CaseExpressionTypedDict
 
 
-ConditionalValueValueFrom1TypedDict = TypeAliasType(
-    "ConditionalValueValueFrom1TypedDict",
+ConditionalValueValuefrom1TypedDict = TypeAliasType(
+    "ConditionalValueValuefrom1TypedDict",
     Union[CelExpressionTypedDict, JMESPathExpressionTypedDict],
 )
 
 
-ConditionalValueValueFrom1 = Annotated[
+ConditionalValueValuefrom1 = Annotated[
     Union[
         Annotated[CelExpression, Tag("cel")],
         Annotated[JMESPathExpression, Tag("jmespath")],
@@ -68,7 +68,7 @@ r"""An expression that must evaluate to true for the action to be applied."""
 class ConditionalValueTypedDict(TypedDict):
     value: NotRequired[Nullable[Any]]
     r"""Initial value of the variable."""
-    value_from: NotRequired[Nullable[ConditionalValueValueFrom2TypedDict]]
+    value_from: NotRequired[Nullable[ConditionalValueValuefrom2TypedDict]]
     r"""Expression to compute initial value (mutually exclusive with value)."""
     if_: NotRequired[Nullable[ConditionalValueIf2TypedDict]]
     r"""An expression that must evaluate to true for the action to be applied."""
@@ -78,7 +78,9 @@ class ConditionalValue(BaseModel):
     value: OptionalNullable[Any] = UNSET
     r"""Initial value of the variable."""
 
-    value_from: OptionalNullable[ConditionalValueValueFrom2] = UNSET
+    value_from: Annotated[
+        OptionalNullable[ConditionalValueValuefrom2], pydantic.Field(alias="valueFrom")
+    ] = UNSET
     r"""Expression to compute initial value (mutually exclusive with value)."""
 
     if_: Annotated[
@@ -88,8 +90,8 @@ class ConditionalValue(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["value", "value_from", "if"])
-        nullable_fields = set(["value", "value_from", "if"])
+        optional_fields = set(["value", "valueFrom", "if"])
+        nullable_fields = set(["value", "valueFrom", "if"])
         serialized = handler(self)
         m = {}
 
@@ -112,16 +114,16 @@ class ConditionalValue(BaseModel):
         return m
 
 
-ConditionalValueValueFrom2TypedDict = TypeAliasType(
-    "ConditionalValueValueFrom2TypedDict",
-    Union["CaseExpressionTypedDict", ConditionalValueValueFrom1TypedDict, str],
+ConditionalValueValuefrom2TypedDict = TypeAliasType(
+    "ConditionalValueValuefrom2TypedDict",
+    Union["CaseExpressionTypedDict", ConditionalValueValuefrom1TypedDict, str],
 )
 r"""Expression to compute initial value (mutually exclusive with value)."""
 
 
-ConditionalValueValueFrom2 = TypeAliasType(
-    "ConditionalValueValueFrom2",
-    Union["CaseExpression", ConditionalValueValueFrom1, str],
+ConditionalValueValuefrom2 = TypeAliasType(
+    "ConditionalValueValuefrom2",
+    Union["CaseExpression", ConditionalValueValuefrom1, str],
 )
 r"""Expression to compute initial value (mutually exclusive with value)."""
 

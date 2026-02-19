@@ -1,14 +1,14 @@
-# ConditionalValueValueFrom2
+# ConditionalValueValuefrom2
 
 Expression to compute initial value (mutually exclusive with value).
 
 
 ## Supported Types
 
-### `models.ConditionalValueValueFrom1`
+### `models.ConditionalValueValuefrom1`
 
 ```python
-value: models.ConditionalValueValueFrom1 = /* values here */
+value: models.ConditionalValueValuefrom1 = /* values here */
 ```
 
 ### `models.CaseExpression`

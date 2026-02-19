@@ -19,13 +19,13 @@ from typing import Any, Literal, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
-SetValueActionValueFrom1TypedDict = TypeAliasType(
-    "SetValueActionValueFrom1TypedDict",
+SetValueActionValuefrom1TypedDict = TypeAliasType(
+    "SetValueActionValuefrom1TypedDict",
     Union[CelExpressionTypedDict, JMESPathExpressionTypedDict],
 )
 
 
-SetValueActionValueFrom1 = Annotated[
+SetValueActionValuefrom1 = Annotated[
     Union[
         Annotated[CelExpression, Tag("cel")],
         Annotated[JMESPathExpression, Tag("jmespath")],
@@ -35,15 +35,15 @@ SetValueActionValueFrom1 = Annotated[
 ]
 
 
-SetValueActionValueFrom2TypedDict = TypeAliasType(
-    "SetValueActionValueFrom2TypedDict",
-    Union[CaseExpressionTypedDict, SetValueActionValueFrom1TypedDict, str],
+SetValueActionValuefrom2TypedDict = TypeAliasType(
+    "SetValueActionValuefrom2TypedDict",
+    Union[CaseExpressionTypedDict, SetValueActionValuefrom1TypedDict, str],
 )
 r"""Expression to compute initial value (mutually exclusive with value)."""
 
 
-SetValueActionValueFrom2 = TypeAliasType(
-    "SetValueActionValueFrom2", Union[CaseExpression, SetValueActionValueFrom1, str]
+SetValueActionValuefrom2 = TypeAliasType(
+    "SetValueActionValuefrom2", Union[CaseExpression, SetValueActionValuefrom1, str]
 )
 r"""Expression to compute initial value (mutually exclusive with value)."""
 
@@ -82,7 +82,7 @@ class SetValueActionTypedDict(TypedDict):
     r"""Destination path to mutate (e.g. output.foo)."""
     value: NotRequired[Nullable[Any]]
     r"""Initial value of the variable."""
-    value_from: NotRequired[Nullable[SetValueActionValueFrom2TypedDict]]
+    value_from: NotRequired[Nullable[SetValueActionValuefrom2TypedDict]]
     r"""Expression to compute initial value (mutually exclusive with value)."""
     if_: NotRequired[Nullable[SetValueActionIf2TypedDict]]
     r"""An expression that must evaluate to true for the action to be applied."""
@@ -96,7 +96,9 @@ class SetValueAction(BaseModel):
     value: OptionalNullable[Any] = UNSET
     r"""Initial value of the variable."""
 
-    value_from: OptionalNullable[SetValueActionValueFrom2] = UNSET
+    value_from: Annotated[
+        OptionalNullable[SetValueActionValuefrom2], pydantic.Field(alias="valueFrom")
+    ] = UNSET
     r"""Expression to compute initial value (mutually exclusive with value)."""
 
     if_: Annotated[OptionalNullable[SetValueActionIf2], pydantic.Field(alias="if")] = (
@@ -111,8 +113,8 @@ class SetValueAction(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["value", "value_from", "if", "action"])
-        nullable_fields = set(["value", "value_from", "if"])
+        optional_fields = set(["value", "valueFrom", "if", "action"])
+        nullable_fields = set(["value", "valueFrom", "if"])
         serialized = handler(self)
         m = {}
 

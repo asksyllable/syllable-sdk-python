@@ -1052,7 +1052,9 @@ class Folders(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.body_insights_folder_upload_file,
+                request.body_insights_folder_upload_file
+                if request is not None
+                else None,
                 False,
                 True,
                 "multipart",
@@ -1179,7 +1181,9 @@ class Folders(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.body_insights_folder_upload_file,
+                request.body_insights_folder_upload_file
+                if request is not None
+                else None,
                 False,
                 True,
                 "multipart",
