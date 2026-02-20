@@ -42,6 +42,8 @@ class OutboundCampaignInputTypedDict(TypedDict):
     r"""Source phone number, email, or SMS number"""
     hourly_rate: NotRequired[int]
     r"""Target number of outreach calls per hour"""
+    max_daily_calls: NotRequired[Nullable[int]]
+    r"""Maximum number of outreach calls per day"""
     retry_count: NotRequired[int]
     r"""Number of retries per target"""
     retry_interval: NotRequired[Nullable[str]]
@@ -95,6 +97,9 @@ class OutboundCampaignInput(BaseModel):
     hourly_rate: Optional[int] = 1
     r"""Target number of outreach calls per hour"""
 
+    max_daily_calls: OptionalNullable[int] = UNSET
+    r"""Maximum number of outreach calls per day"""
+
     retry_count: Optional[int] = 0
     r"""Number of retries per target"""
 
@@ -117,6 +122,7 @@ class OutboundCampaignInput(BaseModel):
                 "daily_end_time",
                 "source",
                 "hourly_rate",
+                "max_daily_calls",
                 "retry_count",
                 "retry_interval",
                 "voicemail_detection",
@@ -133,6 +139,7 @@ class OutboundCampaignInput(BaseModel):
                 "daily_end_time",
                 "source",
                 "caller_id",
+                "max_daily_calls",
                 "retry_interval",
                 "voicemail_detection",
             ]
