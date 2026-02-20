@@ -23784,6 +23784,21 @@
               25
             ]
           },
+          "max_daily_calls": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Daily Calls",
+            "description": "Maximum number of outreach calls per day",
+            "examples": [
+              2500
+            ]
+          },
           "retry_count": {
             "type": "integer",
             "title": "Retry Count",
@@ -24086,6 +24101,21 @@
             "default": 1,
             "examples": [
               25
+            ]
+          },
+          "max_daily_calls": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Daily Calls",
+            "description": "Maximum number of outreach calls per day",
+            "examples": [
+              2500
             ]
           },
           "retry_count": {
