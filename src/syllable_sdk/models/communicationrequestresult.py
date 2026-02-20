@@ -11,16 +11,14 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import Dict, Optional
-from typing_extensions import NotRequired, TypedDict
+from typing import Dict, Optional, Union
+from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
-class InsightsTypedDict(TypedDict):
-    pass
+InsightsTypedDict = TypeAliasType("InsightsTypedDict", Union[str, int, float])
 
 
-class Insights(BaseModel):
-    pass
+Insights = TypeAliasType("Insights", Union[str, int, float])
 
 
 class CommunicationRequestResultTypedDict(TypedDict):
@@ -48,7 +46,7 @@ class CommunicationRequestResultTypedDict(TypedDict):
     r"""Status of request in channel manager"""
     insights_status: NotRequired[Nullable[str]]
     r"""Status of session in insight workflow"""
-    insights: NotRequired[Nullable[InsightsTypedDict]]
+    insights: NotRequired[Nullable[Dict[str, InsightsTypedDict]]]
     r"""Insights from call"""
 
 
@@ -89,7 +87,7 @@ class CommunicationRequestResult(BaseModel):
     insights_status: OptionalNullable[str] = UNSET
     r"""Status of session in insight workflow"""
 
-    insights: OptionalNullable[Insights] = UNSET
+    insights: OptionalNullable[Dict[str, Insights]] = UNSET
     r"""Insights from call"""
 
     @model_serializer(mode="wrap")
