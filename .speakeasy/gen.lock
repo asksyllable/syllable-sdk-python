@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 34302f50f9af2fa3af5a4550da1f1aea
+  docChecksum: 310db6368afffa5ec6db7981cede3fb8
   docVersion: 0.0.3
   speakeasyVersion: 1.723.0
   generationVersion: 2.835.2
-  releaseVersion: 0.45.14
-  configChecksum: c5c8e9374b3177d2ba68fcfa23a81f1d
+  releaseVersion: 0.45.15
+  configChecksum: 02935a0a1ef214cff4f2bdfcb357338a
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: 2a9d7532-f287-43f9-a984-d25b44532375
-  pristine_commit_hash: 9c962d7db461103989767ef20842a71238cb4abd
-  pristine_tree_hash: 7a8a8b5677b6cff485dd6a4d2afbeba05c0ef234
+  generation_id: 3ea455ff-1e9d-420c-97f8-907306253334
+  pristine_commit_hash: 91cbcd7b74c4bb0bdc805ae5fc6e0f3ea9905cee
+  pristine_tree_hash: bf4f49222e05c9ff328b9aff5edaaef4379cbd89
 features:
   python:
     additionalDependencies: 1.0.0
@@ -350,8 +350,8 @@ trackedFiles:
     pristine_git_object: 08c36d278143e06b786610cb9ba92cfea34c8bcc
   docs/models/communicationrequestresult.md:
     id: 8cd7fea9158f
-    last_write_checksum: sha1:3e661c2e012359038365c11ef3a1e063c32e0abb
-    pristine_git_object: e21119e53f0e65528cdf5d792f60899cafbfc6b8
+    last_write_checksum: sha1:f37199f17fd872f316c300ae6dff1c4bdacd6357
+    pristine_git_object: 726a7f60422220bd19b6e5c45c2f0b104e37b7e6
   docs/models/conditionaltext.md:
     id: 848c32a98369
     last_write_checksum: sha1:b1fd10b34f24b0eef2caa338395c87b849e1a59a
@@ -750,8 +750,8 @@ trackedFiles:
     pristine_git_object: b99de53b14cc13bc22f498b1bbf55194eebacedd
   docs/models/insights.md:
     id: 0d813c78f9ff
-    last_write_checksum: sha1:ca0066ff4bd94e3e5ef5a08221a764809ed10204
-    pristine_git_object: 6770b08bf9c0892732e18750c5c62007c3facb30
+    last_write_checksum: sha1:e55abdf898b77a3e994bfd6928139c4ab55c143b
+    pristine_git_object: 69d1a5b5c3a933409822f59bd1afd580ec789341
   docs/models/insightsfolder.md:
     id: f37349cba644
     last_write_checksum: sha1:70f1807ea60d47ff27dc6d77940c474a73d55d5c
@@ -1966,8 +1966,8 @@ trackedFiles:
     pristine_git_object: 739eef2047817f053e6c7688b3993b63a9a7f142
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:ad05bfc19a77a3f3fae0978a2e3aa6912123ae9f
-    pristine_git_object: ce1baf80401de68679984b2ac5cbdb2693360ace
+    last_write_checksum: sha1:9b67015f21082647abc46b3b3897a0890ea00f67
+    pristine_git_object: 0f83da1137420664d181b2445f89ccc43ce8edce
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -1994,8 +1994,8 @@ trackedFiles:
     pristine_git_object: 80c09ba9b6fc421f9200d202e6a452aeedb2c3e4
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:9f3e1c91702886bf59d31899b7522dd2feda7f3e
-    pristine_git_object: 5c630175c2ff8e0e85ef4ca689b4d43c359a6f45
+    last_write_checksum: sha1:f044665628fb69ace81022313ae00448df7ccd33
+    pristine_git_object: 473b1099e6500b69772c8979be96692ad78ab9a3
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:7dc58c44df8ae539ebbc6c0a9069ea9405084cd9
@@ -2342,8 +2342,8 @@ trackedFiles:
     pristine_git_object: d83b6ac6fa936b2a553240c06830647717313f3b
   src/syllable_sdk/models/communicationrequestresult.py:
     id: 5acd1024237c
-    last_write_checksum: sha1:d677a6a656940bf2550e4568a46ee812e2ab6e34
-    pristine_git_object: c042eac980805fece73a04a3e1e6d9f59713ce73
+    last_write_checksum: sha1:e887dd903ab2d7fe933b007b6bfdfc2505d5efff
+    pristine_git_object: 4210d1933b0d45d12a7dc4e628593e400ab1a47d
   src/syllable_sdk/models/conditionaltext.py:
     id: 3ffcb4e76b92
     last_write_checksum: sha1:540f09dfc389a218f716eb2ab24c68bdd8bf341e
@@ -5430,7 +5430,9 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.outbound.campaigns.list()`:  `response.items[].max_daily_calls` **Added**\n* `syllable_sdk.outbound.campaigns.create()`: \n  *  `request.max_daily_calls` **Added**\n  *  `response.max_daily_calls` **Added**\n* `syllable_sdk.outbound.campaigns.get_by_id()`:  `response.max_daily_calls` **Added**\n* `syllable_sdk.outbound.campaigns.update()`: \n  *  `request.outbound_campaign_input.max_daily_calls` **Added**\n  *  `response.max_daily_calls` **Added**\n"
+releaseNotes: |
+  ## Python SDK Changes:
+  * `syllable_sdk.outbound.batches.results()`:  `response.[].insights` **Changed** (Breaking ⚠️)
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
