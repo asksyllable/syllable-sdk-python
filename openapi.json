@@ -15547,6 +15547,19 @@
           "insights": {
             "anyOf": [
               {
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
                 "type": "object"
               },
               {
