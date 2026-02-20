@@ -99,6 +99,7 @@ with SyllableSDK(
         "source": "+19032900844",
         "caller_id": "19995551234",
         "hourly_rate": 25,
+        "max_daily_calls": 2500,
         "retry_count": 1,
         "retry_interval": "30m",
         "active_days": [
@@ -213,6 +214,7 @@ with SyllableSDK(
         "source": "+19032900844",
         "caller_id": "19995551234",
         "hourly_rate": 25,
+        "max_daily_calls": 2500,
         "retry_count": 1,
         "retry_interval": "30m",
         "active_days": [
