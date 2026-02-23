@@ -14578,7 +14578,7 @@
             "anyOf": [
               {
                 "additionalProperties": {
-                  "$ref": "#/components/schemas/pydantic__types__JsonValue"
+                  "$ref": "#/components/schemas/JsonValue"
                 },
                 "type": "object"
               },
@@ -15636,7 +15636,7 @@
           "value": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/pydantic__types__JsonValue"
+                "$ref": "#/components/schemas/JsonValue"
               },
               {
                 "type": "null"
@@ -18034,7 +18034,7 @@
             "anyOf": [
               {
                 "additionalProperties": {
-                  "$ref": "#/components/schemas/pydantic__types__JsonValue"
+                  "$ref": "#/components/schemas/JsonValue"
                 },
                 "type": "object"
               },
@@ -18159,7 +18159,7 @@
             "anyOf": [
               {
                 "additionalProperties": {
-                  "$ref": "#/components/schemas/pydantic__types__JsonValue"
+                  "$ref": "#/components/schemas/JsonValue"
                 },
                 "type": "object"
               },
@@ -18257,7 +18257,7 @@
           "output": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/pydantic__types__JsonValue"
+                "$ref": "#/components/schemas/JsonValue"
               },
               {
                 "type": "null"
@@ -18472,7 +18472,7 @@
           "value": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/pydantic__types__JsonValue"
+                "$ref": "#/components/schemas/JsonValue"
               },
               {
                 "type": "null"
@@ -19183,7 +19183,7 @@
             "anyOf": [
               {
                 "items": {
-                  "$ref": "#/components/schemas/pydantic__types__JsonValue"
+                  "$ref": "#/components/schemas/JsonValue"
                 },
                 "type": "array"
               },
@@ -20676,6 +20676,7 @@
         "title": "JMESPathExpression",
         "description": "See https://jmespath.org/specification.html#grammar"
       },
+      "JsonValue": {},
       "LanguageCode": {
         "type": "string",
         "enum": [
@@ -23058,7 +23059,7 @@
             "anyOf": [
               {
                 "additionalProperties": {
-                  "$ref": "#/components/schemas/pydantic__types__JsonValue"
+                  "$ref": "#/components/schemas/JsonValue"
                 },
                 "type": "object"
               },
@@ -26673,7 +26674,7 @@
           "value": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/pydantic__types__JsonValue"
+                "$ref": "#/components/schemas/JsonValue"
               },
               {
                 "type": "null"
@@ -27134,7 +27135,7 @@
             "anyOf": [
               {
                 "additionalProperties": {
-                  "$ref": "#/components/schemas/pydantic__types__JsonValue"
+                  "$ref": "#/components/schemas/JsonValue"
                 },
                 "type": "object"
               },
@@ -29339,12 +29340,13 @@
           "value": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/services__syllable__api__v1__validation__core__JsonValue"
+                "type": "string"
               },
               {
                 "type": "null"
               }
             ],
+            "title": "Value",
             "description": "The offending value, when it adds clarity"
           }
         },
@@ -29361,7 +29363,7 @@
           "value": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/pydantic__types__JsonValue"
+                "$ref": "#/components/schemas/JsonValue"
               },
               {
                 "type": "null"
@@ -29489,7 +29491,7 @@
             "anyOf": [
               {
                 "items": {
-                  "$ref": "#/components/schemas/pydantic__types__JsonValue"
+                  "$ref": "#/components/schemas/JsonValue"
                 },
                 "type": "array"
               },
@@ -29903,38 +29905,6 @@
         ],
         "title": "VoiceSampleCreateRequest",
         "description": "Request model to generate a sample audio file for a given voice and language."
-      },
-      "pydantic__types__JsonValue": {},
-      "services__syllable__api__v1__validation__core__JsonValue": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "integer"
-          },
-          {
-            "type": "number"
-          },
-          {
-            "type": "boolean"
-          },
-          {
-            "items": {
-              "$ref": "#/components/schemas/services__syllable__api__v1__validation__core__JsonValue"
-            },
-            "type": "array"
-          },
-          {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/services__syllable__api__v1__validation__core__JsonValue"
-            },
-            "type": "object"
-          },
-          {
-            "type": "null"
-          }
-        ]
       }
     },
     "securitySchemes": {
