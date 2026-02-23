@@ -1080,6 +1080,7 @@ if TYPE_CHECKING:
         ValidationError,
         ValidationErrorTypedDict,
     )
+    from .validationissue import Severity, ValidationIssue, ValidationIssueTypedDict
     from .variable import (
         Variable,
         VariableType,
@@ -1781,6 +1782,7 @@ __all__ = [
     "SetValueActionValuefrom1TypedDict",
     "SetValueActionValuefrom2",
     "SetValueActionValuefrom2TypedDict",
+    "Severity",
     "StaticToolParameter",
     "StaticToolParameterType",
     "StaticToolParameterTypedDict",
@@ -1901,6 +1903,8 @@ __all__ = [
     "UsersSendEmailRequestTypedDict",
     "ValidationError",
     "ValidationErrorTypedDict",
+    "ValidationIssue",
+    "ValidationIssueTypedDict",
     "Variable",
     "VariableType",
     "VariableTypedDict",
@@ -2690,6 +2694,9 @@ _dynamic_imports: dict[str, str] = {
     "LocTypedDict": ".validationerror",
     "ValidationError": ".validationerror",
     "ValidationErrorTypedDict": ".validationerror",
+    "Severity": ".validationissue",
+    "ValidationIssue": ".validationissue",
+    "ValidationIssueTypedDict": ".validationissue",
     "Variable": ".variable",
     "VariableType": ".variable",
     "VariableTypedDict": ".variable",
