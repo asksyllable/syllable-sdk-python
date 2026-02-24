@@ -831,6 +831,10 @@ if TYPE_CHECKING:
         PronunciationsCsvUploadResponseTypedDict,
     )
     from .requeststatus import RequestStatus
+    from .requeststatusbreakdown import (
+        RequestStatusBreakdown,
+        RequestStatusBreakdownTypedDict,
+    )
     from .rolecreaterequest import RoleCreateRequest, RoleCreateRequestTypedDict
     from .roleproperties import RoleProperties
     from .roleresponse import RoleResponse, RoleResponseTypedDict
@@ -1691,6 +1695,8 @@ __all__ = [
     "PronunciationsCsvUploadResponse",
     "PronunciationsCsvUploadResponseTypedDict",
     "RequestStatus",
+    "RequestStatusBreakdown",
+    "RequestStatusBreakdownTypedDict",
     "Role",
     "RoleCreateRequest",
     "RoleCreateRequestTypedDict",
@@ -2479,6 +2485,8 @@ _dynamic_imports: dict[str, str] = {
     "PronunciationsCsvUploadResponse": ".pronunciationscsvuploadresponse",
     "PronunciationsCsvUploadResponseTypedDict": ".pronunciationscsvuploadresponse",
     "RequestStatus": ".requeststatus",
+    "RequestStatusBreakdown": ".requeststatusbreakdown",
+    "RequestStatusBreakdownTypedDict": ".requeststatusbreakdown",
     "RoleCreateRequest": ".rolecreaterequest",
     "RoleCreateRequestTypedDict": ".rolecreaterequest",
     "RoleProperties": ".roleproperties",
