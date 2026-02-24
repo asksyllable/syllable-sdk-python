@@ -14183,6 +14183,42 @@
                 "PENDING": 10
               }
             ]
+          },
+          "detailed_status_counts": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/RequestStatusBreakdown"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detailed Status Counts",
+            "description": "Per request_status: total count and optional counts by channel_manager_status",
+            "examples": [
+              {
+                "CONNECTED": {
+                  "counts": {
+                    "COMPLETED": 95,
+                    "NO-ANSWER": 5
+                  },
+                  "total_count": 100
+                },
+                "PENDING": {
+                  "counts": {
+                    "PENDING": 8,
+                    "SENT": 2
+                  },
+                  "total_count": 10
+                },
+                "QUEUED": {
+                  "total_count": 200
+                }
+              }
+            ]
           }
         },
         "type": "object",
@@ -25208,6 +25244,43 @@
         ],
         "title": "RequestStatus",
         "description": "Status of a communication request."
+      },
+      "RequestStatusBreakdown": {
+        "properties": {
+          "total_count": {
+            "type": "integer",
+            "title": "Total Count",
+            "description": "Total number of requests with this request_status"
+          },
+          "counts": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "integer"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Counts",
+            "description": "Counts by channel_manager_status within this request_status; omitted if none",
+            "examples": [
+              {
+                "DELIVERED": 2,
+                "PENDING": 3,
+                "SENT": 5
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "total_count"
+        ],
+        "title": "RequestStatusBreakdown",
+        "description": "Per-request_status breakdown with total count and optional channel_manager_status counts."
       },
       "RoleCreateRequest": {
         "properties": {
