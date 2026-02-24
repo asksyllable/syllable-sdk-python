@@ -1,23 +1,23 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: d3d5a083a77c8fd8a7f51ac8edb29d8c
+  docChecksum: 0c057183036bf4e76be65b6792b7d482
   docVersion: 0.0.3
-  speakeasyVersion: 1.725.0
-  generationVersion: 2.836.5
-  releaseVersion: 0.45.17
-  configChecksum: 7e85cd930cb47579fb4a1a5c2ca3679e
+  speakeasyVersion: 1.728.0
+  generationVersion: 2.839.0
+  releaseVersion: 0.45.18
+  configChecksum: e84642887b1578911e3ee3bfb94c6066
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: 33bab30c-77bf-44ed-addc-dbd49457837e
-  pristine_commit_hash: 63b623c6134d8aa43325c65a91581744a9e7e23a
-  pristine_tree_hash: 9ee9ee81edb39b742eb6afc766035171b4995a8c
+  generation_id: 4dc3b38f-52c7-414f-ac6f-d68b21286cd1
+  pristine_commit_hash: 7e1c65452096bcef5ade3436f9c4b82361df5b66
+  pristine_tree_hash: 06dd91f6b3ff2a26a3122656779828399d0c5a10
 features:
   python:
     additionalDependencies: 1.0.0
-    constsAndDefaults: 1.0.6
+    constsAndDefaults: 1.0.7
     core: 6.0.12
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
@@ -162,8 +162,8 @@ trackedFiles:
     pristine_git_object: 59f0d7bd5f432e2d4e7d747a7dd5422c980ebee4
   docs/models/batchdetails.md:
     id: da968f95f3ca
-    last_write_checksum: sha1:416f300202c91b4fae25e82ea8a388c108d118f0
-    pristine_git_object: 47d329fc708130ee2094d51962509cb26f3ac292
+    last_write_checksum: sha1:aebc5cddfbbaff0f5f130b39ec6fa5c29b5e52ff
+    pristine_git_object: 21c19c0594ce1779b0220aed21e1620c231a89d3
   docs/models/batchproperties.md:
     id: 44911e315bab
     last_write_checksum: sha1:9478c32ec9b9e7a1f7ebd893f8fa614d5ff81231
@@ -1288,6 +1288,10 @@ trackedFiles:
     id: 580c869308d3
     last_write_checksum: sha1:10523d199be69e3df0da4bae0b2135870ab976af
     pristine_git_object: 8d339a627c4c5b32404f382d63eb6b10d3d87cc8
+  docs/models/requeststatusbreakdown.md:
+    id: ea57f8b8ba6f
+    last_write_checksum: sha1:db540c000e1cb7e7b9c1d1504a7b181a7259bb70
+    pristine_git_object: 7bf2d9d542d8f476037ee28830acf5053310ebd7
   docs/models/role.md:
     id: b694540a5b1e
     last_write_checksum: sha1:1b285d3cc11ca25cece236e10a661e5966d59f5f
@@ -1974,8 +1978,8 @@ trackedFiles:
     pristine_git_object: 739eef2047817f053e6c7688b3993b63a9a7f142
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:e2f37c9dead6a9a4ba5faa094ffabe6c63e5f2c5
-    pristine_git_object: 03ca26924b39736b4778a90c451406080c1a8906
+    last_write_checksum: sha1:d810ffa085b76da88ffeda3badf0042d4aa51ca7
+    pristine_git_object: aa5f0a0d7f75a4efaaf4a56d367f714fa78472c6
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2002,8 +2006,8 @@ trackedFiles:
     pristine_git_object: 80c09ba9b6fc421f9200d202e6a452aeedb2c3e4
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:c0472e15510672bc29b695b40c817798479e4144
-    pristine_git_object: 16bda3d6702b0a231c6a79f7dcb5c9f8f4001164
+    last_write_checksum: sha1:358cbe0ec4eddd346f261881b5c77721438d1130
+    pristine_git_object: f32d8a686bd2d6957b7be8c61d6197be83fba826
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:7dc58c44df8ae539ebbc6c0a9069ea9405084cd9
@@ -2110,8 +2114,8 @@ trackedFiles:
     pristine_git_object: ff7976dda254144c36c5404b7dbf047e0a7e934d
   src/syllable_sdk/models/__init__.py:
     id: 984744253da7
-    last_write_checksum: sha1:06dbbfe2912df71a039f8d6ff0e61355be898816
-    pristine_git_object: 4660895897e04fa29d51be41da535ef94c0b30ba
+    last_write_checksum: sha1:89600d090f9a11a6b565f3f2c0349fbaf0c0f5ad
+    pristine_git_object: 2282c8a5f0d8529185286bb6726b9572c303c4cb
   src/syllable_sdk/models/agent_deleteop.py:
     id: 243f308cd260
     last_write_checksum: sha1:678c977fe3701387fedea959158d6edcfa9b77ed
@@ -2194,8 +2198,8 @@ trackedFiles:
     pristine_git_object: f9eb9b5bd754003cc01c568013c046ae0083b8bb
   src/syllable_sdk/models/batchdetails.py:
     id: 9368d008eba6
-    last_write_checksum: sha1:4486d5f59368465c633e77120ade7833601e87a2
-    pristine_git_object: 9b977faa7adfd30ff2f158dab323218366e8a918
+    last_write_checksum: sha1:1a9eedab72bf6e9e1528c1d8fcbff3da667fb41d
+    pristine_git_object: 83353eb8120eecbabf53c77cdcce280591513d56
   src/syllable_sdk/models/batchproperties.py:
     id: a1c4e29353e0
     last_write_checksum: sha1:8c864ec44f2a51d6d0967edfb16d6a43b5c6259c
@@ -3156,6 +3160,10 @@ trackedFiles:
     id: 23f0b19fb032
     last_write_checksum: sha1:b41016968acb6caa455535d41d2f307e3aaed801
     pristine_git_object: 82524f32765a79e607fb01e249bcd32119869216
+  src/syllable_sdk/models/requeststatusbreakdown.py:
+    id: ddda46bcfb60
+    last_write_checksum: sha1:f1a4b38e20ac581e595042f47f4aa500c389317b
+    pristine_git_object: 2357a1af12ca082e84b4e6f72267bb15c33d71ac
   src/syllable_sdk/models/rolecreaterequest.py:
     id: 3579f2574ac7
     last_write_checksum: sha1:01b06b0a46952b95aa7b00dc934c6f593cbb99c3
@@ -4833,7 +4841,7 @@ examples:
           batch_id: "<id>"
       responses:
         "200":
-          application/json: {"batch_id": "20260204.9", "campaign_id": 1, "expires_on": "2026-02-05T00:00:00Z", "paused": true, "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2026-02-04T00:00:00Z", "deleted_at": "2026-02-04T00:00:00Z", "deleted_reason": "User request", "last_updated_at": "2026-02-04T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Invalid file format", "status_counts": {"CANCELED": 7, "CONNECTED": 100, "DUPLICATE": 5, "FAILED": 10, "INITIATED": 20, "PENDING": 10}}
+          application/json: {"batch_id": "20260204.9", "campaign_id": 1, "expires_on": "2026-02-05T00:00:00Z", "paused": true, "upload_filename": "LATE_PAYMENTS_20250401.csv", "created_at": "2026-02-04T00:00:00Z", "deleted_at": "2026-02-04T00:00:00Z", "deleted_reason": "User request", "last_updated_at": "2026-02-04T00:00:00Z", "last_updated_by": "user@email.com", "error_message": "Invalid file format", "status_counts": {"CANCELED": 7, "CONNECTED": 100, "DUPLICATE": 5, "FAILED": 10, "INITIATED": 20, "PENDING": 10}, "detailed_status_counts": {"CONNECTED": {"total_count": 100, "counts": {"COMPLETED": 95, "NO-ANSWER": 5}}, "PENDING": {"total_count": 10, "counts": {"PENDING": 8, "SENT": 2}}, "QUEUED": {"total_count": 200}}}
         "422":
           application/json: {}
   outbound_batch_update:
@@ -5442,6 +5450,9 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Python SDK Changes:
+  * `syllable_sdk.outbound.batches.get_by_id()`:  `response.detailed_status_counts` **Added**
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
