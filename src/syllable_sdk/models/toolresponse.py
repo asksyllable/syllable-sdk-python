@@ -4,7 +4,6 @@ from __future__ import annotations
 from .toolagentinfo import ToolAgentInfo, ToolAgentInfoTypedDict
 from .tooldefinition import ToolDefinition, ToolDefinitionTypedDict
 from .toolpromptinfo import ToolPromptInfo, ToolPromptInfoTypedDict
-from .validationissue import ValidationIssue, ValidationIssueTypedDict
 from datetime import datetime
 from pydantic import model_serializer
 from syllable_sdk.types import (
@@ -46,8 +45,6 @@ class ToolResponseTypedDict(TypedDict):
     r"""IDs and names of the prompts linked to the tool"""
     agents_info: NotRequired[Nullable[List[ToolAgentInfoTypedDict]]]
     r"""IDs and names of the agents linked to the tool via a prompt"""
-    validation_issues: NotRequired[Nullable[List[ValidationIssueTypedDict]]]
-    r"""Validation issues found in the tool definition. Warnings and infos are informational; errors block the save."""
 
 
 class ToolResponse(BaseModel):
@@ -88,28 +85,13 @@ class ToolResponse(BaseModel):
     agents_info: OptionalNullable[List[ToolAgentInfo]] = UNSET
     r"""IDs and names of the agents linked to the tool via a prompt"""
 
-    validation_issues: OptionalNullable[List[ValidationIssue]] = UNSET
-    r"""Validation issues found in the tool definition. Warnings and infos are informational; errors block the save."""
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            [
-                "last_updated_comments",
-                "service_name",
-                "prompts_info",
-                "agents_info",
-                "validation_issues",
-            ]
+            ["last_updated_comments", "service_name", "prompts_info", "agents_info"]
         )
         nullable_fields = set(
-            [
-                "last_updated_comments",
-                "service_name",
-                "prompts_info",
-                "agents_info",
-                "validation_issues",
-            ]
+            ["last_updated_comments", "service_name", "prompts_info", "agents_info"]
         )
         serialized = handler(self)
         m = {}

@@ -2,10 +2,6 @@
 
 from __future__ import annotations
 from .batchstatus import BatchStatus
-from .requeststatusbreakdown import (
-    RequestStatusBreakdown,
-    RequestStatusBreakdownTypedDict,
-)
 from datetime import datetime
 from pydantic import model_serializer
 from syllable_sdk.types import (
@@ -46,10 +42,6 @@ class BatchDetailsTypedDict(TypedDict):
     r"""Error message if batch upload failed"""
     status_counts: NotRequired[Nullable[Dict[str, int]]]
     r"""Counts of requests by status"""
-    detailed_status_counts: NotRequired[
-        Nullable[Dict[str, RequestStatusBreakdownTypedDict]]
-    ]
-    r"""Per request_status: total count and optional counts by channel_manager_status"""
 
 
 class BatchDetails(BaseModel):
@@ -92,9 +84,6 @@ class BatchDetails(BaseModel):
     status_counts: OptionalNullable[Dict[str, int]] = UNSET
     r"""Counts of requests by status"""
 
-    detailed_status_counts: OptionalNullable[Dict[str, RequestStatusBreakdown]] = UNSET
-    r"""Per request_status: total count and optional counts by channel_manager_status"""
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -109,7 +98,6 @@ class BatchDetails(BaseModel):
                 "last_updated_at",
                 "error_message",
                 "status_counts",
-                "detailed_status_counts",
             ]
         )
         nullable_fields = set(
@@ -122,7 +110,6 @@ class BatchDetails(BaseModel):
                 "last_updated_at",
                 "error_message",
                 "status_counts",
-                "detailed_status_counts",
             ]
         )
         serialized = handler(self)
