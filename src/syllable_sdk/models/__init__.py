@@ -831,6 +831,10 @@ if TYPE_CHECKING:
         PronunciationsCsvUploadResponseTypedDict,
     )
     from .requeststatus import RequestStatus
+    from .requeststatusbreakdown import (
+        RequestStatusBreakdown,
+        RequestStatusBreakdownTypedDict,
+    )
     from .rolecreaterequest import RoleCreateRequest, RoleCreateRequestTypedDict
     from .roleproperties import RoleProperties
     from .roleresponse import RoleResponse, RoleResponseTypedDict
@@ -1080,6 +1084,7 @@ if TYPE_CHECKING:
         ValidationError,
         ValidationErrorTypedDict,
     )
+    from .validationissue import Severity, ValidationIssue, ValidationIssueTypedDict
     from .variable import (
         Variable,
         VariableType,
@@ -1690,6 +1695,8 @@ __all__ = [
     "PronunciationsCsvUploadResponse",
     "PronunciationsCsvUploadResponseTypedDict",
     "RequestStatus",
+    "RequestStatusBreakdown",
+    "RequestStatusBreakdownTypedDict",
     "Role",
     "RoleCreateRequest",
     "RoleCreateRequestTypedDict",
@@ -1781,6 +1788,7 @@ __all__ = [
     "SetValueActionValuefrom1TypedDict",
     "SetValueActionValuefrom2",
     "SetValueActionValuefrom2TypedDict",
+    "Severity",
     "StaticToolParameter",
     "StaticToolParameterType",
     "StaticToolParameterTypedDict",
@@ -1901,6 +1909,8 @@ __all__ = [
     "UsersSendEmailRequestTypedDict",
     "ValidationError",
     "ValidationErrorTypedDict",
+    "ValidationIssue",
+    "ValidationIssueTypedDict",
     "Variable",
     "VariableType",
     "VariableTypedDict",
@@ -2475,6 +2485,8 @@ _dynamic_imports: dict[str, str] = {
     "PronunciationsCsvUploadResponse": ".pronunciationscsvuploadresponse",
     "PronunciationsCsvUploadResponseTypedDict": ".pronunciationscsvuploadresponse",
     "RequestStatus": ".requeststatus",
+    "RequestStatusBreakdown": ".requeststatusbreakdown",
+    "RequestStatusBreakdownTypedDict": ".requeststatusbreakdown",
     "RoleCreateRequest": ".rolecreaterequest",
     "RoleCreateRequestTypedDict": ".rolecreaterequest",
     "RoleProperties": ".roleproperties",
@@ -2690,6 +2702,9 @@ _dynamic_imports: dict[str, str] = {
     "LocTypedDict": ".validationerror",
     "ValidationError": ".validationerror",
     "ValidationErrorTypedDict": ".validationerror",
+    "Severity": ".validationissue",
+    "ValidationIssue": ".validationissue",
+    "ValidationIssueTypedDict": ".validationissue",
     "Variable": ".variable",
     "VariableType": ".variable",
     "VariableTypedDict": ".variable",

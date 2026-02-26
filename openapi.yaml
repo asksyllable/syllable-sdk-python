@@ -8701,7 +8701,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20260225.9"
+            - "20260226.9"
         campaign_id:
           type: "integer"
           title: "Campaign Id"
@@ -8716,7 +8716,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2026-02-26T00:00:00Z"
+            - "2026-02-27T00:00:00Z"
         paused:
           anyOf:
             - type: "boolean"
@@ -8751,7 +8751,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2026-02-25T00:00:00Z"
+            - "2026-02-26T00:00:00Z"
         deleted_at:
           anyOf:
             - type: "string"
@@ -8760,7 +8760,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2026-02-25T00:00:00Z"
+            - "2026-02-26T00:00:00Z"
         deleted_reason:
           anyOf:
             - type: "string"
@@ -8777,7 +8777,7 @@ components:
           title: "Last Updated At"
           description: "Timestamp of last change to batch"
           examples:
-            - "2026-02-25T00:00:00Z"
+            - "2026-02-26T00:00:00Z"
         last_updated_by:
           type: "string"
           title: "Last Updated By"
@@ -8808,6 +8808,27 @@ components:
               FAILED: 10
               INITIATED: 20
               PENDING: 10
+        detailed_status_counts:
+          anyOf:
+            - additionalProperties:
+                $ref: "#/components/schemas/RequestStatusBreakdown"
+              type: "object"
+            - type: "null"
+          title: "Detailed Status Counts"
+          description: "Per request_status: total count and optional counts by channel_manager_status"
+          examples:
+            - CONNECTED:
+                counts:
+                  COMPLETED: 95
+                  NO-ANSWER: 5
+                total_count: 100
+              PENDING:
+                counts:
+                  PENDING: 8
+                  SENT: 2
+                total_count: 10
+              QUEUED:
+                total_count: 200
       type: "object"
       required:
         - "batch_id"
@@ -9425,7 +9446,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20260225.9"
+            - "20260226.9"
         campaign_id:
           type: "integer"
           title: "Campaign Id"
@@ -9440,7 +9461,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2026-02-26T00:00:00Z"
+            - "2026-02-27T00:00:00Z"
         paused:
           anyOf:
             - type: "boolean"
@@ -9475,7 +9496,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2026-02-25T00:00:00Z"
+            - "2026-02-26T00:00:00Z"
         deleted_at:
           anyOf:
             - type: "string"
@@ -9484,7 +9505,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2026-02-25T00:00:00Z"
+            - "2026-02-26T00:00:00Z"
         deleted_reason:
           anyOf:
             - type: "string"
@@ -9501,7 +9522,7 @@ components:
           title: "Last Updated At"
           description: "Timestamp of last change to batch"
           examples:
-            - "2026-02-25T00:00:00Z"
+            - "2026-02-26T00:00:00Z"
         last_updated_by:
           type: "string"
           title: "Last Updated By"
@@ -9530,7 +9551,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20260225.9"
+            - "20260226.9"
         campaign_id:
           type: "integer"
           title: "Campaign Id"
@@ -9545,7 +9566,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2026-02-26T00:00:00Z"
+            - "2026-02-27T00:00:00Z"
         paused:
           anyOf:
             - type: "boolean"
@@ -9644,7 +9665,7 @@ components:
           title: "Created At"
           description: "Timestamp of request creation"
           examples:
-            - "2026-02-24T00:00:00Z"
+            - "2026-02-25T00:00:00Z"
         sent_at:
           anyOf:
             - type: "string"
@@ -9653,7 +9674,7 @@ components:
           title: "Sent At"
           description: "Timestamp at which request was sent"
           examples:
-            - "2026-02-25T00:00:00Z"
+            - "2026-02-26T00:00:00Z"
         attempt_count:
           type: "integer"
           title: "Attempt Count"
@@ -11491,14 +11512,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload folder was created"
           examples:
-            - "2026-02-24T00:00:00Z"
+            - "2026-02-25T00:00:00Z"
         updated_at:
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight upload folder was last updated"
           examples:
-            - "2026-02-25T00:00:00Z"
+            - "2026-02-26T00:00:00Z"
         last_updated_by:
           type: "string"
           title: "Last Updated By"
@@ -12126,14 +12147,14 @@ components:
           title: "Created At"
           description: "Timestamp of at which insight tool configuration was created"
           examples:
-            - "2026-02-24T00:00:00Z"
+            - "2026-02-25T00:00:00Z"
         updated_at:
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool configuration was last updated"
           examples:
-            - "2026-02-25T00:00:00Z"
+            - "2026-02-26T00:00:00Z"
         last_updated_by:
           type: "string"
           title: "Last Updated By"
@@ -12378,7 +12399,7 @@ components:
           title: "Start Datetime"
           description: "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only"
           examples:
-            - "2026-02-24T00:00:00Z"
+            - "2026-02-25T00:00:00Z"
         end_datetime:
           anyOf:
             - type: "string"
@@ -12387,7 +12408,7 @@ components:
           title: "End Datetime"
           description: "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation"
           examples:
-            - "2026-02-25T00:00:00Z"
+            - "2026-02-26T00:00:00Z"
       type: "object"
       required:
         - "name"
@@ -12440,7 +12461,7 @@ components:
           title: "Start Datetime"
           description: "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only"
           examples:
-            - "2026-02-24T00:00:00Z"
+            - "2026-02-25T00:00:00Z"
         end_datetime:
           anyOf:
             - type: "string"
@@ -12449,7 +12470,7 @@ components:
           title: "End Datetime"
           description: "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation"
           examples:
-            - "2026-02-25T00:00:00Z"
+            - "2026-02-26T00:00:00Z"
         id:
           type: "integer"
           title: "Id"
@@ -12486,14 +12507,14 @@ components:
           title: "Created At"
           description: "Timestamp at which the insight workflow was created"
           examples:
-            - "2026-02-24T00:00:00Z"
+            - "2026-02-25T00:00:00Z"
         updated_at:
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of most recent update to the insight workflow"
           examples:
-            - "2026-02-25T00:00:00Z"
+            - "2026-02-26T00:00:00Z"
         last_updated_by:
           type: "string"
           title: "Last Updated By"
@@ -12562,14 +12583,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload folder was created"
           examples:
-            - "2026-02-24T00:00:00Z"
+            - "2026-02-25T00:00:00Z"
         updated_at:
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight upload folder was last updated"
           examples:
-            - "2026-02-25T00:00:00Z"
+            - "2026-02-26T00:00:00Z"
         last_updated_by:
           type: "string"
           title: "Last Updated By"
@@ -12720,14 +12741,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight tool result was created"
           examples:
-            - "2026-02-24T00:00:00Z"
+            - "2026-02-25T00:00:00Z"
         updated_at:
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool result was last updated"
           examples:
-            - "2026-02-25T00:00:00Z"
+            - "2026-02-26T00:00:00Z"
         upload_file_metadata:
           title: "Upload File Metadata"
           description: "Metadata associated with the uploaded file"
@@ -12820,7 +12841,7 @@ components:
           title: "Start Time"
           description: "Start time of the uploaded file"
           examples:
-            - "2026-02-24T00:00:00Z"
+            - "2026-02-25T00:00:00Z"
         end_time:
           anyOf:
             - type: "string"
@@ -12829,7 +12850,7 @@ components:
           title: "End Time"
           description: "End time of the uploaded file"
           examples:
-            - "2026-02-25T00:00:00Z"
+            - "2026-02-26T00:00:00Z"
         error_message:
           anyOf:
             - type: "string"
@@ -12858,7 +12879,7 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload file was created"
           examples:
-            - "2026-02-24T00:00:00Z"
+            - "2026-02-25T00:00:00Z"
       type: "object"
       required:
         - "id"
@@ -14851,9 +14872,11 @@ components:
           examples:
             - "Updated to add an additional domain"
         slug:
-          type: "string"
+          anyOf:
+            - type: "string"
+            - type: "null"
           title: "Slug"
-          description: "The slug of the organization used for URLs in the Console UI"
+          description: "The slug of the organization used for URLs in the Console UI. Null until slug backfill has been run."
           examples:
             - "my-great-org"
         last_updated:
@@ -14879,7 +14902,6 @@ components:
       required:
         - "display_name"
         - "id"
-        - "slug"
         - "last_updated"
       title: "OrganizationResponse"
     OutboundCampaign:
@@ -15055,14 +15077,14 @@ components:
           title: "Created At"
           description: "Timestamp of campaign creation"
           examples:
-            - "2026-02-25T00:00:00Z"
+            - "2026-02-26T00:00:00Z"
         updated_at:
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of campaign update"
           examples:
-            - "2026-02-25T00:00:00Z"
+            - "2026-02-26T00:00:00Z"
         last_updated_by:
           type: "string"
           title: "Last Updated By"
@@ -15911,6 +15933,29 @@ components:
         - "INVALID"
       title: "RequestStatus"
       description: "Status of a communication request."
+    RequestStatusBreakdown:
+      properties:
+        total_count:
+          type: "integer"
+          title: "Total Count"
+          description: "Total number of requests with this request_status"
+        counts:
+          anyOf:
+            - additionalProperties:
+                type: "integer"
+              type: "object"
+            - type: "null"
+          title: "Counts"
+          description: "Counts by channel_manager_status within this request_status; omitted if none"
+          examples:
+            - DELIVERED: 2
+              PENDING: 3
+              SENT: 5
+      type: "object"
+      required:
+        - "total_count"
+      title: "RequestStatusBreakdown"
+      description: "Per-request_status breakdown with total count and optional channel_manager_status counts."
     RoleCreateRequest:
       properties:
         name:
@@ -17683,6 +17728,14 @@ components:
           description: "The email of the user who last updated the tool"
           examples:
             - "user@email.com"
+        validation_issues:
+          anyOf:
+            - items:
+                $ref: "#/components/schemas/ValidationIssue"
+              type: "array"
+            - type: "null"
+          title: "Validation Issues"
+          description: "Validation issues found in the tool definition. Warnings and infos are informational; errors block the save."
         fields:
           items:
             type: "string"
@@ -17976,6 +18029,14 @@ components:
           description: "The email of the user who last updated the tool"
           examples:
             - "user@email.com"
+        validation_issues:
+          anyOf:
+            - items:
+                $ref: "#/components/schemas/ValidationIssue"
+              type: "array"
+            - type: "null"
+          title: "Validation Issues"
+          description: "Validation issues found in the tool definition. Warnings and infos are informational; errors block the save."
       type: "object"
       required:
         - "name"
@@ -18525,6 +18586,42 @@ components:
         - "msg"
         - "type"
       title: "ValidationError"
+    ValidationIssue:
+      properties:
+        id:
+          type: "string"
+          title: "Id"
+          description: "Stable machine-readable identifier (kebab-case)"
+        severity:
+          type: "string"
+          enum:
+            - "info"
+            - "warning"
+            - "error"
+          title: "Severity"
+          default: "error"
+        message:
+          type: "string"
+          title: "Message"
+          description: "Human-readable description"
+        path:
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Path"
+          description: "JSONPath-style location (e.g. $.context.task.steps[2])"
+        value:
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Value"
+          description: "The offending value, when it adds clarity"
+      type: "object"
+      required:
+        - "id"
+        - "message"
+      title: "ValidationIssue"
+      description: "A single validation finding with severity, location, and description."
     Variable:
       properties:
         value:
