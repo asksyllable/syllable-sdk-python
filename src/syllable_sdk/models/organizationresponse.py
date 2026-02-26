@@ -18,8 +18,6 @@ class OrganizationResponseTypedDict(TypedDict):
     r"""The human-readable display name of the organization."""
     id: int
     r"""The internal ID of the organization."""
-    slug: str
-    r"""The slug of the organization used for URLs in the Console UI"""
     last_updated: datetime
     r"""The timestamp of the most recent update to the organization"""
     description: NotRequired[Nullable[str]]
@@ -30,6 +28,8 @@ class OrganizationResponseTypedDict(TypedDict):
     r"""SAML provider ID for user authentication"""
     last_updated_comments: NotRequired[Nullable[str]]
     r"""Comments for the most recent edit to the organization."""
+    slug: NotRequired[Nullable[str]]
+    r"""The slug of the organization used for URLs in the Console UI. Null until slug backfill has been run."""
     last_updated_by: NotRequired[Nullable[str]]
     r"""The email of the user who most recently updated the organization"""
     logo_url: NotRequired[Nullable[str]]
@@ -42,9 +42,6 @@ class OrganizationResponse(BaseModel):
 
     id: int
     r"""The internal ID of the organization."""
-
-    slug: str
-    r"""The slug of the organization used for URLs in the Console UI"""
 
     last_updated: datetime
     r"""The timestamp of the most recent update to the organization"""
@@ -61,6 +58,9 @@ class OrganizationResponse(BaseModel):
     last_updated_comments: OptionalNullable[str] = UNSET
     r"""Comments for the most recent edit to the organization."""
 
+    slug: OptionalNullable[str] = UNSET
+    r"""The slug of the organization used for URLs in the Console UI. Null until slug backfill has been run."""
+
     last_updated_by: OptionalNullable[str] = UNSET
     r"""The email of the user who most recently updated the organization"""
 
@@ -75,6 +75,7 @@ class OrganizationResponse(BaseModel):
                 "domains",
                 "saml_provider_id",
                 "last_updated_comments",
+                "slug",
                 "last_updated_by",
                 "logo_url",
             ]
@@ -85,6 +86,7 @@ class OrganizationResponse(BaseModel):
                 "domains",
                 "saml_provider_id",
                 "last_updated_comments",
+                "slug",
                 "last_updated_by",
                 "logo_url",
             ]
