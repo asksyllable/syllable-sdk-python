@@ -18,6 +18,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class DirectoryMemberListRequestTypedDict(TypedDict):
+    include_deleted: NotRequired[bool]
+    r"""If true, include soft-deleted members in the list. Default excludes them."""
     response_format: NotRequired[DirectoryResponseFormat]
     r"""Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values."""
     page: NotRequired[Nullable[int]]
@@ -41,6 +43,12 @@ class DirectoryMemberListRequestTypedDict(TypedDict):
 
 
 class DirectoryMemberListRequest(BaseModel):
+    include_deleted: Annotated[
+        Optional[bool],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = False
+    r"""If true, include soft-deleted members in the list. Default excludes them."""
+
     response_format: Annotated[
         Optional[DirectoryResponseFormat],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
@@ -105,6 +113,7 @@ class DirectoryMemberListRequest(BaseModel):
     def serialize_model(self, handler):
         optional_fields = set(
             [
+                "include_deleted",
                 "response_format",
                 "page",
                 "limit",

@@ -307,10 +307,12 @@ with SyllableSDK(
 
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/directory/README.md#list) - Directory Member List
 * [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/directory/README.md#create) - Create Directory Member
+* [directory_member_history](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/directory/README.md#directory_member_history) - Get Directory Member History
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/directory/README.md#get_by_id) - Get Directory Member By Id
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/directory/README.md#update) - Update Directory Member
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/directory/README.md#delete) - Delete Directory Member
 * [directory_member_test_extension](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/directory/README.md#directory_member_test_extension) - Test Directory Member Extension
+* [directory_member_restore](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/directory/README.md#directory_member_restore) - Restore Directory Member
 * [directory_member_bulk_load](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/directory/README.md#directory_member_bulk_load) - Bulk Load Directory Members
 * [directory_member_download](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/directory/README.md#directory_member_download) - Download Directory Members
 

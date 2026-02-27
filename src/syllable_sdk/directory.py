@@ -15,6 +15,7 @@ class Directory(BaseSDK):
     def list(
         self,
         *,
+        include_deleted: Optional[bool] = False,
         response_format: Optional[models.DirectoryResponseFormat] = None,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
@@ -32,8 +33,9 @@ class Directory(BaseSDK):
     ) -> models.ListResponseDirectoryMember:
         r"""Directory Member List
 
-        List the existing directory_members
+        List the directory_members
 
+        :param include_deleted: If true, include soft-deleted members in the list. Default excludes them.
         :param response_format: Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.
         :param page: Page number (0-based)
         :param limit: Items per page
@@ -60,6 +62,7 @@ class Directory(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.DirectoryMemberListRequest(
+            include_deleted=include_deleted,
             response_format=response_format,
             page=page,
             limit=limit,
@@ -132,6 +135,7 @@ class Directory(BaseSDK):
     async def list_async(
         self,
         *,
+        include_deleted: Optional[bool] = False,
         response_format: Optional[models.DirectoryResponseFormat] = None,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
@@ -149,8 +153,9 @@ class Directory(BaseSDK):
     ) -> models.ListResponseDirectoryMember:
         r"""Directory Member List
 
-        List the existing directory_members
+        List the directory_members
 
+        :param include_deleted: If true, include soft-deleted members in the list. Default excludes them.
         :param response_format: Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.
         :param page: Page number (0-based)
         :param limit: Items per page
@@ -177,6 +182,7 @@ class Directory(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.DirectoryMemberListRequest(
+            include_deleted=include_deleted,
             response_format=response_format,
             page=page,
             limit=limit,
@@ -440,6 +446,202 @@ class Directory(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(models.DirectoryMember, http_res)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
+    def directory_member_history(
+        self,
+        *,
+        member_id: int,
+        page: Optional[int] = 0,
+        limit: Optional[int] = 25,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ListResponseDirectoryMemberHistoryResponse:
+        r"""Get Directory Member History
+
+        Get version history for a directory member (contact), oldest first.
+
+        :param member_id:
+        :param page: Page number (0-based)
+        :param limit: Items per page
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.DirectoryMemberHistoryRequest(
+            member_id=member_id,
+            page=page,
+            limit=limit,
+        )
+
+        req = self._build_request(
+            method="GET",
+            path="/api/v1/directory_members/{member_id}/history",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="directory_member_history",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            error_status_codes=["422", "4XX", "5XX"],
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.ListResponseDirectoryMemberHistoryResponse, http_res
+            )
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
+    async def directory_member_history_async(
+        self,
+        *,
+        member_id: int,
+        page: Optional[int] = 0,
+        limit: Optional[int] = 25,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ListResponseDirectoryMemberHistoryResponse:
+        r"""Get Directory Member History
+
+        Get version history for a directory member (contact), oldest first.
+
+        :param member_id:
+        :param page: Page number (0-based)
+        :param limit: Items per page
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.DirectoryMemberHistoryRequest(
+            member_id=member_id,
+            page=page,
+            limit=limit,
+        )
+
+        req = self._build_request_async(
+            method="GET",
+            path="/api/v1/directory_members/{member_id}/history",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="directory_member_history",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            error_status_codes=["422", "4XX", "5XX"],
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.ListResponseDirectoryMemberHistoryResponse, http_res
+            )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
@@ -858,6 +1060,7 @@ class Directory(BaseSDK):
         self,
         *,
         member_id: int,
+        comment: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -868,6 +1071,7 @@ class Directory(BaseSDK):
         Delete a DirectoryMember.
 
         :param member_id:
+        :param comment: Comment stored in version history for this deletion
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -885,6 +1089,7 @@ class Directory(BaseSDK):
 
         request = models.DirectoryMemberDeleteRequest(
             member_id=member_id,
+            comment=comment,
         )
 
         req = self._build_request(
@@ -948,6 +1153,7 @@ class Directory(BaseSDK):
         self,
         *,
         member_id: int,
+        comment: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -958,6 +1164,7 @@ class Directory(BaseSDK):
         Delete a DirectoryMember.
 
         :param member_id:
+        :param comment: Comment stored in version history for this deletion
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -975,6 +1182,7 @@ class Directory(BaseSDK):
 
         request = models.DirectoryMemberDeleteRequest(
             member_id=member_id,
+            comment=comment,
         )
 
         req = self._build_request_async(
@@ -1221,6 +1429,192 @@ class Directory(BaseSDK):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.APIError("API error occurred", http_res, http_res_text)
         if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
+    def directory_member_restore(
+        self,
+        *,
+        member_id: int,
+        response_format: Optional[models.DirectoryResponseFormat] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.DirectoryMember:
+        r"""Restore Directory Member
+
+        Restore a soft-deleted directory member.
+
+        :param member_id:
+        :param response_format: Directory response format for the restored member.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.DirectoryMemberRestoreRequest(
+            member_id=member_id,
+            response_format=response_format,
+        )
+
+        req = self._build_request(
+            method="PUT",
+            path="/api/v1/directory_members/{member_id}/restore",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="directory_member_restore",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            error_status_codes=["404", "409", "422", "4XX", "500", "5XX"],
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(models.DirectoryMember, http_res)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, ["404", "409", "4XX"], "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, ["500", "5XX"], "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
+    async def directory_member_restore_async(
+        self,
+        *,
+        member_id: int,
+        response_format: Optional[models.DirectoryResponseFormat] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.DirectoryMember:
+        r"""Restore Directory Member
+
+        Restore a soft-deleted directory member.
+
+        :param member_id:
+        :param response_format: Directory response format for the restored member.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.DirectoryMemberRestoreRequest(
+            member_id=member_id,
+            response_format=response_format,
+        )
+
+        req = self._build_request_async(
+            method="PUT",
+            path="/api/v1/directory_members/{member_id}/restore",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="directory_member_restore",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            error_status_codes=["404", "409", "422", "4XX", "500", "5XX"],
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(models.DirectoryMember, http_res)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, ["404", "409", "4XX"], "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, ["500", "5XX"], "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.APIError("API error occurred", http_res, http_res_text)
 

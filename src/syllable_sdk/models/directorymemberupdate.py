@@ -27,6 +27,8 @@ class DirectoryMemberUpdateTypedDict(TypedDict):
     r"""List of extensions for the directory member"""
     contact_tags: NotRequired[Nullable[Dict[str, List[str]]]]
     r"""Tags for the directory member"""
+    comments: NotRequired[Nullable[str]]
+    r"""Optional comment stored in version history for this edit"""
 
 
 class DirectoryMemberUpdate(BaseModel):
@@ -47,10 +49,13 @@ class DirectoryMemberUpdate(BaseModel):
     contact_tags: OptionalNullable[Dict[str, List[str]]] = UNSET
     r"""Tags for the directory member"""
 
+    comments: OptionalNullable[str] = UNSET
+    r"""Optional comment stored in version history for this edit"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["extensions", "contact_tags"])
-        nullable_fields = set(["extensions", "contact_tags"])
+        optional_fields = set(["extensions", "contact_tags", "comments"])
+        nullable_fields = set(["extensions", "contact_tags", "comments"])
         serialized = handler(self)
         m = {}
 

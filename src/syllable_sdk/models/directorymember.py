@@ -24,12 +24,18 @@ class DirectoryMemberTypedDict(TypedDict):
     r"""Type of the directory member"""
     id: int
     r"""Internal ID of the directory member"""
+    created_at: datetime
+    r"""When the contact was created"""
     updated_at: datetime
     r"""Timestamp of most recent update"""
     extensions: NotRequired[Nullable[List[DirectoryExtensionTypedDict]]]
     r"""List of extensions for the directory member"""
     contact_tags: NotRequired[Nullable[Dict[str, List[str]]]]
     r"""Tags for the directory member"""
+    comments: NotRequired[Nullable[str]]
+    r"""Optional comment stored in version history for this edit"""
+    deleted_at: NotRequired[Nullable[datetime]]
+    r"""When the contact was deleted, if deleted"""
     last_updated_by: NotRequired[Nullable[str]]
     r"""Email of the user who last updated the directory member"""
 
@@ -46,6 +52,9 @@ class DirectoryMember(BaseModel):
     id: int
     r"""Internal ID of the directory member"""
 
+    created_at: datetime
+    r"""When the contact was created"""
+
     updated_at: datetime
     r"""Timestamp of most recent update"""
 
@@ -55,13 +64,23 @@ class DirectoryMember(BaseModel):
     contact_tags: OptionalNullable[Dict[str, List[str]]] = UNSET
     r"""Tags for the directory member"""
 
+    comments: OptionalNullable[str] = UNSET
+    r"""Optional comment stored in version history for this edit"""
+
+    deleted_at: OptionalNullable[datetime] = UNSET
+    r"""When the contact was deleted, if deleted"""
+
     last_updated_by: OptionalNullable[str] = UNSET
     r"""Email of the user who last updated the directory member"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["extensions", "contact_tags", "last_updated_by"])
-        nullable_fields = set(["extensions", "contact_tags", "last_updated_by"])
+        optional_fields = set(
+            ["extensions", "contact_tags", "comments", "deleted_at", "last_updated_by"]
+        )
+        nullable_fields = set(
+            ["extensions", "contact_tags", "comments", "deleted_at", "last_updated_by"]
+        )
         serialized = handler(self)
         m = {}
 
