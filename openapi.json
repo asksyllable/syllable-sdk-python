@@ -8739,7 +8739,7 @@
           "directory"
         ],
         "summary": "Directory Member List",
-        "description": "List the existing directory_members",
+        "description": "List the directory_members",
         "operationId": "directory_member_list",
         "security": [
           {
@@ -8747,6 +8747,18 @@
           }
         ],
         "parameters": [
+          {
+            "name": "include_deleted",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "If true, include soft-deleted members in the list. Default excludes them.",
+              "default": false,
+              "title": "Include Deleted"
+            },
+            "description": "If true, include soft-deleted members in the list. Default excludes them."
+          },
           {
             "name": "response_format",
             "in": "query",
@@ -8998,6 +9010,81 @@
         }
       }
     },
+    "/api/v1/directory_members/{member_id}/history": {
+      "get": {
+        "tags": [
+          "directory"
+        ],
+        "summary": "Get Directory Member History",
+        "description": "Get version history for a directory member (contact), oldest first.",
+        "operationId": "directory_member_history",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "member_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Member Id"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Page number (0-based)",
+              "default": 0,
+              "title": "Page"
+            },
+            "description": "Page number (0-based)"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Items per page",
+              "default": 25,
+              "title": "Limit"
+            },
+            "description": "Items per page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListResponse_DirectoryMemberHistoryResponse_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/directory_members/{member_id}": {
       "get": {
         "tags": [
@@ -9156,6 +9243,17 @@
               "type": "integer",
               "title": "Member Id"
             }
+          },
+          {
+            "name": "comment",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Comment stored in version history for this deletion",
+              "title": "Comment"
+            },
+            "description": "Comment stored in version history for this deletion"
           }
         ],
         "responses": {
@@ -9252,6 +9350,74 @@
                 }
               }
             }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/directory_members/{member_id}/restore": {
+      "put": {
+        "tags": [
+          "directory"
+        ],
+        "summary": "Restore Directory Member",
+        "description": "Restore a soft-deleted directory member.",
+        "operationId": "directory_member_restore",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "member_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Member Id"
+            }
+          },
+          {
+            "name": "response_format",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/DirectoryResponseFormat",
+              "description": "Directory response format for the restored member.",
+              "default": "normalized"
+            },
+            "description": "Directory response format for the restored member."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DirectoryMember"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           },
           "422": {
             "description": "Validation Error",
@@ -17538,7 +17704,7 @@
             "title": "Type",
             "description": "Type of the directory member",
             "examples": [
-              "contact"
+              "Operator"
             ]
           },
           "extensions": {
@@ -17609,6 +17775,30 @@
               1
             ]
           },
+          "comments": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Comments",
+            "description": "Optional comment stored in version history for this edit",
+            "examples": [
+              "Updated phone number"
+            ]
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "When the contact was created",
+            "examples": [
+              "2024-01-01T00:00:00Z"
+            ]
+          },
           "updated_at": {
             "type": "string",
             "format": "date-time",
@@ -17616,6 +17806,22 @@
             "description": "Timestamp of most recent update",
             "examples": [
               "2024-01-01T00:00:00Z"
+            ]
+          },
+          "deleted_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Deleted At",
+            "description": "When the contact was deleted, if deleted",
+            "examples": [
+              null
             ]
           },
           "last_updated_by": {
@@ -17639,6 +17845,7 @@
           "name",
           "type",
           "id",
+          "created_at",
           "updated_at"
         ],
         "title": "DirectoryMember",
@@ -17659,7 +17866,7 @@
             "title": "Type",
             "description": "Type of the directory member",
             "examples": [
-              "contact"
+              "Operator"
             ]
           },
           "extensions": {
@@ -17731,6 +17938,117 @@
         "title": "DirectoryMemberCreate",
         "description": "Request model to create a directory member."
       },
+      "DirectoryMemberHistoryResponse": {
+        "properties": {
+          "directory_member_id": {
+            "type": "integer",
+            "title": "Directory Member Id",
+            "description": "ID of the directory member",
+            "examples": [
+              1
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "title": "Version",
+            "description": "1-based ordinal in the history list (1 = oldest)",
+            "examples": [
+              1
+            ]
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Timestamp",
+            "description": "When this version was recorded",
+            "examples": [
+              "2024-01-01T12:00:00Z"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Name at this version",
+            "examples": [
+              "Jane Doe"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "title": "Type",
+            "description": "Type at this version",
+            "examples": [
+              "Department"
+            ]
+          },
+          "extensions": {
+            "items": {
+              "$ref": "#/components/schemas/DirectoryExtension"
+            },
+            "type": "array",
+            "title": "Extensions",
+            "description": "Extensions at this version",
+            "examples": [
+              []
+            ]
+          },
+          "contact_tags": {
+            "additionalProperties": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Contact Tags",
+            "description": "Contact tags at this version",
+            "examples": [
+              {
+                "tag1": [
+                  "value1"
+                ],
+                "tag2": [
+                  "value2"
+                ]
+              }
+            ]
+          },
+          "user_email": {
+            "type": "string",
+            "title": "User Email",
+            "description": "User who made the change",
+            "examples": [
+              "user@email.com"
+            ]
+          },
+          "comments": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Comments",
+            "description": "Optional comment for this version",
+            "examples": [
+              "Updated phone number"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "directory_member_id",
+          "version",
+          "timestamp",
+          "name",
+          "type",
+          "user_email"
+        ],
+        "title": "DirectoryMemberHistoryResponse",
+        "description": "API response for one version in a directory member's history (GET /{member_id}/history)."
+      },
       "DirectoryMemberProperties": {
         "type": "string",
         "enum": [
@@ -17740,7 +18058,9 @@
           "type",
           "extensions",
           "contact_tags",
-          "updated_at"
+          "created_at",
+          "updated_at",
+          "deleted_at"
         ],
         "title": "DirectoryMemberProperties"
       },
@@ -17789,7 +18109,7 @@
             "title": "Type",
             "description": "Type of the directory member",
             "examples": [
-              "contact"
+              "Operator"
             ]
           },
           "extensions": {
@@ -17858,6 +18178,21 @@
             "description": "Internal ID of the directory member",
             "examples": [
               1
+            ]
+          },
+          "comments": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Comments",
+            "description": "Optional comment stored in version history for this edit",
+            "examples": [
+              "Updated phone number"
             ]
           }
         },
@@ -21888,6 +22223,72 @@
           "page_size"
         ],
         "title": "ListResponse[DataSourceMetadataResponse]"
+      },
+      "ListResponse_DirectoryMemberHistoryResponse_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/DirectoryMemberHistoryResponse"
+            },
+            "type": "array",
+            "title": "Items",
+            "description": "List of items returned from the query",
+            "examples": []
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page",
+            "description": "The page number of the results (0-based)",
+            "examples": [
+              0
+            ]
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size",
+            "description": "The number of items returned per page",
+            "examples": [
+              25
+            ]
+          },
+          "total_pages": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Pages",
+            "description": "The total number of pages of results given the indicated page size",
+            "examples": [
+              4
+            ]
+          },
+          "total_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Count",
+            "description": "The total number of items returned from the query",
+            "examples": [
+              100
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "page",
+          "page_size"
+        ],
+        "title": "ListResponse[DirectoryMemberHistoryResponse]"
       },
       "ListResponse_DirectoryMember_": {
         "properties": {
