@@ -8,16 +8,18 @@ Operations related to directory
 
 * [list](#list) - Directory Member List
 * [create](#create) - Create Directory Member
+* [directory_member_history](#directory_member_history) - Get Directory Member History
 * [get_by_id](#get_by_id) - Get Directory Member By Id
 * [update](#update) - Update Directory Member
 * [delete](#delete) - Delete Directory Member
 * [directory_member_test_extension](#directory_member_test_extension) - Test Directory Member Extension
+* [directory_member_restore](#directory_member_restore) - Restore Directory Member
 * [directory_member_bulk_load](#directory_member_bulk_load) - Bulk Load Directory Members
 * [directory_member_download](#directory_member_download) - Download Directory Members
 
 ## list
 
-List the existing directory_members
+List the directory_members
 
 ### Example Usage
 
@@ -31,7 +33,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.directory.list(page=0, limit=25, search_fields=[
+    res = ss_client.directory.list(include_deleted=False, page=0, limit=25, search_fields=[
         models.DirectoryMemberProperties.NAME,
     ], search_field_values=[
         "Some Object Name",
@@ -46,6 +48,7 @@ with SyllableSDK(
 
 | Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
 | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `include_deleted`                                                                                                  | *Optional[bool]*                                                                                                   | :heavy_minus_sign:                                                                                                 | If true, include soft-deleted members in the list. Default excludes them.                                          |
 | `response_format`                                                                                                  | [Optional[models.DirectoryResponseFormat]](../../models/directoryresponseformat.md)                                | :heavy_minus_sign:                                                                                                 | Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values. |
 | `page`                                                                                                             | *OptionalNullable[int]*                                                                                            | :heavy_minus_sign:                                                                                                 | Page number (0-based)                                                                                              |
 | `limit`                                                                                                            | *Optional[int]*                                                                                                    | :heavy_minus_sign:                                                                                                 | Items per page                                                                                                     |
@@ -129,6 +132,49 @@ with SyllableSDK(
 ### Response
 
 **[models.DirectoryMember](../../models/directorymember.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## directory_member_history
+
+Get version history for a directory member (contact), oldest first.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="directory_member_history" method="get" path="/api/v1/directory_members/{member_id}/history" -->
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.directory.directory_member_history(member_id=371893, page=0, limit=25)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `member_id`                                                         | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `page`                                                              | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | Page number (0-based)                                               |
+| `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | Items per page                                                      |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ListResponseDirectoryMemberHistoryResponse](../../models/listresponsedirectorymemberhistoryresponse.md)**
 
 ### Errors
 
@@ -222,6 +268,7 @@ with SyllableSDK(
             ],
         },
         "id": 1,
+        "comments": "Updated phone number",
     })
 
     # Handle response
@@ -265,7 +312,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.directory.delete(member_id=569311)
+    res = ss_client.directory.delete(member_id=569311, comment="The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design")
 
     # Handle response
     print(res)
@@ -277,6 +324,7 @@ with SyllableSDK(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `member_id`                                                         | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `comment`                                                           | *str*                                                               | :heavy_check_mark:                                                  | Comment stored in version history for this deletion                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -325,6 +373,48 @@ with SyllableSDK(
 ### Response
 
 **[models.DirectoryMemberTestResponse](../../models/directorymembertestresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## directory_member_restore
+
+Restore a soft-deleted directory member.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="directory_member_restore" method="put" path="/api/v1/directory_members/{member_id}/restore" -->
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.directory.directory_member_restore(member_id=507482)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `member_id`                                                                         | *int*                                                                               | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `response_format`                                                                   | [Optional[models.DirectoryResponseFormat]](../../models/directoryresponseformat.md) | :heavy_minus_sign:                                                                  | Directory response format for the restored member.                                  |
+| `retries`                                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                    | :heavy_minus_sign:                                                                  | Configuration to override the default retry behavior of the client.                 |
+
+### Response
+
+**[models.DirectoryMember](../../models/directorymember.md)**
 
 ### Errors
 

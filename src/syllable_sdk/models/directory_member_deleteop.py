@@ -2,15 +2,22 @@
 
 from __future__ import annotations
 from syllable_sdk.types import BaseModel
-from syllable_sdk.utils import FieldMetadata, PathParamMetadata
+from syllable_sdk.utils import FieldMetadata, PathParamMetadata, QueryParamMetadata
 from typing_extensions import Annotated, TypedDict
 
 
 class DirectoryMemberDeleteRequestTypedDict(TypedDict):
     member_id: int
+    comment: str
+    r"""Comment stored in version history for this deletion"""
 
 
 class DirectoryMemberDeleteRequest(BaseModel):
     member_id: Annotated[
         int, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
+
+    comment: Annotated[
+        str, FieldMetadata(query=QueryParamMetadata(style="form", explode=True))
+    ]
+    r"""Comment stored in version history for this deletion"""

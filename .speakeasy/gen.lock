@@ -1,24 +1,24 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 121a359dbfdce642b5eb3b9cce8ac535
+  docChecksum: 56857c6b8a8e6760d23cb5b554248d41
   docVersion: 0.0.3
-  speakeasyVersion: 1.733.1
-  generationVersion: 2.845.11
-  releaseVersion: 0.45.21
-  configChecksum: 7931cac4ecfb70f6e385ed1bd2a3b39f
+  speakeasyVersion: 1.733.4
+  generationVersion: 2.845.12
+  releaseVersion: 0.45.22
+  configChecksum: 1875ceb4729e4c8367a54bbe5408c9ab
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: d0df77d9-b0b8-4280-96f3-03cdb021e2a2
-  pristine_commit_hash: f8a8a8537313d05e7992719679338851162b6da9
-  pristine_tree_hash: 373a759b118d1ebd348a50aa3c0755763b77d0cd
+  generation_id: 1349db72-a1c5-4f36-842e-cea0e2d8d91e
+  pristine_commit_hash: e71afcf9020ab86ce65800187e32a97f2601e426
+  pristine_tree_hash: 6e2ed82a04ade31b5a7922d5aa27cf65cb2efe24
 features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.7
-    core: 6.0.14
+    core: 6.0.15
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
     devContainers: 3.0.0
@@ -534,20 +534,20 @@ trackedFiles:
     pristine_git_object: 8a2736f8c9a0849f13eee726f0949f9640be9735
   docs/models/directorymember.md:
     id: 45d2622bb8f8
-    last_write_checksum: sha1:9c4ba4697ab2aa6e1d016fdf17bf1fec205e31ba
-    pristine_git_object: c8f88907133a3fd7b5eb9ce7da72c00a9a49bf97
+    last_write_checksum: sha1:e526229a319a812ca5904a08ec162f5118f6df61
+    pristine_git_object: 6b5f99ccce019f602af350520b51069905c96d89
   docs/models/directorymembercreate.md:
     id: 683811c7b422
-    last_write_checksum: sha1:73ec17d0011205bc1baf73257b4f14b0d56e3c4b
-    pristine_git_object: 6e486a8db75a74761ba41b7299e82cd5b18e2009
+    last_write_checksum: sha1:150cac238db17e62629f6e5d7ed6c1aedb278dad
+    pristine_git_object: aa808ad74231e7254ba1d161f4186f548dad14ff
   docs/models/directorymembercreaterequest.md:
     id: 33f826f9f887
     last_write_checksum: sha1:5b5209c9c3f6862be43fc9369f86fa8e820ac220
     pristine_git_object: 5f46b5021730cbbb5654e9730ec149762093ab8e
   docs/models/directorymemberdeleterequest.md:
     id: 8fa60c09eb0e
-    last_write_checksum: sha1:942fcf55be5341608a0109dad348af0ad37887f2
-    pristine_git_object: b48bead89d8af0f3b59d06ef7df343f8d4366cd8
+    last_write_checksum: sha1:57005c0ecfdda4959e48c9573ba95f3a4b158cc5
+    pristine_git_object: d15ac621788c97a4e363e30b1b07b22137a132bd
   docs/models/directorymemberdownloadrequest.md:
     id: 97be0551a8ac
     last_write_checksum: sha1:a41f5764b244358075ee14e19312f783739c495d
@@ -556,14 +556,26 @@ trackedFiles:
     id: 808bf41aec93
     last_write_checksum: sha1:212d2df18b8cf532000629e365c03545105e7b36
     pristine_git_object: 320a5d1974272ef7b6ed676424139a1e3e64dad1
+  docs/models/directorymemberhistoryrequest.md:
+    id: 88646e4d6eda
+    last_write_checksum: sha1:bae2faacadd39cecf2b67271e54a1ec48faf4bbe
+    pristine_git_object: 3ad7f7826d35b0cd1d3889b9cd40926e4f44c9ae
+  docs/models/directorymemberhistoryresponse.md:
+    id: 22663900dbba
+    last_write_checksum: sha1:e9881a17941d7657299116ed1ae495a18adbaf82
+    pristine_git_object: 7d729f41c324b42ca98bb49f181eb9098d642087
   docs/models/directorymemberlistrequest.md:
     id: 6cfd046c5096
-    last_write_checksum: sha1:3dda370840a86a3c495f601e3ea4fdb42a832f31
-    pristine_git_object: 2980031dec475e21d7c9e045ff438e1b23fe31dc
+    last_write_checksum: sha1:19608c0b9b9cf5e2f26a44251ee9347b421bc71f
+    pristine_git_object: a153043e4864778ee8a91abf8f8633373270f666
   docs/models/directorymemberproperties.md:
     id: e02cd2a61347
-    last_write_checksum: sha1:f7fe40417cab69288814122b664588ad19eaf980
-    pristine_git_object: eef1ddfa7cdd6d5b273f1e54e711ce6bff2e224b
+    last_write_checksum: sha1:07a46d7210c72c8f1e9156a3ada16da10a8ec06d
+    pristine_git_object: 7effcb189ceca74c3c0a76d32e2a7a508117b52f
+  docs/models/directorymemberrestorerequest.md:
+    id: dcd6fc266fa4
+    last_write_checksum: sha1:3f996fee11d0afac93fb0e029381b06086d8cb21
+    pristine_git_object: 48eeb03a1362ddfdc6ecdd73d254fc03af4e0afc
   docs/models/directorymembertestextensionrequest.md:
     id: 53826c0ee67e
     last_write_checksum: sha1:9115dc55c1939da77fd8d0335b6f73818a85c9d9
@@ -574,8 +586,8 @@ trackedFiles:
     pristine_git_object: 61eb349189db2ec58b97b756189cac6c6b10e00f
   docs/models/directorymemberupdate.md:
     id: d85bc64daea2
-    last_write_checksum: sha1:3503720481539a17587562903ed1352471022529
-    pristine_git_object: cdf1ab4d6f865bc6365a5b45b87e148d92386d00
+    last_write_checksum: sha1:089d8c622ee3cdcb2e93b1590268c22afc73bd08
+    pristine_git_object: 49992cfb66200361f401c5c0ddcea991536c63dc
   docs/models/directorymemberupdaterequest.md:
     id: 4f20a95aa23c
     last_write_checksum: sha1:3c1d4aff231bb03271590d06c981da644498b892
@@ -1024,6 +1036,10 @@ trackedFiles:
     id: 91bc1451c3ee
     last_write_checksum: sha1:bf255b0a43d05971fd90d7cde62d4c56751a8404
     pristine_git_object: a3507316a06e54db432deddacca81b5d4d9e7d73
+  docs/models/listresponsedirectorymemberhistoryresponse.md:
+    id: eb7e6dac9af3
+    last_write_checksum: sha1:014605fee5419592aa8cad35d5eae778518ea28a
+    pristine_git_object: 23f893b479de54ab1a470eb76d9869b558199191
   docs/models/listresponseevent.md:
     id: ab2b809e8596
     last_write_checksum: sha1:767ee9c96d8f2c2ae613d91beeede488ff624661
@@ -1850,8 +1866,8 @@ trackedFiles:
     pristine_git_object: b767f7bcfc088a2a135fe3174bd29c139b9cbe01
   docs/sdks/directory/README.md:
     id: c3e67af35dfa
-    last_write_checksum: sha1:db0aa077fae81d6eb32e6d2cea1455ecd51bfb96
-    pristine_git_object: cf89c39934b177fb8c2a669910aedd06a5f0417e
+    last_write_checksum: sha1:6037171f32d454528316cc6b6826c8940ac60f97
+    pristine_git_object: baaac91d2ad5f97089e4c5989162790dc86468c8
   docs/sdks/events/README.md:
     id: cf45a4390b9b
     last_write_checksum: sha1:95e3d3fd88b1b5517e5841589fc130f616c96b8f
@@ -1978,8 +1994,8 @@ trackedFiles:
     pristine_git_object: 739eef2047817f053e6c7688b3993b63a9a7f142
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:49ce707b62abb2b02e1931df558d6dd5daad1198
-    pristine_git_object: 2512342e352c84d5d7befb6aaced32ef5f1144ac
+    last_write_checksum: sha1:eb0a77de2a7195834a63d0ea4fe9da1180399c22
+    pristine_git_object: c438038cab90762557cba4b457a9d67964ea4722
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2006,8 +2022,8 @@ trackedFiles:
     pristine_git_object: 80c09ba9b6fc421f9200d202e6a452aeedb2c3e4
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:b0b9b5f4953c8aff78cf97471742534b46b0f4d2
-    pristine_git_object: 6dd25d16ff8e0eadfb38eb5f583563090b3eb9c2
+    last_write_checksum: sha1:6a9a745d3c75939266589c6ca7daed4928e2c50f
+    pristine_git_object: a00a2b4541dec1efee539abe93a0f4518e65d3b4
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:7dc58c44df8ae539ebbc6c0a9069ea9405084cd9
@@ -2050,8 +2066,8 @@ trackedFiles:
     pristine_git_object: daf752b5c8d4e7dd921a53ba7c18d24b5311c347
   src/syllable_sdk/directory.py:
     id: d141fcc4556c
-    last_write_checksum: sha1:b798b94d1bb286e1e6ed6ef804151e2460588d11
-    pristine_git_object: e268d0e42380dec19299a870233108a260b4690a
+    last_write_checksum: sha1:6783610c31fad1a74ca47d376862674de80fb2b7
+    pristine_git_object: 38ac300756d450ae6bc5a1cfeb5a5fa3d6c64f84
   src/syllable_sdk/errors/__init__.py:
     id: 31733d0f8d7a
     last_write_checksum: sha1:a82a87d48e840f382ba86e545270524069ba1ccf
@@ -2114,8 +2130,8 @@ trackedFiles:
     pristine_git_object: ff7976dda254144c36c5404b7dbf047e0a7e934d
   src/syllable_sdk/models/__init__.py:
     id: 984744253da7
-    last_write_checksum: sha1:89600d090f9a11a6b565f3f2c0349fbaf0c0f5ad
-    pristine_git_object: 2282c8a5f0d8529185286bb6726b9572c303c4cb
+    last_write_checksum: sha1:9e212c2b46ba7afb75355ef5b3fc5a0d27777c37
+    pristine_git_object: a5253b7604d0ed5d47d922df87f8ead90313e27e
   src/syllable_sdk/models/agent_deleteop.py:
     id: 243f308cd260
     last_write_checksum: sha1:678c977fe3701387fedea959158d6edcfa9b77ed
@@ -2506,8 +2522,8 @@ trackedFiles:
     pristine_git_object: edcee58b9d8a09113a3bcf0fc0b96ef625ef1bdf
   src/syllable_sdk/models/directory_member_deleteop.py:
     id: a599f31e91d4
-    last_write_checksum: sha1:05d98fd5b88fdeef2c68323dcc6de08da4b13767
-    pristine_git_object: 7faef053fcdc6108521f8f03ee17bed0116b2457
+    last_write_checksum: sha1:f0d45b143e001684c4715d9c19d61a1337effc61
+    pristine_git_object: 380cc801f17ce30df307d473b3258108244a4560
   src/syllable_sdk/models/directory_member_downloadop.py:
     id: cf89261d733f
     last_write_checksum: sha1:6d2e4a1ee37ea35bf6891d8a43f99e9f4fbda8e9
@@ -2516,10 +2532,18 @@ trackedFiles:
     id: f1f96ae9103f
     last_write_checksum: sha1:11202198d2222654f9897eee2b47ac093cd79d65
     pristine_git_object: 284f2e6eebdebc8f5fae9fd6afed440479f9a2e5
+  src/syllable_sdk/models/directory_member_historyop.py:
+    id: a1c503cd0ef5
+    last_write_checksum: sha1:20c3cd3bdc6e1e3f2bd8abd38c9364a27f8dc694
+    pristine_git_object: bb07f85ba0a22b2d448053d45073904e73ff00f7
   src/syllable_sdk/models/directory_member_listop.py:
     id: aba63edf82d2
-    last_write_checksum: sha1:69a09954fa3ca66adf5f6aa0c638bc9ed6882a63
-    pristine_git_object: 3640f04e88e0495f307d5d26054fb4fbcc249dc9
+    last_write_checksum: sha1:cef01cb3f7aa24380dac621a34c70d4470be43a5
+    pristine_git_object: 76d4676fc89ecf8507a13624e6d2433aa4dbec04
+  src/syllable_sdk/models/directory_member_restoreop.py:
+    id: 490f45269b6a
+    last_write_checksum: sha1:638471147b1e8b44b8f75b9953da228932b309d7
+    pristine_git_object: e31c4828ebeb814203dc942b89d3c5524ea6a473
   src/syllable_sdk/models/directory_member_test_extensionop.py:
     id: febd53deb6f1
     last_write_checksum: sha1:7fe32aafc99ecec83a8cde39bbe4d5e755156664
@@ -2538,24 +2562,28 @@ trackedFiles:
     pristine_git_object: 1880d427bfe60c2401bb9bf25c4f1632442f4a19
   src/syllable_sdk/models/directorymember.py:
     id: d6b3b4b2fe76
-    last_write_checksum: sha1:779b970bc0968d50d6f5db665c26397251056ec9
-    pristine_git_object: 88275457296ac2d8dbe3e86d2b4ac41cf3ce5f91
+    last_write_checksum: sha1:c5202b36ec4da907c09acb4755194c030a10c277
+    pristine_git_object: 1686319f5b9df971abfeee07c268328323e714ce
   src/syllable_sdk/models/directorymembercreate.py:
     id: f4145c8b5d5b
     last_write_checksum: sha1:0bd919bfaeb869d4cb4423be03a2d9be660cb502
     pristine_git_object: e455abfc4b92141ddb6d82bcf352c3b721f7d241
+  src/syllable_sdk/models/directorymemberhistoryresponse.py:
+    id: 7330082186fd
+    last_write_checksum: sha1:f5b0b97f9ddb1a9809f8128287c1972e48b90bb1
+    pristine_git_object: 30bc3ec5fe2912c9f4e7b48faeb1831f4b0e752a
   src/syllable_sdk/models/directorymemberproperties.py:
     id: d3700a2b0eda
-    last_write_checksum: sha1:63b633926f054b61f828fc1dcda0431d1403fea1
-    pristine_git_object: ac3a4267db10a4fbf6ed103db597fb0baa8e7f3e
+    last_write_checksum: sha1:cd509ae2f4918518876ead02a6dd718e124504e2
+    pristine_git_object: 73b15345b0296f145f0054e87daf7ac7ea97e5ba
   src/syllable_sdk/models/directorymembertestresponse.py:
     id: fffc5e7278bc
     last_write_checksum: sha1:346cf05573827d19ddeb7f515026fec5dcbc9e6e
     pristine_git_object: cb92caa28ddf65bd62507e785888946058209061
   src/syllable_sdk/models/directorymemberupdate.py:
     id: 353811d7088b
-    last_write_checksum: sha1:ddd8f51ed8e9e9c7ea962e411030e98850bfd5a2
-    pristine_git_object: 51a1d0e65318cae7a0912e8dfe7e2291e33617b2
+    last_write_checksum: sha1:a5a5e295feb9a4acaaf50f1434ecb160987a1057
+    pristine_git_object: dee19f6c02ba6a1f2338442d8e1b3e6f4a215657
   src/syllable_sdk/models/directoryresponseformat.py:
     id: af38e11930ba
     last_write_checksum: sha1:49b2271067c8274ebbb33590cf9cb5001092d28a
@@ -2920,6 +2948,10 @@ trackedFiles:
     id: 7933460ca5e6
     last_write_checksum: sha1:dd9e24acfec885be3ad6b7074a886161223d3f37
     pristine_git_object: e94f60addc4d1a042f3817b78be9d845e946487e
+  src/syllable_sdk/models/listresponse_directorymemberhistoryresponse_.py:
+    id: c5aea6ea5309
+    last_write_checksum: sha1:b92f969b2b16667bb09ce1bb80690c349cb77bc3
+    pristine_git_object: 2e01d655d93e7f765f341a6a5a38b54dbc6e4fdc
   src/syllable_sdk/models/listresponse_event_.py:
     id: 2769ccfb1379
     last_write_checksum: sha1:5aeabf64a86fa1ae5b68d4949ec8f758310e84ed
@@ -5358,6 +5390,7 @@ examples:
           search_field_values: ["Some Object Name"]
           start_datetime: "2023-01-01T00:00:00Z"
           end_datetime: "2024-01-01T00:00:00Z"
+          include_deleted: false
       responses:
         "200":
           application/json: {"items": [], "page": 0, "page_size": 25, "total_pages": 4, "total_count": 100}
@@ -5369,7 +5402,7 @@ examples:
         application/json: {"name": "Jane Doe", "type": "contact", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {"tag1": ["value1"], "tag2": ["value2"]}}
       responses:
         "200":
-          application/json: {"name": "Jane Doe", "type": "contact", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {"tag1": ["value1"], "tag2": ["value2"]}, "id": 1, "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"name": "Jane Doe", "type": "contact", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {"tag1": ["value1"], "tag2": ["value2"]}, "id": 1, "comments": "Updated phone number", "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   directory_member_get_by_id:
@@ -5379,7 +5412,7 @@ examples:
           member_id: 562571
       responses:
         "200":
-          application/json: {"name": "Jane Doe", "type": "contact", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {"tag1": ["value1"], "tag2": ["value2"]}, "id": 1, "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"name": "Jane Doe", "type": "contact", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {"tag1": ["value1"], "tag2": ["value2"]}, "id": 1, "comments": "Updated phone number", "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   directory_member_update:
@@ -5388,10 +5421,10 @@ examples:
         path:
           member_id: 941217
       requestBody:
-        application/json: {"name": "Jane Doe", "type": "contact", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {"tag1": ["value1"], "tag2": ["value2"]}, "id": 1}
+        application/json: {"name": "Jane Doe", "type": "contact", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {"tag1": ["value1"], "tag2": ["value2"]}, "id": 1, "comments": "Updated phone number"}
       responses:
         "200":
-          application/json: {"name": "Jane Doe", "type": "contact", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {"tag1": ["value1"], "tag2": ["value2"]}, "id": 1, "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
+          application/json: {"name": "Jane Doe", "type": "contact", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {"tag1": ["value1"], "tag2": ["value2"]}, "id": 1, "comments": "Updated phone number", "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
         "422":
           application/json: {}
   directory_member_delete:
@@ -5399,6 +5432,8 @@ examples:
       parameters:
         path:
           member_id: 569311
+        query:
+          comment: "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design"
       responses:
         "200":
           application/json: "<value>"
@@ -5448,8 +5483,32 @@ examples:
           application/json: {}
         "422":
           application/json: {}
+  directory_member_history:
+    speakeasy-default-directory-member-history:
+      parameters:
+        path:
+          member_id: 371893
+        query:
+          page: 0
+          limit: 25
+      responses:
+        "200":
+          application/json: {"items": [], "page": 0, "page_size": 25, "total_pages": 4, "total_count": 100}
+        "422":
+          application/json: {}
+  directory_member_restore:
+    speakeasy-default-directory-member-restore:
+      parameters:
+        path:
+          member_id: 507482
+      responses:
+        "200":
+          application/json: {"name": "Jane Doe", "type": "Operator", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {"tag1": ["value1"], "tag2": ["value2"]}, "id": 1, "comments": "Updated phone number", "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}
+        "422":
+          application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.directory.delete()`:  `request.comment` **Added** (Breaking ⚠️)\n* `syllable_sdk.directory.directory_member_history()`: **Added**\n* `syllable_sdk.directory.directory_member_restore()`: **Added**\n* `syllable_sdk.directory.list()`: \n  *  `request` **Changed**\n  *  `response.items[]` **Changed**\n* `syllable_sdk.directory.create()`:  `response` **Changed**\n* `syllable_sdk.directory.get_by_id()`:  `response` **Changed**\n* `syllable_sdk.directory.update()`: \n  *  `request.directory_member_update.comments` **Added**\n  *  `response` **Changed**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

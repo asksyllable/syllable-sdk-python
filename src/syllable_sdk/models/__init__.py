@@ -293,9 +293,17 @@ if TYPE_CHECKING:
         DirectoryMemberGetByIDRequest,
         DirectoryMemberGetByIDRequestTypedDict,
     )
+    from .directory_member_historyop import (
+        DirectoryMemberHistoryRequest,
+        DirectoryMemberHistoryRequestTypedDict,
+    )
     from .directory_member_listop import (
         DirectoryMemberListRequest,
         DirectoryMemberListRequestTypedDict,
+    )
+    from .directory_member_restoreop import (
+        DirectoryMemberRestoreRequest,
+        DirectoryMemberRestoreRequestTypedDict,
     )
     from .directory_member_test_extensionop import (
         DirectoryMemberTestExtensionRequest,
@@ -314,6 +322,10 @@ if TYPE_CHECKING:
     from .directorymembercreate import (
         DirectoryMemberCreate,
         DirectoryMemberCreateTypedDict,
+    )
+    from .directorymemberhistoryresponse import (
+        DirectoryMemberHistoryResponse,
+        DirectoryMemberHistoryResponseTypedDict,
     )
     from .directorymemberproperties import DirectoryMemberProperties
     from .directorymembertestresponse import (
@@ -638,6 +650,10 @@ if TYPE_CHECKING:
     from .listresponse_directorymember_ import (
         ListResponseDirectoryMember,
         ListResponseDirectoryMemberTypedDict,
+    )
+    from .listresponse_directorymemberhistoryresponse_ import (
+        ListResponseDirectoryMemberHistoryResponse,
+        ListResponseDirectoryMemberHistoryResponseTypedDict,
     )
     from .listresponse_event_ import ListResponseEvent, ListResponseEventTypedDict
     from .listresponse_incidentresponse_ import (
@@ -1350,9 +1366,15 @@ __all__ = [
     "DirectoryMemberDownloadRequestTypedDict",
     "DirectoryMemberGetByIDRequest",
     "DirectoryMemberGetByIDRequestTypedDict",
+    "DirectoryMemberHistoryRequest",
+    "DirectoryMemberHistoryRequestTypedDict",
+    "DirectoryMemberHistoryResponse",
+    "DirectoryMemberHistoryResponseTypedDict",
     "DirectoryMemberListRequest",
     "DirectoryMemberListRequestTypedDict",
     "DirectoryMemberProperties",
+    "DirectoryMemberRestoreRequest",
+    "DirectoryMemberRestoreRequestTypedDict",
     "DirectoryMemberTestExtensionRequest",
     "DirectoryMemberTestExtensionRequestTypedDict",
     "DirectoryMemberTestResponse",
@@ -1568,6 +1590,8 @@ __all__ = [
     "ListResponseDataSourceMetadataResponse",
     "ListResponseDataSourceMetadataResponseTypedDict",
     "ListResponseDirectoryMember",
+    "ListResponseDirectoryMemberHistoryResponse",
+    "ListResponseDirectoryMemberHistoryResponseTypedDict",
     "ListResponseDirectoryMemberTypedDict",
     "ListResponseEvent",
     "ListResponseEventTypedDict",
@@ -2139,8 +2163,12 @@ _dynamic_imports: dict[str, str] = {
     "DirectoryMemberDownloadRequestTypedDict": ".directory_member_downloadop",
     "DirectoryMemberGetByIDRequest": ".directory_member_get_by_idop",
     "DirectoryMemberGetByIDRequestTypedDict": ".directory_member_get_by_idop",
+    "DirectoryMemberHistoryRequest": ".directory_member_historyop",
+    "DirectoryMemberHistoryRequestTypedDict": ".directory_member_historyop",
     "DirectoryMemberListRequest": ".directory_member_listop",
     "DirectoryMemberListRequestTypedDict": ".directory_member_listop",
+    "DirectoryMemberRestoreRequest": ".directory_member_restoreop",
+    "DirectoryMemberRestoreRequestTypedDict": ".directory_member_restoreop",
     "DirectoryMemberTestExtensionRequest": ".directory_member_test_extensionop",
     "DirectoryMemberTestExtensionRequestTypedDict": ".directory_member_test_extensionop",
     "DirectoryMemberUpdateRequest": ".directory_member_updateop",
@@ -2153,6 +2181,8 @@ _dynamic_imports: dict[str, str] = {
     "DirectoryMemberTypedDict": ".directorymember",
     "DirectoryMemberCreate": ".directorymembercreate",
     "DirectoryMemberCreateTypedDict": ".directorymembercreate",
+    "DirectoryMemberHistoryResponse": ".directorymemberhistoryresponse",
+    "DirectoryMemberHistoryResponseTypedDict": ".directorymemberhistoryresponse",
     "DirectoryMemberProperties": ".directorymemberproperties",
     "DirectoryMemberTestResponse": ".directorymembertestresponse",
     "DirectoryMemberTestResponseTypedDict": ".directorymembertestresponse",
@@ -2365,6 +2395,8 @@ _dynamic_imports: dict[str, str] = {
     "ListResponseDataSourceMetadataResponseTypedDict": ".listresponse_datasourcemetadataresponse_",
     "ListResponseDirectoryMember": ".listresponse_directorymember_",
     "ListResponseDirectoryMemberTypedDict": ".listresponse_directorymember_",
+    "ListResponseDirectoryMemberHistoryResponse": ".listresponse_directorymemberhistoryresponse_",
+    "ListResponseDirectoryMemberHistoryResponseTypedDict": ".listresponse_directorymemberhistoryresponse_",
     "ListResponseEvent": ".listresponse_event_",
     "ListResponseEventTypedDict": ".listresponse_event_",
     "ListResponseIncidentResponse": ".listresponse_incidentresponse_",

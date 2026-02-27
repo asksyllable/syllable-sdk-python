@@ -889,7 +889,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.directory.list(page=0, limit=25, search_fields=[
+                res = ss_client.directory.list(include_deleted=False, page=0, limit=25, search_fields=[
                     models.DirectoryMemberProperties.NAME,
                 ], search_field_values=[
                     "Some Object Name",
@@ -996,7 +996,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.directory.delete(member_id=569311)
+                res = ss_client.directory.delete(member_id=569311, comment="The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design")
 
                 # Handle response
                 print(res)
@@ -1059,7 +1059,44 @@ actions:
                         ],
                     },
                     "id": 1,
+                    "comments": "Updated phone number",
                 })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/directory_members/{member_id}/history"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.directory.directory_member_history(member_id=371893, page=0, limit=25)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/directory_members/{member_id}/restore"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.directory.directory_member_restore(member_id=507482)
 
                 # Handle response
                 print(res)
