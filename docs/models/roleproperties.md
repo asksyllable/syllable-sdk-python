@@ -2,6 +2,14 @@
 
 Names of role fields supported for filtering/sorting on list endpoint.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import RoleProperties
+
+value = RoleProperties.NAME
+```
+
 
 ## Values
 

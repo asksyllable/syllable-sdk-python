@@ -2,6 +2,14 @@
 
 The communication service for a channel.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import ChannelServices
+
+value = ChannelServices.SIP
+```
+
 
 ## Values
 

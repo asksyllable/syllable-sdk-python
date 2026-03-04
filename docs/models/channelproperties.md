@@ -2,6 +2,14 @@
 
 Names of channel fields supported for filtering/sorting on list endpoint.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import ChannelProperties
+
+value = ChannelProperties.ID
+```
+
 
 ## Values
 

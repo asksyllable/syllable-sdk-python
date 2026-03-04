@@ -2,6 +2,14 @@
 
 Enum representing days of the week.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import DaysOfWeek
+
+value = DaysOfWeek.MON
+```
+
 
 ## Values
 

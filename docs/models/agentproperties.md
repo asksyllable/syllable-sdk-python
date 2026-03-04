@@ -2,6 +2,14 @@
 
 Names of agent fields supported for filtering/sorting on list endpoint.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import AgentProperties
+
+value = AgentProperties.ID
+```
+
 
 ## Values
 

@@ -2,6 +2,14 @@
 
 Names of target fields supported for filtering/sorting on available targets list endpoint.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import AvailableTargetProperties
+
+value = AvailableTargetProperties.CHANNEL_ID
+```
+
 
 ## Values
 

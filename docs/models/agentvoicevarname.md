@@ -2,6 +2,14 @@
 
 The variable name of an agent voice (used when processing messages).
 
+## Example Usage
+
+```python
+from syllable_sdk.models import AgentVoiceVarName
+
+value = AgentVoiceVarName.OPENAI_ALLOY
+```
+
 
 ## Values
 

@@ -1,5 +1,13 @@
 # InsightsFolderProperties
 
+## Example Usage
+
+```python
+from syllable_sdk.models import InsightsFolderProperties
+
+value = InsightsFolderProperties.ID
+```
+
 
 ## Values
 

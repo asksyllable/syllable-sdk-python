@@ -1,5 +1,13 @@
 # DirectoryMemberProperties
 
+## Example Usage
+
+```python
+from syllable_sdk.models import DirectoryMemberProperties
+
+value = DirectoryMemberProperties.ID
+```
+
 
 ## Values
 

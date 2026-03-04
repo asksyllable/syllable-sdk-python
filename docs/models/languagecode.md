@@ -2,6 +2,14 @@
 
 BCP 47 codes of languages that Syllable supports.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import LanguageCode
+
+value = LanguageCode.YUE_HK
+```
+
 
 ## Values
 

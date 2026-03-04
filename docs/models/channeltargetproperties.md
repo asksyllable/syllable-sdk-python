@@ -3,6 +3,14 @@
 Names of channel target fields supported for filtering/sorting on full channel targets list
 endpoint.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import ChannelTargetProperties
+
+value = ChannelTargetProperties.ID
+```
+
 
 ## Values
 

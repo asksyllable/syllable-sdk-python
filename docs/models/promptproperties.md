@@ -2,6 +2,14 @@
 
 Names of prompt fields supported for filtering/sorting on list endpoint.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import PromptProperties
+
+value = PromptProperties.ID
+```
+
 
 ## Values
 

@@ -1,5 +1,13 @@
 # InsightsProperties
 
+## Example Usage
+
+```python
+from syllable_sdk.models import InsightsProperties
+
+value = InsightsProperties.ID
+```
+
 
 ## Values
 

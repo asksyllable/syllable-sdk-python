@@ -2,6 +2,14 @@
 
 Deprecated enum mirroring `VoiceGroupProperties` values.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import LanguageGroupProperties
+
+value = LanguageGroupProperties.NAME
+```
+
 
 ## Values
 

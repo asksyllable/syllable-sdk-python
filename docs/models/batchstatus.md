@@ -2,6 +2,14 @@
 
 Status of a communication batch.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import BatchStatus
+
+value = BatchStatus.PENDING
+```
+
 
 ## Values
 

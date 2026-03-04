@@ -1,5 +1,13 @@
 # CampaignProperties
 
+## Example Usage
+
+```python
+from syllable_sdk.models import CampaignProperties
+
+value = CampaignProperties.ID
+```
+
 
 ## Values
 

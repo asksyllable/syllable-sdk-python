@@ -2,6 +2,14 @@
 
 Available modes (communication methods) for channel targets.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import TargetModes
+
+value = TargetModes.VOICE
+```
+
 
 ## Values
 

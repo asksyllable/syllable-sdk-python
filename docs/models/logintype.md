@@ -2,6 +2,14 @@
 
 The type of login to use for the user.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import LoginType
+
+value = LoginType.GOOGLE
+```
+
 
 ## Values
 
