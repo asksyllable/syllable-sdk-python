@@ -1,5 +1,13 @@
 # LatencyUnitType
 
+## Example Usage
+
+```python
+from syllable_sdk.models import LatencyUnitType
+
+value = LatencyUnitType.MINUTES
+```
+
 
 ## Values
 

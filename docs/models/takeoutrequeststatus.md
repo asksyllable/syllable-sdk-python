@@ -2,6 +2,14 @@
 
 Status of a takeout request.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import TakeoutRequestStatus
+
+value = TakeoutRequestStatus.PENDING
+```
+
 
 ## Values
 

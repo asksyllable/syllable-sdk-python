@@ -2,6 +2,14 @@
 
 Available options for day of the week for use in message rules.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import DayOfWeek
+
+value = DayOfWeek.MO
+```
+
 
 ## Values
 

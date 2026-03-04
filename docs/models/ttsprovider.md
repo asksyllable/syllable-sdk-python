@@ -2,6 +2,14 @@
 
 TTS provider for an agent voice.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import TtsProvider
+
+value = TtsProvider.OPEN_AI
+```
+
 
 ## Values
 

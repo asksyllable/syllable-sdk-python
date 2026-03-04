@@ -1,5 +1,13 @@
 # ToolAuthType
 
+## Example Usage
+
+```python
+from syllable_sdk.models import ToolAuthType
+
+value = ToolAuthType.BASIC
+```
+
 
 ## Values
 

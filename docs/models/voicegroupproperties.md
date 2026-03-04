@@ -2,6 +2,14 @@
 
 Names of voice group fields supported for filtering/sorting on list endpoint.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import VoiceGroupProperties
+
+value = VoiceGroupProperties.NAME
+```
+
 
 ## Values
 

@@ -1,5 +1,13 @@
 # VariableType
 
+## Example Usage
+
+```python
+from syllable_sdk.models import VariableType
+
+value = VariableType.STRING
+```
+
 
 ## Values
 

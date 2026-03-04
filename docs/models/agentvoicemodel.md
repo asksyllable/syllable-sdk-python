@@ -2,6 +2,14 @@
 
 Model for an agent voice.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import AgentVoiceModel
+
+value = AgentVoiceModel.CHIRP_3_HD
+```
+
 
 ## Values
 

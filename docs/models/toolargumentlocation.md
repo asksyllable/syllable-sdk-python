@@ -6,6 +6,14 @@ The location of the argument in a tool HTTP request.
 'path' is used for URL path parameters.
 'query' is used for query parameters in the URL.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import ToolArgumentLocation
+
+value = ToolArgumentLocation.BODY
+```
+
 
 ## Values
 

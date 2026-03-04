@@ -2,6 +2,14 @@
 
 Names of service fields supported for filtering/sorting on list endpoint.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import ServiceProperties
+
+value = ServiceProperties.ID
+```
+
 
 ## Values
 

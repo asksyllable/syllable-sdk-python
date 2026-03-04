@@ -1,5 +1,13 @@
 # BatchProperties
 
+## Example Usage
+
+```python
+from syllable_sdk.models import BatchProperties
+
+value = BatchProperties.BATCH_ID
+```
+
 
 ## Values
 

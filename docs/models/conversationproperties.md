@@ -1,5 +1,13 @@
 # ConversationProperties
 
+## Example Usage
+
+```python
+from syllable_sdk.models import ConversationProperties
+
+value = ConversationProperties.TIMESTAMP
+```
+
 
 ## Values
 

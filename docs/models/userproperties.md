@@ -2,6 +2,14 @@
 
 Names of user fields supported for filtering/sorting on list endpoint.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import UserProperties
+
+value = UserProperties.EMAIL
+```
+
 
 ## Values
 

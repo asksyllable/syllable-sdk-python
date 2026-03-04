@@ -1,5 +1,13 @@
 # UserActivityStatus
 
+## Example Usage
+
+```python
+from syllable_sdk.models import UserActivityStatus
+
+value = UserActivityStatus.NOT_INVITED
+```
+
 
 ## Values
 

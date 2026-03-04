@@ -2,6 +2,14 @@
 
 Speech-to-text providers supported by agents.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import AgentSttProvider
+
+value = AgentSttProvider.GOOGLE_STT_V2_CHIRP_2_
+```
+
 
 ## Values
 

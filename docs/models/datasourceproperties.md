@@ -2,6 +2,14 @@
 
 Names of data source fields supported for filtering/sorting on list endpoint.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import DataSourceProperties
+
+value = DataSourceProperties.NAME
+```
+
 
 ## Values
 

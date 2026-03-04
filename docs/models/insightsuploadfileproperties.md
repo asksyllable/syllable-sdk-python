@@ -1,5 +1,13 @@
 # InsightsUploadFileProperties
 
+## Example Usage
+
+```python
+from syllable_sdk.models import InsightsUploadFileProperties
+
+value = InsightsUploadFileProperties.FILENAME
+```
+
 
 ## Values
 

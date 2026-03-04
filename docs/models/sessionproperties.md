@@ -2,6 +2,14 @@
 
 Names of session fields supported for filtering/sorting on list endpoint.
 
+## Example Usage
+
+```python
+from syllable_sdk.models import SessionProperties
+
+value = SessionProperties.TIMESTAMP
+```
+
 
 ## Values
 

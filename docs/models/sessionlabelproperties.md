@@ -1,5 +1,13 @@
 # SessionLabelProperties
 
+## Example Usage
+
+```python
+from syllable_sdk.models import SessionLabelProperties
+
+value = SessionLabelProperties.TIMESTAMP
+```
+
 
 ## Values
 

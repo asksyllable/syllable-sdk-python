@@ -1,5 +1,13 @@
 # InputParameterType
 
+## Example Usage
+
+```python
+from syllable_sdk.models import InputParameterType
+
+value = InputParameterType.STRING
+```
+
 
 ## Values
 
