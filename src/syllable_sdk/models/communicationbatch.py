@@ -30,8 +30,6 @@ class CommunicationBatchTypedDict(TypedDict):
     r"""Status of a communication batch."""
     upload_filename: NotRequired[Nullable[str]]
     r"""Name of file used to create batch"""
-    dispatch_id: NotRequired[Nullable[str]]
-    r"""A unique identifier for dipatched job"""
     created_at: NotRequired[datetime]
     r"""Timestamp of batch creation"""
     deleted_at: NotRequired[Nullable[datetime]]
@@ -66,9 +64,6 @@ class CommunicationBatch(BaseModel):
     upload_filename: OptionalNullable[str] = UNSET
     r"""Name of file used to create batch"""
 
-    dispatch_id: OptionalNullable[str] = UNSET
-    r"""A unique identifier for dipatched job"""
-
     created_at: Optional[datetime] = None
     r"""Timestamp of batch creation"""
 
@@ -92,7 +87,6 @@ class CommunicationBatch(BaseModel):
                 "paused",
                 "status",
                 "upload_filename",
-                "dispatch_id",
                 "created_at",
                 "deleted_at",
                 "deleted_reason",
@@ -105,7 +99,6 @@ class CommunicationBatch(BaseModel):
                 "expires_on",
                 "paused",
                 "upload_filename",
-                "dispatch_id",
                 "deleted_at",
                 "deleted_reason",
                 "last_updated_at",
