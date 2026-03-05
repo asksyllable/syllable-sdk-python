@@ -8855,14 +8855,6 @@ components:
           description: "Name of file used to create batch"
           examples:
             - "LATE_PAYMENTS_20250401.csv"
-        dispatch_id:
-          anyOf:
-            - type: "string"
-            - type: "null"
-          title: "Dispatch Id"
-          description: "A unique identifier for dipatched job"
-          examples:
-            - "5ac42327fbd7e03b441650b79ae91ae1"
         created_at:
           type: "string"
           format: "date-time"
@@ -9608,14 +9600,6 @@ components:
           description: "Name of file used to create batch"
           examples:
             - "LATE_PAYMENTS_20250401.csv"
-        dispatch_id:
-          anyOf:
-            - type: "string"
-            - type: "null"
-          title: "Dispatch Id"
-          description: "A unique identifier for dipatched job"
-          examples:
-            - "5ac42327fbd7e03b441650b79ae91ae1"
         created_at:
           type: "string"
           format: "date-time"
