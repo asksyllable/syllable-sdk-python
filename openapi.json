@@ -14245,6 +14245,21 @@
               "LATE_PAYMENTS_20250401.csv"
             ]
           },
+          "dispatch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dispatch Id",
+            "description": "A unique identifier for dipatched job",
+            "examples": [
+              "5ac42327fbd7e03b441650b79ae91ae1"
+            ]
+          },
           "created_at": {
             "type": "string",
             "format": "date-time",
@@ -15367,6 +15382,21 @@
               "LATE_PAYMENTS_20250401.csv"
             ]
           },
+          "dispatch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dispatch Id",
+            "description": "A unique identifier for dipatched job",
+            "examples": [
+              "5ac42327fbd7e03b441650b79ae91ae1"
+            ]
+          },
           "created_at": {
             "type": "string",
             "format": "date-time",
@@ -15704,7 +15734,7 @@
               "INITIATED",
               "CONNECTED",
               "SENT",
-              "CALL_COMPLETED",
+              "COMPLETED",
               "FAILED",
               "CANCELED",
               "INVALID"
@@ -25644,7 +25674,7 @@
           "INITIATED",
           "CONNECTED",
           "SENT",
-          "CALL_COMPLETED",
+          "COMPLETED",
           "FAILED",
           "CANCELED",
           "INVALID"
