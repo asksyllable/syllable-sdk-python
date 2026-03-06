@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from .custommessagerule import CustomMessageRule, CustomMessageRuleTypedDict
+from .custommessagetype import CustomMessageType
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -20,15 +21,17 @@ class CustomMessageCreateRequestTypedDict(TypedDict):
     name: str
     r"""The name of the custom message"""
     text: str
-    r"""The default message that the agent will deliver if no rules are set or no rules match the current timestamp."""
+    r"""The default message that the agent will deliver if no rules are set or no rules match the current timestamp. For email_template, this is the body."""
+    type: NotRequired[CustomMessageType]
+    r"""Type of custom message. Greeting is for voice; email_template is for email (subject + body)."""
     preamble: NotRequired[Nullable[str]]
     r"""An optional preamble that will be delivered before the main message, regardless of whether the current time and date match a rule or the system uses the default message. Cannot contain the \"{{ language.mode }}\" tag. In the case of a voice conversation, the user will not be able to interrupt the preamble. Can be used for e.g. legal disclaimers that the user must always see/hear."""
+    subject: NotRequired[Nullable[str]]
+    r"""Email subject. Required for email_template (in type_config); ignored otherwise."""
     label: NotRequired[Nullable[str]]
     r"""The label of the custom message"""
     rules: NotRequired[List[CustomMessageRuleTypedDict]]
     r"""Rules for time-specific message variants"""
-    type: NotRequired[str]
-    r"""Type of the custom message (must be \"greeting\" for now)"""
 
 
 class CustomMessageCreateRequest(BaseModel):
@@ -38,10 +41,16 @@ class CustomMessageCreateRequest(BaseModel):
     r"""The name of the custom message"""
 
     text: str
-    r"""The default message that the agent will deliver if no rules are set or no rules match the current timestamp."""
+    r"""The default message that the agent will deliver if no rules are set or no rules match the current timestamp. For email_template, this is the body."""
+
+    type: Optional[CustomMessageType] = None
+    r"""Type of custom message. Greeting is for voice; email_template is for email (subject + body)."""
 
     preamble: OptionalNullable[str] = UNSET
     r"""An optional preamble that will be delivered before the main message, regardless of whether the current time and date match a rule or the system uses the default message. Cannot contain the \"{{ language.mode }}\" tag. In the case of a voice conversation, the user will not be able to interrupt the preamble. Can be used for e.g. legal disclaimers that the user must always see/hear."""
+
+    subject: OptionalNullable[str] = UNSET
+    r"""Email subject. Required for email_template (in type_config); ignored otherwise."""
 
     label: OptionalNullable[str] = UNSET
     r"""The label of the custom message"""
@@ -49,13 +58,10 @@ class CustomMessageCreateRequest(BaseModel):
     rules: Optional[List[CustomMessageRule]] = None
     r"""Rules for time-specific message variants"""
 
-    type: Optional[str] = "greeting"
-    r"""Type of the custom message (must be \"greeting\" for now)"""
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["preamble", "label", "rules", "type"])
-        nullable_fields = set(["preamble", "label"])
+        optional_fields = set(["type", "preamble", "subject", "label", "rules"])
+        nullable_fields = set(["preamble", "subject", "label"])
         serialized = handler(self)
         m = {}
 

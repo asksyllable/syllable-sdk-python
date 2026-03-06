@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from .custommessagerule import CustomMessageRule, CustomMessageRuleTypedDict
+from .custommessagetype import CustomMessageType
 from datetime import datetime
 from pydantic import model_serializer
 from syllable_sdk.types import (
@@ -17,49 +18,49 @@ from typing_extensions import NotRequired, TypedDict
 
 class CustomMessageResponseTypedDict(TypedDict):
     r"""Response model for custom message operations.
-    A custom message is a pre-configured message delivered by an agent as a greeting at the
-    beginning of a conversation. Multiple agents can use the same custom mesasage. A custom message
-    has one or more rules defined, which allow for different messages to be dynamically selected and
-    delivered at runtime based on the current time and either date or day of the week. For more
-    information, see [Console docs](https://docs.syllable.ai/Resources/Messages).
+    A custom message is a pre-configured message delivered by an agent (e.g. as a greeting at the
+    beginning of a conversation, or as an email template with subject and body). Multiple agents can
+    use the same custom message. Greeting-type messages may have rules for time-based variants; email
+    templates have a subject and body only. For more information, see [Console docs](https://docs.syllable.ai/Resources/Messages).
     """
 
     name: str
     r"""The name of the custom message"""
     text: str
-    r"""The default message that the agent will deliver if no rules are set or no rules match the current timestamp."""
+    r"""The default message that the agent will deliver if no rules are set or no rules match the current timestamp. For email_template, this is the body."""
     id: int
     r"""The ID of the custom message"""
     updated_at: datetime
     r"""Timestamp of the most recent update to the custom message"""
     last_updated_by: str
     r"""The email address of the user who most recently updated the custom message"""
+    type: NotRequired[CustomMessageType]
+    r"""Type of custom message. Greeting is for voice; email_template is for email (subject + body)."""
     preamble: NotRequired[Nullable[str]]
     r"""An optional preamble that will be delivered before the main message, regardless of whether the current time and date match a rule or the system uses the default message. Cannot contain the \"{{ language.mode }}\" tag. In the case of a voice conversation, the user will not be able to interrupt the preamble. Can be used for e.g. legal disclaimers that the user must always see/hear."""
+    subject: NotRequired[Nullable[str]]
+    r"""Email subject. Required for email_template (in type_config); ignored otherwise."""
     label: NotRequired[Nullable[str]]
     r"""The label of the custom message"""
     rules: NotRequired[List[CustomMessageRuleTypedDict]]
     r"""Rules for time-specific message variants"""
     agent_count: NotRequired[Nullable[int]]
     r"""The number of agents using the custom message"""
-    type: NotRequired[str]
-    r"""Type of the custom message (must be \"greeting\" for now)"""
 
 
 class CustomMessageResponse(BaseModel):
     r"""Response model for custom message operations.
-    A custom message is a pre-configured message delivered by an agent as a greeting at the
-    beginning of a conversation. Multiple agents can use the same custom mesasage. A custom message
-    has one or more rules defined, which allow for different messages to be dynamically selected and
-    delivered at runtime based on the current time and either date or day of the week. For more
-    information, see [Console docs](https://docs.syllable.ai/Resources/Messages).
+    A custom message is a pre-configured message delivered by an agent (e.g. as a greeting at the
+    beginning of a conversation, or as an email template with subject and body). Multiple agents can
+    use the same custom message. Greeting-type messages may have rules for time-based variants; email
+    templates have a subject and body only. For more information, see [Console docs](https://docs.syllable.ai/Resources/Messages).
     """
 
     name: str
     r"""The name of the custom message"""
 
     text: str
-    r"""The default message that the agent will deliver if no rules are set or no rules match the current timestamp."""
+    r"""The default message that the agent will deliver if no rules are set or no rules match the current timestamp. For email_template, this is the body."""
 
     id: int
     r"""The ID of the custom message"""
@@ -70,8 +71,14 @@ class CustomMessageResponse(BaseModel):
     last_updated_by: str
     r"""The email address of the user who most recently updated the custom message"""
 
+    type: Optional[CustomMessageType] = None
+    r"""Type of custom message. Greeting is for voice; email_template is for email (subject + body)."""
+
     preamble: OptionalNullable[str] = UNSET
     r"""An optional preamble that will be delivered before the main message, regardless of whether the current time and date match a rule or the system uses the default message. Cannot contain the \"{{ language.mode }}\" tag. In the case of a voice conversation, the user will not be able to interrupt the preamble. Can be used for e.g. legal disclaimers that the user must always see/hear."""
+
+    subject: OptionalNullable[str] = UNSET
+    r"""Email subject. Required for email_template (in type_config); ignored otherwise."""
 
     label: OptionalNullable[str] = UNSET
     r"""The label of the custom message"""
@@ -82,13 +89,12 @@ class CustomMessageResponse(BaseModel):
     agent_count: OptionalNullable[int] = UNSET
     r"""The number of agents using the custom message"""
 
-    type: Optional[str] = "greeting"
-    r"""Type of the custom message (must be \"greeting\" for now)"""
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["preamble", "label", "rules", "agent_count", "type"])
-        nullable_fields = set(["preamble", "label", "agent_count"])
+        optional_fields = set(
+            ["type", "preamble", "subject", "label", "rules", "agent_count"]
+        )
+        nullable_fields = set(["preamble", "subject", "label", "agent_count"])
         serialized = handler(self)
         m = {}
 
