@@ -10,8 +10,20 @@ if TYPE_CHECKING:
 
 
 class CaseExpressionTypedDict(TypedDict):
+    r"""Conditional branch expression.
+
+    Note: CaseExpression is currently reserved and not yet executed at runtime.
+    """
+
     case: List["ConditionalValueTypedDict"]
+    r"""Ordered conditional branches (reserved for future runtime support)."""
 
 
 class CaseExpression(BaseModel):
+    r"""Conditional branch expression.
+
+    Note: CaseExpression is currently reserved and not yet executed at runtime.
+    """
+
     case: List["ConditionalValue"]
+    r"""Ordered conditional branches (reserved for future runtime support)."""

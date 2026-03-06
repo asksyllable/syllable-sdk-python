@@ -99,6 +99,9 @@ with SyllableSDK(
                 method=models.ToolHTTPMethod.POST,
                 argument_location=models.ToolArgumentLocation.QUERY,
             ),
+            context=models.Context(
+                task=[],
+            ),
             defaults={
                 "key": {
                     "transform": {
@@ -180,6 +183,11 @@ with SyllableSDK(
                 url="https://api.example.com",
                 method=models.ToolHTTPMethod.GET,
                 argument_location=models.ToolArgumentLocation.FORM,
+            ),
+            context=models.Context(
+                task=models.LoadToolFromFileTask(
+                    file="<value>",
+                ),
             ),
             defaults="<value>",
             static_parameters=[

@@ -1,6 +1,6 @@
 # JMESPathExpressionType
 
-JMESPath expression.
+JMESPath expression language selector. Use with object form {"type":"jp"|"jmespath","expression":"..."}.
 
 ## Example Usage
 

@@ -9191,7 +9191,13 @@ components:
             - type: "string"
             - type: "null"
           title: "If"
-          description: "An expression that must evaluate to true for the action to be applied."
+          description: "Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."
+          examples:
+            - "inputs.can_sign_consent == `true`"
+            - expression: "inputs.can_sign_consent == `true`"
+              type: "jp"
+            - expression: "inputs.can_sign_consent == true"
+              type: "cel"
         action:
           type: "string"
           const: "call"
@@ -9244,27 +9250,31 @@ components:
             $ref: "#/components/schemas/ConditionalValue"
           type: "array"
           title: "Case"
+          description: "Ordered conditional branches (reserved for future runtime support)."
       type: "object"
       required:
         - "case"
       title: "CaseExpression"
+      description: "Conditional branch expression.\n\nNote: CaseExpression is currently reserved and not yet executed at runtime."
     CelExpression:
       properties:
         expression:
           type: "string"
           title: "Expression"
-          description: "The expression to evaluate."
+          description: "CEL expression string."
+          examples:
+            - "inputs.can_sign_consent == true"
         type:
           type: "string"
           const: "cel"
           title: "Type"
-          description: "Google Common Expression Language."
+          description: "CEL expression language selector. Use with object form {\"type\":\"cel\",\"expression\":\"...\"}."
           default: "cel"
       type: "object"
       required:
         - "expression"
       title: "CelExpression"
-      description: "See https://github.com/google/cel-spec/blob/master/doc/langdef.md"
+      description: "Google CEL expression object.\n\nUse this object form when you want CEL syntax:\n{\"type\": \"cel\", \"expression\": \"inputs.count + 1\"}\nSee https://github.com/google/cel-spec/blob/master/doc/langdef.md"
     Channel:
       properties:
         name:
@@ -9897,7 +9907,13 @@ components:
             - type: "string"
             - type: "null"
           title: "If"
-          description: "An expression that must evaluate to true for the action to be applied."
+          description: "Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."
+          examples:
+            - "inputs.can_sign_consent == `true`"
+            - expression: "inputs.can_sign_consent == `true`"
+              type: "jp"
+            - expression: "inputs.can_sign_consent == true"
+              type: "cel"
         text:
           type: "string"
           title: "Text"
@@ -9928,7 +9944,13 @@ components:
             - type: "string"
             - type: "null"
           title: "Valuefrom"
-          description: "Expression to compute initial value (mutually exclusive with value)."
+          description: "Expression that computes the value. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Mutually exclusive with value."
+          examples:
+            - "inputs.provided_dob == patient_dob"
+            - expression: "inputs.provided_dob == patient_dob"
+              type: "jmespath"
+            - expression: "inputs.count + 1"
+              type: "cel"
         if:
           anyOf:
             - oneOf:
@@ -9944,7 +9966,13 @@ components:
             - type: "string"
             - type: "null"
           title: "If"
-          description: "An expression that must evaluate to true for the action to be applied."
+          description: "Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."
+          examples:
+            - "inputs.can_sign_consent == `true`"
+            - expression: "inputs.can_sign_consent == `true`"
+              type: "jp"
+            - expression: "inputs.can_sign_consent == true"
+              type: "cel"
       type: "object"
       title: "ConditionalValue"
     Context:
@@ -11661,6 +11689,13 @@ components:
             - type: "string"
             - type: "null"
           title: "Expression"
+          description: "Expression for task output/logic. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}."
+          examples:
+            - "inputs.can_sign_consent == `true`"
+            - expression: "inputs.can_sign_consent == `true`"
+              type: "jp"
+            - expression: "inputs.can_sign_consent == true"
+              type: "cel"
         output:
           anyOf:
             - $ref: "#/components/schemas/JsonValue"
@@ -11808,7 +11843,13 @@ components:
             - type: "string"
             - type: "null"
           title: "Valuefrom"
-          description: "Expression to compute initial value (mutually exclusive with value)."
+          description: "Expression that computes the value. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Mutually exclusive with value."
+          examples:
+            - "inputs.provided_dob == patient_dob"
+            - expression: "inputs.provided_dob == patient_dob"
+              type: "jmespath"
+            - expression: "inputs.count + 1"
+              type: "cel"
         if:
           anyOf:
             - oneOf:
@@ -11824,7 +11865,13 @@ components:
             - type: "string"
             - type: "null"
           title: "If"
-          description: "An expression that must evaluate to true for the action to be applied."
+          description: "Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."
+          examples:
+            - "inputs.can_sign_consent == `true`"
+            - expression: "inputs.can_sign_consent == `true`"
+              type: "jp"
+            - expression: "inputs.can_sign_consent == true"
+              type: "cel"
         action:
           type: "string"
           enum:
@@ -12174,7 +12221,13 @@ components:
             - type: "string"
             - type: "null"
           title: "If"
-          description: "An expression that must evaluate to true for the action to be applied."
+          description: "Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."
+          examples:
+            - "inputs.can_sign_consent == `true`"
+            - expression: "inputs.can_sign_consent == `true`"
+              type: "jp"
+            - expression: "inputs.can_sign_consent == true"
+              type: "cel"
         action:
           type: "string"
           const: "inc"
@@ -13218,20 +13271,22 @@ components:
         expression:
           type: "string"
           title: "Expression"
-          description: "The expression to evaluate."
+          description: "JMESPath expression string."
+          examples:
+            - "inputs.can_sign_consent == `true`"
         type:
           type: "string"
           enum:
             - "jp"
             - "jmespath"
           title: "Type"
-          description: "JMESPath expression."
+          description: "JMESPath expression language selector. Use with object form {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}."
           default: "jp"
       type: "object"
       required:
         - "expression"
       title: "JMESPathExpression"
-      description: "See https://jmespath.org/specification.html#grammar"
+      description: "JMESPath expression object.\n\nUse this object form to explicitly mark JMESPath syntax:\n{\"type\": \"jp\", \"expression\": \"inputs.can_sign_consent == `true`\"}\nSee https://jmespath.org/specification.html#grammar"
     JsonValue: {}
     LanguageCode:
       type: "string"
@@ -14917,7 +14972,13 @@ components:
             - type: "string"
             - type: "null"
           title: "If"
-          description: "An expression that must evaluate to true for the action to be applied."
+          description: "Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."
+          examples:
+            - "inputs.can_sign_consent == `true`"
+            - expression: "inputs.can_sign_consent == `true`"
+              type: "jp"
+            - expression: "inputs.can_sign_consent == true"
+              type: "cel"
         id:
           type: "string"
           title: "Id"
@@ -16410,7 +16471,13 @@ components:
             - type: "string"
             - type: "null"
           title: "If"
-          description: "An expression that must evaluate to true for the action to be applied."
+          description: "Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."
+          examples:
+            - "inputs.can_sign_consent == `true`"
+            - expression: "inputs.can_sign_consent == `true`"
+              type: "jp"
+            - expression: "inputs.can_sign_consent == true"
+              type: "cel"
         action:
           type: "string"
           const: "save"
@@ -16449,7 +16516,13 @@ components:
             - type: "string"
             - type: "null"
           title: "If"
-          description: "An expression that must evaluate to true for the action to be applied."
+          description: "Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."
+          examples:
+            - "inputs.can_sign_consent == `true`"
+            - expression: "inputs.can_sign_consent == `true`"
+              type: "jp"
+            - expression: "inputs.can_sign_consent == true"
+              type: "cel"
         text:
           type: "string"
           title: "Text"
@@ -17181,7 +17254,13 @@ components:
             - type: "string"
             - type: "null"
           title: "Valuefrom"
-          description: "Expression to compute initial value (mutually exclusive with value)."
+          description: "Expression that computes the value. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Mutually exclusive with value."
+          examples:
+            - "inputs.provided_dob == patient_dob"
+            - expression: "inputs.provided_dob == patient_dob"
+              type: "jmespath"
+            - expression: "inputs.count + 1"
+              type: "cel"
         if:
           anyOf:
             - oneOf:
@@ -17197,7 +17276,13 @@ components:
             - type: "string"
             - type: "null"
           title: "If"
-          description: "An expression that must evaluate to true for the action to be applied."
+          description: "Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."
+          examples:
+            - "inputs.can_sign_consent == `true`"
+            - expression: "inputs.can_sign_consent == `true`"
+              type: "jp"
+            - expression: "inputs.can_sign_consent == true"
+              type: "cel"
         action:
           type: "string"
           const: "set"
@@ -18926,7 +19011,13 @@ components:
             - type: "string"
             - type: "null"
           title: "Valuefrom"
-          description: "Expression to compute initial value (mutually exclusive with value)."
+          description: "Expression that computes the value. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Mutually exclusive with value."
+          examples:
+            - "inputs.provided_dob == patient_dob"
+            - expression: "inputs.provided_dob == patient_dob"
+              type: "jmespath"
+            - expression: "inputs.count + 1"
+              type: "cel"
         name:
           type: "string"
           title: "Name"

@@ -56,22 +56,22 @@ ConditionalValueIf2TypedDict = TypeAliasType(
     "ConditionalValueIf2TypedDict",
     Union["CaseExpressionTypedDict", ConditionalValueIf1TypedDict, str],
 )
-r"""An expression that must evaluate to true for the action to be applied."""
+r"""Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."""
 
 
 ConditionalValueIf2 = TypeAliasType(
     "ConditionalValueIf2", Union["CaseExpression", ConditionalValueIf1, str]
 )
-r"""An expression that must evaluate to true for the action to be applied."""
+r"""Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."""
 
 
 class ConditionalValueTypedDict(TypedDict):
     value: NotRequired[Nullable[Any]]
     r"""Initial value of the variable."""
     value_from: NotRequired[Nullable[ConditionalValueValuefrom2TypedDict]]
-    r"""Expression to compute initial value (mutually exclusive with value)."""
+    r"""Expression that computes the value. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Mutually exclusive with value."""
     if_: NotRequired[Nullable[ConditionalValueIf2TypedDict]]
-    r"""An expression that must evaluate to true for the action to be applied."""
+    r"""Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."""
 
 
 class ConditionalValue(BaseModel):
@@ -81,12 +81,12 @@ class ConditionalValue(BaseModel):
     value_from: Annotated[
         OptionalNullable[ConditionalValueValuefrom2], pydantic.Field(alias="valueFrom")
     ] = UNSET
-    r"""Expression to compute initial value (mutually exclusive with value)."""
+    r"""Expression that computes the value. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Mutually exclusive with value."""
 
     if_: Annotated[
         OptionalNullable[ConditionalValueIf2], pydantic.Field(alias="if")
     ] = UNSET
-    r"""An expression that must evaluate to true for the action to be applied."""
+    r"""Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -97,7 +97,7 @@ class ConditionalValue(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
                 and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
@@ -118,14 +118,14 @@ ConditionalValueValuefrom2TypedDict = TypeAliasType(
     "ConditionalValueValuefrom2TypedDict",
     Union["CaseExpressionTypedDict", ConditionalValueValuefrom1TypedDict, str],
 )
-r"""Expression to compute initial value (mutually exclusive with value)."""
+r"""Expression that computes the value. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Mutually exclusive with value."""
 
 
 ConditionalValueValuefrom2 = TypeAliasType(
     "ConditionalValueValuefrom2",
     Union["CaseExpression", ConditionalValueValuefrom1, str],
 )
-r"""Expression to compute initial value (mutually exclusive with value)."""
+r"""Expression that computes the value. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Mutually exclusive with value."""
 
 
 try:

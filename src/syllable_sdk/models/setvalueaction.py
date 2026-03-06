@@ -39,13 +39,13 @@ SetValueActionValuefrom2TypedDict = TypeAliasType(
     "SetValueActionValuefrom2TypedDict",
     Union[CaseExpressionTypedDict, SetValueActionValuefrom1TypedDict, str],
 )
-r"""Expression to compute initial value (mutually exclusive with value)."""
+r"""Expression that computes the value. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Mutually exclusive with value."""
 
 
 SetValueActionValuefrom2 = TypeAliasType(
     "SetValueActionValuefrom2", Union[CaseExpression, SetValueActionValuefrom1, str]
 )
-r"""Expression to compute initial value (mutually exclusive with value)."""
+r"""Expression that computes the value. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Mutually exclusive with value."""
 
 
 SetValueActionIf1TypedDict = TypeAliasType(
@@ -68,13 +68,13 @@ SetValueActionIf2TypedDict = TypeAliasType(
     "SetValueActionIf2TypedDict",
     Union[CaseExpressionTypedDict, SetValueActionIf1TypedDict, str],
 )
-r"""An expression that must evaluate to true for the action to be applied."""
+r"""Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."""
 
 
 SetValueActionIf2 = TypeAliasType(
     "SetValueActionIf2", Union[CaseExpression, SetValueActionIf1, str]
 )
-r"""An expression that must evaluate to true for the action to be applied."""
+r"""Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."""
 
 
 class SetValueActionTypedDict(TypedDict):
@@ -83,9 +83,9 @@ class SetValueActionTypedDict(TypedDict):
     value: NotRequired[Nullable[Any]]
     r"""Initial value of the variable."""
     value_from: NotRequired[Nullable[SetValueActionValuefrom2TypedDict]]
-    r"""Expression to compute initial value (mutually exclusive with value)."""
+    r"""Expression that computes the value. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Mutually exclusive with value."""
     if_: NotRequired[Nullable[SetValueActionIf2TypedDict]]
-    r"""An expression that must evaluate to true for the action to be applied."""
+    r"""Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."""
     action: Literal["set"]
 
 
@@ -99,12 +99,12 @@ class SetValueAction(BaseModel):
     value_from: Annotated[
         OptionalNullable[SetValueActionValuefrom2], pydantic.Field(alias="valueFrom")
     ] = UNSET
-    r"""Expression to compute initial value (mutually exclusive with value)."""
+    r"""Expression that computes the value. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Mutually exclusive with value."""
 
     if_: Annotated[OptionalNullable[SetValueActionIf2], pydantic.Field(alias="if")] = (
         UNSET
     )
-    r"""An expression that must evaluate to true for the action to be applied."""
+    r"""Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."""
 
     ACTION: Annotated[
         Annotated[Optional[Literal["set"]], AfterValidator(validate_const("set"))],
@@ -120,7 +120,7 @@ class SetValueAction(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
                 and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member

@@ -9,29 +9,39 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class JMESPathExpressionType(str, Enum):
-    r"""JMESPath expression."""
+    r"""JMESPath expression language selector. Use with object form {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}."""
 
     JP = "jp"
     JMESPATH = "jmespath"
 
 
 class JMESPathExpressionTypedDict(TypedDict):
-    r"""See https://jmespath.org/specification.html#grammar"""
+    r"""JMESPath expression object.
+
+    Use this object form to explicitly mark JMESPath syntax:
+    {\"type\": \"jp\", \"expression\": \"inputs.can_sign_consent == `true`\"}
+    See https://jmespath.org/specification.html#grammar
+    """
 
     expression: str
-    r"""The expression to evaluate."""
+    r"""JMESPath expression string."""
     type: NotRequired[JMESPathExpressionType]
-    r"""JMESPath expression."""
+    r"""JMESPath expression language selector. Use with object form {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}."""
 
 
 class JMESPathExpression(BaseModel):
-    r"""See https://jmespath.org/specification.html#grammar"""
+    r"""JMESPath expression object.
+
+    Use this object form to explicitly mark JMESPath syntax:
+    {\"type\": \"jp\", \"expression\": \"inputs.can_sign_consent == `true`\"}
+    See https://jmespath.org/specification.html#grammar
+    """
 
     expression: str
-    r"""The expression to evaluate."""
+    r"""JMESPath expression string."""
 
     type: Optional[JMESPathExpressionType] = JMESPathExpressionType.JP
-    r"""JMESPath expression."""
+    r"""JMESPath expression language selector. Use with object form {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -41,7 +51,7 @@ class JMESPathExpression(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
                 if val is not None or k not in optional_fields:
