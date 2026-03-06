@@ -13,14 +13,15 @@ value = RequestStatus.PENDING
 
 ## Values
 
-| Name        | Value       |
-| ----------- | ----------- |
-| `PENDING`   | PENDING     |
-| `DUPLICATE` | DUPLICATE   |
-| `INITIATED` | INITIATED   |
-| `CONNECTED` | CONNECTED   |
-| `SENT`      | SENT        |
-| `COMPLETED` | COMPLETED   |
-| `FAILED`    | FAILED      |
-| `CANCELED`  | CANCELED    |
-| `INVALID`   | INVALID     |
+| Name           | Value          |
+| -------------- | -------------- |
+| `PENDING`      | PENDING        |
+| `DUPLICATE`    | DUPLICATE      |
+| `INITIATED`    | INITIATED      |
+| `CONNECTED`    | CONNECTED      |
+| `SENT`         | SENT           |
+| `COMPLETED`    | COMPLETED      |
+| `FAILED`       | FAILED         |
+| `CANCELED`     | CANCELED       |
+| `INVALID`      | INVALID        |
+| `UNSUBSCRIBED` | UNSUBSCRIBED   |

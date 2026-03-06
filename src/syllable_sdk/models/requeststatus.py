@@ -16,3 +16,4 @@ class RequestStatus(str, Enum):
     FAILED = "FAILED"
     CANCELED = "CANCELED"
     INVALID = "INVALID"
+    UNSUBSCRIBED = "UNSUBSCRIBED"
