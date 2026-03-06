@@ -16334,6 +16334,14 @@
               "Customer service greeting"
             ]
           },
+          "type": {
+            "$ref": "#/components/schemas/CustomMessageType",
+            "description": "Type of the custom message: greeting (voice) or email_template.",
+            "default": "greeting",
+            "examples": [
+              "greeting"
+            ]
+          },
           "preamble": {
             "anyOf": [
               {
@@ -16352,9 +16360,24 @@
           "text": {
             "type": "string",
             "title": "Text",
-            "description": "The default message that the agent will deliver if no rules are set or no rules match the current timestamp.",
+            "description": "The default message that the agent will deliver if no rules are set or no rules match the current timestamp. For email_template, this is the body.",
             "examples": [
               "Hello and thank you for calling customer service. How can I help you today?"
+            ]
+          },
+          "subject": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subject",
+            "description": "Email subject. Required for email_template (in type_config); ignored otherwise.",
+            "examples": [
+              "Your appointment reminder"
             ]
           },
           "label": {
@@ -16403,15 +16426,6 @@
                 }
               ]
             ]
-          },
-          "type": {
-            "type": "string",
-            "title": "Type",
-            "description": "Type of the custom message (must be \"greeting\" for now)",
-            "default": "greeting",
-            "examples": [
-              "greeting"
-            ]
           }
         },
         "type": "object",
@@ -16430,6 +16444,7 @@
           "name_exact",
           "text",
           "label",
+          "type",
           "updated_at"
         ],
         "title": "CustomMessageProperties"
@@ -16442,6 +16457,14 @@
             "description": "The name of the custom message",
             "examples": [
               "Customer service greeting"
+            ]
+          },
+          "type": {
+            "$ref": "#/components/schemas/CustomMessageType",
+            "description": "Type of the custom message: greeting (voice) or email_template.",
+            "default": "greeting",
+            "examples": [
+              "greeting"
             ]
           },
           "preamble": {
@@ -16462,9 +16485,24 @@
           "text": {
             "type": "string",
             "title": "Text",
-            "description": "The default message that the agent will deliver if no rules are set or no rules match the current timestamp.",
+            "description": "The default message that the agent will deliver if no rules are set or no rules match the current timestamp. For email_template, this is the body.",
             "examples": [
               "Hello and thank you for calling customer service. How can I help you today?"
+            ]
+          },
+          "subject": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subject",
+            "description": "Email subject. Required for email_template (in type_config); ignored otherwise.",
+            "examples": [
+              "Your appointment reminder"
             ]
           },
           "label": {
@@ -16553,15 +16591,6 @@
             "examples": [
               "user@email.com"
             ]
-          },
-          "type": {
-            "type": "string",
-            "title": "Type",
-            "description": "Type of the custom message (must be \"greeting\" for now)",
-            "default": "greeting",
-            "examples": [
-              "greeting"
-            ]
           }
         },
         "type": "object",
@@ -16573,7 +16602,7 @@
           "last_updated_by"
         ],
         "title": "CustomMessageResponse",
-        "description": "Response model for custom message operations.\nA custom message is a pre-configured message delivered by an agent as a greeting at the\nbeginning of a conversation. Multiple agents can use the same custom mesasage. A custom message\nhas one or more rules defined, which allow for different messages to be dynamically selected and\ndelivered at runtime based on the current time and either date or day of the week. For more\ninformation, see [Console docs](https://docs.syllable.ai/Resources/Messages)."
+        "description": "Response model for custom message operations.\nA custom message is a pre-configured message delivered by an agent (e.g. as a greeting at the\nbeginning of a conversation, or as an email template with subject and body). Multiple agents can\nuse the same custom message. Greeting-type messages may have rules for time-based variants; email\ntemplates have a subject and body only. For more information, see [Console docs](https://docs.syllable.ai/Resources/Messages)."
       },
       "CustomMessageRule": {
         "properties": {
@@ -16683,6 +16712,15 @@
         "title": "CustomMessageRule",
         "description": "A rule used to determine whether a custom message should present a variant message based on\nthe current timestamp."
       },
+      "CustomMessageType": {
+        "type": "string",
+        "enum": [
+          "greeting",
+          "email_template"
+        ],
+        "title": "CustomMessageType",
+        "description": "Type of custom message. Greeting is for voice; email_template is for email (subject + body)."
+      },
       "CustomMessageUpdateRequest": {
         "properties": {
           "name": {
@@ -16691,6 +16729,14 @@
             "description": "The name of the custom message",
             "examples": [
               "Customer service greeting"
+            ]
+          },
+          "type": {
+            "$ref": "#/components/schemas/CustomMessageType",
+            "description": "Type of the custom message: greeting (voice) or email_template.",
+            "default": "greeting",
+            "examples": [
+              "greeting"
             ]
           },
           "preamble": {
@@ -16711,9 +16757,24 @@
           "text": {
             "type": "string",
             "title": "Text",
-            "description": "The default message that the agent will deliver if no rules are set or no rules match the current timestamp.",
+            "description": "The default message that the agent will deliver if no rules are set or no rules match the current timestamp. For email_template, this is the body.",
             "examples": [
               "Hello and thank you for calling customer service. How can I help you today?"
+            ]
+          },
+          "subject": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subject",
+            "description": "Email subject. Required for email_template (in type_config); ignored otherwise.",
+            "examples": [
+              "Your appointment reminder"
             ]
           },
           "label": {
@@ -16769,15 +16830,6 @@
             "description": "The ID of the custom message",
             "examples": [
               1
-            ]
-          },
-          "type": {
-            "type": "string",
-            "title": "Type",
-            "description": "Type of the custom message (must be \"greeting\" for now)",
-            "default": "greeting",
-            "examples": [
-              "greeting"
             ]
           }
         },
