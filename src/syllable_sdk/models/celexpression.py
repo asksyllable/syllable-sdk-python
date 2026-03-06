@@ -11,25 +11,35 @@ from typing_extensions import Annotated, TypedDict
 
 
 class CelExpressionTypedDict(TypedDict):
-    r"""See https://github.com/google/cel-spec/blob/master/doc/langdef.md"""
+    r"""Google CEL expression object.
+
+    Use this object form when you want CEL syntax:
+    {\"type\": \"cel\", \"expression\": \"inputs.count + 1\"}
+    See https://github.com/google/cel-spec/blob/master/doc/langdef.md
+    """
 
     expression: str
-    r"""The expression to evaluate."""
+    r"""CEL expression string."""
     type: Literal["cel"]
-    r"""Google Common Expression Language."""
+    r"""CEL expression language selector. Use with object form {\"type\":\"cel\",\"expression\":\"...\"}."""
 
 
 class CelExpression(BaseModel):
-    r"""See https://github.com/google/cel-spec/blob/master/doc/langdef.md"""
+    r"""Google CEL expression object.
+
+    Use this object form when you want CEL syntax:
+    {\"type\": \"cel\", \"expression\": \"inputs.count + 1\"}
+    See https://github.com/google/cel-spec/blob/master/doc/langdef.md
+    """
 
     expression: str
-    r"""The expression to evaluate."""
+    r"""CEL expression string."""
 
     TYPE: Annotated[
         Annotated[Optional[Literal["cel"]], AfterValidator(validate_const("cel"))],
         pydantic.Field(alias="type"),
     ] = "cel"
-    r"""Google Common Expression Language."""
+    r"""CEL expression language selector. Use with object form {\"type\":\"cel\",\"expression\":\"...\"}."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -39,7 +49,7 @@ class CelExpression(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
                 if val is not None or k not in optional_fields:

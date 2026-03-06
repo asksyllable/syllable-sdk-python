@@ -39,20 +39,20 @@ IncrementActionIf2TypedDict = TypeAliasType(
     "IncrementActionIf2TypedDict",
     Union[CaseExpressionTypedDict, IncrementActionIf1TypedDict, str],
 )
-r"""An expression that must evaluate to true for the action to be applied."""
+r"""Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."""
 
 
 IncrementActionIf2 = TypeAliasType(
     "IncrementActionIf2", Union[CaseExpression, IncrementActionIf1, str]
 )
-r"""An expression that must evaluate to true for the action to be applied."""
+r"""Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."""
 
 
 class IncrementActionTypedDict(TypedDict):
     name: str
     r"""Numeric destination path to increment."""
     if_: NotRequired[Nullable[IncrementActionIf2TypedDict]]
-    r"""An expression that must evaluate to true for the action to be applied."""
+    r"""Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."""
     action: Literal["inc"]
     by: NotRequired[int]
     r"""Increment amount (defaults to 1)."""
@@ -65,7 +65,7 @@ class IncrementAction(BaseModel):
     if_: Annotated[OptionalNullable[IncrementActionIf2], pydantic.Field(alias="if")] = (
         UNSET
     )
-    r"""An expression that must evaluate to true for the action to be applied."""
+    r"""Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."""
 
     ACTION: Annotated[
         Annotated[Optional[Literal["inc"]], AfterValidator(validate_const("inc"))],
@@ -84,7 +84,7 @@ class IncrementAction(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
                 and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member

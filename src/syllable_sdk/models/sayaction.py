@@ -38,11 +38,11 @@ SayActionIf1 = Annotated[
 SayActionIf2TypedDict = TypeAliasType(
     "SayActionIf2TypedDict", Union[CaseExpressionTypedDict, SayActionIf1TypedDict, str]
 )
-r"""An expression that must evaluate to true for the action to be applied."""
+r"""Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."""
 
 
 SayActionIf2 = TypeAliasType("SayActionIf2", Union[CaseExpression, SayActionIf1, str])
-r"""An expression that must evaluate to true for the action to be applied."""
+r"""Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."""
 
 
 class Role(str, Enum):
@@ -56,7 +56,7 @@ class SayActionTypedDict(TypedDict):
     text: str
     r"""Text to apply if the condition is true."""
     if_: NotRequired[Nullable[SayActionIf2TypedDict]]
-    r"""An expression that must evaluate to true for the action to be applied."""
+    r"""Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."""
     action: Literal["say"]
     role: NotRequired[Role]
     r"""The role of the message."""
@@ -67,7 +67,7 @@ class SayAction(BaseModel):
     r"""Text to apply if the condition is true."""
 
     if_: Annotated[OptionalNullable[SayActionIf2], pydantic.Field(alias="if")] = UNSET
-    r"""An expression that must evaluate to true for the action to be applied."""
+    r"""Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."""
 
     ACTION: Annotated[
         Annotated[Optional[Literal["say"]], AfterValidator(validate_const("say"))],
@@ -86,7 +86,7 @@ class SayAction(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
                 and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member

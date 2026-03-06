@@ -1,6 +1,6 @@
 # SetValueActionValuefrom2
 
-Expression to compute initial value (mutually exclusive with value).
+Expression that computes the value. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {"type":"jp"|"jmespath","expression":"..."}, or (3) typed CEL object {"type":"cel","expression":"..."}. Mutually exclusive with value.
 
 
 ## Supported Types

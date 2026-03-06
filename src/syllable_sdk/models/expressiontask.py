@@ -42,9 +42,11 @@ Expression1 = Annotated[
 Expression2TypedDict = TypeAliasType(
     "Expression2TypedDict", Union[CaseExpressionTypedDict, Expression1TypedDict, str]
 )
+r"""Expression for task output/logic. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}."""
 
 
 Expression2 = TypeAliasType("Expression2", Union[CaseExpression, Expression1, str])
+r"""Expression for task output/logic. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}."""
 
 
 class ExpressionTaskTypedDict(TypedDict):
@@ -58,6 +60,7 @@ class ExpressionTaskTypedDict(TypedDict):
     version: Literal["v1alpha"]
     inputs: NotRequired[List[InputParameterTypedDict]]
     expression: NotRequired[Nullable[Expression2TypedDict]]
+    r"""Expression for task output/logic. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}."""
     output: NotRequired[Nullable[Any]]
     on: NotRequired[ExpressionTaskEventsTypedDict]
     r"""Actions to perform when events occur (start, submit)."""
@@ -93,6 +96,7 @@ class ExpressionTask(BaseModel):
     inputs: Optional[List[InputParameter]] = None
 
     expression: OptionalNullable[Expression2] = UNSET
+    r"""Expression for task output/logic. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}."""
 
     output: OptionalNullable[Any] = UNSET
 
@@ -124,7 +128,7 @@ class ExpressionTask(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
                 and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member

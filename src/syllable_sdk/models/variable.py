@@ -39,13 +39,13 @@ VariableValuefrom2TypedDict = TypeAliasType(
     "VariableValuefrom2TypedDict",
     Union[CaseExpressionTypedDict, VariableValuefrom1TypedDict, str],
 )
-r"""Expression to compute initial value (mutually exclusive with value)."""
+r"""Expression that computes the value. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Mutually exclusive with value."""
 
 
 VariableValuefrom2 = TypeAliasType(
     "VariableValuefrom2", Union[CaseExpression, VariableValuefrom1, str]
 )
-r"""Expression to compute initial value (mutually exclusive with value)."""
+r"""Expression that computes the value. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Mutually exclusive with value."""
 
 
 class VariableType(str, Enum):
@@ -64,7 +64,7 @@ class VariableTypedDict(TypedDict):
     value: NotRequired[Nullable[Any]]
     r"""Initial value of the variable."""
     value_from: NotRequired[Nullable[VariableValuefrom2TypedDict]]
-    r"""Expression to compute initial value (mutually exclusive with value)."""
+    r"""Expression that computes the value. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Mutually exclusive with value."""
     type: NotRequired[Nullable[VariableType]]
     description: NotRequired[Nullable[str]]
     title: NotRequired[Nullable[str]]
@@ -84,7 +84,7 @@ class Variable(BaseModel):
     value_from: Annotated[
         OptionalNullable[VariableValuefrom2], pydantic.Field(alias="valueFrom")
     ] = UNSET
-    r"""Expression to compute initial value (mutually exclusive with value)."""
+    r"""Expression that computes the value. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Mutually exclusive with value."""
 
     type: OptionalNullable[VariableType] = UNSET
 
@@ -133,7 +133,7 @@ class Variable(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
                 and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
