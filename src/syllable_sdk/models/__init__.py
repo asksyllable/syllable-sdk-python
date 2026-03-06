@@ -230,6 +230,7 @@ if TYPE_CHECKING:
         CustomMessageResponseTypedDict,
     )
     from .custommessagerule import CustomMessageRule, CustomMessageRuleTypedDict
+    from .custommessagetype import CustomMessageType
     from .custommessageupdaterequest import (
         CustomMessageUpdateRequest,
         CustomMessageUpdateRequestTypedDict,
@@ -1310,6 +1311,7 @@ __all__ = [
     "CustomMessageResponseTypedDict",
     "CustomMessageRule",
     "CustomMessageRuleTypedDict",
+    "CustomMessageType",
     "CustomMessageUpdateRequest",
     "CustomMessageUpdateRequestTypedDict",
     "CustomMessagesDeleteRequest",
@@ -2120,6 +2122,7 @@ _dynamic_imports: dict[str, str] = {
     "CustomMessageResponseTypedDict": ".custommessageresponse",
     "CustomMessageRule": ".custommessagerule",
     "CustomMessageRuleTypedDict": ".custommessagerule",
+    "CustomMessageType": ".custommessagetype",
     "CustomMessageUpdateRequest": ".custommessageupdaterequest",
     "CustomMessageUpdateRequestTypedDict": ".custommessageupdaterequest",
     "DaoToolResponse": ".daotoolresponse",

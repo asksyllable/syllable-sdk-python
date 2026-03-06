@@ -10,4 +10,5 @@ class CustomMessageProperties(str, Enum):
     NAME_EXACT = "name_exact"
     TEXT = "text"
     LABEL = "label"
+    TYPE = "type"
     UPDATED_AT = "updated_at"
