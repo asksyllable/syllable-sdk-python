@@ -466,6 +466,7 @@ class Directory(BaseSDK):
         member_id: int,
         page: Optional[int] = 0,
         limit: Optional[int] = 25,
+        order_by_direction: Optional[models.OrderByDirection] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -473,11 +474,13 @@ class Directory(BaseSDK):
     ) -> models.ListResponseDirectoryMemberHistoryResponse:
         r"""Get Directory Member History
 
-        Get version history for a directory member (contact), oldest first.
+        Get version history for a directory member (contact).
+        Version 1 is always the oldest; order_by_direction only controls response order.
 
         :param member_id:
         :param page: Page number (0-based)
         :param limit: Items per page
+        :param order_by_direction: Sort by oldest first (asc) or newest first (desc). Version 1 is always the oldest.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -497,6 +500,7 @@ class Directory(BaseSDK):
             member_id=member_id,
             page=page,
             limit=limit,
+            order_by_direction=order_by_direction,
         )
 
         req = self._build_request(
@@ -564,6 +568,7 @@ class Directory(BaseSDK):
         member_id: int,
         page: Optional[int] = 0,
         limit: Optional[int] = 25,
+        order_by_direction: Optional[models.OrderByDirection] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -571,11 +576,13 @@ class Directory(BaseSDK):
     ) -> models.ListResponseDirectoryMemberHistoryResponse:
         r"""Get Directory Member History
 
-        Get version history for a directory member (contact), oldest first.
+        Get version history for a directory member (contact).
+        Version 1 is always the oldest; order_by_direction only controls response order.
 
         :param member_id:
         :param page: Page number (0-based)
         :param limit: Items per page
+        :param order_by_direction: Sort by oldest first (asc) or newest first (desc). Version 1 is always the oldest.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -595,6 +602,7 @@ class Directory(BaseSDK):
             member_id=member_id,
             page=page,
             limit=limit,
+            order_by_direction=order_by_direction,
         )
 
         req = self._build_request_async(
@@ -1438,6 +1446,9 @@ class Directory(BaseSDK):
         self,
         *,
         member_id: int,
+        directory_member_restore: Union[
+            models.DirectoryMemberRestore, models.DirectoryMemberRestoreTypedDict
+        ],
         response_format: Optional[models.DirectoryResponseFormat] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1449,6 +1460,7 @@ class Directory(BaseSDK):
         Restore a soft-deleted directory member.
 
         :param member_id:
+        :param directory_member_restore:
         :param response_format: Directory response format for the restored member.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1468,6 +1480,9 @@ class Directory(BaseSDK):
         request = models.DirectoryMemberRestoreRequest(
             member_id=member_id,
             response_format=response_format,
+            directory_member_restore=utils.get_pydantic_model(
+                directory_member_restore, models.DirectoryMemberRestore
+            ),
         )
 
         req = self._build_request(
@@ -1476,13 +1491,20 @@ class Directory(BaseSDK):
             base_url=base_url,
             url_variables=url_variables,
             request=request,
-            request_body_required=False,
+            request_body_required=True,
             request_has_path_params=True,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.directory_member_restore,
+                False,
+                False,
+                "json",
+                models.DirectoryMemberRestore,
+            ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
@@ -1531,6 +1553,9 @@ class Directory(BaseSDK):
         self,
         *,
         member_id: int,
+        directory_member_restore: Union[
+            models.DirectoryMemberRestore, models.DirectoryMemberRestoreTypedDict
+        ],
         response_format: Optional[models.DirectoryResponseFormat] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1542,6 +1567,7 @@ class Directory(BaseSDK):
         Restore a soft-deleted directory member.
 
         :param member_id:
+        :param directory_member_restore:
         :param response_format: Directory response format for the restored member.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1561,6 +1587,9 @@ class Directory(BaseSDK):
         request = models.DirectoryMemberRestoreRequest(
             member_id=member_id,
             response_format=response_format,
+            directory_member_restore=utils.get_pydantic_model(
+                directory_member_restore, models.DirectoryMemberRestore
+            ),
         )
 
         req = self._build_request_async(
@@ -1569,13 +1598,20 @@ class Directory(BaseSDK):
             base_url=base_url,
             url_variables=url_variables,
             request=request,
-            request_body_required=False,
+            request_body_required=True,
             request_has_path_params=True,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.directory_member_restore,
+                False,
+                False,
+                "json",
+                models.DirectoryMemberRestore,
+            ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
         )

@@ -28,7 +28,7 @@ class DirectoryMemberUpdateTypedDict(TypedDict):
     contact_tags: NotRequired[Nullable[Dict[str, List[str]]]]
     r"""Tags for the directory member"""
     comments: NotRequired[Nullable[str]]
-    r"""Optional comment stored in version history for this edit"""
+    r"""The comments for the most recent edit to the directory member"""
 
 
 class DirectoryMemberUpdate(BaseModel):
@@ -50,7 +50,7 @@ class DirectoryMemberUpdate(BaseModel):
     r"""Tags for the directory member"""
 
     comments: OptionalNullable[str] = UNSET
-    r"""Optional comment stored in version history for this edit"""
+    r"""The comments for the most recent edit to the directory member"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
