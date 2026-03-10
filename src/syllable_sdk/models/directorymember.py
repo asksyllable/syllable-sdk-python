@@ -33,7 +33,7 @@ class DirectoryMemberTypedDict(TypedDict):
     contact_tags: NotRequired[Nullable[Dict[str, List[str]]]]
     r"""Tags for the directory member"""
     comments: NotRequired[Nullable[str]]
-    r"""Optional comment stored in version history for this edit"""
+    r"""The comments for the most recent edit to the directory member"""
     deleted_at: NotRequired[Nullable[datetime]]
     r"""When the contact was deleted, if deleted"""
     last_updated_by: NotRequired[Nullable[str]]
@@ -65,7 +65,7 @@ class DirectoryMember(BaseModel):
     r"""Tags for the directory member"""
 
     comments: OptionalNullable[str] = UNSET
-    r"""Optional comment stored in version history for this edit"""
+    r"""The comments for the most recent edit to the directory member"""
 
     deleted_at: OptionalNullable[datetime] = UNSET
     r"""When the contact was deleted, if deleted"""

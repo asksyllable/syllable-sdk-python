@@ -939,6 +939,7 @@ actions:
                             "value2",
                         ],
                     },
+                    "comments": "Updated to add new extension",
                 })
 
                 # Handle response
@@ -1060,8 +1061,8 @@ actions:
                             "value2",
                         ],
                     },
-                    "id": 1,
                     "comments": "Updated phone number",
+                    "id": 1,
                 })
 
                 # Handle response
@@ -1098,7 +1099,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.directory.directory_member_restore(member_id=507482)
+                res = ss_client.directory.directory_member_restore(member_id=507482, directory_member_restore={})
 
                 # Handle response
                 print(res)

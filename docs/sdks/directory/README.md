@@ -114,6 +114,7 @@ with SyllableSDK(
                 "value2",
             ],
         },
+        "comments": "Updated to add new extension",
     })
 
     # Handle response
@@ -142,7 +143,8 @@ with SyllableSDK(
 
 ## directory_member_history
 
-Get version history for a directory member (contact), oldest first.
+Get version history for a directory member (contact).
+Version 1 is always the oldest; order_by_direction only controls response order.
 
 ### Example Usage
 
@@ -165,12 +167,13 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `member_id`                                                         | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `page`                                                              | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | Page number (0-based)                                               |
-| `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | Items per page                                                      |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `member_id`                                                                        | *int*                                                                              | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `page`                                                                             | *Optional[int]*                                                                    | :heavy_minus_sign:                                                                 | Page number (0-based)                                                              |
+| `limit`                                                                            | *Optional[int]*                                                                    | :heavy_minus_sign:                                                                 | Items per page                                                                     |
+| `order_by_direction`                                                               | [Optional[models.OrderByDirection]](../../models/orderbydirection.md)              | :heavy_minus_sign:                                                                 | Sort by oldest first (asc) or newest first (desc). Version 1 is always the oldest. |
+| `retries`                                                                          | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                   | :heavy_minus_sign:                                                                 | Configuration to override the default retry behavior of the client.                |
 
 ### Response
 
@@ -267,8 +270,8 @@ with SyllableSDK(
                 "value2",
             ],
         },
-        "id": 1,
         "comments": "Updated phone number",
+        "id": 1,
     })
 
     # Handle response
@@ -397,7 +400,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.directory.directory_member_restore(member_id=507482)
+    res = ss_client.directory.directory_member_restore(member_id=507482, directory_member_restore={})
 
     # Handle response
     print(res)
@@ -409,6 +412,7 @@ with SyllableSDK(
 | Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | `member_id`                                                                         | *int*                                                                               | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `directory_member_restore`                                                          | [models.DirectoryMemberRestore](../../models/directorymemberrestore.md)             | :heavy_check_mark:                                                                  | N/A                                                                                 |
 | `response_format`                                                                   | [Optional[models.DirectoryResponseFormat]](../../models/directoryresponseformat.md) | :heavy_minus_sign:                                                                  | Directory response format for the restored member.                                  |
 | `retries`                                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                    | :heavy_minus_sign:                                                                  | Configuration to override the default retry behavior of the client.                 |
 
