@@ -9016,7 +9016,7 @@
           "directory"
         ],
         "summary": "Get Directory Member History",
-        "description": "Get version history for a directory member (contact), oldest first.",
+        "description": "Get version history for a directory member (contact).\nVersion 1 is always the oldest; order_by_direction only controls response order.",
         "operationId": "directory_member_history",
         "security": [
           {
@@ -9059,6 +9059,17 @@
               "title": "Limit"
             },
             "description": "Items per page"
+          },
+          {
+            "name": "order_by_direction",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/OrderByDirection",
+              "description": "Sort by oldest first (asc) or newest first (desc). Version 1 is always the oldest.",
+              "default": "asc"
+            },
+            "description": "Sort by oldest first (asc) or newest first (desc). Version 1 is always the oldest."
           }
         ],
         "responses": {
@@ -9399,6 +9410,16 @@
             "description": "Directory response format for the restored member."
           }
         ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DirectoryMemberRestore"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -14174,7 +14195,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260307.9"
+              "20260310.9"
             ]
           },
           "campaign_id": {
@@ -14198,7 +14219,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-03-08T00:00:00Z"
+              "2026-03-11T00:00:00Z"
             ]
           },
           "paused": {
@@ -14266,7 +14287,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-03-07T00:00:00Z"
+              "2026-03-10T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -14282,7 +14303,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-03-07T00:00:00Z"
+              "2026-03-10T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -14313,7 +14334,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-03-07T00:00:00Z"
+              "2026-03-10T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -15327,7 +15348,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260307.9"
+              "20260310.9"
             ]
           },
           "campaign_id": {
@@ -15351,7 +15372,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-03-08T00:00:00Z"
+              "2026-03-11T00:00:00Z"
             ]
           },
           "paused": {
@@ -15419,7 +15440,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-03-07T00:00:00Z"
+              "2026-03-10T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -15435,7 +15456,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-03-07T00:00:00Z"
+              "2026-03-10T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -15466,7 +15487,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-03-07T00:00:00Z"
+              "2026-03-10T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -15509,7 +15530,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260307.9"
+              "20260310.9"
             ]
           },
           "campaign_id": {
@@ -15533,7 +15554,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-03-08T00:00:00Z"
+              "2026-03-11T00:00:00Z"
             ]
           },
           "paused": {
@@ -15682,7 +15703,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2026-03-06T00:00:00Z"
+              "2026-03-09T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -15698,7 +15719,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2026-03-07T00:00:00Z"
+              "2026-03-10T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -17899,14 +17920,6 @@
               }
             ]
           },
-          "id": {
-            "type": "integer",
-            "title": "Id",
-            "description": "Internal ID of the directory member",
-            "examples": [
-              1
-            ]
-          },
           "comments": {
             "anyOf": [
               {
@@ -17917,9 +17930,17 @@
               }
             ],
             "title": "Comments",
-            "description": "Optional comment stored in version history for this edit",
+            "description": "The comments for the most recent edit to the directory member",
             "examples": [
-              "Updated phone number"
+              "Updated to add new extension"
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id",
+            "description": "Internal ID of the directory member",
+            "examples": [
+              1
             ]
           },
           "created_at": {
@@ -18060,6 +18081,21 @@
                 ]
               }
             ]
+          },
+          "comments": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Comments",
+            "description": "The comments for the most recent edit to the directory member",
+            "examples": [
+              "Updated to add new extension"
+            ]
           }
         },
         "type": "object",
@@ -18196,6 +18232,22 @@
         ],
         "title": "DirectoryMemberProperties"
       },
+      "DirectoryMemberRestore": {
+        "properties": {
+          "comments": {
+            "type": "string",
+            "title": "Comments",
+            "description": "Comment stored in version history for this restore",
+            "default": "Restored",
+            "examples": [
+              "Restored"
+            ]
+          }
+        },
+        "type": "object",
+        "title": "DirectoryMemberRestore",
+        "description": "Request model to restore directory member."
+      },
       "DirectoryMemberTestResponse": {
         "properties": {
           "extension": {
@@ -18304,14 +18356,6 @@
               }
             ]
           },
-          "id": {
-            "type": "integer",
-            "title": "Id",
-            "description": "Internal ID of the directory member",
-            "examples": [
-              1
-            ]
-          },
           "comments": {
             "anyOf": [
               {
@@ -18322,9 +18366,17 @@
               }
             ],
             "title": "Comments",
-            "description": "Optional comment stored in version history for this edit",
+            "description": "The comments for the most recent edit to the directory member",
             "examples": [
-              "Updated phone number"
+              "Updated to add new extension"
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id",
+            "description": "Internal ID of the directory member",
+            "examples": [
+              1
             ]
           }
         },
@@ -18926,7 +18978,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-03-06T00:00:00Z"
+              "2026-03-09T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -18935,7 +18987,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-03-07T00:00:00Z"
+              "2026-03-10T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -19938,7 +19990,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2026-03-06T00:00:00Z"
+              "2026-03-09T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -19947,7 +19999,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2026-03-07T00:00:00Z"
+              "2026-03-10T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -20328,7 +20380,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-03-06T00:00:00Z"
+              "2026-03-09T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -20344,7 +20396,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-03-07T00:00:00Z"
+              "2026-03-10T00:00:00Z"
             ]
           }
         },
@@ -20419,7 +20471,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-03-06T00:00:00Z"
+              "2026-03-09T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -20435,7 +20487,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-03-07T00:00:00Z"
+              "2026-03-10T00:00:00Z"
             ]
           },
           "id": {
@@ -20488,7 +20540,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2026-03-06T00:00:00Z"
+              "2026-03-09T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -20497,7 +20549,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2026-03-07T00:00:00Z"
+              "2026-03-10T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -20593,7 +20645,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-03-06T00:00:00Z"
+              "2026-03-09T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -20602,7 +20654,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-03-07T00:00:00Z"
+              "2026-03-10T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -20837,7 +20889,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2026-03-06T00:00:00Z"
+              "2026-03-09T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -20846,7 +20898,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2026-03-07T00:00:00Z"
+              "2026-03-10T00:00:00Z"
             ]
           },
           "upload_file_metadata": {
@@ -20991,7 +21043,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2026-03-06T00:00:00Z"
+              "2026-03-09T00:00:00Z"
             ]
           },
           "end_time": {
@@ -21007,7 +21059,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2026-03-07T00:00:00Z"
+              "2026-03-10T00:00:00Z"
             ]
           },
           "error_message": {
@@ -21062,7 +21114,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2026-03-06T00:00:00Z"
+              "2026-03-09T00:00:00Z"
             ]
           }
         },
@@ -24539,7 +24591,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2026-03-07T00:00:00Z"
+              "2026-03-10T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -24548,7 +24600,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2026-03-07T00:00:00Z"
+              "2026-03-10T00:00:00Z"
             ]
           },
           "last_updated_by": {
