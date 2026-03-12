@@ -12,3 +12,4 @@ class ChannelServices(str, Enum):
     EMAIL = "email"
     WEBCHAT = "webchat"
     AFRICASTALKING = "africastalking"
+    WHATSAPP = "whatsapp"

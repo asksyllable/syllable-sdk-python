@@ -11,3 +11,4 @@ class TargetModes(str, Enum):
     CHAT = "chat"
     SMS = "sms"
     EMAIL = "email"
+    WHATSAPP = "whatsapp"
