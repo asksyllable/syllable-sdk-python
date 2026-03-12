@@ -13,9 +13,10 @@ value = TargetModes.VOICE
 
 ## Values
 
-| Name    | Value   |
-| ------- | ------- |
-| `VOICE` | voice   |
-| `CHAT`  | chat    |
-| `SMS`   | sms     |
-| `EMAIL` | email   |
+| Name       | Value      |
+| ---------- | ---------- |
+| `VOICE`    | voice      |
+| `CHAT`     | chat       |
+| `SMS`      | sms        |
+| `EMAIL`    | email      |
+| `WHATSAPP` | whatsapp   |

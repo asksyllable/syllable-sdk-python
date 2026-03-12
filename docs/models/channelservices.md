@@ -20,3 +20,4 @@ value = ChannelServices.SIP
 | `EMAIL`          | email            |
 | `WEBCHAT`        | webchat          |
 | `AFRICASTALKING` | africastalking   |
+| `WHATSAPP`       | whatsapp         |
