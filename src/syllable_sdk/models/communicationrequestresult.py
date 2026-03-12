@@ -43,7 +43,7 @@ class CommunicationRequestResultTypedDict(TypedDict):
     request_status: NotRequired[RequestStatus]
     r"""Status of a communication request."""
     channel_manager_status: NotRequired[Nullable[str]]
-    r"""Status of request in channel manager"""
+    r"""Status of request in channel manager (see ChannelManagerStatus)"""
     insights_status: NotRequired[Nullable[str]]
     r"""Status of session in insight workflow"""
     insights: NotRequired[Nullable[Dict[str, InsightsTypedDict]]]
@@ -82,7 +82,7 @@ class CommunicationRequestResult(BaseModel):
     r"""Status of a communication request."""
 
     channel_manager_status: OptionalNullable[str] = UNSET
-    r"""Status of request in channel manager"""
+    r"""Status of request in channel manager (see ChannelManagerStatus)"""
 
     insights_status: OptionalNullable[str] = UNSET
     r"""Status of session in insight workflow"""

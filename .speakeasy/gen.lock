@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 789ae1ad3054e0ce34312c2b4661579f
+  docChecksum: 088e913d0b3b2916e3628a30c9308cd4
   docVersion: 0.0.3
   speakeasyVersion: 1.752.0
   generationVersion: 2.859.2
-  releaseVersion: 0.45.35
-  configChecksum: 40c17799e8cfc019aa7823d7fd444c5a
+  releaseVersion: 0.45.36
+  configChecksum: 1f2f16cb5c8f7921f49cd1d421a72d12
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: 6e800aad-ac71-43eb-9056-6f55221efed2
-  pristine_commit_hash: 2e7d3370adf88af07a8af248f28484bc9eda287b
-  pristine_tree_hash: 37df0e1d29246a33ca0caf43f9151a2f829efd7d
+  generation_id: 4e061f79-6568-4820-8af2-f64e452244ec
+  pristine_commit_hash: 96d6e0cfb44572b288e89d219a5f5a475eb6302f
+  pristine_tree_hash: b8661079786227236ac8e74c10ac29dfd6358780
 features:
   python:
     additionalDependencies: 1.0.0
@@ -350,8 +350,8 @@ trackedFiles:
     pristine_git_object: 08c36d278143e06b786610cb9ba92cfea34c8bcc
   docs/models/communicationrequestresult.md:
     id: 8cd7fea9158f
-    last_write_checksum: sha1:41265589c5e9ea3c7921ae6ff7b8e95f70a464f2
-    pristine_git_object: ce7e5c2d3388ee50174b764cba77f98cdd969eef
+    last_write_checksum: sha1:03da98c32318b184a2baaa346df9179250385ea8
+    pristine_git_object: e0ba4f6d4353e4166de401e5637f1fabe3ee051c
   docs/models/conditionaltext.md:
     id: 848c32a98369
     last_write_checksum: sha1:677b2cd1e8273cecf0a770a5a5f41c6936d8fa2f
@@ -2002,8 +2002,8 @@ trackedFiles:
     pristine_git_object: 739eef2047817f053e6c7688b3993b63a9a7f142
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:408daa3b51af627fd051ba8e6c0e63e171d9276e
-    pristine_git_object: 122ae132842735e62ffeb4a07a73d3248c9df101
+    last_write_checksum: sha1:883a00db6c68614d387819b140a49b9fbf63d216
+    pristine_git_object: a01a6f3f3013aa81733b49763d3544a1502b9a9a
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2030,8 +2030,8 @@ trackedFiles:
     pristine_git_object: 80c09ba9b6fc421f9200d202e6a452aeedb2c3e4
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:d2897b0af17a0443217088841a93bebcf0eb2c42
-    pristine_git_object: 3c4040b3a1528033457b317dc991a2ebb77a0545
+    last_write_checksum: sha1:0f22070ac64bf9f74602f242de4b54e5533eda7d
+    pristine_git_object: 7573d9ec26c20c4187b78f0cf508633ddc53a68e
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:7dc58c44df8ae539ebbc6c0a9069ea9405084cd9
@@ -2378,8 +2378,8 @@ trackedFiles:
     pristine_git_object: d83b6ac6fa936b2a553240c06830647717313f3b
   src/syllable_sdk/models/communicationrequestresult.py:
     id: 5acd1024237c
-    last_write_checksum: sha1:5b46bb30ed5b636dcf03587e984f672546c68439
-    pristine_git_object: 0c35c66c50c4c4f95299e8a454264bedb8fc74fd
+    last_write_checksum: sha1:54199007c2ad19ad6a447eec661f96f468928f83
+    pristine_git_object: 899d63ab13992642baef4ce6717e5274b055f447
   src/syllable_sdk/models/conditionaltext.py:
     id: 3ffcb4e76b92
     last_write_checksum: sha1:ef46b079ae24fa9b4d37dfe21528096e66e44686
@@ -5526,7 +5526,6 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.agents.list()`:  `response.items[].channel_targets[].target_mode.enum(whatsapp)` **Added** (Breaking ⚠️)\n* `syllable_sdk.agents.create()`:  `response.channel_targets[].target_mode.enum(whatsapp)` **Added** (Breaking ⚠️)\n* `syllable_sdk.agents.update()`:  `response.channel_targets[].target_mode.enum(whatsapp)` **Added** (Breaking ⚠️)\n* `syllable_sdk.agents.get_by_id()`:  `response.channel_targets[].target_mode.enum(whatsapp)` **Added** (Breaking ⚠️)\n* `syllable_sdk.channels.list()`:  `response.items[].channel_service.enum(whatsapp)` **Added** (Breaking ⚠️)\n* `syllable_sdk.channels.create()`: \n  *  `request.channel_service.enum(whatsapp)` **Added**\n  *  `response.channel_service.enum(whatsapp)` **Added** (Breaking ⚠️)\n* `syllable_sdk.channels.update()`: \n  *  `request.channel_service.enum(whatsapp)` **Added**\n  *  `response.channel_service.enum(whatsapp)` **Added** (Breaking ⚠️)\n* `syllable_sdk.channels.twilio.get_by_id()`:  `response.channel_service.enum(whatsapp)` **Added** (Breaking ⚠️)\n* `syllable_sdk.channels.twilio.update()`:  `response.channel_service.enum(whatsapp)` **Added** (Breaking ⚠️)\n* `syllable_sdk.channels.twilio.create()`:  `response.channel_service.enum(whatsapp)` **Added** (Breaking ⚠️)\n* `syllable_sdk.channels.targets.list()`:  `response.items[].target_mode.enum(whatsapp)` **Added** (Breaking ⚠️)\n* `syllable_sdk.channels.targets.create()`: \n  *  `request.channel_target_create_request.target_mode.enum(whatsapp)` **Added**\n  *  `response.target_mode.enum(whatsapp)` **Added** (Breaking ⚠️)\n* `syllable_sdk.channels.targets.get_by_id()`:  `response.target_mode.enum(whatsapp)` **Added** (Breaking ⚠️)\n* `syllable_sdk.channels.targets.update()`: \n  *  `request.channel_target_update_request.target_mode.enum(whatsapp)` **Added**\n  *  `response.target_mode.enum(whatsapp)` **Added** (Breaking ⚠️)\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
