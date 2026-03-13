@@ -36,6 +36,8 @@ class DirectoryMemberHistoryResponseTypedDict(TypedDict):
     r"""Contact tags at this version"""
     comments: NotRequired[Nullable[str]]
     r"""Optional comment for this version"""
+    operation: NotRequired[Nullable[str]]
+    r"""What produced this row: create, update, delete, restore, bulk_load. Null for rows created before this field existed."""
 
 
 class DirectoryMemberHistoryResponse(BaseModel):
@@ -68,10 +70,13 @@ class DirectoryMemberHistoryResponse(BaseModel):
     comments: OptionalNullable[str] = UNSET
     r"""Optional comment for this version"""
 
+    operation: OptionalNullable[str] = UNSET
+    r"""What produced this row: create, update, delete, restore, bulk_load. Null for rows created before this field existed."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["extensions", "contact_tags", "comments"])
-        nullable_fields = set(["comments"])
+        optional_fields = set(["extensions", "contact_tags", "comments", "operation"])
+        nullable_fields = set(["comments", "operation"])
         serialized = handler(self)
         m = {}
 
