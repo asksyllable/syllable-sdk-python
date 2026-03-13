@@ -467,6 +467,7 @@ class Directory(BaseSDK):
         page: Optional[int] = 0,
         limit: Optional[int] = 25,
         order_by_direction: Optional[models.OrderByDirection] = None,
+        response_format: Optional[models.DirectoryResponseFormat] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -481,6 +482,7 @@ class Directory(BaseSDK):
         :param page: Page number (0-based)
         :param limit: Items per page
         :param order_by_direction: Sort by oldest first (asc) or newest first (desc). Version 1 is always the oldest.
+        :param response_format: Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -501,6 +503,7 @@ class Directory(BaseSDK):
             page=page,
             limit=limit,
             order_by_direction=order_by_direction,
+            response_format=response_format,
         )
 
         req = self._build_request(
@@ -569,6 +572,7 @@ class Directory(BaseSDK):
         page: Optional[int] = 0,
         limit: Optional[int] = 25,
         order_by_direction: Optional[models.OrderByDirection] = None,
+        response_format: Optional[models.DirectoryResponseFormat] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -583,6 +587,7 @@ class Directory(BaseSDK):
         :param page: Page number (0-based)
         :param limit: Items per page
         :param order_by_direction: Sort by oldest first (asc) or newest first (desc). Version 1 is always the oldest.
+        :param response_format: Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -603,6 +608,7 @@ class Directory(BaseSDK):
             page=page,
             limit=limit,
             order_by_direction=order_by_direction,
+            response_format=response_format,
         )
 
         req = self._build_request_async(

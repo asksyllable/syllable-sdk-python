@@ -5546,6 +5546,14 @@ paths:
             description: "Sort by oldest first (asc) or newest first (desc). Version 1 is always the oldest."
             default: "asc"
           description: "Sort by oldest first (asc) or newest first (desc). Version 1 is always the oldest."
+        - name: "response_format"
+          in: "query"
+          required: false
+          schema:
+            $ref: "#/components/schemas/DirectoryResponseFormat"
+            description: "Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values."
+            default: "normalized"
+          description: "Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values."
       responses:
         "200":
           description: "Successful Response"
