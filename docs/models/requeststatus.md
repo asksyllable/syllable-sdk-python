@@ -19,7 +19,6 @@ value = RequestStatus.PENDING
 | `DUPLICATE`    | DUPLICATE      |
 | `INITIATED`    | INITIATED      |
 | `CONNECTED`    | CONNECTED      |
-| `SENT`         | SENT           |
 | `COMPLETED`    | COMPLETED      |
 | `FAILED`       | FAILED         |
 | `CANCELED`     | CANCELED       |
