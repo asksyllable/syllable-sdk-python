@@ -18001,6 +18001,21 @@
             "examples": [
               "user@email.com"
             ]
+          },
+          "created_by": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created By",
+            "description": "Email of the user who created the directory member",
+            "examples": [
+              "user@email.com"
+            ]
           }
         },
         "type": "object",
@@ -18253,7 +18268,8 @@
           "contact_tags",
           "created_at",
           "updated_at",
-          "deleted_at"
+          "deleted_at",
+          "created_by"
         ],
         "title": "DirectoryMemberProperties"
       },
