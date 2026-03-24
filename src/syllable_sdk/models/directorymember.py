@@ -38,6 +38,8 @@ class DirectoryMemberTypedDict(TypedDict):
     r"""When the contact was deleted, if deleted"""
     last_updated_by: NotRequired[Nullable[str]]
     r"""Email of the user who last updated the directory member"""
+    created_by: NotRequired[Nullable[str]]
+    r"""Email of the user who created the directory member"""
 
 
 class DirectoryMember(BaseModel):
@@ -73,13 +75,30 @@ class DirectoryMember(BaseModel):
     last_updated_by: OptionalNullable[str] = UNSET
     r"""Email of the user who last updated the directory member"""
 
+    created_by: OptionalNullable[str] = UNSET
+    r"""Email of the user who created the directory member"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            ["extensions", "contact_tags", "comments", "deleted_at", "last_updated_by"]
+            [
+                "extensions",
+                "contact_tags",
+                "comments",
+                "deleted_at",
+                "last_updated_by",
+                "created_by",
+            ]
         )
         nullable_fields = set(
-            ["extensions", "contact_tags", "comments", "deleted_at", "last_updated_by"]
+            [
+                "extensions",
+                "contact_tags",
+                "comments",
+                "deleted_at",
+                "last_updated_by",
+                "created_by",
+            ]
         )
         serialized = handler(self)
         m = {}
