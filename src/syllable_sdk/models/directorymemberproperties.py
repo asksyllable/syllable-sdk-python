@@ -14,3 +14,4 @@ class DirectoryMemberProperties(str, Enum):
     CREATED_AT = "created_at"
     UPDATED_AT = "updated_at"
     DELETED_AT = "deleted_at"
+    CREATED_BY = "created_by"
