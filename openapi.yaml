@@ -16943,12 +16943,6 @@ components:
             - type: "null"
           title: "User Terminated"
           description: "Whether the voice session was ended by the recipient (outbound) / caller (inbound). False if the user was transferred or there was an error. Unset if the session was not a voice session."
-        transfer_voicemail_detected:
-          anyOf:
-            - type: "boolean"
-            - type: "null"
-          title: "Transfer Voicemail Detected"
-          description: "Whether a voicemail was detected during the transfer leg of the session"
       type: "object"
       required:
         - "timestamp"
@@ -17837,12 +17831,6 @@ components:
             - type: "null"
           title: "Async Enabled"
           description: "Whether asynchronous mode is enabled for the conversation"
-        transfer_leg_voicemail_detection_enabled:
-          anyOf:
-            - type: "boolean"
-            - type: "null"
-          title: "Transfer Leg Voicemail Detection Enabled"
-          description: "Whether transfer leg voicemail detection is enabled"
       type: "object"
       title: "TelephonyConfigurations"
     TestMessage:
