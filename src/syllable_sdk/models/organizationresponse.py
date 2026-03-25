@@ -18,6 +18,8 @@ class OrganizationResponseTypedDict(TypedDict):
     r"""The human-readable display name of the organization."""
     id: int
     r"""The internal ID of the organization."""
+    name: str
+    r"""Unique, non-human-readable hash for the organization"""
     last_updated: datetime
     r"""The timestamp of the most recent update to the organization"""
     description: NotRequired[Nullable[str]]
@@ -42,6 +44,9 @@ class OrganizationResponse(BaseModel):
 
     id: int
     r"""The internal ID of the organization."""
+
+    name: str
+    r"""Unique, non-human-readable hash for the organization"""
 
     last_updated: datetime
     r"""The timestamp of the most recent update to the organization"""
