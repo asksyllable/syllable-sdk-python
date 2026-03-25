@@ -5,15 +5,15 @@ management:
   docVersion: 0.0.3
   speakeasyVersion: 1.759.3
   generationVersion: 2.869.25
-  releaseVersion: 0.45.45
-  configChecksum: 97aebe0f8dafa6f5f672f23742e7dac8
+  releaseVersion: 0.45.46
+  configChecksum: a7408b8e93989e533a6c79665bd6d176
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: 46d8b51e-57fa-4ec2-8b79-d068060fc3e2
-  pristine_commit_hash: 51029febd52ab1fb5f8eaf1c293cad1769a37a6e
-  pristine_tree_hash: fc0b4a0c03ccdffa3ddacfcca42e567ba4ff64d0
+  generation_id: 1f29c5c1-19eb-4aae-839c-b73d785ddf15
+  pristine_commit_hash: db316d7d7c032e2582cb9e1d6c8e9d70222689b7
+  pristine_tree_hash: 5a6452fdfadbeb5eccc17f302434932bc34f5023
 features:
   python:
     additionalDependencies: 1.0.0
@@ -2002,8 +2002,8 @@ trackedFiles:
     pristine_git_object: 739eef2047817f053e6c7688b3993b63a9a7f142
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:2e038188cbe12ac0fcf2451631133e29cf638a2c
-    pristine_git_object: 486131b44913f382b5bad7419e147491ae2b6b3b
+    last_write_checksum: sha1:804e1e3c41055ee47a549b1e7c5b41f35ae6333b
+    pristine_git_object: 86dc0018002bc18d093b37ec63c181edf978f6c6
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2030,8 +2030,8 @@ trackedFiles:
     pristine_git_object: 80c09ba9b6fc421f9200d202e6a452aeedb2c3e4
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:2864287030cef87f4efe023f8f46ef1cb81864d8
-    pristine_git_object: a05703fa0e9df952b4f138885c9ee87eb8879d31
+    last_write_checksum: sha1:ed1d334ff3e7c61f184ed1301cbcdaef3de64795
+    pristine_git_object: 90dfc968259d0fa3b8801a34be3bd495e045a58b
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:7dc58c44df8ae539ebbc6c0a9069ea9405084cd9
@@ -5526,7 +5526,6 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.channels.list()`:  `response.items[].config.telephony.transfer_leg_voicemail_detection_enabled` **Added**\n* `syllable_sdk.channels.create()`: \n  *  `request.config.telephony.transfer_leg_voicemail_detection_enabled` **Added**\n  *  `response.config.telephony.transfer_leg_voicemail_detection_enabled` **Added**\n* `syllable_sdk.channels.update()`: \n  *  `request.config.telephony.transfer_leg_voicemail_detection_enabled` **Added**\n  *  `response.config.telephony.transfer_leg_voicemail_detection_enabled` **Added**\n* `syllable_sdk.channels.twilio.get_by_id()`:  `response.config.telephony.transfer_leg_voicemail_detection_enabled` **Added**\n* `syllable_sdk.channels.twilio.update()`:  `response.config.telephony.transfer_leg_voicemail_detection_enabled` **Added**\n* `syllable_sdk.channels.twilio.create()`:  `response.config.telephony.transfer_leg_voicemail_detection_enabled` **Added**\n* `syllable_sdk.sessions.list()`:  `response.items[].transfer_voicemail_detected` **Added**\n* `syllable_sdk.sessions.get_by_id()`:  `response.transfer_voicemail_detected` **Added**\n* `syllable_sdk.organizations.organizations_get()`:  `response.name` **Added**\n* `syllable_sdk.organizations.update()`:  `response.name` **Added**\n* `syllable_sdk.organizations.create()`:  `response.name` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
