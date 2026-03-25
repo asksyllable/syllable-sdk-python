@@ -31,8 +31,6 @@ class TelephonyConfigurationsTypedDict(TypedDict):
     r"""Waiting time to start passive input (in seconds) after start of assistant speech"""
     async_enabled: NotRequired[Nullable[bool]]
     r"""Whether asynchronous mode is enabled for the conversation"""
-    transfer_leg_voicemail_detection_enabled: NotRequired[Nullable[bool]]
-    r"""Whether transfer leg voicemail detection is enabled"""
 
 
 class TelephonyConfigurations(BaseModel):
@@ -63,9 +61,6 @@ class TelephonyConfigurations(BaseModel):
     async_enabled: OptionalNullable[bool] = UNSET
     r"""Whether asynchronous mode is enabled for the conversation"""
 
-    transfer_leg_voicemail_detection_enabled: OptionalNullable[bool] = UNSET
-    r"""Whether transfer leg voicemail detection is enabled"""
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -79,7 +74,6 @@ class TelephonyConfigurations(BaseModel):
                 "passive_speech_input_enabled",
                 "passive_input_start",
                 "async_enabled",
-                "transfer_leg_voicemail_detection_enabled",
             ]
         )
         nullable_fields = set(
@@ -93,7 +87,6 @@ class TelephonyConfigurations(BaseModel):
                 "passive_speech_input_enabled",
                 "passive_input_start",
                 "async_enabled",
-                "transfer_leg_voicemail_detection_enabled",
             ]
         )
         serialized = handler(self)

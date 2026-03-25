@@ -58,8 +58,6 @@ class SessionTypedDict(TypedDict):
     r"""Whether the session is a test session"""
     user_terminated: NotRequired[Nullable[bool]]
     r"""Whether the voice session was ended by the recipient (outbound) / caller (inbound). False if the user was transferred or there was an error. Unset if the session was not a voice session."""
-    transfer_voicemail_detected: NotRequired[Nullable[bool]]
-    r"""Whether a voicemail was detected during the transfer leg of the session"""
 
 
 class Session(BaseModel):
@@ -128,9 +126,6 @@ class Session(BaseModel):
     user_terminated: OptionalNullable[bool] = UNSET
     r"""Whether the voice session was ended by the recipient (outbound) / caller (inbound). False if the user was transferred or there was an error. Unset if the session was not a voice session."""
 
-    transfer_voicemail_detected: OptionalNullable[bool] = UNSET
-    r"""Whether a voicemail was detected during the transfer leg of the session"""
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -155,7 +150,6 @@ class Session(BaseModel):
                 "is_legacy",
                 "is_test",
                 "user_terminated",
-                "transfer_voicemail_detected",
             ]
         )
         nullable_fields = set(
@@ -180,7 +174,6 @@ class Session(BaseModel):
                 "is_legacy",
                 "is_test",
                 "user_terminated",
-                "transfer_voicemail_detected",
             ]
         )
         serialized = handler(self)
