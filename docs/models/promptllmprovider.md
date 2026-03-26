@@ -7,7 +7,7 @@ LLM API provider.
 ```python
 from syllable_sdk.models import PromptLlmProvider
 
-value = PromptLlmProvider.AZURE_OPENAI
+value = PromptLlmProvider.ANTHROPIC
 ```
 
 
@@ -15,6 +15,7 @@ value = PromptLlmProvider.AZURE_OPENAI
 
 | Name           | Value          |
 | -------------- | -------------- |
+| `ANTHROPIC`    | anthropic      |
 | `AZURE_OPENAI` | azure_openai   |
 | `GOOGLE`       | google         |
 | `OPENAI`       | openai         |
