@@ -7,6 +7,7 @@ from enum import Enum
 class PromptLlmProvider(str, Enum):
     r"""LLM API provider."""
 
+    ANTHROPIC = "anthropic"
     AZURE_OPENAI = "azure_openai"
     GOOGLE = "google"
     OPENAI = "openai"
