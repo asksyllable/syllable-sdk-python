@@ -14,6 +14,7 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
+from typing import Dict
 from typing_extensions import NotRequired, TypedDict
 
 
@@ -22,6 +23,8 @@ class ChannelConfigViewTypedDict(TypedDict):
     r"""Telephony configurations to be applied to targets belonging to the channel.       Only applies to voice supported channels."""
     email: NotRequired[Nullable[EmailConfigurationsTypedDict]]
     r"""Email configurations for email channels. Only applies to email channels."""
+    credentials: NotRequired[Nullable[Dict[str, str]]]
+    r"""Exposed credentials for the channel - currently just account_sid_last_four for Twilio channels"""
 
 
 class ChannelConfigView(BaseModel):
@@ -31,10 +34,13 @@ class ChannelConfigView(BaseModel):
     email: OptionalNullable[EmailConfigurations] = UNSET
     r"""Email configurations for email channels. Only applies to email channels."""
 
+    credentials: OptionalNullable[Dict[str, str]] = UNSET
+    r"""Exposed credentials for the channel - currently just account_sid_last_four for Twilio channels"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["telephony", "email"])
-        nullable_fields = set(["telephony", "email"])
+        optional_fields = set(["telephony", "email", "credentials"])
+        nullable_fields = set(["telephony", "email", "credentials"])
         serialized = handler(self)
         m = {}
 
