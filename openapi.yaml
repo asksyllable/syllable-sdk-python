@@ -15450,6 +15450,8 @@ components:
             - 19995551234
         hourly_rate:
           type: "integer"
+          maximum: 3600.0
+          minimum: 1.0
           title: "Hourly Rate"
           description: "Target number of outreach calls per hour"
           default: 1
@@ -15646,6 +15648,8 @@ components:
             - 19995551234
         hourly_rate:
           type: "integer"
+          maximum: 3600.0
+          minimum: 1.0
           title: "Hourly Rate"
           description: "Target number of outreach calls per hour"
           default: 1
