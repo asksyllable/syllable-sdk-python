@@ -52,6 +52,8 @@ class InsightWorkflowOutputTypedDict(TypedDict):
     r"""Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation"""
     queue_count: NotRequired[Nullable[int]]
     r"""Number of calls in the workflow queue (pending or processing)"""
+    failed_count: NotRequired[Nullable[int]]
+    r"""Number of workflow executions currently in FAILED status"""
     created_at: NotRequired[datetime]
     r"""Timestamp at which the insight workflow was created"""
     updated_at: NotRequired[datetime]
@@ -100,6 +102,9 @@ class InsightWorkflowOutput(BaseModel):
     queue_count: OptionalNullable[int] = UNSET
     r"""Number of calls in the workflow queue (pending or processing)"""
 
+    failed_count: OptionalNullable[int] = UNSET
+    r"""Number of workflow executions currently in FAILED status"""
+
     created_at: Optional[datetime] = None
     r"""Timestamp at which the insight workflow was created"""
 
@@ -113,11 +118,14 @@ class InsightWorkflowOutput(BaseModel):
                 "start_datetime",
                 "end_datetime",
                 "queue_count",
+                "failed_count",
                 "created_at",
                 "updated_at",
             ]
         )
-        nullable_fields = set(["start_datetime", "end_datetime", "queue_count"])
+        nullable_fields = set(
+            ["start_datetime", "end_datetime", "queue_count", "failed_count"]
+        )
         serialized = handler(self)
         m = {}
 
