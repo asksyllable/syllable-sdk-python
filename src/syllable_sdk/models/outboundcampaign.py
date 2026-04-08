@@ -2,6 +2,10 @@
 
 from __future__ import annotations
 from .daysofweek import DaysOfWeek
+from .outboundcampaignwebhookresponse import (
+    OutboundCampaignWebhookResponse,
+    OutboundCampaignWebhookResponseTypedDict,
+)
 from datetime import datetime
 import pydantic
 from pydantic import model_serializer
@@ -61,6 +65,8 @@ class OutboundCampaignTypedDict(TypedDict):
     r"""Timestamp of campaign creation"""
     updated_at: NotRequired[datetime]
     r"""Timestamp of campaign update"""
+    webhooks: NotRequired[Nullable[List[OutboundCampaignWebhookResponseTypedDict]]]
+    r"""Webhooks for campaign (note: this is an in-development feature - webhooks will not yet trigger even if configured)"""
 
 
 class OutboundCampaign(BaseModel):
@@ -135,6 +141,9 @@ class OutboundCampaign(BaseModel):
     updated_at: Optional[datetime] = None
     r"""Timestamp of campaign update"""
 
+    webhooks: OptionalNullable[List[OutboundCampaignWebhookResponse]] = UNSET
+    r"""Webhooks for campaign (note: this is an in-development feature - webhooks will not yet trigger even if configured)"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -155,6 +164,7 @@ class OutboundCampaign(BaseModel):
                 "agent_id",
                 "created_at",
                 "updated_at",
+                "webhooks",
             ]
         )
         nullable_fields = set(
@@ -172,6 +182,7 @@ class OutboundCampaign(BaseModel):
                 "retry_interval",
                 "voicemail_detection",
                 "agent_id",
+                "webhooks",
             ]
         )
         serialized = handler(self)

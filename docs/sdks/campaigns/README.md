@@ -114,6 +114,15 @@ with SyllableSDK(
             "voicemail_detection_post_speech_timeout": 1.75,
             "voicemail_detection_pre_speech_timeout": 3.5,
         },
+        "webhooks": [
+            {
+                "trigger_statuses": [
+                    models.ChannelManagerStatus.COMPLETED,
+                ],
+                "url": "https://example.com/hooks/syllable",
+                "request_method": "POST",
+            },
+        ],
     })
 
     # Handle response
@@ -229,6 +238,15 @@ with SyllableSDK(
             "voicemail_detection_post_speech_timeout": 1.75,
             "voicemail_detection_pre_speech_timeout": 3.5,
         },
+        "webhooks": [
+            {
+                "trigger_statuses": [
+                    models.ChannelManagerStatus.COMPLETED,
+                ],
+                "url": "https://example.com/hooks/syllable",
+                "request_method": "POST",
+            },
+        ],
     })
 
     # Handle response
