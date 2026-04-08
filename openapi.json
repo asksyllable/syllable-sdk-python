@@ -15070,6 +15070,45 @@
         "type": "object",
         "title": "ChannelConfigView"
       },
+      "ChannelManagerStatus": {
+        "type": "string",
+        "enum": [
+          "PENDING",
+          "DUPLICATE",
+          "INVALID",
+          "FAILED",
+          "PROCESSED",
+          "DROPPED",
+          "DEFERRED",
+          "BOUNCED",
+          "DELIVERED",
+          "OPENED",
+          "CLICKED",
+          "SPAM_REPORT",
+          "UNSUBSCRIBED",
+          "PRIOR_UNSUBSCRIBED",
+          "PRIOR_SPAM_REPORT",
+          "PRIOR_DROPPED",
+          "PRIOR_BOUNCED",
+          "SENT",
+          "ACCEPTED",
+          "QUEUED",
+          "SENDING",
+          "UNDELIVERED",
+          "DELIVERY_UNKNOWN",
+          "DELIVERY_FAILED",
+          "IN-PROGRESS",
+          "BUSY",
+          "CANCELED",
+          "COMPLETED",
+          "NO-ANSWER",
+          "MACHINE",
+          "HUMAN",
+          "UNKNOWN"
+        ],
+        "title": "ChannelManagerStatus",
+        "description": "Status of an outbound communication request (voice, SMS, or email)."
+      },
       "ChannelProperties": {
         "type": "string",
         "enum": [
@@ -24695,6 +24734,31 @@
             "examples": [
               "user@email.com"
             ]
+          },
+          "webhooks": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/OutboundCampaignWebhookResponse"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Webhooks",
+            "description": "Webhooks for campaign (note: this is an in-development feature - webhooks will not yet trigger even if configured)",
+            "examples": [
+              {
+                "id": 1,
+                "request_method": "POST",
+                "trigger_statuses": [
+                  "COMPLETED"
+                ],
+                "url": "https://example.com/hooks/syllable"
+              }
+            ]
           }
         },
         "type": "object",
@@ -24967,6 +25031,24 @@
                 "voicemail_detection_pre_speech_timeout": 3.5
               }
             ]
+          },
+          "webhooks": {
+            "items": {
+              "$ref": "#/components/schemas/OutboundCampaignWebhookInput"
+            },
+            "type": "array",
+            "title": "Webhooks",
+            "description": "Webhooks for campaign (note: this is an in-development feature - webhooks will not yet trigger even if configured)",
+            "default": [],
+            "examples": [
+              {
+                "request_method": "POST",
+                "trigger_statuses": [
+                  "COMPLETED"
+                ],
+                "url": "https://example.com/hooks/syllable"
+              }
+            ]
           }
         },
         "type": "object",
@@ -24977,6 +25059,153 @@
           "active_days"
         ],
         "title": "OutboundCampaignInput"
+      },
+      "OutboundCampaignWebhookInput": {
+        "properties": {
+          "trigger_statuses": {
+            "items": {
+              "$ref": "#/components/schemas/ChannelManagerStatus"
+            },
+            "type": "array",
+            "title": "Trigger Statuses",
+            "description": "Condition expression evaluated when the trigger fires",
+            "examples": [
+              "campaign_id == 1 && channel_manager_status == 'COMPLETED'"
+            ]
+          },
+          "url": {
+            "type": "string",
+            "title": "Url",
+            "description": "HTTPS URL to which to send the webhook payload",
+            "examples": [
+              "https://example.com/hooks/syllable"
+            ]
+          },
+          "request_method": {
+            "type": "string",
+            "title": "Request Method",
+            "description": "HTTP method for the outbound request (POST, PUT, or PATCH)",
+            "examples": [
+              "POST"
+            ]
+          },
+          "id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id",
+            "description": "Unique ID for webhook, if updating an existing webhook",
+            "examples": [
+              1
+            ]
+          },
+          "auth_values": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Auth Values",
+            "description": "Optional dict of auth values. Currently, only the key \"hmac_secret\" is allowed; value must be standard Base64 (RFC 4648) decoding to 32–512 bytes of key material. On update, leave a value for a given key null and the stored value for that key is kept. (If a key is omitted entirely, any existing value for that key is removed.)",
+            "examples": [
+              {
+                "hmac_secret": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "trigger_statuses",
+          "url",
+          "request_method"
+        ],
+        "title": "OutboundCampaignWebhookInput"
+      },
+      "OutboundCampaignWebhookResponse": {
+        "properties": {
+          "trigger_statuses": {
+            "items": {
+              "$ref": "#/components/schemas/ChannelManagerStatus"
+            },
+            "type": "array",
+            "title": "Trigger Statuses",
+            "description": "Condition expression evaluated when the trigger fires",
+            "examples": [
+              "campaign_id == 1 && channel_manager_status == 'COMPLETED'"
+            ]
+          },
+          "url": {
+            "type": "string",
+            "title": "Url",
+            "description": "HTTPS URL to which to send the webhook payload",
+            "examples": [
+              "https://example.com/hooks/syllable"
+            ]
+          },
+          "request_method": {
+            "type": "string",
+            "title": "Request Method",
+            "description": "HTTP method for the outbound request (POST, PUT, or PATCH)",
+            "examples": [
+              "POST"
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id",
+            "description": "Unique ID for webhook",
+            "examples": [
+              1
+            ]
+          },
+          "auth_value_keys": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Auth Value Keys",
+            "description": "Auth value keys (values omitted for security); only hmac_secret is currently supported",
+            "examples": [
+              [
+                "hmac_secret"
+              ]
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "trigger_statuses",
+          "url",
+          "request_method",
+          "id"
+        ],
+        "title": "OutboundCampaignWebhookResponse"
       },
       "PermissionGroupResponse": {
         "properties": {
