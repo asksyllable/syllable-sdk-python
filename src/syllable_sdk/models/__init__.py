@@ -131,6 +131,7 @@ if TYPE_CHECKING:
         ChannelTargetsUpdateRequestTypedDict,
     )
     from .channelconfigview import ChannelConfigView, ChannelConfigViewTypedDict
+    from .channelmanagerstatus import ChannelManagerStatus
     from .channelproperties import ChannelProperties
     from .channels_listop import ChannelsListRequest, ChannelsListRequestTypedDict
     from .channels_twilio_get_by_idop import (
@@ -808,6 +809,14 @@ if TYPE_CHECKING:
         OutboundCampaignInput,
         OutboundCampaignInputTypedDict,
     )
+    from .outboundcampaignwebhookinput import (
+        OutboundCampaignWebhookInput,
+        OutboundCampaignWebhookInputTypedDict,
+    )
+    from .outboundcampaignwebhookresponse import (
+        OutboundCampaignWebhookResponse,
+        OutboundCampaignWebhookResponseTypedDict,
+    )
     from .permissiongroupresponse import (
         PermissionGroupResponse,
         PermissionGroupResponseTypedDict,
@@ -1237,6 +1246,7 @@ __all__ = [
     "Channel",
     "ChannelConfigView",
     "ChannelConfigViewTypedDict",
+    "ChannelManagerStatus",
     "ChannelProperties",
     "ChannelServices",
     "ChannelTargetCreateRequest",
@@ -1688,6 +1698,10 @@ __all__ = [
     "OutboundCampaignTypedDict",
     "OutboundCampaignUpdateRequest",
     "OutboundCampaignUpdateRequestTypedDict",
+    "OutboundCampaignWebhookInput",
+    "OutboundCampaignWebhookInputTypedDict",
+    "OutboundCampaignWebhookResponse",
+    "OutboundCampaignWebhookResponseTypedDict",
     "PermissionGroupResponse",
     "PermissionGroupResponseTypedDict",
     "PermissionResponse",
@@ -2061,6 +2075,7 @@ _dynamic_imports: dict[str, str] = {
     "ChannelTargetsUpdateRequestTypedDict": ".channel_targets_updateop",
     "ChannelConfigView": ".channelconfigview",
     "ChannelConfigViewTypedDict": ".channelconfigview",
+    "ChannelManagerStatus": ".channelmanagerstatus",
     "ChannelProperties": ".channelproperties",
     "ChannelsListRequest": ".channels_listop",
     "ChannelsListRequestTypedDict": ".channels_listop",
@@ -2491,6 +2506,10 @@ _dynamic_imports: dict[str, str] = {
     "OutboundCampaignTypedDict": ".outboundcampaign",
     "OutboundCampaignInput": ".outboundcampaigninput",
     "OutboundCampaignInputTypedDict": ".outboundcampaigninput",
+    "OutboundCampaignWebhookInput": ".outboundcampaignwebhookinput",
+    "OutboundCampaignWebhookInputTypedDict": ".outboundcampaignwebhookinput",
+    "OutboundCampaignWebhookResponse": ".outboundcampaignwebhookresponse",
+    "OutboundCampaignWebhookResponseTypedDict": ".outboundcampaignwebhookresponse",
     "PermissionGroupResponse": ".permissiongroupresponse",
     "PermissionGroupResponseTypedDict": ".permissiongroupresponse",
     "PermissionResponse": ".permissionresponse",

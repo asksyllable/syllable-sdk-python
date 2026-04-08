@@ -2,6 +2,10 @@
 
 from __future__ import annotations
 from .daysofweek import DaysOfWeek
+from .outboundcampaignwebhookinput import (
+    OutboundCampaignWebhookInput,
+    OutboundCampaignWebhookInputTypedDict,
+)
 import pydantic
 from pydantic import model_serializer
 from syllable_sdk.types import (
@@ -50,6 +54,8 @@ class OutboundCampaignInputTypedDict(TypedDict):
     r"""How long to wait before retrying"""
     voicemail_detection: NotRequired[Nullable[Dict[str, float]]]
     r"""Config for voicemail detection for voice campaigns. Set to None to disable."""
+    webhooks: NotRequired[List[OutboundCampaignWebhookInputTypedDict]]
+    r"""Webhooks for campaign (note: this is an in-development feature - webhooks will not yet trigger even if configured)"""
 
 
 class OutboundCampaignInput(BaseModel):
@@ -109,6 +115,9 @@ class OutboundCampaignInput(BaseModel):
     voicemail_detection: OptionalNullable[Dict[str, float]] = UNSET
     r"""Config for voicemail detection for voice campaigns. Set to None to disable."""
 
+    webhooks: Optional[List[OutboundCampaignWebhookInput]] = None
+    r"""Webhooks for campaign (note: this is an in-development feature - webhooks will not yet trigger even if configured)"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -126,6 +135,7 @@ class OutboundCampaignInput(BaseModel):
                 "retry_count",
                 "retry_interval",
                 "voicemail_detection",
+                "webhooks",
             ]
         )
         nullable_fields = set(
