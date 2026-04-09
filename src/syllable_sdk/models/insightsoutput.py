@@ -37,6 +37,8 @@ class InsightsOutputTypedDict(TypedDict):
     r"""Unique ID for the session"""
     upload_file_id: NotRequired[Nullable[int]]
     r"""Unique ID for uploaded file"""
+    workflow_id: NotRequired[Nullable[int]]
+    r"""Insight workflow that produced this row, if applicable"""
     string_value: NotRequired[Nullable[str]]
     r"""String value of insight tool result"""
     numeric_value: NotRequired[Nullable[float]]
@@ -73,6 +75,9 @@ class InsightsOutput(BaseModel):
     upload_file_id: OptionalNullable[int] = UNSET
     r"""Unique ID for uploaded file"""
 
+    workflow_id: OptionalNullable[int] = UNSET
+    r"""Insight workflow that produced this row, if applicable"""
+
     string_value: OptionalNullable[str] = UNSET
     r"""String value of insight tool result"""
 
@@ -94,6 +99,7 @@ class InsightsOutput(BaseModel):
             [
                 "session_id",
                 "upload_file_id",
+                "workflow_id",
                 "string_value",
                 "numeric_value",
                 "created_at",
@@ -102,7 +108,13 @@ class InsightsOutput(BaseModel):
             ]
         )
         nullable_fields = set(
-            ["session_id", "upload_file_id", "string_value", "numeric_value"]
+            [
+                "session_id",
+                "upload_file_id",
+                "workflow_id",
+                "string_value",
+                "numeric_value",
+            ]
         )
         serialized = handler(self)
         m = {}
