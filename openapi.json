@@ -29258,6 +29258,23 @@
             "examples": [
               "query"
             ]
+          },
+          "timeout": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 120.0,
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Timeout",
+            "description": "Timeout in seconds for the HTTP request. Default 20 seconds when not set.",
+            "examples": [
+              45.0
+            ]
           }
         },
         "type": "object",
