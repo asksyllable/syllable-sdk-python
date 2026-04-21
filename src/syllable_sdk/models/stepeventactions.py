@@ -24,9 +24,9 @@ StepEventActionsStartTypedDict = TypeAliasType(
     "StepEventActionsStartTypedDict",
     Union[
         IncrementActionTypedDict,
+        CallActionTypedDict,
         SayActionTypedDict,
         SetValueActionTypedDict,
-        CallActionTypedDict,
     ],
 )
 
@@ -46,9 +46,9 @@ EnterTypedDict = TypeAliasType(
     "EnterTypedDict",
     Union[
         IncrementActionTypedDict,
+        CallActionTypedDict,
         SayActionTypedDict,
         SetValueActionTypedDict,
-        CallActionTypedDict,
         GetValueActionTypedDict,
     ],
 )
@@ -95,9 +95,9 @@ StepEventActionsSubmitTypedDict = TypeAliasType(
     Union[
         IncrementActionTypedDict,
         SaveActionTypedDict,
+        CallActionTypedDict,
         SayActionTypedDict,
         SetValueActionTypedDict,
-        CallActionTypedDict,
     ],
 )
 

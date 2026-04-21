@@ -22,9 +22,9 @@ EventTaskEventsStartTypedDict = TypeAliasType(
     "EventTaskEventsStartTypedDict",
     Union[
         IncrementActionTypedDict,
+        CallActionTypedDict,
         SayActionTypedDict,
         SetValueActionTypedDict,
-        CallActionTypedDict,
     ],
 )
 

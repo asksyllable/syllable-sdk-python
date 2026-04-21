@@ -98,8 +98,6 @@ if TYPE_CHECKING:
     )
     from .bridgephrasesconfig import BridgePhrasesConfig, BridgePhrasesConfigTypedDict
     from .callaction import (
-        Autopopulate,
-        AutopopulateTypedDict,
         CallAction,
         CallActionIf1,
         CallActionIf1TypedDict,
@@ -1189,8 +1187,6 @@ __all__ = [
     "AgentWaitSound",
     "Attributes",
     "AttributesTypedDict",
-    "Autopopulate",
-    "AutopopulateTypedDict",
     "AvailableTarget",
     "AvailableTargetProperties",
     "AvailableTargetTypedDict",
@@ -2050,8 +2046,6 @@ _dynamic_imports: dict[str, str] = {
     "BridgePhraseMessagesTypedDict": ".bridgephrasemessages",
     "BridgePhrasesConfig": ".bridgephrasesconfig",
     "BridgePhrasesConfigTypedDict": ".bridgephrasesconfig",
-    "Autopopulate": ".callaction",
-    "AutopopulateTypedDict": ".callaction",
     "CallAction": ".callaction",
     "CallActionIf1": ".callaction",
     "CallActionIf1TypedDict": ".callaction",

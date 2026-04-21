@@ -23,9 +23,9 @@ ExpressionTaskEventsStartTypedDict = TypeAliasType(
     "ExpressionTaskEventsStartTypedDict",
     Union[
         IncrementActionTypedDict,
+        CallActionTypedDict,
         SayActionTypedDict,
         SetValueActionTypedDict,
-        CallActionTypedDict,
     ],
 )
 
@@ -46,9 +46,9 @@ ExpressionTaskEventsSubmitTypedDict = TypeAliasType(
     Union[
         IncrementActionTypedDict,
         SaveActionTypedDict,
+        CallActionTypedDict,
         SayActionTypedDict,
         SetValueActionTypedDict,
-        CallActionTypedDict,
     ],
 )
 

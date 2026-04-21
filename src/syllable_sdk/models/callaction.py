@@ -47,14 +47,6 @@ CallActionIf2 = TypeAliasType(
 r"""Condition to decide whether this item executes. Supported expression forms: (1) JMESPath string (default for plain strings), (2) typed JMESPath object {\"type\":\"jp\"|\"jmespath\",\"expression\":\"...\"}, or (3) typed CEL object {\"type\":\"cel\",\"expression\":\"...\"}. Example JMESPath string: \"inputs.can_sign_consent == `true`\"."""
 
 
-AutopopulateTypedDict = TypeAliasType("AutopopulateTypedDict", Union[bool, str])
-r"""Auto-population strategy: True (hybrid - synthetic or LLM), False (always LLM), \"required\" (synthetic only if all required args available, else LLM)"""
-
-
-Autopopulate = TypeAliasType("Autopopulate", Union[bool, str])
-r"""Auto-population strategy: True (hybrid - synthetic or LLM), False (always LLM), \"required\" (synthetic only if all required args available, else LLM)"""
-
-
 class CallActionTypedDict(TypedDict):
     name: str
     r"""The name of the tool to call."""
@@ -63,8 +55,6 @@ class CallActionTypedDict(TypedDict):
     action: Literal["call"]
     arguments: NotRequired[Nullable[Dict[str, Any]]]
     r"""Optional arguments to pass to the tool (supports template strings)"""
-    auto_populate: NotRequired[AutopopulateTypedDict]
-    r"""Auto-population strategy: True (hybrid - synthetic or LLM), False (always LLM), \"required\" (synthetic only if all required args available, else LLM)"""
 
 
 class CallAction(BaseModel):
@@ -82,14 +72,9 @@ class CallAction(BaseModel):
     arguments: OptionalNullable[Dict[str, Any]] = UNSET
     r"""Optional arguments to pass to the tool (supports template strings)"""
 
-    auto_populate: Annotated[
-        Optional[Autopopulate], pydantic.Field(alias="autoPopulate")
-    ] = None
-    r"""Auto-population strategy: True (hybrid - synthetic or LLM), False (always LLM), \"required\" (synthetic only if all required args available, else LLM)"""
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["if", "action", "arguments", "autoPopulate"])
+        optional_fields = set(["if", "action", "arguments"])
         nullable_fields = set(["if", "arguments"])
         serialized = handler(self)
         m = {}
