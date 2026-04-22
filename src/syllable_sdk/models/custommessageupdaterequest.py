@@ -32,6 +32,8 @@ class CustomMessageUpdateRequestTypedDict(TypedDict):
     r"""Email subject. Required for email_template (in type_config); ignored otherwise."""
     label: NotRequired[Nullable[str]]
     r"""The label of the custom message"""
+    repeat_after_language_change: NotRequired[Nullable[bool]]
+    r"""If true, if the caller changes language using the language menu in the custom message, the message will be repeated in the new language (not including the language menu). If omitted or null on create, false is stored. If omitted or null on update, existing value will not be changed."""
     rules: NotRequired[List[CustomMessageRuleTypedDict]]
     r"""Rules for time-specific message variants"""
 
@@ -60,13 +62,27 @@ class CustomMessageUpdateRequest(BaseModel):
     label: OptionalNullable[str] = UNSET
     r"""The label of the custom message"""
 
+    repeat_after_language_change: OptionalNullable[bool] = UNSET
+    r"""If true, if the caller changes language using the language menu in the custom message, the message will be repeated in the new language (not including the language menu). If omitted or null on create, false is stored. If omitted or null on update, existing value will not be changed."""
+
     rules: Optional[List[CustomMessageRule]] = None
     r"""Rules for time-specific message variants"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["type", "preamble", "subject", "label", "rules"])
-        nullable_fields = set(["preamble", "subject", "label"])
+        optional_fields = set(
+            [
+                "type",
+                "preamble",
+                "subject",
+                "label",
+                "repeat_after_language_change",
+                "rules",
+            ]
+        )
+        nullable_fields = set(
+            ["preamble", "subject", "label", "repeat_after_language_change"]
+        )
         serialized = handler(self)
         m = {}
 

@@ -28,6 +28,8 @@ class CustomMessageResponseTypedDict(TypedDict):
     r"""The name of the custom message"""
     text: str
     r"""The default message that the agent will deliver if no rules are set or no rules match the current timestamp. For email_template, this is the body."""
+    repeat_after_language_change: bool
+    r"""If true, if the caller changes language using the language menu in the custom message, the message will be repeated in the new language (not including the language menu)."""
     id: int
     r"""The ID of the custom message"""
     updated_at: datetime
@@ -61,6 +63,9 @@ class CustomMessageResponse(BaseModel):
 
     text: str
     r"""The default message that the agent will deliver if no rules are set or no rules match the current timestamp. For email_template, this is the body."""
+
+    repeat_after_language_change: bool
+    r"""If true, if the caller changes language using the language menu in the custom message, the message will be repeated in the new language (not including the language menu)."""
 
     id: int
     r"""The ID of the custom message"""
