@@ -16472,6 +16472,18 @@
               "Customer service"
             ]
           },
+          "repeat_after_language_change": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Repeat After Language Change",
+            "description": "If true, if the caller changes language using the language menu in the custom message, the message will be repeated in the new language (not including the language menu). If omitted or null on create, false is stored. If omitted or null on update, existing value will not be changed."
+          },
           "rules": {
             "items": {
               "$ref": "#/components/schemas/CustomMessageRule"
@@ -16597,6 +16609,11 @@
               "Customer service"
             ]
           },
+          "repeat_after_language_change": {
+            "type": "boolean",
+            "title": "Repeat After Language Change",
+            "description": "If true, if the caller changes language using the language menu in the custom message, the message will be repeated in the new language (not including the language menu)."
+          },
           "rules": {
             "items": {
               "$ref": "#/components/schemas/CustomMessageRule"
@@ -16674,6 +16691,7 @@
         "required": [
           "name",
           "text",
+          "repeat_after_language_change",
           "id",
           "updated_at",
           "last_updated_by"
@@ -16868,6 +16886,18 @@
             "examples": [
               "Customer service"
             ]
+          },
+          "repeat_after_language_change": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Repeat After Language Change",
+            "description": "If true, if the caller changes language using the language menu in the custom message, the message will be repeated in the new language (not including the language menu). If omitted or null on create, false is stored. If omitted or null on update, existing value will not be changed."
           },
           "rules": {
             "items": {
