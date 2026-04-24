@@ -9622,6 +9622,12 @@ components:
             - type: "null"
           description: "Definition of the agent with which the channel target is associated."
           examples: []
+        a2p_verified:
+          anyOf:
+            - type: "boolean"
+            - type: "null"
+          title: "A2P Verified"
+          description: "Twilio US A2P messaging-path configuration snapshot from the last explicit verify; null if never checked."
       type: "object"
       required:
         - "agent_id"

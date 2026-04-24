@@ -47,6 +47,8 @@ class ChannelTargetResponseTypedDict(TypedDict):
     r"""Whether the channel target is intended for testing. If true, any sessions created through this target will be labeled as a test session (i.e., will not be included in dashboard data and can easily be filtered out in the Sessions screen in the SyllableConsole)."""
     agent: NotRequired[Nullable["AgentResponseTypedDict"]]
     r"""Definition of the agent with which the channel target is associated."""
+    a2p_verified: NotRequired[Nullable[bool]]
+    r"""Twilio US A2P messaging-path configuration snapshot from the last explicit verify; null if never checked."""
 
 
 class ChannelTargetResponse(BaseModel):
@@ -89,10 +91,13 @@ class ChannelTargetResponse(BaseModel):
     agent: OptionalNullable["AgentResponse"] = UNSET
     r"""Definition of the agent with which the channel target is associated."""
 
+    a2p_verified: OptionalNullable[bool] = UNSET
+    r"""Twilio US A2P messaging-path configuration snapshot from the last explicit verify; null if never checked."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["fallback_target", "is_test", "agent"])
-        nullable_fields = set(["fallback_target", "agent"])
+        optional_fields = set(["fallback_target", "is_test", "agent", "a2p_verified"])
+        nullable_fields = set(["fallback_target", "agent", "a2p_verified"])
         serialized = handler(self)
         m = {}
 
