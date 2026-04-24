@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 3731edd723d18b7445c708d5a6db4b6b
+  docChecksum: 1ef04184dfbe3a6b3b254cacbc21a82d
   docVersion: 0.0.3
   speakeasyVersion: 1.761.9
   generationVersion: 2.881.4
-  releaseVersion: 0.45.75
-  configChecksum: 54690edd5a591b3dc61d8cc0dc582946
+  releaseVersion: 0.45.76
+  configChecksum: d108b35e46b60839fb6f52946f4e3fd9
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: 3ebf9082-7a19-4d8f-a0e7-790a04e1083b
-  pristine_commit_hash: 9a82a1d6511761f2965c143abea296e4b3edb25b
-  pristine_tree_hash: 80ce8631e8f4193763a753b4d1595c90c80e439f
+  generation_id: 678a6da3-6fdb-42cf-9fc8-5d6bd60f0ccb
+  pristine_commit_hash: 9498e169eb6487771902dc7aa6fa2afe099edab6
+  pristine_tree_hash: 73aa0c62867f52b26fea76891fc97f30a04e7dc3
 features:
   python:
     additionalDependencies: 1.0.0
@@ -314,8 +314,8 @@ trackedFiles:
     pristine_git_object: 7b3a504c756886e10612b299d7dd29876a063543
   docs/models/channeltargetproperties.md:
     id: 003a1b85723b
-    last_write_checksum: sha1:eb4f4ab93046b5c1939068e30bdb9503af910f80
-    pristine_git_object: 68c1a1a4787ff21f76f531aec38e87f5f5ff85d7
+    last_write_checksum: sha1:5d297165e073639c32fc832d485c1c5c48ea97f6
+    pristine_git_object: c54dbb0c2fada0343964e799d456955f359b4ede
   docs/models/channeltargetresponse.md:
     id: a517e3762597
     last_write_checksum: sha1:db02a2db95410d07eb3f3ec34bae32f7f5f424a6
@@ -2022,8 +2022,8 @@ trackedFiles:
     pristine_git_object: 739eef2047817f053e6c7688b3993b63a9a7f142
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:6a830809cdc1463a0be025a87b898cd33515fd6f
-    pristine_git_object: d154dddaa42b1779aa8fda90cf5488df21685123
+    last_write_checksum: sha1:31f181b46ae0ea52a3368b39b690c2941a78a14b
+    pristine_git_object: fb1af3beef012fc9f9217011b202688406e9af34
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2050,8 +2050,8 @@ trackedFiles:
     pristine_git_object: 80c09ba9b6fc421f9200d202e6a452aeedb2c3e4
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:e7b369e4f7fa15f3e8e96cf963ed90fbc9cbd1aa
-    pristine_git_object: a67db5e5f83fe0992d8e78b987ed7540826b0302
+    last_write_checksum: sha1:cd3512b2d9521ae78e63ed7cc5e904e3893f2190
+    pristine_git_object: 7954cad2ca942b3500d314bcb66cefaf3e497cb0
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:0e3ae91b29b692b47e777e628f3aeb40323be418
@@ -2386,8 +2386,8 @@ trackedFiles:
     pristine_git_object: 743d276b34e5584572e25bf7e2ecd831278d2d11
   src/syllable_sdk/models/channeltargetproperties.py:
     id: c47206578b3e
-    last_write_checksum: sha1:643fac8ea895dd999586d0a06bd4000c4cadbd54
-    pristine_git_object: 7b702be8b12da3a1a379b4fd89de719bad10668e
+    last_write_checksum: sha1:a0e720e488f4f17253fa4b8b14c0d832e15ce6d7
+    pristine_git_object: 6344125dbcfef83a7e654fdd593fb5864af23898
   src/syllable_sdk/models/channeltargetresponse.py:
     id: ed85c1e95af8
     last_write_checksum: sha1:3c7269929733677b2087ee0cdfbce175b301c61b
@@ -5584,14 +5584,7 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Python SDK Changes:
-  * `syllable_sdk.agents.list()`:  `response.items[].channel_targets[].a2p_verified` **Added**
-  * `syllable_sdk.agents.create()`:  `response.channel_targets[].a2p_verified` **Added**
-  * `syllable_sdk.agents.update()`:  `response.channel_targets[].a2p_verified` **Added**
-  * `syllable_sdk.agents.get_by_id()`:  `response.channel_targets[].a2p_verified` **Added**
-  * `syllable_sdk.channels.targets.list()`:  `response.items[].a2p_verified` **Added**
-  * `syllable_sdk.channels.targets.create()`:  `response.a2p_verified` **Added**
-  * `syllable_sdk.channels.targets.get_by_id()`:  `response.a2p_verified` **Added**
-  * `syllable_sdk.channels.targets.update()`:  `response.a2p_verified` **Added**
+  * `syllable_sdk.channels.targets.list()`:  `request` **Changed**
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

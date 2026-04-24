@@ -25,3 +25,4 @@ value = ChannelTargetProperties.ID
 | `FALLBACK_TARGET` | fallback_target   |
 | `IS_TEST`         | is_test           |
 | `UPDATED_AT`      | updated_at        |
+| `A2P_VERIFIED`    | a2p_verified      |
