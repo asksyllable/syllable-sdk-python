@@ -12,6 +12,220 @@ from typing import Any, Mapping, Optional, Union
 class Numbers(BaseSDK):
     r"""Operations related to setting up phone numbers in Twilio for use in           channels."""
 
+    def channels_twilio_numbers_a2p_compliance_check(
+        self,
+        *,
+        channel_id: int,
+        a2p_messaging_path_check_request: Union[
+            models.A2pMessagingPathCheckRequest,
+            models.A2pMessagingPathCheckRequestTypedDict,
+        ],
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.A2pMessagingPathCheckResponse:
+        r"""Verify Twilio Us A2P Compliance
+
+        Return whether Twilio shows this number on a US A2P messaging path with an approved brand.
+
+        :param channel_id:
+        :param a2p_messaging_path_check_request:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ChannelsTwilioNumbersA2pComplianceCheckRequest(
+            channel_id=channel_id,
+            a2p_messaging_path_check_request=utils.get_pydantic_model(
+                a2p_messaging_path_check_request, models.A2pMessagingPathCheckRequest
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/api/v1/channels/twilio/{channel_id}/numbers/verify-a2p-compliance",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.a2p_messaging_path_check_request,
+                False,
+                False,
+                "json",
+                models.A2pMessagingPathCheckRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="channels_twilio_numbers_a2p_compliance_check",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.A2pMessagingPathCheckResponse, http_res
+            )
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
+    async def channels_twilio_numbers_a2p_compliance_check_async(
+        self,
+        *,
+        channel_id: int,
+        a2p_messaging_path_check_request: Union[
+            models.A2pMessagingPathCheckRequest,
+            models.A2pMessagingPathCheckRequestTypedDict,
+        ],
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.A2pMessagingPathCheckResponse:
+        r"""Verify Twilio Us A2P Compliance
+
+        Return whether Twilio shows this number on a US A2P messaging path with an approved brand.
+
+        :param channel_id:
+        :param a2p_messaging_path_check_request:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ChannelsTwilioNumbersA2pComplianceCheckRequest(
+            channel_id=channel_id,
+            a2p_messaging_path_check_request=utils.get_pydantic_model(
+                a2p_messaging_path_check_request, models.A2pMessagingPathCheckRequest
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/api/v1/channels/twilio/{channel_id}/numbers/verify-a2p-compliance",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.a2p_messaging_path_check_request,
+                False,
+                False,
+                "json",
+                models.A2pMessagingPathCheckRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="channels_twilio_numbers_a2p_compliance_check",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.A2pMessagingPathCheckResponse, http_res
+            )
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
     def add(
         self,
         *,

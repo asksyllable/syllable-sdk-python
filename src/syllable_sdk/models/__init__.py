@@ -20,6 +20,14 @@ from typing import Any, TYPE_CHECKING
 from syllable_sdk.utils.dynamic_imports import lazy_getattr, lazy_dir
 
 if TYPE_CHECKING:
+    from .a2pmessagingpathcheckrequest import (
+        A2pMessagingPathCheckRequest,
+        A2pMessagingPathCheckRequestTypedDict,
+    )
+    from .a2pmessagingpathcheckresponse import (
+        A2pMessagingPathCheckResponse,
+        A2pMessagingPathCheckResponseTypedDict,
+    )
     from .agent_deleteop import AgentDeleteRequest, AgentDeleteRequestTypedDict
     from .agent_get_by_idop import AgentGetByIDRequest, AgentGetByIDRequestTypedDict
     from .agent_listop import AgentListRequest, AgentListRequestTypedDict
@@ -135,6 +143,10 @@ if TYPE_CHECKING:
     from .channels_twilio_get_by_idop import (
         ChannelsTwilioGetByIDRequest,
         ChannelsTwilioGetByIDRequestTypedDict,
+    )
+    from .channels_twilio_numbers_a2p_compliance_checkop import (
+        ChannelsTwilioNumbersA2pComplianceCheckRequest,
+        ChannelsTwilioNumbersA2pComplianceCheckRequestTypedDict,
     )
     from .channels_twilio_numbers_addop import (
         ChannelsTwilioNumbersAddRequest,
@@ -1156,6 +1168,10 @@ ConditionalValue.model_rebuild()
 
 
 __all__ = [
+    "A2pMessagingPathCheckRequest",
+    "A2pMessagingPathCheckRequestTypedDict",
+    "A2pMessagingPathCheckResponse",
+    "A2pMessagingPathCheckResponseTypedDict",
     "AgentCreate",
     "AgentCreateTypedDict",
     "AgentDeleteRequest",
@@ -1267,6 +1283,8 @@ __all__ = [
     "ChannelsListRequestTypedDict",
     "ChannelsTwilioGetByIDRequest",
     "ChannelsTwilioGetByIDRequestTypedDict",
+    "ChannelsTwilioNumbersA2pComplianceCheckRequest",
+    "ChannelsTwilioNumbersA2pComplianceCheckRequestTypedDict",
     "ChannelsTwilioNumbersAddRequest",
     "ChannelsTwilioNumbersAddRequestTypedDict",
     "ChannelsTwilioNumbersListRequest",
@@ -1980,6 +1998,10 @@ __all__ = [
 ]
 
 _dynamic_imports: dict[str, str] = {
+    "A2pMessagingPathCheckRequest": ".a2pmessagingpathcheckrequest",
+    "A2pMessagingPathCheckRequestTypedDict": ".a2pmessagingpathcheckrequest",
+    "A2pMessagingPathCheckResponse": ".a2pmessagingpathcheckresponse",
+    "A2pMessagingPathCheckResponseTypedDict": ".a2pmessagingpathcheckresponse",
     "AgentDeleteRequest": ".agent_deleteop",
     "AgentDeleteRequestTypedDict": ".agent_deleteop",
     "AgentGetByIDRequest": ".agent_get_by_idop",
@@ -2075,6 +2097,8 @@ _dynamic_imports: dict[str, str] = {
     "ChannelsListRequestTypedDict": ".channels_listop",
     "ChannelsTwilioGetByIDRequest": ".channels_twilio_get_by_idop",
     "ChannelsTwilioGetByIDRequestTypedDict": ".channels_twilio_get_by_idop",
+    "ChannelsTwilioNumbersA2pComplianceCheckRequest": ".channels_twilio_numbers_a2p_compliance_checkop",
+    "ChannelsTwilioNumbersA2pComplianceCheckRequestTypedDict": ".channels_twilio_numbers_a2p_compliance_checkop",
     "ChannelsTwilioNumbersAddRequest": ".channels_twilio_numbers_addop",
     "ChannelsTwilioNumbersAddRequestTypedDict": ".channels_twilio_numbers_addop",
     "ChannelsTwilioNumbersListRequest": ".channels_twilio_numbers_listop",

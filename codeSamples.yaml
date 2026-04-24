@@ -429,6 +429,26 @@ actions:
 
                 # Handle response
                 print(res)
+  - target: $["paths"]["/api/v1/channels/twilio/{channel_id}/numbers/verify-a2p-compliance"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.channels.twilio.numbers.channels_twilio_numbers_a2p_compliance_check(channel_id=661482, a2p_messaging_path_check_request={
+                    "phone": "+18042221111",
+                })
+
+                # Handle response
+                print(res)
   - target: $["paths"]["/api/v1/channels/{channel_id}"]["delete"]
     update:
       x-codeSamples:
