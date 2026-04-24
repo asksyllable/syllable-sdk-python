@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: f51284670a2c47bf971b95ec724d10f0
+  docChecksum: 372485cd9dfd204e7cb8cf1d0633346a
   docVersion: 0.0.3
   speakeasyVersion: 1.761.9
   generationVersion: 2.881.4
-  releaseVersion: 0.45.73
-  configChecksum: 389b0bd27aa016406ae187fbadf3ed74
+  releaseVersion: 0.45.74
+  configChecksum: d66420976ab6184ad4eb45c3608b6fbc
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: c588ab03-9454-49bd-8ebc-d0133fd80647
-  pristine_commit_hash: 0e57b64bdb21debbf10804913466b45b6b9fc429
-  pristine_tree_hash: c7d1431cd6e7c28d583d32c934d52bee01c22e6b
+  generation_id: 940823ba-68c2-4aa0-894d-96493866a20b
+  pristine_commit_hash: 8f029a83e1fce1df59fa553cb6d6d8d77e519e83
+  pristine_tree_hash: 366f891e2717e021d078cdedd8789a1434b5060e
 features:
   python:
     additionalDependencies: 1.0.0
@@ -68,6 +68,14 @@ trackedFiles:
     id: 7fe2e5327e07
     last_write_checksum: sha1:277a46811144643262651853dc6176d21b33573e
     pristine_git_object: 712a148c3e2305dca4c702851865f9f8c8e674cc
+  docs/models/a2pmessagingpathcheckrequest.md:
+    id: d037ed49810a
+    last_write_checksum: sha1:685a5b446ae8c355863af3b5ed954b81e81cf32a
+    pristine_git_object: 3177b63d003f4c393e62a9c2b724f48b4bbb5cfe
+  docs/models/a2pmessagingpathcheckresponse.md:
+    id: 006fddfc143c
+    last_write_checksum: sha1:3960ccee44027482e57de2698d17994592d8d000
+    pristine_git_object: f39a582045ccab560421861874258c95e1647d67
   docs/models/agentcreate.md:
     id: aec03b4b02dd
     last_write_checksum: sha1:c8855b4215d47b72f0ffce39fdd25efc2a1352e9
@@ -284,6 +292,10 @@ trackedFiles:
     id: c0d5e40f733a
     last_write_checksum: sha1:fa6d94f84ee5eec4e3e8ad5741bdcf2a8eaa8397
     pristine_git_object: b6a7f80bc0cb4dde61e2fd06d4abf19a9cf8f422
+  docs/models/channelstwilionumbersa2pcompliancecheckrequest.md:
+    id: dcaaf7960ee2
+    last_write_checksum: sha1:b0d9adcf9b0f6ac7e8c7a0354ec7827e3340c9be
+    pristine_git_object: 81d1c818aa13105457d7702bd90a3f6bca288215
   docs/models/channelstwilionumbersaddrequest.md:
     id: 0ef0cb5153a1
     last_write_checksum: sha1:41e1df57ec5ceae81f3365bca68531bce46e7c10
@@ -1918,8 +1930,8 @@ trackedFiles:
     pristine_git_object: 794dbc589227fc9c1868e738052b3a1c1d74e2e3
   docs/sdks/numbers/README.md:
     id: 4f31e2dbe389
-    last_write_checksum: sha1:529160ff12fb56f4880d813ed66e6c69f8fbaa33
-    pristine_git_object: 667085c9f79592fc09e26a357aaa665749fb2136
+    last_write_checksum: sha1:f6cab9810cdc951e31856e2920bcdfc88998a199
+    pristine_git_object: 46e1f5ef6f106618268c8e5b09a6bfe6c4c24163
   docs/sdks/organizations/README.md:
     id: 3425667a2db5
     last_write_checksum: sha1:a4fad7c49f698f0d043c27ddeada0d92533d25fc
@@ -2010,8 +2022,8 @@ trackedFiles:
     pristine_git_object: 739eef2047817f053e6c7688b3993b63a9a7f142
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:78e64f4788e0ee4088122ff079da9134ff60c5a0
-    pristine_git_object: fe5c5bc7486f7c247d9375f4f1a2a5303811d427
+    last_write_checksum: sha1:764d460aecacac11a37d4a7abdec1f20255499a4
+    pristine_git_object: ac127a69c0ed7fb35d6083a73212db2d3543ae77
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2038,8 +2050,8 @@ trackedFiles:
     pristine_git_object: 80c09ba9b6fc421f9200d202e6a452aeedb2c3e4
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:2b66a1f7bc96c0f847d94a49b82e4ed9cab56b6a
-    pristine_git_object: 1455d792d74eac947f53ad3fa32ad38ba3a93fc9
+    last_write_checksum: sha1:296984a01d625ea2231d50f3969668894a8e9b85
+    pristine_git_object: 3aa97f8f3d7c5d38a9044224563b58e7ed728182
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:0e3ae91b29b692b47e777e628f3aeb40323be418
@@ -2146,8 +2158,16 @@ trackedFiles:
     pristine_git_object: 262ba02c8866c13c2a38a41d7c8920178bdfe8d8
   src/syllable_sdk/models/__init__.py:
     id: 984744253da7
-    last_write_checksum: sha1:72afe73a87f7801ec2dcb28b94ea00207bce36db
-    pristine_git_object: c96af08a7a294bf1aec8730a33d7e7a4ddd15fe4
+    last_write_checksum: sha1:b9070ddb814f5f3a1e42071bbe2f70a5ff35868a
+    pristine_git_object: 40acea6522483ab26c903dc4f7a958362a144b89
+  src/syllable_sdk/models/a2pmessagingpathcheckrequest.py:
+    id: 2cb7c3c6f6e9
+    last_write_checksum: sha1:3dcf884ac8fa211d36338dda9ad3e90f3979a28d
+    pristine_git_object: 66fed8d4498869ad9fd8d6b62549b7a7f70847d9
+  src/syllable_sdk/models/a2pmessagingpathcheckresponse.py:
+    id: 915cc137aaac
+    last_write_checksum: sha1:5a6e4069adaa349ab08249bd46843f70e5171be1
+    pristine_git_object: 37874ffd89a6bfca449201d6ec4b5839e164d3b5
   src/syllable_sdk/models/agent_deleteop.py:
     id: 243f308cd260
     last_write_checksum: sha1:678c977fe3701387fedea959158d6edcfa9b77ed
@@ -2340,6 +2360,10 @@ trackedFiles:
     id: 384c8a25ab24
     last_write_checksum: sha1:d15f52021fdf72b99839fdab6771bafd90e70c54
     pristine_git_object: 30bd2151f1109a5c13d00d0a197880e127937036
+  src/syllable_sdk/models/channels_twilio_numbers_a2p_compliance_checkop.py:
+    id: d4064b12574e
+    last_write_checksum: sha1:4e2195da95cb310553018176c4491f7c477aa344
+    pristine_git_object: 548d3b3991d2d3f7264c0ecc6b11445fbbf5c8f7
   src/syllable_sdk/models/channels_twilio_numbers_addop.py:
     id: 1555c994c858
     last_write_checksum: sha1:80112437ae874e6bf1478cc724f7d85b8bccd784
@@ -3666,8 +3690,8 @@ trackedFiles:
     pristine_git_object: fa1eac12ec09f675166f2404a7a964e76b3836c3
   src/syllable_sdk/numbers.py:
     id: 6e8fd84d6742
-    last_write_checksum: sha1:f2c2e0190725a8522f85fdf40811ed6f83eb7aec
-    pristine_git_object: 8c294c5f5bdc5c032766c25e2e49a5552016cb61
+    last_write_checksum: sha1:e090b933614a6abafcbe2cfa1f061f435c8f55d2
+    pristine_git_object: 8e98b2ec4ef40daac387747c352f26495b3ab939
   src/syllable_sdk/organizations.py:
     id: 78fbee0ccbc3
     last_write_checksum: sha1:c28913aa75ef585e0365628433e3059c491442f1
@@ -5544,8 +5568,23 @@ examples:
           application/json: {"name": "Jane Doe", "type": "Operator", "extensions": [{"name": "work", "numbers": [{"number": "+1234567890", "rules": [{"language": "en"}]}]}], "contact_tags": {"tag1": ["value1"], "tag2": ["value2"]}, "comments": "Updated phone number", "id": 1, "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com", "created_by": "user@email.com"}
         "422":
           application/json: {}
+  channels_twilio_numbers_a2p_compliance_check:
+    speakeasy-default-channels-twilio-numbers-a2p-compliance-check:
+      parameters:
+        path:
+          channel_id: 661482
+      requestBody:
+        application/json: {"phone": "+18042221111"}
+      responses:
+        "200":
+          application/json: {"a2p_approved": false}
+        "422":
+          application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Python SDK Changes:
+  * `syllable_sdk.channels.twilio.numbers.channels_twilio_numbers_a2p_compliance_check()`: **Added**
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

@@ -265,6 +265,7 @@ with SyllableSDK(
 
 ##### [Channels.Twilio.Numbers](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/numbers/README.md)
 
+* [channels_twilio_numbers_a2p_compliance_check](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/numbers/README.md#channels_twilio_numbers_a2p_compliance_check) - Verify Twilio Us A2P Compliance
 * [add](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/numbers/README.md#add) - Add Twilio Number
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/numbers/README.md#update) - Update Twilio Number
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/numbers/README.md#list) - List Twilio Phone Numbers

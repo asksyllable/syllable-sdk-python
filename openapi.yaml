@@ -559,6 +559,41 @@ paths:
       deprecated: true
       security:
         - APIKeyHeader: []
+  /api/v1/channels/twilio/{channel_id}/numbers/verify-a2p-compliance:
+    post:
+      tags:
+        - "channels.twilio.numbers"
+      summary: "Verify Twilio Us A2P Compliance"
+      description: "Return whether Twilio shows this number on a US A2P messaging path with an approved brand."
+      operationId: "channels_twilio_numbers_a2p_compliance_check"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "channel_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Channel Id"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/A2pMessagingPathCheckRequest"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/A2pMessagingPathCheckResponse"
+        "422":
+          description: "Validation Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1/channels/twilio/{channel_id}/numbers:
     post:
       tags:
@@ -7794,6 +7829,30 @@ paths:
         - APIKeyHeader: []
 components:
   schemas:
+    A2pMessagingPathCheckRequest:
+      properties:
+        phone:
+          type: "string"
+          title: "Phone"
+          description: "E.164 phone number exactly as Twilio stores it for this incoming number."
+          examples:
+            - "+18042221111"
+      type: "object"
+      required:
+        - "phone"
+      title: "A2pMessagingPathCheckRequest"
+      description: "Body to check US A2P / Messaging Service setup for one number on the Twilio channel."
+    A2pMessagingPathCheckResponse:
+      properties:
+        a2p_approved:
+          type: "boolean"
+          title: "A2P Approved"
+          description: "True when the number is on a Messaging Service with a US A2P registration whose brand is approved and campaign is verified on the same registration."
+      type: "object"
+      required:
+        - "a2p_approved"
+      title: "A2pMessagingPathCheckResponse"
+      description: "Twilio-side A2P setup state for the number.\n\nReflects Twilio configuration (Messaging Service + Brand + Campaign records); it is not\ncarrier per-number REGISTERED state or legal/content compliance."
     AgentCreate:
       properties:
         name:

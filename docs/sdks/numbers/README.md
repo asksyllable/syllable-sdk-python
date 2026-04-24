@@ -6,9 +6,54 @@ Operations related to setting up phone numbers in Twilio for use in           ch
 
 ### Available Operations
 
+* [channels_twilio_numbers_a2p_compliance_check](#channels_twilio_numbers_a2p_compliance_check) - Verify Twilio Us A2P Compliance
 * [add](#add) - Add Twilio Number
 * [update](#update) - Update Twilio Number
 * [list](#list) - List Twilio Phone Numbers
+
+## channels_twilio_numbers_a2p_compliance_check
+
+Return whether Twilio shows this number on a US A2P messaging path with an approved brand.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="channels_twilio_numbers_a2p_compliance_check" method="post" path="/api/v1/channels/twilio/{channel_id}/numbers/verify-a2p-compliance" -->
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.channels.twilio.numbers.channels_twilio_numbers_a2p_compliance_check(channel_id=661482, a2p_messaging_path_check_request={
+        "phone": "+18042221111",
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `channel_id`                                                                        | *int*                                                                               | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `a2p_messaging_path_check_request`                                                  | [models.A2pMessagingPathCheckRequest](../../models/a2pmessagingpathcheckrequest.md) | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `retries`                                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                    | :heavy_minus_sign:                                                                  | Configuration to override the default retry behavior of the client.                 |
+
+### Response
+
+**[models.A2pMessagingPathCheckResponse](../../models/a2pmessagingpathcheckresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## add
 
