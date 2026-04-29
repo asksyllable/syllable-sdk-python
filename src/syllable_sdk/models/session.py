@@ -56,6 +56,8 @@ class SessionTypedDict(TypedDict):
     r"""Whether the session occurred on the legacy Syllable system"""
     is_test: NotRequired[Nullable[bool]]
     r"""Whether the session is a test session"""
+    is_outbound: NotRequired[Nullable[bool]]
+    r"""Whether the session direction is outbound (true) or inbound (false)."""
     user_terminated: NotRequired[Nullable[bool]]
     r"""Whether the voice session was ended by the recipient (outbound) / caller (inbound). False if the user was transferred or there was an error. Unset if the session was not a voice session."""
     transfer_voicemail_detected: NotRequired[Nullable[bool]]
@@ -125,6 +127,9 @@ class Session(BaseModel):
     is_test: OptionalNullable[bool] = UNSET
     r"""Whether the session is a test session"""
 
+    is_outbound: OptionalNullable[bool] = UNSET
+    r"""Whether the session direction is outbound (true) or inbound (false)."""
+
     user_terminated: OptionalNullable[bool] = UNSET
     r"""Whether the voice session was ended by the recipient (outbound) / caller (inbound). False if the user was transferred or there was an error. Unset if the session was not a voice session."""
 
@@ -154,6 +159,7 @@ class Session(BaseModel):
                 "target",
                 "is_legacy",
                 "is_test",
+                "is_outbound",
                 "user_terminated",
                 "transfer_voicemail_detected",
             ]
@@ -179,6 +185,7 @@ class Session(BaseModel):
                 "target",
                 "is_legacy",
                 "is_test",
+                "is_outbound",
                 "user_terminated",
                 "transfer_voicemail_detected",
             ]
