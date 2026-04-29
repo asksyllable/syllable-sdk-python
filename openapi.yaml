@@ -17200,6 +17200,12 @@ components:
             - type: "null"
           title: "Is Test"
           description: "Whether the session is a test session"
+        is_outbound:
+          anyOf:
+            - type: "boolean"
+            - type: "null"
+          title: "Is Outbound"
+          description: "Whether the session direction is outbound (true) or inbound (false)."
         user_terminated:
           anyOf:
             - type: "boolean"
