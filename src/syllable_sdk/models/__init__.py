@@ -1000,7 +1000,7 @@ if TYPE_CHECKING:
         StepEventActionsSubmitTypedDict,
         StepEventActionsTypedDict,
     )
-    from .stepstask import StepsTask, StepsTaskTypedDict
+    from .stepstask import StartEnum, StepsTask, StepsTaskTypedDict
     from .steptools import StepTools, StepToolsTypedDict
     from .summaryentry import SummaryEntry, SummaryEntryTypedDict
     from .supportedllm import SupportedLlm, SupportedLlmTypedDict
@@ -1849,6 +1849,7 @@ __all__ = [
     "SetValueActionValuefrom2",
     "SetValueActionValuefrom2TypedDict",
     "Severity",
+    "StartEnum",
     "StaticToolParameter",
     "StaticToolParameterType",
     "StaticToolParameterTypedDict",
@@ -2675,6 +2676,7 @@ _dynamic_imports: dict[str, str] = {
     "StepEventActionsSubmit": ".stepeventactions",
     "StepEventActionsSubmitTypedDict": ".stepeventactions",
     "StepEventActionsTypedDict": ".stepeventactions",
+    "StartEnum": ".stepstask",
     "StepsTask": ".stepstask",
     "StepsTaskTypedDict": ".stepstask",
     "StepTools": ".steptools",

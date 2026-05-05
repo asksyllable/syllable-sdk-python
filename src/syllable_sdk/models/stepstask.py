@@ -5,6 +5,7 @@ from .contexttaskmetadata import ContextTaskMetadata, ContextTaskMetadataTypedDi
 from .contexttoolinfo import ContextToolInfo, ContextToolInfoTypedDict
 from .step import Step, StepTypedDict
 from .variable import Variable, VariableTypedDict
+from enum import Enum
 import pydantic
 from pydantic import model_serializer
 from pydantic.functional_validators import AfterValidator
@@ -20,6 +21,13 @@ from typing import Any, Dict, List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
+class StartEnum(str, Enum):
+    r"""Controls when the workflow activation lifecycle runs. `auto` activates at session start; `manual` activates on first invocation."""
+
+    AUTO = "auto"
+    MANUAL = "manual"
+
+
 class StepsTaskTypedDict(TypedDict):
     id: NotRequired[Nullable[str]]
     r"""A unique identifier for the task."""
@@ -29,6 +37,8 @@ class StepsTaskTypedDict(TypedDict):
     tool: NotRequired[Nullable[ContextToolInfoTypedDict]]
     type: Literal["steps"]
     version: Literal["v1alpha"]
+    start: NotRequired[StartEnum]
+    r"""Controls when the workflow activation lifecycle runs. `auto` activates at session start; `manual` activates on first invocation."""
     steps: NotRequired[List[StepTypedDict]]
 
 
@@ -56,6 +66,9 @@ class StepsTask(BaseModel):
         pydantic.Field(alias="version"),
     ] = "v1alpha"
 
+    start: Optional[StartEnum] = StartEnum.AUTO
+    r"""Controls when the workflow activation lifecycle runs. `auto` activates at session start; `manual` activates on first invocation."""
+
     steps: Optional[List[Step]] = None
 
     @model_serializer(mode="wrap")
@@ -69,6 +82,7 @@ class StepsTask(BaseModel):
                 "tool",
                 "type",
                 "version",
+                "start",
                 "steps",
             ]
         )

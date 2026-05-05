@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 5fed2ce7191abf1d79ba4920b2672848
+  docChecksum: c861fb10938834bff3e073f797ce7c79
   docVersion: 0.0.3
   speakeasyVersion: 1.761.11
   generationVersion: 2.881.17
-  releaseVersion: 0.45.83
-  configChecksum: b5a634b2780e8db211332c1f3667d6ce
+  releaseVersion: 0.45.84
+  configChecksum: dbc44277d82dc9f638fc769118b10d97
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: 41fb5747-d580-4dae-a812-5420dc45e59c
-  pristine_commit_hash: f06889239eb0082dd2fd9eb061f313e835eb0cee
-  pristine_tree_hash: 9b27b057012783dd9417efeb89e767539a52bba4
+  generation_id: 071feb8b-c60e-4f6a-98a3-c906087bbd6b
+  pristine_commit_hash: 8f12fc66be7661326a2de29c927366f94f03d201
+  pristine_tree_hash: 8bf6ea1cef3c50e1e2af42c3ceaaa9144397414f
 features:
   python:
     additionalDependencies: 1.0.0
@@ -166,8 +166,8 @@ trackedFiles:
     pristine_git_object: 59f0d7bd5f432e2d4e7d747a7dd5422c980ebee4
   docs/models/batchdetails.md:
     id: da968f95f3ca
-    last_write_checksum: sha1:04843b0eb2cd40ace265e281d9a9460a19b20fb1
-    pristine_git_object: a5328a0a2badfac27659870c1f48fea7e8df13f8
+    last_write_checksum: sha1:e1902ff1307fab92096c9ac59239ed1bfb6c0691
+    pristine_git_object: 38f0d043f47d0cc4af9386ca34af07d1fec1f4d2
   docs/models/batchproperties.md:
     id: 44911e315bab
     last_write_checksum: sha1:8d15f6395d1960e10f337095b0acdbacae3b8c1c
@@ -346,12 +346,12 @@ trackedFiles:
     pristine_git_object: 674cd8949336ff48383013752d4cfed3f8ec8d88
   docs/models/communicationbatch.md:
     id: bffc833d4305
-    last_write_checksum: sha1:dca34ba7d944163f294bcfb76de6c00c6abd7733
-    pristine_git_object: 940a2f1c0c83b12438d9518bfd06ff39b80f63c3
+    last_write_checksum: sha1:50f05896ae8319a55f10fc39b2d80b75da941183
+    pristine_git_object: 5c12e64cac33388f4bf97d808e1f554989ab5197
   docs/models/communicationbatchinput.md:
     id: bbfc143c623f
-    last_write_checksum: sha1:dea7fcdd362728e5bbb644bbd3c98fc79e7aba0b
-    pristine_git_object: e171fbdae89f74138af8e5aaed29b7e4bceba4a8
+    last_write_checksum: sha1:1ee16db7cbdaa4d54f6ecd2a2d2256ff3f903f26
+    pristine_git_object: 8729954eaed4b59e502b84c369dc03f69b4d7499
   docs/models/communicationbatchupdate.md:
     id: f47944937756
     last_write_checksum: sha1:dca868c3c62ffa9468a096ae5c775577ebbde4b3
@@ -362,8 +362,8 @@ trackedFiles:
     pristine_git_object: 08c36d278143e06b786610cb9ba92cfea34c8bcc
   docs/models/communicationrequestresult.md:
     id: 8cd7fea9158f
-    last_write_checksum: sha1:d9f140edf6775d542f3f073e3adcfaa9b1e0aaa7
-    pristine_git_object: 7d3ac7cd6f5d94e057d7111967d576c77bfa3d91
+    last_write_checksum: sha1:6a7d8d5eaa23cf6514599a48dfe8ac4b7cf40ea1
+    pristine_git_object: 982376f5fbbcc597d9b84496d82b4096ae258560
   docs/models/conditionaltext.md:
     id: 848c32a98369
     last_write_checksum: sha1:677b2cd1e8273cecf0a770a5a5f41c6936d8fa2f
@@ -678,8 +678,8 @@ trackedFiles:
     pristine_git_object: 462e18f0c21d3ff254225f0820a95122872dc033
   docs/models/folderdetails.md:
     id: fad58c1827ec
-    last_write_checksum: sha1:c814584dc6538b8b78968737ceab314e97fc4eb4
-    pristine_git_object: cff418c5a72ca7132535fbd26a57ce4401fd629c
+    last_write_checksum: sha1:d028a66ae4752d1bc8b6c47bdd1bf78a5f361c8b
+    pristine_git_object: b845392934f10cd9f0fec20065ec73bd24be64e9
   docs/models/folderstats.md:
     id: f54a72829d21
     last_write_checksum: sha1:599f91ff65287d1c068ef67b2b821fd87aa8e4f9
@@ -786,8 +786,8 @@ trackedFiles:
     pristine_git_object: 69d1a5b5c3a933409822f59bd1afd580ec789341
   docs/models/insightsfolder.md:
     id: f37349cba644
-    last_write_checksum: sha1:2354e3074ba0608f40689536b2457d42b7e05172
-    pristine_git_object: 658dea9b155321119c35b76cea7a6632c22907cf
+    last_write_checksum: sha1:ecf113799af4e311658a6b932f8bfde64488edeb
+    pristine_git_object: 24c1cdb609fab29be356e83ab386b54b564ee1a8
   docs/models/insightsfolderdeleterequest.md:
     id: b7a53ff38453
     last_write_checksum: sha1:098c07c5457403d53045990cbbc6319af1129499
@@ -826,8 +826,8 @@ trackedFiles:
     pristine_git_object: 8a66b5bf2ac8a512ea5109098d5f8826543db566
   docs/models/insightsoutput.md:
     id: cf9ab4a8dee7
-    last_write_checksum: sha1:556f8c5968c57ee983e85f295e1a5f9845c870f7
-    pristine_git_object: 6c976ad33e595dc2a06e66d081650419e45438dd
+    last_write_checksum: sha1:c81c891dc2ffdb3dd7f9deb3e0c9f94cf47caec6
+    pristine_git_object: 57995722d71a84e92ac9929fc30e4c21cea5413c
   docs/models/insightsproperties.md:
     id: 2bf82d14a1de
     last_write_checksum: sha1:d40102cb5362cde654858e202b4bb402c75f79c8
@@ -842,8 +842,8 @@ trackedFiles:
     pristine_git_object: 2cb8cefd41000f7fa9edbb24217f9d6dce33b539
   docs/models/insightsuploadfile.md:
     id: 5750a6ab8306
-    last_write_checksum: sha1:cc6235988ad4125f5cc3953983323f6bfe653f8d
-    pristine_git_object: 26c9eb7c14263d35590fd48e0647c3acceec6f9f
+    last_write_checksum: sha1:87040c92ce3b0a4ea6272b0896d67e170aeacf4a
+    pristine_git_object: ec6cbfd4625bfc84d3e1beaa85b9900aaf91cafb
   docs/models/insightsuploadfileproperties.md:
     id: f2446686e595
     last_write_checksum: sha1:8cfbb8121029d9e4fb2a9ae682045f1d33c6c364
@@ -902,8 +902,8 @@ trackedFiles:
     pristine_git_object: 9b7d4ee902cbf8ce5be2cba88ed836d373d14581
   docs/models/insighttooloutput.md:
     id: 68de407febc7
-    last_write_checksum: sha1:d4b5236aa21051af89174532982a5e5225c2e619
-    pristine_git_object: 417c302cfbb9439535d65de74b665e7d84345bf6
+    last_write_checksum: sha1:3b648c6f482e8b9a8475f5487956531292a39ec3
+    pristine_git_object: 4579c8998e67c71a2df3a3fe8008d6ee05626f5d
   docs/models/insighttoolproperties.md:
     id: 958ddf8f1014
     last_write_checksum: sha1:ef77c96598520360d3a147d2954cc33336f68016
@@ -926,12 +926,12 @@ trackedFiles:
     pristine_git_object: 22394162d7d8e553361b9e5d644caf2b0af470ca
   docs/models/insightworkflowinput.md:
     id: 95980a68168d
-    last_write_checksum: sha1:cf2bef085976d4dda79c49fd94e20b1f5f9aacc7
-    pristine_git_object: 568aa6a586e128bc2a7021c95fcc38e99e9ed0e6
+    last_write_checksum: sha1:846b7c61b920da3504d882b5c3f68fc644cc19bc
+    pristine_git_object: fb6d827dc380b16638ff0f9e6ed119a8615037d7
   docs/models/insightworkflowoutput.md:
     id: 408919a5d4d9
-    last_write_checksum: sha1:0ab4e53a5d919059a424bcac12f22255842818e5
-    pristine_git_object: f7f9c42b3e770a348da17e7940f06915084d6fe9
+    last_write_checksum: sha1:8e12d47b26c6f40d2268668b4e64a3cdeecc92ed
+    pristine_git_object: 1429feeabec2dbd29c9d92f4455218dd9aa70ee1
   docs/models/insightworkflowproperties.md:
     id: ceb7dee5bbba
     last_write_checksum: sha1:dd08e7f85e756b15613644634b9910960948252e
@@ -1218,8 +1218,8 @@ trackedFiles:
     pristine_git_object: b1f7c6c608c42bd3c966dd5f5441c7ddb861869f
   docs/models/outboundcampaign.md:
     id: a20726716e61
-    last_write_checksum: sha1:4d345553aeec26b25b6142bba3b593ad442a1a85
-    pristine_git_object: 0182abe80adb267aac9d30fba244cfb086da58f1
+    last_write_checksum: sha1:3ea92ed71da5afe533e371d0286d8d8550429182
+    pristine_git_object: 3738de36d0c3d97f6fce2a99b72f8267ff61aeb2
   docs/models/outboundcampaigndeleterequest.md:
     id: 963a72fcb468
     last_write_checksum: sha1:cb76acab95d463f4cfcf1ed15325950cef460179
@@ -1532,6 +1532,10 @@ trackedFiles:
     id: 5195c9cf0054
     last_write_checksum: sha1:e1667b1e1cdbda1b8d328751c1875881515a7582
     pristine_git_object: e35930696fb9b5e01623f9e5bbe6f305bd2b4389
+  docs/models/startenum.md:
+    id: 8ebf510bb597
+    last_write_checksum: sha1:26c45fd9e377d8938ac389d96ee7319289ad1e45
+    pristine_git_object: f8d39224971f5b8bb3a96c3c6a860af074b559fc
   docs/models/statictoolparameter.md:
     id: c284b2dd037a
     last_write_checksum: sha1:0a3e54d59d7b0401524d87fb4b642d0bbb5fe24a
@@ -1558,8 +1562,8 @@ trackedFiles:
     pristine_git_object: a7fc6ab075ed6d0213cbec7bf9c5224b1b1a2c1f
   docs/models/stepstask.md:
     id: 6215e5c016d6
-    last_write_checksum: sha1:b84df517f92ef73cfaf8f39baf054a4e94cc76de
-    pristine_git_object: b04fc3f4d708c9bbb684c24b8a267706bbddc800
+    last_write_checksum: sha1:dd8eb817097feaa639db4768bbe3d54e2014504e
+    pristine_git_object: 8461657913f885e4771d5427ef87772d23b634e5
   docs/models/steptools.md:
     id: aa1ecd0c978d
     last_write_checksum: sha1:7e3f30a8bd45f2a7974e8afa31b2d77d22b14f32
@@ -2022,8 +2026,8 @@ trackedFiles:
     pristine_git_object: 739eef2047817f053e6c7688b3993b63a9a7f142
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:27782c658d3b20fcdbc50c7d5ed44d23ccb973f7
-    pristine_git_object: 31a9f1cef4c6ae90aa1c173f20d2df1377440e76
+    last_write_checksum: sha1:4e90b78980caa3e449e8f5cedb38048649813164
+    pristine_git_object: 29ca6f9d1733f9445ea32fea0c3f390e2c020bcb
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2050,8 +2054,8 @@ trackedFiles:
     pristine_git_object: 80c09ba9b6fc421f9200d202e6a452aeedb2c3e4
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:0c1bf22382691a18180668e640a5644b5619e1cc
-    pristine_git_object: 91a29cf035d3a6262ca0acdb57ddadcb4610eff2
+    last_write_checksum: sha1:2b6f328553be8944565274b51cb8510baf80fae4
+    pristine_git_object: e6822ba5b0714e247b66fdd75367071c732ce641
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:0e3ae91b29b692b47e777e628f3aeb40323be418
@@ -2158,8 +2162,8 @@ trackedFiles:
     pristine_git_object: 262ba02c8866c13c2a38a41d7c8920178bdfe8d8
   src/syllable_sdk/models/__init__.py:
     id: 984744253da7
-    last_write_checksum: sha1:b9070ddb814f5f3a1e42071bbe2f70a5ff35868a
-    pristine_git_object: 40acea6522483ab26c903dc4f7a958362a144b89
+    last_write_checksum: sha1:c9ce0ae16c6902e961b0f5acc42fd7bcb7a4e70e
+    pristine_git_object: 00a7bf490042ed02231e2f1fefadb475587482ac
   src/syllable_sdk/models/a2pmessagingpathcheckrequest.py:
     id: 2cb7c3c6f6e9
     last_write_checksum: sha1:3dcf884ac8fa211d36338dda9ad3e90f3979a28d
@@ -3426,8 +3430,8 @@ trackedFiles:
     pristine_git_object: bbf766207d45fcc7dc0027760a42dd732cf3bee3
   src/syllable_sdk/models/stepstask.py:
     id: a18a037048d9
-    last_write_checksum: sha1:4efeca220a25ff7d78a3e2f4b60a133a49de0619
-    pristine_git_object: c379a627e4dd55373853ad382d1a663cbe6ab1d0
+    last_write_checksum: sha1:0612affd67bdad0c07fd148a80ec267412fa9b3f
+    pristine_git_object: 7f99cf037f8afefaf6ed84af1437c68330c5eb1f
   src/syllable_sdk/models/steptools.py:
     id: d5bbfe752706
     last_write_checksum: sha1:bf09e4d69ba49fc94448c1c3d7889aa51aecf466
@@ -4040,7 +4044,7 @@ examples:
         application/json: {"agent_id": 1, "channel_id": 1, "target": "+19995551234", "target_mode": "email", "fallback_target": "+19995551235", "is_test": true}
       responses:
         "200":
-          application/json: {"agent_id": 1, "channel_id": 1, "target": "+19995551234", "target_mode": "voice", "fallback_target": "+19995551235", "is_test": true, "id": 1, "channel_name": "+19995551234", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com", "agent": {"name": "Weather agent", "description": "Agent for answering questions about weather.", "labels": ["Information", "Weather"], "type": "ca_v1", "prompt_id": 1, "custom_message_id": 1, "language_group_id": 1, "timezone": "America/New_York", "prompt_tool_defaults": [{"tool_name": "get_weather", "default_values": [{"field_name": "temperature_unit", "default_value": "fahrenheit"}]}], "variables": {"vars.location_name": "Main Street Pizza"}, "tool_headers": {"some-header": "some-value"}, "agent_initiated": false, "stt_provider": "Google STT V2 (Chirp 2)", "wait_sound": "No Sound", "id": 1, "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com", "prompt": {"name": "Weather Agent Prompt", "description": "Prompt for a weather agent.", "type": "prompt_v1", "context": "You are a weather agent. Answer the user's questions about weather and nothing else.", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01", "temperature": 1, "seed": 123}, "session_end_enabled": false, "session_end_tool_id": 1, "edit_comments": "Updated prompt text to include requirement to not answer questions that aren't about weather.", "id": 1, "last_updated": "2024-01-01T12:00:00Z", "last_updated_by": "user@email.com", "session_end_tool": {"name": "Weather Fetcher", "definition": {"type": "endpoint", "tool": {"type": "function", "function": {"name": "get_weather", "description": "Get the weather for a city", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "query", "timeout": 45}, "context": {"task": {"type": "steps", "version": "v1alpha"}}, "defaults": "<value>", "static_parameters": [{"name": "temperature_unit", "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit", "required": false, "type": "string", "default": "fahrenheit"}]}, "service_id": 1, "id": 1, "last_updated_comments": "Updated to use new API endpoint", "prompts_info": [{"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}], "last_updated": "2024-12-22T21:25:59.469Z", "last_updated_by": "user@email.com"}, "agent_count": 5, "version_number": 1, "tools_full": [{"name": "Weather Fetcher", "definition": {"type": "endpoint", "tool": {"type": "function", "function": {"name": "get_weather", "description": "Get the weather for a city", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "path"}, "defaults": {"key": {"transform": {"action": "default", "when": {"key": "key", "value": "value", "operator": "eq"}}}, "key1": {"transform": {"action": "default", "when": {"key": "key", "value": "value", "operator": "eq"}}}}, "static_parameters": [{"name": "temperature_unit", "description": "Whether the temperature information should be fetched in celsius or fahrenheit.", "required": true, "type": "string", "default": "fahrenheit"}]}, "service_id": 1, "id": 1, "last_updated_comments": "Updated to use new API endpoint", "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}], "last_updated": "2023-06-08T22:54:56.575Z", "last_updated_by": "user@email.com"}, {"name": "Weather Fetcher", "definition": {"type": "endpoint", "tool": {"type": "function", "function": {"name": "get_weather", "description": "Get the weather for a city", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "path"}, "defaults": {"key": {"transform": {"action": "default", "when": {"key": "key", "value": "value", "operator": "eq"}}}, "key1": {"transform": {"action": "default", "when": {"key": "key", "value": "value", "operator": "eq"}}}}, "static_parameters": [{"name": "temperature_unit", "description": "Whether the temperature information should be fetched in celsius or fahrenheit.", "required": true, "type": "string", "default": "fahrenheit"}]}, "service_id": 1, "id": 1, "last_updated_comments": "Updated to use new API endpoint", "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}], "last_updated": "2023-06-08T22:54:56.575Z", "last_updated_by": "user@email.com"}]}, "custom_message": {"name": "Customer service greeting", "preamble": "If this is an emergency, please hang up and call 911.", "text": "Hello and thank you for calling customer service. How can I help you today?", "subject": "Your appointment reminder", "label": "Customer service", "repeat_after_language_change": false, "rules": [{"description": "Closed on New Year's Day", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "invert": false, "text": "Hello, thank you for calling. Sorry, we're closed today."}, {"description": "Closed on weekends", "time_range_start": "09:00", "time_range_end": "17:00", "days_of_week": ["sa", "su"], "invert": false, "text": "Hello, thank you for calling. Sorry, we're closed on weekends."}], "id": 1, "updated_at": "2024-01-01T00:00:00Z", "agent_count": 1, "last_updated_by": "user@email.com"}, "channel_targets": [{"agent_id": 1, "channel_id": 1, "target": "+19995551234", "target_mode": "voice", "fallback_target": "+19995551235", "is_test": true, "id": 1, "channel_name": "+19995551234", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}, {"agent_id": 1, "channel_id": 1, "target": "+19995551234", "target_mode": "voice", "fallback_target": "+19995551235", "is_test": true, "id": 1, "channel_name": "+19995551234", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}, {"agent_id": 1, "channel_id": 1, "target": "+19995551234", "target_mode": "voice", "fallback_target": "+19995551235", "is_test": true, "id": 1, "channel_name": "+19995551234", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}], "tools": [{"name": "Weather Fetcher", "definition": {"type": "endpoint", "tool": {"type": "function", "function": {"name": "get_weather", "description": "Get the weather for a city", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "path"}, "defaults": {"key": {"transform": {"action": "default", "when": {"key": "key", "value": "value", "operator": "eq"}}}, "key1": {"transform": {"action": "default", "when": {"key": "key", "value": "value", "operator": "eq"}}}}, "static_parameters": [{"name": "temperature_unit", "description": "Whether the temperature information should be fetched in celsius or fahrenheit.", "required": true, "type": "string", "default": "fahrenheit"}]}, "service_id": 1, "id": 1, "last_updated_comments": "Updated to use new API endpoint", "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2024-07-25T13:44:12.237Z", "last_updated_by": "user@email.com"}], "language_group": {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [{"language_code": "en-US", "voice_provider": "OpenAI", "voice_display_name": "Alloy", "dtmf_code": 1}, {"language_code": "es-US", "voice_provider": "Google", "voice_display_name": "es-US-Neural2-B", "dtmf_code": 2}], "skip_current_language_in_message": true, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}], "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@mail.com"}}}
+          application/json: {"agent_id": 1, "channel_id": 1, "target": "+19995551234", "target_mode": "voice", "fallback_target": "+19995551235", "is_test": true, "id": 1, "channel_name": "+19995551234", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com", "agent": {"name": "Weather agent", "description": "Agent for answering questions about weather.", "labels": ["Information", "Weather"], "type": "ca_v1", "prompt_id": 1, "custom_message_id": 1, "language_group_id": 1, "timezone": "America/New_York", "prompt_tool_defaults": [{"tool_name": "get_weather", "default_values": [{"field_name": "temperature_unit", "default_value": "fahrenheit"}]}], "variables": {"vars.location_name": "Main Street Pizza"}, "tool_headers": {"some-header": "some-value"}, "agent_initiated": false, "stt_provider": "Google STT V2 (Chirp 2)", "wait_sound": "No Sound", "id": 1, "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com", "prompt": {"name": "Weather Agent Prompt", "description": "Prompt for a weather agent.", "type": "prompt_v1", "context": "You are a weather agent. Answer the user's questions about weather and nothing else.", "llm_config": {"model": "gpt-4o", "version": "2024-05-13", "api_version": "2024-06-01", "temperature": 1, "seed": 123}, "session_end_enabled": false, "session_end_tool_id": 1, "edit_comments": "Updated prompt text to include requirement to not answer questions that aren't about weather.", "id": 1, "last_updated": "2024-01-01T12:00:00Z", "last_updated_by": "user@email.com", "session_end_tool": {"name": "Weather Fetcher", "definition": {"type": "endpoint", "tool": {"type": "function", "function": {"name": "get_weather", "description": "Get the weather for a city", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "query", "timeout": 45}, "context": {"task": {"type": "steps", "version": "v1alpha", "start": "auto"}}, "defaults": "<value>", "static_parameters": [{"name": "temperature_unit", "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit", "required": false, "type": "string", "default": "fahrenheit"}]}, "service_id": 1, "id": 1, "last_updated_comments": "Updated to use new API endpoint", "prompts_info": [{"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}], "last_updated": "2024-12-22T21:25:59.469Z", "last_updated_by": "user@email.com"}, "agent_count": 5, "version_number": 1, "tools_full": [{"name": "Weather Fetcher", "definition": {"type": "endpoint", "tool": {"type": "function", "function": {"name": "get_weather", "description": "Get the weather for a city", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "path"}, "defaults": {"key": {"transform": {"action": "default", "when": {"key": "key", "value": "value", "operator": "eq"}}}, "key1": {"transform": {"action": "default", "when": {"key": "key", "value": "value", "operator": "eq"}}}}, "static_parameters": [{"name": "temperature_unit", "description": "Whether the temperature information should be fetched in celsius or fahrenheit.", "required": true, "type": "string", "default": "fahrenheit"}]}, "service_id": 1, "id": 1, "last_updated_comments": "Updated to use new API endpoint", "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}], "last_updated": "2023-06-08T22:54:56.575Z", "last_updated_by": "user@email.com"}, {"name": "Weather Fetcher", "definition": {"type": "endpoint", "tool": {"type": "function", "function": {"name": "get_weather", "description": "Get the weather for a city", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "path"}, "defaults": {"key": {"transform": {"action": "default", "when": {"key": "key", "value": "value", "operator": "eq"}}}, "key1": {"transform": {"action": "default", "when": {"key": "key", "value": "value", "operator": "eq"}}}}, "static_parameters": [{"name": "temperature_unit", "description": "Whether the temperature information should be fetched in celsius or fahrenheit.", "required": true, "type": "string", "default": "fahrenheit"}]}, "service_id": 1, "id": 1, "last_updated_comments": "Updated to use new API endpoint", "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}], "last_updated": "2023-06-08T22:54:56.575Z", "last_updated_by": "user@email.com"}]}, "custom_message": {"name": "Customer service greeting", "preamble": "If this is an emergency, please hang up and call 911.", "text": "Hello and thank you for calling customer service. How can I help you today?", "subject": "Your appointment reminder", "label": "Customer service", "repeat_after_language_change": false, "rules": [{"description": "Closed on New Year's Day", "time_range_start": "09:00", "time_range_end": "17:00", "date": "2025-01-01", "invert": false, "text": "Hello, thank you for calling. Sorry, we're closed today."}, {"description": "Closed on weekends", "time_range_start": "09:00", "time_range_end": "17:00", "days_of_week": ["sa", "su"], "invert": false, "text": "Hello, thank you for calling. Sorry, we're closed on weekends."}], "id": 1, "updated_at": "2024-01-01T00:00:00Z", "agent_count": 1, "last_updated_by": "user@email.com"}, "channel_targets": [{"agent_id": 1, "channel_id": 1, "target": "+19995551234", "target_mode": "voice", "fallback_target": "+19995551235", "is_test": true, "id": 1, "channel_name": "+19995551234", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}, {"agent_id": 1, "channel_id": 1, "target": "+19995551234", "target_mode": "voice", "fallback_target": "+19995551235", "is_test": true, "id": 1, "channel_name": "+19995551234", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}, {"agent_id": 1, "channel_id": 1, "target": "+19995551234", "target_mode": "voice", "fallback_target": "+19995551235", "is_test": true, "id": 1, "channel_name": "+19995551234", "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@email.com"}], "tools": [{"name": "Weather Fetcher", "definition": {"type": "endpoint", "tool": {"type": "function", "function": {"name": "get_weather", "description": "Get the weather for a city", "parameters": {}}}, "endpoint": {"url": "https://api.example.com", "method": "get", "argument_location": "path"}, "defaults": {"key": {"transform": {"action": "default", "when": {"key": "key", "value": "value", "operator": "eq"}}}, "key1": {"transform": {"action": "default", "when": {"key": "key", "value": "value", "operator": "eq"}}}}, "static_parameters": [{"name": "temperature_unit", "description": "Whether the temperature information should be fetched in celsius or fahrenheit.", "required": true, "type": "string", "default": "fahrenheit"}]}, "service_id": 1, "id": 1, "last_updated_comments": "Updated to use new API endpoint", "prompts_info": [{"id": 1, "name": "Test Prompt"}, {"id": 1, "name": "Test Prompt"}], "agents_info": [{"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}, {"id": 1, "name": "Test Agent"}], "last_updated": "2024-07-25T13:44:12.237Z", "last_updated_by": "user@email.com"}], "language_group": {"name": "Call Center 1 Languages", "description": "Languages spoken by operators at Call Center 1", "language_configs": [{"language_code": "en-US", "voice_provider": "OpenAI", "voice_display_name": "Alloy", "dtmf_code": 1}, {"language_code": "es-US", "voice_provider": "Google", "voice_display_name": "es-US-Neural2-B", "dtmf_code": 2}], "skip_current_language_in_message": true, "id": 1, "edit_comments": "Added Spanish support.", "agents_info": [{"id": 1, "name": "Test Agent"}], "updated_at": "2024-01-01T00:00:00Z", "last_updated_by": "user@mail.com"}}}
         "422":
           application/json: {}
   channel_targets_get_by_id:
@@ -5582,6 +5586,7 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.agents.list()`:  `response.items[].prompt.session_end_tool.definition.context.task.union(union (0)).union(steps).start` **Added**\n* `syllable_sdk.agents.create()`:  `response.prompt.session_end_tool.definition.context.task.union(union (0)).union(steps).start` **Added**\n* `syllable_sdk.agents.update()`:  `response.prompt.session_end_tool.definition.context.task.union(union (0)).union(steps).start` **Added**\n* `syllable_sdk.agents.get_by_id()`:  `response.prompt.session_end_tool.definition.context.task.union(union (0)).union(steps).start` **Added**\n* `syllable_sdk.channels.targets.list()`:  `response.items[].agent.prompt.session_end_tool.definition.context.task.union(union (0)).union(steps).start` **Added**\n* `syllable_sdk.channels.targets.create()`:  `response.agent.prompt.session_end_tool.definition.context.task.union(union (0)).union(steps).start` **Added**\n* `syllable_sdk.channels.targets.get_by_id()`:  `response.agent.prompt.session_end_tool.definition.context.task.union(union (0)).union(steps).start` **Added**\n* `syllable_sdk.channels.targets.update()`:  `response.agent.prompt.session_end_tool.definition.context.task.union(union (0)).union(steps).start` **Added**\n* `syllable_sdk.prompts.list()`:  `response.items[].session_end_tool.definition.context.task.union(union (0)).union(steps).start` **Added**\n* `syllable_sdk.prompts.create()`:  `response.session_end_tool.definition.context.task.union(union (0)).union(steps).start` **Added**\n* `syllable_sdk.prompts.update()`:  `response.session_end_tool.definition.context.task.union(union (0)).union(steps).start` **Added**\n* `syllable_sdk.prompts.get_by_id()`:  `response.session_end_tool.definition.context.task.union(Array<>)[].union(steps).start` **Added**\n* `syllable_sdk.tools.list()`:  `response.items[].definition.context.task.union(union (0)).union(steps).start` **Added**\n* `syllable_sdk.tools.create()`: \n  *  `request.definition.context.task.union(union (0)).union(steps).start` **Added**\n  *  `response.definition.context.task.union(union (0)).union(steps).start` **Added**\n* `syllable_sdk.tools.update()`: \n  *  `request.definition.context.task.union(union (0)).union(steps).start` **Added**\n  *  `response.definition.context.task.union(union (0)).union(steps).start` **Added**\n* `syllable_sdk.tools.get_by_name()`:  `response.definition.context.task.union(union (0)).union(steps).start` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
