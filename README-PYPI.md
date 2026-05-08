@@ -482,6 +482,7 @@ with SyllableSDK(
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/tools/README.md#list) - Tool List
 * [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/tools/README.md#create) - Create Tool
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/tools/README.md#update) - Update Tool
+* [tool_history](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/tools/README.md#tool_history) - Tool History
 * [get_by_name](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/tools/README.md#get_by_name) - Tool Info
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/tools/README.md#delete) - Delete Tool
 

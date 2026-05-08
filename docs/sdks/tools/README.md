@@ -9,6 +9,7 @@ Operations related to tool configuration. A tool is a function that an          
 * [list](#list) - Tool List
 * [create](#create) - Create Tool
 * [update](#update) - Update Tool
+* [tool_history](#tool_history) - Tool History
 * [get_by_name](#get_by_name) - Tool Info
 * [delete](#delete) - Delete Tool
 
@@ -222,6 +223,50 @@ with SyllableSDK(
 ### Response
 
 **[models.ToolResponse](../../models/toolresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## tool_history
+
+Get version history for a tool.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="tool_history" method="get" path="/api/v1/tools/{tool_id}/history" -->
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.tools.tool_history(tool_id=217978, page=0, limit=25)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `tool_id`                                                                          | *int*                                                                              | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `page`                                                                             | *Optional[int]*                                                                    | :heavy_minus_sign:                                                                 | Page number (0-based)                                                              |
+| `limit`                                                                            | *Optional[int]*                                                                    | :heavy_minus_sign:                                                                 | Items per page                                                                     |
+| `order_by_direction`                                                               | [Optional[models.OrderByDirection]](../../models/orderbydirection.md)              | :heavy_minus_sign:                                                                 | Sort by oldest first (asc) or newest first (desc). Version 1 is always the oldest. |
+| `retries`                                                                          | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                   | :heavy_minus_sign:                                                                 | Configuration to override the default retry behavior of the client.                |
+
+### Response
+
+**[models.ListResponseToolHistoryResponse](../../models/listresponsetoolhistoryresponse.md)**
 
 ### Errors
 

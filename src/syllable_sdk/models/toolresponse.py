@@ -38,6 +38,8 @@ class ToolResponseTypedDict(TypedDict):
     r"""The timestamp of the most recent update to the tool"""
     last_updated_by: str
     r"""The email of the user who last updated the tool"""
+    version_number: int
+    r"""Highest tools_history snapshot version for this tool; the tools row defaults to 1."""
     last_updated_comments: NotRequired[Nullable[str]]
     r"""Comments for the most recent edit to the tool."""
     service_name: NotRequired[Nullable[str]]
@@ -75,6 +77,9 @@ class ToolResponse(BaseModel):
 
     last_updated_by: str
     r"""The email of the user who last updated the tool"""
+
+    version_number: int
+    r"""Highest tools_history snapshot version for this tool; the tools row defaults to 1."""
 
     last_updated_comments: OptionalNullable[str] = UNSET
     r"""Comments for the most recent edit to the tool."""

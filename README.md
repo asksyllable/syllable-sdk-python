@@ -482,6 +482,7 @@ with SyllableSDK(
 * [list](docs/sdks/tools/README.md#list) - Tool List
 * [create](docs/sdks/tools/README.md#create) - Create Tool
 * [update](docs/sdks/tools/README.md#update) - Update Tool
+* [tool_history](docs/sdks/tools/README.md#tool_history) - Tool History
 * [get_by_name](docs/sdks/tools/README.md#get_by_name) - Tool Info
 * [delete](docs/sdks/tools/README.md#delete) - Delete Tool
 
