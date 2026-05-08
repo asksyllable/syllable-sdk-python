@@ -8024,6 +8024,92 @@
         }
       }
     },
+    "/api/v1/tools/{tool_id}/history": {
+      "get": {
+        "tags": [
+          "tools"
+        ],
+        "summary": "Tool History",
+        "description": "Get version history for a tool.",
+        "operationId": "tool_history",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "tool_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Tool Id"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Page number (0-based)",
+              "default": 0,
+              "title": "Page"
+            },
+            "description": "Page number (0-based)"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Items per page",
+              "default": 25,
+              "title": "Limit"
+            },
+            "description": "Items per page"
+          },
+          {
+            "name": "order_by_direction",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/OrderByDirection",
+              "description": "Sort by oldest first (asc) or newest first (desc). Version 1 is always the oldest.",
+              "default": "asc"
+            },
+            "description": "Sort by oldest first (asc) or newest first (desc). Version 1 is always the oldest."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListResponse_ToolHistoryResponse_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/tools/{tool_name}": {
       "get": {
         "tags": [
@@ -17190,6 +17276,14 @@
             "examples": [
               "user@email.com"
             ]
+          },
+          "version_number": {
+            "type": "integer",
+            "title": "Version Number",
+            "description": "Highest tools_history snapshot version for this tool; the tools row defaults to 1.",
+            "examples": [
+              1
+            ]
           }
         },
         "type": "object",
@@ -17199,7 +17293,8 @@
           "service_id",
           "id",
           "last_updated",
-          "last_updated_by"
+          "last_updated_by",
+          "version_number"
         ],
         "title": "DaoToolResponse"
       },
@@ -23751,6 +23846,72 @@
         ],
         "title": "ListResponse[Session]"
       },
+      "ListResponse_ToolHistoryResponse_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ToolHistoryResponse"
+            },
+            "type": "array",
+            "title": "Items",
+            "description": "List of items returned from the query",
+            "examples": []
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page",
+            "description": "The page number of the results (0-based)",
+            "examples": [
+              0
+            ]
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size",
+            "description": "The number of items returned per page",
+            "examples": [
+              25
+            ]
+          },
+          "total_pages": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Pages",
+            "description": "The total number of pages of results given the indicated page size",
+            "examples": [
+              4
+            ]
+          },
+          "total_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Count",
+            "description": "The total number of items returned from the query",
+            "examples": [
+              100
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "page",
+          "page_size"
+        ],
+        "title": "ListResponse[ToolHistoryResponse]"
+      },
       "ListResponse_ToolResponse_": {
         "properties": {
           "items": {
@@ -29293,6 +29454,14 @@
               "user@email.com"
             ]
           },
+          "version_number": {
+            "type": "integer",
+            "title": "Version Number",
+            "description": "Highest tools_history snapshot version for this tool; the tools row defaults to 1.",
+            "examples": [
+              1
+            ]
+          },
           "validation_issues": {
             "anyOf": [
               {
@@ -29325,6 +29494,7 @@
           "id",
           "last_updated",
           "last_updated_by",
+          "version_number",
           "fields"
         ],
         "title": "ToolDetailResponse",
@@ -29364,6 +29534,233 @@
         ],
         "title": "ToolFunction",
         "description": "A function available to an agent.\n\nSee:\n- https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/function-calling"
+      },
+      "ToolHistoryResponse": {
+        "properties": {
+          "tool_id": {
+            "type": "integer",
+            "title": "Tool Id",
+            "description": "ID of the tool",
+            "examples": [
+              1
+            ]
+          },
+          "version_number": {
+            "type": "integer",
+            "title": "Version Number",
+            "description": "Monotonic version for this tool (1 = oldest)",
+            "examples": [
+              1
+            ]
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "When this version took effect.",
+            "examples": [
+              "2024-01-01T12:00:00Z"
+            ]
+          },
+          "updated_by": {
+            "type": "string",
+            "title": "Updated By",
+            "description": "User who made the change that produced this row",
+            "examples": [
+              "user@email.com"
+            ]
+          },
+          "comments": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Comments",
+            "description": "Optional comment stored on the tool for this version",
+            "examples": [
+              "Adjusted timeout"
+            ]
+          },
+          "operation": {
+            "type": "string",
+            "title": "Operation",
+            "description": "What produced this row: create, update, or delete",
+            "examples": [
+              "update"
+            ]
+          },
+          "deleted_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Deleted Reason",
+            "description": "When operation is delete, reason copied from the tool at delete time",
+            "examples": [
+              "No longer used"
+            ]
+          },
+          "service_id": {
+            "type": "integer",
+            "title": "Service Id",
+            "description": "Internal ID of the service this tool belonged to at this version",
+            "examples": [
+              1
+            ]
+          },
+          "service_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Service Name",
+            "description": "Service display name.",
+            "examples": [
+              "Weather API"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Tool name at this version",
+            "examples": [
+              "get_weather"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "description": "Human-readable description of the tool at this version",
+            "examples": [
+              "Fetch weather"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "title": "Type",
+            "description": "Tool type at this version: 'action', 'endpoint', 'context', or 'log'",
+            "examples": [
+              "endpoint"
+            ]
+          },
+          "config": {
+            "type": "object",
+            "title": "Config",
+            "description": "Type-specific JSON configuration (e.g. HTTP endpoint, context, or action wiring)",
+            "examples": [
+              {
+                "method": "GET",
+                "url": "https://api.example.com/v1/forecast"
+              }
+            ]
+          },
+          "defaults": {
+            "type": "object",
+            "title": "Defaults",
+            "description": "Default parameter values for this tool when invoked",
+            "examples": [
+              {
+                "city": "San Francisco",
+                "units": "metric"
+              }
+            ]
+          },
+          "result": {
+            "type": "object",
+            "title": "Result",
+            "description": "JSON describing the tool result shape or response schema",
+            "examples": [
+              {
+                "properties": {
+                  "temperature": {
+                    "type": "number"
+                  }
+                },
+                "type": "object"
+              }
+            ]
+          },
+          "definition": {
+            "type": "object",
+            "title": "Definition",
+            "description": "The definition of the tool (same shape as create/update; stored as JSON)",
+            "examples": [
+              {
+                "endpoint": {
+                  "argument_location": "query",
+                  "method": "get",
+                  "url": "https://api.open-meteo.com/v1/forecast"
+                },
+                "static_parameters": [
+                  {
+                    "default": "fahrenheit",
+                    "description": "Whether the temperature information should be fetched in Celsius or Fahrenheit",
+                    "name": "temperature_unit",
+                    "required": false,
+                    "type": "string"
+                  }
+                ],
+                "tool": {
+                  "function": {
+                    "description": "Get the weather for a city",
+                    "name": "get_weather",
+                    "parameters": {
+                      "properties": {
+                        "latitude": {
+                          "description": "Latitude of the city",
+                          "type": "number"
+                        },
+                        "longitude": {
+                          "description": "Longitude of the city",
+                          "type": "number"
+                        },
+                        "current": {
+                          "default": "temperature_2m,relative_humidity_2m,precipitation,rain,showers",
+                          "description": "Information to retrieve from the open-meteo API, comma-separated",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "latitude",
+                        "longitude",
+                        "current"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "type": "function"
+                },
+                "type": "endpoint"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "tool_id",
+          "version_number",
+          "created_at",
+          "updated_by",
+          "operation",
+          "service_id",
+          "name",
+          "description",
+          "type"
+        ],
+        "title": "ToolHistoryResponse",
+        "description": "API response for one row in GET /tools/{tool_id}/history."
       },
       "ToolHttpEndpoint": {
         "properties": {
@@ -29745,6 +30142,14 @@
               "user@email.com"
             ]
           },
+          "version_number": {
+            "type": "integer",
+            "title": "Version Number",
+            "description": "Highest tools_history snapshot version for this tool; the tools row defaults to 1.",
+            "examples": [
+              1
+            ]
+          },
           "validation_issues": {
             "anyOf": [
               {
@@ -29768,7 +30173,8 @@
           "service_id",
           "id",
           "last_updated",
-          "last_updated_by"
+          "last_updated_by",
+          "version_number"
         ],
         "title": "ToolResponse",
         "description": "Response model for tool operations.\nA tool is a function that an agent can call to perform actions like accessing databases,\nmaking API calls, or processing data. For an agent to have access to a tool, the prompt\nassociated with that agent should be linked to the tool and include instructions to use it.\nFor more information, see [Console docs](https://docs.syllable.ai/Resources/Tools)."
