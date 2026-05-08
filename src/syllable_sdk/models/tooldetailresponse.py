@@ -38,6 +38,8 @@ class ToolDetailResponseTypedDict(TypedDict):
     r"""The timestamp of the most recent update to the tool"""
     last_updated_by: str
     r"""The email of the user who last updated the tool"""
+    version_number: int
+    r"""Highest tools_history snapshot version for this tool; the tools row defaults to 1."""
     fields: List[str]
     r"""Fields that the tool accepts as input"""
     last_updated_comments: NotRequired[Nullable[str]]
@@ -77,6 +79,9 @@ class ToolDetailResponse(BaseModel):
 
     last_updated_by: str
     r"""The email of the user who last updated the tool"""
+
+    version_number: int
+    r"""Highest tools_history snapshot version for this tool; the tools row defaults to 1."""
 
     fields: List[str]
     r"""Fields that the tool accepts as input"""

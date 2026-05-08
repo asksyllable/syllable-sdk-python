@@ -721,6 +721,10 @@ if TYPE_CHECKING:
         ListResponseSessionLabel,
         ListResponseSessionLabelTypedDict,
     )
+    from .listresponse_toolhistoryresponse_ import (
+        ListResponseToolHistoryResponse,
+        ListResponseToolHistoryResponseTypedDict,
+    )
     from .listresponse_toolresponse_ import (
         ListResponseToolResponse,
         ListResponseToolResponseTypedDict,
@@ -1026,6 +1030,7 @@ if TYPE_CHECKING:
     from .testmessageresponse import TestMessageResponse, TestMessageResponseTypedDict
     from .tool_deleteop import ToolDeleteRequest, ToolDeleteRequestTypedDict
     from .tool_get_by_nameop import ToolGetByNameRequest, ToolGetByNameRequestTypedDict
+    from .tool_historyop import ToolHistoryRequest, ToolHistoryRequestTypedDict
     from .tool_listop import ToolListRequest, ToolListRequestTypedDict
     from .toolagentinfo import ToolAgentInfo, ToolAgentInfoTypedDict
     from .toolargumentlocation import ToolArgumentLocation
@@ -1040,6 +1045,18 @@ if TYPE_CHECKING:
     )
     from .tooldetailresponse import ToolDetailResponse, ToolDetailResponseTypedDict
     from .toolfunction import ToolFunction, ToolFunctionTypedDict
+    from .toolhistoryresponse import (
+        Config,
+        ConfigTypedDict,
+        Definition,
+        DefinitionTypedDict,
+        Result,
+        ResultTypedDict,
+        ToolHistoryResponse,
+        ToolHistoryResponseDefaults,
+        ToolHistoryResponseDefaultsTypedDict,
+        ToolHistoryResponseTypedDict,
+    )
     from .toolhttpendpoint import ToolHTTPEndpoint, ToolHTTPEndpointTypedDict
     from .toolhttpmethod import ToolHTTPMethod
     from .tooloptions import ToolOptions, ToolOptionsTypedDict
@@ -1317,6 +1334,8 @@ __all__ = [
     "ConditionalValueValuefrom1TypedDict",
     "ConditionalValueValuefrom2",
     "ConditionalValueValuefrom2TypedDict",
+    "Config",
+    "ConfigTypedDict",
     "Context",
     "ContextTaskMetadata",
     "ContextTaskMetadataTypedDict",
@@ -1374,6 +1393,8 @@ __all__ = [
     "DaysOfWeek",
     "Defaults",
     "DefaultsTypedDict",
+    "Definition",
+    "DefinitionTypedDict",
     "DialogMessage",
     "DialogMessageTypedDict",
     "DialogRole",
@@ -1653,6 +1674,8 @@ __all__ = [
     "ListResponseSessionLabel",
     "ListResponseSessionLabelTypedDict",
     "ListResponseSessionTypedDict",
+    "ListResponseToolHistoryResponse",
+    "ListResponseToolHistoryResponseTypedDict",
     "ListResponseToolResponse",
     "ListResponseToolResponseTypedDict",
     "ListResponseUserResponse",
@@ -1757,6 +1780,8 @@ __all__ = [
     "RequestStatus",
     "RequestStatusBreakdown",
     "RequestStatusBreakdownTypedDict",
+    "Result",
+    "ResultTypedDict",
     "Role",
     "RoleCreateRequest",
     "RoleCreateRequestTypedDict",
@@ -1909,6 +1934,12 @@ __all__ = [
     "ToolHTTPEndpoint",
     "ToolHTTPEndpointTypedDict",
     "ToolHTTPMethod",
+    "ToolHistoryRequest",
+    "ToolHistoryRequestTypedDict",
+    "ToolHistoryResponse",
+    "ToolHistoryResponseDefaults",
+    "ToolHistoryResponseDefaultsTypedDict",
+    "ToolHistoryResponseTypedDict",
     "ToolListRequest",
     "ToolListRequestTypedDict",
     "ToolOptions",
@@ -2470,6 +2501,8 @@ _dynamic_imports: dict[str, str] = {
     "ListResponseSessionTypedDict": ".listresponse_session_",
     "ListResponseSessionLabel": ".listresponse_sessionlabel_",
     "ListResponseSessionLabelTypedDict": ".listresponse_sessionlabel_",
+    "ListResponseToolHistoryResponse": ".listresponse_toolhistoryresponse_",
+    "ListResponseToolHistoryResponseTypedDict": ".listresponse_toolhistoryresponse_",
     "ListResponseToolResponse": ".listresponse_toolresponse_",
     "ListResponseToolResponseTypedDict": ".listresponse_toolresponse_",
     "ListResponseUserResponse": ".listresponse_userresponse_",
@@ -2703,6 +2736,8 @@ _dynamic_imports: dict[str, str] = {
     "ToolDeleteRequestTypedDict": ".tool_deleteop",
     "ToolGetByNameRequest": ".tool_get_by_nameop",
     "ToolGetByNameRequestTypedDict": ".tool_get_by_nameop",
+    "ToolHistoryRequest": ".tool_historyop",
+    "ToolHistoryRequestTypedDict": ".tool_historyop",
     "ToolListRequest": ".tool_listop",
     "ToolListRequestTypedDict": ".tool_listop",
     "ToolAgentInfo": ".toolagentinfo",
@@ -2720,6 +2755,16 @@ _dynamic_imports: dict[str, str] = {
     "ToolDetailResponseTypedDict": ".tooldetailresponse",
     "ToolFunction": ".toolfunction",
     "ToolFunctionTypedDict": ".toolfunction",
+    "Config": ".toolhistoryresponse",
+    "ConfigTypedDict": ".toolhistoryresponse",
+    "Definition": ".toolhistoryresponse",
+    "DefinitionTypedDict": ".toolhistoryresponse",
+    "Result": ".toolhistoryresponse",
+    "ResultTypedDict": ".toolhistoryresponse",
+    "ToolHistoryResponse": ".toolhistoryresponse",
+    "ToolHistoryResponseDefaults": ".toolhistoryresponse",
+    "ToolHistoryResponseDefaultsTypedDict": ".toolhistoryresponse",
+    "ToolHistoryResponseTypedDict": ".toolhistoryresponse",
     "ToolHTTPEndpoint": ".toolhttpendpoint",
     "ToolHTTPEndpointTypedDict": ".toolhttpendpoint",
     "ToolHTTPMethod": ".toolhttpmethod",
