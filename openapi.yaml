@@ -18719,33 +18719,9 @@ components:
           description: "Tool type at this version: 'action', 'endpoint', 'context', or 'log'"
           examples:
             - "endpoint"
-        config:
-          type: "object"
-          title: "Config"
-          description: "Type-specific JSON configuration (e.g. HTTP endpoint, context, or action wiring)"
-          examples:
-            - method: "GET"
-              url: "https://api.example.com/v1/forecast"
-        defaults:
-          type: "object"
-          title: "Defaults"
-          description: "Default parameter values for this tool when invoked"
-          examples:
-            - city: "San Francisco"
-              units: "metric"
-        result:
-          type: "object"
-          title: "Result"
-          description: "JSON describing the tool result shape or response schema"
-          examples:
-            - properties:
-                temperature:
-                  type: "number"
-              type: "object"
         definition:
-          type: "object"
-          title: "Definition"
-          description: "The definition of the tool (same shape as create/update; stored as JSON)"
+          $ref: "#/components/schemas/ToolDefinition"
+          description: "Full tool definition for this version (same shape as ToolResponse.definition)."
           examples:
             - endpoint:
                 argument_location: "query"
@@ -18791,6 +18767,7 @@ components:
         - "name"
         - "description"
         - "type"
+        - "definition"
       title: "ToolHistoryResponse"
       description: "API response for one row in GET /tools/{tool_id}/history."
     ToolHttpEndpoint:

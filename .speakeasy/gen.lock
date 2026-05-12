@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: afefd5de429c63eb84d18fa002469515
+  docChecksum: 4daa155ad9543d3261e1f2cbb4568a89
   docVersion: 0.0.3
   speakeasyVersion: 1.762.0
   generationVersion: 2.882.0
-  releaseVersion: 0.45.91
-  configChecksum: 2708c872b161246f4aa2b64f8a3e6f41
+  releaseVersion: 0.45.92
+  configChecksum: 2c96d6ae2c19e129bd19c6a7806ae9b7
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: 5370a32a-3852-4014-a1ff-db3932262b8a
-  pristine_commit_hash: ed7d3dc938f5e483fc0383cb48c5e17c7c1e54aa
-  pristine_tree_hash: 74ed02823a6fa49c57b31b5c965bb31c10152575
+  generation_id: 1bc16786-651e-4316-8d07-aba612bdcf92
+  pristine_commit_hash: 540787d272525ba8a1c0ba0b5de38439ab3c9628
+  pristine_tree_hash: bb9dd37463dbafe11c5227f03c10bbadd356b444
 features:
   python:
     additionalDependencies: 1.0.0
@@ -396,10 +396,6 @@ trackedFiles:
     id: abe801516e3d
     last_write_checksum: sha1:34124f60ed073d5f9031a33decd93fe0fd7d0fdb
     pristine_git_object: f0e9e2e3b96b03ab6453f0e7be98d06593c1f029
-  docs/models/config.md:
-    id: bef254bf823c
-    last_write_checksum: sha1:c5c612552da374bf64fd446584e98aa41a685edd
-    pristine_git_object: 973bff8794fa93c9702581675ed92797f0d98bef
   docs/models/context.md:
     id: e8f2f9e54b8e
     last_write_checksum: sha1:709f967bd4ab785370f88675934822c75d077c27
@@ -528,10 +524,6 @@ trackedFiles:
     id: ff1d203bab6d
     last_write_checksum: sha1:f7fa74e585689f0faf361f45ce57b26930ab19c9
     pristine_git_object: dab2072e0a20ed2dbbf6f69e1443c0b589f5075f
-  docs/models/definition.md:
-    id: 0aa6cc6d41ff
-    last_write_checksum: sha1:ec1e29bd403b226e9d23c6693ac8eb9a04b1da53
-    pristine_git_object: 4f73af8c165dc9a65d62d62913f3190682ca5809
   docs/models/dialogmessage.md:
     id: 23d63144491d
     last_write_checksum: sha1:d33f4ef3686fbb444a406333ab0945468d695ff1
@@ -1348,10 +1340,6 @@ trackedFiles:
     id: ea57f8b8ba6f
     last_write_checksum: sha1:db540c000e1cb7e7b9c1d1504a7b181a7259bb70
     pristine_git_object: 7bf2d9d542d8f476037ee28830acf5053310ebd7
-  docs/models/result.md:
-    id: b850437752c3
-    last_write_checksum: sha1:958e2d41edea46d34676afec6cb3f045bd99312b
-    pristine_git_object: 3946bf46c6a4840b3d741ddc6327fc598af6c8d4
   docs/models/role.md:
     id: b694540a5b1e
     last_write_checksum: sha1:4f1f25165fd10bdbe97030c2f88f1b5bd4c67865
@@ -1682,12 +1670,8 @@ trackedFiles:
     pristine_git_object: d94fbb8726266b5decd7c6aa5d36cda03ec4a2a4
   docs/models/toolhistoryresponse.md:
     id: 39cfb72dc5c1
-    last_write_checksum: sha1:1c5f730e7987c0b6218e280a30cfc0c7cfe227d3
-    pristine_git_object: 10b392f7fefce2c1ad16f840e9c4a12a0a36ad7e
-  docs/models/toolhistoryresponsedefaults.md:
-    id: 69142674803f
-    last_write_checksum: sha1:baf99e7b2b6dc1ad42921d0d1168d428282e666f
-    pristine_git_object: ed1d598b1ab86c3a96eaf3694bdfa9d82083c78f
+    last_write_checksum: sha1:54fa9106785583f2e5c10d8e6ab5109101c419b2
+    pristine_git_object: a495209d3121180a1f1e04367f4a4b12f0670884
   docs/models/toolhttpendpoint.md:
     id: e273d64b89b8
     last_write_checksum: sha1:310bd01c9d150512c80dc2c35444b9a4ad8b8d8b
@@ -2054,8 +2038,8 @@ trackedFiles:
     pristine_git_object: 739eef2047817f053e6c7688b3993b63a9a7f142
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:e48c85b4f5441ce1275fbb990d62e39b7a14d1f9
-    pristine_git_object: d628f573caf28645be2f93bdd75b7954756ef2c7
+    last_write_checksum: sha1:74a9d4896ce89828c58e8c990d35381227236c07
+    pristine_git_object: bf160db52dbe2df1dce32a2afb11d3b8d4515f24
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2082,8 +2066,8 @@ trackedFiles:
     pristine_git_object: 80c09ba9b6fc421f9200d202e6a452aeedb2c3e4
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:9e79dfb0bb511661448071d619ac68e16d0a7769
-    pristine_git_object: 2e88afd1c2a37aec20bccdafe48ddf13d0445f4b
+    last_write_checksum: sha1:cccaf2b4f300b257e641c991e63a63652e21c6ae
+    pristine_git_object: d65c316e9ecde1fa844f853ac90345bde020afbb
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:0e3ae91b29b692b47e777e628f3aeb40323be418
@@ -2190,8 +2174,8 @@ trackedFiles:
     pristine_git_object: 262ba02c8866c13c2a38a41d7c8920178bdfe8d8
   src/syllable_sdk/models/__init__.py:
     id: 984744253da7
-    last_write_checksum: sha1:14baa830a078f6492582bf179ac214f30ea0ec50
-    pristine_git_object: b7ff5fba640645cb403294f42aab973c95fa4346
+    last_write_checksum: sha1:cb599d6c7febd7e669e784eeac31735e84c7bc7e
+    pristine_git_object: b647ccfaddedbac382a87ce02a253f8227a23bac
   src/syllable_sdk/models/a2pmessagingpathcheckrequest.py:
     id: 2cb7c3c6f6e9
     last_write_checksum: sha1:3dcf884ac8fa211d36338dda9ad3e90f3979a28d
@@ -3554,8 +3538,8 @@ trackedFiles:
     pristine_git_object: aee48993f62c7c26cbd0c6dd2c4e789ab873abde
   src/syllable_sdk/models/toolhistoryresponse.py:
     id: 0458f19982b8
-    last_write_checksum: sha1:898fbff9d547f35d3fc498c78939a6cd8be44402
-    pristine_git_object: 4c19c465b5ed9fe7993ee65c8801961b8c6158b0
+    last_write_checksum: sha1:add21b8d139619ffea5e430c0893e66ec85adaae
+    pristine_git_object: b7135a8083982dfa5e0738fd51e46d782abc37eb
   src/syllable_sdk/models/toolhttpendpoint.py:
     id: 191f615f6b2c
     last_write_checksum: sha1:f61090eae6ae5a97cd438531a3bb9fecffd9e68b
@@ -5634,11 +5618,14 @@ examples:
           limit: 25
       responses:
         "200":
-          application/json: {"items": [{"tool_id": 1, "version_number": 1, "created_at": "2024-01-01T12:00:00Z", "updated_by": "user@email.com", "comments": "Adjusted timeout", "operation": "update", "deleted_reason": "No longer used", "service_id": 1, "service_name": "Weather API", "name": "get_weather", "description": "Fetch weather", "type": "endpoint", "config": {}, "defaults": {}, "result": {}, "definition": {}}], "page": 0, "page_size": 25, "total_pages": 4, "total_count": 100}
+          application/json: {"items": [{"tool_id": 1, "version_number": 1, "created_at": "2024-01-01T12:00:00Z", "updated_by": "user@email.com", "comments": "Adjusted timeout", "operation": "update", "deleted_reason": "No longer used", "service_id": 1, "service_name": "Weather API", "name": "get_weather", "description": "Fetch weather", "type": "endpoint", "definition": {"tool": {"type": "function", "function": {"name": "get_weather", "description": "Get the weather for a city", "parameters": {}}}}}], "page": 0, "page_size": 25, "total_pages": 4, "total_count": 100}
         "422":
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Python SDK Changes:
+  * `syllable_sdk.tools.tool_history()`:  `response.items[]` **Changed** (Breaking ⚠️)
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
