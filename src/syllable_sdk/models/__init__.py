@@ -1045,18 +1045,7 @@ if TYPE_CHECKING:
     )
     from .tooldetailresponse import ToolDetailResponse, ToolDetailResponseTypedDict
     from .toolfunction import ToolFunction, ToolFunctionTypedDict
-    from .toolhistoryresponse import (
-        Config,
-        ConfigTypedDict,
-        Definition,
-        DefinitionTypedDict,
-        Result,
-        ResultTypedDict,
-        ToolHistoryResponse,
-        ToolHistoryResponseDefaults,
-        ToolHistoryResponseDefaultsTypedDict,
-        ToolHistoryResponseTypedDict,
-    )
+    from .toolhistoryresponse import ToolHistoryResponse, ToolHistoryResponseTypedDict
     from .toolhttpendpoint import ToolHTTPEndpoint, ToolHTTPEndpointTypedDict
     from .toolhttpmethod import ToolHTTPMethod
     from .tooloptions import ToolOptions, ToolOptionsTypedDict
@@ -1334,8 +1323,6 @@ __all__ = [
     "ConditionalValueValuefrom1TypedDict",
     "ConditionalValueValuefrom2",
     "ConditionalValueValuefrom2TypedDict",
-    "Config",
-    "ConfigTypedDict",
     "Context",
     "ContextTaskMetadata",
     "ContextTaskMetadataTypedDict",
@@ -1393,8 +1380,6 @@ __all__ = [
     "DaysOfWeek",
     "Defaults",
     "DefaultsTypedDict",
-    "Definition",
-    "DefinitionTypedDict",
     "DialogMessage",
     "DialogMessageTypedDict",
     "DialogRole",
@@ -1780,8 +1765,6 @@ __all__ = [
     "RequestStatus",
     "RequestStatusBreakdown",
     "RequestStatusBreakdownTypedDict",
-    "Result",
-    "ResultTypedDict",
     "Role",
     "RoleCreateRequest",
     "RoleCreateRequestTypedDict",
@@ -1937,8 +1920,6 @@ __all__ = [
     "ToolHistoryRequest",
     "ToolHistoryRequestTypedDict",
     "ToolHistoryResponse",
-    "ToolHistoryResponseDefaults",
-    "ToolHistoryResponseDefaultsTypedDict",
     "ToolHistoryResponseTypedDict",
     "ToolListRequest",
     "ToolListRequestTypedDict",
@@ -2755,15 +2736,7 @@ _dynamic_imports: dict[str, str] = {
     "ToolDetailResponseTypedDict": ".tooldetailresponse",
     "ToolFunction": ".toolfunction",
     "ToolFunctionTypedDict": ".toolfunction",
-    "Config": ".toolhistoryresponse",
-    "ConfigTypedDict": ".toolhistoryresponse",
-    "Definition": ".toolhistoryresponse",
-    "DefinitionTypedDict": ".toolhistoryresponse",
-    "Result": ".toolhistoryresponse",
-    "ResultTypedDict": ".toolhistoryresponse",
     "ToolHistoryResponse": ".toolhistoryresponse",
-    "ToolHistoryResponseDefaults": ".toolhistoryresponse",
-    "ToolHistoryResponseDefaultsTypedDict": ".toolhistoryresponse",
     "ToolHistoryResponseTypedDict": ".toolhistoryresponse",
     "ToolHTTPEndpoint": ".toolhttpendpoint",
     "ToolHTTPEndpointTypedDict": ".toolhttpendpoint",
