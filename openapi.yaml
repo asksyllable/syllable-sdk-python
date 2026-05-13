@@ -8050,6 +8050,13 @@ components:
             - "Keyboard 1"
             - "Keyboard 2"
             - "Call Center"
+        enable_verbal_language_change:
+          type: "boolean"
+          title: "Enable Verbal Language Change"
+          description: "When true and a voice group is configured, callers may switch among group languages by speaking (in addition to DTMF)."
+          default: false
+          examples:
+            - false
       type: "object"
       required:
         - "name"
@@ -8243,6 +8250,13 @@ components:
             - "Keyboard 1"
             - "Keyboard 2"
             - "Call Center"
+        enable_verbal_language_change:
+          type: "boolean"
+          title: "Enable Verbal Language Change"
+          description: "When true and a voice group is configured, callers may switch among group languages by speaking (in addition to DTMF)."
+          default: false
+          examples:
+            - false
         id:
           type: "integer"
           title: "Id"
@@ -8505,6 +8519,13 @@ components:
             - "Keyboard 1"
             - "Keyboard 2"
             - "Call Center"
+        enable_verbal_language_change:
+          type: "boolean"
+          title: "Enable Verbal Language Change"
+          description: "When true and a voice group is configured, callers may switch among group languages by speaking (in addition to DTMF)."
+          default: false
+          examples:
+            - false
         id:
           type: "integer"
           title: "Id"
@@ -16187,7 +16208,7 @@ components:
         include_default_tools:
           type: "boolean"
           title: "Include Default Tools"
-          description: "Whether to include the default tools (`hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well, otherwise the default tools will be added when updating the prompt."
+          description: "Whether to include the default tools (`hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well; otherwise the default tools will be added when updating the prompt."
           default: true
           examples:
             - true
