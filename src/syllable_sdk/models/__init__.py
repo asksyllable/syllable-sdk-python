@@ -247,6 +247,7 @@ if TYPE_CHECKING:
         CustomMessageUpdateRequestTypedDict,
     )
     from .daotoolresponse import DaoToolResponse, DaoToolResponseTypedDict
+    from .daoutm import DaoUtm, DaoUtmTypedDict
     from .dashboard import Dashboard, DashboardTypedDict
     from .dashboardproperties import DashboardProperties
     from .dashboardresponse import DashboardResponse, DashboardResponseTypedDict
@@ -1354,6 +1355,8 @@ __all__ = [
     "CustomMessagesListRequestTypedDict",
     "DaoToolResponse",
     "DaoToolResponseTypedDict",
+    "DaoUtm",
+    "DaoUtmTypedDict",
     "Dashboard",
     "DashboardProperties",
     "DashboardResponse",
@@ -2179,6 +2182,8 @@ _dynamic_imports: dict[str, str] = {
     "CustomMessageUpdateRequestTypedDict": ".custommessageupdaterequest",
     "DaoToolResponse": ".daotoolresponse",
     "DaoToolResponseTypedDict": ".daotoolresponse",
+    "DaoUtm": ".daoutm",
+    "DaoUtmTypedDict": ".daoutm",
     "Dashboard": ".dashboard",
     "DashboardTypedDict": ".dashboard",
     "DashboardProperties": ".dashboardproperties",
