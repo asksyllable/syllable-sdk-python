@@ -234,6 +234,7 @@ with SyllableSDK(
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/agents/README.md#list) - Agent List
 * [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/agents/README.md#create) - Create Agent
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/agents/README.md#update) - Update Agent
+* [agent_list_active_labels](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/agents/README.md#agent_list_active_labels) - List Active Agent Labels
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/agents/README.md#get_by_id) - Get Agent By Id
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/agents/README.md#delete) - Delete Agent
 * [agent_get_available_voices](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/agents/README.md#agent_get_available_voices) - Get Available Agent Voices
