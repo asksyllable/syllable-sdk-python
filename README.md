@@ -234,6 +234,7 @@ with SyllableSDK(
 * [list](docs/sdks/agents/README.md#list) - Agent List
 * [create](docs/sdks/agents/README.md#create) - Create Agent
 * [update](docs/sdks/agents/README.md#update) - Update Agent
+* [agent_list_active_labels](docs/sdks/agents/README.md#agent_list_active_labels) - List Active Agent Labels
 * [get_by_id](docs/sdks/agents/README.md#get_by_id) - Get Agent By Id
 * [delete](docs/sdks/agents/README.md#delete) - Delete Agent
 * [agent_get_available_voices](docs/sdks/agents/README.md#agent_get_available_voices) - Get Available Agent Voices
