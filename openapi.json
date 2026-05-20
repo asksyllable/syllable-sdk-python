@@ -10283,6 +10283,179 @@
         ]
       }
     },
+    "/api/v1/organizations/sip_ip_ranges": {
+      "get": {
+        "tags": [
+          "organizations"
+        ],
+        "summary": "List Organization Sip Ip Ranges",
+        "description": "List SIP signaling/media IP ranges for the current organization.",
+        "operationId": "organizations_sip_ip_ranges_list",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/OrganizationSipIpRange"
+                  },
+                  "type": "array",
+                  "title": "Response Organizations Sip Ip Ranges List"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "organizations"
+        ],
+        "summary": "Create Organization Sip Ip Range",
+        "description": "Create an unverified SIP signaling/media IP range for the current organization.",
+        "operationId": "organizations_sip_ip_ranges_create",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrganizationSipIpRangeCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationSipIpRange"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/v1/organizations/sip_ip_ranges/{sip_ip_range_id}": {
+      "put": {
+        "tags": [
+          "organizations"
+        ],
+        "summary": "Update Organization Sip Ip Range",
+        "description": "Update a SIP IP range. The verified status is managed by Syllable only.",
+        "operationId": "organizations_sip_ip_ranges_update",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "sip_ip_range_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Sip Ip Range Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrganizationSipIpRangeUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationSipIpRange"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "organizations"
+        ],
+        "summary": "Delete Organization Sip Ip Range",
+        "description": "Delete a SIP signaling/media IP range for the current organization.",
+        "operationId": "organizations_sip_ip_ranges_delete",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "sip_ip_range_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Sip Ip Range Id"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/outbound/batches": {
       "get": {
         "tags": [
@@ -14441,7 +14614,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260519.9"
+              "20260520.9"
             ]
           },
           "campaign_id": {
@@ -14465,7 +14638,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-05-20T00:00:00Z"
+              "2026-05-21T00:00:00Z"
             ]
           },
           "paused": {
@@ -14533,7 +14706,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-05-19T00:00:00Z"
+              "2026-05-20T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -14549,7 +14722,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-05-19T00:00:00Z"
+              "2026-05-20T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -14580,7 +14753,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-05-19T00:00:00Z"
+              "2026-05-20T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -15654,7 +15827,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260519.9"
+              "20260520.9"
             ]
           },
           "campaign_id": {
@@ -15678,7 +15851,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-05-20T00:00:00Z"
+              "2026-05-21T00:00:00Z"
             ]
           },
           "paused": {
@@ -15746,7 +15919,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-05-19T00:00:00Z"
+              "2026-05-20T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -15762,7 +15935,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-05-19T00:00:00Z"
+              "2026-05-20T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -15793,7 +15966,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-05-19T00:00:00Z"
+              "2026-05-20T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -15836,7 +16009,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260519.9"
+              "20260520.9"
             ]
           },
           "campaign_id": {
@@ -15860,7 +16033,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-05-20T00:00:00Z"
+              "2026-05-21T00:00:00Z"
             ]
           },
           "paused": {
@@ -16009,7 +16182,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2026-05-18T00:00:00Z"
+              "2026-05-19T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -16025,7 +16198,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2026-05-19T00:00:00Z"
+              "2026-05-20T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -19406,7 +19579,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-05-18T00:00:00Z"
+              "2026-05-19T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -19415,7 +19588,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-05-19T00:00:00Z"
+              "2026-05-20T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -20418,7 +20591,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2026-05-18T00:00:00Z"
+              "2026-05-19T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -20427,7 +20600,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2026-05-19T00:00:00Z"
+              "2026-05-20T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -20808,7 +20981,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-05-18T00:00:00Z"
+              "2026-05-19T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -20824,7 +20997,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-05-19T00:00:00Z"
+              "2026-05-20T00:00:00Z"
             ]
           }
         },
@@ -20899,7 +21072,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-05-18T00:00:00Z"
+              "2026-05-19T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -20915,7 +21088,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-05-19T00:00:00Z"
+              "2026-05-20T00:00:00Z"
             ]
           },
           "id": {
@@ -20983,7 +21156,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2026-05-18T00:00:00Z"
+              "2026-05-19T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -20992,7 +21165,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2026-05-19T00:00:00Z"
+              "2026-05-20T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -21088,7 +21261,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-05-18T00:00:00Z"
+              "2026-05-19T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -21097,7 +21270,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-05-19T00:00:00Z"
+              "2026-05-20T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -21347,7 +21520,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2026-05-18T00:00:00Z"
+              "2026-05-19T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -21356,7 +21529,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2026-05-19T00:00:00Z"
+              "2026-05-20T00:00:00Z"
             ]
           },
           "upload_file_metadata": {
@@ -21501,7 +21674,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2026-05-18T00:00:00Z"
+              "2026-05-19T00:00:00Z"
             ]
           },
           "end_time": {
@@ -21517,7 +21690,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2026-05-19T00:00:00Z"
+              "2026-05-20T00:00:00Z"
             ]
           },
           "error_message": {
@@ -21572,7 +21745,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2026-05-18T00:00:00Z"
+              "2026-05-19T00:00:00Z"
             ]
           }
         },
@@ -24834,6 +25007,186 @@
         ],
         "title": "OrganizationResponse"
       },
+      "OrganizationSipIpRange": {
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/OrganizationSipIpRangeType",
+            "description": "The SIP IP range type",
+            "examples": [
+              "signaling",
+              "media"
+            ]
+          },
+          "ip_range": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "ipv4network"
+              },
+              {
+                "type": "string",
+                "format": "ipv6network"
+              }
+            ],
+            "title": "Ip Range",
+            "description": "The SIP IP range in CIDR notation",
+            "examples": [
+              "192.168.1.0/24"
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id",
+            "description": "The organization SIP IP range ID"
+          },
+          "organization_id": {
+            "type": "integer",
+            "title": "Organization Id",
+            "description": "The Organization ID"
+          },
+          "verified": {
+            "type": "boolean",
+            "title": "Verified",
+            "description": "Whether Syllable has verified this SIP IP range.Verification implies that the Syllable team has updated the firewall rules on the SBCs, confirmed traffic is correctly established from/to the customer network and calls to Syllable agents are working."
+          },
+          "created_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created At",
+            "description": "The timestamp when the range was created"
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At",
+            "description": "The timestamp when the range was last updated"
+          },
+          "deleted_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Deleted At",
+            "description": "The timestamp when the IP was deleted"
+          }
+        },
+        "type": "object",
+        "required": [
+          "type",
+          "ip_range",
+          "id",
+          "organization_id",
+          "verified"
+        ],
+        "title": "OrganizationSipIpRange",
+        "description": "SIP IP range object."
+      },
+      "OrganizationSipIpRangeCreate": {
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/OrganizationSipIpRangeType",
+            "description": "The SIP IP range type",
+            "examples": [
+              "signaling",
+              "media"
+            ]
+          },
+          "ip_range": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "ipv4network"
+              },
+              {
+                "type": "string",
+                "format": "ipv6network"
+              }
+            ],
+            "title": "Ip Range",
+            "description": "The SIP IP range in CIDR notation",
+            "examples": [
+              "192.168.1.0/24"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "type",
+          "ip_range"
+        ],
+        "title": "OrganizationSipIpRangeCreate",
+        "description": "The request body for creating a new SIP IP range."
+      },
+      "OrganizationSipIpRangeType": {
+        "type": "string",
+        "enum": [
+          "signaling",
+          "media"
+        ],
+        "title": "OrganizationSipIpRangeType",
+        "description": "The type of SIP IP range. Signaling IP ranges are used for SIP signaling traffic (e.g. SIP INVITE,\nSIP REFER, SIP OPTIONS, etc.), while media IP ranges are used for SIP media traffic\n(audio and video)."
+      },
+      "OrganizationSipIpRangeUpdate": {
+        "properties": {
+          "type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OrganizationSipIpRangeType"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The SIP IP range type",
+            "examples": [
+              "signaling",
+              "media"
+            ]
+          },
+          "ip_range": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "ipv4network"
+              },
+              {
+                "type": "string",
+                "format": "ipv6network"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ip Range",
+            "description": "The SIP IP range in CIDR notation",
+            "examples": [
+              "192.168.1.0/24"
+            ]
+          }
+        },
+        "type": "object",
+        "title": "OrganizationSipIpRangeUpdate",
+        "description": "The request body for updating a SIP IP range."
+      },
       "OutboundCampaign": {
         "properties": {
           "campaign_name": {
@@ -25123,7 +25476,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2026-05-19T00:00:00Z"
+              "2026-05-20T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -25132,7 +25485,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2026-05-19T00:00:00Z"
+              "2026-05-20T00:00:00Z"
             ]
           },
           "last_updated_by": {
