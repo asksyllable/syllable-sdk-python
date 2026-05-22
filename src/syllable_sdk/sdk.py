@@ -208,7 +208,9 @@ class SyllableSDK(BaseSDK):
         ), "The provided async_client must implement the AsyncHttpClient protocol."
 
         security: Any = None
-        if callable(api_key_header):
+        if api_key_header is None:
+            security = None
+        elif callable(api_key_header):
             # pylint: disable=unnecessary-lambda-assignment
             security = lambda: models.Security(api_key_header=api_key_header())
         else:

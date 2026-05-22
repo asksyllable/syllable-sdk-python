@@ -1958,6 +1958,82 @@ actions:
 
                 # Handle response
                 print(res)
+  - target: $["paths"]["/api/v1/organizations/sip_ip_ranges/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.organizations.sip_ip_ranges.list()
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/organizations/sip_ip_ranges/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK, models
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.organizations.sip_ip_ranges.create(request={
+                    "type": models.OrganizationSipIPRangeType.MEDIA,
+                    "ip_range": "192.168.1.0/24",
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/organizations/sip_ip_ranges/{sip_ip_range_id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                ss_client.organizations.sip_ip_ranges.delete(sip_ip_range_id=394521)
+
+                # Use the SDK ...
+  - target: $["paths"]["/api/v1/organizations/sip_ip_ranges/{sip_ip_range_id}"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.organizations.sip_ip_ranges.update(sip_ip_range_id=165372, organization_sip_ip_range_update={
+                    "ip_range": "192.168.1.0/24",
+                })
+
+                # Handle response
+                print(res)
   - target: $["paths"]["/api/v1/outbound/batches"]["get"]
     update:
       x-codeSamples:

@@ -755,6 +755,14 @@ if TYPE_CHECKING:
         NextStepTypedDict,
     )
     from .orderbydirection import OrderByDirection
+    from .organization_sip_ip_ranges_deleteop import (
+        OrganizationSipIPRangesDeleteRequest,
+        OrganizationSipIPRangesDeleteRequestTypedDict,
+    )
+    from .organization_sip_ip_ranges_updateop import (
+        OrganizationSipIPRangesUpdateRequest,
+        OrganizationSipIPRangesUpdateRequestTypedDict,
+    )
     from .organizationchannelconfig import (
         OrganizationChannelConfig,
         OrganizationChannelConfigTypedDict,
@@ -770,6 +778,19 @@ if TYPE_CHECKING:
     from .organizationresponse import (
         OrganizationResponse,
         OrganizationResponseTypedDict,
+    )
+    from .organizationsipiprange import (
+        OrganizationSipIPRange,
+        OrganizationSipIPRangeTypedDict,
+    )
+    from .organizationsipiprangecreate import (
+        OrganizationSipIPRangeCreate,
+        OrganizationSipIPRangeCreateTypedDict,
+    )
+    from .organizationsipiprangetype import OrganizationSipIPRangeType
+    from .organizationsipiprangeupdate import (
+        OrganizationSipIPRangeUpdate,
+        OrganizationSipIPRangeUpdateTypedDict,
     )
     from .outbound_batch_addop import (
         OutboundBatchAddRequest,
@@ -1695,6 +1716,17 @@ __all__ = [
     "OrganizationChannelUpdateRequestTypedDict",
     "OrganizationResponse",
     "OrganizationResponseTypedDict",
+    "OrganizationSipIPRange",
+    "OrganizationSipIPRangeCreate",
+    "OrganizationSipIPRangeCreateTypedDict",
+    "OrganizationSipIPRangeType",
+    "OrganizationSipIPRangeTypedDict",
+    "OrganizationSipIPRangeUpdate",
+    "OrganizationSipIPRangeUpdateTypedDict",
+    "OrganizationSipIPRangesDeleteRequest",
+    "OrganizationSipIPRangesDeleteRequestTypedDict",
+    "OrganizationSipIPRangesUpdateRequest",
+    "OrganizationSipIPRangesUpdateRequestTypedDict",
     "OutboundBatchAddRequest",
     "OutboundBatchAddRequestTypedDict",
     "OutboundBatchDeleteRequest",
@@ -2508,6 +2540,10 @@ _dynamic_imports: dict[str, str] = {
     "NextStepIf2TypedDict": ".nextstep",
     "NextStepTypedDict": ".nextstep",
     "OrderByDirection": ".orderbydirection",
+    "OrganizationSipIPRangesDeleteRequest": ".organization_sip_ip_ranges_deleteop",
+    "OrganizationSipIPRangesDeleteRequestTypedDict": ".organization_sip_ip_ranges_deleteop",
+    "OrganizationSipIPRangesUpdateRequest": ".organization_sip_ip_ranges_updateop",
+    "OrganizationSipIPRangesUpdateRequestTypedDict": ".organization_sip_ip_ranges_updateop",
     "OrganizationChannelConfig": ".organizationchannelconfig",
     "OrganizationChannelConfigTypedDict": ".organizationchannelconfig",
     "OrganizationChannelCreateRequest": ".organizationchannelcreaterequest",
@@ -2516,6 +2552,13 @@ _dynamic_imports: dict[str, str] = {
     "OrganizationChannelUpdateRequestTypedDict": ".organizationchannelupdaterequest",
     "OrganizationResponse": ".organizationresponse",
     "OrganizationResponseTypedDict": ".organizationresponse",
+    "OrganizationSipIPRange": ".organizationsipiprange",
+    "OrganizationSipIPRangeTypedDict": ".organizationsipiprange",
+    "OrganizationSipIPRangeCreate": ".organizationsipiprangecreate",
+    "OrganizationSipIPRangeCreateTypedDict": ".organizationsipiprangecreate",
+    "OrganizationSipIPRangeType": ".organizationsipiprangetype",
+    "OrganizationSipIPRangeUpdate": ".organizationsipiprangeupdate",
+    "OrganizationSipIPRangeUpdateTypedDict": ".organizationsipiprangeupdate",
     "OutboundBatchAddRequest": ".outbound_batch_addop",
     "OutboundBatchAddRequestTypedDict": ".outbound_batch_addop",
     "OutboundBatchDeleteRequest": ".outbound_batch_deleteop",
