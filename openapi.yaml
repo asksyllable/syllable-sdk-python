@@ -8177,7 +8177,7 @@ components:
         enable_verbal_language_change:
           type: "boolean"
           title: "Enable Verbal Language Change"
-          description: "Enables Dynamic Language Switching - when true and a voice group is configured, callers may switch among group languages by speaking at any point in the conversation (in addition to DTMF in response to the language menu)."
+          description: "When true and a voice group is configured, callers may switch among group languages by speaking (in addition to DTMF)."
           default: false
           examples:
             - false
@@ -8377,7 +8377,7 @@ components:
         enable_verbal_language_change:
           type: "boolean"
           title: "Enable Verbal Language Change"
-          description: "Enables Dynamic Language Switching - when true and a voice group is configured, callers may switch among group languages by speaking at any point in the conversation (in addition to DTMF in response to the language menu)."
+          description: "When true and a voice group is configured, callers may switch among group languages by speaking (in addition to DTMF)."
           default: false
           examples:
             - false
@@ -8646,7 +8646,7 @@ components:
         enable_verbal_language_change:
           type: "boolean"
           title: "Enable Verbal Language Change"
-          description: "Enables Dynamic Language Switching - when true and a voice group is configured, callers may switch among group languages by speaking at any point in the conversation (in addition to DTMF in response to the language menu)."
+          description: "When true and a voice group is configured, callers may switch among group languages by speaking (in addition to DTMF)."
           default: false
           examples:
             - false
@@ -16481,7 +16481,7 @@ components:
         include_default_tools:
           type: "boolean"
           title: "Include Default Tools"
-          description: "Whether to include the default tools (`hangup`) in the list of tools for the prompt (also includes set_current_language if any of the agents assigned to the prompt have Dynamic Language Switching enabled). If you disable this during creation, you might want to disable it during updates as well; otherwise the default tools will be added when updating the prompt."
+          description: "Whether to include the default tools (`hangup`) in the list of tools for the prompt. If you disable this during creation, you might want to disable it during updates as well; otherwise the default tools will be added when updating the prompt."
           default: true
           examples:
             - true
@@ -16905,7 +16905,7 @@ components:
         include_default_tools:
           type: "boolean"
           title: "Include Default Tools"
-          description: "Whether to include the default tools (`hangup`) in the list of tools for the prompt (also includes set_current_language if any of the agents assigned to the prompt have Dynamic Language Switching enabled). If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."
+          description: "Whether to include the default tools (`hangup`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."
           default: true
           examples:
             - true

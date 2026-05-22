@@ -73,7 +73,7 @@ class AgentResponseTypedDict(TypedDict):
     wait_sound: NotRequired[Nullable[str]]
     r"""Sound to play while waiting for a response from the LLM."""
     enable_verbal_language_change: NotRequired[bool]
-    r"""Enables Dynamic Language Switching - when true and a voice group is configured, callers may switch among group languages by speaking at any point in the conversation (in addition to DTMF in response to the language menu)."""
+    r"""When true and a voice group is configured, callers may switch among group languages by speaking (in addition to DTMF)."""
     prompt: NotRequired[Nullable[PromptResponseTypedDict]]
     r"""The prompt associated with the agent."""
     custom_message: NotRequired[Nullable[CustomMessageResponseTypedDict]]
@@ -162,7 +162,7 @@ class AgentResponse(BaseModel):
     r"""Sound to play while waiting for a response from the LLM."""
 
     enable_verbal_language_change: Optional[bool] = False
-    r"""Enables Dynamic Language Switching - when true and a voice group is configured, callers may switch among group languages by speaking at any point in the conversation (in addition to DTMF in response to the language menu)."""
+    r"""When true and a voice group is configured, callers may switch among group languages by speaking (in addition to DTMF)."""
 
     prompt: OptionalNullable[PromptResponse] = UNSET
     r"""The prompt associated with the agent."""
