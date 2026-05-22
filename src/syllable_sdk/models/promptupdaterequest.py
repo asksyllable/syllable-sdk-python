@@ -38,7 +38,7 @@ class PromptUpdateRequestTypedDict(TypedDict):
     edit_comments: NotRequired[Nullable[str]]
     r"""The comments for the most recent edit to the prompt"""
     include_default_tools: NotRequired[bool]
-    r"""Whether to include the default tools (`hangup`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."""
+    r"""Whether to include the default tools (`hangup`) in the list of tools for the prompt (also includes set_current_language if any of the agents assigned to the prompt have Dynamic Language Switching enabled). If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."""
 
 
 class PromptUpdateRequest(BaseModel):
@@ -75,7 +75,7 @@ class PromptUpdateRequest(BaseModel):
     r"""The comments for the most recent edit to the prompt"""
 
     include_default_tools: Optional[bool] = True
-    r"""Whether to include the default tools (`hangup`) in the list of tools for the prompt. If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."""
+    r"""Whether to include the default tools (`hangup`) in the list of tools for the prompt (also includes set_current_language if any of the agents assigned to the prompt have Dynamic Language Switching enabled). If you remove one of the default tools from your prompt, you might want to disable this option so that the tool is not added again when updated."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

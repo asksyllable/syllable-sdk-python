@@ -1,0 +1,11 @@
+# OrganizationSipIPRangeUpdate
+
+The request body for updating a SIP IP range.
+
+
+## Fields
+
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    | Example                                                                                        |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `type`                                                                                         | [OptionalNullable[models.OrganizationSipIPRangeType]](../models/organizationsipiprangetype.md) | :heavy_minus_sign:                                                                             | The SIP IP range type                                                                          |                                                                                                |
+| `ip_range`                                                                                     | *OptionalNullable[str]*                                                                        | :heavy_minus_sign:                                                                             | The SIP IP range in CIDR notation                                                              | 192.168.1.0/24                                                                                 |
