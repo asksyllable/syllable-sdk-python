@@ -12,3 +12,4 @@ class CustomMessageProperties(str, Enum):
     LABEL = "label"
     TYPE = "type"
     UPDATED_AT = "updated_at"
+    AGENT_ID = "agent_id"
