@@ -32,7 +32,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 python:
-  version: 0.45.106
+  version: 0.46.0
   additionalDependencies:
     dev: {}
     main: {}
@@ -43,6 +43,7 @@ python:
   authors:
     - Syllable
   baseErrorName: SyllableSDKError
+  bodyVariantOverloads: false
   clientServerStatusCodesAsErrors: true
   constFieldCasing: upper
   defaultErrorName: APIError
@@ -73,8 +74,11 @@ python:
   license: ""
   maxMethodParams: 999
   methodArguments: infer-optional-args
+  methodTimeoutArgument: timeout-ms
+  methodTimeoutUnits: milliseconds
   moduleName: ""
   multipartArrayFormat: legacy
+  optionalDependencies: {}
   outputModelSuffix: output
   packageManager: poetry
   packageName: syllable-sdk
