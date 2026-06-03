@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 918657ee83ace525f8ce29cdfe0f2f4b
+  docChecksum: 6a470b59ba53452f1d0e956ae19381d2
   docVersion: 0.0.3
   speakeasyVersion: 1.770.0
   generationVersion: 2.893.0
-  releaseVersion: 0.46.1
-  configChecksum: bce19ffa0cab02cc1e697d7c4806ebfd
+  releaseVersion: 0.46.2
+  configChecksum: e436ef0e1b06c44e6435e1a7900d0983
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: 8d99588c-ac19-43b3-b51a-3c7a5e12b0ff
-  pristine_commit_hash: 4f2f73948019b119eac52bbcca210b2eb57da716
-  pristine_tree_hash: 95e0c006d8d2eb193f6b28d069510b9ae309bff7
+  generation_id: 43ff2050-b089-4f75-bf90-bdd8f93d2b03
+  pristine_commit_hash: 23163a73243c6d92840bb52feee9489cc1f75926
+  pristine_tree_hash: 00589edcdcfe579e137ed0f7e46e39b27b17b1a2
 features:
   python:
     additionalDependencies: 1.1.0
@@ -130,8 +130,8 @@ trackedFiles:
     pristine_git_object: 428964921e352eb9d2f62bd6281ee8c221577f45
   docs/models/agentvoicedisplayname.md:
     id: a58d24650c14
-    last_write_checksum: sha1:813991c5392b66ee39306df4531a1c3c88b2e79a
-    pristine_git_object: 6361b3f4261d3631f7128b6b1f15bdabf69215b0
+    last_write_checksum: sha1:79605f1b3f155d268d831dc712a712e3d88d60db
+    pristine_git_object: 12b33267d69ab3ba4349c65c9d783518e092c0e3
   docs/models/agentvoicegender.md:
     id: 89c54bd7737d
     last_write_checksum: sha1:5b6fec4b9c61202d929698829fa3af3c5fbcb6d9
@@ -142,8 +142,8 @@ trackedFiles:
     pristine_git_object: 6187d9542f4414593b4daac49da2e26cf023eb3e
   docs/models/agentvoicevarname.md:
     id: ca8523fb485a
-    last_write_checksum: sha1:6ab9e7256c47314773c8dbaff99208eeb8741080
-    pristine_git_object: ce73e70f6139ac73a8e5bd35cae2ddf4e2be7faa
+    last_write_checksum: sha1:87b1cdf29337d704e36d5a257835b80aaad89170
+    pristine_git_object: 1eb965cbd45acb2574154a21631bf4eca38e5d1e
   docs/models/agentwaitsound.md:
     id: c2d1f308fa5c
     last_write_checksum: sha1:a9fbde6ffcca302a24eb5c94c990fd1983d56fb4
@@ -966,8 +966,8 @@ trackedFiles:
     pristine_git_object: 9f9258c7963bb7c0fc45ea18e15114eabd0ce139
   docs/models/languagecode.md:
     id: 12fa2a2aafed
-    last_write_checksum: sha1:9fee5db49be04fbb5b8ef41a719b55469d5906da
-    pristine_git_object: dbdf58182cc896c4db97705c778679a3abe78eb7
+    last_write_checksum: sha1:4506f6cd6074accaa0a76cb57a933b52b846a173
+    pristine_git_object: 65f0098ab73daf6b7bfc2e64a4c3e327a27404e6
   docs/models/languageconfig.md:
     id: 79f11b6c382f
     last_write_checksum: sha1:07fc582b38c6cdce7292785cd80960062d81f353
@@ -2070,8 +2070,8 @@ trackedFiles:
     pristine_git_object: 739eef2047817f053e6c7688b3993b63a9a7f142
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:f9023c7f4a2f5cd2f40d55a51c16877f3b8ec803
-    pristine_git_object: ac7a4dec1db1c594952833f3bbabff8ceeaec2bd
+    last_write_checksum: sha1:fc565542a3710f4d3b98f7858c8c8c217b676f42
+    pristine_git_object: b9cab8ff155f0ab2e17218a4841fca96050f5ac5
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2098,8 +2098,8 @@ trackedFiles:
     pristine_git_object: 80c09ba9b6fc421f9200d202e6a452aeedb2c3e4
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:584a325cf092644475a067dcd295311ec583f4eb
-    pristine_git_object: f5fc8a2b7ddf36d2e0f9b9ef4f2c816c7aff5b18
+    last_write_checksum: sha1:e6ff36a8e3c94fb305002a7127bb965c4661bb42
+    pristine_git_object: 91c9251633dc974fd1e4bda5ef0a390fe73e469b
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:69cb54ec0c0aee9451478ffcebb1e89f6a0ad526
@@ -2266,8 +2266,8 @@ trackedFiles:
     pristine_git_object: 4c6ce357fe491c0f1ad21f4aa709712cc115384a
   src/syllable_sdk/models/agentvoicedisplayname.py:
     id: 67f9cb1fa22f
-    last_write_checksum: sha1:9cc194092627654b19bea777d3945dba57ba2a6e
-    pristine_git_object: 21baa85b627bc96d949e2cbabaa38e459b3092f8
+    last_write_checksum: sha1:13b8b237ddc7ab44441cc3d5e004332e87f31368
+    pristine_git_object: 84a0af0001aeaf27e36268b91322b912fb089d66
   src/syllable_sdk/models/agentvoicegender.py:
     id: cf81df9f4289
     last_write_checksum: sha1:7cf4e66c5528c1f2d9b8888e0747f487b009c2f8
@@ -2278,8 +2278,8 @@ trackedFiles:
     pristine_git_object: 40c76258ffc219507329da0ff5252660a2ddd1c6
   src/syllable_sdk/models/agentvoicevarname.py:
     id: 652a8274bcc3
-    last_write_checksum: sha1:8c81757ec9f3a3180a63713da76288591e774513
-    pristine_git_object: 3e3b97e8e2c259c02835d50271ca68b5b797c2e9
+    last_write_checksum: sha1:ccf5547e8cb2162427ff326298e53e16fe123691
+    pristine_git_object: ed68cf8a37956d85739b74dd7929485e288c5d9a
   src/syllable_sdk/models/agentwaitsound.py:
     id: c5fb43420990
     last_write_checksum: sha1:6054923fe1a0b4ade9eed5cfe1eed2912d0e08fe
@@ -2970,8 +2970,8 @@ trackedFiles:
     pristine_git_object: a2be14caa415e06aed5e56f9d021209595eb2a2e
   src/syllable_sdk/models/languagecode.py:
     id: 9ac3124fd4d1
-    last_write_checksum: sha1:5775cc37a853d53ba1e7394716267189ab2cf749
-    pristine_git_object: 0438634f78668d9531cc722ec7e0aa25051a3bf6
+    last_write_checksum: sha1:59b96ed1e6f64ea7abe79c44fbf0150a44885cb9
+    pristine_git_object: 83fe6ff84d32bdf1981418979319cdfe968a837a
   src/syllable_sdk/models/languageconfig.py:
     id: 7b436df51b0c
     last_write_checksum: sha1:ab18275a5637635cd3bd48e716a79ad40356c9d8
@@ -5730,6 +5730,7 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.language_groups.list()`:  `response.items[].language_configs[]` **Changed** (Breaking ⚠️)\n* `syllable_sdk.agents.create()`:  `response.language_group.language_configs[]` **Changed** (Breaking ⚠️)\n* `syllable_sdk.agents.update()`:  `response.language_group.language_configs[]` **Changed** (Breaking ⚠️)\n* `syllable_sdk.agents.get_by_id()`:  `response.language_group.language_configs[]` **Changed** (Breaking ⚠️)\n* `syllable_sdk.agents.agent_get_available_voices()`:  `response.[]` **Changed** (Breaking ⚠️)\n* `syllable_sdk.channels.targets.list()`:  `response.items[].agent.language_group.language_configs[]` **Changed** (Breaking ⚠️)\n* `syllable_sdk.channels.targets.create()`:  `response.agent.language_group.language_configs[]` **Changed** (Breaking ⚠️)\n* `syllable_sdk.channels.targets.get_by_id()`:  `response.agent.language_group.language_configs[]` **Changed** (Breaking ⚠️)\n* `syllable_sdk.voice_groups.get_by_id()`:  `response.language_configs[]` **Changed** (Breaking ⚠️)\n* `syllable_sdk.channels.targets.update()`:  `response.agent.language_group.language_configs[]` **Changed** (Breaking ⚠️)\n* `syllable_sdk.language_groups.update()`: \n  *  `request.language_configs[]` **Changed**\n  *  `response.language_configs[]` **Changed** (Breaking ⚠️)\n* `syllable_sdk.language_groups.create()`: \n  *  `request.language_configs[]` **Changed**\n  *  `response.language_configs[]` **Changed** (Breaking ⚠️)\n* `syllable_sdk.agents.list()`:  `response.items[].language_group.language_configs[]` **Changed** (Breaking ⚠️)\n* `syllable_sdk.language_groups.get_by_id()`:  `response.language_configs[]` **Changed** (Breaking ⚠️)\n* `syllable_sdk.voice_groups.update()`: \n  *  `request.language_configs[]` **Changed**\n  *  `response.language_configs[]` **Changed** (Breaking ⚠️)\n* `syllable_sdk.voice_groups.list()`:  `response.items[].language_configs[]` **Changed** (Breaking ⚠️)\n* `syllable_sdk.voice_groups.create()`: \n  *  `request.language_configs[]` **Changed**\n  *  `response.language_configs[]` **Changed** (Breaking ⚠️)\n* `syllable_sdk.language_groups.language_groups_create_voice_sample()`:  `request` **Changed**\n* `syllable_sdk.directory.directory_member_test_extension()`:  `request.language_code` **Changed**\n* `syllable_sdk.voice_groups.voice_groups_create_voice_sample()`:  `request` **Changed**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
