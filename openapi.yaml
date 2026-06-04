@@ -9549,6 +9549,14 @@ components:
           type: "object"
           title: "Localized"
           description: "Per-language overrides keyed by BCP-47 tag (e.g. \"es-US\")."
+        smart_turn_timeout_seconds:
+          anyOf:
+            - type: "number"
+              maximum: 30.0
+              minimum: 0.25
+            - type: "null"
+          title: "Smart Turn Timeout Seconds"
+          description: "Seconds of caller silence before injecting the first bridge phrase. Subsequent sleep intervals are 2x, 3x, 4x this base. When unset, the service-wide default applies."
       type: "object"
       title: "BridgePhrasesConfig"
       description: "Configuration for conversational bridge phrases.\n\nTop-level fields are the default (English) phrases.\nThe `localized` dict provides per-language overrides keyed by BCP-47 language tag."

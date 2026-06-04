@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 24ccf2195fce638e2cfd61b1aba2f3ed
+  docChecksum: 19fafab6b62099829a9e657889cd9b91
   docVersion: 0.0.3
   speakeasyVersion: 1.770.0
   generationVersion: 2.893.0
-  releaseVersion: 0.46.3
-  configChecksum: f7d34ae04c851da5f8d50759861147ff
+  releaseVersion: 0.46.4
+  configChecksum: 99ec46d4a827c979eed2bfc565cfa342
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: a192ceed-a2c1-42c9-9a26-5b48f25407f6
-  pristine_commit_hash: 1d8da4e487ea81c6bfb12acf103ac3fc91fd6da5
-  pristine_tree_hash: 7c30ca43bb85899be3d8059ddb1205d8427f3976
+  generation_id: ad537f29-a8bc-44b5-9ac0-eb3e12233937
+  pristine_commit_hash: 6a0e0d41a5bce76e4733d29918affdeac9e64c95
+  pristine_tree_hash: 99606087630c04a86b6d8457e93d831741d59919
 features:
   python:
     additionalDependencies: 1.1.0
@@ -238,8 +238,8 @@ trackedFiles:
     pristine_git_object: 17cb2f2d6a2b52a780d8818800b5f835662207d8
   docs/models/bridgephrasesconfig.md:
     id: b0f899eff267
-    last_write_checksum: sha1:03174bba2eda41fe459a4ea5cc1438d8d90311cc
-    pristine_git_object: b9adfe314df772f00301f04b635d6ea78d5bea2f
+    last_write_checksum: sha1:23055bbc5274106c274b82d0574397a1d59b4950
+    pristine_git_object: 5facfb18c530272eecec86650b76aff62883d373
   docs/models/callaction.md:
     id: 86afdf0c2f92
     last_write_checksum: sha1:af5b4a3bfe9a3c34c542c82dd55e802a49fe092e
@@ -2070,8 +2070,8 @@ trackedFiles:
     pristine_git_object: 739eef2047817f053e6c7688b3993b63a9a7f142
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:32b28008fd08d5654a3538e488586f9f97395a03
-    pristine_git_object: ab8851425fd9209d0e730f811c2fdda55b7ea563
+    last_write_checksum: sha1:71d1047d526a470f7dc360f6d79ff7d5c1b5898a
+    pristine_git_object: 91dda737b46a9b9397baebfc3eb74f83597c4b52
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2098,8 +2098,8 @@ trackedFiles:
     pristine_git_object: 80c09ba9b6fc421f9200d202e6a452aeedb2c3e4
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:95de4d1489b04cb41801d90997d509c6fc45e3ea
-    pristine_git_object: 7d7c86bcd2547d1c0259c2783a23e76ae3b90750
+    last_write_checksum: sha1:233c0757a5d305f077744e52f5c7e6d407efa2d8
+    pristine_git_object: 6e1127dc8d5fc8ba642e0c677ad9650502134eff
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:69cb54ec0c0aee9451478ffcebb1e89f6a0ad526
@@ -2346,8 +2346,8 @@ trackedFiles:
     pristine_git_object: 837d703b764e4251c54d2c30bb0970cb5475f74f
   src/syllable_sdk/models/bridgephrasesconfig.py:
     id: e4afdaf9da62
-    last_write_checksum: sha1:7e7c10524a672814f08911bd3c9793233f95df93
-    pristine_git_object: d579689a6fc2370bbf34f8a4fd50323da1dba38a
+    last_write_checksum: sha1:cd4bd809e464c0d46ad720ad05bef3c0d964c2d6
+    pristine_git_object: 9e8927d8603d778f2c1abcbad441d55c0ab0936e
   src/syllable_sdk/models/callaction.py:
     id: 78ab9176c2ad
     last_write_checksum: sha1:9f69cddf4276a6818244dc50949c0b84ae7800c9
@@ -5730,7 +5730,7 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.conversation_config.get_bridge_phrases_config()`:  `response` **Changed**\n* `syllable_sdk.conversation_config.update_bridge_phrases_config()`: \n  *  `request.bridge_phrases_config` **Changed**\n  *  `response` **Changed**\n* `syllable_sdk.sessions.list()`:  `request` **Changed**\n"
+releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.conversation_config.get_bridge_phrases_config()`:  `response.smart_turn_timeout_seconds` **Added**\n* `syllable_sdk.conversation_config.update_bridge_phrases_config()`: \n  *  `request.bridge_phrases_config.smart_turn_timeout_seconds` **Added**\n  *  `response.smart_turn_timeout_seconds` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
