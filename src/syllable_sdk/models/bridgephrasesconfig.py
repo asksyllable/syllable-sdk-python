@@ -3,7 +3,13 @@
 from __future__ import annotations
 from .bridgephrasemessages import BridgePhraseMessages, BridgePhraseMessagesTypedDict
 from pydantic import model_serializer
-from syllable_sdk.types import BaseModel, UNSET_SENTINEL
+from syllable_sdk.types import (
+    BaseModel,
+    Nullable,
+    OptionalNullable,
+    UNSET,
+    UNSET_SENTINEL,
+)
 from typing import Dict, List, Optional
 from typing_extensions import NotRequired, TypedDict
 
@@ -27,6 +33,8 @@ class BridgePhrasesConfigTypedDict(TypedDict):
     r"""Messages to say when a tool call is in progress."""
     localized: NotRequired[Dict[str, BridgePhraseMessagesTypedDict]]
     r"""Per-language overrides keyed by BCP-47 tag (e.g. \"es-US\")."""
+    smart_turn_timeout_seconds: NotRequired[Nullable[float]]
+    r"""Seconds of caller silence before injecting the first bridge phrase. Subsequent sleep intervals are 2x, 3x, 4x this base. When unset, the service-wide default applies."""
 
 
 class BridgePhrasesConfig(BaseModel):
@@ -54,6 +62,9 @@ class BridgePhrasesConfig(BaseModel):
     localized: Optional[Dict[str, BridgePhraseMessages]] = None
     r"""Per-language overrides keyed by BCP-47 tag (e.g. \"es-US\")."""
 
+    smart_turn_timeout_seconds: OptionalNullable[float] = UNSET
+    r"""Seconds of caller silence before injecting the first bridge phrase. Subsequent sleep intervals are 2x, 3x, 4x this base. When unset, the service-wide default applies."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -64,17 +75,27 @@ class BridgePhrasesConfig(BaseModel):
                 "very_slow_messages",
                 "tool_responses",
                 "localized",
+                "smart_turn_timeout_seconds",
             ]
         )
+        nullable_fields = set(["smart_turn_timeout_seconds"])
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k, serialized.get(n))
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
             if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
                     m[k] = val
 
         return m
