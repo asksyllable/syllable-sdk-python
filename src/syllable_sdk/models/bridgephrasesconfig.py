@@ -15,6 +15,10 @@ class BridgePhrasesConfigTypedDict(TypedDict):
     The `localized` dict provides per-language overrides keyed by BCP-47 language tag.
     """
 
+    messages: NotRequired[List[str]]
+    r"""Unified ordered bridge phrases. If empty, legacy fields are used."""
+    randomize_messages: NotRequired[bool]
+    r"""When true, unified messages are played in randomized no-repeat cycles. Ignored when unified messages are disabled."""
     first_slow_messages: NotRequired[List[str]]
     r"""Messages to say when the agent is first delayed."""
     very_slow_messages: NotRequired[List[str]]
@@ -32,6 +36,12 @@ class BridgePhrasesConfig(BaseModel):
     The `localized` dict provides per-language overrides keyed by BCP-47 language tag.
     """
 
+    messages: Optional[List[str]] = None
+    r"""Unified ordered bridge phrases. If empty, legacy fields are used."""
+
+    randomize_messages: Optional[bool] = False
+    r"""When true, unified messages are played in randomized no-repeat cycles. Ignored when unified messages are disabled."""
+
     first_slow_messages: Optional[List[str]] = None
     r"""Messages to say when the agent is first delayed."""
 
@@ -47,7 +57,14 @@ class BridgePhrasesConfig(BaseModel):
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            ["first_slow_messages", "very_slow_messages", "tool_responses", "localized"]
+            [
+                "messages",
+                "randomize_messages",
+                "first_slow_messages",
+                "very_slow_messages",
+                "tool_responses",
+                "localized",
+            ]
         )
         serialized = handler(self)
         m = {}
