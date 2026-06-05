@@ -21,6 +21,5 @@ class SessionProperties(str, Enum):
     SOURCE = "source"
     TARGET = "target"
     DURATION = "duration"
-    IS_OUTBOUND = "is_outbound"
     IS_LEGACY = "is_legacy"
     IS_TEST = "is_test"

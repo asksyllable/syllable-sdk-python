@@ -20,7 +20,3 @@ class LanguageCode(str, Enum):
     RU_RU = "ru-RU"
     HI_IN = "hi-IN"
     GU_IN = "gu-IN"
-    AR_XA = "ar-XA"
-    FR_FR = "fr-FR"
-    JA_JP = "ja-JP"
-    NE_NP = "ne-NP"
