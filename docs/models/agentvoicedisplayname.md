@@ -17,9 +17,6 @@ value = AgentVoiceDisplayName.ACHERNAR_ENGLISH_
 | -------------------------- | -------------------------- |
 | `ACHERNAR_ENGLISH_`        | Achernar (English)         |
 | `ACHERNAR_GUJARATI_`       | Achernar (Gujarati)        |
-| `ACHERNAR_ARABIC_`         | Achernar (Arabic)          |
-| `ACHERNAR_FRENCH_`         | Achernar (French)          |
-| `ACHERNAR_JAPANESE_`       | Achernar (Japanese)        |
 | `ACHERNAR_HINDI_`          | Achernar (Hindi)           |
 | `ACHERNAR_KOREAN_`         | Achernar (Korean)          |
 | `ACHERNAR_MANDARIN_`       | Achernar (Mandarin)        |
@@ -30,9 +27,6 @@ value = AgentVoiceDisplayName.ACHERNAR_ENGLISH_
 | `ALLOY`                    | Alloy                      |
 | `AOEDE_ENGLISH_`           | Aoede (English)            |
 | `AOEDE_GUJARATI_`          | Aoede (Gujarati)           |
-| `AOEDE_ARABIC_`            | Aoede (Arabic)             |
-| `AOEDE_FRENCH_`            | Aoede (French)             |
-| `AOEDE_JAPANESE_`          | Aoede (Japanese)           |
 | `AOEDE_HINDI_`             | Aoede (Hindi)              |
 | `AOEDE_KOREAN_`            | Aoede (Korean)             |
 | `AOEDE_MANDARIN_`          | Aoede (Mandarin)           |
@@ -45,9 +39,6 @@ value = AgentVoiceDisplayName.ACHERNAR_ENGLISH_
 | `BRIAN`                    | Brian                      |
 | `CALLIRRHOE_ENGLISH_`      | Callirrhoe (English)       |
 | `CALLIRRHOE_GUJARATI_`     | Callirrhoe (Gujarati)      |
-| `CALLIRRHOE_ARABIC_`       | Callirrhoe (Arabic)        |
-| `CALLIRRHOE_FRENCH_`       | Callirrhoe (French)        |
-| `CALLIRRHOE_JAPANESE_`     | Callirrhoe (Japanese)      |
 | `CALLIRRHOE_HINDI_`        | Callirrhoe (Hindi)         |
 | `CALLIRRHOE_KOREAN_`       | Callirrhoe (Korean)        |
 | `CALLIRRHOE_MANDARIN_`     | Callirrhoe (Mandarin)      |
@@ -59,9 +50,6 @@ value = AgentVoiceDisplayName.ACHERNAR_ENGLISH_
 | `CHARLOTTE`                | Charlotte                  |
 | `CHARON_ENGLISH_`          | Charon (English)           |
 | `CHARON_GUJARATI_`         | Charon (Gujarati)          |
-| `CHARON_ARABIC_`           | Charon (Arabic)            |
-| `CHARON_FRENCH_`           | Charon (French)            |
-| `CHARON_JAPANESE_`         | Charon (Japanese)          |
 | `CHARON_HINDI_`            | Charon (Hindi)             |
 | `CHARON_KOREAN_`           | Charon (Korean)            |
 | `CHARON_MANDARIN_`         | Charon (Mandarin)          |
@@ -84,9 +72,6 @@ value = AgentVoiceDisplayName.ACHERNAR_ENGLISH_
 | `FABLE`                    | Fable                      |
 | `FENRIR_ENGLISH_`          | Fenrir (English)           |
 | `FENRIR_GUJARATI_`         | Fenrir (Gujarati)          |
-| `FENRIR_ARABIC_`           | Fenrir (Arabic)            |
-| `FENRIR_FRENCH_`           | Fenrir (French)            |
-| `FENRIR_JAPANESE_`         | Fenrir (Japanese)          |
 | `FENRIR_HINDI_`            | Fenrir (Hindi)             |
 | `FENRIR_KOREAN_`           | Fenrir (Korean)            |
 | `FENRIR_MANDARIN_`         | Fenrir (Mandarin)          |
@@ -99,9 +84,6 @@ value = AgentVoiceDisplayName.ACHERNAR_ENGLISH_
 | `KO_KR_NEURAL2_A`          | ko-KR-Neural2-A            |
 | `KORE_ENGLISH_`            | Kore (English)             |
 | `KORE_GUJARATI_`           | Kore (Gujarati)            |
-| `KORE_ARABIC_`             | Kore (Arabic)              |
-| `KORE_FRENCH_`             | Kore (French)              |
-| `KORE_JAPANESE_`           | Kore (Japanese)            |
 | `KORE_HINDI_`              | Kore (Hindi)               |
 | `KORE_KOREAN_`             | Kore (Korean)              |
 | `KORE_MANDARIN_`           | Kore (Mandarin)            |
@@ -112,9 +94,6 @@ value = AgentVoiceDisplayName.ACHERNAR_ENGLISH_
 | `LAURA`                    | Laura                      |
 | `LEDA_ENGLISH_`            | Leda (English)             |
 | `LEDA_GUJARATI_`           | Leda (Gujarati)            |
-| `LEDA_ARABIC_`             | Leda (Arabic)              |
-| `LEDA_FRENCH_`             | Leda (French)              |
-| `LEDA_JAPANESE_`           | Leda (Japanese)            |
 | `LEDA_HINDI_`              | Leda (Hindi)               |
 | `LEDA_KOREAN_`             | Leda (Korean)              |
 | `LEDA_MANDARIN_`           | Leda (Mandarin)            |
@@ -129,9 +108,6 @@ value = AgentVoiceDisplayName.ACHERNAR_ENGLISH_
 | `ONYX`                     | Onyx                       |
 | `ORUS_ENGLISH_`            | Orus (English)             |
 | `ORUS_GUJARATI_`           | Orus (Gujarati)            |
-| `ORUS_ARABIC_`             | Orus (Arabic)              |
-| `ORUS_FRENCH_`             | Orus (French)              |
-| `ORUS_JAPANESE_`           | Orus (Japanese)            |
 | `ORUS_HINDI_`              | Orus (Hindi)               |
 | `ORUS_KOREAN_`             | Orus (Korean)              |
 | `ORUS_MANDARIN_`           | Orus (Mandarin)            |
@@ -141,9 +117,6 @@ value = AgentVoiceDisplayName.ACHERNAR_ENGLISH_
 | `ORUS_VIETNAMESE_`         | Orus (Vietnamese)          |
 | `PUCK_ENGLISH_`            | Puck (English)             |
 | `PUCK_GUJARATI_`           | Puck (Gujarati)            |
-| `PUCK_ARABIC_`             | Puck (Arabic)              |
-| `PUCK_FRENCH_`             | Puck (French)              |
-| `PUCK_JAPANESE_`           | Puck (Japanese)            |
 | `PUCK_HINDI_`              | Puck (Hindi)               |
 | `PUCK_KOREAN_`             | Puck (Korean)              |
 | `PUCK_MANDARIN_`           | Puck (Mandarin)            |
@@ -158,9 +131,6 @@ value = AgentVoiceDisplayName.ACHERNAR_ENGLISH_
 | `SHIMMER`                  | Shimmer                    |
 | `UMBRIEL_ENGLISH_`         | Umbriel (English)          |
 | `UMBRIEL_GUJARATI_`        | Umbriel (Gujarati)         |
-| `UMBRIEL_ARABIC_`          | Umbriel (Arabic)           |
-| `UMBRIEL_FRENCH_`          | Umbriel (French)           |
-| `UMBRIEL_JAPANESE_`        | Umbriel (Japanese)         |
 | `UMBRIEL_HINDI_`           | Umbriel (Hindi)            |
 | `UMBRIEL_KOREAN_`          | Umbriel (Korean)           |
 | `UMBRIEL_MANDARIN_`        | Umbriel (Mandarin)         |
@@ -169,9 +139,6 @@ value = AgentVoiceDisplayName.ACHERNAR_ENGLISH_
 | `UMBRIEL_VIETNAMESE_`      | Umbriel (Vietnamese)       |
 | `VINDEMIATRIX_ENGLISH_`    | Vindemiatrix (English)     |
 | `VINDEMIATRIX_GUJARATI_`   | Vindemiatrix (Gujarati)    |
-| `VINDEMIATRIX_ARABIC_`     | Vindemiatrix (Arabic)      |
-| `VINDEMIATRIX_FRENCH_`     | Vindemiatrix (French)      |
-| `VINDEMIATRIX_JAPANESE_`   | Vindemiatrix (Japanese)    |
 | `VINDEMIATRIX_HINDI_`      | Vindemiatrix (Hindi)       |
 | `VINDEMIATRIX_KOREAN_`     | Vindemiatrix (Korean)      |
 | `VINDEMIATRIX_MANDARIN_`   | Vindemiatrix (Mandarin)    |
@@ -183,9 +150,6 @@ value = AgentVoiceDisplayName.ACHERNAR_ENGLISH_
 | `YUE_HK_STANDARD_C`        | yue-HK-Standard-C          |
 | `ZEPHYR_ENGLISH_`          | Zephyr (English)           |
 | `ZEPHYR_GUJARATI_`         | Zephyr (Gujarati)          |
-| `ZEPHYR_ARABIC_`           | Zephyr (Arabic)            |
-| `ZEPHYR_FRENCH_`           | Zephyr (French)            |
-| `ZEPHYR_JAPANESE_`         | Zephyr (Japanese)          |
 | `ZEPHYR_HINDI_`            | Zephyr (Hindi)             |
 | `ZEPHYR_KOREAN_`           | Zephyr (Korean)            |
 | `ZEPHYR_MANDARIN_`         | Zephyr (Mandarin)          |

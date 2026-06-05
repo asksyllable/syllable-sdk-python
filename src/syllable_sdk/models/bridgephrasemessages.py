@@ -10,10 +10,6 @@ from typing_extensions import NotRequired, TypedDict
 class BridgePhraseMessagesTypedDict(TypedDict):
     r"""Bridge phrase message lists for a single language."""
 
-    messages: NotRequired[List[str]]
-    r"""Unified ordered bridge phrases. If empty, legacy fields are used."""
-    randomize_messages: NotRequired[bool]
-    r"""When true, unified messages are played in randomized no-repeat cycles. Ignored when unified messages are disabled."""
     first_slow_messages: NotRequired[List[str]]
     r"""Messages to say when the agent is first delayed."""
     very_slow_messages: NotRequired[List[str]]
@@ -24,12 +20,6 @@ class BridgePhraseMessagesTypedDict(TypedDict):
 
 class BridgePhraseMessages(BaseModel):
     r"""Bridge phrase message lists for a single language."""
-
-    messages: Optional[List[str]] = None
-    r"""Unified ordered bridge phrases. If empty, legacy fields are used."""
-
-    randomize_messages: Optional[bool] = False
-    r"""When true, unified messages are played in randomized no-repeat cycles. Ignored when unified messages are disabled."""
 
     first_slow_messages: Optional[List[str]] = None
     r"""Messages to say when the agent is first delayed."""
@@ -43,13 +33,7 @@ class BridgePhraseMessages(BaseModel):
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            [
-                "messages",
-                "randomize_messages",
-                "first_slow_messages",
-                "very_slow_messages",
-                "tool_responses",
-            ]
+            ["first_slow_messages", "very_slow_messages", "tool_responses"]
         )
         serialized = handler(self)
         m = {}
