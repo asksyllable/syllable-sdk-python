@@ -8465,6 +8465,7 @@
           "channels.targets"
         ],
         "summary": "Get Channel Targets",
+        "description": "List channel targets for the current suborg.\n\nSupports the standard `ListManager` filters via `search_fields`/`search_field_values`. In\naddition to `target_mode` (single value), `target_mode_list` accepts a comma-separated list of\nmodes (e.g. `voice,sms`) and matches targets whose mode is any of the listed values. Whitespace\naround tokens is tolerated and empty tokens are ignored. If both `target_mode` and\n`target_mode_list` are supplied, the two filters are combined with AND. `target_mode_list` is\nfilter-only and cannot be used as `order_by`.",
         "operationId": "channel_targets_list",
         "security": [
           {
@@ -8554,7 +8555,7 @@
             "schema": {
               "anyOf": [
                 {
-                  "$ref": "#/components/schemas/ChannelTargetProperties"
+                  "$ref": "#/components/schemas/ChannelTargetOrderProperties"
                 },
                 {
                   "type": "null"
@@ -8562,7 +8563,7 @@
               ],
               "description": "The field whose value should be used to order the results",
               "examples": [
-                "name"
+                "target"
               ],
               "title": "Order By"
             },
@@ -14217,6 +14218,9 @@
         "enum": [
           "Achernar (English)",
           "Achernar (Gujarati)",
+          "Achernar (Arabic)",
+          "Achernar (French)",
+          "Achernar (Japanese)",
           "Achernar (Hindi)",
           "Achernar (Korean)",
           "Achernar (Mandarin)",
@@ -14227,6 +14231,9 @@
           "Alloy",
           "Aoede (English)",
           "Aoede (Gujarati)",
+          "Aoede (Arabic)",
+          "Aoede (French)",
+          "Aoede (Japanese)",
           "Aoede (Hindi)",
           "Aoede (Korean)",
           "Aoede (Mandarin)",
@@ -14239,6 +14246,9 @@
           "Brian",
           "Callirrhoe (English)",
           "Callirrhoe (Gujarati)",
+          "Callirrhoe (Arabic)",
+          "Callirrhoe (French)",
+          "Callirrhoe (Japanese)",
           "Callirrhoe (Hindi)",
           "Callirrhoe (Korean)",
           "Callirrhoe (Mandarin)",
@@ -14250,6 +14260,9 @@
           "Charlotte",
           "Charon (English)",
           "Charon (Gujarati)",
+          "Charon (Arabic)",
+          "Charon (French)",
+          "Charon (Japanese)",
           "Charon (Hindi)",
           "Charon (Korean)",
           "Charon (Mandarin)",
@@ -14272,6 +14285,9 @@
           "Fable",
           "Fenrir (English)",
           "Fenrir (Gujarati)",
+          "Fenrir (Arabic)",
+          "Fenrir (French)",
+          "Fenrir (Japanese)",
           "Fenrir (Hindi)",
           "Fenrir (Korean)",
           "Fenrir (Mandarin)",
@@ -14284,6 +14300,9 @@
           "ko-KR-Neural2-A",
           "Kore (English)",
           "Kore (Gujarati)",
+          "Kore (Arabic)",
+          "Kore (French)",
+          "Kore (Japanese)",
           "Kore (Hindi)",
           "Kore (Korean)",
           "Kore (Mandarin)",
@@ -14294,6 +14313,9 @@
           "Laura",
           "Leda (English)",
           "Leda (Gujarati)",
+          "Leda (Arabic)",
+          "Leda (French)",
+          "Leda (Japanese)",
           "Leda (Hindi)",
           "Leda (Korean)",
           "Leda (Mandarin)",
@@ -14308,6 +14330,9 @@
           "Onyx",
           "Orus (English)",
           "Orus (Gujarati)",
+          "Orus (Arabic)",
+          "Orus (French)",
+          "Orus (Japanese)",
           "Orus (Hindi)",
           "Orus (Korean)",
           "Orus (Mandarin)",
@@ -14317,6 +14342,9 @@
           "Orus (Vietnamese)",
           "Puck (English)",
           "Puck (Gujarati)",
+          "Puck (Arabic)",
+          "Puck (French)",
+          "Puck (Japanese)",
           "Puck (Hindi)",
           "Puck (Korean)",
           "Puck (Mandarin)",
@@ -14331,6 +14359,9 @@
           "Shimmer",
           "Umbriel (English)",
           "Umbriel (Gujarati)",
+          "Umbriel (Arabic)",
+          "Umbriel (French)",
+          "Umbriel (Japanese)",
           "Umbriel (Hindi)",
           "Umbriel (Korean)",
           "Umbriel (Mandarin)",
@@ -14339,6 +14370,9 @@
           "Umbriel (Vietnamese)",
           "Vindemiatrix (English)",
           "Vindemiatrix (Gujarati)",
+          "Vindemiatrix (Arabic)",
+          "Vindemiatrix (French)",
+          "Vindemiatrix (Japanese)",
           "Vindemiatrix (Hindi)",
           "Vindemiatrix (Korean)",
           "Vindemiatrix (Mandarin)",
@@ -14350,6 +14384,9 @@
           "yue-HK-Standard-C",
           "Zephyr (English)",
           "Zephyr (Gujarati)",
+          "Zephyr (Arabic)",
+          "Zephyr (French)",
+          "Zephyr (Japanese)",
           "Zephyr (Hindi)",
           "Zephyr (Korean)",
           "Zephyr (Mandarin)",
@@ -14418,6 +14455,9 @@
           "elevenlabs:Will",
           "wavenet:female/en-US-Chirp3-HD-Achernar",
           "wavenet:female/gu-IN-Chirp3-HD-Achernar",
+          "wavenet:female/ar-XA-Chirp3-HD-Achernar",
+          "wavenet:female/fr-FR-Chirp3-HD-Achernar",
+          "wavenet:female/ja-JP-Chirp3-HD-Achernar",
           "wavenet:female/hi-IN-Chirp3-HD-Achernar",
           "wavenet:female/ko-KR-Chirp3-HD-Achernar",
           "wavenet:female/cmn-CN-Chirp3-HD-Achernar",
@@ -14426,6 +14466,9 @@
           "wavenet:female/vi-VN-Chirp3-HD-Achernar",
           "wavenet:female/en-US-Chirp3-HD-Aoede",
           "wavenet:female/gu-IN-Chirp3-HD-Aoede",
+          "wavenet:female/ar-XA-Chirp3-HD-Aoede",
+          "wavenet:female/fr-FR-Chirp3-HD-Aoede",
+          "wavenet:female/ja-JP-Chirp3-HD-Aoede",
           "wavenet:female/hi-IN-Chirp3-HD-Aoede",
           "wavenet:female/ko-KR-Chirp3-HD-Aoede",
           "wavenet:female/cmn-CN-Chirp3-HD-Aoede",
@@ -14436,6 +14479,9 @@
           "wavenet:male/es-US-Neural2-B",
           "wavenet:female/en-US-Chirp3-HD-Callirrhoe",
           "wavenet:female/gu-IN-Chirp3-HD-Callirrhoe",
+          "wavenet:female/ar-XA-Chirp3-HD-Callirrhoe",
+          "wavenet:female/fr-FR-Chirp3-HD-Callirrhoe",
+          "wavenet:female/ja-JP-Chirp3-HD-Callirrhoe",
           "wavenet:female/hi-IN-Chirp3-HD-Callirrhoe",
           "wavenet:female/ko-KR-Chirp3-HD-Callirrhoe",
           "wavenet:female/cmn-CN-Chirp3-HD-Callirrhoe",
@@ -14444,6 +14490,9 @@
           "wavenet:female/vi-VN-Chirp3-HD-Callirrhoe",
           "wavenet:male/en-US-Chirp3-HD-Charon",
           "wavenet:male/gu-IN-Chirp3-HD-Charon",
+          "wavenet:male/ar-XA-Chirp3-HD-Charon",
+          "wavenet:male/fr-FR-Chirp3-HD-Charon",
+          "wavenet:male/ja-JP-Chirp3-HD-Charon",
           "wavenet:male/hi-IN-Chirp3-HD-Charon",
           "wavenet:male/ko-KR-Chirp3-HD-Charon",
           "wavenet:male/cmn-CN-Chirp3-HD-Charon",
@@ -14454,6 +14503,9 @@
           "wavenet:female/en-US-Neural2-F",
           "wavenet:male/en-US-Chirp3-HD-Fenrir",
           "wavenet:male/gu-IN-Chirp3-HD-Fenrir",
+          "wavenet:male/ar-XA-Chirp3-HD-Fenrir",
+          "wavenet:male/fr-FR-Chirp3-HD-Fenrir",
+          "wavenet:male/ja-JP-Chirp3-HD-Fenrir",
           "wavenet:male/hi-IN-Chirp3-HD-Fenrir",
           "wavenet:male/ko-KR-Chirp3-HD-Fenrir",
           "wavenet:male/cmn-CN-Chirp3-HD-Fenrir",
@@ -14465,6 +14517,9 @@
           "wavenet:male/en-US-Neural2-D",
           "wavenet:female/en-US-Chirp3-HD-Kore",
           "wavenet:female/gu-IN-Chirp3-HD-Kore",
+          "wavenet:female/ar-XA-Chirp3-HD-Kore",
+          "wavenet:female/fr-FR-Chirp3-HD-Kore",
+          "wavenet:female/ja-JP-Chirp3-HD-Kore",
           "wavenet:female/hi-IN-Chirp3-HD-Kore",
           "wavenet:female/ko-KR-Chirp3-HD-Kore",
           "wavenet:female/cmn-CN-Chirp3-HD-Kore",
@@ -14474,6 +14529,9 @@
           "wavenet:female/vi-VN-Chirp3-HD-Kore",
           "wavenet:female/en-US-Chirp3-HD-Leda",
           "wavenet:female/gu-IN-Chirp3-HD-Leda",
+          "wavenet:female/ar-XA-Chirp3-HD-Leda",
+          "wavenet:female/fr-FR-Chirp3-HD-Leda",
+          "wavenet:female/ja-JP-Chirp3-HD-Leda",
           "wavenet:female/hi-IN-Chirp3-HD-Leda",
           "wavenet:female/ko-KR-Chirp3-HD-Leda",
           "wavenet:female/cmn-CN-Chirp3-HD-Leda",
@@ -14487,6 +14545,9 @@
           "wavenet:female/en-US-Studio-O",
           "wavenet:male/en-US-Chirp3-HD-Orus",
           "wavenet:male/gu-IN-Chirp3-HD-Orus",
+          "wavenet:male/ar-XA-Chirp3-HD-Orus",
+          "wavenet:male/fr-FR-Chirp3-HD-Orus",
+          "wavenet:male/ja-JP-Chirp3-HD-Orus",
           "wavenet:male/hi-IN-Chirp3-HD-Orus",
           "wavenet:male/ko-KR-Chirp3-HD-Orus",
           "wavenet:male/cmn-CN-Chirp3-HD-Orus",
@@ -14496,6 +14557,9 @@
           "wavenet:male/vi-VN-Chirp3-HD-Orus",
           "wavenet:male/en-US-Chirp3-HD-Puck",
           "wavenet:male/gu-IN-Chirp3-HD-Puck",
+          "wavenet:male/ar-XA-Chirp3-HD-Puck",
+          "wavenet:male/fr-FR-Chirp3-HD-Puck",
+          "wavenet:male/ja-JP-Chirp3-HD-Puck",
           "wavenet:male/hi-IN-Chirp3-HD-Puck",
           "wavenet:male/ko-KR-Chirp3-HD-Puck",
           "wavenet:male/cmn-CN-Chirp3-HD-Puck",
@@ -14507,6 +14571,9 @@
           "wavenet:female/vi-VN-Neural2-A",
           "wavenet:male/en-US-Chirp3-HD-Umbriel",
           "wavenet:male/gu-IN-Chirp3-HD-Umbriel",
+          "wavenet:male/ar-XA-Chirp3-HD-Umbriel",
+          "wavenet:male/fr-FR-Chirp3-HD-Umbriel",
+          "wavenet:male/ja-JP-Chirp3-HD-Umbriel",
           "wavenet:male/hi-IN-Chirp3-HD-Umbriel",
           "wavenet:male/ko-KR-Chirp3-HD-Umbriel",
           "wavenet:male/cmn-CN-Chirp3-HD-Umbriel",
@@ -14515,6 +14582,9 @@
           "wavenet:male/vi-VN-Chirp3-HD-Umbriel",
           "wavenet:female/en-US-Chirp3-HD-Vindemiatrix",
           "wavenet:female/gu-IN-Chirp3-HD-Vindemiatrix",
+          "wavenet:female/ar-XA-Chirp3-HD-Vindemiatrix",
+          "wavenet:female/fr-FR-Chirp3-HD-Vindemiatrix",
+          "wavenet:female/ja-JP-Chirp3-HD-Vindemiatrix",
           "wavenet:female/hi-IN-Chirp3-HD-Vindemiatrix",
           "wavenet:female/ko-KR-Chirp3-HD-Vindemiatrix",
           "wavenet:female/cmn-CN-Chirp3-HD-Vindemiatrix",
@@ -14523,6 +14593,9 @@
           "wavenet:female/vi-VN-Chirp3-HD-Vindemiatrix",
           "wavenet:female/en-US-Chirp3-HD-Zephyr",
           "wavenet:female/gu-IN-Chirp3-HD-Zephyr",
+          "wavenet:female/ar-XA-Chirp3-HD-Zephyr",
+          "wavenet:female/fr-FR-Chirp3-HD-Zephyr",
+          "wavenet:female/ja-JP-Chirp3-HD-Zephyr",
           "wavenet:female/hi-IN-Chirp3-HD-Zephyr",
           "wavenet:female/ko-KR-Chirp3-HD-Zephyr",
           "wavenet:female/cmn-CN-Chirp3-HD-Zephyr",
@@ -15117,6 +15190,20 @@
       },
       "BridgePhraseMessages": {
         "properties": {
+          "messages": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Messages",
+            "description": "Unified ordered bridge phrases. If empty, legacy fields are used."
+          },
+          "randomize_messages": {
+            "type": "boolean",
+            "title": "Randomize Messages",
+            "description": "When true, unified messages are played in randomized no-repeat cycles. Ignored when unified messages are disabled.",
+            "default": false
+          },
           "first_slow_messages": {
             "items": {
               "type": "string"
@@ -15148,6 +15235,20 @@
       },
       "BridgePhrasesConfig": {
         "properties": {
+          "messages": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Messages",
+            "description": "Unified ordered bridge phrases. If empty, legacy fields are used."
+          },
+          "randomize_messages": {
+            "type": "boolean",
+            "title": "Randomize Messages",
+            "description": "When true, unified messages are played in randomized no-repeat cycles. Ignored when unified messages are disabled.",
+            "default": false
+          },
           "first_slow_messages": {
             "items": {
               "type": "string"
@@ -15179,6 +15280,20 @@
             "type": "object",
             "title": "Localized",
             "description": "Per-language overrides keyed by BCP-47 tag (e.g. \"es-US\")."
+          },
+          "smart_turn_timeout_seconds": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 30.0,
+                "minimum": 0.25
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Smart Turn Timeout Seconds",
+            "description": "Seconds of caller silence before injecting the first bridge phrase. Subsequent sleep intervals are 2x, 3x, 4x this base. When unset, the service-wide default applies."
           }
         },
         "type": "object",
@@ -15597,7 +15712,7 @@
         "title": "ChannelTargetCreateRequest",
         "description": "Request model to create a channel target."
       },
-      "ChannelTargetProperties": {
+      "ChannelTargetOrderProperties": {
         "type": "string",
         "enum": [
           "id",
@@ -15611,8 +15726,26 @@
           "updated_at",
           "a2p_verified"
         ],
+        "title": "ChannelTargetOrderProperties",
+        "description": "Subset of [[ChannelTargetProperties]] that is valid as ``order_by``. Filter-only fields are\nexcluded so the generated OpenAPI client does not surface them as sortable."
+      },
+      "ChannelTargetProperties": {
+        "type": "string",
+        "enum": [
+          "id",
+          "channel_id",
+          "channel_name",
+          "agent_id",
+          "target",
+          "target_mode",
+          "target_mode_list",
+          "fallback_target",
+          "is_test",
+          "updated_at",
+          "a2p_verified"
+        ],
         "title": "ChannelTargetProperties",
-        "description": "Names of channel target fields supported for filtering/sorting on full channel targets list\nendpoint."
+        "description": "Names of channel target fields supported for filtering on the full channel targets list\nendpoint. Superset of [[ChannelTargetOrderProperties]] — includes filter-only fields like\n``target_mode_list`` that are not valid as ``order_by``."
       },
       "ChannelTargetResponse": {
         "properties": {
@@ -21927,7 +22060,11 @@
           "sw-KE",
           "ru-RU",
           "hi-IN",
-          "gu-IN"
+          "gu-IN",
+          "ar-XA",
+          "fr-FR",
+          "ja-JP",
+          "ne-NP"
         ],
         "title": "LanguageCode",
         "description": "BCP 47 codes of languages that Syllable supports."
@@ -28337,6 +28474,7 @@
           "source",
           "target",
           "duration",
+          "is_outbound",
           "is_legacy",
           "is_test"
         ],
