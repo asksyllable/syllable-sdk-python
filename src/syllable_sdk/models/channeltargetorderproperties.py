@@ -4,10 +4,9 @@ from __future__ import annotations
 from enum import Enum
 
 
-class ChannelTargetProperties(str, Enum):
-    r"""Names of channel target fields supported for filtering on the full channel targets list
-    endpoint. Superset of [[ChannelTargetOrderProperties]] — includes filter-only fields like
-    ``target_mode_list`` that are not valid as ``order_by``.
+class ChannelTargetOrderProperties(str, Enum):
+    r"""Subset of [[ChannelTargetProperties]] that is valid as ``order_by``. Filter-only fields are
+    excluded so the generated OpenAPI client does not surface them as sortable.
     """
 
     ID = "id"
@@ -16,7 +15,6 @@ class ChannelTargetProperties(str, Enum):
     AGENT_ID = "agent_id"
     TARGET = "target"
     TARGET_MODE = "target_mode"
-    TARGET_MODE_LIST = "target_mode_list"
     FALLBACK_TARGET = "fallback_target"
     IS_TEST = "is_test"
     UPDATED_AT = "updated_at"
