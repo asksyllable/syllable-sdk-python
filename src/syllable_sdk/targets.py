@@ -247,7 +247,7 @@ class Targets(BaseSDK):
         limit: Optional[int] = 25,
         search_fields: Optional[List[models.ChannelTargetProperties]] = None,
         search_field_values: Optional[List[str]] = None,
-        order_by: OptionalNullable[models.ChannelTargetProperties] = UNSET,
+        order_by: OptionalNullable[models.ChannelTargetOrderProperties] = UNSET,
         order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
         fields: OptionalNullable[List[models.ChannelTargetProperties]] = UNSET,
         start_datetime: OptionalNullable[str] = UNSET,
@@ -258,6 +258,15 @@ class Targets(BaseSDK):
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ListResponseChannelTargetResponse:
         r"""Get Channel Targets
+
+        List channel targets for the current suborg.
+
+        Supports the standard `ListManager` filters via `search_fields`/`search_field_values`. In
+        addition to `target_mode` (single value), `target_mode_list` accepts a comma-separated list of
+        modes (e.g. `voice,sms`) and matches targets whose mode is any of the listed values. Whitespace
+        around tokens is tolerated and empty tokens are ignored. If both `target_mode` and
+        `target_mode_list` are supplied, the two filters are combined with AND. `target_mode_list` is
+        filter-only and cannot be used as `order_by`.
 
         :param page: The page number from which to start (0-based)
         :param limit: The maximum number of items to return
@@ -361,7 +370,7 @@ class Targets(BaseSDK):
         limit: Optional[int] = 25,
         search_fields: Optional[List[models.ChannelTargetProperties]] = None,
         search_field_values: Optional[List[str]] = None,
-        order_by: OptionalNullable[models.ChannelTargetProperties] = UNSET,
+        order_by: OptionalNullable[models.ChannelTargetOrderProperties] = UNSET,
         order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
         fields: OptionalNullable[List[models.ChannelTargetProperties]] = UNSET,
         start_datetime: OptionalNullable[str] = UNSET,
@@ -372,6 +381,15 @@ class Targets(BaseSDK):
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ListResponseChannelTargetResponse:
         r"""Get Channel Targets
+
+        List channel targets for the current suborg.
+
+        Supports the standard `ListManager` filters via `search_fields`/`search_field_values`. In
+        addition to `target_mode` (single value), `target_mode_list` accepts a comma-separated list of
+        modes (e.g. `voice,sms`) and matches targets whose mode is any of the listed values. Whitespace
+        around tokens is tolerated and empty tokens are ignored. If both `target_mode` and
+        `target_mode_list` are supplied, the two filters are combined with AND. `target_mode_list` is
+        filter-only and cannot be used as `order_by`.
 
         :param page: The page number from which to start (0-based)
         :param limit: The maximum number of items to return
