@@ -32,7 +32,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 python:
-  version: 0.46.8
+  version: 0.46.9
   additionalDependencies:
     dev: {}
     main: {}
@@ -51,6 +51,9 @@ python:
   enableCustomCodeRegions: false
   enumFormat: enum
   envVarPrefix: SYLLABLESDK
+  eventStreamClassNames:
+    async: EventStreamAsync
+    sync: EventStream
   fixFlags:
     asyncPaginationSep2025: false
     conflictResistantModelImportsFeb2026: false
