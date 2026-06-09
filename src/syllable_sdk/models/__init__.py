@@ -632,6 +632,7 @@ if TYPE_CHECKING:
     from .latencycategory import LatencyCategory
     from .latencyentry import LatencyEntry, LatencyEntryTypedDict
     from .latencyunittype import LatencyUnitType
+    from .linetypebucket import LineTypeBucket
     from .listresponse_agentresponse_ import (
         ListResponseAgentResponse,
         ListResponseAgentResponseTypedDict,
@@ -1635,6 +1636,7 @@ __all__ = [
     "LatencyEntry",
     "LatencyEntryTypedDict",
     "LatencyUnitType",
+    "LineTypeBucket",
     "ListResponseAgentResponse",
     "ListResponseAgentResponseTypedDict",
     "ListResponseAvailableTarget",
@@ -2472,6 +2474,7 @@ _dynamic_imports: dict[str, str] = {
     "LatencyEntry": ".latencyentry",
     "LatencyEntryTypedDict": ".latencyentry",
     "LatencyUnitType": ".latencyunittype",
+    "LineTypeBucket": ".linetypebucket",
     "ListResponseAgentResponse": ".listresponse_agentresponse_",
     "ListResponseAgentResponseTypedDict": ".listresponse_agentresponse_",
     "ListResponseAvailableTarget": ".listresponse_availabletarget_",

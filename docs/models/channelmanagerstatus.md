@@ -19,6 +19,7 @@ value = ChannelManagerStatus.PENDING
 | `DUPLICATE`          | DUPLICATE            |
 | `INVALID`            | INVALID              |
 | `FAILED`             | FAILED               |
+| `FILTERED_LINE_TYPE` | FILTERED_LINE_TYPE   |
 | `PROCESSED`          | PROCESSED            |
 | `DROPPED`            | DROPPED              |
 | `DEFERRED`           | DEFERRED             |
