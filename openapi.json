@@ -15586,6 +15586,7 @@
           "DUPLICATE",
           "INVALID",
           "FAILED",
+          "FILTERED_LINE_TYPE",
           "PROCESSED",
           "DROPPED",
           "DEFERRED",
@@ -16385,7 +16386,8 @@
               "COMPLETED",
               "FAILED",
               "CANCELED",
-              "INVALID"
+              "INVALID",
+              "SKIPPED"
             ]
           },
           "channel_manager_status": {
@@ -16453,6 +16455,23 @@
                 "rating": "Good",
                 "summary": "The customer service agent successfully assisted the caller with their inquiry and the call ended positively."
               }
+            ]
+          },
+          "line_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Line Type",
+            "description": "Line type of the target number from Twilio Lookup (e.g. 'mobile', 'landline', 'voip'); resolved at ingestion.",
+            "examples": [
+              "mobile",
+              "landline",
+              "voip"
             ]
           }
         },
@@ -22631,6 +22650,16 @@
         ],
         "title": "LatencyUnitType"
       },
+      "LineTypeBucket": {
+        "type": "string",
+        "enum": [
+          "mobile",
+          "landline",
+          "voip"
+        ],
+        "title": "LineTypeBucket",
+        "description": "Friendly line-type buckets a campaign can be restricted to dial.\n\nThese map to raw Twilio Lookup v2 line types via\n``lib.twilio.line_type_lookup.LINE_TYPE_BUCKETS``."
+      },
       "ListResponse_AgentResponse_": {
         "properties": {
           "items": {
@@ -25585,6 +25614,36 @@
               }
             ]
           },
+          "allowed_line_types": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/LineTypeBucket"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Allowed Line Types",
+            "description": "Line-type buckets this campaign is allowed to dial. Empty or omitted means no filter (all line types are dialed).",
+            "examples": [
+              [
+                "mobile",
+                "voip"
+              ]
+            ]
+          },
+          "include_unknown_line_types": {
+            "type": "boolean",
+            "title": "Include Unknown Line Types",
+            "description": "When a line-type filter is active, whether to also dial numbers whose line type is unknown or could not be classified. Has no effect when allowed_line_types is empty.",
+            "default": true,
+            "examples": [
+              true
+            ]
+          },
           "id": {
             "type": "integer",
             "title": "Id",
@@ -25929,6 +25988,36 @@
                 "voicemail_detection_post_speech_timeout": 1.75,
                 "voicemail_detection_pre_speech_timeout": 3.5
               }
+            ]
+          },
+          "allowed_line_types": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/LineTypeBucket"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Allowed Line Types",
+            "description": "Line-type buckets this campaign is allowed to dial. Empty or omitted means no filter (all line types are dialed).",
+            "examples": [
+              [
+                "mobile",
+                "voip"
+              ]
+            ]
+          },
+          "include_unknown_line_types": {
+            "type": "boolean",
+            "title": "Include Unknown Line Types",
+            "description": "When a line-type filter is active, whether to also dial numbers whose line type is unknown or could not be classified. Has no effect when allowed_line_types is empty.",
+            "default": true,
+            "examples": [
+              true
             ]
           },
           "webhooks": {
@@ -27106,7 +27195,8 @@
           "COMPLETED",
           "FAILED",
           "CANCELED",
-          "INVALID"
+          "INVALID",
+          "SKIPPED"
         ],
         "title": "RequestStatus",
         "description": "Status of a communication request."
