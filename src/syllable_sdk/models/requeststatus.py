@@ -15,3 +15,4 @@ class RequestStatus(str, Enum):
     FAILED = "FAILED"
     CANCELED = "CANCELED"
     INVALID = "INVALID"
+    SKIPPED = "SKIPPED"

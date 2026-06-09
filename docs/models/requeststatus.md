@@ -23,3 +23,4 @@ value = RequestStatus.PENDING
 | `FAILED`    | FAILED      |
 | `CANCELED`  | CANCELED    |
 | `INVALID`   | INVALID     |
+| `SKIPPED`   | SKIPPED     |

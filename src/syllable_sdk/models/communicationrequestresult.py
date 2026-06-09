@@ -48,6 +48,8 @@ class CommunicationRequestResultTypedDict(TypedDict):
     r"""Status of session in insight workflow"""
     insights: NotRequired[Nullable[Dict[str, InsightsTypedDict]]]
     r"""Insights from call"""
+    line_type: NotRequired[Nullable[str]]
+    r"""Line type of the target number from Twilio Lookup (e.g. 'mobile', 'landline', 'voip'); resolved at ingestion."""
 
 
 class CommunicationRequestResult(BaseModel):
@@ -90,6 +92,9 @@ class CommunicationRequestResult(BaseModel):
     insights: OptionalNullable[Dict[str, Insights]] = UNSET
     r"""Insights from call"""
 
+    line_type: OptionalNullable[str] = UNSET
+    r"""Line type of the target number from Twilio Lookup (e.g. 'mobile', 'landline', 'voip'); resolved at ingestion."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -104,6 +109,7 @@ class CommunicationRequestResult(BaseModel):
                 "channel_manager_status",
                 "insights_status",
                 "insights",
+                "line_type",
             ]
         )
         nullable_fields = set(
@@ -115,6 +121,7 @@ class CommunicationRequestResult(BaseModel):
                 "channel_manager_status",
                 "insights_status",
                 "insights",
+                "line_type",
             ]
         )
         serialized = handler(self)

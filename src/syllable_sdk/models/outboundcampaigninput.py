@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from .daysofweek import DaysOfWeek
+from .linetypebucket import LineTypeBucket
 from .outboundcampaignwebhookinput import (
     OutboundCampaignWebhookInput,
     OutboundCampaignWebhookInputTypedDict,
@@ -54,6 +55,10 @@ class OutboundCampaignInputTypedDict(TypedDict):
     r"""How long to wait before retrying"""
     voicemail_detection: NotRequired[Nullable[Dict[str, float]]]
     r"""Config for voicemail detection for voice campaigns. Set to None to disable."""
+    allowed_line_types: NotRequired[Nullable[List[LineTypeBucket]]]
+    r"""Line-type buckets this campaign is allowed to dial. Empty or omitted means no filter (all line types are dialed)."""
+    include_unknown_line_types: NotRequired[bool]
+    r"""When a line-type filter is active, whether to also dial numbers whose line type is unknown or could not be classified. Has no effect when allowed_line_types is empty."""
     webhooks: NotRequired[List[OutboundCampaignWebhookInputTypedDict]]
     r"""Webhooks for campaign (note: this is an in-development feature - webhooks will not yet trigger even if configured)"""
 
@@ -115,6 +120,12 @@ class OutboundCampaignInput(BaseModel):
     voicemail_detection: OptionalNullable[Dict[str, float]] = UNSET
     r"""Config for voicemail detection for voice campaigns. Set to None to disable."""
 
+    allowed_line_types: OptionalNullable[List[LineTypeBucket]] = UNSET
+    r"""Line-type buckets this campaign is allowed to dial. Empty or omitted means no filter (all line types are dialed)."""
+
+    include_unknown_line_types: Optional[bool] = True
+    r"""When a line-type filter is active, whether to also dial numbers whose line type is unknown or could not be classified. Has no effect when allowed_line_types is empty."""
+
     webhooks: Optional[List[OutboundCampaignWebhookInput]] = None
     r"""Webhooks for campaign (note: this is an in-development feature - webhooks will not yet trigger even if configured)"""
 
@@ -135,6 +146,8 @@ class OutboundCampaignInput(BaseModel):
                 "retry_count",
                 "retry_interval",
                 "voicemail_detection",
+                "allowed_line_types",
+                "include_unknown_line_types",
                 "webhooks",
             ]
         )
@@ -152,6 +165,7 @@ class OutboundCampaignInput(BaseModel):
                 "max_daily_calls",
                 "retry_interval",
                 "voicemail_detection",
+                "allowed_line_types",
             ]
         )
         serialized = handler(self)
