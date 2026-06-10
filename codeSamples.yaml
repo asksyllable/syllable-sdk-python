@@ -1885,7 +1885,9 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.organizations.delete()
+                res = ss_client.organizations.delete(request={
+                    "delete_comments": "Deleted the organization because it was no longer needed",
+                })
 
                 # Handle response
                 print(res)

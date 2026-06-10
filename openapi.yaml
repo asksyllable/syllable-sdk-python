@@ -9398,6 +9398,8 @@ components:
             - type: "null"
           title: "Delete Comments"
           description: "Comments explaining the deletion"
+          examples:
+            - "Deleted the organization because it was no longer needed"
       type: "object"
       title: "Body_organizations_delete"
     Body_organizations_update:
