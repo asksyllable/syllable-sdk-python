@@ -4327,3 +4327,13 @@ Based on:
 - [python v0.46.11] .
 ### Releases
 - [PyPI v0.46.11] https://pypi.org/project/syllable-sdk/0.46.11 - .
+
+## 2026-06-10 08:31:36
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.774.1 (2.899.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.46.12] .
+### Releases
+- [PyPI v0.46.12] https://pypi.org/project/syllable-sdk/0.46.12 - .

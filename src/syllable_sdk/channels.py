@@ -9,7 +9,7 @@ from syllable_sdk.twilio import Twilio
 from syllable_sdk.types import BaseModel, OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
 from syllable_sdk.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional, Union, cast
+from typing import Any, Iterable, List, Mapping, Optional, Union, cast
 
 
 class Channels(BaseSDK):
@@ -36,11 +36,11 @@ class Channels(BaseSDK):
         *,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
-        search_fields: Optional[List[models.ChannelProperties]] = None,
-        search_field_values: Optional[List[str]] = None,
+        search_fields: Optional[Iterable[models.ChannelProperties]] = None,
+        search_field_values: Optional[Iterable[str]] = None,
         order_by: OptionalNullable[models.ChannelProperties] = UNSET,
         order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
-        fields: OptionalNullable[List[models.ChannelProperties]] = UNSET,
+        fields: OptionalNullable[Iterable[models.ChannelProperties]] = UNSET,
         start_datetime: OptionalNullable[str] = UNSET,
         end_datetime: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -77,11 +77,17 @@ class Channels(BaseSDK):
         request = models.ChannelsListRequest(
             page=page,
             limit=limit,
-            search_fields=search_fields,
-            search_field_values=search_field_values,
+            search_fields=utils.unmarshal(
+                search_fields, Optional[List[models.ChannelProperties]]
+            ),
+            search_field_values=utils.unmarshal(
+                search_field_values, Optional[List[str]]
+            ),
             order_by=order_by,
             order_by_direction=order_by_direction,
-            fields=fields,
+            fields=utils.unmarshal(
+                fields, OptionalNullable[List[models.ChannelProperties]]
+            ),
             start_datetime=start_datetime,
             end_datetime=end_datetime,
         )
@@ -148,11 +154,11 @@ class Channels(BaseSDK):
         *,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
-        search_fields: Optional[List[models.ChannelProperties]] = None,
-        search_field_values: Optional[List[str]] = None,
+        search_fields: Optional[Iterable[models.ChannelProperties]] = None,
+        search_field_values: Optional[Iterable[str]] = None,
         order_by: OptionalNullable[models.ChannelProperties] = UNSET,
         order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
-        fields: OptionalNullable[List[models.ChannelProperties]] = UNSET,
+        fields: OptionalNullable[Iterable[models.ChannelProperties]] = UNSET,
         start_datetime: OptionalNullable[str] = UNSET,
         end_datetime: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -189,11 +195,17 @@ class Channels(BaseSDK):
         request = models.ChannelsListRequest(
             page=page,
             limit=limit,
-            search_fields=search_fields,
-            search_field_values=search_field_values,
+            search_fields=utils.unmarshal(
+                search_fields, Optional[List[models.ChannelProperties]]
+            ),
+            search_field_values=utils.unmarshal(
+                search_field_values, Optional[List[str]]
+            ),
             order_by=order_by,
             order_by_direction=order_by_direction,
-            fields=fields,
+            fields=utils.unmarshal(
+                fields, OptionalNullable[List[models.ChannelProperties]]
+            ),
             start_datetime=start_datetime,
             end_datetime=end_datetime,
         )
