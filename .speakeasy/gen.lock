@@ -1,24 +1,24 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 74307e05fb725e93912bd0d2945347fc
+  docChecksum: 551f35953647e46a8ffe64787bf459da
   docVersion: 0.0.3
-  speakeasyVersion: 1.774.1
-  generationVersion: 2.899.1
-  releaseVersion: 0.46.12
-  configChecksum: c192ba93c73b80ad11ffe6426699e92b
+  speakeasyVersion: 1.776.0
+  generationVersion: 2.900.1
+  releaseVersion: 0.46.13
+  configChecksum: d1e3216a77690cb71c910ca6cf4e05ef
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: 4ecbe36e-2842-41ee-a9c7-d38e5cdd4e5f
-  pristine_commit_hash: a749d419a6d6cab0ed986121d68767bebdb7d2c5
-  pristine_tree_hash: 7e1efe7af0982126f87541cd074b6d034420db0b
+  generation_id: 8d98d739-eff1-4cc0-9520-4189d85a2b59
+  pristine_commit_hash: 2917aa5b7d6d8bcde2104961efdfa381282cc4de
+  pristine_tree_hash: 94e095b6008fe5fa360c4ebe39b9e1655840f297
 features:
   python:
     additionalDependencies: 1.1.0
     constsAndDefaults: 1.0.7
-    core: 6.0.28
+    core: 6.0.29
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
     devContainers: 3.0.0
@@ -202,8 +202,8 @@ trackedFiles:
     pristine_git_object: cb6620e0a6d8c2d097f402c8e937158565ac3133
   docs/models/bodyorganizationsdelete.md:
     id: 26a878b6a2af
-    last_write_checksum: sha1:0939882abfc97b5c7bf204eb0481685d75df403b
-    pristine_git_object: 94521ace74cac86a90cae867fd3c07eb45b35061
+    last_write_checksum: sha1:82714fc52e5a5d27fc7de7af817fe3c96d0e1f6f
+    pristine_git_object: 663e69a30e0e8403a8a5f395848c8800f4b9d982
   docs/models/bodyorganizationsupdate.md:
     id: 130d2a441c62
     last_write_checksum: sha1:fce9270ad015df654b7d56b06d7642d8b38dd4a5
@@ -1986,8 +1986,8 @@ trackedFiles:
     pristine_git_object: 46e1f5ef6f106618268c8e5b09a6bfe6c4c24163
   docs/sdks/organizations/README.md:
     id: 3425667a2db5
-    last_write_checksum: sha1:a4fad7c49f698f0d043c27ddeada0d92533d25fc
-    pristine_git_object: c742f2fe4f96244b331ddadb62bded9006b383ae
+    last_write_checksum: sha1:5c971f48e9070adf87ae57c456603d496d439c75
+    pristine_git_object: 423bce093aaf509564afce2a65f78b7caf5e5e33
   docs/sdks/permissions/README.md:
     id: 2e4061ce50d4
     last_write_checksum: sha1:b606de8a609c9e82140e528d04984b1e9ddaa1ae
@@ -2078,8 +2078,8 @@ trackedFiles:
     pristine_git_object: 739eef2047817f053e6c7688b3993b63a9a7f142
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:be1acbdbdb4c901b3829e7c62e745f9a865af159
-    pristine_git_object: f0508667a02c29c434e5361de1dfba1f2fb0727d
+    last_write_checksum: sha1:65bd86b61a3d623be0fddfbabaf2be28cd6214eb
+    pristine_git_object: b8318f4f124f315e53ba589942446b2ffaec1be3
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2106,8 +2106,8 @@ trackedFiles:
     pristine_git_object: 80c09ba9b6fc421f9200d202e6a452aeedb2c3e4
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:854a0714ce50308a6af3b0b1ccdc96d282142cbd
-    pristine_git_object: f877f7d0206d40c6c03f2a0bc216c2af429fb9c2
+    last_write_checksum: sha1:137554903f94ae71d5fd12523f25bb69fb86cc65
+    pristine_git_object: 958f09e589c58cbeef01969fd9a6de9294c8f031
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:18dce338cb98b729a5d3189f1eaf4398ceff2f0d
@@ -5429,6 +5429,8 @@ examples:
           application/json: {}
   organizations_delete:
     speakeasy-default-organizations-delete:
+      requestBody:
+        application/x-www-form-urlencoded: {"delete_comments": "Deleted the organization because it was no longer needed"}
       responses:
         "200":
           application/json: "<value>"
