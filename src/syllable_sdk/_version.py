@@ -3,10 +3,10 @@
 import importlib.metadata
 
 __title__: str = "syllable-sdk"
-__version__: str = "0.46.17"
+__version__: str = "0.46.18"
 __openapi_doc_version__: str = "0.0.3"
-__gen_version__: str = "2.904.2"
-__user_agent__: str = "speakeasy-sdk/python 0.46.17 2.904.2 0.0.3 syllable-sdk"
+__gen_version__: str = "2.907.0"
+__user_agent__: str = "speakeasy-sdk/python 0.46.18 2.907.0 0.0.3 syllable-sdk"
 
 try:
     if __package__ is not None:
