@@ -3,29 +3,27 @@
 from .basesdk import BaseSDK
 from syllable_sdk import errors, models, utils
 from syllable_sdk._hooks import HookContext
-from syllable_sdk.types import BaseModel, OptionalNullable, UNSET
+from syllable_sdk.types import OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
 from syllable_sdk.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, Mapping, Optional, Union, cast
+from typing import Any, Mapping, Optional
 
 
-class Test(BaseSDK):
-    r"""Operations for testing agents with live text.           These endpoints allow sending messages to an agent and receiving its responses."""
-
-    def send_test_message(
+class Timeline(BaseSDK):
+    def get_by_id(
         self,
         *,
-        request: Union[models.TestMessage, models.TestMessageTypedDict],
+        session_id: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.TestMessageResponse:
-        r"""Send New Message
+    ) -> models.SessionTimelineResponse:
+        r"""Get Session Timeline By Id
 
-        Send a new message
+        Consolidated, time-ordered timeline of a session's events.
 
-        :param request: The request object to send.
+        :param session_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -41,26 +39,23 @@ class Test(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        if not isinstance(request, BaseModel):
-            request = utils.unmarshal(request, models.TestMessage)
-        request = cast(models.TestMessage, request)
+        request = models.SessionTimelineGetByIDRequest(
+            session_id=session_id,
+        )
 
         req = self._build_request(
-            method="POST",
-            path="/api/v1/agents/test/messages",
+            method="GET",
+            path="/api/v1/sessions/timeline/{session_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
-            request_body_required=True,
-            request_has_path_params=False,
+            request_body_required=False,
+            request_has_path_params=True,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.TestMessage
-            ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
@@ -77,12 +72,12 @@ class Test(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="send_test_message",
+                operation_id="session_timeline_get_by_id",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
-                tags=["agents.test"],
+                tags=["sessions.timeline"],
                 extensions=None,
             ),
             request=req,
@@ -92,7 +87,7 @@ class Test(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.TestMessageResponse, http_res)
+            return unmarshal_json_response(models.SessionTimelineResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
@@ -107,20 +102,20 @@ class Test(BaseSDK):
 
         raise errors.APIError("Unexpected response received", http_res)
 
-    async def send_test_message_async(
+    async def get_by_id_async(
         self,
         *,
-        request: Union[models.TestMessage, models.TestMessageTypedDict],
+        session_id: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.TestMessageResponse:
-        r"""Send New Message
+    ) -> models.SessionTimelineResponse:
+        r"""Get Session Timeline By Id
 
-        Send a new message
+        Consolidated, time-ordered timeline of a session's events.
 
-        :param request: The request object to send.
+        :param session_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -136,26 +131,23 @@ class Test(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        if not isinstance(request, BaseModel):
-            request = utils.unmarshal(request, models.TestMessage)
-        request = cast(models.TestMessage, request)
+        request = models.SessionTimelineGetByIDRequest(
+            session_id=session_id,
+        )
 
         req = self._build_request_async(
-            method="POST",
-            path="/api/v1/agents/test/messages",
+            method="GET",
+            path="/api/v1/sessions/timeline/{session_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
-            request_body_required=True,
-            request_has_path_params=False,
+            request_body_required=False,
+            request_has_path_params=True,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.TestMessage
-            ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
@@ -172,12 +164,12 @@ class Test(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="send_test_message",
+                operation_id="session_timeline_get_by_id",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
-                tags=["agents.test"],
+                tags=["sessions.timeline"],
                 extensions=None,
             ),
             request=req,
@@ -187,7 +179,7 @@ class Test(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.TestMessageResponse, http_res)
+            return unmarshal_json_response(models.SessionTimelineResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
