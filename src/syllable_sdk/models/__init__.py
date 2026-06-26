@@ -969,6 +969,10 @@ if TYPE_CHECKING:
         SessionRecordingStreamRequest,
         SessionRecordingStreamRequestTypedDict,
     )
+    from .session_timeline_get_by_idop import (
+        SessionTimelineGetByIDRequest,
+        SessionTimelineGetByIDRequestTypedDict,
+    )
     from .session_transcript_get_by_idop import (
         SessionTranscriptGetByIDRequest,
         SessionTranscriptGetByIDRequestTypedDict,
@@ -990,6 +994,10 @@ if TYPE_CHECKING:
         SessionSummaryResponseTypedDict,
     )
     from .sessiontext import SessionText, SessionTextTypedDict
+    from .sessiontimelineresponse import (
+        SessionTimelineResponse,
+        SessionTimelineResponseTypedDict,
+    )
     from .sessiontranscriptionresponse import (
         SessionTranscriptionResponse,
         SessionTranscriptionResponseTypedDict,
@@ -1052,6 +1060,8 @@ if TYPE_CHECKING:
     )
     from .testmessage import TestMessage, TestMessageTypedDict
     from .testmessageresponse import TestMessageResponse, TestMessageResponseTypedDict
+    from .timelineevent import TimelineEvent, TimelineEventTypedDict
+    from .timelineeventkind import TimelineEventKind
     from .tool_deleteop import ToolDeleteRequest, ToolDeleteRequestTypedDict
     from .tool_get_by_nameop import ToolGetByNameRequest, ToolGetByNameRequestTypedDict
     from .tool_historyop import ToolHistoryRequest, ToolHistoryRequestTypedDict
@@ -1878,6 +1888,10 @@ __all__ = [
     "SessionSummaryResponseTypedDict",
     "SessionText",
     "SessionTextTypedDict",
+    "SessionTimelineGetByIDRequest",
+    "SessionTimelineGetByIDRequestTypedDict",
+    "SessionTimelineResponse",
+    "SessionTimelineResponseTypedDict",
     "SessionTranscriptGetByIDRequest",
     "SessionTranscriptGetByIDRequestTypedDict",
     "SessionTranscriptionResponse",
@@ -1936,6 +1950,9 @@ __all__ = [
     "TestMessageResponse",
     "TestMessageResponseTypedDict",
     "TestMessageTypedDict",
+    "TimelineEvent",
+    "TimelineEventKind",
+    "TimelineEventTypedDict",
     "ToolAgentInfo",
     "ToolAgentInfoTypedDict",
     "ToolArgumentLocation",
@@ -2691,6 +2708,8 @@ _dynamic_imports: dict[str, str] = {
     "SessionLatencyGetByIDRequestTypedDict": ".session_latency_get_by_idop",
     "SessionRecordingStreamRequest": ".session_recording_streamop",
     "SessionRecordingStreamRequestTypedDict": ".session_recording_streamop",
+    "SessionTimelineGetByIDRequest": ".session_timeline_get_by_idop",
+    "SessionTimelineGetByIDRequestTypedDict": ".session_timeline_get_by_idop",
     "SessionTranscriptGetByIDRequest": ".session_transcript_get_by_idop",
     "SessionTranscriptGetByIDRequestTypedDict": ".session_transcript_get_by_idop",
     "SessionAction": ".sessionaction",
@@ -2713,6 +2732,8 @@ _dynamic_imports: dict[str, str] = {
     "SessionSummaryResponseTypedDict": ".sessionsummaryresponse",
     "SessionText": ".sessiontext",
     "SessionTextTypedDict": ".sessiontext",
+    "SessionTimelineResponse": ".sessiontimelineresponse",
+    "SessionTimelineResponseTypedDict": ".sessiontimelineresponse",
     "SessionTranscriptionResponse": ".sessiontranscriptionresponse",
     "SessionTranscriptionResponseTypedDict": ".sessiontranscriptionresponse",
     "SetValueAction": ".setvalueaction",
@@ -2767,6 +2788,9 @@ _dynamic_imports: dict[str, str] = {
     "TestMessageTypedDict": ".testmessage",
     "TestMessageResponse": ".testmessageresponse",
     "TestMessageResponseTypedDict": ".testmessageresponse",
+    "TimelineEvent": ".timelineevent",
+    "TimelineEventTypedDict": ".timelineevent",
+    "TimelineEventKind": ".timelineeventkind",
     "ToolDeleteRequest": ".tool_deleteop",
     "ToolDeleteRequestTypedDict": ".tool_deleteop",
     "ToolGetByNameRequest": ".tool_get_by_nameop",

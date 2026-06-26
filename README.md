@@ -475,6 +475,10 @@ with SyllableSDK(
 
 * [get_by_id](docs/sdks/latency/README.md#get_by_id) - Inspect Latency For Session
 
+#### [Sessions.Timeline](docs/sdks/timeline/README.md)
+
+* [get_by_id](docs/sdks/timeline/README.md#get_by_id) - Get Session Timeline By Id
+
 #### [Sessions.Transcript](docs/sdks/transcript/README.md)
 
 * [get_by_id](docs/sdks/transcript/README.md#get_by_id) - Get Session Transcript By Id
