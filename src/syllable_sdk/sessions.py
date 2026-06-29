@@ -7,7 +7,6 @@ from syllable_sdk import errors, models, utils
 from syllable_sdk._hooks import HookContext
 from syllable_sdk.full_summary import FullSummary
 from syllable_sdk.latency import Latency
-from syllable_sdk.timeline import Timeline
 from syllable_sdk.transcript import Transcript
 from syllable_sdk.types import OptionalNullable, UNSET
 from syllable_sdk.utils import get_security_from_env
@@ -21,7 +20,6 @@ class Sessions(BaseSDK):
     transcript: Transcript
     full_summary: FullSummary
     latency: Latency
-    timeline: Timeline
 
     def __init__(
         self, sdk_config: SDKConfiguration, parent_ref: Optional[object] = None
@@ -36,7 +34,6 @@ class Sessions(BaseSDK):
             self.sdk_configuration, parent_ref=self.parent_ref
         )
         self.latency = Latency(self.sdk_configuration, parent_ref=self.parent_ref)
-        self.timeline = Timeline(self.sdk_configuration, parent_ref=self.parent_ref)
 
     def list(
         self,

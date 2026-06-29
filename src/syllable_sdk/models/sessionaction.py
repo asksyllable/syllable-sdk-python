@@ -26,8 +26,6 @@ class SessionActionTypedDict(TypedDict):
     r"""Response received from the tool API, if applicable"""
     tool_error: NotRequired[Nullable[str]]
     r"""Error received from the tool API, if applicable"""
-    duration_ms: NotRequired[Nullable[float]]
-    r"""How long the tool invocation took, in milliseconds"""
 
 
 class SessionAction(BaseModel):
@@ -48,16 +46,13 @@ class SessionAction(BaseModel):
     tool_error: OptionalNullable[str] = UNSET
     r"""Error received from the tool API, if applicable"""
 
-    duration_ms: OptionalNullable[float] = UNSET
-    r"""How long the tool invocation took, in milliseconds"""
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            ["tool_name", "tool_request", "tool_result", "tool_error", "duration_ms"]
+            ["tool_name", "tool_request", "tool_result", "tool_error"]
         )
         nullable_fields = set(
-            ["tool_name", "tool_request", "tool_result", "tool_error", "duration_ms"]
+            ["tool_name", "tool_request", "tool_result", "tool_error"]
         )
         serialized = handler(self)
         m = {}
