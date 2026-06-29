@@ -7589,54 +7589,6 @@
         }
       }
     },
-    "/api/v1/sessions/timeline/{session_id}": {
-      "get": {
-        "tags": [
-          "sessions.timeline"
-        ],
-        "summary": "Get Session Timeline By Id",
-        "description": "Consolidated, time-ordered timeline of a session's events.",
-        "operationId": "session_timeline_get_by_id",
-        "security": [
-          {
-            "APIKeyHeader": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "session_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Session Id"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SessionTimelineResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/v1/session_debug/sid/{channel_manager_service}/{channel_manager_sid}": {
       "get": {
         "tags": [
@@ -14735,7 +14687,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260627.9"
+              "20260629.9"
             ]
           },
           "campaign_id": {
@@ -14759,7 +14711,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-06-28T00:00:00Z"
+              "2026-06-30T00:00:00Z"
             ]
           },
           "paused": {
@@ -14827,7 +14779,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-06-27T00:00:00Z"
+              "2026-06-29T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -14843,7 +14795,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-06-27T00:00:00Z"
+              "2026-06-29T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -14874,7 +14826,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-06-27T00:00:00Z"
+              "2026-06-29T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -16012,7 +15964,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260627.9"
+              "20260629.9"
             ]
           },
           "campaign_id": {
@@ -16036,7 +15988,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-06-28T00:00:00Z"
+              "2026-06-30T00:00:00Z"
             ]
           },
           "paused": {
@@ -16104,7 +16056,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-06-27T00:00:00Z"
+              "2026-06-29T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -16120,7 +16072,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-06-27T00:00:00Z"
+              "2026-06-29T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -16151,7 +16103,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-06-27T00:00:00Z"
+              "2026-06-29T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -16194,7 +16146,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260627.9"
+              "20260629.9"
             ]
           },
           "campaign_id": {
@@ -16218,7 +16170,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-06-28T00:00:00Z"
+              "2026-06-30T00:00:00Z"
             ]
           },
           "paused": {
@@ -16367,7 +16319,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2026-06-26T00:00:00Z"
+              "2026-06-28T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -16383,7 +16335,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2026-06-27T00:00:00Z"
+              "2026-06-29T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -19783,7 +19735,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-06-26T00:00:00Z"
+              "2026-06-28T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -19792,7 +19744,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-06-27T00:00:00Z"
+              "2026-06-29T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -20795,7 +20747,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2026-06-26T00:00:00Z"
+              "2026-06-28T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -20804,7 +20756,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2026-06-27T00:00:00Z"
+              "2026-06-29T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -21185,7 +21137,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-06-26T00:00:00Z"
+              "2026-06-28T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -21201,7 +21153,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-06-27T00:00:00Z"
+              "2026-06-29T00:00:00Z"
             ]
           }
         },
@@ -21276,7 +21228,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-06-26T00:00:00Z"
+              "2026-06-28T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -21292,7 +21244,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-06-27T00:00:00Z"
+              "2026-06-29T00:00:00Z"
             ]
           },
           "id": {
@@ -21360,7 +21312,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2026-06-26T00:00:00Z"
+              "2026-06-28T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -21369,7 +21321,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2026-06-27T00:00:00Z"
+              "2026-06-29T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -21465,7 +21417,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-06-26T00:00:00Z"
+              "2026-06-28T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -21474,7 +21426,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-06-27T00:00:00Z"
+              "2026-06-29T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -21724,7 +21676,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2026-06-26T00:00:00Z"
+              "2026-06-28T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -21733,7 +21685,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2026-06-27T00:00:00Z"
+              "2026-06-29T00:00:00Z"
             ]
           },
           "upload_file_metadata": {
@@ -21878,7 +21830,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2026-06-26T00:00:00Z"
+              "2026-06-28T00:00:00Z"
             ]
           },
           "end_time": {
@@ -21894,7 +21846,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2026-06-27T00:00:00Z"
+              "2026-06-29T00:00:00Z"
             ]
           },
           "error_message": {
@@ -21949,7 +21901,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2026-06-26T00:00:00Z"
+              "2026-06-28T00:00:00Z"
             ]
           }
         },
@@ -25724,7 +25676,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2026-06-27T00:00:00Z"
+              "2026-06-29T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -25733,7 +25685,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2026-06-27T00:00:00Z"
+              "2026-06-29T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -28295,18 +28247,6 @@
             ],
             "title": "Tool Error",
             "description": "Error received from the tool API, if applicable"
-          },
-          "duration_ms": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Duration Ms",
-            "description": "How long the tool invocation took, in milliseconds"
           }
         },
         "type": "object",
@@ -28774,43 +28714,6 @@
         ],
         "title": "SessionText",
         "description": "Information about a given message from a user to an agent or vice-versa."
-      },
-      "SessionTimelineResponse": {
-        "properties": {
-          "session_id": {
-            "type": "string",
-            "title": "Session Id",
-            "description": "Internal ID of the session"
-          },
-          "session_start": {
-            "anyOf": [
-              {
-                "type": "string",
-                "format": "date-time"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Session Start",
-            "description": "Timestamp of the first event; the zero point for all offsets"
-          },
-          "events": {
-            "items": {
-              "$ref": "#/components/schemas/TimelineEvent"
-            },
-            "type": "array",
-            "title": "Events",
-            "description": "All events, ordered by timestamp ascending"
-          }
-        },
-        "type": "object",
-        "required": [
-          "session_id",
-          "events"
-        ],
-        "title": "SessionTimelineResponse",
-        "description": "Consolidated, time-ordered timeline of a session's events."
       },
       "SessionTranscriptionResponse": {
         "properties": {
@@ -29855,194 +29758,6 @@
         ],
         "title": "TestMessageResponse",
         "description": "Response from an agent in a test chat."
-      },
-      "TimelineEvent": {
-        "properties": {
-          "kind": {
-            "$ref": "#/components/schemas/TimelineEventKind",
-            "description": "Which stream this event came from"
-          },
-          "timestamp": {
-            "type": "string",
-            "format": "date-time",
-            "title": "Timestamp",
-            "description": "Absolute time of the event (for ordering)"
-          },
-          "offset": {
-            "type": "string",
-            "title": "Offset",
-            "description": "Time since session start, formatted MM:SS (or HH:MM:SS)",
-            "examples": [
-              "00:04"
-            ]
-          },
-          "turn_index": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Turn Index",
-            "description": "0-based index of the transcript turn. Transcript events carry their own turn index; tool/latency events carry the index of the nearest preceding turn they bind to. None only for non-transcript events that precede the first transcript turn."
-          },
-          "source": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Source",
-            "description": "\"user\" or \"agent\" (transcript events)"
-          },
-          "text": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Text",
-            "description": "Message content (transcript events)"
-          },
-          "lang": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Lang",
-            "description": "Language code (transcript events)"
-          },
-          "category": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Category",
-            "description": "tool | llm | tts | stt | http. A tool call surfaces once, as a `kind=tool` event; its redundant tool-latency measurement is dropped from the timeline.",
-            "examples": [
-              "tool",
-              "llm"
-            ]
-          },
-          "label": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Label",
-            "description": "Tool name (tool events) or the latency measurement name (e.g. stt_processing)",
-            "examples": [
-              "holiday_check",
-              "stt_processing"
-            ]
-          },
-          "metadata": {
-            "anyOf": [
-              {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Metadata",
-            "description": "Provider/model parts of a latency label",
-            "examples": [
-              [
-                "Gpt-4.1",
-                "OpenAI"
-              ]
-            ]
-          },
-          "duration_ms": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Duration Ms",
-            "description": "Duration of the event in milliseconds"
-          },
-          "tool_request": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Tool Request",
-            "description": "Tool request payload, JSON-encoded"
-          },
-          "tool_result": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Tool Result",
-            "description": "Tool response payload, JSON-encoded"
-          },
-          "tool_error": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Tool Error",
-            "description": "Tool error payload, JSON-encoded"
-          }
-        },
-        "type": "object",
-        "required": [
-          "kind",
-          "timestamp",
-          "offset"
-        ],
-        "title": "TimelineEvent",
-        "description": "A single normalized event on the consolidated session timeline."
-      },
-      "TimelineEventKind": {
-        "type": "string",
-        "enum": [
-          "transcript",
-          "tool",
-          "latency"
-        ],
-        "title": "TimelineEventKind"
       },
       "ToolAgentInfo": {
         "properties": {
