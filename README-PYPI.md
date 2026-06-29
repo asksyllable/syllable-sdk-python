@@ -475,6 +475,10 @@ with SyllableSDK(
 
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/latency/README.md#get_by_id) - Inspect Latency For Session
 
+#### [Sessions.Timeline](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/timeline/README.md)
+
+* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/timeline/README.md#get_by_id) - Get Session Timeline By Id
+
 #### [Sessions.Transcript](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/transcript/README.md)
 
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/transcript/README.md#get_by_id) - Get Session Transcript By Id
