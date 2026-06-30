@@ -36,6 +36,7 @@ class ChannelManagerStatus(str, Enum):
     BUSY = "BUSY"
     CANCELED = "CANCELED"
     COMPLETED = "COMPLETED"
+    DECLINED = "DECLINED"
     NO_ANSWER = "NO-ANSWER"
     MACHINE = "MACHINE"
     HUMAN = "HUMAN"
