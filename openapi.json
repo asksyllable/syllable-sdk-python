@@ -13705,6 +13705,21 @@
               1
             ]
           },
+          "bridge_phrases_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bridge Phrases Id",
+            "description": "Internal ID of the bridge phrases config associated with the agent",
+            "examples": [
+              1
+            ]
+          },
           "timezone": {
             "type": "string",
             "title": "Timezone",
@@ -14005,6 +14020,21 @@
             ],
             "title": "Language Group Id",
             "description": "Internal ID of the language group associated with the agent",
+            "examples": [
+              1
+            ]
+          },
+          "bridge_phrases_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bridge Phrases Id",
+            "description": "Internal ID of the bridge phrases config associated with the agent",
             "examples": [
               1
             ]
@@ -14437,6 +14467,21 @@
             ],
             "title": "Language Group Id",
             "description": "Internal ID of the language group associated with the agent",
+            "examples": [
+              1
+            ]
+          },
+          "bridge_phrases_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bridge Phrases Id",
+            "description": "Internal ID of the bridge phrases config associated with the agent",
             "examples": [
               1
             ]
