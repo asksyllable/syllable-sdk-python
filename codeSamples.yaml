@@ -220,6 +220,196 @@ actions:
 
                 # Handle response
                 print(res)
+  - target: $["paths"]["/api/v1/bridge_phrases/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK, models
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.bridge_phrases.list(page=0, limit=25, search_fields=[
+                    models.BridgePhrasesProperties.NAME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/bridge_phrases/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.bridge_phrases.create(request={
+                    "name": "Default Bridge Phrases",
+                    "description": "Standard hold phrases for inbound line.",
+                    "config": {
+                        "phrases": {
+                            "messages": [
+                                "One moment, please.",
+                                "Let me check on that for you.",
+                            ],
+                            "localized": {
+                                "es-US": {
+                                    "messages": [
+                                        "Un momento, por favor.",
+                                    ],
+                                },
+                                "fr-FR": {
+                                    "messages": [
+                                        "Un instant, je vous en prie.",
+                                    ],
+                                },
+                            },
+                        },
+                        "tools": [
+                            {
+                                "tool_name": "<value>",
+                                "phrases": {
+                                    "messages": [
+                                        "One moment, please.",
+                                        "Let me check on that for you.",
+                                    ],
+                                    "localized": {
+                                        "es-US": {
+                                            "messages": [
+                                                "Un momento, por favor.",
+                                            ],
+                                        },
+                                        "fr-FR": {
+                                            "messages": [
+                                                "Un instant, je vous en prie.",
+                                            ],
+                                        },
+                                    },
+                                },
+                            },
+                        ],
+                        "randomize_bridge_phrases": True,
+                    },
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/bridge_phrases/"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.bridge_phrases.update(request={
+                    "name": "Default Bridge Phrases",
+                    "description": "Standard hold phrases for inbound line.",
+                    "config": {
+                        "phrases": {
+                            "messages": [
+                                "One moment, please.",
+                                "Let me check on that for you.",
+                            ],
+                            "localized": {
+                                "es-US": {
+                                    "messages": [
+                                        "Un momento, por favor.",
+                                    ],
+                                },
+                                "fr-FR": {
+                                    "messages": [
+                                        "Un instant, je vous en prie.",
+                                    ],
+                                },
+                            },
+                        },
+                        "tools": [
+                            {
+                                "tool_name": "<value>",
+                                "phrases": {
+                                    "messages": [
+                                        "One moment, please.",
+                                        "Let me check on that for you.",
+                                    ],
+                                    "localized": {
+                                        "es-US": {
+                                            "messages": [
+                                                "Un momento, por favor.",
+                                            ],
+                                        },
+                                        "fr-FR": {
+                                            "messages": [
+                                                "Un instant, je vous en prie.",
+                                            ],
+                                        },
+                                    },
+                                },
+                            },
+                        ],
+                        "randomize_bridge_phrases": True,
+                    },
+                    "id": 1,
+                    "edit_comments": "Added Spanish overrides for the transfer tool.",
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/bridge_phrases/{bridge_phrases_id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.bridge_phrases.delete(bridge_phrases_id=722051, reason="<value>")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/bridge_phrases/{bridge_phrases_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.bridge_phrases.get_by_id(bridge_phrases_id=627472)
+
+                # Handle response
+                print(res)
   - target: $["paths"]["/api/v1/channels/"]["get"]
     update:
       x-codeSamples:

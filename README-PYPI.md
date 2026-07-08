@@ -243,6 +243,14 @@ with SyllableSDK(
 
 * [send_test_message](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/test/README.md#send_test_message) - Send New Message
 
+### [BridgePhrases](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/bridgephrases/README.md)
+
+* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/bridgephrases/README.md#list) - List Bridge Phrases
+* [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/bridgephrases/README.md#create) - Create Bridge Phrases
+* [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/bridgephrases/README.md#update) - Update Bridge Phrases
+* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/bridgephrases/README.md#get_by_id) - Get Bridge Phrases
+* [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/bridgephrases/README.md#delete) - Delete Bridge Phrases
+
 ### [Channels](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md)
 
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/channels/README.md#list) - Get Channels

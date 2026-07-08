@@ -16,6 +16,7 @@ import weakref
 
 if TYPE_CHECKING:
     from syllable_sdk.agents import Agents
+    from syllable_sdk.bridge_phrases import BridgePhrases
     from syllable_sdk.channels import Channels
     from syllable_sdk.conversation_config import ConversationConfig
     from syllable_sdk.conversations import Conversations
@@ -84,6 +85,7 @@ class SyllableSDK(BaseSDK):
 
     agents: "Agents"
     r"""Operations related to agent configuration. When a user interacts with the           Syllable system, they do so by communicating with an agent.           An agent is linked to a prompt, a custom message, and one or more channel targets to           define its behavior and capabilities. For more information, see           [Console docs](https://docs.syllable.ai/workspaces/Agents)."""
+    bridge_phrases: "BridgePhrases"
     channels: "Channels"
     r"""Operations related to channel configuration.           A channel is an organization-level point of communication, like a phone number or a web           chat. A channel can be associated with an agent by creating a channel target linking           them."""
     conversations: "Conversations"
@@ -130,6 +132,7 @@ class SyllableSDK(BaseSDK):
     v1: "V1"
     _sub_sdk_map = {
         "agents": ("syllable_sdk.agents", "Agents"),
+        "bridge_phrases": ("syllable_sdk.bridge_phrases", "BridgePhrases"),
         "channels": ("syllable_sdk.channels", "Channels"),
         "conversations": ("syllable_sdk.conversations", "Conversations"),
         "conversation_config": (
