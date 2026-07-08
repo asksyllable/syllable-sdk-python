@@ -44,6 +44,8 @@ class AgentUpdateTypedDict(TypedDict):
     r"""Internal ID of the custom message that should be delivered at the beginning of a conversation with the agent"""
     language_group_id: NotRequired[Nullable[int]]
     r"""Internal ID of the language group associated with the agent"""
+    bridge_phrases_id: NotRequired[Nullable[int]]
+    r"""Internal ID of the bridge phrases config associated with the agent"""
     prompt_tool_defaults: NotRequired[List[AgentToolDefaultsTypedDict]]
     r"""Agent-level static parameter values for the agent's tools, overriding any tool-level defaults"""
     languages: NotRequired[List[str]]
@@ -102,6 +104,9 @@ class AgentUpdate(BaseModel):
     language_group_id: OptionalNullable[int] = UNSET
     r"""Internal ID of the language group associated with the agent"""
 
+    bridge_phrases_id: OptionalNullable[int] = UNSET
+    r"""Internal ID of the bridge phrases config associated with the agent"""
+
     prompt_tool_defaults: Optional[List[AgentToolDefaults]] = None
     r"""Agent-level static parameter values for the agent's tools, overriding any tool-level defaults"""
 
@@ -134,6 +139,7 @@ class AgentUpdate(BaseModel):
                 "labels",
                 "custom_message_id",
                 "language_group_id",
+                "bridge_phrases_id",
                 "prompt_tool_defaults",
                 "languages",
                 "agent_initiated",
@@ -149,6 +155,7 @@ class AgentUpdate(BaseModel):
                 "labels",
                 "custom_message_id",
                 "language_group_id",
+                "bridge_phrases_id",
                 "tool_headers",
                 "stt_provider",
                 "wait_sound",

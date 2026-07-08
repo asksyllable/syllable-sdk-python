@@ -94,6 +94,7 @@ with SyllableSDK(
         "prompt_id": 1,
         "custom_message_id": 1,
         "language_group_id": 1,
+        "bridge_phrases_id": 1,
         "timezone": "America/New_York",
         "prompt_tool_defaults": [
             {
@@ -166,6 +167,7 @@ with SyllableSDK(
         "prompt_id": 1,
         "custom_message_id": 1,
         "language_group_id": 1,
+        "bridge_phrases_id": 1,
         "timezone": "America/New_York",
         "prompt_tool_defaults": [
             {
