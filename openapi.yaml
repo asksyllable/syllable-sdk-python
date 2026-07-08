@@ -16650,16 +16650,9 @@ components:
             - "[\"mon\", \"tue\", \"wed\", \"thu\", \"fri\"]"
         voicemail_detection:
           anyOf:
-            - additionalProperties:
-                type: "number"
-              type: "object"
+            - $ref: "#/components/schemas/VoicemailDetectionConfig"
             - type: "null"
-          title: "Voicemail Detection"
           description: "Config for voicemail detection for voice campaigns. Set to None to disable."
-          default:
-            voicemail_detection_overall_timeout: 30.0
-            voicemail_detection_pre_speech_timeout: 3.5
-            voicemail_detection_post_speech_timeout: 1.75
           examples:
             - voicemail_detection_overall_timeout: 30.0
               voicemail_detection_post_speech_timeout: 1.75
@@ -16880,16 +16873,9 @@ components:
             - "[\"mon\", \"tue\", \"wed\", \"thu\", \"fri\"]"
         voicemail_detection:
           anyOf:
-            - additionalProperties:
-                type: "number"
-              type: "object"
+            - $ref: "#/components/schemas/VoicemailDetectionConfig"
             - type: "null"
-          title: "Voicemail Detection"
           description: "Config for voicemail detection for voice campaigns. Set to None to disable."
-          default:
-            voicemail_detection_overall_timeout: 30.0
-            voicemail_detection_pre_speech_timeout: 3.5
-            voicemail_detection_post_speech_timeout: 1.75
           examples:
             - voicemail_detection_overall_timeout: 30.0
               voicemail_detection_post_speech_timeout: 1.75
@@ -21111,6 +21097,44 @@ components:
         - "voice_display_name"
       title: "VoiceSampleCreateRequest"
       description: "Request model to generate a sample audio file for a given voice and language."
+    VoicemailDetectionConfig:
+      properties:
+        mode:
+          anyOf:
+            - type: "string"
+              enum:
+                - "v1"
+                - "v2"
+            - type: "null"
+          title: "Mode"
+          description: "Voicemail-detection strategy: 'v1' (original check_voicemail/leave_voicemail) or 'v2' (Voicemail Detection 2, which suppresses the turn-0 greeting and uses the greeting tool). The two modes are mutually exclusive. Omitted/null on legacy v1 campaigns is treated as v1."
+          examples:
+            - "v1"
+            - "v2"
+        voicemail_detection_overall_timeout:
+          anyOf:
+            - type: "number"
+            - type: "null"
+          title: "Voicemail Detection Overall Timeout"
+        voicemail_detection_pre_speech_timeout:
+          anyOf:
+            - type: "number"
+            - type: "null"
+          title: "Voicemail Detection Pre Speech Timeout"
+        voicemail_detection_post_speech_timeout:
+          anyOf:
+            - type: "number"
+            - type: "null"
+          title: "Voicemail Detection Post Speech Timeout"
+        voicemail_detection_speech_threshold:
+          anyOf:
+            - type: "number"
+            - type: "null"
+          title: "Voicemail Detection Speech Threshold"
+      additionalProperties: true
+      type: "object"
+      title: "VoicemailDetectionConfig"
+      description: "Voicemail detection config stored on outbound_campaign.voicemail_detection.\n\n`mode` selects the (mutually-exclusive) strategy; the remaining fields are detection timeouts.\nUnknown keys are preserved (`extra='allow'`) so the schema stays backwards compatible with blobs\nwritten before fields were added. See ZOO-7818."
     lib__database__dao__organization__bridge_phrases_dao__BridgePhraseMessages:
       properties:
         messages:

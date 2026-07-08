@@ -81,53 +81,53 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.outbound.campaigns.create(request={
-        "campaign_name": "Outbound Campaign 1",
-        "description": "This is a test campaign",
-        "mode": "voice",
-        "sms_session_ttl": 720,
-        "labels": [
+    res = ss_client.outbound.campaigns.create(request=models.OutboundCampaignInput(
+        campaign_name="Outbound Campaign 1",
+        description="This is a test campaign",
+        mode="voice",
+        sms_session_ttl=720,
+        labels=[
             "test",
             "demo",
         ],
-        "campaign_variables": {
+        campaign_variables={
             "key": "value",
             "key2": "value2",
         },
-        "daily_start_time": "09:00:00",
-        "daily_end_time": "17:00:00",
-        "source": "+19032900844",
-        "caller_id": "19995551234",
-        "hourly_rate": 25,
-        "max_daily_calls": 2500,
-        "retry_count": 1,
-        "retry_interval": "30m",
-        "active_days": [
+        daily_start_time="09:00:00",
+        daily_end_time="17:00:00",
+        source="+19032900844",
+        caller_id="19995551234",
+        hourly_rate=25,
+        max_daily_calls=2500,
+        retry_count=1,
+        retry_interval="30m",
+        active_days=[
             models.DaysOfWeek.MON,
             models.DaysOfWeek.TUE,
             models.DaysOfWeek.WED,
             models.DaysOfWeek.THU,
             models.DaysOfWeek.FRI,
         ],
-        "voicemail_detection": {
-            "voicemail_detection_overall_timeout": 30,
-            "voicemail_detection_post_speech_timeout": 1.75,
-            "voicemail_detection_pre_speech_timeout": 3.5,
-        },
-        "allowed_line_types": [
+        voicemail_detection=models.VoicemailDetectionConfig(
+            voicemail_detection_overall_timeout=30,
+            voicemail_detection_pre_speech_timeout=3.5,
+            voicemail_detection_post_speech_timeout=1.75,
+        ),
+        allowed_line_types=[
             models.LineTypeBucket.MOBILE,
             models.LineTypeBucket.VOIP,
         ],
-        "webhooks": [
-            {
-                "trigger_statuses": [
+        webhooks=[
+            models.OutboundCampaignWebhookInput(
+                trigger_statuses=[
                     models.ChannelManagerStatus.COMPLETED,
                 ],
-                "url": "https://example.com/hooks/syllable",
-                "request_method": "POST",
-            },
+                url="https://example.com/hooks/syllable",
+                request_method="POST",
+            ),
         ],
-    })
+    ))
 
     # Handle response
     print(res)
@@ -209,53 +209,53 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.outbound.campaigns.update(campaign_id=187717, outbound_campaign_input={
-        "campaign_name": "Outbound Campaign 1",
-        "description": "This is a test campaign",
-        "mode": "voice",
-        "sms_session_ttl": 720,
-        "labels": [
+    res = ss_client.outbound.campaigns.update(campaign_id=187717, outbound_campaign_input=models.OutboundCampaignInput(
+        campaign_name="Outbound Campaign 1",
+        description="This is a test campaign",
+        mode="voice",
+        sms_session_ttl=720,
+        labels=[
             "test",
             "demo",
         ],
-        "campaign_variables": {
+        campaign_variables={
             "key": "value",
             "key2": "value2",
         },
-        "daily_start_time": "09:00:00",
-        "daily_end_time": "17:00:00",
-        "source": "+19032900844",
-        "caller_id": "19995551234",
-        "hourly_rate": 25,
-        "max_daily_calls": 2500,
-        "retry_count": 1,
-        "retry_interval": "30m",
-        "active_days": [
+        daily_start_time="09:00:00",
+        daily_end_time="17:00:00",
+        source="+19032900844",
+        caller_id="19995551234",
+        hourly_rate=25,
+        max_daily_calls=2500,
+        retry_count=1,
+        retry_interval="30m",
+        active_days=[
             models.DaysOfWeek.MON,
             models.DaysOfWeek.TUE,
             models.DaysOfWeek.WED,
             models.DaysOfWeek.THU,
             models.DaysOfWeek.FRI,
         ],
-        "voicemail_detection": {
-            "voicemail_detection_overall_timeout": 30,
-            "voicemail_detection_post_speech_timeout": 1.75,
-            "voicemail_detection_pre_speech_timeout": 3.5,
-        },
-        "allowed_line_types": [
+        voicemail_detection=models.VoicemailDetectionConfig(
+            voicemail_detection_overall_timeout=30,
+            voicemail_detection_pre_speech_timeout=3.5,
+            voicemail_detection_post_speech_timeout=1.75,
+        ),
+        allowed_line_types=[
             models.LineTypeBucket.MOBILE,
             models.LineTypeBucket.VOIP,
         ],
-        "webhooks": [
-            {
-                "trigger_statuses": [
+        webhooks=[
+            models.OutboundCampaignWebhookInput(
+                trigger_statuses=[
                     models.ChannelManagerStatus.COMPLETED,
                 ],
-                "url": "https://example.com/hooks/syllable",
-                "request_method": "POST",
-            },
+                url="https://example.com/hooks/syllable",
+                request_method="POST",
+            ),
         ],
-    })
+    ))
 
     # Handle response
     print(res)

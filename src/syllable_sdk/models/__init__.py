@@ -1246,6 +1246,11 @@ if TYPE_CHECKING:
         VoiceGroupUpdateRequest,
         VoiceGroupUpdateRequestTypedDict,
     )
+    from .voicemaildetectionconfig import (
+        Mode,
+        VoicemailDetectionConfig,
+        VoicemailDetectionConfigTypedDict,
+    )
     from .voicesamplecreaterequest import (
         VoiceSampleCreateRequest,
         VoiceSampleCreateRequestTypedDict,
@@ -1783,6 +1788,7 @@ __all__ = [
     "MatchType",
     "Metadata",
     "MetadataTypedDict",
+    "Mode",
     "Next",
     "NextStep",
     "NextStepIf1",
@@ -2138,6 +2144,8 @@ __all__ = [
     "VoiceGroupsListRequestTypedDict",
     "VoiceSampleCreateRequest",
     "VoiceSampleCreateRequestTypedDict",
+    "VoicemailDetectionConfig",
+    "VoicemailDetectionConfigTypedDict",
 ]
 
 _dynamic_imports: dict[str, str] = {
@@ -3004,6 +3012,9 @@ _dynamic_imports: dict[str, str] = {
     "VoiceGroupResponseTypedDict": ".voicegroupresponse",
     "VoiceGroupUpdateRequest": ".voicegroupupdaterequest",
     "VoiceGroupUpdateRequestTypedDict": ".voicegroupupdaterequest",
+    "Mode": ".voicemaildetectionconfig",
+    "VoicemailDetectionConfig": ".voicemaildetectionconfig",
+    "VoicemailDetectionConfigTypedDict": ".voicemaildetectionconfig",
     "VoiceSampleCreateRequest": ".voicesamplecreaterequest",
     "VoiceSampleCreateRequestTypedDict": ".voicesamplecreaterequest",
 }
