@@ -243,6 +243,14 @@ with SyllableSDK(
 
 * [send_test_message](docs/sdks/test/README.md#send_test_message) - Send New Message
 
+### [BridgePhrases](docs/sdks/bridgephrases/README.md)
+
+* [list](docs/sdks/bridgephrases/README.md#list) - List Bridge Phrases
+* [create](docs/sdks/bridgephrases/README.md#create) - Create Bridge Phrases
+* [update](docs/sdks/bridgephrases/README.md#update) - Update Bridge Phrases
+* [get_by_id](docs/sdks/bridgephrases/README.md#get_by_id) - Get Bridge Phrases
+* [delete](docs/sdks/bridgephrases/README.md#delete) - Delete Bridge Phrases
+
 ### [Channels](docs/sdks/channels/README.md)
 
 * [list](docs/sdks/channels/README.md#list) - Get Channels

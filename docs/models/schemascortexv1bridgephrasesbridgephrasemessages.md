@@ -1,4 +1,4 @@
-# BridgePhraseMessages
+# SchemasCortexV1BridgePhrasesBridgePhraseMessages
 
 Bridge phrase message lists for a single language.
 

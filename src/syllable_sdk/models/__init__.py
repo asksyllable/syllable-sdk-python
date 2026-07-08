@@ -100,11 +100,40 @@ if TYPE_CHECKING:
         BodyPronunciationsUploadCsvFileTypedDict,
         BodyPronunciationsUploadCsvTypedDict,
     )
-    from .bridgephrasemessages import (
-        BridgePhraseMessages,
-        BridgePhraseMessagesTypedDict,
+    from .bridge_phrases_deleteop import (
+        BridgePhrasesDeleteRequest,
+        BridgePhrasesDeleteRequestTypedDict,
+    )
+    from .bridge_phrases_get_by_idop import (
+        BridgePhrasesGetByIDRequest,
+        BridgePhrasesGetByIDRequestTypedDict,
+    )
+    from .bridge_phrases_listop import (
+        BridgePhrasesListRequest,
+        BridgePhrasesListRequestTypedDict,
+    )
+    from .bridgephrasesagentinfo import (
+        BridgePhrasesAgentInfo,
+        BridgePhrasesAgentInfoTypedDict,
     )
     from .bridgephrasesconfig import BridgePhrasesConfig, BridgePhrasesConfigTypedDict
+    from .bridgephrasesconfigpayload import (
+        BridgePhrasesConfigPayload,
+        BridgePhrasesConfigPayloadTypedDict,
+    )
+    from .bridgephrasescreaterequest import (
+        BridgePhrasesCreateRequest,
+        BridgePhrasesCreateRequestTypedDict,
+    )
+    from .bridgephrasesproperties import BridgePhrasesProperties
+    from .bridgephrasesresponse import (
+        BridgePhrasesResponse,
+        BridgePhrasesResponseTypedDict,
+    )
+    from .bridgephrasesupdaterequest import (
+        BridgePhrasesUpdateRequest,
+        BridgePhrasesUpdateRequestTypedDict,
+    )
     from .callaction import (
         CallAction,
         CallActionIf1,
@@ -632,6 +661,10 @@ if TYPE_CHECKING:
     from .latencycategory import LatencyCategory
     from .latencyentry import LatencyEntry, LatencyEntryTypedDict
     from .latencyunittype import LatencyUnitType
+    from .lib_database_dao_organization_bridge_phrases_dao_bridgephrasemessages import (
+        LibDatabaseDaoOrganizationBridgePhrasesDaoBridgePhraseMessages,
+        LibDatabaseDaoOrganizationBridgePhrasesDaoBridgePhraseMessagesTypedDict,
+    )
     from .linetypebucket import LineTypeBucket
     from .listresponse_agentresponse_ import (
         ListResponseAgentResponse,
@@ -640,6 +673,10 @@ if TYPE_CHECKING:
     from .listresponse_availabletarget_ import (
         ListResponseAvailableTarget,
         ListResponseAvailableTargetTypedDict,
+    )
+    from .listresponse_bridgephrasesresponse_ import (
+        ListResponseBridgePhrasesResponse,
+        ListResponseBridgePhrasesResponseTypedDict,
     )
     from .listresponse_channel_ import ListResponseChannel, ListResponseChannelTypedDict
     from .listresponse_channeltargetresponse_ import (
@@ -745,6 +782,10 @@ if TYPE_CHECKING:
         FileTypedDict,
         LoadToolFromFileTask,
         LoadToolFromFileTaskTypedDict,
+    )
+    from .localizedbridgephrases import (
+        LocalizedBridgePhrases,
+        LocalizedBridgePhrasesTypedDict,
     )
     from .logintype import LoginType
     from .matchtype import MatchType
@@ -927,6 +968,10 @@ if TYPE_CHECKING:
         SayActionIf2TypedDict,
         SayActionTypedDict,
     )
+    from .schemas_cortex_v1_bridge_phrases_bridgephrasemessages import (
+        SchemasCortexV1BridgePhrasesBridgePhraseMessages,
+        SchemasCortexV1BridgePhrasesBridgePhraseMessagesTypedDict,
+    )
     from .security import Security, SecurityTypedDict
     from .service_deleteop import ServiceDeleteRequest, ServiceDeleteRequestTypedDict
     from .service_listop import ServiceListRequest, ServiceListRequestTypedDict
@@ -1069,6 +1114,10 @@ if TYPE_CHECKING:
     from .toolagentinfo import ToolAgentInfo, ToolAgentInfoTypedDict
     from .toolargumentlocation import ToolArgumentLocation
     from .toolauthtype import ToolAuthType
+    from .toolbridgephraseconfig import (
+        ToolBridgePhraseConfig,
+        ToolBridgePhraseConfigTypedDict,
+    )
     from .toolcreaterequest import ToolCreateRequest, ToolCreateRequestTypedDict
     from .tooldefinition import (
         Defaults,
@@ -1280,10 +1329,25 @@ __all__ = [
     "BodyPronunciationsUploadCsvFile",
     "BodyPronunciationsUploadCsvFileTypedDict",
     "BodyPronunciationsUploadCsvTypedDict",
-    "BridgePhraseMessages",
-    "BridgePhraseMessagesTypedDict",
+    "BridgePhrasesAgentInfo",
+    "BridgePhrasesAgentInfoTypedDict",
     "BridgePhrasesConfig",
+    "BridgePhrasesConfigPayload",
+    "BridgePhrasesConfigPayloadTypedDict",
     "BridgePhrasesConfigTypedDict",
+    "BridgePhrasesCreateRequest",
+    "BridgePhrasesCreateRequestTypedDict",
+    "BridgePhrasesDeleteRequest",
+    "BridgePhrasesDeleteRequestTypedDict",
+    "BridgePhrasesGetByIDRequest",
+    "BridgePhrasesGetByIDRequestTypedDict",
+    "BridgePhrasesListRequest",
+    "BridgePhrasesListRequestTypedDict",
+    "BridgePhrasesProperties",
+    "BridgePhrasesResponse",
+    "BridgePhrasesResponseTypedDict",
+    "BridgePhrasesUpdateRequest",
+    "BridgePhrasesUpdateRequestTypedDict",
     "CallAction",
     "CallActionIf1",
     "CallActionIf1TypedDict",
@@ -1646,11 +1710,15 @@ __all__ = [
     "LatencyEntry",
     "LatencyEntryTypedDict",
     "LatencyUnitType",
+    "LibDatabaseDaoOrganizationBridgePhrasesDaoBridgePhraseMessages",
+    "LibDatabaseDaoOrganizationBridgePhrasesDaoBridgePhraseMessagesTypedDict",
     "LineTypeBucket",
     "ListResponseAgentResponse",
     "ListResponseAgentResponseTypedDict",
     "ListResponseAvailableTarget",
     "ListResponseAvailableTargetTypedDict",
+    "ListResponseBridgePhrasesResponse",
+    "ListResponseBridgePhrasesResponseTypedDict",
     "ListResponseChannel",
     "ListResponseChannelTargetResponse",
     "ListResponseChannelTargetResponseTypedDict",
@@ -1709,6 +1777,8 @@ __all__ = [
     "LoadToolFromFileTaskTypedDict",
     "Loc",
     "LocTypedDict",
+    "LocalizedBridgePhrases",
+    "LocalizedBridgePhrasesTypedDict",
     "LoginType",
     "MatchType",
     "Metadata",
@@ -1842,6 +1912,8 @@ __all__ = [
     "SayActionIf2",
     "SayActionIf2TypedDict",
     "SayActionTypedDict",
+    "SchemasCortexV1BridgePhrasesBridgePhraseMessages",
+    "SchemasCortexV1BridgePhrasesBridgePhraseMessagesTypedDict",
     "Security",
     "SecurityTypedDict",
     "ServiceCreateRequest",
@@ -1957,6 +2029,8 @@ __all__ = [
     "ToolAgentInfoTypedDict",
     "ToolArgumentLocation",
     "ToolAuthType",
+    "ToolBridgePhraseConfig",
+    "ToolBridgePhraseConfigTypedDict",
     "ToolCreateRequest",
     "ToolCreateRequestTypedDict",
     "ToolDefinition",
@@ -2133,10 +2207,25 @@ _dynamic_imports: dict[str, str] = {
     "BodyPronunciationsUploadCsvFile": ".body_pronunciations_upload_csv",
     "BodyPronunciationsUploadCsvFileTypedDict": ".body_pronunciations_upload_csv",
     "BodyPronunciationsUploadCsvTypedDict": ".body_pronunciations_upload_csv",
-    "BridgePhraseMessages": ".bridgephrasemessages",
-    "BridgePhraseMessagesTypedDict": ".bridgephrasemessages",
+    "BridgePhrasesDeleteRequest": ".bridge_phrases_deleteop",
+    "BridgePhrasesDeleteRequestTypedDict": ".bridge_phrases_deleteop",
+    "BridgePhrasesGetByIDRequest": ".bridge_phrases_get_by_idop",
+    "BridgePhrasesGetByIDRequestTypedDict": ".bridge_phrases_get_by_idop",
+    "BridgePhrasesListRequest": ".bridge_phrases_listop",
+    "BridgePhrasesListRequestTypedDict": ".bridge_phrases_listop",
+    "BridgePhrasesAgentInfo": ".bridgephrasesagentinfo",
+    "BridgePhrasesAgentInfoTypedDict": ".bridgephrasesagentinfo",
     "BridgePhrasesConfig": ".bridgephrasesconfig",
     "BridgePhrasesConfigTypedDict": ".bridgephrasesconfig",
+    "BridgePhrasesConfigPayload": ".bridgephrasesconfigpayload",
+    "BridgePhrasesConfigPayloadTypedDict": ".bridgephrasesconfigpayload",
+    "BridgePhrasesCreateRequest": ".bridgephrasescreaterequest",
+    "BridgePhrasesCreateRequestTypedDict": ".bridgephrasescreaterequest",
+    "BridgePhrasesProperties": ".bridgephrasesproperties",
+    "BridgePhrasesResponse": ".bridgephrasesresponse",
+    "BridgePhrasesResponseTypedDict": ".bridgephrasesresponse",
+    "BridgePhrasesUpdateRequest": ".bridgephrasesupdaterequest",
+    "BridgePhrasesUpdateRequestTypedDict": ".bridgephrasesupdaterequest",
     "CallAction": ".callaction",
     "CallActionIf1": ".callaction",
     "CallActionIf1TypedDict": ".callaction",
@@ -2491,11 +2580,15 @@ _dynamic_imports: dict[str, str] = {
     "LatencyEntry": ".latencyentry",
     "LatencyEntryTypedDict": ".latencyentry",
     "LatencyUnitType": ".latencyunittype",
+    "LibDatabaseDaoOrganizationBridgePhrasesDaoBridgePhraseMessages": ".lib_database_dao_organization_bridge_phrases_dao_bridgephrasemessages",
+    "LibDatabaseDaoOrganizationBridgePhrasesDaoBridgePhraseMessagesTypedDict": ".lib_database_dao_organization_bridge_phrases_dao_bridgephrasemessages",
     "LineTypeBucket": ".linetypebucket",
     "ListResponseAgentResponse": ".listresponse_agentresponse_",
     "ListResponseAgentResponseTypedDict": ".listresponse_agentresponse_",
     "ListResponseAvailableTarget": ".listresponse_availabletarget_",
     "ListResponseAvailableTargetTypedDict": ".listresponse_availabletarget_",
+    "ListResponseBridgePhrasesResponse": ".listresponse_bridgephrasesresponse_",
+    "ListResponseBridgePhrasesResponseTypedDict": ".listresponse_bridgephrasesresponse_",
     "ListResponseChannel": ".listresponse_channel_",
     "ListResponseChannelTypedDict": ".listresponse_channel_",
     "ListResponseChannelTargetResponse": ".listresponse_channeltargetresponse_",
@@ -2554,6 +2647,8 @@ _dynamic_imports: dict[str, str] = {
     "FileTypedDict": ".loadtoolfromfiletask",
     "LoadToolFromFileTask": ".loadtoolfromfiletask",
     "LoadToolFromFileTaskTypedDict": ".loadtoolfromfiletask",
+    "LocalizedBridgePhrases": ".localizedbridgephrases",
+    "LocalizedBridgePhrasesTypedDict": ".localizedbridgephrases",
     "LoginType": ".logintype",
     "MatchType": ".matchtype",
     "NextStep": ".nextstep",
@@ -2679,6 +2774,8 @@ _dynamic_imports: dict[str, str] = {
     "SayActionIf2": ".sayaction",
     "SayActionIf2TypedDict": ".sayaction",
     "SayActionTypedDict": ".sayaction",
+    "SchemasCortexV1BridgePhrasesBridgePhraseMessages": ".schemas_cortex_v1_bridge_phrases_bridgephrasemessages",
+    "SchemasCortexV1BridgePhrasesBridgePhraseMessagesTypedDict": ".schemas_cortex_v1_bridge_phrases_bridgephrasemessages",
     "Security": ".security",
     "SecurityTypedDict": ".security",
     "ServiceDeleteRequest": ".service_deleteop",
@@ -2803,6 +2900,8 @@ _dynamic_imports: dict[str, str] = {
     "ToolAgentInfoTypedDict": ".toolagentinfo",
     "ToolArgumentLocation": ".toolargumentlocation",
     "ToolAuthType": ".toolauthtype",
+    "ToolBridgePhraseConfig": ".toolbridgephraseconfig",
+    "ToolBridgePhraseConfigTypedDict": ".toolbridgephraseconfig",
     "ToolCreateRequest": ".toolcreaterequest",
     "ToolCreateRequestTypedDict": ".toolcreaterequest",
     "Defaults": ".tooldefinition",

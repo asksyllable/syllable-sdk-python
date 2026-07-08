@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: e676dbf8f29ff9ee2b494bfcae35588a
+  docChecksum: 1a59b4f93690a0d61ea407d06a4e608c
   docVersion: 0.0.3
   speakeasyVersion: 1.789.0
   generationVersion: 2.916.2
-  releaseVersion: 0.47.9
-  configChecksum: ba311ea1bd0f9d7775f73d54ce7a4944
+  releaseVersion: 0.47.10
+  configChecksum: 4ffa3215744fb58b6e0e8ce7fe433b99
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: 1f4bfe61-734e-42f0-9a00-0071ddd0dbf9
-  pristine_commit_hash: 3e4d1b0833472612a647b33b5700a8e1da543723
-  pristine_tree_hash: 7fa0904b794503e7462ea50ab205c350b55138a0
+  generation_id: 3013daa3-f87e-4668-a14c-65361d0edcee
+  pristine_commit_hash: 99d1305bf47a2e34c11c531b5a88f2caad395fe6
+  pristine_tree_hash: 270e2ce678c491317d336e4c1dbee445deed7fa6
 features:
   python:
     additionalDependencies: 1.1.0
@@ -232,14 +232,46 @@ trackedFiles:
     id: a1deddcfd1c9
     last_write_checksum: sha1:01113ae7fd32871ddd3a6d35f3bc43dcb814c707
     pristine_git_object: 0108488b110116ce99bec36fb0bfa297f0d3606d
-  docs/models/bridgephrasemessages.md:
-    id: 9f8bb5bc8620
-    last_write_checksum: sha1:6ab34f69366025a2d69d8a8504c236adac60e65e
-    pristine_git_object: 17cb2f2d6a2b52a780d8818800b5f835662207d8
+  docs/models/bridgephrasesagentinfo.md:
+    id: d9fb57a8378c
+    last_write_checksum: sha1:7e60fcfbf95934a2dd6caf81eefb4a5f4485b744
+    pristine_git_object: 0afab9ead77b35e09f1019ac755483d3bca0bdf4
   docs/models/bridgephrasesconfig.md:
     id: b0f899eff267
-    last_write_checksum: sha1:23055bbc5274106c274b82d0574397a1d59b4950
-    pristine_git_object: 5facfb18c530272eecec86650b76aff62883d373
+    last_write_checksum: sha1:07b1eaddd531f5313b58f445f49474f758a76cbf
+    pristine_git_object: 6ec83378f9902473b0145068eda7e17d68b5e2bc
+  docs/models/bridgephrasesconfigpayload.md:
+    id: 07015f7ed0b2
+    last_write_checksum: sha1:f153a906fbc05dd0bf21105d74031b2a1bacc65f
+    pristine_git_object: e64ec183ccd1ab9ecd023f9c920312236aa8e214
+  docs/models/bridgephrasescreaterequest.md:
+    id: 5e4f64f61fb7
+    last_write_checksum: sha1:dd9702606dc7fa2c6638a7b7112eb1304b38c182
+    pristine_git_object: ba3c4820cb2c6061579b015a2a0d72aee989464f
+  docs/models/bridgephrasesdeleterequest.md:
+    id: fd799819bac1
+    last_write_checksum: sha1:b4b5b22aa7a26fc9de3309125b6d23c68d617410
+    pristine_git_object: c023afe17d373fbf4b0841a914d0829db8eb78e2
+  docs/models/bridgephrasesgetbyidrequest.md:
+    id: aadc724f9a79
+    last_write_checksum: sha1:b96105c7b6af0a17da6830c432f3bba4b7a93486
+    pristine_git_object: ed81de42739934350f4354fc09e9affc105e737f
+  docs/models/bridgephraseslistrequest.md:
+    id: 285ea2e34ca5
+    last_write_checksum: sha1:d4e3b761d43188356ab4e54c4151332b33186e74
+    pristine_git_object: 29cfb4f57e32bfe355985ccc2a6a50842a5131cf
+  docs/models/bridgephrasesproperties.md:
+    id: 8f8887dbbeb1
+    last_write_checksum: sha1:c3afe878fe151824923c1b4485ec324d0b37d3da
+    pristine_git_object: 1717b0e48ec75955d86f172396134632454b3184
+  docs/models/bridgephrasesresponse.md:
+    id: 2fb049176611
+    last_write_checksum: sha1:5a79ed2b1b1eac894dfe837cd9a8cbe57ce28f37
+    pristine_git_object: b26bd6954a2b5fd51ccb467a24859f648555d5df
+  docs/models/bridgephrasesupdaterequest.md:
+    id: 21f1c2e218cd
+    last_write_checksum: sha1:d288919f77bc649a7d39a579dbda2011adc7bf6d
+    pristine_git_object: 7c6e141bab773f41b454436f378dc7eea663498e
   docs/models/callaction.md:
     id: 86afdf0c2f92
     last_write_checksum: sha1:af5b4a3bfe9a3c34c542c82dd55e802a49fe092e
@@ -1024,6 +1056,10 @@ trackedFiles:
     id: a470d858dbcd
     last_write_checksum: sha1:64bdc215a27f00985d659764ba54852f67af6910
     pristine_git_object: 18717ad037f6100727d3da0ada5ea9000e80a7d8
+  docs/models/libdatabasedaoorganizationbridgephrasesdaobridgephrasemessages.md:
+    id: e4c2091132ce
+    last_write_checksum: sha1:3f3a954a9aafb4fc4bfc77684dafc6a3c74bf546
+    pristine_git_object: da879b70b581d153d0f465c2228e161a01bd867b
   docs/models/linetypebucket.md:
     id: 116a7f235fbf
     last_write_checksum: sha1:609020cbbb7ee81250311f5c01c1c88748448aa0
@@ -1036,6 +1072,10 @@ trackedFiles:
     id: 6f29d28fddf8
     last_write_checksum: sha1:3b63b2e46044fdff8469520b0e9bfdaf90a312c1
     pristine_git_object: 721eeec293682631bcbf7d30ca70cd0661b286ef
+  docs/models/listresponsebridgephrasesresponse.md:
+    id: cc55a203713e
+    last_write_checksum: sha1:4309e2a82ba28c2934dd3569323ed13006319ee7
+    pristine_git_object: 3bec1fa56120d22ae09b7821d6e844134e37a5ff
   docs/models/listresponsechannel.md:
     id: db667f683aba
     last_write_checksum: sha1:4721b86b4d421d306d62e23db25bbaa238b6ac14
@@ -1152,6 +1192,10 @@ trackedFiles:
     id: b071d5a509cc
     last_write_checksum: sha1:09a04749333ab50ae806c3ac6adcaa90d54df0f1
     pristine_git_object: d6094ac2c6e0326c039dad2f6b89158694ef6aa7
+  docs/models/localizedbridgephrases.md:
+    id: 3cffb77111f3
+    last_write_checksum: sha1:074f929204f275f7001e3c5265909506b2976bb9
+    pristine_git_object: 797e4cfafbe3fad80af56f872935321f5dd34fca
   docs/models/logintype.md:
     id: 56039df01efc
     last_write_checksum: sha1:2706f3f577cb95a3da768976cba19b8636e92f82
@@ -1436,6 +1480,10 @@ trackedFiles:
     id: 57575f111674
     last_write_checksum: sha1:394237f6ff76b4330cb0640044c672a14bdd7d2b
     pristine_git_object: ad424ff85e5cc7934b4288406e11183e05e6dd88
+  docs/models/schemascortexv1bridgephrasesbridgephrasemessages.md:
+    id: 170a580be494
+    last_write_checksum: sha1:d4fce1f1ae9feaeae86ff439051e368dfd765da0
+    pristine_git_object: 6cf36616a8b0127d1c4f83246a99410883e86fc7
   docs/models/security.md:
     id: 452e4d4eb67a
     last_write_checksum: sha1:b779342cf8b5456dff023352a821041b30eddf1d
@@ -1688,6 +1736,10 @@ trackedFiles:
     id: 59400bd8bc12
     last_write_checksum: sha1:dad352235fbbe87e1e9b3b023a781620f76e22f5
     pristine_git_object: a747699062db19db7ce912118adeb19c9d3cf9f2
+  docs/models/toolbridgephraseconfig.md:
+    id: f1984bd26c0e
+    last_write_checksum: sha1:6756b62aff7727a5bc0274d1433590f486aee5d7
+    pristine_git_object: 19b93b209d59a4d6f9843ad5932405c5e85b9049
   docs/models/toolcreaterequest.md:
     id: 9838ec7a6a00
     last_write_checksum: sha1:25ea7e43d6a86d81bb5e5864121a22df8d59f631
@@ -1932,6 +1984,10 @@ trackedFiles:
     id: affccbddb9a8
     last_write_checksum: sha1:473b519ca6452886ada21f7aaaf9cf5bd0a22174
     pristine_git_object: 1aed45a313ff535877ed9f90148a1f38a1828bc7
+  docs/sdks/bridgephrases/README.md:
+    id: 298da341f6fc
+    last_write_checksum: sha1:9d7c4dc6b89adc859eb109d920db72824434106d
+    pristine_git_object: 85c7be22d2053be9b5ff811694cf6075f7474250
   docs/sdks/campaigns/README.md:
     id: 18dcc3c717ca
     last_write_checksum: sha1:e15475650f373d70bd600482dc84ea64dd4b3084
@@ -2098,8 +2154,8 @@ trackedFiles:
     pristine_git_object: 739eef2047817f053e6c7688b3993b63a9a7f142
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:c04d4b1da2a9933b2cd6cd8dc2942701e4016caa
-    pristine_git_object: e8a3d021d89ef4482858e56a6daafc6881579931
+    last_write_checksum: sha1:317da0debea0d28c0147cd16098d641d99154085
+    pristine_git_object: fa035160a608c73f2f6abf3b0a43650d664d6732
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2126,8 +2182,8 @@ trackedFiles:
     pristine_git_object: 132885676dc1885890d1c8a13bd01fcfcb8e3fbc
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:b1a780fd622b1b7a018a01587d88bca2e3398a19
-    pristine_git_object: 3304adaebb4644f44d7b2708060cc524c1e1fed1
+    last_write_checksum: sha1:73b70f9b3a7848d4ef42a29e80ba228d3dbd0da8
+    pristine_git_object: b3083d81cab788c97cac5bfecc04538a51292b83
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:889f4504eb7f9489276dbcc2870b3ecdf6df8538
@@ -2140,6 +2196,10 @@ trackedFiles:
     id: 4ad116eaa1fe
     last_write_checksum: sha1:40dd8963fa65fd6c33c55f88bb37aa35caf017f6
     pristine_git_object: 658af85db2801637a7f474f7a67537b693a863d7
+  src/syllable_sdk/bridge_phrases.py:
+    id: fe3dc9420cde
+    last_write_checksum: sha1:a42857223798978aa161c559b9c9548c43bb80d7
+    pristine_git_object: 9d3a797657a7911d6af0be1b786035eb15a3a5a0
   src/syllable_sdk/campaigns.py:
     id: bab525a18c76
     last_write_checksum: sha1:415a09afcc906a8e52985d02f1356658512aeef9
@@ -2234,8 +2294,8 @@ trackedFiles:
     pristine_git_object: 59142dc80d14c0481b722c0087c1abcbb426e597
   src/syllable_sdk/models/__init__.py:
     id: 984744253da7
-    last_write_checksum: sha1:8ec515af056e98eebd4d338e9e5fe8b2f1807627
-    pristine_git_object: baab2f48c2d3c086f45aba2ddcf21acd4a7aee60
+    last_write_checksum: sha1:80499c920b35aac211301413c2148489ad469475
+    pristine_git_object: 841897b1f7cc390c39112024738dc96fa5ad8a1c
   src/syllable_sdk/models/a2pmessagingpathcheckrequest.py:
     id: 2cb7c3c6f6e9
     last_write_checksum: sha1:3dcf884ac8fa211d36338dda9ad3e90f3979a28d
@@ -2368,14 +2428,46 @@ trackedFiles:
     id: 3327db2df4fb
     last_write_checksum: sha1:61abba635eea81241c2c9d21430869dc2413f8cd
     pristine_git_object: a56c54131000198a33dd054e0d356ef0604c6db7
-  src/syllable_sdk/models/bridgephrasemessages.py:
-    id: 94845063f80f
-    last_write_checksum: sha1:80c1729e4542dfacf2ed72cc500387548921a451
-    pristine_git_object: 837d703b764e4251c54d2c30bb0970cb5475f74f
+  src/syllable_sdk/models/bridge_phrases_deleteop.py:
+    id: 5c74574a8321
+    last_write_checksum: sha1:54fe068e25792204625c5f444acb0d1ce74e756e
+    pristine_git_object: c7604a4c3216b529e838c871b95b0d8bbfd0e686
+  src/syllable_sdk/models/bridge_phrases_get_by_idop.py:
+    id: dd0e2de34868
+    last_write_checksum: sha1:a8c1f65c01c497922631cf2061b0dde87baadf52
+    pristine_git_object: 9545a0b9caf7440e0fd780afc9c77b8c3e071f62
+  src/syllable_sdk/models/bridge_phrases_listop.py:
+    id: c02bcec2ac29
+    last_write_checksum: sha1:857dafde03218a39ff04a5a9d2b813d313d2416e
+    pristine_git_object: 89ea58fac789d65c768aa69ba174172df7e3b444
+  src/syllable_sdk/models/bridgephrasesagentinfo.py:
+    id: 9ac51f2ba0a8
+    last_write_checksum: sha1:57470f908436ad50393a05aa96a52cbb54f2f06c
+    pristine_git_object: 7a6ae5bbca0338dd775af5a93628f511547141da
   src/syllable_sdk/models/bridgephrasesconfig.py:
     id: e4afdaf9da62
-    last_write_checksum: sha1:cd4bd809e464c0d46ad720ad05bef3c0d964c2d6
-    pristine_git_object: 9e8927d8603d778f2c1abcbad441d55c0ab0936e
+    last_write_checksum: sha1:55f3b82d41bac027466c4c23442fde1af6cab9c0
+    pristine_git_object: 4bb5cc7a564793e8d1cd979b079dcafb95256781
+  src/syllable_sdk/models/bridgephrasesconfigpayload.py:
+    id: 8aad6ebeed31
+    last_write_checksum: sha1:35a9d54cd6ee6828cc300116e5e8c501f21a0dcc
+    pristine_git_object: f44d00e72bd5534d386f7ed27486bcbb15d7b1be
+  src/syllable_sdk/models/bridgephrasescreaterequest.py:
+    id: 665c8e1703b1
+    last_write_checksum: sha1:9e23d67a602df0c03165e556bc656d777f4a2d01
+    pristine_git_object: 2e5e6d3d884ef6bbdba10eb205ef063c70b7b06d
+  src/syllable_sdk/models/bridgephrasesproperties.py:
+    id: 5a08263cf0a7
+    last_write_checksum: sha1:44324e4aa83dae27f2695a737966e5dfe806666f
+    pristine_git_object: 835e537d7aa49948d4aaa4a911d18acd77820a15
+  src/syllable_sdk/models/bridgephrasesresponse.py:
+    id: c1c6324b7c5d
+    last_write_checksum: sha1:30810614999fbaeb8ee012d7c6727ee558b8dda2
+    pristine_git_object: a8ba024b1ea0e058ae543277f289c65fb3a43a2e
+  src/syllable_sdk/models/bridgephrasesupdaterequest.py:
+    id: 42d123768e7a
+    last_write_checksum: sha1:a662d665e2dd456a2b4d2a82ac145af93a06de8e
+    pristine_git_object: d2a7a6db4e46b81ed31320c598dbb41097ecf1f2
   src/syllable_sdk/models/callaction.py:
     id: 78ab9176c2ad
     last_write_checksum: sha1:9f69cddf4276a6818244dc50949c0b84ae7800c9
@@ -3044,6 +3136,10 @@ trackedFiles:
     id: 3597702cb1e9
     last_write_checksum: sha1:e2e9d9a60cd48b68f392937c550ebf9a149d5532
     pristine_git_object: 277cff48e61e4c11f97214eefdef1aeae3107b60
+  src/syllable_sdk/models/lib_database_dao_organization_bridge_phrases_dao_bridgephrasemessages.py:
+    id: d798b449bc84
+    last_write_checksum: sha1:4ded98738a76fb486a56b9366603164aeff8bf66
+    pristine_git_object: b1ff295a36305a470cc0741c68082cb03a74c6f2
   src/syllable_sdk/models/linetypebucket.py:
     id: bf8390e5a03f
     last_write_checksum: sha1:d6e5e56f5f301a66e451750e255621dc29339835
@@ -3056,6 +3152,10 @@ trackedFiles:
     id: 4a566d53afef
     last_write_checksum: sha1:eef46bbcd8713fbd6ac045a24610362843487847
     pristine_git_object: 11ecb478dc213ffffdfc6d24fa32d89d3c3aa062
+  src/syllable_sdk/models/listresponse_bridgephrasesresponse_.py:
+    id: aae353dd0b7d
+    last_write_checksum: sha1:8946a63ac5912bdc67c73b7be133d021d795f3df
+    pristine_git_object: 8720c740f8ce5b60e8bd920ce1c1f938c2a21340
   src/syllable_sdk/models/listresponse_channel_.py:
     id: fd8f311b47ad
     last_write_checksum: sha1:17c5d4f508745095b41c0aa37197828ecf63ae8f
@@ -3168,6 +3268,10 @@ trackedFiles:
     id: 83e1a550eef4
     last_write_checksum: sha1:a40b52da91240e382672094fca3e89098c2b783b
     pristine_git_object: 33b9a9316c55bc18233d263fe747f3b54290d267
+  src/syllable_sdk/models/localizedbridgephrases.py:
+    id: 536e32eb5a96
+    last_write_checksum: sha1:bbc62a37f2dbe0aac38f046af8b4b226e925b0b4
+    pristine_git_object: 6f64170d2fd3cb986478e2ea10654eb083c69e6a
   src/syllable_sdk/models/logintype.py:
     id: a65bf373e22e
     last_write_checksum: sha1:c716d171ef555a07b12fcc823fec426d38d8a9c9
@@ -3408,6 +3512,10 @@ trackedFiles:
     id: 7745e4215f4a
     last_write_checksum: sha1:deba598e9972854d19da6ab2942f7c801a2608fb
     pristine_git_object: be401c75a2dae33e315bba5b4d6751c64c81e091
+  src/syllable_sdk/models/schemas_cortex_v1_bridge_phrases_bridgephrasemessages.py:
+    id: 49405c7ec517
+    last_write_checksum: sha1:78f461850d7aee7a249798c20cbc3e36bcf82f44
+    pristine_git_object: c72decf45a389f05608fc18fb099f20a1e00429b
   src/syllable_sdk/models/security.py:
     id: d5ae0a7b001c
     last_write_checksum: sha1:0f62c80a57a7d6d7351648a1022d16b3d0c0e95d
@@ -3632,6 +3740,10 @@ trackedFiles:
     id: d962377ad8fa
     last_write_checksum: sha1:2e46e1046b80245eea0f82e8b2aab69e8116f9ff
     pristine_git_object: b0c54a6e44948d54f02017826480dcb933a49210
+  src/syllable_sdk/models/toolbridgephraseconfig.py:
+    id: 9e34ee73bf1c
+    last_write_checksum: sha1:789290b3796010c2f0fb9b017f07ed4e99c0b267
+    pristine_git_object: 38db382ff6ee5b11422b8d059075746d35624544
   src/syllable_sdk/models/toolcreaterequest.py:
     id: 4924e9331e7a
     last_write_checksum: sha1:56f13d4e1b89cbbc7164c663b42e37e4fda8471b
@@ -3862,8 +3974,8 @@ trackedFiles:
     pristine_git_object: 44d526ee7d035e6588f4d091be48bd7e8952f285
   src/syllable_sdk/sdk.py:
     id: 36ec5a607616
-    last_write_checksum: sha1:74c5f7b31864687455af2090a13ac5f1232996c3
-    pristine_git_object: e3cff5d9b3e177680be61f9f2f7427d4e64b9d74
+    last_write_checksum: sha1:e3f75eb3568020d33e950e0befd57b2746959a10
+    pristine_git_object: baeb6886c91da6f458563712b5001ccb31a883b6
   src/syllable_sdk/sdkconfiguration.py:
     id: 5429586f5dd9
     last_write_checksum: sha1:48f865da87cc089f3c5e0368d1789dc24675404e
@@ -5797,8 +5909,70 @@ examples:
           application/json: {"session_id": "<id>", "events": []}
         "422":
           application/json: {}
+  bridge_phrases_list:
+    speakeasy-default-bridge-phrases-list:
+      parameters:
+        query:
+          page: 0
+          limit: 25
+          search_fields: ["name"]
+          search_field_values: ["Some Object Name"]
+          start_datetime: "2023-01-01T00:00:00Z"
+          end_datetime: "2024-01-01T00:00:00Z"
+      responses:
+        "200":
+          application/json: {"items": [], "page": 0, "page_size": 25, "total_pages": 4, "total_count": 100}
+        "422":
+          application/json: {}
+  bridge_phrases_create:
+    speakeasy-default-bridge-phrases-create:
+      requestBody:
+        application/json: {"name": "Default Bridge Phrases", "description": "Standard hold phrases for inbound line.", "config": {"phrases": {"messages": ["One moment, please.", "Let me check on that for you."], "localized": {"es-US": {"messages": ["Un momento, por favor."]}, "fr-FR": {"messages": ["Un instant, je vous en prie."]}}}, "tools": [{"tool_name": "<value>", "phrases": {"messages": ["One moment, please.", "Let me check on that for you."], "localized": {"es-US": {"messages": ["Un momento, por favor."]}, "fr-FR": {"messages": ["Un instant, je vous en prie."]}}}}], "randomize_bridge_phrases": true}}
+      responses:
+        "200":
+          application/json: {"name": "Default Bridge Phrases", "description": "Standard hold phrases for inbound line.", "config": {"phrases": {"messages": ["One moment, please.", "Let me check on that for you."], "localized": {"es-US": {"messages": ["Un momento, por favor."]}, "fr-FR": {"messages": ["Un instant, je vous en prie."]}}}, "tools": [{"tool_name": "<value>", "phrases": {"messages": ["One moment, please.", "Let me check on that for you."], "localized": {"es-US": {"messages": ["Un momento, por favor."]}, "fr-FR": {"messages": ["Un instant, je vous en prie."]}}}}], "randomize_bridge_phrases": true}, "id": 1, "edit_comments": "Added Spanish overrides for the transfer tool.", "agents_info": [{"id": 1, "name": "Test Agent"}], "updated_at": "2026-07-02T00:00:00Z", "last_updated_by": "user@mail.com"}
+        "422":
+          application/json: {}
+  bridge_phrases_update:
+    speakeasy-default-bridge-phrases-update:
+      requestBody:
+        application/json: {"name": "Default Bridge Phrases", "description": "Standard hold phrases for inbound line.", "config": {"phrases": {"messages": ["One moment, please.", "Let me check on that for you."], "localized": {"es-US": {"messages": ["Un momento, por favor."]}, "fr-FR": {"messages": ["Un instant, je vous en prie."]}}}, "tools": [{"tool_name": "<value>", "phrases": {"messages": ["One moment, please.", "Let me check on that for you."], "localized": {"es-US": {"messages": ["Un momento, por favor."]}, "fr-FR": {"messages": ["Un instant, je vous en prie."]}}}}], "randomize_bridge_phrases": true}, "id": 1, "edit_comments": "Added Spanish overrides for the transfer tool."}
+      responses:
+        "200":
+          application/json: {"name": "Default Bridge Phrases", "description": "Standard hold phrases for inbound line.", "config": {"phrases": {"messages": ["One moment, please.", "Let me check on that for you."], "localized": {"es-US": {"messages": ["Un momento, por favor."]}, "fr-FR": {"messages": ["Un instant, je vous en prie."]}}}, "tools": [{"tool_name": "<value>", "phrases": {"messages": ["One moment, please.", "Let me check on that for you."], "localized": {"es-US": {"messages": ["Un momento, por favor."]}, "fr-FR": {"messages": ["Un instant, je vous en prie."]}}}}], "randomize_bridge_phrases": true}, "id": 1, "edit_comments": "Added Spanish overrides for the transfer tool.", "agents_info": [{"id": 1, "name": "Test Agent"}], "updated_at": "2026-07-02T00:00:00Z", "last_updated_by": "user@mail.com"}
+        "422":
+          application/json: {}
+  bridge_phrases_get_by_id:
+    speakeasy-default-bridge-phrases-get-by-id:
+      parameters:
+        path:
+          bridge_phrases_id: 627472
+      responses:
+        "200":
+          application/json: {"name": "Default Bridge Phrases", "description": "Standard hold phrases for inbound line.", "config": {"phrases": {"messages": ["One moment, please.", "Let me check on that for you."], "localized": {"es-US": {"messages": ["Un momento, por favor."]}, "fr-FR": {"messages": ["Un instant, je vous en prie."]}}}, "tools": [{"tool_name": "<value>", "phrases": {"messages": ["One moment, please.", "Let me check on that for you."], "localized": {"es-US": {"messages": ["Un momento, por favor."]}, "fr-FR": {"messages": ["Un instant, je vous en prie."]}}}}], "randomize_bridge_phrases": true}, "id": 1, "edit_comments": "Added Spanish overrides for the transfer tool.", "agents_info": [{"id": 1, "name": "Test Agent"}], "updated_at": "2026-07-02T00:00:00Z", "last_updated_by": "user@mail.com"}
+        "422":
+          application/json: {}
+  bridge_phrases_delete:
+    speakeasy-default-bridge-phrases-delete:
+      parameters:
+        path:
+          bridge_phrases_id: 722051
+        query:
+          reason: "<value>"
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Python SDK Changes:
+  * `syllable_sdk.bridge_phrases.list()`: **Added**
+  * `syllable_sdk.bridge_phrases.create()`: **Added**
+  * `syllable_sdk.bridge_phrases.update()`: **Added**
+  * `syllable_sdk.bridge_phrases.get_by_id()`: **Added**
+  * `syllable_sdk.bridge_phrases.delete()`: **Added**
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

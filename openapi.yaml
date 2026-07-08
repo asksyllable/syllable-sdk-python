@@ -310,6 +310,256 @@ paths:
                 title: "Response Agent Get Available Voices"
       security:
         - APIKeyHeader: []
+  /api/v1/bridge_phrases/:
+    get:
+      tags:
+        - "bridge_phrases"
+      summary: "List Bridge Phrases"
+      description: "Fetch bridge phrases configs."
+      operationId: "bridge_phrases_list"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "page"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - type: "integer"
+                minimum: 0
+              - type: "null"
+            description: "The page number from which to start (0-based)"
+            examples:
+              - 0
+            default: 0
+            title: "Page"
+          description: "The page number from which to start (0-based)"
+        - name: "limit"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
+            default: 25
+            title: "Limit"
+          description: "The maximum number of items to return"
+        - name: "search_fields"
+          in: "query"
+          required: false
+          schema:
+            type: "array"
+            items:
+              $ref: "#/components/schemas/BridgePhrasesProperties"
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
+            default: []
+            title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
+        - name: "search_field_values"
+          in: "query"
+          required: false
+          schema:
+            type: "array"
+            items:
+              type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
+            default: []
+            title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+        - name: "order_by"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - $ref: "#/components/schemas/BridgePhrasesProperties"
+              - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
+            title: "Order By"
+          description: "The field whose value should be used to order the results"
+        - name: "order_by_direction"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - $ref: "#/components/schemas/OrderByDirection"
+              - type: "null"
+            description: "The direction in which to order the results"
+            title: "Order By Direction"
+          description: "The direction in which to order the results"
+        - name: "fields"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - type: "array"
+                items:
+                  $ref: "#/components/schemas/BridgePhrasesProperties"
+              - type: "null"
+            description: "The fields to include in the response"
+            default: []
+            title: "Fields"
+          description: "The fields to include in the response"
+        - name: "start_datetime"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - type: "string"
+              - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
+            title: "Start Datetime"
+          description: "The start datetime for filtering results"
+        - name: "end_datetime"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - type: "string"
+              - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
+            title: "End Datetime"
+          description: "The end datetime for filtering results"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListResponse_BridgePhrasesResponse_"
+        "422":
+          description: "Validation Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+    post:
+      tags:
+        - "bridge_phrases"
+      summary: "Create Bridge Phrases"
+      description: "Create a new bridge phrases config."
+      operationId: "bridge_phrases_create"
+      security:
+        - APIKeyHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BridgePhrasesCreateRequest"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BridgePhrasesResponse"
+        "422":
+          description: "Validation Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+    put:
+      tags:
+        - "bridge_phrases"
+      summary: "Update Bridge Phrases"
+      description: "Update an existing bridge phrases config."
+      operationId: "bridge_phrases_update"
+      security:
+        - APIKeyHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BridgePhrasesUpdateRequest"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BridgePhrasesResponse"
+        "422":
+          description: "Validation Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+  /api/v1/bridge_phrases/{bridge_phrases_id}:
+    get:
+      tags:
+        - "bridge_phrases"
+      summary: "Get Bridge Phrases"
+      description: "Fetch a given bridge phrases config."
+      operationId: "bridge_phrases_get_by_id"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "bridge_phrases_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Bridge Phrases Id"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BridgePhrasesResponse"
+        "422":
+          description: "Validation Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+    delete:
+      tags:
+        - "bridge_phrases"
+      summary: "Delete Bridge Phrases"
+      description: "Delete a bridge phrases config."
+      operationId: "bridge_phrases_delete"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "bridge_phrases_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Bridge Phrases Id"
+        - name: "reason"
+          in: "query"
+          required: true
+          schema:
+            type: "string"
+            title: "Reason"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            application/json:
+              schema: {}
+        "422":
+          description: "Validation Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1/channels/:
     get:
       tags:
@@ -9510,40 +9760,26 @@ components:
       required:
         - "file"
       title: "Body_pronunciations_upload_csv"
-    BridgePhraseMessages:
+    BridgePhrasesAgentInfo:
       properties:
-        messages:
-          items:
-            type: "string"
-          type: "array"
-          title: "Messages"
-          description: "Unified ordered bridge phrases. If empty, legacy fields are used."
-        randomize_messages:
-          type: "boolean"
-          title: "Randomize Messages"
-          description: "When true, unified messages are played in randomized no-repeat cycles. Ignored when unified messages are disabled."
-          default: false
-        first_slow_messages:
-          items:
-            type: "string"
-          type: "array"
-          title: "First Slow Messages"
-          description: "Messages to say when the agent is first delayed."
-        very_slow_messages:
-          items:
-            type: "string"
-          type: "array"
-          title: "Very Slow Messages"
-          description: "Messages to say when the agent is significantly delayed."
-        tool_responses:
-          items:
-            type: "string"
-          type: "array"
-          title: "Tool Responses"
-          description: "Messages to say when a tool call is in progress."
+        id:
+          type: "integer"
+          title: "Id"
+          description: "The ID of the agent."
+          examples:
+            - 1
+        name:
+          type: "string"
+          title: "Name"
+          description: "The name of the agent."
+          examples:
+            - "Test Agent"
       type: "object"
-      title: "BridgePhraseMessages"
-      description: "Bridge phrase message lists for a single language."
+      required:
+        - "id"
+        - "name"
+      title: "BridgePhrasesAgentInfo"
+      description: "Information about an agent linked to a bridge phrases config."
     BridgePhrasesConfig:
       properties:
         messages:
@@ -9577,7 +9813,7 @@ components:
           description: "Messages to say when a tool call is in progress."
         localized:
           additionalProperties:
-            $ref: "#/components/schemas/BridgePhraseMessages"
+            $ref: "#/components/schemas/schemas__cortex__v1__bridge_phrases__BridgePhraseMessages"
           type: "object"
           title: "Localized"
           description: "Per-language overrides keyed by BCP-47 tag (e.g. \"es-US\")."
@@ -9592,6 +9828,172 @@ components:
       type: "object"
       title: "BridgePhrasesConfig"
       description: "Configuration for conversational bridge phrases.\n\nTop-level fields are the default (English) phrases.\nThe `localized` dict provides per-language overrides keyed by BCP-47 language tag."
+    BridgePhrasesConfigPayload:
+      properties:
+        phrases:
+          $ref: "#/components/schemas/lib__database__dao__organization__bridge_phrases_dao__BridgePhraseMessages"
+          description: "Default bridge phrases (used when no tool-specific entry matches)."
+        tools:
+          items:
+            $ref: "#/components/schemas/ToolBridgePhraseConfig"
+          type: "array"
+          title: "Tools"
+          description: "Per-tool phrase overrides."
+        smart_turn_timeout_seconds:
+          anyOf:
+            - type: "number"
+              maximum: 30.0
+              minimum: 0.25
+            - type: "null"
+          title: "Smart Turn Timeout Seconds"
+          description: "Seconds of caller silence before injecting the first bridge phrase. When unset, the service-wide default applies."
+        randomize_bridge_phrases:
+          type: "boolean"
+          title: "Randomize Bridge Phrases"
+          description: "Whether to randomize the order of bridge phrases. When true, the order of the bridge phrases is randomized for each call."
+          default: false
+          examples:
+            - true
+      type: "object"
+      title: "BridgePhrasesConfigPayload"
+      description: "The `config` JSONB payload stored on a bridge_phrases row.\n\nHolds the default phrases plus an inline list of per-tool overrides, each with\noptional per-language (`localized`) overrides. Mirrors the shape documented in\ndocs/bridge-phrases-table-migration.md §5.2."
+    BridgePhrasesCreateRequest:
+      properties:
+        name:
+          type: "string"
+          title: "Name"
+          description: "The name of the bridge phrases config."
+          examples:
+            - "Default Bridge Phrases"
+        description:
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Description"
+          description: "Description of the bridge phrases config."
+          examples:
+            - "Standard hold phrases for inbound line."
+        config:
+          $ref: "#/components/schemas/BridgePhrasesConfigPayload"
+          description: "Default phrases plus per-tool overrides."
+      type: "object"
+      required:
+        - "name"
+      title: "BridgePhrasesCreateRequest"
+      description: "Request model to create a bridge phrases config."
+    BridgePhrasesProperties:
+      type: "string"
+      enum:
+        - "name"
+        - "description"
+        - "updated_at"
+        - "last_updated_by"
+      title: "BridgePhrasesProperties"
+      description: "Names of bridge phrases fields supported for filtering/sorting on list endpoint."
+    BridgePhrasesResponse:
+      properties:
+        name:
+          type: "string"
+          title: "Name"
+          description: "The name of the bridge phrases config."
+          examples:
+            - "Default Bridge Phrases"
+        description:
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Description"
+          description: "Description of the bridge phrases config."
+          examples:
+            - "Standard hold phrases for inbound line."
+        config:
+          $ref: "#/components/schemas/BridgePhrasesConfigPayload"
+          description: "Default phrases plus per-tool overrides."
+        id:
+          type: "integer"
+          title: "Id"
+          description: "The ID of the bridge phrases config to update."
+          examples:
+            - 1
+        edit_comments:
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Edit Comments"
+          description: "Comments for the most recent edit."
+          examples:
+            - "Added Spanish overrides for the transfer tool."
+        agents_info:
+          anyOf:
+            - items:
+                $ref: "#/components/schemas/BridgePhrasesAgentInfo"
+              type: "array"
+            - type: "null"
+          title: "Agents Info"
+          description: "IDs and names of the agents linked to this bridge phrases config."
+          examples:
+            - - id: 1
+                name: "Test Agent"
+        updated_at:
+          type: "string"
+          format: "date-time"
+          title: "Updated At"
+          description: "Timestamp of the last update."
+          examples:
+            - "2026-07-02T00:00:00Z"
+        last_updated_by:
+          type: "string"
+          title: "Last Updated By"
+          description: "Email of the user who last updated this config."
+          examples:
+            - "user@mail.com"
+      type: "object"
+      required:
+        - "name"
+        - "id"
+        - "updated_at"
+        - "last_updated_by"
+      title: "BridgePhrasesResponse"
+      description: "Response model for bridge phrases operations.\n\nA bridge phrases config is a named, sub-org-scoped collection of default bridge\nphrases plus optional per-tool and per-language overrides that can be linked to an\nagent. For more information, see\n[Console docs](https://docs.syllable.ai/Resources/BridgePhrases)."
+    BridgePhrasesUpdateRequest:
+      properties:
+        name:
+          type: "string"
+          title: "Name"
+          description: "The name of the bridge phrases config."
+          examples:
+            - "Default Bridge Phrases"
+        description:
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Description"
+          description: "Description of the bridge phrases config."
+          examples:
+            - "Standard hold phrases for inbound line."
+        config:
+          $ref: "#/components/schemas/BridgePhrasesConfigPayload"
+          description: "Default phrases plus per-tool overrides."
+        id:
+          type: "integer"
+          title: "Id"
+          description: "The ID of the bridge phrases config to update."
+          examples:
+            - 1
+        edit_comments:
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Edit Comments"
+          description: "Comments for the most recent edit."
+          examples:
+            - "Added Spanish overrides for the transfer tool."
+      type: "object"
+      required:
+        - "name"
+        - "id"
+      title: "BridgePhrasesUpdateRequest"
+      description: "Request model to update an existing bridge phrases config."
     CallAction:
       properties:
         if:
@@ -14411,6 +14813,49 @@ components:
         - "page"
         - "page_size"
       title: "ListResponse[AvailableTarget]"
+    ListResponse_BridgePhrasesResponse_:
+      properties:
+        items:
+          items:
+            $ref: "#/components/schemas/BridgePhrasesResponse"
+          type: "array"
+          title: "Items"
+          description: "List of items returned from the query"
+          examples: []
+        page:
+          type: "integer"
+          title: "Page"
+          description: "The page number of the results (0-based)"
+          examples:
+            - 0
+        page_size:
+          type: "integer"
+          title: "Page Size"
+          description: "The number of items returned per page"
+          examples:
+            - 25
+        total_pages:
+          anyOf:
+            - type: "integer"
+            - type: "null"
+          title: "Total Pages"
+          description: "The total number of pages of results given the indicated page size"
+          examples:
+            - 4
+        total_count:
+          anyOf:
+            - type: "integer"
+            - type: "null"
+          title: "Total Count"
+          description: "The total number of items returned from the query"
+          examples:
+            - 100
+      type: "object"
+      required:
+        - "items"
+        - "page"
+        - "page_size"
+      title: "ListResponse[BridgePhrasesResponse]"
     ListResponse_ChannelTargetResponse_:
       properties:
         items:
@@ -15625,6 +16070,19 @@ components:
         - "file"
       title: "LoadToolFromFileTask"
       description: "Bootstraps a tool from a file (for internal developer use only if ENV.local=True)."
+    LocalizedBridgePhrases:
+      properties:
+        messages:
+          items:
+            type: "string"
+          type: "array"
+          title: "Messages"
+          description: "Bridge phrases for this language."
+          examples:
+            - - "Un momento, por favor."
+      type: "object"
+      title: "LocalizedBridgePhrases"
+      description: "Per-language bridge phrase overrides (no further nesting)."
     LoginType:
       type: "string"
       enum:
@@ -18998,6 +19456,21 @@ components:
         - "custom_headers"
         - "oauth2"
       title: "ToolAuthType"
+    ToolBridgePhraseConfig:
+      properties:
+        tool_name:
+          type: "string"
+          title: "Tool Name"
+          description: "Name of the tool these phrases override."
+        phrases:
+          $ref: "#/components/schemas/lib__database__dao__organization__bridge_phrases_dao__BridgePhraseMessages"
+          description: "Phrase messages for this tool."
+      type: "object"
+      required:
+        - "tool_name"
+        - "phrases"
+      title: "ToolBridgePhraseConfig"
+      description: "Per-tool bridge phrase override entry."
     ToolCreateRequest:
       properties:
         name:
@@ -20638,6 +21111,67 @@ components:
         - "voice_display_name"
       title: "VoiceSampleCreateRequest"
       description: "Request model to generate a sample audio file for a given voice and language."
+    lib__database__dao__organization__bridge_phrases_dao__BridgePhraseMessages:
+      properties:
+        messages:
+          items:
+            type: "string"
+          type: "array"
+          title: "Messages"
+          description: "Ordered bridge phrases for this scope."
+          examples:
+            - - "One moment, please."
+              - "Let me check on that for you."
+        localized:
+          additionalProperties:
+            $ref: "#/components/schemas/LocalizedBridgePhrases"
+          type: "object"
+          title: "Localized"
+          description: "Per-language overrides keyed by BCP-47 tag (e.g. \"es-US\")."
+          example:
+            es-US:
+              messages:
+                - "Un momento, por favor."
+            fr-FR:
+              messages:
+                - "Un instant, je vous en prie."
+      type: "object"
+      title: "BridgePhraseMessages"
+      description: "Bridge phrase messages for a single scope (default or one tool)."
+    schemas__cortex__v1__bridge_phrases__BridgePhraseMessages:
+      properties:
+        messages:
+          items:
+            type: "string"
+          type: "array"
+          title: "Messages"
+          description: "Unified ordered bridge phrases. If empty, legacy fields are used."
+        randomize_messages:
+          type: "boolean"
+          title: "Randomize Messages"
+          description: "When true, unified messages are played in randomized no-repeat cycles. Ignored when unified messages are disabled."
+          default: false
+        first_slow_messages:
+          items:
+            type: "string"
+          type: "array"
+          title: "First Slow Messages"
+          description: "Messages to say when the agent is first delayed."
+        very_slow_messages:
+          items:
+            type: "string"
+          type: "array"
+          title: "Very Slow Messages"
+          description: "Messages to say when the agent is significantly delayed."
+        tool_responses:
+          items:
+            type: "string"
+          type: "array"
+          title: "Tool Responses"
+          description: "Messages to say when a tool call is in progress."
+      type: "object"
+      title: "BridgePhraseMessages"
+      description: "Bridge phrase message lists for a single language."
   securitySchemes:
     APIKeyHeader:
       type: "apiKey"

@@ -7,7 +7,7 @@ from typing import List, Optional
 from typing_extensions import NotRequired, TypedDict
 
 
-class BridgePhraseMessagesTypedDict(TypedDict):
+class SchemasCortexV1BridgePhrasesBridgePhraseMessagesTypedDict(TypedDict):
     r"""Bridge phrase message lists for a single language."""
 
     messages: NotRequired[List[str]]
@@ -22,7 +22,7 @@ class BridgePhraseMessagesTypedDict(TypedDict):
     r"""Messages to say when a tool call is in progress."""
 
 
-class BridgePhraseMessages(BaseModel):
+class SchemasCortexV1BridgePhrasesBridgePhraseMessages(BaseModel):
     r"""Bridge phrase message lists for a single language."""
 
     messages: Optional[List[str]] = None
