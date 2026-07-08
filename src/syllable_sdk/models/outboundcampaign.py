@@ -7,6 +7,10 @@ from .outboundcampaignwebhookresponse import (
     OutboundCampaignWebhookResponse,
     OutboundCampaignWebhookResponseTypedDict,
 )
+from .voicemaildetectionconfig import (
+    VoicemailDetectionConfig,
+    VoicemailDetectionConfigTypedDict,
+)
 from datetime import datetime
 import pydantic
 from pydantic import model_serializer
@@ -58,7 +62,7 @@ class OutboundCampaignTypedDict(TypedDict):
     r"""Number of retries per target"""
     retry_interval: NotRequired[Nullable[str]]
     r"""How long to wait before retrying"""
-    voicemail_detection: NotRequired[Nullable[Dict[str, float]]]
+    voicemail_detection: NotRequired[Nullable[VoicemailDetectionConfigTypedDict]]
     r"""Config for voicemail detection for voice campaigns. Set to None to disable."""
     allowed_line_types: NotRequired[Nullable[List[LineTypeBucket]]]
     r"""Line-type buckets this campaign is allowed to dial. Empty or omitted means no filter (all line types are dialed)."""
@@ -134,7 +138,7 @@ class OutboundCampaign(BaseModel):
     retry_interval: OptionalNullable[str] = UNSET
     r"""How long to wait before retrying"""
 
-    voicemail_detection: OptionalNullable[Dict[str, float]] = UNSET
+    voicemail_detection: OptionalNullable[VoicemailDetectionConfig] = UNSET
     r"""Config for voicemail detection for voice campaigns. Set to None to disable."""
 
     allowed_line_types: OptionalNullable[List[LineTypeBucket]] = UNSET
