@@ -64,7 +64,7 @@ class OutboundCampaignInputTypedDict(TypedDict):
     include_unknown_line_types: NotRequired[bool]
     r"""When a line-type filter is active, whether to also dial numbers whose line type is unknown or could not be classified. Has no effect when allowed_line_types is empty."""
     webhooks: NotRequired[List[OutboundCampaignWebhookInputTypedDict]]
-    r"""Webhooks for campaign (note: this is an in-development feature - webhooks will not yet trigger even if configured)"""
+    r"""Webhooks for campaign"""
 
 
 class OutboundCampaignInput(BaseModel):
@@ -131,7 +131,7 @@ class OutboundCampaignInput(BaseModel):
     r"""When a line-type filter is active, whether to also dial numbers whose line type is unknown or could not be classified. Has no effect when allowed_line_types is empty."""
 
     webhooks: Optional[List[OutboundCampaignWebhookInput]] = None
-    r"""Webhooks for campaign (note: this is an in-development feature - webhooks will not yet trigger even if configured)"""
+    r"""Webhooks for campaign"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
