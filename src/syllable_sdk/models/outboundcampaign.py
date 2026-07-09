@@ -75,7 +75,7 @@ class OutboundCampaignTypedDict(TypedDict):
     updated_at: NotRequired[datetime]
     r"""Timestamp of campaign update"""
     webhooks: NotRequired[Nullable[List[OutboundCampaignWebhookResponseTypedDict]]]
-    r"""Webhooks for campaign (note: this is an in-development feature - webhooks will not yet trigger even if configured)"""
+    r"""Webhooks for campaign"""
 
 
 class OutboundCampaign(BaseModel):
@@ -157,7 +157,7 @@ class OutboundCampaign(BaseModel):
     r"""Timestamp of campaign update"""
 
     webhooks: OptionalNullable[List[OutboundCampaignWebhookResponse]] = UNSET
-    r"""Webhooks for campaign (note: this is an in-development feature - webhooks will not yet trigger even if configured)"""
+    r"""Webhooks for campaign"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
