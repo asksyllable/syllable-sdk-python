@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from .promptllmprovider import PromptLlmProvider
+import pydantic
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -11,7 +12,7 @@ from syllable_sdk.types import (
     UNSET_SENTINEL,
 )
 from typing import Optional
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class PromptLlmConfigTypedDict(TypedDict):
@@ -22,7 +23,7 @@ class PromptLlmConfigTypedDict(TypedDict):
     model: NotRequired[str]
     r"""Name of the model. Must match the deployment name in Azure AI Studio."""
     version: NotRequired[Nullable[str]]
-    r"""Optional model version."""
+    r"""Deprecated model version. This value is ignored and resolved automatically."""
     api_version: NotRequired[Nullable[str]]
     r"""Version of the provider's API."""
     temperature: NotRequired[Nullable[float]]
@@ -40,8 +41,13 @@ class PromptLlmConfig(BaseModel):
     model: Optional[str] = "gpt-4o"
     r"""Name of the model. Must match the deployment name in Azure AI Studio."""
 
-    version: OptionalNullable[str] = UNSET
-    r"""Optional model version."""
+    version: Annotated[
+        OptionalNullable[str],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
+        ),
+    ] = UNSET
+    r"""Deprecated model version. This value is ignored and resolved automatically."""
 
     api_version: OptionalNullable[str] = UNSET
     r"""Version of the provider's API."""
