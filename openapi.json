@@ -27427,7 +27427,8 @@
               }
             ],
             "title": "Version",
-            "description": "Optional model version.",
+            "description": "Deprecated model version. This value is ignored and resolved automatically.",
+            "deprecated": true,
             "examples": [
               "2024-05-13"
             ]
@@ -30259,7 +30260,8 @@
               }
             ],
             "title": "Version",
-            "description": "Model version.",
+            "description": "Deprecated model version retained for backward compatibility.",
+            "deprecated": true,
             "examples": [
               "2024-05-13"
             ]
