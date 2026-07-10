@@ -90,7 +90,6 @@ with SyllableSDK(
         "context": "You are a weather agent. Answer the user's questions about weather and nothing else.",
         "tools": [],
         "llm_config": {
-            "version": "2024-05-13",
             "api_version": "2024-06-01",
             "temperature": 1,
             "seed": 123,
@@ -145,7 +144,6 @@ with SyllableSDK(
         "context": "You are a weather agent. Answer the user's questions about weather and nothing else.",
         "tools": [],
         "llm_config": {
-            "version": "2024-05-13",
             "api_version": "2024-06-01",
             "temperature": 1,
             "seed": 123,
