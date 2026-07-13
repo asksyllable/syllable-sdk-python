@@ -21,6 +21,14 @@ InsightsTypedDict = TypeAliasType("InsightsTypedDict", Union[str, int, float])
 Insights = TypeAliasType("Insights", Union[str, int, float])
 
 
+class EnrichmentTypedDict(TypedDict):
+    pass
+
+
+class Enrichment(BaseModel):
+    pass
+
+
 class CommunicationRequestResultTypedDict(TypedDict):
     reference_id: str
     r"""ID for target outreach (unique within batch)"""
@@ -50,6 +58,8 @@ class CommunicationRequestResultTypedDict(TypedDict):
     r"""Insights from call"""
     line_type: NotRequired[Nullable[str]]
     r"""Line type of the target number from Twilio Lookup (e.g. 'mobile', 'landline', 'voip'); resolved at ingestion."""
+    enrichment: NotRequired[Nullable[EnrichmentTypedDict]]
+    r"""Full Twilio Lookup v2 line_type_intelligence payload resolved at ingestion (line_type / carrier_name / mcc / mnc / error_code). None when no lookup was performed."""
 
 
 class CommunicationRequestResult(BaseModel):
@@ -95,6 +105,9 @@ class CommunicationRequestResult(BaseModel):
     line_type: OptionalNullable[str] = UNSET
     r"""Line type of the target number from Twilio Lookup (e.g. 'mobile', 'landline', 'voip'); resolved at ingestion."""
 
+    enrichment: OptionalNullable[Enrichment] = UNSET
+    r"""Full Twilio Lookup v2 line_type_intelligence payload resolved at ingestion (line_type / carrier_name / mcc / mnc / error_code). None when no lookup was performed."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -110,6 +123,7 @@ class CommunicationRequestResult(BaseModel):
                 "insights_status",
                 "insights",
                 "line_type",
+                "enrichment",
             ]
         )
         nullable_fields = set(
@@ -122,6 +136,7 @@ class CommunicationRequestResult(BaseModel):
                 "insights_status",
                 "insights",
                 "line_type",
+                "enrichment",
             ]
         )
         serialized = handler(self)

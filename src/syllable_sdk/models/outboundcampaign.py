@@ -7,6 +7,7 @@ from .outboundcampaignwebhookresponse import (
     OutboundCampaignWebhookResponse,
     OutboundCampaignWebhookResponseTypedDict,
 )
+from .targetfilters import TargetFilters, TargetFiltersTypedDict
 from .voicemaildetectionconfig import (
     VoicemailDetectionConfig,
     VoicemailDetectionConfigTypedDict,
@@ -68,6 +69,8 @@ class OutboundCampaignTypedDict(TypedDict):
     r"""Line-type buckets this campaign is allowed to dial. Empty or omitted means no filter (all line types are dialed)."""
     include_unknown_line_types: NotRequired[bool]
     r"""When a line-type filter is active, whether to also dial numbers whose line type is unknown or could not be classified. Has no effect when allowed_line_types is empty."""
+    target_filters: NotRequired[Nullable[TargetFiltersTypedDict]]
+    r"""Generic target filter (a flat rule list over request enrichment attributes such as line_type, carrier_name, mcc, mnc). When set, takes precedence over allowed_line_types / include_unknown_line_types. Omitted or null means those legacy fields are used instead."""
     agent_id: NotRequired[Nullable[int]]
     r"""ID of agent assigned to campaign"""
     created_at: NotRequired[datetime]
@@ -147,6 +150,9 @@ class OutboundCampaign(BaseModel):
     include_unknown_line_types: Optional[bool] = True
     r"""When a line-type filter is active, whether to also dial numbers whose line type is unknown or could not be classified. Has no effect when allowed_line_types is empty."""
 
+    target_filters: OptionalNullable[TargetFilters] = UNSET
+    r"""Generic target filter (a flat rule list over request enrichment attributes such as line_type, carrier_name, mcc, mnc). When set, takes precedence over allowed_line_types / include_unknown_line_types. Omitted or null means those legacy fields are used instead."""
+
     agent_id: OptionalNullable[int] = UNSET
     r"""ID of agent assigned to campaign"""
 
@@ -178,6 +184,7 @@ class OutboundCampaign(BaseModel):
                 "voicemail_detection",
                 "allowed_line_types",
                 "include_unknown_line_types",
+                "target_filters",
                 "agent_id",
                 "created_at",
                 "updated_at",
@@ -199,6 +206,7 @@ class OutboundCampaign(BaseModel):
                 "retry_interval",
                 "voicemail_detection",
                 "allowed_line_types",
+                "target_filters",
                 "agent_id",
                 "webhooks",
             ]
