@@ -15188,7 +15188,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260711.9"
+              "20260713.9"
             ]
           },
           "campaign_id": {
@@ -15212,7 +15212,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-07-12T00:00:00Z"
+              "2026-07-14T00:00:00Z"
             ]
           },
           "paused": {
@@ -15280,7 +15280,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-07-11T00:00:00Z"
+              "2026-07-13T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -15296,7 +15296,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-07-11T00:00:00Z"
+              "2026-07-13T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -15327,7 +15327,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-07-11T00:00:00Z"
+              "2026-07-13T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -16707,7 +16707,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260711.9"
+              "20260713.9"
             ]
           },
           "campaign_id": {
@@ -16731,7 +16731,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-07-12T00:00:00Z"
+              "2026-07-14T00:00:00Z"
             ]
           },
           "paused": {
@@ -16799,7 +16799,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-07-11T00:00:00Z"
+              "2026-07-13T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -16815,7 +16815,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-07-11T00:00:00Z"
+              "2026-07-13T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -16846,7 +16846,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-07-11T00:00:00Z"
+              "2026-07-13T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -16889,7 +16889,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260711.9"
+              "20260713.9"
             ]
           },
           "campaign_id": {
@@ -16913,7 +16913,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-07-12T00:00:00Z"
+              "2026-07-14T00:00:00Z"
             ]
           },
           "paused": {
@@ -17062,7 +17062,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2026-07-10T00:00:00Z"
+              "2026-07-12T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -17078,7 +17078,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2026-07-11T00:00:00Z"
+              "2026-07-13T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -17218,6 +17218,26 @@
               "mobile",
               "landline",
               "voip"
+            ]
+          },
+          "enrichment": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enrichment",
+            "description": "Full Twilio Lookup v2 line_type_intelligence payload resolved at ingestion (line_type / carrier_name / mcc / mnc / error_code). None when no lookup was performed.",
+            "examples": [
+              {
+                "carrier_name": "Onvoy, LLC - Sinch",
+                "line_type": "mobile",
+                "mcc": "313",
+                "mnc": "410"
+              }
             ]
           }
         },
@@ -20424,6 +20444,19 @@
         "title": "ExpressionTaskEvents",
         "description": "Actions to perform when events occur (start, submit)."
       },
+      "FilterOp": {
+        "type": "string",
+        "enum": [
+          "in",
+          "not_in",
+          "eq",
+          "neq",
+          "exists",
+          "not_exists"
+        ],
+        "title": "FilterOp",
+        "description": "Comparison operator for a single target-filter rule."
+      },
       "FolderDetails": {
         "properties": {
           "name": {
@@ -20478,7 +20511,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-07-10T00:00:00Z"
+              "2026-07-12T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -20487,7 +20520,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-07-11T00:00:00Z"
+              "2026-07-13T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -21490,7 +21523,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2026-07-10T00:00:00Z"
+              "2026-07-12T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -21499,7 +21532,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2026-07-11T00:00:00Z"
+              "2026-07-13T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -21880,7 +21913,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-07-10T00:00:00Z"
+              "2026-07-12T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -21896,7 +21929,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-07-11T00:00:00Z"
+              "2026-07-13T00:00:00Z"
             ]
           }
         },
@@ -21971,7 +22004,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-07-10T00:00:00Z"
+              "2026-07-12T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -21987,7 +22020,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-07-11T00:00:00Z"
+              "2026-07-13T00:00:00Z"
             ]
           },
           "id": {
@@ -22055,7 +22088,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2026-07-10T00:00:00Z"
+              "2026-07-12T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -22064,7 +22097,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2026-07-11T00:00:00Z"
+              "2026-07-13T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -22160,7 +22193,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-07-10T00:00:00Z"
+              "2026-07-12T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -22169,7 +22202,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-07-11T00:00:00Z"
+              "2026-07-13T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -22419,7 +22452,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2026-07-10T00:00:00Z"
+              "2026-07-12T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -22428,7 +22461,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2026-07-11T00:00:00Z"
+              "2026-07-13T00:00:00Z"
             ]
           },
           "upload_file_metadata": {
@@ -22573,7 +22606,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2026-07-10T00:00:00Z"
+              "2026-07-12T00:00:00Z"
             ]
           },
           "end_time": {
@@ -22589,7 +22622,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2026-07-11T00:00:00Z"
+              "2026-07-13T00:00:00Z"
             ]
           },
           "error_message": {
@@ -22644,7 +22677,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2026-07-10T00:00:00Z"
+              "2026-07-12T00:00:00Z"
             ]
           }
         },
@@ -26467,6 +26500,41 @@
               true
             ]
           },
+          "target_filters": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TargetFilters"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Generic target filter (a flat rule list over request enrichment attributes such as line_type, carrier_name, mcc, mnc). When set, takes precedence over allowed_line_types / include_unknown_line_types. Omitted or null means those legacy fields are used instead.",
+            "examples": [
+              {
+                "match": "any",
+                "on_unknown": "include",
+                "rules": [
+                  {
+                    "field": "line_type",
+                    "op": "in",
+                    "values": [
+                      "landline",
+                      "fixedVoip",
+                      "nonFixedVoip"
+                    ]
+                  },
+                  {
+                    "field": "carrier_name",
+                    "op": "in",
+                    "values": [
+                      "Onvoy, LLC - Sinch"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
           "id": {
             "type": "integer",
             "title": "Id",
@@ -26496,7 +26564,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2026-07-11T00:00:00Z"
+              "2026-07-13T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -26505,7 +26573,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2026-07-11T00:00:00Z"
+              "2026-07-13T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -26832,6 +26900,41 @@
             "default": true,
             "examples": [
               true
+            ]
+          },
+          "target_filters": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TargetFilters"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Generic target filter (a flat rule list over request enrichment attributes such as line_type, carrier_name, mcc, mnc). When set, takes precedence over allowed_line_types / include_unknown_line_types. Omitted or null means those legacy fields are used instead.",
+            "examples": [
+              {
+                "match": "any",
+                "on_unknown": "include",
+                "rules": [
+                  {
+                    "field": "line_type",
+                    "op": "in",
+                    "values": [
+                      "landline",
+                      "fixedVoip",
+                      "nonFixedVoip"
+                    ]
+                  },
+                  {
+                    "field": "carrier_name",
+                    "op": "in",
+                    "values": [
+                      "Onvoy, LLC - Sinch"
+                    ]
+                  }
+                ]
+              }
             ]
           },
           "webhooks": {
@@ -30346,6 +30449,113 @@
           "updated_at"
         ],
         "title": "TakeoutStatusResponse"
+      },
+      "TargetFilterRule": {
+        "properties": {
+          "field": {
+            "type": "string",
+            "title": "Field",
+            "description": "Enrichment attribute to match on (a key in the request enrichment payload).",
+            "examples": [
+              "line_type",
+              "carrier_name",
+              "mnc"
+            ]
+          },
+          "op": {
+            "$ref": "#/components/schemas/FilterOp",
+            "description": "Comparison operator.",
+            "examples": [
+              "in",
+              "not_in"
+            ]
+          },
+          "values": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Values",
+            "description": "Values to compare against. Ignored for exists / not_exists.",
+            "examples": [
+              [
+                "landline",
+                "fixedVoip",
+                "nonFixedVoip"
+              ]
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "field",
+          "op"
+        ],
+        "title": "TargetFilterRule",
+        "description": "A single predicate over one enrichment attribute of an outbound request.\n\n``field`` names a key in the request's enrichment payload (e.g. ``line_type``, ``carrier_name``,\n``mcc``, ``mnc``). Any attribute captured at lookup time can be filtered on with no code change."
+      },
+      "TargetFilters": {
+        "properties": {
+          "match": {
+            "type": "string",
+            "enum": [
+              "all",
+              "any"
+            ],
+            "title": "Match",
+            "description": "How to combine rules: 'all' (AND) or 'any' (OR).",
+            "default": "all",
+            "examples": [
+              "all",
+              "any"
+            ]
+          },
+          "on_unknown": {
+            "type": "string",
+            "enum": [
+              "include",
+              "exclude"
+            ],
+            "title": "On Unknown",
+            "description": "Whether to dial requests whose enrichment is unresolved (no lookup data).",
+            "default": "include",
+            "examples": [
+              "include",
+              "exclude"
+            ]
+          },
+          "rules": {
+            "items": {
+              "$ref": "#/components/schemas/TargetFilterRule"
+            },
+            "type": "array",
+            "title": "Rules",
+            "description": "Predicates over request enrichment attributes. Empty means no filter.",
+            "examples": [
+              [
+                {
+                  "field": "line_type",
+                  "op": "in",
+                  "values": [
+                    "landline",
+                    "fixedVoip",
+                    "nonFixedVoip"
+                  ]
+                },
+                {
+                  "field": "carrier_name",
+                  "op": "in",
+                  "values": [
+                    "Onvoy, LLC - Sinch"
+                  ]
+                }
+              ]
+            ]
+          }
+        },
+        "type": "object",
+        "title": "TargetFilters",
+        "description": "Generic target filter for an outbound campaign: a flat list of rules over request enrichment.\n\nA request is *dialable* when it matches the ruleset (``match='all'`` -> every rule; ``'any'`` ->\nat least one rule); non-matching requests are skipped. ``on_unknown`` decides the fate of\nrequests whose enrichment never resolved (no lookup / lookup failed). An empty ``rules`` list\nmeans no filter (all numbers dialed), matching the pre-filter behavior."
       },
       "TargetModes": {
         "type": "string",
