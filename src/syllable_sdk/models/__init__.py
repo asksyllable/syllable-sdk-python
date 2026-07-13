@@ -216,6 +216,8 @@ if TYPE_CHECKING:
     from .communicationrequestresult import (
         CommunicationRequestResult,
         CommunicationRequestResultTypedDict,
+        Enrichment,
+        EnrichmentTypedDict,
         Insights,
         InsightsTypedDict,
     )
@@ -411,6 +413,7 @@ if TYPE_CHECKING:
         ExpressionTaskEventsSubmitTypedDict,
         ExpressionTaskEventsTypedDict,
     )
+    from .filterop import FilterOp
     from .folderdetails import (
         FolderDetails,
         FolderDetailsTypedDict,
@@ -1098,6 +1101,8 @@ if TYPE_CHECKING:
         TakeoutStatusResponse,
         TakeoutStatusResponseTypedDict,
     )
+    from .targetfilterrule import TargetFilterRule, TargetFilterRuleTypedDict
+    from .targetfilters import Match, OnUnknown, TargetFilters, TargetFiltersTypedDict
     from .targetmodes import TargetModes
     from .telephonyconfigurations import (
         TelephonyConfigurations,
@@ -1531,6 +1536,8 @@ __all__ = [
     "DirectoryResponseFormat",
     "EmailConfigurations",
     "EmailConfigurationsTypedDict",
+    "Enrichment",
+    "EnrichmentTypedDict",
     "Enter",
     "EnterTypedDict",
     "Event",
@@ -1558,6 +1565,7 @@ __all__ = [
     "ExpressionTaskTypedDict",
     "File",
     "FileTypedDict",
+    "FilterOp",
     "FolderDetails",
     "FolderDetailsTypedDict",
     "FolderStats",
@@ -1785,6 +1793,7 @@ __all__ = [
     "LocalizedBridgePhrases",
     "LocalizedBridgePhrasesTypedDict",
     "LoginType",
+    "Match",
     "MatchType",
     "Metadata",
     "MetadataTypedDict",
@@ -1797,6 +1806,7 @@ __all__ = [
     "NextStepIf2TypedDict",
     "NextStepTypedDict",
     "NextTypedDict",
+    "OnUnknown",
     "OrderByDirection",
     "OrganizationChannelConfig",
     "OrganizationChannelConfigTypedDict",
@@ -2015,6 +2025,10 @@ __all__ = [
     "TakeoutsGetByJobIDRequestTypedDict",
     "TakeoutsGetFileRequest",
     "TakeoutsGetFileRequestTypedDict",
+    "TargetFilterRule",
+    "TargetFilterRuleTypedDict",
+    "TargetFilters",
+    "TargetFiltersTypedDict",
     "TargetModes",
     "Task1",
     "Task1TypedDict",
@@ -2288,6 +2302,8 @@ _dynamic_imports: dict[str, str] = {
     "CommunicationRequestTypedDict": ".communicationrequest",
     "CommunicationRequestResult": ".communicationrequestresult",
     "CommunicationRequestResultTypedDict": ".communicationrequestresult",
+    "Enrichment": ".communicationrequestresult",
+    "EnrichmentTypedDict": ".communicationrequestresult",
     "Insights": ".communicationrequestresult",
     "InsightsTypedDict": ".communicationrequestresult",
     "ConditionalText": ".conditionaltext",
@@ -2429,6 +2445,7 @@ _dynamic_imports: dict[str, str] = {
     "ExpressionTaskEventsSubmit": ".expressiontaskevents",
     "ExpressionTaskEventsSubmitTypedDict": ".expressiontaskevents",
     "ExpressionTaskEventsTypedDict": ".expressiontaskevents",
+    "FilterOp": ".filterop",
     "FolderDetails": ".folderdetails",
     "FolderDetailsTypedDict": ".folderdetails",
     "FolderStats": ".folderdetails",
@@ -2886,6 +2903,12 @@ _dynamic_imports: dict[str, str] = {
     "TakeoutsGetFileRequestTypedDict": ".takeouts_get_fileop",
     "TakeoutStatusResponse": ".takeoutstatusresponse",
     "TakeoutStatusResponseTypedDict": ".takeoutstatusresponse",
+    "TargetFilterRule": ".targetfilterrule",
+    "TargetFilterRuleTypedDict": ".targetfilterrule",
+    "Match": ".targetfilters",
+    "OnUnknown": ".targetfilters",
+    "TargetFilters": ".targetfilters",
+    "TargetFiltersTypedDict": ".targetfilters",
     "TargetModes": ".targetmodes",
     "TelephonyConfigurations": ".telephonyconfigurations",
     "TelephonyConfigurationsTypedDict": ".telephonyconfigurations",

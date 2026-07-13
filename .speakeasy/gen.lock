@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 13f15416afaf0b6d176cc8e6c879df95
+  docChecksum: 86877f0ab065d8297193f30c7bf68663
   docVersion: 0.0.3
-  speakeasyVersion: 1.789.2
-  generationVersion: 2.916.4
-  releaseVersion: 0.48.5
-  configChecksum: 7724be3abbc5662943dce684a6340d04
+  speakeasyVersion: 1.790.0
+  generationVersion: 2.917.0
+  releaseVersion: 0.48.6
+  configChecksum: fae6b03adcb8102bca8a892d66c89c81
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: b33caff3-5a0b-4433-a292-1b83f074196c
-  pristine_commit_hash: 1126aaabcfc92f880114fa591f3058b244f8b834
-  pristine_tree_hash: 9d369c13bbd149db43f869b8d96da08b7c49294e
+  generation_id: 56fa1d8d-b368-4d80-8973-e40414be13be
+  pristine_commit_hash: 29d2af1202fb4f6c21372062c94f2be1fedcebd4
+  pristine_tree_hash: c228e82b04861b5b9fadad4ad74b1f6a513689b5
 features:
   python:
     additionalDependencies: 1.1.0
@@ -167,8 +167,8 @@ trackedFiles:
     pristine_git_object: 59f0d7bd5f432e2d4e7d747a7dd5422c980ebee4
   docs/models/batchdetails.md:
     id: da968f95f3ca
-    last_write_checksum: sha1:6c565f842974a48eb2581990c4238b4989a78441
-    pristine_git_object: 2a702e7031cb315fd0d35d550303aa22b28dd008
+    last_write_checksum: sha1:429c3a252f1423b681295c8cf71208df086e1162
+    pristine_git_object: 31ddb27a8fc8f1b2bd5e775522412e57f8630f0e
   docs/models/batchproperties.md:
     id: 44911e315bab
     last_write_checksum: sha1:8d15f6395d1960e10f337095b0acdbacae3b8c1c
@@ -383,12 +383,12 @@ trackedFiles:
     pristine_git_object: 674cd8949336ff48383013752d4cfed3f8ec8d88
   docs/models/communicationbatch.md:
     id: bffc833d4305
-    last_write_checksum: sha1:a2ee1b14570263f8e29816640106b0c7cb8db34f
-    pristine_git_object: 7397414d6d3e50df4b2cd83a111e5d3189d5cca5
+    last_write_checksum: sha1:a0920107efc3085ec123cf9f8d9719e4d6c8d611
+    pristine_git_object: af92055bcb13dd38a38eed345fb019a358120f95
   docs/models/communicationbatchinput.md:
     id: bbfc143c623f
-    last_write_checksum: sha1:ddffba70cf74d1a749738e2c59123cc083e4b757
-    pristine_git_object: 04301fef08ce59f61360f2a1fd36f867a27c0348
+    last_write_checksum: sha1:aa6a24c029e73cb97b652c5f4c064b60d60671f8
+    pristine_git_object: fb45b505adcf40f04e8e48fcda1b08306f88693f
   docs/models/communicationbatchupdate.md:
     id: f47944937756
     last_write_checksum: sha1:dca868c3c62ffa9468a096ae5c775577ebbde4b3
@@ -399,8 +399,8 @@ trackedFiles:
     pristine_git_object: 08c36d278143e06b786610cb9ba92cfea34c8bcc
   docs/models/communicationrequestresult.md:
     id: 8cd7fea9158f
-    last_write_checksum: sha1:6b0d95c8f46f764aeae70cdfacbd6c03e70c9b93
-    pristine_git_object: f927024788aa0bdaa56aba17b040abfeb2a93f7c
+    last_write_checksum: sha1:8c9b83b2e7746824552dcd529064f26973ba6e57
+    pristine_git_object: 27a5f3d5943d1a057f7b1f619da8543a41626184
   docs/models/conditionaltext.md:
     id: 848c32a98369
     last_write_checksum: sha1:677b2cd1e8273cecf0a770a5a5f41c6936d8fa2f
@@ -661,6 +661,10 @@ trackedFiles:
     id: d3300c3fa306
     last_write_checksum: sha1:1500d328c2e41a1db3abdadbf02466821eeb4167
     pristine_git_object: 2566820aac679c746633276f6452f0573197f66c
+  docs/models/enrichment.md:
+    id: df6f59317aeb
+    last_write_checksum: sha1:70d4980b43f58f07e5239dd5a1c0bb8f5f19d67f
+    pristine_git_object: 5c5fb0f98a2eafc668b8e735f2bf0e689fe48140
   docs/models/enter.md:
     id: 7ae01a26dd08
     last_write_checksum: sha1:7de646fb0859c93a9a64302db93a546aca5cb9d8
@@ -717,10 +721,14 @@ trackedFiles:
     id: 4ad31355bd1c
     last_write_checksum: sha1:aa7adcb03e69ddda104944237a2ab8005e828657
     pristine_git_object: 462e18f0c21d3ff254225f0820a95122872dc033
+  docs/models/filterop.md:
+    id: 56cf95cd29be
+    last_write_checksum: sha1:7ee8bdaf27d3c56359f6fcea6d9b9486b115a49c
+    pristine_git_object: 6d0ec9c71c3aed7e2ada0f99aae54b124159519a
   docs/models/folderdetails.md:
     id: fad58c1827ec
-    last_write_checksum: sha1:8f8905102e59dd10c6219f437d12c044cbefde36
-    pristine_git_object: 2d388a58998c08d343423aee2a376d9d0e9c268a
+    last_write_checksum: sha1:7089b2accc7e8037b6c7c5466e9698f0191b45e1
+    pristine_git_object: f6a131e96582ea617b0fe649befd914c4d5283e4
   docs/models/folderstats.md:
     id: f54a72829d21
     last_write_checksum: sha1:599f91ff65287d1c068ef67b2b821fd87aa8e4f9
@@ -827,8 +835,8 @@ trackedFiles:
     pristine_git_object: 69d1a5b5c3a933409822f59bd1afd580ec789341
   docs/models/insightsfolder.md:
     id: f37349cba644
-    last_write_checksum: sha1:babebe4711d001ff0afd30a2fce05a0ecfaee1f9
-    pristine_git_object: 6f6782fcba7fa877a0bec2b8515e7138abe3db88
+    last_write_checksum: sha1:c4bf7cc48a1f30dd09e3c208d5b00bc764486004
+    pristine_git_object: d243f0197f88f66502c231dabd06d472df403457
   docs/models/insightsfolderdeleterequest.md:
     id: b7a53ff38453
     last_write_checksum: sha1:098c07c5457403d53045990cbbc6319af1129499
@@ -867,8 +875,8 @@ trackedFiles:
     pristine_git_object: 8a66b5bf2ac8a512ea5109098d5f8826543db566
   docs/models/insightsoutput.md:
     id: cf9ab4a8dee7
-    last_write_checksum: sha1:c545dd559e3e625d739c6536587f98a3891be26a
-    pristine_git_object: b9ab61b805eed512e99f4269affc33efa744c94c
+    last_write_checksum: sha1:df437271e16e9f58da7409df589f81fec7d05d74
+    pristine_git_object: c7e644fca6ed0f8785e307021e7f5491a1f44919
   docs/models/insightsproperties.md:
     id: 2bf82d14a1de
     last_write_checksum: sha1:d40102cb5362cde654858e202b4bb402c75f79c8
@@ -883,8 +891,8 @@ trackedFiles:
     pristine_git_object: 2cb8cefd41000f7fa9edbb24217f9d6dce33b539
   docs/models/insightsuploadfile.md:
     id: 5750a6ab8306
-    last_write_checksum: sha1:0ccf06d9727ee7f0de9a81257509b6497dbb17c3
-    pristine_git_object: 285fec349fbec225b315a621e876d3ce8a7fb0f3
+    last_write_checksum: sha1:0d4b336750fca6b45bd9abd87ec170e8b55f74bb
+    pristine_git_object: 1a75dc11fec51bf1033b9794eab1928cf2e578eb
   docs/models/insightsuploadfileproperties.md:
     id: f2446686e595
     last_write_checksum: sha1:8cfbb8121029d9e4fb2a9ae682045f1d33c6c364
@@ -943,8 +951,8 @@ trackedFiles:
     pristine_git_object: 9b7d4ee902cbf8ce5be2cba88ed836d373d14581
   docs/models/insighttooloutput.md:
     id: 68de407febc7
-    last_write_checksum: sha1:c1f5969f94305994eab2536cab752181b54b03e3
-    pristine_git_object: 827bf817d70874dc5d0aab7105e966ad1b2cc463
+    last_write_checksum: sha1:5bd1d3578b5592b0cad04ae8447efbf61a7600b0
+    pristine_git_object: f78d07552cdaf746114191ba3a73943707702534
   docs/models/insighttoolproperties.md:
     id: 958ddf8f1014
     last_write_checksum: sha1:ef77c96598520360d3a147d2954cc33336f68016
@@ -967,12 +975,12 @@ trackedFiles:
     pristine_git_object: 22394162d7d8e553361b9e5d644caf2b0af470ca
   docs/models/insightworkflowinput.md:
     id: 95980a68168d
-    last_write_checksum: sha1:bb723148e2bd5bae31dc20b0d385be44eb4559da
-    pristine_git_object: 234c9c734d1f0924bd5b33eab53c4f25da1a423d
+    last_write_checksum: sha1:5b42bdacfce9d0ef6cd9dd6f1f6ebfb81d7e87c7
+    pristine_git_object: 87adaaafdca31aea954ea773ec6280333e7b1c13
   docs/models/insightworkflowoutput.md:
     id: 408919a5d4d9
-    last_write_checksum: sha1:e2730521b3193f2cc78fe6146fe526afc8722701
-    pristine_git_object: f8b655589dbd1ff7fa53d7c1f2008304df740c90
+    last_write_checksum: sha1:1e38104d40e80b6edb6d822aa908ef546969490a
+    pristine_git_object: e13816900fa1be2e93b349579960b264d32d7596
   docs/models/insightworkflowproperties.md:
     id: ceb7dee5bbba
     last_write_checksum: sha1:dd08e7f85e756b15613644634b9910960948252e
@@ -1201,6 +1209,10 @@ trackedFiles:
     id: 56039df01efc
     last_write_checksum: sha1:2706f3f577cb95a3da768976cba19b8636e92f82
     pristine_git_object: e66b64046766b086f48d2d4bfc665163cee70ddc
+  docs/models/match.md:
+    id: 64d590c50e79
+    last_write_checksum: sha1:e9595142f217423ca7d60ea896ebe843240c2092
+    pristine_git_object: cd9a0605a4f05aff5cc525c8840519af57138e4b
   docs/models/matchtype.md:
     id: f81160f137d4
     last_write_checksum: sha1:03feb4378b03fa4fe177de9e7a72e50d319b46a2
@@ -1229,6 +1241,10 @@ trackedFiles:
     id: 9f4f5d3af15d
     last_write_checksum: sha1:2aa9b13148f6df0ddee58daf6be5149e1e0ed8d0
     pristine_git_object: 66aa0807cae9c8bfc796463027314ef1318811c8
+  docs/models/onunknown.md:
+    id: 6496e9f3e4b4
+    last_write_checksum: sha1:52709531e791c8b846ec014b9d2d4a9e8ab0c499
+    pristine_git_object: 1fc1abc36d164b0207c219ef08f839f5410c6fc6
   docs/models/orderbydirection.md:
     id: 23012d6d0dff
     last_write_checksum: sha1:9126d5019fe23e279f43ae183cd87e21ce54756c
@@ -1307,8 +1323,8 @@ trackedFiles:
     pristine_git_object: b1f7c6c608c42bd3c966dd5f5441c7ddb861869f
   docs/models/outboundcampaign.md:
     id: a20726716e61
-    last_write_checksum: sha1:938c5ba8664f31b837aecc8042a5e0f37e6ef7eb
-    pristine_git_object: 0e22256c9c1f42dbb824ab1fa8220f6e0fc422f5
+    last_write_checksum: sha1:2c6234c6523846e3aaa19893efabc068841aac05
+    pristine_git_object: 0f19cc644f68ef0256b2456c05ef49fa4945f624
   docs/models/outboundcampaigndeleterequest.md:
     id: 963a72fcb468
     last_write_checksum: sha1:cb76acab95d463f4cfcf1ed15325950cef460179
@@ -1319,8 +1335,8 @@ trackedFiles:
     pristine_git_object: 40889c527630241c57949a8c5d829054aa8b3acd
   docs/models/outboundcampaigninput.md:
     id: bd777fa7cb3c
-    last_write_checksum: sha1:9f07cba86c89902fff7909c55d903d4d257aae41
-    pristine_git_object: 69c246c2e3ea98020215a5fc46af1c3e64a834fb
+    last_write_checksum: sha1:0abca8ade6ae96d234977bebaad53bb899757b30
+    pristine_git_object: a2717cbdcdd5122a80630c938dacc000041ec958
   docs/models/outboundcampaignlistrequest.md:
     id: 0fe9799b0dff
     last_write_checksum: sha1:9ef6775aa68ef8d910562cce0c5d7b32f728c457
@@ -1693,6 +1709,14 @@ trackedFiles:
     id: 5b4a85f91850
     last_write_checksum: sha1:ffa4a4880fc8e4a9913fcb4e35fb3272e7d419ba
     pristine_git_object: eaa1aec2b2b47f75dcd4513316eed02005414c45
+  docs/models/targetfilterrule.md:
+    id: 9722df65cd5a
+    last_write_checksum: sha1:3949e3538512c2c6edd4a575a58d11241599f046
+    pristine_git_object: cbb0fc707326fd606ab1f34c8ec690fa49c352d5
+  docs/models/targetfilters.md:
+    id: 8f409d281151
+    last_write_checksum: sha1:181736021096bce4f51bd7acd851a43deeb9ac6b
+    pristine_git_object: ec0321aecf22f316858f7bdf5f42edf55540f0f2
   docs/models/targetmodes.md:
     id: 097a822873a4
     last_write_checksum: sha1:3545611cdbdad3b9eeec110f5891b92c7578b794
@@ -1999,8 +2023,8 @@ trackedFiles:
     pristine_git_object: 85c7be22d2053be9b5ff811694cf6075f7474250
   docs/sdks/campaigns/README.md:
     id: 18dcc3c717ca
-    last_write_checksum: sha1:94b68b4add22805412983270bacae4155b46e830
-    pristine_git_object: 63bcea220836bc30730b4e4817e9601cc6951d9b
+    last_write_checksum: sha1:ba9690225cbc855447ab0abb1525aa85acb7ffba
+    pristine_git_object: 359f8d885020b5751e3772cc5fbab5fa1bcdacc9
   docs/sdks/channels/README.md:
     id: 721bbf4c03d7
     last_write_checksum: sha1:4925c940ae5ee2a53e817ff5ff1708251ac01412
@@ -2159,12 +2183,12 @@ trackedFiles:
     pristine_git_object: 3e38f1a929f7d6b1d6de74604aa87e3d8f010544
   pylintrc:
     id: 7ce8b9f946e6
-    last_write_checksum: sha1:6a03b5c0c3dcce64a26a1fe6b93ea3e80054c714
-    pristine_git_object: 739eef2047817f053e6c7688b3993b63a9a7f142
+    last_write_checksum: sha1:ceb6e0e381937bb7fe267755cef038f394f96612
+    pristine_git_object: 34b394b3729223076641e206019c89e9ae03b408
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:73cb935df5402ee0975b6ece3feea8f1e60074cd
-    pristine_git_object: 3a8dcc5a713f740c81b74fafb56012f487329506
+    last_write_checksum: sha1:9b49b245bad4085c9e2c3e83bd8c95941ee8c2d6
+    pristine_git_object: a569c3100e50f36d010a4786f9c3e80de936126e
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2191,8 +2215,8 @@ trackedFiles:
     pristine_git_object: 132885676dc1885890d1c8a13bd01fcfcb8e3fbc
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:e7e33c0a3496cccd51407cd9bf0aa9831e75fb78
-    pristine_git_object: 2d226cfc6043fad4f3bbea808db2fa9354af0936
+    last_write_checksum: sha1:ace796446a9087036e38b70f9564edfa04810d01
+    pristine_git_object: eb74130498cb206c756b7184ec180ad3d7b3b351
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:889f4504eb7f9489276dbcc2870b3ecdf6df8538
@@ -2303,8 +2327,8 @@ trackedFiles:
     pristine_git_object: 59142dc80d14c0481b722c0087c1abcbb426e597
   src/syllable_sdk/models/__init__.py:
     id: 984744253da7
-    last_write_checksum: sha1:13a4ee61426880c1e38d8844748d80b4e060099d
-    pristine_git_object: 21a98e931e43cab6ab81706a3ae5cff4199936ee
+    last_write_checksum: sha1:08078e7ce5beefdf8137f7fe24e6bb7324f77125
+    pristine_git_object: 80719b1f89a9d72f50a5c74a60f9078a5007da62
   src/syllable_sdk/models/a2pmessagingpathcheckrequest.py:
     id: 2cb7c3c6f6e9
     last_write_checksum: sha1:3dcf884ac8fa211d36338dda9ad3e90f3979a28d
@@ -2595,8 +2619,8 @@ trackedFiles:
     pristine_git_object: d83b6ac6fa936b2a553240c06830647717313f3b
   src/syllable_sdk/models/communicationrequestresult.py:
     id: 5acd1024237c
-    last_write_checksum: sha1:299c7db05171023d93546a1016fe2b6aa6328408
-    pristine_git_object: 40f4156c0121441219e783d9144d28d459d1a585
+    last_write_checksum: sha1:b0f5a55208bfb951dcd77062fb6b9029b7bc3be9
+    pristine_git_object: 5cd34f098be6c8cbaa7135dd0a7294f516bf11ea
   src/syllable_sdk/models/conditionaltext.py:
     id: 3ffcb4e76b92
     last_write_checksum: sha1:ef46b079ae24fa9b4d37dfe21528096e66e44686
@@ -2857,6 +2881,10 @@ trackedFiles:
     id: c550346652b1
     last_write_checksum: sha1:904f0eb75c8b1178253a37bb3763688e3f84766c
     pristine_git_object: 4ec72d88ace9f5bb6561afaffe0b6ae29ec9d1a3
+  src/syllable_sdk/models/filterop.py:
+    id: 099c2ba6a9f4
+    last_write_checksum: sha1:a83a13ee8a80c5c0bfeedb4ab08437b3d4dcecb0
+    pristine_git_object: a57d4d9ef083065d65e593f0845b5ac8b577e8aa
   src/syllable_sdk/models/folderdetails.py:
     id: 2bc06861efa7
     last_write_checksum: sha1:79f8d553d9edb687875a346f505bda04cd083a60
@@ -3387,12 +3415,12 @@ trackedFiles:
     pristine_git_object: d41de6f42e90644feefc7012cfd1c66a84a97df4
   src/syllable_sdk/models/outboundcampaign.py:
     id: aaac099ae54a
-    last_write_checksum: sha1:247946c42dcf43930f091e8c5a7dada974194dab
-    pristine_git_object: 6f82024aa87403eba43538f48a048894acc4c123
+    last_write_checksum: sha1:23d595e9587d62546474b51eaee2b796d783d5a2
+    pristine_git_object: 0d281b958f315bd891aa5d7f54727b46aa0ce68f
   src/syllable_sdk/models/outboundcampaigninput.py:
     id: a206a2e7137f
-    last_write_checksum: sha1:95b029db1b67c2d534eb56dcdafa714f70734b31
-    pristine_git_object: f66dafd16a67a830f71c72005ff8736cae3a67d4
+    last_write_checksum: sha1:48b1a9eea83faa2947c8d815e9fb5a907d6155cf
+    pristine_git_object: 29c381359f4e89926aaabbddb8cc92f04ca4e043
   src/syllable_sdk/models/outboundcampaignwebhookinput.py:
     id: ad241715e2f0
     last_write_checksum: sha1:934751a0d940dac895cee0279bc037f66728f345
@@ -3697,6 +3725,14 @@ trackedFiles:
     id: f28c2a008de7
     last_write_checksum: sha1:d8f1961e899b90ed544f8e61b5c3b01971133a7a
     pristine_git_object: 044974c3c150ee833ae0b1b8c4e94652147989ce
+  src/syllable_sdk/models/targetfilterrule.py:
+    id: ae7a0c24d43d
+    last_write_checksum: sha1:d7946203dda65e568a9965f09c07828475298995
+    pristine_git_object: c9b2917fa28a5e58f8e5f7f904b62b4040e0056e
+  src/syllable_sdk/models/targetfilters.py:
+    id: "491172595930"
+    last_write_checksum: sha1:6763847186e62ba54253ef75ffd92e13f5944ab4
+    pristine_git_object: 34d00279dda29dd09a9c9acc397abafdd08eaec4
   src/syllable_sdk/models/targetmodes.py:
     id: 75244ee297fa
     last_write_checksum: sha1:d9bbd129306bbc291e3c5b332a03a295dac9e78e
@@ -5301,10 +5337,10 @@ examples:
   outbound_campaign_create:
     speakeasy-default-outbound-campaign-create:
       requestBody:
-        application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "max_daily_calls": 2500, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_pre_speech_timeout": 3.5, "voicemail_detection_post_speech_timeout": 1.75}, "allowed_line_types": ["mobile", "voip"], "include_unknown_line_types": true, "webhooks": [{"trigger_statuses": ["COMPLETED"], "url": "https://example.com/hooks/syllable", "request_method": "POST"}]}
+        application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "max_daily_calls": 2500, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_pre_speech_timeout": 3.5, "voicemail_detection_post_speech_timeout": 1.75}, "allowed_line_types": ["mobile", "voip"], "include_unknown_line_types": true, "target_filters": {"match": "any", "on_unknown": "include", "rules": [{"field": "line_type", "op": "in", "values": ["landline", "fixedVoip", "nonFixedVoip"]}, {"field": "carrier_name", "op": "in", "values": ["Onvoy, LLC - Sinch"]}]}, "webhooks": [{"trigger_statuses": ["COMPLETED"], "url": "https://example.com/hooks/syllable", "request_method": "POST"}]}
       responses:
         "200":
-          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "max_daily_calls": 2500, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_pre_speech_timeout": 3.5, "voicemail_detection_post_speech_timeout": 1.75}, "allowed_line_types": ["mobile", "voip"], "include_unknown_line_types": true, "id": 1, "created_at": "2026-02-04T00:00:00Z", "updated_at": "2026-02-04T00:00:00Z", "last_updated_by": "user@email.com", "webhooks": [{"trigger_statuses": ["CLICKED"], "url": "https://example.com/hooks/syllable", "request_method": "POST", "id": 1, "auth_value_keys": ["hmac_secret"]}]}
+          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "max_daily_calls": 2500, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_pre_speech_timeout": 3.5, "voicemail_detection_post_speech_timeout": 1.75}, "allowed_line_types": ["mobile", "voip"], "include_unknown_line_types": true, "target_filters": {"match": "any", "on_unknown": "include", "rules": [{"field": "line_type", "op": "in", "values": ["landline", "fixedVoip", "nonFixedVoip"]}, {"field": "carrier_name", "op": "in", "values": ["Onvoy, LLC - Sinch"]}]}, "id": 1, "created_at": "2026-02-04T00:00:00Z", "updated_at": "2026-02-04T00:00:00Z", "last_updated_by": "user@email.com", "webhooks": [{"trigger_statuses": ["CLICKED"], "url": "https://example.com/hooks/syllable", "request_method": "POST", "id": 1, "auth_value_keys": ["hmac_secret"]}]}
         "422":
           application/json: {}
   outbound_campaign_get_by_id:
@@ -5314,7 +5350,7 @@ examples:
           campaign_id: 11227
       responses:
         "200":
-          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "max_daily_calls": 2500, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_pre_speech_timeout": 3.5, "voicemail_detection_post_speech_timeout": 1.75}, "allowed_line_types": ["mobile", "voip"], "include_unknown_line_types": true, "id": 1, "created_at": "2026-02-04T00:00:00Z", "updated_at": "2026-02-04T00:00:00Z", "last_updated_by": "user@email.com", "webhooks": null}
+          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "max_daily_calls": 2500, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_pre_speech_timeout": 3.5, "voicemail_detection_post_speech_timeout": 1.75}, "allowed_line_types": ["mobile", "voip"], "include_unknown_line_types": true, "target_filters": {"match": "any", "on_unknown": "include", "rules": [{"field": "line_type", "op": "in", "values": ["landline", "fixedVoip", "nonFixedVoip"]}, {"field": "carrier_name", "op": "in", "values": ["Onvoy, LLC - Sinch"]}]}, "id": 1, "created_at": "2026-02-04T00:00:00Z", "updated_at": "2026-02-04T00:00:00Z", "last_updated_by": "user@email.com", "webhooks": null}
         "422":
           application/json: {}
   outbound_campaign_update:
@@ -5323,10 +5359,10 @@ examples:
         path:
           campaign_id: 187717
       requestBody:
-        application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "max_daily_calls": 2500, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_pre_speech_timeout": 3.5, "voicemail_detection_post_speech_timeout": 1.75}, "allowed_line_types": ["mobile", "voip"], "include_unknown_line_types": true, "webhooks": [{"trigger_statuses": ["COMPLETED"], "url": "https://example.com/hooks/syllable", "request_method": "POST"}]}
+        application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "max_daily_calls": 2500, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_pre_speech_timeout": 3.5, "voicemail_detection_post_speech_timeout": 1.75}, "allowed_line_types": ["mobile", "voip"], "include_unknown_line_types": true, "target_filters": {"match": "any", "on_unknown": "include", "rules": [{"field": "line_type", "op": "in", "values": ["landline", "fixedVoip", "nonFixedVoip"]}, {"field": "carrier_name", "op": "in", "values": ["Onvoy, LLC - Sinch"]}]}, "webhooks": [{"trigger_statuses": ["COMPLETED"], "url": "https://example.com/hooks/syllable", "request_method": "POST"}]}
       responses:
         "200":
-          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "max_daily_calls": 2500, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_pre_speech_timeout": 3.5, "voicemail_detection_post_speech_timeout": 1.75}, "allowed_line_types": ["mobile", "voip"], "include_unknown_line_types": true, "id": 1, "created_at": "2026-02-04T00:00:00Z", "updated_at": "2026-02-04T00:00:00Z", "last_updated_by": "user@email.com", "webhooks": [{"trigger_statuses": ["UNDELIVERED"], "url": "https://example.com/hooks/syllable", "request_method": "POST", "id": 1, "auth_value_keys": ["hmac_secret"]}]}
+          application/json: {"campaign_name": "Outbound Campaign 1", "description": "This is a test campaign", "mode": "voice", "sms_session_ttl": 720, "labels": ["test", "demo"], "campaign_variables": {"key": "value", "key2": "value2"}, "daily_start_time": "09:00:00", "daily_end_time": "17:00:00", "source": "+19032900844", "caller_id": "19995551234", "hourly_rate": 25, "max_daily_calls": 2500, "retry_count": 1, "retry_interval": "30m", "active_days": ["mon", "tue", "wed", "thu", "fri"], "voicemail_detection": {"voicemail_detection_overall_timeout": 30, "voicemail_detection_pre_speech_timeout": 3.5, "voicemail_detection_post_speech_timeout": 1.75}, "allowed_line_types": ["mobile", "voip"], "include_unknown_line_types": true, "target_filters": {"match": "any", "on_unknown": "include", "rules": [{"field": "line_type", "op": "in", "values": ["landline", "fixedVoip", "nonFixedVoip"]}, {"field": "carrier_name", "op": "in", "values": ["Onvoy, LLC - Sinch"]}]}, "id": 1, "created_at": "2026-02-04T00:00:00Z", "updated_at": "2026-02-04T00:00:00Z", "last_updated_by": "user@email.com", "webhooks": [{"trigger_statuses": ["UNDELIVERED"], "url": "https://example.com/hooks/syllable", "request_method": "POST", "id": 1, "auth_value_keys": ["hmac_secret"]}]}
         "422":
           application/json: {}
   outbound_campaign_delete:
@@ -5979,6 +6015,7 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.outbound.batches.results()`:  `response.[].enrichment` **Added**\n* `syllable_sdk.outbound.campaigns.list()`:  `response.items[].target_filters` **Added**\n* `syllable_sdk.outbound.campaigns.create()`: \n  *  `request.target_filters` **Added**\n  *  `response.target_filters` **Added**\n* `syllable_sdk.outbound.campaigns.get_by_id()`:  `response.target_filters` **Added**\n* `syllable_sdk.outbound.campaigns.update()`: \n  *  `request.outbound_campaign_input.target_filters` **Added**\n  *  `response.target_filters` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

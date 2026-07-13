@@ -118,6 +118,27 @@ with SyllableSDK(
             models.LineTypeBucket.MOBILE,
             models.LineTypeBucket.VOIP,
         ],
+        target_filters=models.TargetFilters(
+            match=models.Match.ANY,
+            rules=[
+                models.TargetFilterRule(
+                    field="line_type",
+                    op=models.FilterOp.IN,
+                    values=[
+                        "landline",
+                        "fixedVoip",
+                        "nonFixedVoip",
+                    ],
+                ),
+                models.TargetFilterRule(
+                    field="carrier_name",
+                    op=models.FilterOp.IN,
+                    values=[
+                        "Onvoy, LLC - Sinch",
+                    ],
+                ),
+            ],
+        ),
         webhooks=[
             models.OutboundCampaignWebhookInput(
                 trigger_statuses=[
@@ -246,6 +267,27 @@ with SyllableSDK(
             models.LineTypeBucket.MOBILE,
             models.LineTypeBucket.VOIP,
         ],
+        target_filters=models.TargetFilters(
+            match=models.Match.ANY,
+            rules=[
+                models.TargetFilterRule(
+                    field="line_type",
+                    op=models.FilterOp.IN,
+                    values=[
+                        "landline",
+                        "fixedVoip",
+                        "nonFixedVoip",
+                    ],
+                ),
+                models.TargetFilterRule(
+                    field="carrier_name",
+                    op=models.FilterOp.IN,
+                    values=[
+                        "Onvoy, LLC - Sinch",
+                    ],
+                ),
+            ],
+        ),
         webhooks=[
             models.OutboundCampaignWebhookInput(
                 trigger_statuses=[
