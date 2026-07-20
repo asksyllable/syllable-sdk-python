@@ -13675,6 +13675,21 @@
               1
             ]
           },
+          "prompt_version_number": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt Version Number",
+            "description": "Optional pin to a specific version of the prompt (prompt history version number). When omitted or null, the agent tracks the latest/current version of the prompt. When set, the agent runs that specific prompt version. Must reference an existing version of the agent's prompt.",
+            "examples": [
+              3
+            ]
+          },
           "custom_message_id": {
             "anyOf": [
               {
@@ -13992,6 +14007,21 @@
             "description": "ID of the prompt associated with the agent",
             "examples": [
               1
+            ]
+          },
+          "prompt_version_number": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt Version Number",
+            "description": "Optional pin to a specific version of the prompt (prompt history version number). When omitted or null, the agent tracks the latest/current version of the prompt. When set, the agent runs that specific prompt version. Must reference an existing version of the agent's prompt.",
+            "examples": [
+              3
             ]
           },
           "custom_message_id": {
@@ -14439,6 +14469,21 @@
             "description": "ID of the prompt associated with the agent",
             "examples": [
               1
+            ]
+          },
+          "prompt_version_number": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt Version Number",
+            "description": "Optional pin to a specific version of the prompt (prompt history version number). When omitted or null, the agent tracks the latest/current version of the prompt. When set, the agent runs that specific prompt version. Must reference an existing version of the agent's prompt.",
+            "examples": [
+              3
             ]
           },
           "custom_message_id": {
@@ -15188,7 +15233,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260718.9"
+              "20260720.9"
             ]
           },
           "campaign_id": {
@@ -15212,7 +15257,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-07-19T00:00:00Z"
+              "2026-07-21T00:00:00Z"
             ]
           },
           "paused": {
@@ -15280,7 +15325,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-07-18T00:00:00Z"
+              "2026-07-20T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -15296,7 +15341,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-07-18T00:00:00Z"
+              "2026-07-20T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -15327,7 +15372,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-07-18T00:00:00Z"
+              "2026-07-20T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -16707,7 +16752,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260718.9"
+              "20260720.9"
             ]
           },
           "campaign_id": {
@@ -16731,7 +16776,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-07-19T00:00:00Z"
+              "2026-07-21T00:00:00Z"
             ]
           },
           "paused": {
@@ -16799,7 +16844,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-07-18T00:00:00Z"
+              "2026-07-20T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -16815,7 +16860,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-07-18T00:00:00Z"
+              "2026-07-20T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -16846,7 +16891,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-07-18T00:00:00Z"
+              "2026-07-20T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -16889,7 +16934,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260718.9"
+              "20260720.9"
             ]
           },
           "campaign_id": {
@@ -16913,7 +16958,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-07-19T00:00:00Z"
+              "2026-07-21T00:00:00Z"
             ]
           },
           "paused": {
@@ -17062,7 +17107,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2026-07-17T00:00:00Z"
+              "2026-07-19T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -17078,7 +17123,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2026-07-18T00:00:00Z"
+              "2026-07-20T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -20511,7 +20556,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-07-17T00:00:00Z"
+              "2026-07-19T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -20520,7 +20565,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-07-18T00:00:00Z"
+              "2026-07-20T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -21523,7 +21568,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2026-07-17T00:00:00Z"
+              "2026-07-19T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -21532,7 +21577,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2026-07-18T00:00:00Z"
+              "2026-07-20T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -21913,7 +21958,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-07-17T00:00:00Z"
+              "2026-07-19T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -21929,7 +21974,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-07-18T00:00:00Z"
+              "2026-07-20T00:00:00Z"
             ]
           }
         },
@@ -22004,7 +22049,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-07-17T00:00:00Z"
+              "2026-07-19T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -22020,7 +22065,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-07-18T00:00:00Z"
+              "2026-07-20T00:00:00Z"
             ]
           },
           "id": {
@@ -22088,7 +22133,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2026-07-17T00:00:00Z"
+              "2026-07-19T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -22097,7 +22142,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2026-07-18T00:00:00Z"
+              "2026-07-20T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -22193,7 +22238,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-07-17T00:00:00Z"
+              "2026-07-19T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -22202,7 +22247,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-07-18T00:00:00Z"
+              "2026-07-20T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -22452,7 +22497,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2026-07-17T00:00:00Z"
+              "2026-07-19T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -22461,7 +22506,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2026-07-18T00:00:00Z"
+              "2026-07-20T00:00:00Z"
             ]
           },
           "upload_file_metadata": {
@@ -22606,7 +22651,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2026-07-17T00:00:00Z"
+              "2026-07-19T00:00:00Z"
             ]
           },
           "end_time": {
@@ -22622,7 +22667,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2026-07-18T00:00:00Z"
+              "2026-07-20T00:00:00Z"
             ]
           },
           "error_message": {
@@ -22677,7 +22722,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2026-07-17T00:00:00Z"
+              "2026-07-19T00:00:00Z"
             ]
           }
         },
@@ -26564,7 +26609,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2026-07-18T00:00:00Z"
+              "2026-07-20T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -26573,7 +26618,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2026-07-18T00:00:00Z"
+              "2026-07-20T00:00:00Z"
             ]
           },
           "last_updated_by": {
