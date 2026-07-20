@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 9a2aae8e06b72a3a49e1e438a5e438a0
+  docChecksum: 20ec716f44fd89b37c00bd9e3a07927c
   docVersion: 0.0.3
   speakeasyVersion: 1.790.3
   generationVersion: 2.918.4
-  releaseVersion: 0.48.10
-  configChecksum: 9c245dea76b65b51b72b378f513400df
+  releaseVersion: 0.48.11
+  configChecksum: 5b6f85117c54c3d2e9cd45ac9c4706a6
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: ca0414a0-924c-4d0c-a401-f92aec3ffdf3
-  pristine_commit_hash: 05af954cffb118608f49aaf1e179333399f01979
-  pristine_tree_hash: 2b12210639e3c21d01aee82f587ca8bed865d8c6
+  generation_id: b9c90e71-fb40-49ce-a292-537d711c9d2a
+  pristine_commit_hash: b9b430773b320332cca8856a2406ceffa155fb8a
+  pristine_tree_hash: cc15f84fbb9a56be997c790a5ea1caa99d6d2adf
 features:
   python:
     additionalDependencies: 1.1.0
@@ -587,8 +587,8 @@ trackedFiles:
     pristine_git_object: aa8a4d32ab66e7314c142390252d49e9463b313d
   docs/models/directoryextensionnumber.md:
     id: 372f279b9842
-    last_write_checksum: sha1:f7781cf82d262f8726719c69f65b2bd046259178
-    pristine_git_object: 8a2736f8c9a0849f13eee726f0949f9640be9735
+    last_write_checksum: sha1:09543ee89bd1108aca316959c1c382f95d82aeb5
+    pristine_git_object: ea312ab71d104ff26aeda824dd5db96540f41d97
   docs/models/directorymember.md:
     id: 45d2622bb8f8
     last_write_checksum: sha1:305de084a52b53b2ed2cb0c2d9b8a17a136791f0
@@ -1649,6 +1649,22 @@ trackedFiles:
     id: 5195c9cf0054
     last_write_checksum: sha1:e1667b1e1cdbda1b8d328751c1875881515a7582
     pristine_git_object: e35930696fb9b5e01623f9e5bbe6f305bd2b4389
+  docs/models/sipconfiguration.md:
+    id: 831962e017f1
+    last_write_checksum: sha1:33c5c171be7f017efd38053e2ee5f8cd8096f96c
+    pristine_git_object: 12afc54da830cf31876e526d7171d3386d9c75d8
+  docs/models/sipendpoint.md:
+    id: a0c1d9eaaf10
+    last_write_checksum: sha1:1956a69fc12500bd57a19a2d5befeee981c328ab
+    pristine_git_object: d07c8dceb3adc1cbe305309c860921e63edeb15a
+  docs/models/siptransfermode.md:
+    id: c3ff6108d1e5
+    last_write_checksum: sha1:eba30d86e5eb13cb54bf7a122dd03083e086d3e1
+    pristine_git_object: 96a17b81f85f6976cae3c69f0f8b533d5ed644a9
+  docs/models/siptransport.md:
+    id: 6d45524c74e6
+    last_write_checksum: sha1:b3f7131b9e97964ae748840a02960f13894ffcbc
+    pristine_git_object: d7f5ab2a0be8c5f708b426094dfb262e0418c982
   docs/models/startenum.md:
     id: 8ebf510bb597
     last_write_checksum: sha1:26c45fd9e377d8938ac389d96ee7319289ad1e45
@@ -1735,8 +1751,8 @@ trackedFiles:
     pristine_git_object: ed39bccf3d41772d1db0a3e874d60696abb4201d
   docs/models/telephonyconfigurations.md:
     id: bd8f98256516
-    last_write_checksum: sha1:5bb6b13f53925c97496b58036da03ad19fd8a770
-    pristine_git_object: 2dc199a603631bae141b0ab5e653a615dd381481
+    last_write_checksum: sha1:2805dbc43be7d5cc4732425be3c77c04bbde63b4
+    pristine_git_object: 52e685ff32281e19cc695eee788d1c526e70152e
   docs/models/testmessage.md:
     id: 4551991cb74c
     last_write_checksum: sha1:e7338fe61e6fefa77c0a0a1b7fc6332855cfbe13
@@ -2187,8 +2203,8 @@ trackedFiles:
     pristine_git_object: 34b394b3729223076641e206019c89e9ae03b408
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:1f2579d73f149d9b116201d69c46fcc31aed35fd
-    pristine_git_object: abf80ebf94e378825115a09ef213f1b5300a6f8f
+    last_write_checksum: sha1:3a0c085e589abc6c45dde82859b102a378874cc0
+    pristine_git_object: c23fcb68f9edcfba04b9ac1dff4eccd42be4723f
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2215,8 +2231,8 @@ trackedFiles:
     pristine_git_object: 132885676dc1885890d1c8a13bd01fcfcb8e3fbc
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:0d69d7edaf804180b222d945036ae8540616df80
-    pristine_git_object: a9c600667387e5d26e8cc606ee85898cefed7179
+    last_write_checksum: sha1:87402537bf54edafcb5ca95f77c3e9bd5971f5e7
+    pristine_git_object: 8e65145ac54314c578e59fa327a2a4a7b2465b4d
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:889f4504eb7f9489276dbcc2870b3ecdf6df8538
@@ -2327,8 +2343,8 @@ trackedFiles:
     pristine_git_object: 59142dc80d14c0481b722c0087c1abcbb426e597
   src/syllable_sdk/models/__init__.py:
     id: 984744253da7
-    last_write_checksum: sha1:08078e7ce5beefdf8137f7fe24e6bb7324f77125
-    pristine_git_object: 80719b1f89a9d72f50a5c74a60f9078a5007da62
+    last_write_checksum: sha1:c61dc571afa2a81c450105a942ccf6501c7fcb35
+    pristine_git_object: 7d3a5f2d01edcf1bb587c56a7b7d1e3ff82a92dd
   src/syllable_sdk/models/a2pmessagingpathcheckrequest.py:
     id: 2cb7c3c6f6e9
     last_write_checksum: sha1:3dcf884ac8fa211d36338dda9ad3e90f3979a28d
@@ -2815,8 +2831,8 @@ trackedFiles:
     pristine_git_object: ff5ee5127dabbbe16a2738d8999c64700fd5ca9d
   src/syllable_sdk/models/directoryextensionnumber.py:
     id: aff2ba47acc3
-    last_write_checksum: sha1:98668d89754017b24a57924e30a6caa401b531c9
-    pristine_git_object: 489069248add888d61c0d490b9179411d071211a
+    last_write_checksum: sha1:7c00da3ffa13a0af8ea746850d7fa9bdf6417e74
+    pristine_git_object: 29a18a9132a7abe049ace3fd742c6ed605f04603
   src/syllable_sdk/models/directorymember.py:
     id: d6b3b4b2fe76
     last_write_checksum: sha1:9769c17ecf6a926a8bff657fe178fd7d8c818bef
@@ -3677,6 +3693,22 @@ trackedFiles:
     id: b5a81d58239c
     last_write_checksum: sha1:b84f830ed68236cf557201613943e52928fdd3c4
     pristine_git_object: 5d46849fcea12dab2e00ef8f1442337a71188971
+  src/syllable_sdk/models/sipconfiguration.py:
+    id: 7162b995e61f
+    last_write_checksum: sha1:d4c5d352c1e054ed59bef45389d4eb4518f84946
+    pristine_git_object: fe87b82cb82f5b1acfafa28623f1627541dcaa1c
+  src/syllable_sdk/models/sipendpoint.py:
+    id: d187bf24fa2e
+    last_write_checksum: sha1:ebd54d8ccdf97fefaf0aa6d1b9d7b03cb920eeef
+    pristine_git_object: 11daef29abbae3a5b08daa6ad054fbe19646c4ce
+  src/syllable_sdk/models/siptransfermode.py:
+    id: 79ea05d633cd
+    last_write_checksum: sha1:847a545cd7e1434b185430306b7c9ff3f20ba762
+    pristine_git_object: a21990e0670766ef402167d20afde7b64de6f02a
+  src/syllable_sdk/models/siptransport.py:
+    id: 8a374ccb6ea2
+    last_write_checksum: sha1:7da3fd318f611919c15a19ff8c515a5e24e91ecf
+    pristine_git_object: f601b324ecb845f1a5a1fb1304becb8af453ff60
   src/syllable_sdk/models/statictoolparameter.py:
     id: 1e686620e35d
     last_write_checksum: sha1:b7022c567077943e113cc0035aa3330cade8231f
@@ -3739,8 +3771,8 @@ trackedFiles:
     pristine_git_object: 5624d310320aec3a26bd21c62eb93dfca808ab85
   src/syllable_sdk/models/telephonyconfigurations.py:
     id: ca1042d600bf
-    last_write_checksum: sha1:ab85bfde5c689d9fa80fcefefa0a311e9f36dcdd
-    pristine_git_object: d037913e33208876bc2be8e7e6ab07f73482e07a
+    last_write_checksum: sha1:717cf6b6e39d8344c4ebe9a69b07c7e1da30e84a
+    pristine_git_object: f544f3a2598f74e239d39be5a0cda518b7db2740
   src/syllable_sdk/models/testmessage.py:
     id: 0879d000cd3b
     last_write_checksum: sha1:f5a80cd340023c034b15281cfdf353dd937184c4
@@ -6015,7 +6047,7 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.agents.list()`:  `response.items[].prompt_version_number` **Added**\n* `syllable_sdk.agents.create()`: \n  *  `request.prompt_version_number` **Added**\n  *  `response.prompt_version_number` **Added**\n* `syllable_sdk.agents.update()`: \n  *  `request.prompt_version_number` **Added**\n  *  `response.prompt_version_number` **Added**\n* `syllable_sdk.agents.get_by_id()`:  `response.prompt_version_number` **Added**\n* `syllable_sdk.channels.targets.list()`:  `response.items[].agent.prompt_version_number` **Added**\n* `syllable_sdk.channels.targets.create()`:  `response.agent.prompt_version_number` **Added**\n* `syllable_sdk.channels.targets.get_by_id()`:  `response.agent.prompt_version_number` **Added**\n* `syllable_sdk.channels.targets.update()`:  `response.agent.prompt_version_number` **Added**\n"
+releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.channels.list()`:  `response.items[].config.telephony.sip_configuration` **Added**\n* `syllable_sdk.channels.create()`: \n  *  `request.config.telephony.sip_configuration` **Added**\n  *  `response.config.telephony.sip_configuration` **Added**\n* `syllable_sdk.channels.update()`: \n  *  `request.config.telephony.sip_configuration` **Added**\n  *  `response.config.telephony.sip_configuration` **Added**\n* `syllable_sdk.channels.twilio.get_by_id()`:  `response.config.telephony.sip_configuration` **Added**\n* `syllable_sdk.channels.twilio.update()`:  `response.config.telephony.sip_configuration` **Added**\n* `syllable_sdk.channels.twilio.create()`:  `response.config.telephony.sip_configuration` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

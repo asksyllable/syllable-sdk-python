@@ -1062,6 +1062,10 @@ if TYPE_CHECKING:
         SetValueActionValuefrom2,
         SetValueActionValuefrom2TypedDict,
     )
+    from .sipconfiguration import SipConfiguration, SipConfigurationTypedDict
+    from .sipendpoint import SipEndpoint, SipEndpointTypedDict
+    from .siptransfermode import SipTransferMode
+    from .siptransport import SipTransport
     from .statictoolparameter import StaticToolParameter, StaticToolParameterTypedDict
     from .statictoolparametertype import StaticToolParameterType
     from .step import (
@@ -1998,6 +2002,12 @@ __all__ = [
     "SetValueActionValuefrom2",
     "SetValueActionValuefrom2TypedDict",
     "Severity",
+    "SipConfiguration",
+    "SipConfigurationTypedDict",
+    "SipEndpoint",
+    "SipEndpointTypedDict",
+    "SipTransferMode",
+    "SipTransport",
     "StartEnum",
     "StaticToolParameter",
     "StaticToolParameterType",
@@ -2868,6 +2878,12 @@ _dynamic_imports: dict[str, str] = {
     "SetValueActionValuefrom1TypedDict": ".setvalueaction",
     "SetValueActionValuefrom2": ".setvalueaction",
     "SetValueActionValuefrom2TypedDict": ".setvalueaction",
+    "SipConfiguration": ".sipconfiguration",
+    "SipConfigurationTypedDict": ".sipconfiguration",
+    "SipEndpoint": ".sipendpoint",
+    "SipEndpointTypedDict": ".sipendpoint",
+    "SipTransferMode": ".siptransfermode",
+    "SipTransport": ".siptransport",
     "StaticToolParameter": ".statictoolparameter",
     "StaticToolParameterTypedDict": ".statictoolparameter",
     "StaticToolParameterType": ".statictoolparametertype",
