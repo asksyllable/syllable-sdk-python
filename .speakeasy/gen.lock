@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 20ec716f44fd89b37c00bd9e3a07927c
+  docChecksum: ba4bb82603351420b254825508e6dace
   docVersion: 0.0.3
   speakeasyVersion: 1.790.3
   generationVersion: 2.918.4
-  releaseVersion: 0.48.11
-  configChecksum: 5b6f85117c54c3d2e9cd45ac9c4706a6
+  releaseVersion: 0.48.12
+  configChecksum: 2574c6eeb6b7c338e55de53698a372a8
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: b9c90e71-fb40-49ce-a292-537d711c9d2a
-  pristine_commit_hash: b9b430773b320332cca8856a2406ceffa155fb8a
-  pristine_tree_hash: cc15f84fbb9a56be997c790a5ea1caa99d6d2adf
+  generation_id: 6937d677-03e9-49de-a80e-b5a4aefa010c
+  pristine_commit_hash: 41a765183952ae878ebbeb1b985ae8f2a327a19f
+  pristine_tree_hash: 33709f41c68dd0005998c35db1aed3ba295bc1ca
 features:
   python:
     additionalDependencies: 1.1.0
@@ -243,8 +243,8 @@ trackedFiles:
     pristine_git_object: 6ec83378f9902473b0145068eda7e17d68b5e2bc
   docs/models/bridgephrasesconfigpayload.md:
     id: 07015f7ed0b2
-    last_write_checksum: sha1:f153a906fbc05dd0bf21105d74031b2a1bacc65f
-    pristine_git_object: e64ec183ccd1ab9ecd023f9c920312236aa8e214
+    last_write_checksum: sha1:d666e2d751c01d16d19166df4e70c93fbef106e5
+    pristine_git_object: c733f82d9110e36a3493b779d0bfdbf3184b6140
   docs/models/bridgephrasescreaterequest.md:
     id: 5e4f64f61fb7
     last_write_checksum: sha1:dd9702606dc7fa2c6638a7b7112eb1304b38c182
@@ -2203,8 +2203,8 @@ trackedFiles:
     pristine_git_object: 34b394b3729223076641e206019c89e9ae03b408
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:3a0c085e589abc6c45dde82859b102a378874cc0
-    pristine_git_object: c23fcb68f9edcfba04b9ac1dff4eccd42be4723f
+    last_write_checksum: sha1:c4b3ac647eccbd328af74351fdab42906c57308b
+    pristine_git_object: ec144a329383caea4dd28ace2dbeaef2c542e737
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2231,8 +2231,8 @@ trackedFiles:
     pristine_git_object: 132885676dc1885890d1c8a13bd01fcfcb8e3fbc
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:87402537bf54edafcb5ca95f77c3e9bd5971f5e7
-    pristine_git_object: 8e65145ac54314c578e59fa327a2a4a7b2465b4d
+    last_write_checksum: sha1:ad8653e3fbe3c9820d4db1d0900cc34ff75b5875
+    pristine_git_object: 30f06907913c8ec32b09aef4f6d4229772361cab
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:889f4504eb7f9489276dbcc2870b3ecdf6df8538
@@ -2499,8 +2499,8 @@ trackedFiles:
     pristine_git_object: 4bb5cc7a564793e8d1cd979b079dcafb95256781
   src/syllable_sdk/models/bridgephrasesconfigpayload.py:
     id: 8aad6ebeed31
-    last_write_checksum: sha1:35a9d54cd6ee6828cc300116e5e8c501f21a0dcc
-    pristine_git_object: f44d00e72bd5534d386f7ed27486bcbb15d7b1be
+    last_write_checksum: sha1:0b9945429a167930f591f87479134afd1dc1ccd0
+    pristine_git_object: e12804ed4ef071ce9f45c42c0255abed4a5fa41f
   src/syllable_sdk/models/bridgephrasescreaterequest.py:
     id: 665c8e1703b1
     last_write_checksum: sha1:9e23d67a602df0c03165e556bc656d777f4a2d01
@@ -6047,7 +6047,6 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.channels.list()`:  `response.items[].config.telephony.sip_configuration` **Added**\n* `syllable_sdk.channels.create()`: \n  *  `request.config.telephony.sip_configuration` **Added**\n  *  `response.config.telephony.sip_configuration` **Added**\n* `syllable_sdk.channels.update()`: \n  *  `request.config.telephony.sip_configuration` **Added**\n  *  `response.config.telephony.sip_configuration` **Added**\n* `syllable_sdk.channels.twilio.get_by_id()`:  `response.config.telephony.sip_configuration` **Added**\n* `syllable_sdk.channels.twilio.update()`:  `response.config.telephony.sip_configuration` **Added**\n* `syllable_sdk.channels.twilio.create()`:  `response.config.telephony.sip_configuration` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
