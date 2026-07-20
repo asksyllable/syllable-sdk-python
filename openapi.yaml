@@ -9894,7 +9894,8 @@ components:
               minimum: 0.25
             - type: "null"
           title: "Smart Turn Timeout Seconds"
-          description: "Seconds of caller silence before injecting the first bridge phrase. When unset, the service-wide default applies."
+          description: "Seconds of caller silence before injecting the first bridge phrase. Defaults to 2.75s when omitted on write."
+          default: 2.75
         randomize_bridge_phrases:
           type: "boolean"
           title: "Randomize Bridge Phrases"

@@ -36,7 +36,7 @@ class BridgePhrasesConfigPayloadTypedDict(TypedDict):
     tools: NotRequired[List[ToolBridgePhraseConfigTypedDict]]
     r"""Per-tool phrase overrides."""
     smart_turn_timeout_seconds: NotRequired[Nullable[float]]
-    r"""Seconds of caller silence before injecting the first bridge phrase. When unset, the service-wide default applies."""
+    r"""Seconds of caller silence before injecting the first bridge phrase. Defaults to 2.75s when omitted on write."""
     randomize_bridge_phrases: NotRequired[bool]
     r"""Whether to randomize the order of bridge phrases. When true, the order of the bridge phrases is randomized for each call."""
 
@@ -58,7 +58,7 @@ class BridgePhrasesConfigPayload(BaseModel):
     r"""Per-tool phrase overrides."""
 
     smart_turn_timeout_seconds: OptionalNullable[float] = UNSET
-    r"""Seconds of caller silence before injecting the first bridge phrase. When unset, the service-wide default applies."""
+    r"""Seconds of caller silence before injecting the first bridge phrase. Defaults to 2.75s when omitted on write."""
 
     randomize_bridge_phrases: Optional[bool] = False
     r"""Whether to randomize the order of bridge phrases. When true, the order of the bridge phrases is randomized for each call."""
