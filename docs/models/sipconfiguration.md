@@ -1,0 +1,14 @@
+# SipConfiguration
+
+SIP routing configuration for transferring a call to a destination.
+
+This is internal telephony/routing configuration used to direct a transfer to specific
+SIP endpoints.
+
+
+## Fields
+
+| Field                                                                                                                             | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       | Example                                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `sip_transfer_mode`                                                                                                               | [OptionalNullable[models.SipTransferMode]](../models/siptransfermode.md)                                                          | :heavy_minus_sign:                                                                                                                | How to perform the SIP transfer, INVITE or REFER.                                                                                 | refer                                                                                                                             |
+| `sip_endpoints`                                                                                                                   | List[[models.SipEndpoint](../models/sipendpoint.md)]                                                                              | :heavy_minus_sign:                                                                                                                | List of SIP endpoints to attempt for the transfer.                                                                                | [<br/>{<br/>"host": "10.0.0.1",<br/>"port": "5060",<br/>"transport": "tcp"<br/>},<br/>{<br/>"host": "pbx.example.com",<br/>"port": "5071",<br/>"transport": "tls"<br/>}<br/>] |
