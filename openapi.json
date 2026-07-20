@@ -19339,9 +19339,10 @@
           "number": {
             "type": "string",
             "title": "Number",
-            "description": "Phone number",
+            "description": "Phone number or SIP URI",
             "examples": [
-              "+1234567890"
+              "+1234567890",
+              "sip:1234567890@example.com"
             ]
           },
           "rules": {
@@ -29876,6 +29877,126 @@
         ],
         "title": "SetValueAction"
       },
+      "SipConfiguration": {
+        "properties": {
+          "sip_transfer_mode": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SipTransferMode"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "How to perform the SIP transfer, INVITE or REFER.",
+            "examples": [
+              "refer"
+            ]
+          },
+          "sip_endpoints": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/SipEndpoint"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sip Endpoints",
+            "description": "List of SIP endpoints to attempt for the transfer.",
+            "examples": [
+              [
+                {
+                  "host": "10.0.0.1",
+                  "port": "5060",
+                  "transport": "tcp"
+                },
+                {
+                  "host": "pbx.example.com",
+                  "port": "5071",
+                  "transport": "tls"
+                }
+              ]
+            ]
+          }
+        },
+        "type": "object",
+        "title": "SipConfiguration",
+        "description": "SIP routing configuration for transferring a call to a destination.\n\nThis is internal telephony/routing configuration used to direct a transfer to specific\nSIP endpoints."
+      },
+      "SipEndpoint": {
+        "properties": {
+          "host": {
+            "type": "string",
+            "title": "Host",
+            "description": "SIP endpoint host (IP address or hostname).",
+            "examples": [
+              "10.0.0.1",
+              "pbx.example.com"
+            ]
+          },
+          "port": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Port",
+            "description": "SIP endpoint port.",
+            "examples": [
+              "5060",
+              "5071"
+            ]
+          },
+          "transport": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SipTransport"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "SIP transport protocol, e.g. `tcp`, `tls` or `udp`.",
+            "examples": [
+              "tcp",
+              "tls",
+              "udp"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "host"
+        ],
+        "title": "SipEndpoint",
+        "description": "A single SIP endpoint to attempt for a transfer."
+      },
+      "SipTransferMode": {
+        "type": "string",
+        "enum": [
+          "refer",
+          "invite"
+        ],
+        "title": "SipTransferMode",
+        "description": "How a call should be transferred to a SIP endpoint."
+      },
+      "SipTransport": {
+        "type": "string",
+        "enum": [
+          "tls",
+          "tcp",
+          "udp"
+        ],
+        "title": "SipTransport",
+        "description": "The transport protocol to use for the SIP endpoint."
+      },
       "StaticToolParameter": {
         "properties": {
           "name": {
@@ -30747,6 +30868,17 @@
             ],
             "title": "Transfer Leg Voicemail Detection Enabled",
             "description": "Whether transfer leg voicemail detection is enabled"
+          },
+          "sip_configuration": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SipConfiguration"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "SIP routing configuration applied when transferring calls on this channel"
           }
         },
         "type": "object",
