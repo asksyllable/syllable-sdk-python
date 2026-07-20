@@ -38,6 +38,8 @@ class AgentCreateTypedDict(TypedDict):
     r"""The agent label (DEPRECATED - use labels instead.)"""
     labels: NotRequired[Nullable[List[str]]]
     r"""The agent labels"""
+    prompt_version_number: NotRequired[Nullable[int]]
+    r"""Optional pin to a specific version of the prompt (prompt history version number). When omitted or null, the agent tracks the latest/current version of the prompt. When set, the agent runs that specific prompt version. Must reference an existing version of the agent's prompt."""
     custom_message_id: NotRequired[Nullable[int]]
     r"""Internal ID of the custom message that should be delivered at the beginning of a conversation with the agent"""
     language_group_id: NotRequired[Nullable[int]]
@@ -93,6 +95,9 @@ class AgentCreate(BaseModel):
     labels: OptionalNullable[List[str]] = UNSET
     r"""The agent labels"""
 
+    prompt_version_number: OptionalNullable[int] = UNSET
+    r"""Optional pin to a specific version of the prompt (prompt history version number). When omitted or null, the agent tracks the latest/current version of the prompt. When set, the agent runs that specific prompt version. Must reference an existing version of the agent's prompt."""
+
     custom_message_id: OptionalNullable[int] = UNSET
     r"""Internal ID of the custom message that should be delivered at the beginning of a conversation with the agent"""
 
@@ -132,6 +137,7 @@ class AgentCreate(BaseModel):
                 "description",
                 "label",
                 "labels",
+                "prompt_version_number",
                 "custom_message_id",
                 "language_group_id",
                 "bridge_phrases_id",
@@ -148,6 +154,7 @@ class AgentCreate(BaseModel):
                 "description",
                 "label",
                 "labels",
+                "prompt_version_number",
                 "custom_message_id",
                 "language_group_id",
                 "bridge_phrases_id",
