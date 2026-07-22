@@ -48,6 +48,8 @@ class BridgePhrasesResponseTypedDict(TypedDict):
     optional per-language (`localized`) overrides. Mirrors the shape documented in
     docs/bridge-phrases-table-migration.md §5.2.
     """
+    is_default: NotRequired[bool]
+    r"""Whether this config is currently marked as the default for its suborg."""
     edit_comments: NotRequired[Nullable[str]]
     r"""Comments for the most recent edit."""
     agents_info: NotRequired[Nullable[List[BridgePhrasesAgentInfoTypedDict]]]
@@ -86,6 +88,9 @@ class BridgePhrasesResponse(BaseModel):
     docs/bridge-phrases-table-migration.md §5.2.
     """
 
+    is_default: Optional[bool] = False
+    r"""Whether this config is currently marked as the default for its suborg."""
+
     edit_comments: OptionalNullable[str] = UNSET
     r"""Comments for the most recent edit."""
 
@@ -94,7 +99,9 @@ class BridgePhrasesResponse(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["description", "config", "edit_comments", "agents_info"])
+        optional_fields = set(
+            ["description", "config", "is_default", "edit_comments", "agents_info"]
+        )
         nullable_fields = set(["description", "edit_comments", "agents_info"])
         serialized = handler(self)
         m = {}

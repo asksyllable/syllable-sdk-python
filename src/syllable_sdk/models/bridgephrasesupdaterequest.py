@@ -33,6 +33,8 @@ class BridgePhrasesUpdateRequestTypedDict(TypedDict):
     optional per-language (`localized`) overrides. Mirrors the shape documented in
     docs/bridge-phrases-table-migration.md §5.2.
     """
+    is_default: NotRequired[Nullable[bool]]
+    r"""Whether this config should be marked as the default for its suborg. Omit (null) to preserve the existing value; pass true/false to set or unset it. At most one non-deleted config per suborg may be the default; the API returns a 400 if a second default is requested while another is already set."""
     edit_comments: NotRequired[Nullable[str]]
     r"""Comments for the most recent edit."""
 
@@ -57,13 +59,16 @@ class BridgePhrasesUpdateRequest(BaseModel):
     docs/bridge-phrases-table-migration.md §5.2.
     """
 
+    is_default: OptionalNullable[bool] = UNSET
+    r"""Whether this config should be marked as the default for its suborg. Omit (null) to preserve the existing value; pass true/false to set or unset it. At most one non-deleted config per suborg may be the default; the API returns a 400 if a second default is requested while another is already set."""
+
     edit_comments: OptionalNullable[str] = UNSET
     r"""Comments for the most recent edit."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["description", "config", "edit_comments"])
-        nullable_fields = set(["description", "edit_comments"])
+        optional_fields = set(["description", "config", "is_default", "edit_comments"])
+        nullable_fields = set(["description", "is_default", "edit_comments"])
         serialized = handler(self)
         m = {}
 
