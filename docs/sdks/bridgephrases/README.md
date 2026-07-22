@@ -214,6 +214,7 @@ with SyllableSDK(
             ],
             "randomize_bridge_phrases": True,
         },
+        "is_default": True,
         "id": 1,
         "edit_comments": "Added Spanish overrides for the transfer tool.",
     })
