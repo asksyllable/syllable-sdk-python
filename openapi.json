@@ -15902,6 +15902,15 @@
           "config": {
             "$ref": "#/components/schemas/BridgePhrasesConfigPayload",
             "description": "Default phrases plus per-tool overrides."
+          },
+          "is_default": {
+            "type": "boolean",
+            "title": "Is Default",
+            "description": "Whether this config should be marked as the default for its suborg. At most one non-deleted config per suborg may be the default; the API returns a 400 if a second default is requested while another is already set.",
+            "default": false,
+            "examples": [
+              false
+            ]
           }
         },
         "type": "object",
@@ -15950,6 +15959,15 @@
           "config": {
             "$ref": "#/components/schemas/BridgePhrasesConfigPayload",
             "description": "Default phrases plus per-tool overrides."
+          },
+          "is_default": {
+            "type": "boolean",
+            "title": "Is Default",
+            "description": "Whether this config is currently marked as the default for its suborg.",
+            "default": false,
+            "examples": [
+              false
+            ]
           },
           "id": {
             "type": "integer",
@@ -16053,6 +16071,21 @@
           "config": {
             "$ref": "#/components/schemas/BridgePhrasesConfigPayload",
             "description": "Default phrases plus per-tool overrides."
+          },
+          "is_default": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Is Default",
+            "description": "Whether this config should be marked as the default for its suborg. Omit (null) to preserve the existing value; pass true/false to set or unset it. At most one non-deleted config per suborg may be the default; the API returns a 400 if a second default is requested while another is already set.",
+            "examples": [
+              true
+            ]
           },
           "id": {
             "type": "integer",
