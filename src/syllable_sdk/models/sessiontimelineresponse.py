@@ -23,7 +23,7 @@ class SessionTimelineResponseTypedDict(TypedDict):
     events: List[TimelineEventTypedDict]
     r"""All events, ordered by timestamp ascending"""
     session_start: NotRequired[Nullable[datetime]]
-    r"""Timestamp of the first event; the zero point for all offsets"""
+    r"""The call's start (placement) time; the zero point for all offsets. Falls back to the first transcript turn for legacy sessions with no session_start event."""
 
 
 class SessionTimelineResponse(BaseModel):
@@ -36,7 +36,7 @@ class SessionTimelineResponse(BaseModel):
     r"""All events, ordered by timestamp ascending"""
 
     session_start: OptionalNullable[datetime] = UNSET
-    r"""Timestamp of the first event; the zero point for all offsets"""
+    r"""The call's start (placement) time; the zero point for all offsets. Falls back to the first transcript turn for legacy sessions with no session_start event."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
