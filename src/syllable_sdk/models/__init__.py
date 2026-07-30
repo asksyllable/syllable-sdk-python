@@ -142,6 +142,15 @@ if TYPE_CHECKING:
         CallActionIf2TypedDict,
         CallActionTypedDict,
     )
+    from .callresult import CallResult, CallResultTypedDict
+    from .callresultsavemapping import (
+        CallResultSaveMapping,
+        CallResultSaveMappingTypedDict,
+        From1,
+        From1TypedDict,
+        From2,
+        From2TypedDict,
+    )
     from .campaignproperties import CampaignProperties
     from .celexpression import CelExpression, CelExpressionTypedDict
     from .channel import Channel, ChannelTypedDict
@@ -1368,6 +1377,10 @@ __all__ = [
     "CallActionIf2",
     "CallActionIf2TypedDict",
     "CallActionTypedDict",
+    "CallResult",
+    "CallResultSaveMapping",
+    "CallResultSaveMappingTypedDict",
+    "CallResultTypedDict",
     "CampaignProperties",
     "CaseExpression",
     "CaseExpressionTypedDict",
@@ -1574,6 +1587,10 @@ __all__ = [
     "FolderDetailsTypedDict",
     "FolderStats",
     "FolderStatsTypedDict",
+    "From1",
+    "From1TypedDict",
+    "From2",
+    "From2TypedDict",
     "GenerateSessionRecordingUrlsRequest",
     "GenerateSessionRecordingUrlsRequestTypedDict",
     "GetBridgePhrasesConfigRequest",
@@ -2264,6 +2281,14 @@ _dynamic_imports: dict[str, str] = {
     "CallActionIf2": ".callaction",
     "CallActionIf2TypedDict": ".callaction",
     "CallActionTypedDict": ".callaction",
+    "CallResult": ".callresult",
+    "CallResultTypedDict": ".callresult",
+    "CallResultSaveMapping": ".callresultsavemapping",
+    "CallResultSaveMappingTypedDict": ".callresultsavemapping",
+    "From1": ".callresultsavemapping",
+    "From1TypedDict": ".callresultsavemapping",
+    "From2": ".callresultsavemapping",
+    "From2TypedDict": ".callresultsavemapping",
     "CampaignProperties": ".campaignproperties",
     "CelExpression": ".celexpression",
     "CelExpressionTypedDict": ".celexpression",
