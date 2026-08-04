@@ -18964,6 +18964,15 @@ components:
               - host: "pbx.example.com"
                 port: "5071"
                 transport: "tls"
+        call_info_placement:
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Call Info Placement"
+          description: "Where to place call information during a transfer. Supported values are `uri_parameters`, `to_parameters`, `from_parameters`, or `sip_header:<header-name>`."
+          examples:
+            - "uri_parameters"
+            - "sip_header:P-Asserted-Identity"
       type: "object"
       title: "SipConfiguration"
       description: "SIP routing configuration for transferring a call to a destination.\n\nThis is internal telephony/routing configuration used to direct a transfer to specific\nSIP endpoints."
