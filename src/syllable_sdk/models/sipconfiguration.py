@@ -26,6 +26,8 @@ class SipConfigurationTypedDict(TypedDict):
     r"""How to perform the SIP transfer, INVITE or REFER."""
     sip_endpoints: NotRequired[Nullable[List[SipEndpointTypedDict]]]
     r"""List of SIP endpoints to attempt for the transfer."""
+    call_info_placement: NotRequired[Nullable[str]]
+    r"""Where to place call information during a transfer. Supported values are `uri_parameters`, `to_parameters`, `from_parameters`, or `sip_header:<header-name>`."""
 
 
 class SipConfiguration(BaseModel):
@@ -41,10 +43,17 @@ class SipConfiguration(BaseModel):
     sip_endpoints: OptionalNullable[List[SipEndpoint]] = UNSET
     r"""List of SIP endpoints to attempt for the transfer."""
 
+    call_info_placement: OptionalNullable[str] = UNSET
+    r"""Where to place call information during a transfer. Supported values are `uri_parameters`, `to_parameters`, `from_parameters`, or `sip_header:<header-name>`."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["sip_transfer_mode", "sip_endpoints"])
-        nullable_fields = set(["sip_transfer_mode", "sip_endpoints"])
+        optional_fields = set(
+            ["sip_transfer_mode", "sip_endpoints", "call_info_placement"]
+        )
+        nullable_fields = set(
+            ["sip_transfer_mode", "sip_endpoints", "call_info_placement"]
+        )
         serialized = handler(self)
         m = {}
 
