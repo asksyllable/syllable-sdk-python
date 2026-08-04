@@ -62,6 +62,8 @@ class SessionTypedDict(TypedDict):
     r"""Whether the voice session was ended by the recipient (outbound) / caller (inbound). False if the user was transferred or there was an error. Unset if the session was not a voice session."""
     transfer_voicemail_detected: NotRequired[Nullable[bool]]
     r"""Whether a voicemail was detected during the transfer leg of the session"""
+    override_timestamp: NotRequired[Nullable[str]]
+    r"""ISO 8601 datetime used to override the session's current time. Set only for test sessions that supplied a datetime override; otherwise null."""
 
 
 class Session(BaseModel):
@@ -136,6 +138,9 @@ class Session(BaseModel):
     transfer_voicemail_detected: OptionalNullable[bool] = UNSET
     r"""Whether a voicemail was detected during the transfer leg of the session"""
 
+    override_timestamp: OptionalNullable[str] = UNSET
+    r"""ISO 8601 datetime used to override the session's current time. Set only for test sessions that supplied a datetime override; otherwise null."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -162,6 +167,7 @@ class Session(BaseModel):
                 "is_outbound",
                 "user_terminated",
                 "transfer_voicemail_detected",
+                "override_timestamp",
             ]
         )
         nullable_fields = set(
@@ -188,6 +194,7 @@ class Session(BaseModel):
                 "is_outbound",
                 "user_terminated",
                 "transfer_voicemail_detected",
+                "override_timestamp",
             ]
         )
         serialized = handler(self)
