@@ -30044,6 +30044,22 @@
                 }
               ]
             ]
+          },
+          "call_info_placement": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Call Info Placement",
+            "description": "Where to place call information during a transfer. Supported values are `uri_parameters`, `to_parameters`, `from_parameters`, or `sip_header:<header-name>`.",
+            "examples": [
+              "uri_parameters",
+              "sip_header:P-Asserted-Identity"
+            ]
           }
         },
         "type": "object",
