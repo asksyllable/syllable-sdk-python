@@ -22,6 +22,8 @@ class CommunicationBatchInputTypedDict(TypedDict):
     r"""Timestamp of batch expiration"""
     paused: NotRequired[Nullable[bool]]
     r"""Whether the batch is on HOLD. When on HOLD, no outreach will be made."""
+    call_rate: NotRequired[Nullable[int]]
+    r"""Target number of outreach attempts per hour for this batch. When omitted, the batch inherits the campaign's hourly_rate."""
 
 
 class CommunicationBatchInput(BaseModel):
@@ -37,10 +39,13 @@ class CommunicationBatchInput(BaseModel):
     paused: OptionalNullable[bool] = UNSET
     r"""Whether the batch is on HOLD. When on HOLD, no outreach will be made."""
 
+    call_rate: OptionalNullable[int] = UNSET
+    r"""Target number of outreach attempts per hour for this batch. When omitted, the batch inherits the campaign's hourly_rate."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["expires_on", "paused"])
-        nullable_fields = set(["expires_on", "paused"])
+        optional_fields = set(["expires_on", "paused", "call_rate"])
+        nullable_fields = set(["expires_on", "paused", "call_rate"])
         serialized = handler(self)
         m = {}
 

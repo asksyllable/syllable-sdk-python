@@ -9520,6 +9520,16 @@ components:
           examples:
             - true
             - false
+        call_rate:
+          anyOf:
+            - type: "integer"
+              maximum: 3600.0
+              minimum: 1.0
+            - type: "null"
+          title: "Call Rate"
+          description: "Target number of outreach attempts per hour for this batch. When omitted, the batch inherits the campaign's hourly_rate."
+          examples:
+            - 25
         status:
           $ref: "#/components/schemas/BatchStatus"
           description: "Status of batch"
@@ -10608,6 +10618,16 @@ components:
           examples:
             - true
             - false
+        call_rate:
+          anyOf:
+            - type: "integer"
+              maximum: 3600.0
+              minimum: 1.0
+            - type: "null"
+          title: "Call Rate"
+          description: "Target number of outreach attempts per hour for this batch. When omitted, the batch inherits the campaign's hourly_rate."
+          examples:
+            - 25
         status:
           $ref: "#/components/schemas/BatchStatus"
           description: "Status of batch"
@@ -10721,6 +10741,16 @@ components:
           examples:
             - true
             - false
+        call_rate:
+          anyOf:
+            - type: "integer"
+              maximum: 3600.0
+              minimum: 1.0
+            - type: "null"
+          title: "Call Rate"
+          description: "Target number of outreach attempts per hour for this batch. When omitted, the batch inherits the campaign's hourly_rate."
+          examples:
+            - 25
       type: "object"
       required:
         - "batch_id"
@@ -10746,6 +10776,16 @@ components:
           description: "Timestamp of batch expiration"
           examples:
             - "2027-01-01T06:00:00Z"
+        call_rate:
+          anyOf:
+            - type: "integer"
+              maximum: 3600.0
+              minimum: 1.0
+            - type: "null"
+          title: "Call Rate"
+          description: "Target number of outreach attempts per hour for this batch. Omitted leaves the current value unchanged; a batch that has never set one inherits the campaign's hourly_rate."
+          examples:
+            - 25
       type: "object"
       title: "CommunicationBatchUpdate"
     CommunicationRequest:

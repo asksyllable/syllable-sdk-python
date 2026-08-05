@@ -30,6 +30,8 @@ class BatchDetailsTypedDict(TypedDict):
     r"""Timestamp of batch expiration"""
     paused: NotRequired[Nullable[bool]]
     r"""Whether the batch is on HOLD. When on HOLD, no outreach will be made."""
+    call_rate: NotRequired[Nullable[int]]
+    r"""Target number of outreach attempts per hour for this batch. When omitted, the batch inherits the campaign's hourly_rate."""
     status: NotRequired[BatchStatus]
     r"""Status of a communication batch."""
     upload_filename: NotRequired[Nullable[str]]
@@ -70,6 +72,9 @@ class BatchDetails(BaseModel):
     paused: OptionalNullable[bool] = UNSET
     r"""Whether the batch is on HOLD. When on HOLD, no outreach will be made."""
 
+    call_rate: OptionalNullable[int] = UNSET
+    r"""Target number of outreach attempts per hour for this batch. When omitted, the batch inherits the campaign's hourly_rate."""
+
     status: Optional[BatchStatus] = None
     r"""Status of a communication batch."""
 
@@ -106,6 +111,7 @@ class BatchDetails(BaseModel):
             [
                 "expires_on",
                 "paused",
+                "call_rate",
                 "status",
                 "upload_filename",
                 "dispatch_id",
@@ -122,6 +128,7 @@ class BatchDetails(BaseModel):
             [
                 "expires_on",
                 "paused",
+                "call_rate",
                 "upload_filename",
                 "dispatch_id",
                 "deleted_at",

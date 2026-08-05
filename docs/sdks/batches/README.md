@@ -91,6 +91,7 @@ with SyllableSDK(
         "campaign_id": 1,
         "expires_on": parse_datetime("2026-02-05T00:00:00Z"),
         "paused": True,
+        "call_rate": 25,
     })
 
     # Handle response
@@ -177,6 +178,7 @@ with SyllableSDK(
     res = ss_client.outbound.batches.update(batch_id="<id>", communication_batch_update={
         "paused": True,
         "expires_on": parse_datetime("2027-01-01T06:00:00Z"),
+        "call_rate": 25,
     })
 
     # Handle response
