@@ -20,6 +20,7 @@ value = ChannelManagerStatus.PENDING
 | `INVALID`                     | INVALID                       |
 | `UNEXPECTED_ERROR`            | UNEXPECTED_ERROR              |
 | `FILTERED_LINE_TYPE`          | FILTERED_LINE_TYPE            |
+| `NO_OUTCOME`                  | NO_OUTCOME                    |
 | `PROCESSED`                   | PROCESSED                     |
 | `DROPPED`                     | DROPPED                       |
 | `DEFERRED`                    | DEFERRED                      |
