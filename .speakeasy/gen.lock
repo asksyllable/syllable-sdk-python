@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 0dd643db48ba5033698dbf3a07abf42d
+  docChecksum: 29d82a74ae62dd989cec89f67e2ac457
   docVersion: 0.0.3
   speakeasyVersion: 1.793.1
   generationVersion: 2.928.0
-  releaseVersion: 0.48.28
-  configChecksum: 55ae0cd25586808ab610b2984fdb29a2
+  releaseVersion: 0.48.29
+  configChecksum: 2803376996eedebbfd8e662d5d395746
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: 9c8dd61c-f718-4384-8187-abbe2bfb760c
-  pristine_commit_hash: cd67a4e4b5bf2fed06e3f5f2f3aca10de461c843
-  pristine_tree_hash: 0d942e37549d9d2c5a72b5abb235f2fd1ced9920
+  generation_id: 8fadd009-8d9c-4931-8813-8ccdf0a11915
+  pristine_commit_hash: 09d5b50e50eff276487d5fca458c9a8e69edecb8
+  pristine_tree_hash: ecb08105a7b5fd46b3e8614e5caa9de15a0a1172
 features:
   python:
     additionalDependencies: 1.1.0
@@ -315,8 +315,8 @@ trackedFiles:
     pristine_git_object: 00b501c63aeed3cf34667b37b23f3229df348622
   docs/models/channelmanagerstatus.md:
     id: 10f970b256dd
-    last_write_checksum: sha1:5d263f5bf897c3154677c38c2d051108b93d2486
-    pristine_git_object: 3c90c6044c760c73026ad89c3cda91e1504a192d
+    last_write_checksum: sha1:db3ceed989ec0168bb4361b94a174ddbbc2038a5
+    pristine_git_object: bed7b6d520b642bb3f85da84abd49671872836de
   docs/models/channelproperties.md:
     id: 9e1f1eda1b56
     last_write_checksum: sha1:0bb918daa92431bd190cd1b9b1130db1ddcb30f6
@@ -2219,8 +2219,8 @@ trackedFiles:
     pristine_git_object: 6a3b01908092d3349be5058c4d36fe09f3f97a8a
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:ef67b3fba8a1c19f28fce575de538109b8e9abd2
-    pristine_git_object: 3072f318413cfe282d57d9908d8b3b24d0fddf61
+    last_write_checksum: sha1:e74e9ecc4b740162e8f3104a4f5c227e1a9fd320
+    pristine_git_object: 6a69af09ad18f442caa282cc72358e08a5f19534
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2247,8 +2247,8 @@ trackedFiles:
     pristine_git_object: 132885676dc1885890d1c8a13bd01fcfcb8e3fbc
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:936b96e83391e1b76e43e09c04592c821cb31338
-    pristine_git_object: 5eb02e95c49c394893e0c3c8961ba78e91f175fb
+    last_write_checksum: sha1:bd11d72dc82a63b72d07638ab91df72357f30377
+    pristine_git_object: 45e9b4517ee3cf89aadf18853482fe10587df9ee
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:889f4504eb7f9489276dbcc2870b3ecdf6df8538
@@ -2587,8 +2587,8 @@ trackedFiles:
     pristine_git_object: 38bf19f422349c51b9ddf8fc55e71386791f1420
   src/syllable_sdk/models/channelmanagerstatus.py:
     id: f21ed26db4e2
-    last_write_checksum: sha1:c56dc0150535812847b80e4a98762902149a9391
-    pristine_git_object: 7c063026e69215bd8fa0fbfe68a8ea51a17240b8
+    last_write_checksum: sha1:76863ec478767cf4ed8b64ee4317d3dadf17c3da
+    pristine_git_object: bd263a694bf4b45dcfcca738c2d229c84e5d922b
   src/syllable_sdk/models/channelproperties.py:
     id: 464f46fb484b
     last_write_checksum: sha1:a26c807cf043911175e9ac8845a840b8cbeacc5c
@@ -6071,6 +6071,7 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.outbound.campaigns.list()`:  `response.items[].webhooks[].trigger_statuses[].enum(no_outcome)` **Added** (Breaking ⚠️)\n* `syllable_sdk.outbound.campaigns.create()`: \n  *  `request.webhooks[].trigger_statuses[].enum(no_outcome)` **Added**\n  *  `response.webhooks[].trigger_statuses[].enum(no_outcome)` **Added** (Breaking ⚠️)\n* `syllable_sdk.outbound.campaigns.get_by_id()`:  `response.webhooks[].trigger_statuses[].enum(no_outcome)` **Added** (Breaking ⚠️)\n* `syllable_sdk.outbound.campaigns.update()`: \n  *  `request.outbound_campaign_input.webhooks[].trigger_statuses[].enum(no_outcome)` **Added**\n  *  `response.webhooks[].trigger_statuses[].enum(no_outcome)` **Added** (Breaking ⚠️)\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
