@@ -9530,6 +9530,14 @@ components:
           description: "Target number of outreach attempts per hour for this batch. When omitted, the batch inherits the campaign's hourly_rate."
           examples:
             - 25
+        auto_call_rate:
+          type: "boolean"
+          title: "Auto Call Rate"
+          description: "Pace this batch automatically to finish before expires_on, counting only the campaign's valid hours (daily_start_time..daily_end_time on active_days). The derived rate takes precedence over call_rate and over the campaign hourly_rate. Requires expires_on."
+          default: false
+          examples:
+            - true
+            - false
         status:
           $ref: "#/components/schemas/BatchStatus"
           description: "Status of batch"
@@ -9541,6 +9549,14 @@ components:
             - "FAILED"
             - "CANCELED"
             - "EXPIRED"
+        auto_call_rate_baseline:
+          anyOf:
+            - type: "number"
+            - type: "null"
+          title: "Auto Call Rate Baseline"
+          description: "Read-only. The auto-paced rate first computed for this batch, set on its first dialing cycle. Subsequent cycles hold the rate within +/- 20% of it. Null until the batch has dialed, or when auto_call_rate is off."
+          examples:
+            - 25.0
         upload_filename:
           anyOf:
             - type: "string"
@@ -10629,6 +10645,14 @@ components:
           description: "Target number of outreach attempts per hour for this batch. When omitted, the batch inherits the campaign's hourly_rate."
           examples:
             - 25
+        auto_call_rate:
+          type: "boolean"
+          title: "Auto Call Rate"
+          description: "Pace this batch automatically to finish before expires_on, counting only the campaign's valid hours (daily_start_time..daily_end_time on active_days). The derived rate takes precedence over call_rate and over the campaign hourly_rate. Requires expires_on."
+          default: false
+          examples:
+            - true
+            - false
         status:
           $ref: "#/components/schemas/BatchStatus"
           description: "Status of batch"
@@ -10640,6 +10664,14 @@ components:
             - "FAILED"
             - "CANCELED"
             - "EXPIRED"
+        auto_call_rate_baseline:
+          anyOf:
+            - type: "number"
+            - type: "null"
+          title: "Auto Call Rate Baseline"
+          description: "Read-only. The auto-paced rate first computed for this batch, set on its first dialing cycle. Subsequent cycles hold the rate within +/- 20% of it. Null until the batch has dialed, or when auto_call_rate is off."
+          examples:
+            - 25.0
         upload_filename:
           anyOf:
             - type: "string"
@@ -10752,6 +10784,14 @@ components:
           description: "Target number of outreach attempts per hour for this batch. When omitted, the batch inherits the campaign's hourly_rate."
           examples:
             - 25
+        auto_call_rate:
+          type: "boolean"
+          title: "Auto Call Rate"
+          description: "Pace this batch automatically to finish before expires_on, counting only the campaign's valid hours (daily_start_time..daily_end_time on active_days). The derived rate takes precedence over call_rate and over the campaign hourly_rate. Requires expires_on."
+          default: false
+          examples:
+            - true
+            - false
       type: "object"
       required:
         - "batch_id"
@@ -10787,6 +10827,15 @@ components:
           description: "Target number of outreach attempts per hour for this batch. Omitted leaves the current value unchanged; a batch that has never set one inherits the campaign's hourly_rate."
           examples:
             - 25
+        auto_call_rate:
+          anyOf:
+            - type: "boolean"
+            - type: "null"
+          title: "Auto Call Rate"
+          description: "Pace this batch automatically to finish before expires_on. Omitted leaves the current setting unchanged. Enabling it requires the batch to have an expires_on, either already set or supplied in the same update."
+          examples:
+            - true
+            - false
       type: "object"
       title: "CommunicationBatchUpdate"
     CommunicationRequest:

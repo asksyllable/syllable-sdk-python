@@ -20,6 +20,8 @@ class CommunicationBatchUpdateTypedDict(TypedDict):
     r"""Timestamp of batch expiration"""
     call_rate: NotRequired[Nullable[int]]
     r"""Target number of outreach attempts per hour for this batch. Omitted leaves the current value unchanged; a batch that has never set one inherits the campaign's hourly_rate."""
+    auto_call_rate: NotRequired[Nullable[bool]]
+    r"""Pace this batch automatically to finish before expires_on. Omitted leaves the current setting unchanged. Enabling it requires the batch to have an expires_on, either already set or supplied in the same update."""
 
 
 class CommunicationBatchUpdate(BaseModel):
@@ -32,10 +34,13 @@ class CommunicationBatchUpdate(BaseModel):
     call_rate: OptionalNullable[int] = UNSET
     r"""Target number of outreach attempts per hour for this batch. Omitted leaves the current value unchanged; a batch that has never set one inherits the campaign's hourly_rate."""
 
+    auto_call_rate: OptionalNullable[bool] = UNSET
+    r"""Pace this batch automatically to finish before expires_on. Omitted leaves the current setting unchanged. Enabling it requires the batch to have an expires_on, either already set or supplied in the same update."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["paused", "expires_on", "call_rate"])
-        nullable_fields = set(["paused", "expires_on", "call_rate"])
+        optional_fields = set(["paused", "expires_on", "call_rate", "auto_call_rate"])
+        nullable_fields = set(["paused", "expires_on", "call_rate", "auto_call_rate"])
         serialized = handler(self)
         m = {}
 
