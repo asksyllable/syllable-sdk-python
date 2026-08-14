@@ -28,8 +28,12 @@ class CommunicationBatchTypedDict(TypedDict):
     r"""Whether the batch is on HOLD. When on HOLD, no outreach will be made."""
     call_rate: NotRequired[Nullable[int]]
     r"""Target number of outreach attempts per hour for this batch. When omitted, the batch inherits the campaign's hourly_rate."""
+    auto_call_rate: NotRequired[bool]
+    r"""Pace this batch automatically to finish before expires_on, counting only the campaign's valid hours (daily_start_time..daily_end_time on active_days). The derived rate takes precedence over call_rate and over the campaign hourly_rate. Requires expires_on."""
     status: NotRequired[BatchStatus]
     r"""Status of a communication batch."""
+    auto_call_rate_baseline: NotRequired[Nullable[float]]
+    r"""Read-only. The auto-paced rate first computed for this batch, set on its first dialing cycle. Subsequent cycles hold the rate within +/- 20% of it. Null until the batch has dialed, or when auto_call_rate is off."""
     upload_filename: NotRequired[Nullable[str]]
     r"""Name of file used to create batch"""
     dispatch_id: NotRequired[Nullable[str]]
@@ -65,8 +69,14 @@ class CommunicationBatch(BaseModel):
     call_rate: OptionalNullable[int] = UNSET
     r"""Target number of outreach attempts per hour for this batch. When omitted, the batch inherits the campaign's hourly_rate."""
 
+    auto_call_rate: Optional[bool] = False
+    r"""Pace this batch automatically to finish before expires_on, counting only the campaign's valid hours (daily_start_time..daily_end_time on active_days). The derived rate takes precedence over call_rate and over the campaign hourly_rate. Requires expires_on."""
+
     status: Optional[BatchStatus] = None
     r"""Status of a communication batch."""
+
+    auto_call_rate_baseline: OptionalNullable[float] = UNSET
+    r"""Read-only. The auto-paced rate first computed for this batch, set on its first dialing cycle. Subsequent cycles hold the rate within +/- 20% of it. Null until the batch has dialed, or when auto_call_rate is off."""
 
     upload_filename: OptionalNullable[str] = UNSET
     r"""Name of file used to create batch"""
@@ -96,7 +106,9 @@ class CommunicationBatch(BaseModel):
                 "expires_on",
                 "paused",
                 "call_rate",
+                "auto_call_rate",
                 "status",
+                "auto_call_rate_baseline",
                 "upload_filename",
                 "dispatch_id",
                 "created_at",
@@ -111,6 +123,7 @@ class CommunicationBatch(BaseModel):
                 "expires_on",
                 "paused",
                 "call_rate",
+                "auto_call_rate_baseline",
                 "upload_filename",
                 "dispatch_id",
                 "deleted_at",

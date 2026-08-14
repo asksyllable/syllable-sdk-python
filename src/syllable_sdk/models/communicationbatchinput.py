@@ -10,6 +10,7 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
+from typing import Optional
 from typing_extensions import NotRequired, TypedDict
 
 
@@ -24,6 +25,8 @@ class CommunicationBatchInputTypedDict(TypedDict):
     r"""Whether the batch is on HOLD. When on HOLD, no outreach will be made."""
     call_rate: NotRequired[Nullable[int]]
     r"""Target number of outreach attempts per hour for this batch. When omitted, the batch inherits the campaign's hourly_rate."""
+    auto_call_rate: NotRequired[bool]
+    r"""Pace this batch automatically to finish before expires_on, counting only the campaign's valid hours (daily_start_time..daily_end_time on active_days). The derived rate takes precedence over call_rate and over the campaign hourly_rate. Requires expires_on."""
 
 
 class CommunicationBatchInput(BaseModel):
@@ -42,9 +45,12 @@ class CommunicationBatchInput(BaseModel):
     call_rate: OptionalNullable[int] = UNSET
     r"""Target number of outreach attempts per hour for this batch. When omitted, the batch inherits the campaign's hourly_rate."""
 
+    auto_call_rate: Optional[bool] = False
+    r"""Pace this batch automatically to finish before expires_on, counting only the campaign's valid hours (daily_start_time..daily_end_time on active_days). The derived rate takes precedence over call_rate and over the campaign hourly_rate. Requires expires_on."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["expires_on", "paused", "call_rate"])
+        optional_fields = set(["expires_on", "paused", "call_rate", "auto_call_rate"])
         nullable_fields = set(["expires_on", "paused", "call_rate"])
         serialized = handler(self)
         m = {}
