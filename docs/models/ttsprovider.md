@@ -18,3 +18,4 @@ value = TtsProvider.OPEN_AI
 | `OPEN_AI`     | OpenAI        |
 | `ELEVEN_LABS` | ElevenLabs    |
 | `GOOGLE`      | Google        |
+| `CARTESIA`    | Cartesia      |
