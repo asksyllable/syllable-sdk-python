@@ -23,3 +23,4 @@ value = AgentVoiceModel.CHIRP_3_HD
 | `WAVE_NET`          | WaveNet             |
 | `TTS_1`             | tts-1               |
 | `GPT_4O_MINI_TTS`   | gpt-4o-mini-tts     |
+| `SONIC_3_5`         | sonic-3.5           |
