@@ -14939,7 +14939,25 @@
           "Zephyr (Russian)",
           "Zephyr (Spanish)",
           "Zephyr (Thai)",
-          "Zephyr (Vietnamese)"
+          "Zephyr (Vietnamese)",
+          "Skylar (US)",
+          "Daniel (US)",
+          "Linda (US)",
+          "Corey (US)",
+          "Emma (US)",
+          "Ximena (MX)",
+          "Fernanda (MX)",
+          "Emilio (MX)",
+          "Marta (ES)",
+          "Mateo (MX)",
+          "Minji (KR)",
+          "Haeun (KR)",
+          "Taehyun (KR)",
+          "Jaewon (KR)",
+          "Hua (CN)",
+          "Liu (CN)",
+          "Xia (VN)",
+          "Suda (TH)"
         ],
         "title": "AgentVoiceDisplayName",
         "description": "Display names of voices that Syllable supports."
@@ -14963,7 +14981,8 @@
           "Studio",
           "WaveNet",
           "tts-1",
-          "gpt-4o-mini-tts"
+          "gpt-4o-mini-tts",
+          "sonic-3.5"
         ],
         "title": "AgentVoiceModel",
         "description": "Model for an agent voice."
@@ -15148,7 +15167,25 @@
           "wavenet:female/ru-RU-Chirp3-HD-Zephyr",
           "wavenet:female/es-US-Chirp3-HD-Zephyr",
           "wavenet:female/th-TH-Chirp3-HD-Zephyr",
-          "wavenet:female/vi-VN-Chirp3-HD-Zephyr"
+          "wavenet:female/vi-VN-Chirp3-HD-Zephyr",
+          "cartesia:Skylar",
+          "cartesia:Daniel",
+          "cartesia:Linda",
+          "cartesia:Corey",
+          "cartesia:Emma",
+          "cartesia:Ximena",
+          "cartesia:Fernanda",
+          "cartesia:Emilio",
+          "cartesia:Marta",
+          "cartesia:Mateo",
+          "cartesia:Minji",
+          "cartesia:Haeun",
+          "cartesia:Taehyun",
+          "cartesia:Jaewon",
+          "cartesia:Hua",
+          "cartesia:Liu",
+          "cartesia:Xia",
+          "cartesia:Suda"
         ],
         "title": "AgentVoiceVarName",
         "description": "The variable name of an agent voice (used when processing messages)."
@@ -32765,7 +32802,8 @@
         "enum": [
           "OpenAI",
           "ElevenLabs",
-          "Google"
+          "Google",
+          "Cartesia"
         ],
         "title": "TtsProvider",
         "description": "TTS provider for an agent voice."
