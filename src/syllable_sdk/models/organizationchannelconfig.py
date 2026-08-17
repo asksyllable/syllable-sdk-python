@@ -26,7 +26,7 @@ class OrganizationChannelConfigTypedDict(TypedDict):
     auth_token: NotRequired[Nullable[str]]
     r"""The Twilio auth token"""
     provider_credentials: NotRequired[Nullable[Dict[str, str]]]
-    r"""Provider-specific credentials. Initially to be used for AfricasTalking creds.In a future this would be used for Twilio creds too (removing the account_sid and auth_token fields)."""
+    r"""Provider-specific credentials. Initially to be used for AfricasTalking creds. In a future this would be used for Twilio creds too (removing the account_sid and auth_token fields)."""
     telephony: NotRequired[Nullable[TelephonyConfigurationsTypedDict]]
     r"""Telephony configurations to be applied to the targets under the channel"""
     email: NotRequired[Nullable[EmailConfigurationsTypedDict]]
@@ -43,7 +43,7 @@ class OrganizationChannelConfig(BaseModel):
     r"""The Twilio auth token"""
 
     provider_credentials: OptionalNullable[Dict[str, str]] = UNSET
-    r"""Provider-specific credentials. Initially to be used for AfricasTalking creds.In a future this would be used for Twilio creds too (removing the account_sid and auth_token fields)."""
+    r"""Provider-specific credentials. Initially to be used for AfricasTalking creds. In a future this would be used for Twilio creds too (removing the account_sid and auth_token fields)."""
 
     telephony: OptionalNullable[TelephonyConfigurations] = UNSET
     r"""Telephony configurations to be applied to the targets under the channel"""
