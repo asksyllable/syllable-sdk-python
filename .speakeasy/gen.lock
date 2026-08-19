@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 52979bad8f6ffaba0daafc3f8feb5dd2
+  docChecksum: e40567b295f8af848d466a8564a65672
   docVersion: 0.0.3
   speakeasyVersion: 1.795.0
   generationVersion: 2.931.0
-  releaseVersion: 0.49.2
-  configChecksum: ac36f6b17fd561735bc5388144ce560f
+  releaseVersion: 0.49.3
+  configChecksum: c24ae94544aa37466279e69dbb97e1fd
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: c8e633c5-2c49-4f99-ba9d-9b7d6b054c0a
-  pristine_commit_hash: c31eb4bc58e127e8460e0db8cf2c6472ffabe8a1
-  pristine_tree_hash: 1c1905da2a92dc23c02eb742c054ee12f157bf4e
+  generation_id: 9ec20a25-d669-453c-903f-a0fd6b8652f3
+  pristine_commit_hash: 39ee6be53ad089be09e9c99de92bb7c2d3e1e057
+  pristine_tree_hash: 5f5f62c27ce73badbf8fc4cfce4f13faf6da7429
 features:
   python:
     additionalDependencies: 1.1.0
@@ -2095,8 +2095,8 @@ trackedFiles:
     pristine_git_object: b767f7bcfc088a2a135fe3174bd29c139b9cbe01
   docs/sdks/directory/README.md:
     id: c3e67af35dfa
-    last_write_checksum: sha1:8a1819a3b110aa19749d0dc9382cb6d6ef45a523
-    pristine_git_object: 592c730bad599357ee5ace8deb62554d07f5ef39
+    last_write_checksum: sha1:8697d895b39200a04404c5047b6cd8d9f9ea9596
+    pristine_git_object: 1ddc0b3430c0b79cabf879f0f5e1e0c56ea81d3f
   docs/sdks/events/README.md:
     id: cf45a4390b9b
     last_write_checksum: sha1:95e3d3fd88b1b5517e5841589fc130f616c96b8f
@@ -2231,8 +2231,8 @@ trackedFiles:
     pristine_git_object: 6a3b01908092d3349be5058c4d36fe09f3f97a8a
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:9f6bac685f89ba6e97bfe236d006f25a4b6c8a97
-    pristine_git_object: 93a03119b9abb6f669820a01b35d0a676885333f
+    last_write_checksum: sha1:7747fa4956b34a3f451698ea02e1863c35d60f62
+    pristine_git_object: 5ffe121136b683b7a0214f3806d582adeba29373
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2259,8 +2259,8 @@ trackedFiles:
     pristine_git_object: 132885676dc1885890d1c8a13bd01fcfcb8e3fbc
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:54dc0222cf2abadd14cc1024889ab4121a2a9375
-    pristine_git_object: 0ebddef4e4c940e2bb6b034fa8f3b8729c5d5899
+    last_write_checksum: sha1:a671f6ca62ffd9067ae4a6bcba64b0fb4a28d800
+    pristine_git_object: ae905d01ac799b15cb098686c0c414665d95f48a
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:889f4504eb7f9489276dbcc2870b3ecdf6df8538
@@ -2307,8 +2307,8 @@ trackedFiles:
     pristine_git_object: 6d354440bb47cb3fa36f64bf4126a65a02a58a5a
   src/syllable_sdk/directory.py:
     id: d141fcc4556c
-    last_write_checksum: sha1:ac84a772ed07858a312495f7bc6544736f89bf29
-    pristine_git_object: 4ad4f23497400ea361ca441d0ea00dbd8ecd6ea9
+    last_write_checksum: sha1:cd4a9d7e37966435ee94649944502ef853af6823
+    pristine_git_object: 51d0d058a48795ab878ddf020058bbb0cb062516
   src/syllable_sdk/errors/__init__.py:
     id: 31733d0f8d7a
     last_write_checksum: sha1:a82a87d48e840f382ba86e545270524069ba1ccf
@@ -6097,7 +6097,6 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.agents.list()`:  `response.items[].prompt.validation_issues` **Added**\n* `syllable_sdk.agents.create()`:  `response.prompt.validation_issues` **Added**\n* `syllable_sdk.agents.update()`:  `response.prompt.validation_issues` **Added**\n* `syllable_sdk.agents.get_by_id()`:  `response.prompt.validation_issues` **Added**\n* `syllable_sdk.channels.targets.list()`:  `response.items[].agent.prompt.validation_issues` **Added**\n* `syllable_sdk.channels.targets.create()`:  `response.agent.prompt.validation_issues` **Added**\n* `syllable_sdk.channels.targets.get_by_id()`:  `response.agent.prompt.validation_issues` **Added**\n* `syllable_sdk.channels.targets.update()`:  `response.agent.prompt.validation_issues` **Added**\n* `syllable_sdk.insights.tools.create()`:  `response.validation_issues` **Added**\n* `syllable_sdk.insights.tools.update()`:  `response.validation_issues` **Added**\n* `syllable_sdk.prompts.list()`:  `response.items[].validation_issues` **Added**\n* `syllable_sdk.prompts.create()`:  `response.validation_issues` **Added**\n* `syllable_sdk.prompts.update()`:  `response.validation_issues` **Added**\n* `syllable_sdk.prompts.get_by_id()`:  `response.validation_issues` **Added**\n* `syllable_sdk.prompts.prompt_get_supported_llms()`: \n  *  `request.selected_model` **Added**\n  *  `response.[]` **Changed**\n  *  `error.status[422]` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
