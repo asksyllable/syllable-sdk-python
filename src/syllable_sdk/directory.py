@@ -1720,7 +1720,7 @@ class Directory(BaseSDK):
     ) -> Any:
         r"""Bulk Load Directory Members
 
-        Update Directory Members in chunks of 100.
+        Load Directory Members in chunks of 100.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
@@ -1818,7 +1818,7 @@ class Directory(BaseSDK):
     ) -> Any:
         r"""Bulk Load Directory Members
 
-        Update Directory Members in chunks of 100.
+        Load Directory Members in chunks of 100.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
