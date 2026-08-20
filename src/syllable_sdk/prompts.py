@@ -1197,7 +1197,6 @@ class Prompts(BaseSDK):
     def prompt_get_supported_llms(
         self,
         *,
-        selected_model: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1207,11 +1206,6 @@ class Prompts(BaseSDK):
 
         Get supported LLM configs.
 
-        Each config's `status` is resolved against the current date. Retired models are omitted unless
-        they match `selected_model`, so a saved config still referencing a retired model can render it
-        as a locked field.
-
-        :param selected_model:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1226,17 +1220,12 @@ class Prompts(BaseSDK):
             base_url = server_url
         else:
             base_url = self._get_url(base_url, url_variables)
-
-        request = models.PromptGetSupportedLlmsRequest(
-            selected_model=selected_model,
-        )
-
         req = self._build_request(
             method="GET",
             path="/api/v1/prompts/llms/supported",
             base_url=base_url,
             url_variables=url_variables,
-            request=request,
+            request=None,
             request_body_required=False,
             request_has_path_params=False,
             request_has_query_params=True,
@@ -1273,14 +1262,8 @@ class Prompts(BaseSDK):
             retry_config=retry_config,
         )
 
-        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(List[models.SupportedLlm], http_res)
-        if utils.match_response(http_res, "422", "application/json"):
-            response_data = unmarshal_json_response(
-                errors.HTTPValidationErrorData, http_res
-            )
-            raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise errors.APIError("API error occurred", http_res, http_res_text)
@@ -1293,7 +1276,6 @@ class Prompts(BaseSDK):
     async def prompt_get_supported_llms_async(
         self,
         *,
-        selected_model: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1303,11 +1285,6 @@ class Prompts(BaseSDK):
 
         Get supported LLM configs.
 
-        Each config's `status` is resolved against the current date. Retired models are omitted unless
-        they match `selected_model`, so a saved config still referencing a retired model can render it
-        as a locked field.
-
-        :param selected_model:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1322,17 +1299,12 @@ class Prompts(BaseSDK):
             base_url = server_url
         else:
             base_url = self._get_url(base_url, url_variables)
-
-        request = models.PromptGetSupportedLlmsRequest(
-            selected_model=selected_model,
-        )
-
         req = self._build_request_async(
             method="GET",
             path="/api/v1/prompts/llms/supported",
             base_url=base_url,
             url_variables=url_variables,
-            request=request,
+            request=None,
             request_body_required=False,
             request_has_path_params=False,
             request_has_query_params=True,
@@ -1369,14 +1341,8 @@ class Prompts(BaseSDK):
             retry_config=retry_config,
         )
 
-        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(List[models.SupportedLlm], http_res)
-        if utils.match_response(http_res, "422", "application/json"):
-            response_data = unmarshal_json_response(
-                errors.HTTPValidationErrorData, http_res
-            )
-            raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.APIError("API error occurred", http_res, http_res_text)

@@ -430,7 +430,7 @@ with SyllableSDK(
 
 ## directory_member_bulk_load
 
-Load Directory Members in chunks of 100.
+Update Directory Members in chunks of 100.
 
 ### Example Usage
 
