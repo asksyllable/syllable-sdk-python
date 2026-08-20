@@ -304,6 +304,10 @@ with SyllableSDK(
 
 Get supported LLM configs.
 
+Each config's `status` is resolved against the current date. Retired models are omitted unless
+they match `selected_model`, so a saved config still referencing a retired model can render it
+as a locked field.
+
 ### Example Usage
 
 <!-- UsageSnippet language="python" operationID="prompt_get_supported_llms" method="get" path="/api/v1/prompts/llms/supported" -->
@@ -327,6 +331,7 @@ with SyllableSDK(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `selected_model`                                                    | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -335,6 +340,7 @@ with SyllableSDK(
 
 ### Errors
 
-| Error Type      | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.APIError | 4XX, 5XX        | \*/\*           |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |

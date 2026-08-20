@@ -3050,7 +3050,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/InsightToolOutput"
+                $ref: "#/components/schemas/InsightToolResponse"
         "400":
           description: "Bad Request"
         "500":
@@ -3152,7 +3152,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/InsightToolOutput"
+                $ref: "#/components/schemas/InsightToolResponse"
         "400":
           description: "Bad Request"
         "404":
@@ -3775,20 +3775,35 @@ paths:
       tags:
         - "prompts"
       summary: "Get Supported Llm Configs"
-      description: "Get supported LLM configs."
+      description: "Get supported LLM configs.\n\nEach config's `status` is resolved against the current date. Retired models are omitted unless\nthey match `selected_model`, so a saved config still referencing a retired model can render it\nas a locked field."
       operationId: "prompt_get_supported_llms"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "selected_model"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - type: "string"
+              - type: "null"
+            title: "Selected Model"
       responses:
         "200":
           description: "Successful Response"
           content:
             application/json:
               schema:
+                type: "array"
                 items:
                   $ref: "#/components/schemas/SupportedLlm"
-                type: "array"
                 title: "Response Prompt Get Supported Llms"
-      security:
-        - APIKeyHeader: []
+        "422":
+          description: "Validation Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1/pronunciations:
     get:
       tags:
@@ -6188,7 +6203,7 @@ paths:
       tags:
         - "directory"
       summary: "Bulk Load Directory Members"
-      description: "Update Directory Members in chunks of 100."
+      description: "Load Directory Members in chunks of 100."
       operationId: "directory_member_bulk_load"
       requestBody:
         content:
@@ -13763,6 +13778,87 @@ components:
         - "insight_tool_definition_id"
         - "updated_at"
       title: "InsightToolProperties"
+    InsightToolResponse:
+      properties:
+        name:
+          type: "string"
+          title: "Name"
+          description: "Human readable name of insight tool"
+          examples:
+            - "summary-tool"
+        description:
+          type: "string"
+          title: "Description"
+          description: "Text description of insight tool configuration"
+          examples:
+            - "This tool uses GPT4.1 to generate a summary of the call"
+        version:
+          type: "integer"
+          title: "Version"
+          description: "Version of insight tool"
+          examples:
+            - 1
+        tool_arguments:
+          title: "Tool Arguments"
+          description: "Arguments for calling the insight tool"
+          examples:
+            - prompt: "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"
+        insight_tool_definition_id:
+          type: "integer"
+          title: "Insight Tool Definition Id"
+          description: "Unique ID for insight tool definition used by this tool configuration"
+          examples:
+            - 1
+        id:
+          type: "integer"
+          title: "Id"
+          description: "Unique ID for insight tool"
+          examples:
+            - 1
+        insight_tool_definition:
+          anyOf:
+            - $ref: "#/components/schemas/InsightToolDefinition"
+            - type: "null"
+          description: "Insight Tool Definition"
+        created_at:
+          type: "string"
+          format: "date-time"
+          title: "Created At"
+          description: "Timestamp of at which insight tool configuration was created"
+          examples:
+            - "2026-08-19T00:00:00Z"
+        updated_at:
+          type: "string"
+          format: "date-time"
+          title: "Updated At"
+          description: "Timestamp at which insight tool configuration was last updated"
+          examples:
+            - "2026-08-20T00:00:00Z"
+        last_updated_by:
+          type: "string"
+          title: "Last Updated By"
+          description: "Email of user who last updated insight tool configuration"
+          examples:
+            - "user@email.com"
+        validation_issues:
+          anyOf:
+            - items:
+                $ref: "#/components/schemas/ValidationIssue"
+              type: "array"
+            - type: "null"
+          title: "Validation Issues"
+          description: "Non-blocking findings for the saved insight tool (e.g. a deprecated model warning). Warnings and infos are informational; errors block the save."
+      type: "object"
+      required:
+        - "name"
+        - "description"
+        - "version"
+        - "tool_arguments"
+        - "insight_tool_definition_id"
+        - "id"
+        - "last_updated_by"
+      title: "InsightToolResponse"
+      description: "Response model for insight tool saves, carrying any non-blocking findings."
     InsightToolTestInput:
       properties:
         tool_name:
@@ -14992,6 +15088,14 @@ components:
         - "microseconds"
         - "nanoseconds"
       title: "LatencyUnitType"
+    LifecycleStatus:
+      type: "string"
+      enum:
+        - "active"
+        - "deprecated"
+        - "retired"
+      title: "LifecycleStatus"
+      description: "Effective deprecation state of a model, resolved against a reference date."
     LineTypeBucket:
       type: "string"
       enum:
@@ -17805,6 +17909,14 @@ components:
           title: "Tools Full"
           description: "Full definitions of tools to which the prompt has access"
           examples: []
+        validation_issues:
+          anyOf:
+            - items:
+                $ref: "#/components/schemas/ValidationIssue"
+              type: "array"
+            - type: "null"
+          title: "Validation Issues"
+          description: "Non-blocking findings for the saved prompt (e.g. a deprecated model warning). Warnings and infos are informational; errors block the save."
       type: "object"
       required:
         - "name"
@@ -19505,9 +19617,40 @@ components:
         deprecated:
           type: "boolean"
           title: "Deprecated"
-          description: "Whether the LLM config is deprecated and should not be used."
+          description: "Whether the model is in the deprecation warning window."
           examples:
             - false
+        sunset_date:
+          anyOf:
+            - type: "string"
+              format: "date"
+            - type: "null"
+          title: "Sunset Date"
+          description: "Date the model becomes retired and can no longer be saved or selected."
+          examples:
+            - null
+        removed:
+          type: "boolean"
+          title: "Removed"
+          description: "Whether the model is force-retired regardless of sunset_date."
+          default: false
+          examples:
+            - false
+        fallback:
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Fallback"
+          description: "Model substituted at runtime for critical features once this one is retired."
+          examples:
+            - null
+        status:
+          anyOf:
+            - $ref: "#/components/schemas/LifecycleStatus"
+            - type: "null"
+          description: "Effective lifecycle status, resolved server-side against the current date. Populated on API responses; unset in the static catalog."
+          examples:
+            - "active"
       type: "object"
       required:
         - "display_name"

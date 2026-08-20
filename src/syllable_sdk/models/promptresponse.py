@@ -4,6 +4,7 @@ from __future__ import annotations
 from .daotoolresponse import DaoToolResponse, DaoToolResponseTypedDict
 from .promptllmconfig import PromptLlmConfig, PromptLlmConfigTypedDict
 from .toolresponse import ToolResponse, ToolResponseTypedDict
+from .validationissue import ValidationIssue, ValidationIssueTypedDict
 import pydantic
 from pydantic import model_serializer
 from syllable_sdk.types import (
@@ -57,6 +58,8 @@ class PromptResponseTypedDict(TypedDict):
     r"""The version number of the current version of the prompt"""
     tools_full: NotRequired[Nullable[List[ToolResponseTypedDict]]]
     r"""Full definitions of tools to which the prompt has access"""
+    validation_issues: NotRequired[Nullable[List[ValidationIssueTypedDict]]]
+    r"""Non-blocking findings for the saved prompt (e.g. a deprecated model warning). Warnings and infos are informational; errors block the save."""
 
 
 class PromptResponse(BaseModel):
@@ -120,6 +123,9 @@ class PromptResponse(BaseModel):
     tools_full: OptionalNullable[List[ToolResponse]] = UNSET
     r"""Full definitions of tools to which the prompt has access"""
 
+    validation_issues: OptionalNullable[List[ValidationIssue]] = UNSET
+    r"""Non-blocking findings for the saved prompt (e.g. a deprecated model warning). Warnings and infos are informational; errors block the save."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -135,6 +141,7 @@ class PromptResponse(BaseModel):
                 "agent_count",
                 "version_number",
                 "tools_full",
+                "validation_issues",
             ]
         )
         nullable_fields = set(
@@ -149,6 +156,7 @@ class PromptResponse(BaseModel):
                 "agent_count",
                 "version_number",
                 "tools_full",
+                "validation_issues",
             ]
         )
         serialized = handler(self)

@@ -107,7 +107,7 @@ with SyllableSDK(
 
 ### Response
 
-**[models.InsightToolOutput](../../models/insighttooloutput.md)**
+**[models.InsightToolResponse](../../models/insighttoolresponse.md)**
 
 ### Errors
 
@@ -239,7 +239,7 @@ with SyllableSDK(
 
 ### Response
 
-**[models.InsightToolOutput](../../models/insighttooloutput.md)**
+**[models.InsightToolResponse](../../models/insighttoolresponse.md)**
 
 ### Errors
 
