@@ -34,6 +34,7 @@ class VoicemailDetectionConfigTypedDict(TypedDict):
     voicemail_detection_pre_speech_timeout: NotRequired[Nullable[float]]
     voicemail_detection_post_speech_timeout: NotRequired[Nullable[float]]
     voicemail_detection_speech_threshold: NotRequired[Nullable[float]]
+    voicemail_detection_v2_pre_speech_timeout: NotRequired[Nullable[float]]
 
 
 class VoicemailDetectionConfig(BaseModel):
@@ -60,6 +61,8 @@ class VoicemailDetectionConfig(BaseModel):
 
     voicemail_detection_speech_threshold: OptionalNullable[float] = UNSET
 
+    voicemail_detection_v2_pre_speech_timeout: OptionalNullable[float] = UNSET
+
     @property
     def additional_properties(self):
         return self.__pydantic_extra__
@@ -77,6 +80,7 @@ class VoicemailDetectionConfig(BaseModel):
                 "voicemail_detection_pre_speech_timeout",
                 "voicemail_detection_post_speech_timeout",
                 "voicemail_detection_speech_threshold",
+                "voicemail_detection_v2_pre_speech_timeout",
             ]
         )
         nullable_fields = set(
@@ -86,6 +90,7 @@ class VoicemailDetectionConfig(BaseModel):
                 "voicemail_detection_pre_speech_timeout",
                 "voicemail_detection_post_speech_timeout",
                 "voicemail_detection_speech_threshold",
+                "voicemail_detection_v2_pre_speech_timeout",
             ]
         )
         serialized = handler(self)
