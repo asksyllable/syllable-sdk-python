@@ -1720,7 +1720,13 @@ class Directory(BaseSDK):
     ) -> Any:
         r"""Bulk Load Directory Members
 
-        Load Directory Members in chunks of 100.
+        Load Directory Members: records with an id update that member, records without create.
+
+        Updates only touch fields the record carries: omitting extensions, contact_tags, or
+        comments leaves the stored values unchanged, while an explicit empty value clears them.
+        The whole payload is applied in one transaction. A record whose id matches no existing
+        member in the caller's organization, or an id appearing twice in the payload, fails the
+        upload with a 400 naming the offending record(s); nothing is written.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
@@ -1818,7 +1824,13 @@ class Directory(BaseSDK):
     ) -> Any:
         r"""Bulk Load Directory Members
 
-        Load Directory Members in chunks of 100.
+        Load Directory Members: records with an id update that member, records without create.
+
+        Updates only touch fields the record carries: omitting extensions, contact_tags, or
+        comments leaves the stored values unchanged, while an explicit empty value clears them.
+        The whole payload is applied in one transaction. A record whose id matches no existing
+        member in the caller's organization, or an id appearing twice in the payload, fails the
+        upload with a 400 naming the offending record(s); nothing is written.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
