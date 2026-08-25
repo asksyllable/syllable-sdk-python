@@ -17,6 +17,8 @@ class DirectoryMemberTestResponseTypedDict(TypedDict):
     r"""Extension to which the user will be transferred if they call at the provided timestamp in the given language, or a status message if no rules match"""
     status: NotRequired[Nullable[str]]
     r"""Status message if no rules match"""
+    sip_transfer_mode: NotRequired[Nullable[str]]
+    r"""SIP transfer mode."""
 
 
 class DirectoryMemberTestResponse(BaseModel):
@@ -26,10 +28,13 @@ class DirectoryMemberTestResponse(BaseModel):
     status: OptionalNullable[str] = UNSET
     r"""Status message if no rules match"""
 
+    sip_transfer_mode: OptionalNullable[str] = UNSET
+    r"""SIP transfer mode."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["extension", "status"])
-        nullable_fields = set(["extension", "status"])
+        optional_fields = set(["extension", "status", "sip_transfer_mode"])
+        nullable_fields = set(["extension", "status", "sip_transfer_mode"])
         serialized = handler(self)
         m = {}
 
