@@ -1,25 +1,25 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 35b277d4f5e6a238cf96455a09562185
+  docChecksum: 9d9ffc9bbdbc6a3380ab7ec618507462
   docVersion: 0.0.3
-  speakeasyVersion: 1.795.4
-  generationVersion: 2.932.9
-  releaseVersion: 0.49.11
-  configChecksum: 776a958efce15c2ac1e5f7448bb666e3
+  speakeasyVersion: 1.796.0
+  generationVersion: 2.932.15
+  releaseVersion: 0.49.12
+  configChecksum: 22814a28fae6af772fa1719a1a71f155
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: f8ab41ee-efdf-42b6-a3dd-0977cf52d81a
-  pristine_commit_hash: 3d2f60633576438be27c9affbd1aef3efb12d672
-  pristine_tree_hash: ee408118a2772a2614ade6d667d69ed34f6ce744
+  generation_id: 64ae03ee-f65d-4160-9878-ed0ddb379f8c
+  pristine_commit_hash: 1eef38be71f82be7010e1d7bf34cb75a65426240
+  pristine_tree_hash: 565d6d9967f9f2ca0817f618b131327d13106c2a
 features:
   python:
     additionalDependencies: 1.1.0
     additionalProperties: 1.0.2
     constsAndDefaults: 1.0.7
-    core: 6.1.0
+    core: 6.1.2
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
     devContainers: 3.0.0
@@ -36,7 +36,7 @@ features:
     nameOverrides: 3.0.3
     nullables: 1.0.2
     responseFormat: 1.1.0
-    retries: 3.1.0
+    retries: 3.1.1
     sdkHooks: 1.3.0
     unions: 3.1.9
     uploadStreams: 1.0.3
@@ -83,8 +83,8 @@ trackedFiles:
     pristine_git_object: be8fe40c14b8b6eec88ee70ff23cd3c92fe8a5dd
   docs/models/agentcreate.md:
     id: aec03b4b02dd
-    last_write_checksum: sha1:d274c8ff89ff2f632d1382352738c1ea7de40ce4
-    pristine_git_object: 2bcbb1c61bf237efb3764ad0937052bf4380e09f
+    last_write_checksum: sha1:73d976110aeda71edffd9afabcd223d3feec7bcd
+    pristine_git_object: 38b3e44f18de39376dc48f896a4f827a768d7871
   docs/models/agentdeleterequest.md:
     id: 43453bac188d
     last_write_checksum: sha1:6c2b4719c440f63ad647d933192570865878c463
@@ -111,12 +111,12 @@ trackedFiles:
     pristine_git_object: e3ad12858da6b79d6f857cd287809629a35f62f4
   docs/models/agentresponse.md:
     id: e4e7070861b2
-    last_write_checksum: sha1:639454a0950622cb23fd137a624c7d28cf2495ca
-    pristine_git_object: 9e7f50386218de4454e728a3be16606ed7e6d6dc
+    last_write_checksum: sha1:2a5755582765ff7b3ba6b8d028f30f21a7225a33
+    pristine_git_object: 64de3d0ec9fc28be91144ed5a5272f8b4d88dd31
   docs/models/agentsttprovider.md:
     id: 5b91f4e1649c
-    last_write_checksum: sha1:a6f8fcdb76acbcacb4f5d612bc71b4fe3eecf1ef
-    pristine_git_object: 5dd8ddab8ed5403ca7b59dad85453caa1ef43a6d
+    last_write_checksum: sha1:a742e3be242aeac19b4d142e5fbd2ccd3fa6e4d4
+    pristine_git_object: 55142d1ee143cceaee0142f3cb55d47dbdfd4d0b
   docs/models/agenttooldefaults.md:
     id: 48a56c7a95b2
     last_write_checksum: sha1:dfee8462546ec4bbc6243c57cfc9704ff215ff2c
@@ -127,8 +127,8 @@ trackedFiles:
     pristine_git_object: 0d8fc8a2982378072e2f4f0d6fca1b37aed89cbb
   docs/models/agentupdate.md:
     id: 76e3f64dd59c
-    last_write_checksum: sha1:5c4d4d2e69ff50eb891845e306d2b5d610524bb5
-    pristine_git_object: 92f20cadae1bc55c593a652ab8072ef5c59766f6
+    last_write_checksum: sha1:eff521d5ee4b46e42d03ada335854099d16dc28f
+    pristine_git_object: c8097fa98aa0459ff7da8544c5f1cc01b8e32218
   docs/models/agentvoice.md:
     id: 0fb671961541
     last_write_checksum: sha1:d9099e583abee7eb0ccc24cd5df04d015b15898f
@@ -2247,8 +2247,8 @@ trackedFiles:
     pristine_git_object: 6a3b01908092d3349be5058c4d36fe09f3f97a8a
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:1546fe039a30563ed695acdc4701bf847662e7ca
-    pristine_git_object: bfde8903d136b2a2a40f3be9d2fb78a75543d3c3
+    last_write_checksum: sha1:57607f8dca36bf71ed5b735264f976a037af0871
+    pristine_git_object: 80d426565b71709ee225c1d89ae304b7939d0ef1
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2275,8 +2275,8 @@ trackedFiles:
     pristine_git_object: 132885676dc1885890d1c8a13bd01fcfcb8e3fbc
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:ce27b1f0e3fb41bbc43b788f891a6910c9b924ae
-    pristine_git_object: fa268f6e2b76829d3875e895e851534038b71fbd
+    last_write_checksum: sha1:dc49a69fa0e7644f9707720ecfbd834ae0ee95f6
+    pristine_git_object: 69e0cb38e4b597f50db244c3829b517c55ea118e
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:70bb87846e49f5aac5d613b83b6e0462f509b0bb
@@ -2427,8 +2427,8 @@ trackedFiles:
     pristine_git_object: 8db3dbf320fe05f5e4213e5a08e5f84141d013c7
   src/syllable_sdk/models/agentsttprovider.py:
     id: dbcb48491adc
-    last_write_checksum: sha1:6c69c6a63257e9bb65728a17434b3530a12a3bd4
-    pristine_git_object: b31c099d2387e577feaab2f81f90fb6b93c04a1f
+    last_write_checksum: sha1:1b0bf206250cf1076dc6b68e560eade7d726331e
+    pristine_git_object: a7b960df5aa93c438b1da31b7f64674af5b1c78b
   src/syllable_sdk/models/agenttooldefaults.py:
     id: da92518253af
     last_write_checksum: sha1:36d62b5dbdc2f040d620917a1c01bf1873a6294c
@@ -4251,8 +4251,8 @@ trackedFiles:
     pristine_git_object: 591415af8e64baa410627b507d2740afb5387d13
   src/syllable_sdk/utils/retries.py:
     id: 5c3b2b29bf6a
-    last_write_checksum: sha1:481dfc7cd6a07a3987f0f443e91bee72888ae41d
-    pristine_git_object: c7418a62826fc73990a52e70df0d54093c5e2a57
+    last_write_checksum: sha1:251e4dd969bb6c06025afe1bad1b5035e94c2060
+    pristine_git_object: 406c1e7c36c7a4fa4fb48bb567d254e2803e1792
   src/syllable_sdk/utils/security.py:
     id: 6169faa9db18
     last_write_checksum: sha1:36abb5d237324d146030d2b8121b02c7b18d44db
@@ -6137,9 +6137,7 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Python SDK Changes:
-  * `syllable_sdk.agents.post_card_click_event()`: **Added**
+releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.agents.create()`: \n  *  `request.stt_provider.enum(deepgram_nova_3_(on_prem))` **Removed** (Breaking ⚠️)\n* `syllable_sdk.agents.update()`: \n  *  `request.stt_provider.enum(deepgram_nova_3_(on_prem))` **Removed** (Breaking ⚠️)\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
