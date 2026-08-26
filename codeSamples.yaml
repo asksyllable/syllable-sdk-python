@@ -170,6 +170,27 @@ actions:
 
                 # Handle response
                 print(res)
+  - target: $["paths"]["/api/v1/agents/test/{test_id}/card-click"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK, models
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.agents.post_card_click_event(test_id="<id>", card_click_request={
+                    "action_id": "<id>",
+                    "action_type": models.ActionType.ACTION,
+                })
+
+                # Handle response
+                print(res)
   - target: $["paths"]["/api/v1/agents/voices/available"]["get"]
     update:
       x-codeSamples:

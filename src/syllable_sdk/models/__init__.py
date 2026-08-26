@@ -152,6 +152,12 @@ if TYPE_CHECKING:
         From2TypedDict,
     )
     from .campaignproperties import CampaignProperties
+    from .cardclickrequest import (
+        ActionType,
+        CardClickRequest,
+        CardClickRequestTypedDict,
+    )
+    from .cardclickresponse import CardClickResponse, CardClickResponseTypedDict
     from .celexpression import CelExpression, CelExpressionTypedDict
     from .channel import Channel, ChannelTypedDict
     from .channel_targets_createop import (
@@ -915,6 +921,10 @@ if TYPE_CHECKING:
         PermissionGroupResponseTypedDict,
     )
     from .permissionresponse import PermissionResponse, PermissionResponseTypedDict
+    from .post_card_click_eventop import (
+        PostCardClickEventRequest,
+        PostCardClickEventRequestTypedDict,
+    )
     from .post_get_dashboardop import (
         PostGetDashboardRequest,
         PostGetDashboardRequestTypedDict,
@@ -1290,6 +1300,7 @@ __all__ = [
     "A2pMessagingPathCheckRequestTypedDict",
     "A2pMessagingPathCheckResponse",
     "A2pMessagingPathCheckResponseTypedDict",
+    "ActionType",
     "AgentCreate",
     "AgentCreateTypedDict",
     "AgentDeleteRequest",
@@ -1388,6 +1399,10 @@ __all__ = [
     "CallResultSaveMappingTypedDict",
     "CallResultTypedDict",
     "CampaignProperties",
+    "CardClickRequest",
+    "CardClickRequestTypedDict",
+    "CardClickResponse",
+    "CardClickResponseTypedDict",
     "CaseExpression",
     "CaseExpressionTypedDict",
     "CelExpression",
@@ -1893,6 +1908,8 @@ __all__ = [
     "PermissionGroupResponseTypedDict",
     "PermissionResponse",
     "PermissionResponseTypedDict",
+    "PostCardClickEventRequest",
+    "PostCardClickEventRequestTypedDict",
     "PostGetDashboardRequest",
     "PostGetDashboardRequestTypedDict",
     "PostListDashboardRequest",
@@ -2301,6 +2318,11 @@ _dynamic_imports: dict[str, str] = {
     "From2": ".callresultsavemapping",
     "From2TypedDict": ".callresultsavemapping",
     "CampaignProperties": ".campaignproperties",
+    "ActionType": ".cardclickrequest",
+    "CardClickRequest": ".cardclickrequest",
+    "CardClickRequestTypedDict": ".cardclickrequest",
+    "CardClickResponse": ".cardclickresponse",
+    "CardClickResponseTypedDict": ".cardclickresponse",
     "CelExpression": ".celexpression",
     "CelExpressionTypedDict": ".celexpression",
     "Channel": ".channel",
@@ -2787,6 +2809,8 @@ _dynamic_imports: dict[str, str] = {
     "PermissionGroupResponseTypedDict": ".permissiongroupresponse",
     "PermissionResponse": ".permissionresponse",
     "PermissionResponseTypedDict": ".permissionresponse",
+    "PostCardClickEventRequest": ".post_card_click_eventop",
+    "PostCardClickEventRequestTypedDict": ".post_card_click_eventop",
     "PostGetDashboardRequest": ".post_get_dashboardop",
     "PostGetDashboardRequestTypedDict": ".post_get_dashboardop",
     "PostListDashboardRequest": ".post_list_dashboardop",

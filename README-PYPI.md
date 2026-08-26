@@ -238,6 +238,7 @@ with SyllableSDK(
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/agents/README.md#get_by_id) - Get Agent By Id
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/agents/README.md#delete) - Delete Agent
 * [agent_get_available_voices](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/agents/README.md#agent_get_available_voices) - Get Available Agent Voices
+* [post_card_click_event](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/agents/README.md#post_card_click_event) - Create Card Click Event
 
 #### [Agents.Test](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/test/README.md)
 

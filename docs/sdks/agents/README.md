@@ -13,6 +13,7 @@ Operations related to agent configuration. When a user interacts with the       
 * [get_by_id](#get_by_id) - Get Agent By Id
 * [delete](#delete) - Delete Agent
 * [agent_get_available_voices](#agent_get_available_voices) - Get Available Agent Voices
+* [post_card_click_event](#post_card_click_event) - Create Card Click Event
 
 ## list
 
@@ -376,3 +377,48 @@ with SyllableSDK(
 | Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## post_card_click_event
+
+Log an EventLog for a client-side card click interaction.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="post_card_click_event" method="post" path="/api/v1/agents/test/{test_id}/card-click" -->
+```python
+import os
+from syllable_sdk import SyllableSDK, models
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.agents.post_card_click_event(test_id="<id>", card_click_request={
+        "action_id": "<id>",
+        "action_type": models.ActionType.ACTION,
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `test_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `card_click_request`                                                | [models.CardClickRequest](../../models/cardclickrequest.md)         | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.CardClickResponse](../../models/cardclickresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
