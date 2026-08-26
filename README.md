@@ -238,6 +238,7 @@ with SyllableSDK(
 * [get_by_id](docs/sdks/agents/README.md#get_by_id) - Get Agent By Id
 * [delete](docs/sdks/agents/README.md#delete) - Delete Agent
 * [agent_get_available_voices](docs/sdks/agents/README.md#agent_get_available_voices) - Get Available Agent Voices
+* [post_card_click_event](docs/sdks/agents/README.md#post_card_click_event) - Create Card Click Event
 
 #### [Agents.Test](docs/sdks/test/README.md)
 
