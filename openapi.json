@@ -505,6 +505,64 @@
         ]
       }
     },
+    "/api/v1/agents/test/{test_id}/card-click": {
+      "post": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Create Card Click Event",
+        "description": "Log an EventLog for a client-side card click interaction.",
+        "operationId": "post_card_click_event",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "test_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Test Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CardClickRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CardClickResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/bridge_phrases/": {
       "get": {
         "tags": [
@@ -16399,6 +16457,47 @@
           "voicemail_detection"
         ],
         "title": "CampaignProperties"
+      },
+      "CardClickRequest": {
+        "properties": {
+          "action_id": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-z0-9][a-z0-9_-]*$",
+            "title": "Action Id",
+            "description": "Human-readable identifier for the card action."
+          },
+          "action_type": {
+            "type": "string",
+            "enum": [
+              "action",
+              "cta"
+            ],
+            "title": "Action Type",
+            "description": "The type of action triggers, either \"action\", or \"cta\"."
+          }
+        },
+        "type": "object",
+        "required": [
+          "action_id",
+          "action_type"
+        ],
+        "title": "CardClickRequest"
+      },
+      "CardClickResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "description": "The outcome of the request"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "title": "CardClickResponse"
       },
       "CaseExpression": {
         "properties": {
