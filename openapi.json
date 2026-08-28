@@ -7948,6 +7948,7 @@
           "sessions.transcript"
         ],
         "summary": "Get Session Transcript By Id",
+        "description": "Return a session's transcript, and whether it is complete.\n\nTranscript records reach the logs database through an asynchronous pipeline, so a read taken\nimmediately after a session ends can return a short record. `transcript_complete` is true only\nwhen everything the session reported writing is present, across both the spoken transcript and\nthe tool activity in `actions`. A caller that needs the whole record should re-request with\nexponential backoff until it is true, or until its own time limit passes, keeping the last\nresponse either way.\n\nA time limit is required rather than optional. `transcript_complete` never turns true for a\nsession still in progress, for a session on a channel that reports no expected count (only\nvoice reports one today), or for a session that ended before the field was introduced - so a\ncaller polling without a limit would never stop.",
         "operationId": "session_transcript_get_by_id",
         "security": [
           {
@@ -15352,7 +15353,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260826.9"
+              "20260828.9"
             ]
           },
           "campaign_id": {
@@ -15376,7 +15377,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-08-27T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "paused": {
@@ -15486,7 +15487,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-08-26T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -15502,7 +15503,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-08-26T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -15533,7 +15534,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-08-26T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -17066,7 +17067,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260826.9"
+              "20260828.9"
             ]
           },
           "campaign_id": {
@@ -17090,7 +17091,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-08-27T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "paused": {
@@ -17200,7 +17201,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-08-26T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -17216,7 +17217,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-08-26T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -17247,7 +17248,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-08-26T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -17290,7 +17291,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260826.9"
+              "20260828.9"
             ]
           },
           "campaign_id": {
@@ -17314,7 +17315,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-08-27T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "paused": {
@@ -17523,7 +17524,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2026-08-25T00:00:00Z"
+              "2026-08-27T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -17539,7 +17540,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2026-08-26T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -21000,7 +21001,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-08-25T00:00:00Z"
+              "2026-08-27T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -21009,7 +21010,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-08-26T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -22012,7 +22013,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2026-08-25T00:00:00Z"
+              "2026-08-27T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -22021,7 +22022,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2026-08-26T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -22127,7 +22128,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2026-08-25T00:00:00Z"
+              "2026-08-27T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -22136,7 +22137,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2026-08-26T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -22519,7 +22520,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-08-25T00:00:00Z"
+              "2026-08-27T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -22535,7 +22536,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-08-26T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           }
         },
@@ -22610,7 +22611,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-08-25T00:00:00Z"
+              "2026-08-27T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -22626,7 +22627,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-08-26T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "id": {
@@ -22694,7 +22695,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2026-08-25T00:00:00Z"
+              "2026-08-27T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -22703,7 +22704,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2026-08-26T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -22799,7 +22800,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-08-25T00:00:00Z"
+              "2026-08-27T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -22808,7 +22809,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-08-26T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -23058,7 +23059,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2026-08-25T00:00:00Z"
+              "2026-08-27T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -23067,7 +23068,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2026-08-26T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "upload_file_metadata": {
@@ -23212,7 +23213,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2026-08-25T00:00:00Z"
+              "2026-08-27T00:00:00Z"
             ]
           },
           "end_time": {
@@ -23228,7 +23229,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2026-08-26T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "error_message": {
@@ -23283,7 +23284,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2026-08-25T00:00:00Z"
+              "2026-08-27T00:00:00Z"
             ]
           }
         },
@@ -27216,7 +27217,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2026-08-26T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -27225,7 +27226,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2026-08-26T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -30380,6 +30381,15 @@
             "type": "array",
             "title": "Actions",
             "description": "Tool invocations that occurred during the session"
+          },
+          "transcript_complete": {
+            "type": "boolean",
+            "title": "Transcript Complete",
+            "description": "True when every record the session reported writing is present, across both the spoken transcript and the tool activity in `actions`. False means the record cannot be confirmed complete. Callers should re-request until this is true, or until their own time limit passes. A limit is required rather than advisable, because three of the cases behind a False never turn true: a session still in progress, a session whose channel reports no expected count - only voice does today, so this is every web chat, SMS and email session - and any session that ended before this field was introduced.",
+            "default": false,
+            "examples": [
+              true
+            ]
           }
         },
         "type": "object",
