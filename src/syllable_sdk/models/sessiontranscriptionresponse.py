@@ -3,9 +3,10 @@
 from __future__ import annotations
 from .sessionaction import SessionAction, SessionActionTypedDict
 from .sessiontext import SessionText, SessionTextTypedDict
-from syllable_sdk.types import BaseModel
-from typing import List
-from typing_extensions import TypedDict
+from pydantic import model_serializer
+from syllable_sdk.types import BaseModel, UNSET_SENTINEL
+from typing import List, Optional
+from typing_extensions import NotRequired, TypedDict
 
 
 class SessionTranscriptionResponseTypedDict(TypedDict):
@@ -19,6 +20,8 @@ class SessionTranscriptionResponseTypedDict(TypedDict):
     r"""Transcriptions of all messages in the session"""
     actions: List[SessionActionTypedDict]
     r"""Tool invocations that occurred during the session"""
+    transcript_complete: NotRequired[bool]
+    r"""True when every record the session reported writing is present, across both the spoken transcript and the tool activity in `actions`. False means the record cannot be confirmed complete. Callers should re-request until this is true, or until their own time limit passes. A limit is required rather than advisable, because three of the cases behind a False never turn true: a session still in progress, a session whose channel reports no expected count - only voice does today, so this is every web chat, SMS and email session - and any session that ended before this field was introduced."""
 
 
 class SessionTranscriptionResponse(BaseModel):
@@ -34,3 +37,22 @@ class SessionTranscriptionResponse(BaseModel):
 
     actions: List[SessionAction]
     r"""Tool invocations that occurred during the session"""
+
+    transcript_complete: Optional[bool] = False
+    r"""True when every record the session reported writing is present, across both the spoken transcript and the tool activity in `actions`. False means the record cannot be confirmed complete. Callers should re-request until this is true, or until their own time limit passes. A limit is required rather than advisable, because three of the cases behind a False never turn true: a session still in progress, a session whose channel reports no expected count - only voice does today, so this is every web chat, SMS and email session - and any session that ended before this field was introduced."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["transcript_complete"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

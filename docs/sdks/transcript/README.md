@@ -8,7 +8,19 @@
 
 ## get_by_id
 
-Get Session Transcript By Id
+Return a session's transcript, and whether it is complete.
+
+Transcript records reach the logs database through an asynchronous pipeline, so a read taken
+immediately after a session ends can return a short record. `transcript_complete` is true only
+when everything the session reported writing is present, across both the spoken transcript and
+the tool activity in `actions`. A caller that needs the whole record should re-request with
+exponential backoff until it is true, or until its own time limit passes, keeping the last
+response either way.
+
+A time limit is required rather than optional. `transcript_complete` never turns true for a
+session still in progress, for a session on a channel that reports no expected count (only
+voice reports one today), or for a session that ended before the field was introduced - so a
+caller polling without a limit would never stop.
 
 ### Example Usage
 
