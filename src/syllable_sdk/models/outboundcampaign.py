@@ -70,7 +70,7 @@ class OutboundCampaignTypedDict(TypedDict):
     include_unknown_line_types: NotRequired[bool]
     r"""When a line-type filter is active, whether to also dial numbers whose line type is unknown or could not be classified. Has no effect when allowed_line_types is empty."""
     target_filters: NotRequired[Nullable[TargetFiltersTypedDict]]
-    r"""Generic target filter (a flat rule list over request enrichment attributes such as line_type, carrier_name, mcc, mnc). When set, takes precedence over allowed_line_types / include_unknown_line_types. Omitted or null means those legacy fields are used instead."""
+    r"""Generic target filter (a flat rule list over request enrichment attributes such as line_type, caller_type, caller_name, carrier_name, mcc, mnc). When set, takes precedence over allowed_line_types / include_unknown_line_types. Omitted or null means those legacy fields are used instead. Rules on caller_type / caller_name are resolved by Twilio's separately billed caller_name (CNAM) lookup, which only returns data for US numbers."""
     agent_id: NotRequired[Nullable[int]]
     r"""ID of agent assigned to campaign"""
     created_at: NotRequired[datetime]
@@ -151,7 +151,7 @@ class OutboundCampaign(BaseModel):
     r"""When a line-type filter is active, whether to also dial numbers whose line type is unknown or could not be classified. Has no effect when allowed_line_types is empty."""
 
     target_filters: OptionalNullable[TargetFilters] = UNSET
-    r"""Generic target filter (a flat rule list over request enrichment attributes such as line_type, carrier_name, mcc, mnc). When set, takes precedence over allowed_line_types / include_unknown_line_types. Omitted or null means those legacy fields are used instead."""
+    r"""Generic target filter (a flat rule list over request enrichment attributes such as line_type, caller_type, caller_name, carrier_name, mcc, mnc). When set, takes precedence over allowed_line_types / include_unknown_line_types. Omitted or null means those legacy fields are used instead. Rules on caller_type / caller_name are resolved by Twilio's separately billed caller_name (CNAM) lookup, which only returns data for US numbers."""
 
     agent_id: OptionalNullable[int] = UNSET
     r"""ID of agent assigned to campaign"""

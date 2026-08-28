@@ -17,7 +17,7 @@ class Match(str, Enum):
 
 
 class OnUnknown(str, Enum):
-    r"""Whether to dial requests whose enrichment is unresolved (no lookup data)."""
+    r"""Whether to dial requests whose enrichment is unresolved (no lookup data). Applied per rule: it decides what a rule contributes when *that rule's* attribute is unresolved, and never overrides a rule the request definitively failed -- so a request that fails one rule is still skipped even if a different rule's attribute is missing. For caller_type, \"unresolved\" covers both no CNAM data at all (non-US numbers) and Twilio's 'UNDETERMINED' (a US number it looked up but could not classify)."""
 
     INCLUDE = "include"
     EXCLUDE = "exclude"
@@ -35,7 +35,7 @@ class TargetFiltersTypedDict(TypedDict):
     match: NotRequired[Match]
     r"""How to combine rules: 'all' (AND) or 'any' (OR)."""
     on_unknown: NotRequired[OnUnknown]
-    r"""Whether to dial requests whose enrichment is unresolved (no lookup data)."""
+    r"""Whether to dial requests whose enrichment is unresolved (no lookup data). Applied per rule: it decides what a rule contributes when *that rule's* attribute is unresolved, and never overrides a rule the request definitively failed -- so a request that fails one rule is still skipped even if a different rule's attribute is missing. For caller_type, \"unresolved\" covers both no CNAM data at all (non-US numbers) and Twilio's 'UNDETERMINED' (a US number it looked up but could not classify)."""
     rules: NotRequired[List[TargetFilterRuleTypedDict]]
     r"""Predicates over request enrichment attributes. Empty means no filter."""
 
@@ -53,7 +53,7 @@ class TargetFilters(BaseModel):
     r"""How to combine rules: 'all' (AND) or 'any' (OR)."""
 
     on_unknown: Optional[OnUnknown] = OnUnknown.INCLUDE
-    r"""Whether to dial requests whose enrichment is unresolved (no lookup data)."""
+    r"""Whether to dial requests whose enrichment is unresolved (no lookup data). Applied per rule: it decides what a rule contributes when *that rule's* attribute is unresolved, and never overrides a rule the request definitively failed -- so a request that fails one rule is still skipped even if a different rule's attribute is missing. For caller_type, \"unresolved\" covers both no CNAM data at all (non-US numbers) and Twilio's 'UNDETERMINED' (a US number it looked up but could not classify)."""
 
     rules: Optional[List[TargetFilterRule]] = None
     r"""Predicates over request enrichment attributes. Empty means no filter."""

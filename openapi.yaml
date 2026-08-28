@@ -17381,7 +17381,7 @@ components:
           anyOf:
             - $ref: "#/components/schemas/TargetFilters"
             - type: "null"
-          description: "Generic target filter (a flat rule list over request enrichment attributes such as line_type, carrier_name, mcc, mnc). When set, takes precedence over allowed_line_types / include_unknown_line_types. Omitted or null means those legacy fields are used instead."
+          description: "Generic target filter (a flat rule list over request enrichment attributes such as line_type, caller_type, caller_name, carrier_name, mcc, mnc). When set, takes precedence over allowed_line_types / include_unknown_line_types. Omitted or null means those legacy fields are used instead. Rules on caller_type / caller_name are resolved by Twilio's separately billed caller_name (CNAM) lookup, which only returns data for US numbers."
           examples:
             - match: "any"
               on_unknown: "include"
@@ -17623,7 +17623,7 @@ components:
           anyOf:
             - $ref: "#/components/schemas/TargetFilters"
             - type: "null"
-          description: "Generic target filter (a flat rule list over request enrichment attributes such as line_type, carrier_name, mcc, mnc). When set, takes precedence over allowed_line_types / include_unknown_line_types. Omitted or null means those legacy fields are used instead."
+          description: "Generic target filter (a flat rule list over request enrichment attributes such as line_type, caller_type, caller_name, carrier_name, mcc, mnc). When set, takes precedence over allowed_line_types / include_unknown_line_types. Omitted or null means those legacy fields are used instead. Rules on caller_type / caller_name are resolved by Twilio's separately billed caller_name (CNAM) lookup, which only returns data for US numbers."
           examples:
             - match: "any"
               on_unknown: "include"
@@ -20036,6 +20036,7 @@ components:
           description: "Enrichment attribute to match on (a key in the request enrichment payload)."
           examples:
             - "line_type"
+            - "caller_type"
             - "carrier_name"
             - "mnc"
         op:
@@ -20059,7 +20060,7 @@ components:
         - "field"
         - "op"
       title: "TargetFilterRule"
-      description: "A single predicate over one enrichment attribute of an outbound request.\n\n``field`` names a key in the request's enrichment payload (e.g. ``line_type``, ``carrier_name``,\n``mcc``, ``mnc``). Any attribute captured at lookup time can be filtered on with no code change."
+      description: "A single predicate over one enrichment attribute of an outbound request.\n\n``field`` names a key in the request's enrichment payload (e.g. ``line_type``, ``caller_type``,\n``caller_name``, ``carrier_name``, ``mcc``, ``mnc``). Any attribute captured at lookup time can be\nfiltered on with no code change.\n\nWhich Twilio Lookup data packages get requested (and billed) for a campaign is derived from the\nfields its rules reference, so a rule on ``caller_type`` / ``caller_name`` is what turns on the\nseparately billed ``caller_name`` package."
     TargetFilters:
       properties:
         match:
@@ -20079,7 +20080,7 @@ components:
             - "include"
             - "exclude"
           title: "On Unknown"
-          description: "Whether to dial requests whose enrichment is unresolved (no lookup data)."
+          description: "Whether to dial requests whose enrichment is unresolved (no lookup data). Applied per rule: it decides what a rule contributes when *that rule's* attribute is unresolved, and never overrides a rule the request definitively failed -- so a request that fails one rule is still skipped even if a different rule's attribute is missing. For caller_type, \"unresolved\" covers both no CNAM data at all (non-US numbers) and Twilio's 'UNDETERMINED' (a US number it looked up but could not classify)."
           default: "include"
           examples:
             - "include"
@@ -20097,10 +20098,10 @@ components:
                   - "landline"
                   - "fixedVoip"
                   - "nonFixedVoip"
-              - field: "carrier_name"
+              - field: "caller_type"
                 op: "in"
                 values:
-                  - "Onvoy, LLC - Sinch"
+                  - "BUSINESS"
       type: "object"
       title: "TargetFilters"
       description: "Generic target filter for an outbound campaign: a flat list of rules over request enrichment.\n\nA request is *dialable* when it matches the ruleset (``match='all'`` -> every rule; ``'any'`` ->\nat least one rule); non-matching requests are skipped. ``on_unknown`` decides the fate of\nrequests whose enrichment never resolved (no lookup / lookup failed). An empty ``rules`` list\nmeans no filter (all numbers dialed), matching the pre-filter behavior."
