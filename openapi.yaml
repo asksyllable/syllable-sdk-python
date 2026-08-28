@@ -12827,6 +12827,235 @@ components:
         - "raw"
       title: "DirectoryResponseFormat"
       description: "Response shape selector for directory member APIs."
+    DisplayActionMapping:
+      properties:
+        type:
+          type: "string"
+          enum:
+            - "text"
+            - "link"
+            - "button"
+            - "message"
+          title: "Type"
+        text:
+          anyOf:
+            - type: "string"
+            - type: "integer"
+            - type: "number"
+            - type: "boolean"
+            - $ref: "#/components/schemas/DisplayValueSource"
+          title: "Text"
+          default: ""
+        icon:
+          type: "string"
+          enum:
+            - "phone"
+            - "email"
+            - "chat"
+            - "calendar"
+            - "arrow"
+          title: "Icon"
+          default: "arrow"
+        link:
+          anyOf:
+            - type: "string"
+            - type: "integer"
+            - type: "number"
+            - type: "boolean"
+            - $ref: "#/components/schemas/DisplayValueSource"
+          title: "Link"
+          default: ""
+        actionId:
+          anyOf:
+            - type: "string"
+            - type: "integer"
+            - type: "number"
+            - type: "boolean"
+            - $ref: "#/components/schemas/DisplayValueSource"
+            - type: "null"
+          title: "Actionid"
+        message:
+          anyOf:
+            - type: "string"
+            - type: "integer"
+            - type: "number"
+            - type: "boolean"
+            - $ref: "#/components/schemas/DisplayValueSource"
+            - type: "null"
+          title: "Message"
+      additionalProperties: false
+      type: "object"
+      required:
+        - "type"
+      title: "DisplayActionMapping"
+    DisplayCardMapping:
+      properties:
+        media.imageUrl:
+          anyOf:
+            - type: "string"
+            - type: "integer"
+            - type: "number"
+            - type: "boolean"
+            - $ref: "#/components/schemas/DisplayValueSource"
+            - type: "null"
+          title: "Media.Imageurl"
+        media.originalImageWidth:
+          anyOf:
+            - type: "string"
+            - type: "integer"
+            - type: "number"
+            - type: "boolean"
+            - $ref: "#/components/schemas/DisplayValueSource"
+            - type: "null"
+          title: "Media.Originalimagewidth"
+        media.originalImageHeight:
+          anyOf:
+            - type: "string"
+            - type: "integer"
+            - type: "number"
+            - type: "boolean"
+            - $ref: "#/components/schemas/DisplayValueSource"
+            - type: "null"
+          title: "Media.Originalimageheight"
+        media.maxHeight:
+          anyOf:
+            - type: "string"
+            - type: "integer"
+            - type: "number"
+            - type: "boolean"
+            - $ref: "#/components/schemas/DisplayValueSource"
+            - type: "null"
+          title: "Media.Maxheight"
+        content.header:
+          anyOf:
+            - type: "string"
+            - type: "integer"
+            - type: "number"
+            - type: "boolean"
+            - $ref: "#/components/schemas/DisplayValueSource"
+            - type: "null"
+          title: "Content.Header"
+        content.subheader:
+          anyOf:
+            - type: "string"
+            - type: "integer"
+            - type: "number"
+            - type: "boolean"
+            - $ref: "#/components/schemas/DisplayValueSource"
+            - type: "null"
+          title: "Content.Subheader"
+        content.description:
+          anyOf:
+            - type: "string"
+            - type: "integer"
+            - type: "number"
+            - type: "boolean"
+            - $ref: "#/components/schemas/DisplayValueSource"
+            - type: "null"
+          title: "Content.Description"
+        content.avatarImageUrl:
+          anyOf:
+            - type: "string"
+            - type: "integer"
+            - type: "number"
+            - type: "boolean"
+            - $ref: "#/components/schemas/DisplayValueSource"
+            - type: "null"
+          title: "Content.Avatarimageurl"
+        content.contentAlwaysLeft:
+          anyOf:
+            - type: "string"
+            - type: "integer"
+            - type: "number"
+            - type: "boolean"
+            - $ref: "#/components/schemas/DisplayValueSource"
+            - type: "null"
+          title: "Content.Contentalwaysleft"
+        actions:
+          items:
+            $ref: "#/components/schemas/DisplayActionMapping"
+          type: "array"
+          title: "Actions"
+        cta:
+          anyOf:
+            - $ref: "#/components/schemas/DisplayCtaMapping"
+            - type: "null"
+      additionalProperties: false
+      type: "object"
+      title: "DisplayCardMapping"
+      description: "Supported mappings from one result item to the existing card shape."
+    DisplayCtaMapping:
+      properties:
+        text:
+          anyOf:
+            - type: "string"
+            - type: "integer"
+            - type: "number"
+            - type: "boolean"
+            - $ref: "#/components/schemas/DisplayValueSource"
+          title: "Text"
+          default: ""
+        icon:
+          type: "string"
+          enum:
+            - "phone"
+            - "email"
+            - "chat"
+            - "calendar"
+            - "arrow"
+          title: "Icon"
+          default: "arrow"
+        link:
+          anyOf:
+            - type: "string"
+            - type: "integer"
+            - type: "number"
+            - type: "boolean"
+            - $ref: "#/components/schemas/DisplayValueSource"
+          title: "Link"
+          default: ""
+        actionId:
+          anyOf:
+            - type: "string"
+            - type: "integer"
+            - type: "number"
+            - type: "boolean"
+            - $ref: "#/components/schemas/DisplayValueSource"
+            - type: "null"
+          title: "Actionid"
+        message:
+          anyOf:
+            - type: "string"
+            - type: "integer"
+            - type: "number"
+            - type: "boolean"
+            - $ref: "#/components/schemas/DisplayValueSource"
+            - type: "null"
+          title: "Message"
+      additionalProperties: false
+      type: "object"
+      title: "DisplayCtaMapping"
+    DisplayValueSource:
+      properties:
+        path:
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Path"
+        template:
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Template"
+        default:
+          anyOf:
+            - {}
+            - type: "null"
+          title: "Default"
+      additionalProperties: false
+      type: "object"
+      title: "DisplayValueSource"
+      description: "Select or interpolate a value from one item in a tool result."
     EmailConfigurations:
       properties:
         sending_domain:
@@ -18228,6 +18457,30 @@ components:
         - "total_count"
       title: "RequestStatusBreakdown"
       description: "Per-request_status breakdown with total count and optional channel_manager_status counts."
+    ResponseDisplayConfig:
+      properties:
+        version:
+          type: "integer"
+          const: 1
+          title: "Version"
+          default: 1
+        type:
+          type: "string"
+          const: "card-list"
+          title: "Type"
+        items_path:
+          type: "string"
+          title: "Items Path"
+        mapping:
+          $ref: "#/components/schemas/DisplayCardMapping"
+      additionalProperties: false
+      type: "object"
+      required:
+        - "type"
+        - "items_path"
+        - "mapping"
+      title: "ResponseDisplayConfig"
+      description: "Declarative presentation metadata stored with a tool definition."
     RoleCreateRequest:
       properties:
         name:
@@ -20311,6 +20564,11 @@ components:
             - type: "null"
           description: "The options for the tool. Ie allows to propagate the tool result to the caller via propagate_tool_result flag."
           examples: []
+        response_display:
+          anyOf:
+            - $ref: "#/components/schemas/ResponseDisplayConfig"
+            - type: "null"
+          description: "Optional mapping used to format propagated results in live chat responses."
       type: "object"
       required:
         - "tool"
