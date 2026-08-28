@@ -3,6 +3,7 @@
 from __future__ import annotations
 from .context import Context, ContextTypedDict
 from .internaltool import InternalTool, InternalToolTypedDict
+from .responsedisplayconfig import ResponseDisplayConfig, ResponseDisplayConfigTypedDict
 from .statictoolparameter import StaticToolParameter, StaticToolParameterTypedDict
 from .toolhttpendpoint import ToolHTTPEndpoint, ToolHTTPEndpointTypedDict
 from .tooloptions import ToolOptions, ToolOptionsTypedDict
@@ -56,6 +57,8 @@ class ToolDefinitionTypedDict(TypedDict):
     r"""The optional result of the tool call."""
     options: NotRequired[Nullable[ToolOptionsTypedDict]]
     r"""The options for the tool. Ie allows to propagate the tool result to the caller via propagate_tool_result flag."""
+    response_display: NotRequired[Nullable[ResponseDisplayConfigTypedDict]]
+    r"""Optional mapping used to format propagated results in live chat responses."""
 
 
 class ToolDefinition(BaseModel):
@@ -85,6 +88,9 @@ class ToolDefinition(BaseModel):
     options: OptionalNullable[ToolOptions] = UNSET
     r"""The options for the tool. Ie allows to propagate the tool result to the caller via propagate_tool_result flag."""
 
+    response_display: OptionalNullable[ResponseDisplayConfig] = UNSET
+    r"""Optional mapping used to format propagated results in live chat responses."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -96,6 +102,7 @@ class ToolDefinition(BaseModel):
                 "static_parameters",
                 "result",
                 "options",
+                "response_display",
             ]
         )
         nullable_fields = set(
@@ -107,6 +114,7 @@ class ToolDefinition(BaseModel):
                 "static_parameters",
                 "result",
                 "options",
+                "response_display",
             ]
         )
         serialized = handler(self)
