@@ -12463,6 +12463,12 @@ components:
           description: "Tool result data (only included if tool has propagate_tool_result=true)"
           examples:
             - answer: "Syllable is a platform for building and managing AI voice agents..."
+        display_result:
+          anyOf:
+            - {}
+            - type: "null"
+          title: "Display Result"
+          description: "Display-only presentation data for this tool result"
         timestamp:
           type: "string"
           format: "date-time"
