@@ -19833,6 +19833,16 @@
               }
             ]
           },
+          "display_result": {
+            "anyOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Display Result",
+            "description": "Display-only presentation data for this tool result"
+          },
           "timestamp": {
             "type": "string",
             "format": "date-time",
