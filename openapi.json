@@ -480,29 +480,119 @@
           "agents"
         ],
         "summary": "Get Available Agent Voices",
-        "description": "Get available agent voices.",
+        "description": "Get available agent voices.\n\nEach voice's `status` is resolved against the current date. Retired voices are omitted unless\ntheir display name is passed in `selected_voice`, so a saved config still referencing a retired\nvoice can render it as a locked field. A voice group holds one voice per language, so the\nparameter is repeatable.",
         "operationId": "agent_get_available_voices",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "selected_voice",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Selected Voice"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful Response",
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/AgentVoice"
                   },
-                  "type": "array",
                   "title": "Response Agent Get Available Voices"
                 }
               }
             }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
           }
-        },
+        }
+      }
+    },
+    "/api/v1/agents/stt/available": {
+      "get": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Get Available Agent Stt Providers",
+        "description": "Get the speech-to-text providers available to agents.\n\nEach provider's `status` is resolved against the current date. Retired providers are omitted\nunless they match `selected_provider`, so an agent still saved on a retired provider can render\nit as a locked field.",
+        "operationId": "agent_get_available_stt_providers",
         "security": [
           {
             "APIKeyHeader": []
           }
-        ]
+        ],
+        "parameters": [
+          {
+            "name": "selected_provider",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Selected Provider"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SupportedSttProvider"
+                  },
+                  "title": "Response Agent Get Available Stt Providers"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/agents/test/{test_id}/card-click": {
@@ -14387,6 +14477,21 @@
             ],
             "description": "The language group associated with the agent",
             "examples": []
+          },
+          "validation_issues": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ValidationIssue"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Validation Issues",
+            "description": "Non-blocking findings for the saved agent (e.g. a deprecated STT provider warning). Warnings and infos are informational; errors block the save."
           }
         },
         "type": "object",
@@ -14823,9 +14928,63 @@
           "deprecated": {
             "type": "boolean",
             "title": "Deprecated",
-            "description": "Whether the voice is deprecated and should not be used",
+            "description": "Whether the voice is in the deprecation warning window",
             "examples": [
               false
+            ]
+          },
+          "sunset_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sunset Date",
+            "description": "Date the voice becomes retired and can no longer be saved or selected",
+            "examples": [
+              null
+            ]
+          },
+          "removed": {
+            "type": "boolean",
+            "title": "Removed",
+            "description": "Whether the voice is force-retired regardless of sunset_date",
+            "default": false,
+            "examples": [
+              false
+            ]
+          },
+          "fallback": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fallback",
+            "description": "Voice substituted at runtime for critical features once this one is retired",
+            "examples": [
+              null
+            ]
+          },
+          "status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LifecycleStatus"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Effective lifecycle status, resolved server-side against the current date. Populated on API responses; unset in the static catalog.",
+            "examples": [
+              "active"
             ]
           }
         },
@@ -15353,7 +15512,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260828.9"
+              "20260829.9"
             ]
           },
           "campaign_id": {
@@ -15377,7 +15536,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-08-29T00:00:00Z"
+              "2026-08-30T00:00:00Z"
             ]
           },
           "paused": {
@@ -15487,7 +15646,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-08-28T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -15503,7 +15662,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-08-28T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -15534,7 +15693,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-08-28T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -17067,7 +17226,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260828.9"
+              "20260829.9"
             ]
           },
           "campaign_id": {
@@ -17091,7 +17250,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-08-29T00:00:00Z"
+              "2026-08-30T00:00:00Z"
             ]
           },
           "paused": {
@@ -17201,7 +17360,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-08-28T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -17217,7 +17376,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-08-28T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -17248,7 +17407,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-08-28T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -17291,7 +17450,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260828.9"
+              "20260829.9"
             ]
           },
           "campaign_id": {
@@ -17315,7 +17474,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-08-29T00:00:00Z"
+              "2026-08-30T00:00:00Z"
             ]
           },
           "paused": {
@@ -17524,7 +17683,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2026-08-27T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -17540,7 +17699,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2026-08-28T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -21499,7 +21658,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-08-27T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -21508,7 +21667,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-08-28T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -22511,7 +22670,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2026-08-27T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -22520,7 +22679,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2026-08-28T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -22626,7 +22785,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2026-08-27T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -22635,7 +22794,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2026-08-28T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -23018,7 +23177,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-08-27T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -23034,7 +23193,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-08-28T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           }
         },
@@ -23109,7 +23268,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-08-27T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -23125,7 +23284,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-08-28T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "id": {
@@ -23193,7 +23352,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2026-08-27T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -23202,7 +23361,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2026-08-28T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -23298,7 +23457,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-08-27T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -23307,7 +23466,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-08-28T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -23557,7 +23716,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2026-08-27T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -23566,7 +23725,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2026-08-28T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "upload_file_metadata": {
@@ -23711,7 +23870,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2026-08-27T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           },
           "end_time": {
@@ -23727,7 +23886,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2026-08-28T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "error_message": {
@@ -23782,7 +23941,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2026-08-27T00:00:00Z"
+              "2026-08-28T00:00:00Z"
             ]
           }
         },
@@ -24269,6 +24428,21 @@
             "examples": [
               "user@mail.com"
             ]
+          },
+          "validation_issues": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ValidationIssue"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Validation Issues",
+            "description": "Non-blocking findings for the saved voice group (e.g. a deprecated voice warning). Warnings and infos are informational; errors block the save."
           }
         },
         "type": "object",
@@ -27715,7 +27889,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2026-08-28T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -27724,7 +27898,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2026-08-28T00:00:00Z"
+              "2026-08-29T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -31809,6 +31983,96 @@
         "title": "SupportedLlm",
         "description": "LLM config option that can be used on a prompt."
       },
+      "SupportedSttProvider": {
+        "properties": {
+          "provider": {
+            "type": "string",
+            "title": "Provider",
+            "description": "Speech-to-text provider value, as stored on the agent.",
+            "examples": [
+              "Google STT V2"
+            ]
+          },
+          "display_name": {
+            "type": "string",
+            "title": "Display Name",
+            "description": "Human-readable name of the provider.",
+            "examples": [
+              "Google STT V2"
+            ]
+          },
+          "deprecated": {
+            "type": "boolean",
+            "title": "Deprecated",
+            "description": "Whether the provider is in the deprecation warning window.",
+            "default": false,
+            "examples": [
+              false
+            ]
+          },
+          "sunset_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sunset Date",
+            "description": "Date the provider becomes retired and can no longer be saved or selected.",
+            "examples": [
+              null
+            ]
+          },
+          "removed": {
+            "type": "boolean",
+            "title": "Removed",
+            "description": "Whether the provider is force-retired regardless of sunset_date.",
+            "default": false,
+            "examples": [
+              false
+            ]
+          },
+          "fallback": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fallback",
+            "description": "Provider substituted at runtime for critical features once this one is retired.",
+            "examples": [
+              null
+            ]
+          },
+          "status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LifecycleStatus"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Effective lifecycle status, resolved server-side against the current date.",
+            "examples": [
+              "active"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "provider",
+          "display_name"
+        ],
+        "title": "SupportedSttProvider",
+        "description": "An STT provider offered to agents, with its resolved deprecation lifecycle."
+      },
       "TakeoutRequestStatus": {
         "type": "string",
         "enum": [
@@ -34831,6 +35095,21 @@
             "examples": [
               "user@mail.com"
             ]
+          },
+          "validation_issues": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ValidationIssue"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Validation Issues",
+            "description": "Non-blocking findings for the saved voice group (e.g. a deprecated voice warning). Warnings and infos are informational; errors block the save."
           }
         },
         "type": "object",
