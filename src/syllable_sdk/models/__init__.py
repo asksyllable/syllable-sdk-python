@@ -29,6 +29,14 @@ if TYPE_CHECKING:
         A2pMessagingPathCheckResponseTypedDict,
     )
     from .agent_deleteop import AgentDeleteRequest, AgentDeleteRequestTypedDict
+    from .agent_get_available_stt_providersop import (
+        AgentGetAvailableSttProvidersRequest,
+        AgentGetAvailableSttProvidersRequestTypedDict,
+    )
+    from .agent_get_available_voicesop import (
+        AgentGetAvailableVoicesRequest,
+        AgentGetAvailableVoicesRequestTypedDict,
+    )
     from .agent_get_by_idop import AgentGetByIDRequest, AgentGetByIDRequestTypedDict
     from .agent_listop import AgentListRequest, AgentListRequestTypedDict
     from .agentcreate import AgentCreate, AgentCreateTypedDict
@@ -1171,6 +1179,10 @@ if TYPE_CHECKING:
     from .steptools import StepTools, StepToolsTypedDict
     from .summaryentry import SummaryEntry, SummaryEntryTypedDict
     from .supportedllm import SupportedLlm, SupportedLlmTypedDict
+    from .supportedsttprovider import (
+        SupportedSttProvider,
+        SupportedSttProviderTypedDict,
+    )
     from .takeoutrequeststatus import TakeoutRequestStatus
     from .takeouts_get_by_job_idop import (
         TakeoutsGetByJobIDRequest,
@@ -1359,6 +1371,10 @@ __all__ = [
     "AgentCreateTypedDict",
     "AgentDeleteRequest",
     "AgentDeleteRequestTypedDict",
+    "AgentGetAvailableSttProvidersRequest",
+    "AgentGetAvailableSttProvidersRequestTypedDict",
+    "AgentGetAvailableVoicesRequest",
+    "AgentGetAvailableVoicesRequestTypedDict",
     "AgentGetByIDRequest",
     "AgentGetByIDRequestTypedDict",
     "AgentLanguage",
@@ -2174,6 +2190,8 @@ __all__ = [
     "SummaryEntryTypedDict",
     "SupportedLlm",
     "SupportedLlmTypedDict",
+    "SupportedSttProvider",
+    "SupportedSttProviderTypedDict",
     "TakeoutRequestStatus",
     "TakeoutStatusResponse",
     "TakeoutStatusResponseTypedDict",
@@ -2325,6 +2343,10 @@ _dynamic_imports: dict[str, str] = {
     "A2pMessagingPathCheckResponseTypedDict": ".a2pmessagingpathcheckresponse",
     "AgentDeleteRequest": ".agent_deleteop",
     "AgentDeleteRequestTypedDict": ".agent_deleteop",
+    "AgentGetAvailableSttProvidersRequest": ".agent_get_available_stt_providersop",
+    "AgentGetAvailableSttProvidersRequestTypedDict": ".agent_get_available_stt_providersop",
+    "AgentGetAvailableVoicesRequest": ".agent_get_available_voicesop",
+    "AgentGetAvailableVoicesRequestTypedDict": ".agent_get_available_voicesop",
     "AgentGetByIDRequest": ".agent_get_by_idop",
     "AgentGetByIDRequestTypedDict": ".agent_get_by_idop",
     "AgentListRequest": ".agent_listop",
@@ -3125,6 +3147,8 @@ _dynamic_imports: dict[str, str] = {
     "SummaryEntryTypedDict": ".summaryentry",
     "SupportedLlm": ".supportedllm",
     "SupportedLlmTypedDict": ".supportedllm",
+    "SupportedSttProvider": ".supportedsttprovider",
+    "SupportedSttProviderTypedDict": ".supportedsttprovider",
     "TakeoutRequestStatus": ".takeoutrequeststatus",
     "TakeoutsGetByJobIDRequest": ".takeouts_get_by_job_idop",
     "TakeoutsGetByJobIDRequestTypedDict": ".takeouts_get_by_job_idop",
