@@ -3,9 +3,15 @@
 from __future__ import annotations
 from datetime import datetime
 from pydantic import model_serializer
-from syllable_sdk.types import BaseModel, Nullable, UNSET_SENTINEL
+from syllable_sdk.types import (
+    BaseModel,
+    Nullable,
+    OptionalNullable,
+    UNSET,
+    UNSET_SENTINEL,
+)
 from typing import Any
-from typing_extensions import TypedDict
+from typing_extensions import NotRequired, TypedDict
 
 
 class DialogToolCallTypedDict(TypedDict):
@@ -19,6 +25,8 @@ class DialogToolCallTypedDict(TypedDict):
     r"""Tool result data (only included if tool has propagate_tool_result=true)"""
     timestamp: datetime
     r"""Tool call timestamp"""
+    display_result: NotRequired[Nullable[Any]]
+    r"""Display-only presentation data for this tool result"""
 
 
 class DialogToolCall(BaseModel):
@@ -37,16 +45,30 @@ class DialogToolCall(BaseModel):
     timestamp: datetime
     r"""Tool call timestamp"""
 
+    display_result: OptionalNullable[Any] = UNSET
+    r"""Display-only presentation data for this tool result"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
+        optional_fields = set(["display_result"])
+        nullable_fields = set(["tool_result", "display_result"])
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k, serialized.get(n))
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
             if val != UNSET_SENTINEL:
-                m[k] = val
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
+                    m[k] = val
 
         return m
