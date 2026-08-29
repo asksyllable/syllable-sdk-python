@@ -6,6 +6,7 @@ from .languagegroupagentinfo import (
     LanguageGroupAgentInfo,
     LanguageGroupAgentInfoTypedDict,
 )
+from .validationissue import ValidationIssue, ValidationIssueTypedDict
 from datetime import datetime
 from pydantic import model_serializer
 from syllable_sdk.types import (
@@ -44,6 +45,8 @@ class LanguageGroupResponseTypedDict(TypedDict):
     r"""Comments for the most recent edit to the language group."""
     agents_info: NotRequired[Nullable[List[LanguageGroupAgentInfoTypedDict]]]
     r"""IDs and names of the agents linked to the language group"""
+    validation_issues: NotRequired[Nullable[List[ValidationIssueTypedDict]]]
+    r"""Non-blocking findings for the saved voice group (e.g. a deprecated voice warning). Warnings and infos are informational; errors block the save."""
 
 
 class LanguageGroupResponse(BaseModel):
@@ -80,10 +83,17 @@ class LanguageGroupResponse(BaseModel):
     agents_info: OptionalNullable[List[LanguageGroupAgentInfo]] = UNSET
     r"""IDs and names of the agents linked to the language group"""
 
+    validation_issues: OptionalNullable[List[ValidationIssue]] = UNSET
+    r"""Non-blocking findings for the saved voice group (e.g. a deprecated voice warning). Warnings and infos are informational; errors block the save."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["description", "edit_comments", "agents_info"])
-        nullable_fields = set(["description", "edit_comments", "agents_info"])
+        optional_fields = set(
+            ["description", "edit_comments", "agents_info", "validation_issues"]
+        )
+        nullable_fields = set(
+            ["description", "edit_comments", "agents_info", "validation_issues"]
+        )
         serialized = handler(self)
         m = {}
 

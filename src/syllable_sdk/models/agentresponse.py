@@ -6,6 +6,7 @@ from .custommessageresponse import CustomMessageResponse, CustomMessageResponseT
 from .languagegroupresponse import LanguageGroupResponse, LanguageGroupResponseTypedDict
 from .promptresponse import PromptResponse, PromptResponseTypedDict
 from .toolresponse import ToolResponse, ToolResponseTypedDict
+from .validationissue import ValidationIssue, ValidationIssueTypedDict
 from datetime import datetime
 import pydantic
 from pydantic import model_serializer
@@ -88,6 +89,8 @@ class AgentResponseTypedDict(TypedDict):
     r"""Tools associated with the agent"""
     language_group: NotRequired[Nullable[LanguageGroupResponseTypedDict]]
     r"""The language group associated with the agent"""
+    validation_issues: NotRequired[Nullable[List[ValidationIssueTypedDict]]]
+    r"""Non-blocking findings for the saved agent (e.g. a deprecated STT provider warning). Warnings and infos are informational; errors block the save."""
 
 
 class AgentResponse(BaseModel):
@@ -189,6 +192,9 @@ class AgentResponse(BaseModel):
     language_group: OptionalNullable[LanguageGroupResponse] = UNSET
     r"""The language group associated with the agent"""
 
+    validation_issues: OptionalNullable[List[ValidationIssue]] = UNSET
+    r"""Non-blocking findings for the saved agent (e.g. a deprecated STT provider warning). Warnings and infos are informational; errors block the save."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -211,6 +217,7 @@ class AgentResponse(BaseModel):
                 "channel_targets",
                 "tools",
                 "language_group",
+                "validation_issues",
             ]
         )
         nullable_fields = set(
@@ -231,6 +238,7 @@ class AgentResponse(BaseModel):
                 "channel_targets",
                 "tools",
                 "language_group",
+                "validation_issues",
             ]
         )
         serialized = handler(self)

@@ -6,10 +6,19 @@ from .agentvoicedisplayname import AgentVoiceDisplayName
 from .agentvoicegender import AgentVoiceGender
 from .agentvoicemodel import AgentVoiceModel
 from .agentvoicevarname import AgentVoiceVarName
+from .lifecyclestatus import LifecycleStatus
 from .ttsprovider import TtsProvider
-from syllable_sdk.types import BaseModel
-from typing import List
-from typing_extensions import TypedDict
+from datetime import date
+from pydantic import model_serializer
+from syllable_sdk.types import (
+    BaseModel,
+    Nullable,
+    OptionalNullable,
+    UNSET,
+    UNSET_SENTINEL,
+)
+from typing import List, Optional
+from typing_extensions import NotRequired, TypedDict
 
 
 class AgentVoiceTypedDict(TypedDict):
@@ -28,7 +37,15 @@ class AgentVoiceTypedDict(TypedDict):
     supported_languages: List[AgentLanguageTypedDict]
     r"""Languages supported by the voice"""
     deprecated: bool
-    r"""Whether the voice is deprecated and should not be used"""
+    r"""Whether the voice is in the deprecation warning window"""
+    sunset_date: NotRequired[Nullable[date]]
+    r"""Date the voice becomes retired and can no longer be saved or selected"""
+    removed: NotRequired[bool]
+    r"""Whether the voice is force-retired regardless of sunset_date"""
+    fallback: NotRequired[Nullable[str]]
+    r"""Voice substituted at runtime for critical features once this one is retired"""
+    status: NotRequired[Nullable[LifecycleStatus]]
+    r"""Effective lifecycle status, resolved server-side against the current date. Populated on API responses; unset in the static catalog."""
 
 
 class AgentVoice(BaseModel):
@@ -53,4 +70,41 @@ class AgentVoice(BaseModel):
     r"""Languages supported by the voice"""
 
     deprecated: bool
-    r"""Whether the voice is deprecated and should not be used"""
+    r"""Whether the voice is in the deprecation warning window"""
+
+    sunset_date: OptionalNullable[date] = UNSET
+    r"""Date the voice becomes retired and can no longer be saved or selected"""
+
+    removed: Optional[bool] = False
+    r"""Whether the voice is force-retired regardless of sunset_date"""
+
+    fallback: OptionalNullable[str] = UNSET
+    r"""Voice substituted at runtime for critical features once this one is retired"""
+
+    status: OptionalNullable[LifecycleStatus] = UNSET
+    r"""Effective lifecycle status, resolved server-side against the current date. Populated on API responses; unset in the static catalog."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["sunset_date", "removed", "fallback", "status"])
+        nullable_fields = set(["sunset_date", "fallback", "status"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
+
+            if val != UNSET_SENTINEL:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
+                    m[k] = val
+
+        return m

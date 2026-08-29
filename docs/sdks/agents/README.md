@@ -13,6 +13,7 @@ Operations related to agent configuration. When a user interacts with the       
 * [get_by_id](#get_by_id) - Get Agent By Id
 * [delete](#delete) - Delete Agent
 * [agent_get_available_voices](#agent_get_available_voices) - Get Available Agent Voices
+* [agent_get_available_stt_providers](#agent_get_available_stt_providers) - Get Available Agent Stt Providers
 * [post_card_click_event](#post_card_click_event) - Create Card Click Event
 
 ## list
@@ -343,6 +344,11 @@ with SyllableSDK(
 
 Get available agent voices.
 
+Each voice's `status` is resolved against the current date. Retired voices are omitted unless
+their display name is passed in `selected_voice`, so a saved config still referencing a retired
+voice can render it as a locked field. A voice group holds one voice per language, so the
+parameter is repeatable.
+
 ### Example Usage
 
 <!-- UsageSnippet language="python" operationID="agent_get_available_voices" method="get" path="/api/v1/agents/voices/available" -->
@@ -366,6 +372,7 @@ with SyllableSDK(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `selected_voice`                                                    | List[*str*]                                                         | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -374,9 +381,55 @@ with SyllableSDK(
 
 ### Errors
 
-| Error Type      | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.APIError | 4XX, 5XX        | \*/\*           |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## agent_get_available_stt_providers
+
+Get the speech-to-text providers available to agents.
+
+Each provider's `status` is resolved against the current date. Retired providers are omitted
+unless they match `selected_provider`, so an agent still saved on a retired provider can render
+it as a locked field.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="agent_get_available_stt_providers" method="get" path="/api/v1/agents/stt/available" -->
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.agents.agent_get_available_stt_providers()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `selected_provider`                                                 | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[List[models.SupportedSttProvider]](../../models/.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## post_card_click_event
 
