@@ -7,6 +7,7 @@ from .outboundcampaignwebhookresponse import (
     OutboundCampaignWebhookResponse,
     OutboundCampaignWebhookResponseTypedDict,
 )
+from .outreachoverriderules import OutreachOverrideRules, OutreachOverrideRulesTypedDict
 from .targetfilters import TargetFilters, TargetFiltersTypedDict
 from .voicemaildetectionconfig import (
     VoicemailDetectionConfig,
@@ -63,6 +64,8 @@ class OutboundCampaignTypedDict(TypedDict):
     r"""Number of retries per target"""
     retry_interval: NotRequired[Nullable[str]]
     r"""How long to wait before retrying"""
+    outreach_override_rules: NotRequired[Nullable[OutreachOverrideRulesTypedDict]]
+    r"""Weekday- and date-specific outreach windows and daily maximums. The most specific rule wins: date, then weekday, then the campaign defaults above. Omitted or null means the campaign defaults apply to every active day."""
     voicemail_detection: NotRequired[Nullable[VoicemailDetectionConfigTypedDict]]
     r"""Config for voicemail detection for voice campaigns. Set to None to disable."""
     allowed_line_types: NotRequired[Nullable[List[LineTypeBucket]]]
@@ -141,6 +144,9 @@ class OutboundCampaign(BaseModel):
     retry_interval: OptionalNullable[str] = UNSET
     r"""How long to wait before retrying"""
 
+    outreach_override_rules: OptionalNullable[OutreachOverrideRules] = UNSET
+    r"""Weekday- and date-specific outreach windows and daily maximums. The most specific rule wins: date, then weekday, then the campaign defaults above. Omitted or null means the campaign defaults apply to every active day."""
+
     voicemail_detection: OptionalNullable[VoicemailDetectionConfig] = UNSET
     r"""Config for voicemail detection for voice campaigns. Set to None to disable."""
 
@@ -181,6 +187,7 @@ class OutboundCampaign(BaseModel):
                 "max_daily_calls",
                 "retry_count",
                 "retry_interval",
+                "outreach_override_rules",
                 "voicemail_detection",
                 "allowed_line_types",
                 "include_unknown_line_types",
@@ -204,6 +211,7 @@ class OutboundCampaign(BaseModel):
                 "caller_id",
                 "max_daily_calls",
                 "retry_interval",
+                "outreach_override_rules",
                 "voicemail_detection",
                 "allowed_line_types",
                 "target_filters",
