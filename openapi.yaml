@@ -17454,6 +17454,23 @@ components:
           description: "Days of the week when campaign is active"
           examples:
             - "[\"mon\", \"tue\", \"wed\", \"thu\", \"fri\"]"
+        outreach_override_rules:
+          anyOf:
+            - $ref: "#/components/schemas/OutreachOverrideRules"
+            - type: "null"
+          description: "Weekday- and date-specific outreach windows and daily maximums. The most specific rule wins: date, then weekday, then the campaign defaults above. Omitted or null means the campaign defaults apply to every active day."
+          examples:
+            - dates:
+                "2026-11-26":
+                  active: false
+              days:
+                fri:
+                  daily_end_time: "15:00:00"
+                  max_daily_calls: 1300
+                sat:
+                  max_daily_calls: 0
+                thu:
+                  max_daily_calls: 1300
         voicemail_detection:
           anyOf:
             - $ref: "#/components/schemas/VoicemailDetectionConfig"
@@ -17696,6 +17713,23 @@ components:
           description: "Days of the week when campaign is active"
           examples:
             - "[\"mon\", \"tue\", \"wed\", \"thu\", \"fri\"]"
+        outreach_override_rules:
+          anyOf:
+            - $ref: "#/components/schemas/OutreachOverrideRules"
+            - type: "null"
+          description: "Weekday- and date-specific outreach windows and daily maximums. The most specific rule wins: date, then weekday, then the campaign defaults above. Omitted or null means the campaign defaults apply to every active day."
+          examples:
+            - dates:
+                "2026-11-26":
+                  active: false
+              days:
+                fri:
+                  daily_end_time: "15:00:00"
+                  max_daily_calls: 1300
+                sat:
+                  max_daily_calls: 0
+                thu:
+                  max_daily_calls: 1300
         voicemail_detection:
           anyOf:
             - $ref: "#/components/schemas/VoicemailDetectionConfig"
@@ -17854,6 +17888,33 @@ components:
         - "request_method"
         - "id"
       title: "OutboundCampaignWebhookResponse"
+    OutreachOverrideRules:
+      properties:
+        days:
+          additionalProperties:
+            $ref: "#/components/schemas/ScheduleOverride"
+          propertyNames:
+            $ref: "#/components/schemas/DaysOfWeek"
+          type: "object"
+          title: "Days"
+          description: "Rules by weekday. Full names (monday) and short names (mon) are both accepted; they are stored as short names. Days that are absent use the campaign defaults."
+          examples:
+            - sat:
+                max_daily_calls: 0
+              thu:
+                max_daily_calls: 1300
+        dates:
+          additionalProperties:
+            $ref: "#/components/schemas/ScheduleOverride"
+          type: "object"
+          title: "Dates"
+          description: "Rules by calendar date, keyed YYYY-MM-DD. A date rule wins over the weekday rule for that date."
+          examples:
+            - "2026-11-26":
+                active: false
+      type: "object"
+      title: "OutreachOverrideRules"
+      description: "Weekday- and date-specific outreach rules for a campaign.\n\nThe most specific rule wins: a rule for the calendar date, then a rule for the weekday, then the\ncampaign defaults (``daily_start_time`` / ``daily_end_time`` / ``max_daily_calls`` /\n``active_days``). Resolution is per field, so a date rule that only moves the end time still uses\nthe weekday cap. All days, dates and times are in the time zone of the agent the campaign dials\nfrom -- see ``lib.outbound.schedule``."
     PermissionGroupResponse:
       properties:
         name:
@@ -18830,6 +18891,44 @@ components:
       required:
         - "text"
       title: "SayAction"
+    ScheduleOverride:
+      properties:
+        active:
+          anyOf:
+            - type: "boolean"
+            - type: "null"
+          title: "Active"
+          description: "Whether the campaign does outreach on this day. Omitted inherits: a weekday rule inherits from active_days, a date rule inherits from the weekday rule. Set it to false to close one date, for example a holiday, without a change to active_days."
+          examples:
+            - false
+        daily_start_time:
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Daily Start Time"
+          description: "Start time on this day. Omitted keeps the campaign start time."
+          examples:
+            - "08:00:00"
+        daily_end_time:
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Daily End Time"
+          description: "End time on this day. Omitted keeps the campaign end time."
+          examples:
+            - "20:00:00"
+        max_daily_calls:
+          anyOf:
+            - type: "integer"
+              minimum: 0.0
+            - type: "null"
+          title: "Max Daily Calls"
+          description: "Maximum number of unique reference IDs that get outreach on this day. Omitted keeps the campaign maximum. Retries do not count towards it and keep dialing once it is reached. 0 is different: it closes the day for all outreach, retries included."
+          examples:
+            - 1300
+      type: "object"
+      title: "ScheduleOverride"
+      description: "Outreach window and/or daily cap for one weekday or one calendar date.\n\nEvery field may be omitted, and an omitted field inherits the campaign default: an override that\nonly sets ``max_daily_calls`` keeps the campaign window, and one that only sets the times keeps\nthe campaign cap. ``max_daily_calls: 0`` is not inheritance -- it is an explicit \"no outreach on\nthis day\", which is the shape the Outbound Scheduler daily_limit config already uses. It closes\nthe day for retries as well as for first attempts, the same way ``active: false`` does; a\nnon-zero maximum bounds first attempts only and lets retries run on."
     ServiceCreateRequest:
       properties:
         name:

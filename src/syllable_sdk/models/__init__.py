@@ -974,6 +974,10 @@ if TYPE_CHECKING:
         OutboundCampaignWebhookResponse,
         OutboundCampaignWebhookResponseTypedDict,
     )
+    from .outreachoverriderules import (
+        OutreachOverrideRules,
+        OutreachOverrideRulesTypedDict,
+    )
     from .permissiongroupresponse import (
         PermissionGroupResponse,
         PermissionGroupResponseTypedDict,
@@ -1058,6 +1062,7 @@ if TYPE_CHECKING:
         SayActionIf2TypedDict,
         SayActionTypedDict,
     )
+    from .scheduleoverride import ScheduleOverride, ScheduleOverrideTypedDict
     from .schemas_cortex_v1_bridge_phrases_bridgephrasemessages import (
         SchemasCortexV1BridgePhrasesBridgePhraseMessages,
         SchemasCortexV1BridgePhrasesBridgePhraseMessagesTypedDict,
@@ -2019,6 +2024,8 @@ __all__ = [
     "OutboundCampaignWebhookInputTypedDict",
     "OutboundCampaignWebhookResponse",
     "OutboundCampaignWebhookResponseTypedDict",
+    "OutreachOverrideRules",
+    "OutreachOverrideRulesTypedDict",
     "PermissionGroupResponse",
     "PermissionGroupResponseTypedDict",
     "PermissionResponse",
@@ -2094,6 +2101,8 @@ __all__ = [
     "SayActionIf2",
     "SayActionIf2TypedDict",
     "SayActionTypedDict",
+    "ScheduleOverride",
+    "ScheduleOverrideTypedDict",
     "SchemasCortexV1BridgePhrasesBridgePhraseMessages",
     "SchemasCortexV1BridgePhrasesBridgePhraseMessagesTypedDict",
     "Security",
@@ -2973,6 +2982,8 @@ _dynamic_imports: dict[str, str] = {
     "OutboundCampaignWebhookInputTypedDict": ".outboundcampaignwebhookinput",
     "OutboundCampaignWebhookResponse": ".outboundcampaignwebhookresponse",
     "OutboundCampaignWebhookResponseTypedDict": ".outboundcampaignwebhookresponse",
+    "OutreachOverrideRules": ".outreachoverriderules",
+    "OutreachOverrideRulesTypedDict": ".outreachoverriderules",
     "PermissionGroupResponse": ".permissiongroupresponse",
     "PermissionGroupResponseTypedDict": ".permissiongroupresponse",
     "PermissionResponse": ".permissionresponse",
@@ -3044,6 +3055,8 @@ _dynamic_imports: dict[str, str] = {
     "SayActionIf2": ".sayaction",
     "SayActionIf2TypedDict": ".sayaction",
     "SayActionTypedDict": ".sayaction",
+    "ScheduleOverride": ".scheduleoverride",
+    "ScheduleOverrideTypedDict": ".scheduleoverride",
     "SchemasCortexV1BridgePhrasesBridgePhraseMessages": ".schemas_cortex_v1_bridge_phrases_bridgephrasemessages",
     "SchemasCortexV1BridgePhrasesBridgePhraseMessagesTypedDict": ".schemas_cortex_v1_bridge_phrases_bridgephrasemessages",
     "Security": ".security",

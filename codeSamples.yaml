@@ -2525,6 +2525,25 @@ actions:
                         models.DaysOfWeek.THU,
                         models.DaysOfWeek.FRI,
                     ],
+                    outreach_override_rules=models.OutreachOverrideRules(
+                        days={
+                            "fri": models.ScheduleOverride(
+                                daily_end_time="15:00:00",
+                                max_daily_calls=1300,
+                            ),
+                            "sat": models.ScheduleOverride(
+                                max_daily_calls=0,
+                            ),
+                            "thu": models.ScheduleOverride(
+                                max_daily_calls=1300,
+                            ),
+                        },
+                        dates={
+                            "2026-11-26": models.ScheduleOverride(
+                                active=False,
+                            ),
+                        },
+                    ),
                     voicemail_detection=models.VoicemailDetectionConfig(
                         voicemail_detection_overall_timeout=30,
                         voicemail_detection_pre_speech_timeout=3.5,
@@ -2646,6 +2665,25 @@ actions:
                         models.DaysOfWeek.THU,
                         models.DaysOfWeek.FRI,
                     ],
+                    outreach_override_rules=models.OutreachOverrideRules(
+                        days={
+                            "fri": models.ScheduleOverride(
+                                daily_end_time="15:00:00",
+                                max_daily_calls=1300,
+                            ),
+                            "sat": models.ScheduleOverride(
+                                max_daily_calls=0,
+                            ),
+                            "thu": models.ScheduleOverride(
+                                max_daily_calls=1300,
+                            ),
+                        },
+                        dates={
+                            "2026-11-26": models.ScheduleOverride(
+                                active=False,
+                            ),
+                        },
+                    ),
                     voicemail_detection=models.VoicemailDetectionConfig(
                         voicemail_detection_overall_timeout=30,
                         voicemail_detection_pre_speech_timeout=3.5,
