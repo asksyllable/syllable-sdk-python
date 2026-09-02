@@ -373,6 +373,9 @@ with SyllableSDK(
 * [get_by_id](docs/sdks/workflows/README.md#get_by_id) - Get Insight Workflow By Id
 * [update](docs/sdks/workflows/README.md#update) - Update Insights Workflow
 * [delete](docs/sdks/workflows/README.md#delete) - Delete Insights Workflow
+* [list_executions](docs/sdks/workflows/README.md#list_executions) - List Insight Workflow Executions
+* [list_sessions](docs/sdks/workflows/README.md#list_sessions) - List Insight Workflow Sessions
+* [executions_summary](docs/sdks/workflows/README.md#executions_summary) - Insight Workflow Executions Summary
 * [inactivate](docs/sdks/workflows/README.md#inactivate) - Inactivate Insights Workflow
 * [activate](docs/sdks/workflows/README.md#activate) - Activate Insights Workflow
 * [queue_work](docs/sdks/workflows/README.md#queue_work) - Queue Insights Workflow For Sessions/Files

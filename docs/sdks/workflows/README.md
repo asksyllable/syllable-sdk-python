@@ -11,6 +11,9 @@ Operations related to insights workflows. An workflow is series of tool         
 * [get_by_id](#get_by_id) - Get Insight Workflow By Id
 * [update](#update) - Update Insights Workflow
 * [delete](#delete) - Delete Insights Workflow
+* [list_executions](#list_executions) - List Insight Workflow Executions
+* [list_sessions](#list_sessions) - List Insight Workflow Sessions
+* [executions_summary](#executions_summary) - Insight Workflow Executions Summary
 * [inactivate](#inactivate) - Inactivate Insights Workflow
 * [activate](#activate) - Activate Insights Workflow
 * [queue_work](#queue_work) - Queue Insights Workflow For Sessions/Files
@@ -285,6 +288,166 @@ with SyllableSDK(
 ### Response
 
 **[Any](../../models/.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## list_executions
+
+List a workflow's execution rows.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="insights_workflow_executions" method="get" path="/api/v1/insights/workflows/{workflow_id}/executions" -->
+```python
+import os
+from syllable_sdk import SyllableSDK, models
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.insights.workflows.list_executions(workflow_id=304703, page=0, limit=25, search_fields=[
+        "status",
+    ], search_field_values=[
+        "Some Object Name",
+    ], order_by=models.InsightWorkflowExecutionProperties.ID, fields=[
+        models.InsightWorkflowExecutionProperties.SESSION_ID,
+    ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                              | Type                                                                                                                                                   | Required                                                                                                                                               | Description                                                                                                                                            | Example                                                                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `workflow_id`                                                                                                                                          | *int*                                                                                                                                                  | :heavy_check_mark:                                                                                                                                     | N/A                                                                                                                                                    |                                                                                                                                                        |
+| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-based)                                                                                                          | 0                                                                                                                                                      |
+| `limit`                                                                                                                                                | *Optional[int]*                                                                                                                                        | :heavy_minus_sign:                                                                                                                                     | The maximum number of items to return                                                                                                                  | 25                                                                                                                                                     |
+| `search_fields`                                                                                                                                        | List[*str*]                                                                                                                                            | :heavy_minus_sign:                                                                                                                                     | String names of fields to search. Correspond by index to search field values                                                                           | status                                                                                                                                                 |
+| `search_field_values`                                                                                                                                  | List[*str*]                                                                                                                                            | :heavy_minus_sign:                                                                                                                                     | Values of fields to search. Correspond by index to search fields. Unless field name contains "list", an individual search field value cannot be a list | Some Object Name                                                                                                                                       |
+| `order_by`                                                                                                                                             | [OptionalNullable[models.InsightWorkflowExecutionProperties]](../../models/insightworkflowexecutionproperties.md)                                      | :heavy_minus_sign:                                                                                                                                     | The field whose value should be used to order the results                                                                                              | name                                                                                                                                                   |
+| `order_by_direction`                                                                                                                                   | [OptionalNullable[models.OrderByDirection]](../../models/orderbydirection.md)                                                                          | :heavy_minus_sign:                                                                                                                                     | The direction in which to order the results                                                                                                            |                                                                                                                                                        |
+| `fields`                                                                                                                                               | List[[models.InsightWorkflowExecutionProperties](../../models/insightworkflowexecutionproperties.md)]                                                  | :heavy_minus_sign:                                                                                                                                     | The fields to include in the response                                                                                                                  |                                                                                                                                                        |
+| `start_datetime`                                                                                                                                       | *OptionalNullable[str]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The start datetime for filtering results                                                                                                               | 2023-01-01T00:00:00Z                                                                                                                                   |
+| `end_datetime`                                                                                                                                         | *OptionalNullable[str]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The end datetime for filtering results                                                                                                                 | 2024-01-01T00:00:00Z                                                                                                                                   |
+| `retries`                                                                                                                                              | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                       | :heavy_minus_sign:                                                                                                                                     | Configuration to override the default retry behavior of the client.                                                                                    |                                                                                                                                                        |
+
+### Response
+
+**[models.ListResponseInsightWorkflowExecutionOutput](../../models/listresponseinsightworkflowexecutionoutput.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## list_sessions
+
+List the sessions under a workflow, one row per session, with each tool's
+results grouped into a ``results`` dict keyed by tool name.
+
+Sessions come from the workflow's execution queue, so pending, processing and
+failed sessions show up too, not just completed ones. A session that was
+queued more than once appears only once. Insights reused from another
+workflow still show up here.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="insights_workflow_sessions" method="get" path="/api/v1/insights/workflows/{workflow_id}/sessions" -->
+```python
+import os
+from syllable_sdk import SyllableSDK, models
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.insights.workflows.list_sessions(workflow_id=939810, page=0, limit=25, search_fields=[
+        models.SearchField.SESSION_ID,
+    ], search_field_values=[
+        "Some Object Name",
+    ], order_by=models.OrderBy.SESSION_ID, start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                              | Type                                                                                                                                                   | Required                                                                                                                                               | Description                                                                                                                                            | Example                                                                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `workflow_id`                                                                                                                                          | *int*                                                                                                                                                  | :heavy_check_mark:                                                                                                                                     | N/A                                                                                                                                                    |                                                                                                                                                        |
+| `page`                                                                                                                                                 | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The page number from which to start (0-based)                                                                                                          | 0                                                                                                                                                      |
+| `limit`                                                                                                                                                | *Optional[int]*                                                                                                                                        | :heavy_minus_sign:                                                                                                                                     | The maximum number of items to return                                                                                                                  | 25                                                                                                                                                     |
+| `search_fields`                                                                                                                                        | List[[models.SearchField](../../models/searchfield.md)]                                                                                                | :heavy_minus_sign:                                                                                                                                     | String names of fields to search. Correspond by index to search field values                                                                           | session_id                                                                                                                                             |
+| `search_field_values`                                                                                                                                  | List[*str*]                                                                                                                                            | :heavy_minus_sign:                                                                                                                                     | Values of fields to search. Correspond by index to search fields. Unless field name contains "list", an individual search field value cannot be a list | Some Object Name                                                                                                                                       |
+| `order_by`                                                                                                                                             | [OptionalNullable[models.OrderBy]](../../models/orderby.md)                                                                                            | :heavy_minus_sign:                                                                                                                                     | The field whose value should be used to order the results                                                                                              | session_id                                                                                                                                             |
+| `order_by_direction`                                                                                                                                   | [OptionalNullable[models.OrderByDirection]](../../models/orderbydirection.md)                                                                          | :heavy_minus_sign:                                                                                                                                     | The direction in which to order the results                                                                                                            |                                                                                                                                                        |
+| `start_datetime`                                                                                                                                       | *OptionalNullable[str]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The start datetime for filtering results                                                                                                               | 2023-01-01T00:00:00Z                                                                                                                                   |
+| `end_datetime`                                                                                                                                         | *OptionalNullable[str]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The end datetime for filtering results                                                                                                                 | 2024-01-01T00:00:00Z                                                                                                                                   |
+| `retries`                                                                                                                                              | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                       | :heavy_minus_sign:                                                                                                                                     | Configuration to override the default retry behavior of the client.                                                                                    |                                                                                                                                                        |
+
+### Response
+
+**[models.ListResponseWorkflowSessionRow](../../models/listresponseworkflowsessionrow.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## executions_summary
+
+Return how many of a workflow's executions are in each status, optionally
+within a created_at range (for example, since the workflow's `updated_at`
+passed as `start_datetime`).
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="insights_workflow_executions_summary" method="get" path="/api/v1/insights/workflows/{workflow_id}/executions/summary" -->
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.insights.workflows.executions_summary(workflow_id=163523, start_datetime="2026-08-27T13:57:00.123456+00:00", end_datetime="2026-08-28T00:00:00Z")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `workflow_id`                                                       | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |                                                                     |
+| `start_datetime`                                                    | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | ISO 8601 start datetime (inclusive) for created_at filtering        | 2026-08-27T13:57:00.123456+00:00                                    |
+| `end_datetime`                                                      | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | ISO 8601 end datetime (exclusive) for created_at filtering          | 2026-08-28T00:00:00Z                                                |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Response
+
+**[models.InsightWorkflowExecutionSummary](../../models/insightworkflowexecutionsummary.md)**
 
 ### Errors
 

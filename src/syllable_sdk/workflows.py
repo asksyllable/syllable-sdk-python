@@ -1034,6 +1034,722 @@ class Workflows(BaseSDK):
 
         raise errors.APIError("Unexpected response received", http_res)
 
+    def list_executions(
+        self,
+        *,
+        workflow_id: int,
+        page: OptionalNullable[int] = UNSET,
+        limit: Optional[int] = 25,
+        search_fields: Optional[Iterable[str]] = None,
+        search_field_values: Optional[Iterable[str]] = None,
+        order_by: OptionalNullable[models.InsightWorkflowExecutionProperties] = UNSET,
+        order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
+        fields: OptionalNullable[
+            Iterable[models.InsightWorkflowExecutionProperties]
+        ] = UNSET,
+        start_datetime: OptionalNullable[str] = UNSET,
+        end_datetime: OptionalNullable[str] = UNSET,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ListResponseInsightWorkflowExecutionOutput:
+        r"""List Insight Workflow Executions
+
+        List a workflow's execution rows.
+
+        :param workflow_id:
+        :param page: The page number from which to start (0-based)
+        :param limit: The maximum number of items to return
+        :param search_fields: String names of fields to search. Correspond by index to search field values
+        :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
+        :param order_by: The field whose value should be used to order the results
+        :param order_by_direction: The direction in which to order the results
+        :param fields: The fields to include in the response
+        :param start_datetime: The start datetime for filtering results
+        :param end_datetime: The end datetime for filtering results
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.InsightsWorkflowExecutionsRequest(
+            workflow_id=workflow_id,
+            page=page,
+            limit=limit,
+            search_fields=utils.unmarshal(search_fields, Optional[List[str]]),
+            search_field_values=utils.unmarshal(
+                search_field_values, Optional[List[str]]
+            ),
+            order_by=order_by,
+            order_by_direction=order_by_direction,
+            fields=utils.unmarshal(
+                fields,
+                OptionalNullable[List[models.InsightWorkflowExecutionProperties]],
+            ),
+            start_datetime=start_datetime,
+            end_datetime=end_datetime,
+        )
+
+        req = self._build_request(
+            method="GET",
+            path="/api/v1/insights/workflows/{workflow_id}/executions",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="insights_workflow_executions",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["insights.workflows"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.ListResponseInsightWorkflowExecutionOutput, http_res
+            )
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
+    async def list_executions_async(
+        self,
+        *,
+        workflow_id: int,
+        page: OptionalNullable[int] = UNSET,
+        limit: Optional[int] = 25,
+        search_fields: Optional[Iterable[str]] = None,
+        search_field_values: Optional[Iterable[str]] = None,
+        order_by: OptionalNullable[models.InsightWorkflowExecutionProperties] = UNSET,
+        order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
+        fields: OptionalNullable[
+            Iterable[models.InsightWorkflowExecutionProperties]
+        ] = UNSET,
+        start_datetime: OptionalNullable[str] = UNSET,
+        end_datetime: OptionalNullable[str] = UNSET,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ListResponseInsightWorkflowExecutionOutput:
+        r"""List Insight Workflow Executions
+
+        List a workflow's execution rows.
+
+        :param workflow_id:
+        :param page: The page number from which to start (0-based)
+        :param limit: The maximum number of items to return
+        :param search_fields: String names of fields to search. Correspond by index to search field values
+        :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
+        :param order_by: The field whose value should be used to order the results
+        :param order_by_direction: The direction in which to order the results
+        :param fields: The fields to include in the response
+        :param start_datetime: The start datetime for filtering results
+        :param end_datetime: The end datetime for filtering results
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.InsightsWorkflowExecutionsRequest(
+            workflow_id=workflow_id,
+            page=page,
+            limit=limit,
+            search_fields=utils.unmarshal(search_fields, Optional[List[str]]),
+            search_field_values=utils.unmarshal(
+                search_field_values, Optional[List[str]]
+            ),
+            order_by=order_by,
+            order_by_direction=order_by_direction,
+            fields=utils.unmarshal(
+                fields,
+                OptionalNullable[List[models.InsightWorkflowExecutionProperties]],
+            ),
+            start_datetime=start_datetime,
+            end_datetime=end_datetime,
+        )
+
+        req = self._build_request_async(
+            method="GET",
+            path="/api/v1/insights/workflows/{workflow_id}/executions",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="insights_workflow_executions",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["insights.workflows"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.ListResponseInsightWorkflowExecutionOutput, http_res
+            )
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
+    def list_sessions(
+        self,
+        *,
+        workflow_id: int,
+        page: OptionalNullable[int] = UNSET,
+        limit: Optional[int] = 25,
+        search_fields: Optional[Iterable[models.SearchField]] = None,
+        search_field_values: Optional[Iterable[str]] = None,
+        order_by: OptionalNullable[models.OrderBy] = UNSET,
+        order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
+        start_datetime: OptionalNullable[str] = UNSET,
+        end_datetime: OptionalNullable[str] = UNSET,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ListResponseWorkflowSessionRow:
+        r"""List Insight Workflow Sessions
+
+        List the sessions under a workflow, one row per session, with each tool's
+        results grouped into a ``results`` dict keyed by tool name.
+
+        Sessions come from the workflow's execution queue, so pending, processing and
+        failed sessions show up too, not just completed ones. A session that was
+        queued more than once appears only once. Insights reused from another
+        workflow still show up here.
+
+        :param workflow_id:
+        :param page: The page number from which to start (0-based)
+        :param limit: The maximum number of items to return
+        :param search_fields: String names of fields to search. Correspond by index to search field values
+        :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
+        :param order_by: The field whose value should be used to order the results
+        :param order_by_direction: The direction in which to order the results
+        :param start_datetime: The start datetime for filtering results
+        :param end_datetime: The end datetime for filtering results
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.InsightsWorkflowSessionsRequest(
+            workflow_id=workflow_id,
+            page=page,
+            limit=limit,
+            search_fields=utils.unmarshal(
+                search_fields, Optional[List[models.SearchField]]
+            ),
+            search_field_values=utils.unmarshal(
+                search_field_values, Optional[List[str]]
+            ),
+            order_by=order_by,
+            order_by_direction=order_by_direction,
+            start_datetime=start_datetime,
+            end_datetime=end_datetime,
+        )
+
+        req = self._build_request(
+            method="GET",
+            path="/api/v1/insights/workflows/{workflow_id}/sessions",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="insights_workflow_sessions",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["insights.workflows"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.ListResponseWorkflowSessionRow, http_res
+            )
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
+    async def list_sessions_async(
+        self,
+        *,
+        workflow_id: int,
+        page: OptionalNullable[int] = UNSET,
+        limit: Optional[int] = 25,
+        search_fields: Optional[Iterable[models.SearchField]] = None,
+        search_field_values: Optional[Iterable[str]] = None,
+        order_by: OptionalNullable[models.OrderBy] = UNSET,
+        order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
+        start_datetime: OptionalNullable[str] = UNSET,
+        end_datetime: OptionalNullable[str] = UNSET,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ListResponseWorkflowSessionRow:
+        r"""List Insight Workflow Sessions
+
+        List the sessions under a workflow, one row per session, with each tool's
+        results grouped into a ``results`` dict keyed by tool name.
+
+        Sessions come from the workflow's execution queue, so pending, processing and
+        failed sessions show up too, not just completed ones. A session that was
+        queued more than once appears only once. Insights reused from another
+        workflow still show up here.
+
+        :param workflow_id:
+        :param page: The page number from which to start (0-based)
+        :param limit: The maximum number of items to return
+        :param search_fields: String names of fields to search. Correspond by index to search field values
+        :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
+        :param order_by: The field whose value should be used to order the results
+        :param order_by_direction: The direction in which to order the results
+        :param start_datetime: The start datetime for filtering results
+        :param end_datetime: The end datetime for filtering results
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.InsightsWorkflowSessionsRequest(
+            workflow_id=workflow_id,
+            page=page,
+            limit=limit,
+            search_fields=utils.unmarshal(
+                search_fields, Optional[List[models.SearchField]]
+            ),
+            search_field_values=utils.unmarshal(
+                search_field_values, Optional[List[str]]
+            ),
+            order_by=order_by,
+            order_by_direction=order_by_direction,
+            start_datetime=start_datetime,
+            end_datetime=end_datetime,
+        )
+
+        req = self._build_request_async(
+            method="GET",
+            path="/api/v1/insights/workflows/{workflow_id}/sessions",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="insights_workflow_sessions",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["insights.workflows"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.ListResponseWorkflowSessionRow, http_res
+            )
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
+    def executions_summary(
+        self,
+        *,
+        workflow_id: int,
+        start_datetime: OptionalNullable[str] = UNSET,
+        end_datetime: OptionalNullable[str] = UNSET,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.InsightWorkflowExecutionSummary:
+        r"""Insight Workflow Executions Summary
+
+        Return how many of a workflow's executions are in each status, optionally
+        within a created_at range (for example, since the workflow's `updated_at`
+        passed as `start_datetime`).
+
+        :param workflow_id:
+        :param start_datetime: ISO 8601 start datetime (inclusive) for created_at filtering
+        :param end_datetime: ISO 8601 end datetime (exclusive) for created_at filtering
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.InsightsWorkflowExecutionsSummaryRequest(
+            workflow_id=workflow_id,
+            start_datetime=start_datetime,
+            end_datetime=end_datetime,
+        )
+
+        req = self._build_request(
+            method="GET",
+            path="/api/v1/insights/workflows/{workflow_id}/executions/summary",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="insights_workflow_executions_summary",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["insights.workflows"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.InsightWorkflowExecutionSummary, http_res
+            )
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
+    async def executions_summary_async(
+        self,
+        *,
+        workflow_id: int,
+        start_datetime: OptionalNullable[str] = UNSET,
+        end_datetime: OptionalNullable[str] = UNSET,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.InsightWorkflowExecutionSummary:
+        r"""Insight Workflow Executions Summary
+
+        Return how many of a workflow's executions are in each status, optionally
+        within a created_at range (for example, since the workflow's `updated_at`
+        passed as `start_datetime`).
+
+        :param workflow_id:
+        :param start_datetime: ISO 8601 start datetime (inclusive) for created_at filtering
+        :param end_datetime: ISO 8601 end datetime (exclusive) for created_at filtering
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.InsightsWorkflowExecutionsSummaryRequest(
+            workflow_id=workflow_id,
+            start_datetime=start_datetime,
+            end_datetime=end_datetime,
+        )
+
+        req = self._build_request_async(
+            method="GET",
+            path="/api/v1/insights/workflows/{workflow_id}/executions/summary",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="insights_workflow_executions_summary",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["insights.workflows"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.InsightWorkflowExecutionSummary, http_res
+            )
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
     def inactivate(
         self,
         *,
