@@ -4738,7 +4738,7 @@
         ],
         "summary": "List Insight Workflow Executions",
         "description": "List a workflow's execution rows.",
-        "operationId": "insights_workflow_executions_list",
+        "operationId": "insights_workflow_executions",
         "security": [
           {
             "APIKeyHeader": []
@@ -4965,7 +4965,7 @@
         ],
         "summary": "List Insight Workflow Sessions",
         "description": "List the sessions under a workflow, one row per session, with each tool's\nresults grouped into a ``results`` dict keyed by tool name.\n\nSessions come from the workflow's execution queue, so pending, processing and\nfailed sessions show up too, not just completed ones. A session that was\nqueued more than once appears only once. Insights reused from another\nworkflow still show up here.",
-        "operationId": "insights_workflow_sessions_list",
+        "operationId": "insights_workflow_sessions",
         "security": [
           {
             "APIKeyHeader": []
@@ -36801,6 +36801,18 @@
     {
       "operationId": ".*_upload_file$",
       "methodNameOverride": "upload_file"
+    },
+    {
+      "operationId": ".*_executions$",
+      "methodNameOverride": "list_executions"
+    },
+    {
+      "operationId": ".*_sessions$",
+      "methodNameOverride": "list_sessions"
+    },
+    {
+      "operationId": ".*_executions_summary$",
+      "methodNameOverride": "executions_summary"
     }
   ]
 }
