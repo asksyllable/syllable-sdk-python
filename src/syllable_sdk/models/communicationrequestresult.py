@@ -57,7 +57,7 @@ class CommunicationRequestResultTypedDict(TypedDict):
     insights: NotRequired[Nullable[Dict[str, InsightsTypedDict]]]
     r"""Insights from call"""
     line_type: NotRequired[Nullable[str]]
-    r"""Line type of the target number from Twilio Lookup (e.g. 'mobile', 'landline', 'voip'); resolved at ingestion."""
+    r"""Raw Twilio Lookup v2 line type of the target number (e.g. 'mobile', 'landline', 'fixedVoip', 'tollFree'); resolved at ingestion. 'unknown' means Twilio answered but could not determine the line type; None means no lookup data at all. See ALL_LINE_TYPES in lib/twilio/line_type_lookup.py for the full vocabulary."""
     enrichment: NotRequired[Nullable[EnrichmentTypedDict]]
     r"""Full Twilio Lookup v2 line_type_intelligence payload resolved at ingestion (line_type / carrier_name / mcc / mnc / error_code). None when no lookup was performed."""
 
@@ -103,7 +103,7 @@ class CommunicationRequestResult(BaseModel):
     r"""Insights from call"""
 
     line_type: OptionalNullable[str] = UNSET
-    r"""Line type of the target number from Twilio Lookup (e.g. 'mobile', 'landline', 'voip'); resolved at ingestion."""
+    r"""Raw Twilio Lookup v2 line type of the target number (e.g. 'mobile', 'landline', 'fixedVoip', 'tollFree'); resolved at ingestion. 'unknown' means Twilio answered but could not determine the line type; None means no lookup data at all. See ALL_LINE_TYPES in lib/twilio/line_type_lookup.py for the full vocabulary."""
 
     enrichment: OptionalNullable[Enrichment] = UNSET
     r"""Full Twilio Lookup v2 line_type_intelligence payload resolved at ingestion (line_type / carrier_name / mcc / mnc / error_code). None when no lookup was performed."""

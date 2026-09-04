@@ -98,6 +98,7 @@ with SyllableSDK(
                 "interruptibility": "dtmf_only",
                 "passive_speech_input_enabled": True,
                 "passive_input_start": 0.5,
+                "async_enabled": True,
             },
             "email": {
                 "sending_domain": "mail.example.com",
@@ -162,6 +163,7 @@ with SyllableSDK(
                 "interruptibility": "dtmf_only",
                 "passive_speech_input_enabled": True,
                 "passive_input_start": 0.5,
+                "async_enabled": True,
             },
             "email": {
                 "sending_domain": "mail.example.com",
