@@ -5633,7 +5633,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ListResponse_InsightToolOutput_"
+                  "$ref": "#/components/schemas/ListResponse_InsightToolResponse_"
                 }
               }
             }
@@ -5732,7 +5732,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/InsightToolOutput"
+                  "$ref": "#/components/schemas/InsightToolResponse"
                 }
               }
             }
@@ -6838,7 +6838,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/PromptHistory"
+                    "$ref": "#/components/schemas/PromptHistoryResponse"
                   },
                   "title": "Response Prompts History"
                 }
@@ -14633,7 +14633,8 @@
           "prompt_tool_defaults",
           "tool_headers",
           "updated_at",
-          "last_updated_by"
+          "last_updated_by",
+          "lifecycle_status"
         ],
         "title": "AgentProperties",
         "description": "Names of agent fields supported for filtering/sorting on list endpoint."
@@ -16043,7 +16044,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260905.9"
+              "20260908.9"
             ]
           },
           "campaign_id": {
@@ -16067,7 +16068,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-09-06T00:00:00Z"
+              "2026-09-09T00:00:00Z"
             ]
           },
           "paused": {
@@ -16177,7 +16178,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -16193,7 +16194,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -16224,7 +16225,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -17759,7 +17760,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260905.9"
+              "20260908.9"
             ]
           },
           "campaign_id": {
@@ -17783,7 +17784,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-09-06T00:00:00Z"
+              "2026-09-09T00:00:00Z"
             ]
           },
           "paused": {
@@ -17893,7 +17894,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -17909,7 +17910,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -17940,7 +17941,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -17983,7 +17984,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20260905.9"
+              "20260908.9"
             ]
           },
           "campaign_id": {
@@ -18007,7 +18008,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-09-06T00:00:00Z"
+              "2026-09-09T00:00:00Z"
             ]
           },
           "paused": {
@@ -18216,7 +18217,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2026-09-04T00:00:00Z"
+              "2026-09-07T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -18232,7 +18233,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -22202,7 +22203,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-09-04T00:00:00Z"
+              "2026-09-07T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -22211,7 +22212,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -23214,7 +23215,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2026-09-04T00:00:00Z"
+              "2026-09-07T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -23223,7 +23224,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -23329,7 +23330,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2026-09-04T00:00:00Z"
+              "2026-09-07T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -23338,7 +23339,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -23764,7 +23765,7 @@
             "title": "Started At",
             "description": "Timestamp at which the most recent processing attempt started",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "created_at": {
@@ -23773,7 +23774,7 @@
             "title": "Created At",
             "description": "Timestamp at which the execution row was created (i.e. when the work was queued)",
             "examples": [
-              "2026-09-04T00:00:00Z"
+              "2026-09-07T00:00:00Z"
             ]
           },
           "event_type": {
@@ -23930,7 +23931,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-09-04T00:00:00Z"
+              "2026-09-07T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -23946,7 +23947,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           }
         },
@@ -24021,7 +24022,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-09-04T00:00:00Z"
+              "2026-09-07T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -24037,7 +24038,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "id": {
@@ -24105,7 +24106,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2026-09-04T00:00:00Z"
+              "2026-09-07T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -24114,7 +24115,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -24210,7 +24211,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-09-04T00:00:00Z"
+              "2026-09-07T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -24219,7 +24220,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -24469,7 +24470,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2026-09-04T00:00:00Z"
+              "2026-09-07T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -24478,7 +24479,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "upload_file_metadata": {
@@ -24623,7 +24624,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2026-09-04T00:00:00Z"
+              "2026-09-07T00:00:00Z"
             ]
           },
           "end_time": {
@@ -24639,7 +24640,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "error_message": {
@@ -24694,7 +24695,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2026-09-04T00:00:00Z"
+              "2026-09-07T00:00:00Z"
             ]
           }
         },
@@ -25057,7 +25058,8 @@
           "description",
           "skip_current_language_in_message",
           "updated_at",
-          "last_updated_by"
+          "last_updated_by",
+          "lifecycle_status"
         ],
         "title": "LanguageGroupProperties",
         "description": "Deprecated enum mirroring `VoiceGroupProperties` values."
@@ -26405,11 +26407,11 @@
         ],
         "title": "ListResponse[IncidentResponse]"
       },
-      "ListResponse_InsightToolOutput_": {
+      "ListResponse_InsightToolResponse_": {
         "properties": {
           "items": {
             "items": {
-              "$ref": "#/components/schemas/InsightToolOutput"
+              "$ref": "#/components/schemas/InsightToolResponse"
             },
             "type": "array",
             "title": "Items",
@@ -26469,7 +26471,7 @@
           "page",
           "page_size"
         ],
-        "title": "ListResponse[InsightToolOutput]"
+        "title": "ListResponse[InsightToolResponse]"
       },
       "ListResponse_InsightWorkflowExecutionOutput_": {
         "properties": {
@@ -28814,7 +28816,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -28823,7 +28825,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -29644,7 +29646,52 @@
         "title": "PromptCreateRequest",
         "description": "Request model to create a prompt."
       },
-      "PromptHistory": {
+      "PromptHistoryLinkedTool": {
+        "properties": {
+          "tool_id": {
+            "type": "integer",
+            "title": "Tool Id",
+            "description": "ID of the tool",
+            "examples": [
+              1
+            ]
+          },
+          "current_tool_name": {
+            "type": "string",
+            "title": "Current Tool Name",
+            "description": "Current name of the tool (may have been different at the time the given version of the prompt was created)",
+            "examples": [
+              "hangup"
+            ]
+          },
+          "out_of_date": {
+            "type": "boolean",
+            "title": "Out Of Date",
+            "description": "Whether the tool has changed (not including being deleted) since the given version of the prompt was created",
+            "examples": [
+              false
+            ]
+          },
+          "deleted": {
+            "type": "boolean",
+            "title": "Deleted",
+            "description": "Whether the tool has been deleted since the given version of the prompt was created",
+            "examples": [
+              false
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "tool_id",
+          "current_tool_name",
+          "out_of_date",
+          "deleted"
+        ],
+        "title": "PromptHistoryLinkedTool",
+        "description": "Record of a tool linked to a previous prompt version in the prompt history."
+      },
+      "PromptHistoryResponse": {
         "properties": {
           "timestamp": {
             "type": "string",
@@ -29763,6 +29810,21 @@
             "examples": [
               true
             ]
+          },
+          "validation_issues": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ValidationIssue"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Validation Issues",
+            "description": "Lifecycle findings for the model this version was saved on."
           }
         },
         "type": "object",
@@ -29775,53 +29837,8 @@
           "user_email",
           "is_pre_enhancements"
         ],
-        "title": "PromptHistory",
-        "description": "Record of a specific version of a prompt."
-      },
-      "PromptHistoryLinkedTool": {
-        "properties": {
-          "tool_id": {
-            "type": "integer",
-            "title": "Tool Id",
-            "description": "ID of the tool",
-            "examples": [
-              1
-            ]
-          },
-          "current_tool_name": {
-            "type": "string",
-            "title": "Current Tool Name",
-            "description": "Current name of the tool (may have been different at the time the given version of the prompt was created)",
-            "examples": [
-              "hangup"
-            ]
-          },
-          "out_of_date": {
-            "type": "boolean",
-            "title": "Out Of Date",
-            "description": "Whether the tool has changed (not including being deleted) since the given version of the prompt was created",
-            "examples": [
-              false
-            ]
-          },
-          "deleted": {
-            "type": "boolean",
-            "title": "Deleted",
-            "description": "Whether the tool has been deleted since the given version of the prompt was created",
-            "examples": [
-              false
-            ]
-          }
-        },
-        "type": "object",
-        "required": [
-          "tool_id",
-          "current_tool_name",
-          "out_of_date",
-          "deleted"
-        ],
-        "title": "PromptHistoryLinkedTool",
-        "description": "Record of a tool linked to a previous prompt version in the prompt history."
+        "title": "PromptHistoryResponse",
+        "description": "A historical prompt version, with the lifecycle of the model it was pinned to.\n\nAgents pinned to an old version run that version's model, so a retired model in the history is\nas much of a problem as one on the current version."
       },
       "PromptLlmConfig": {
         "properties": {
@@ -29936,7 +29953,8 @@
           "last_updated",
           "last_updated_by",
           "agent_count",
-          "session_end_enabled"
+          "session_end_enabled",
+          "lifecycle_status"
         ],
         "title": "PromptProperties",
         "description": "Names of prompt fields supported for filtering/sorting on list endpoint."
@@ -36040,7 +36058,8 @@
           "description",
           "skip_current_language_in_message",
           "updated_at",
-          "last_updated_by"
+          "last_updated_by",
+          "lifecycle_status"
         ],
         "title": "VoiceGroupProperties",
         "description": "Names of voice group fields supported for filtering/sorting on list endpoint."
@@ -36465,7 +36484,7 @@
             "title": "Analyzed At",
             "description": "When the workflow execution started processing this session; null while the row is still PENDING",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "queued_at": {
@@ -36474,7 +36493,7 @@
             "title": "Queued At",
             "description": "When the session was queued for this workflow",
             "examples": [
-              "2026-09-05T00:00:00Z"
+              "2026-09-08T00:00:00Z"
             ]
           },
           "status": {
