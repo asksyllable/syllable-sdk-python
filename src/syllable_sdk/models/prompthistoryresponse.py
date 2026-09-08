@@ -6,6 +6,7 @@ from .prompthistorylinkedtool import (
     PromptHistoryLinkedToolTypedDict,
 )
 from .promptllmconfig import PromptLlmConfig, PromptLlmConfigTypedDict
+from .validationissue import ValidationIssue, ValidationIssueTypedDict
 from datetime import datetime
 from pydantic import model_serializer
 from syllable_sdk.types import (
@@ -19,8 +20,12 @@ from typing import List, Optional
 from typing_extensions import NotRequired, TypedDict
 
 
-class PromptHistoryTypedDict(TypedDict):
-    r"""Record of a specific version of a prompt."""
+class PromptHistoryResponseTypedDict(TypedDict):
+    r"""A historical prompt version, with the lifecycle of the model it was pinned to.
+
+    Agents pinned to an old version run that version's model, so a retired model in the history is
+    as much of a problem as one on the current version.
+    """
 
     timestamp: datetime
     r"""Timestamp of the change resulting in this version"""
@@ -46,10 +51,16 @@ class PromptHistoryTypedDict(TypedDict):
     r"""Tools that were linked to this version of the prompt"""
     session_end_tool: NotRequired[Nullable[PromptHistoryLinkedToolTypedDict]]
     r"""Session end tool that was configured on this version of the prompt, if any"""
+    validation_issues: NotRequired[Nullable[List[ValidationIssueTypedDict]]]
+    r"""Lifecycle findings for the model this version was saved on."""
 
 
-class PromptHistory(BaseModel):
-    r"""Record of a specific version of a prompt."""
+class PromptHistoryResponse(BaseModel):
+    r"""A historical prompt version, with the lifecycle of the model it was pinned to.
+
+    Agents pinned to an old version run that version's model, so a retired model in the history is
+    as much of a problem as one on the current version.
+    """
 
     timestamp: datetime
     r"""Timestamp of the change resulting in this version"""
@@ -87,6 +98,9 @@ class PromptHistory(BaseModel):
     session_end_tool: OptionalNullable[PromptHistoryLinkedTool] = UNSET
     r"""Session end tool that was configured on this version of the prompt, if any"""
 
+    validation_issues: OptionalNullable[List[ValidationIssue]] = UNSET
+    r"""Lifecycle findings for the model this version was saved on."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -96,10 +110,17 @@ class PromptHistory(BaseModel):
                 "comments",
                 "linked_tools",
                 "session_end_tool",
+                "validation_issues",
             ]
         )
         nullable_fields = set(
-            ["prompt_description", "llm_config", "comments", "session_end_tool"]
+            [
+                "prompt_description",
+                "llm_config",
+                "comments",
+                "session_end_tool",
+                "validation_issues",
+            ]
         )
         serialized = handler(self)
         m = {}

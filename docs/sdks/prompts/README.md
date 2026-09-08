@@ -291,7 +291,7 @@ with SyllableSDK(
 
 ### Response
 
-**[List[models.PromptHistory]](../../models/.md)**
+**[List[models.PromptHistoryResponse]](../../models/.md)**
 
 ### Errors
 

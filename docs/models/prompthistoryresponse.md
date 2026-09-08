@@ -1,6 +1,9 @@
-# PromptHistory
+# PromptHistoryResponse
 
-Record of a specific version of a prompt.
+A historical prompt version, with the lifecycle of the model it was pinned to.
+
+Agents pinned to an old version run that version's model, so a retired model in the history is
+as much of a problem as one on the current version.
 
 
 ## Fields
@@ -19,3 +22,4 @@ Record of a specific version of a prompt.
 | `linked_tools`                                                                                      | List[[models.PromptHistoryLinkedTool](../models/prompthistorylinkedtool.md)]                        | :heavy_minus_sign:                                                                                  | Tools that were linked to this version of the prompt                                                |                                                                                                     |
 | `session_end_tool`                                                                                  | [OptionalNullable[models.PromptHistoryLinkedTool]](../models/prompthistorylinkedtool.md)            | :heavy_minus_sign:                                                                                  | Session end tool that was configured on this version of the prompt, if any                          |                                                                                                     |
 | `is_pre_enhancements`                                                                               | *bool*                                                                                              | :heavy_check_mark:                                                                                  | Whether this version of the prompt was created before history of tool-prompt linking was tracked    | true                                                                                                |
+| `validation_issues`                                                                                 | List[[models.ValidationIssue](../models/validationissue.md)]                                        | :heavy_minus_sign:                                                                                  | Lifecycle findings for the model this version was saved on.                                         |                                                                                                     |

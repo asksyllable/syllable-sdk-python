@@ -27,3 +27,4 @@ value = PromptProperties.ID
 | `LAST_UPDATED_BY`     | last_updated_by       |
 | `AGENT_COUNT`         | agent_count           |
 | `SESSION_END_ENABLED` | session_end_enabled   |
+| `LIFECYCLE_STATUS`    | lifecycle_status      |

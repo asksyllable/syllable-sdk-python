@@ -829,9 +829,9 @@ if TYPE_CHECKING:
         ListResponseInsightsUploadFile,
         ListResponseInsightsUploadFileTypedDict,
     )
-    from .listresponse_insighttooloutput_ import (
-        ListResponseInsightToolOutput,
-        ListResponseInsightToolOutputTypedDict,
+    from .listresponse_insighttoolresponse_ import (
+        ListResponseInsightToolResponse,
+        ListResponseInsightToolResponseTypedDict,
     )
     from .listresponse_insightworkflowexecutionoutput_ import (
         ListResponseInsightWorkflowExecutionOutput,
@@ -1031,10 +1031,13 @@ if TYPE_CHECKING:
         PromptGetSupportedLlmsRequestTypedDict,
     )
     from .promptcreaterequest import PromptCreateRequest, PromptCreateRequestTypedDict
-    from .prompthistory import PromptHistory, PromptHistoryTypedDict
     from .prompthistorylinkedtool import (
         PromptHistoryLinkedTool,
         PromptHistoryLinkedToolTypedDict,
+    )
+    from .prompthistoryresponse import (
+        PromptHistoryResponse,
+        PromptHistoryResponseTypedDict,
     )
     from .promptllmconfig import PromptLlmConfig, PromptLlmConfigTypedDict
     from .promptllmprovider import PromptLlmProvider
@@ -1957,8 +1960,8 @@ __all__ = [
     "ListResponseEventTypedDict",
     "ListResponseIncidentResponse",
     "ListResponseIncidentResponseTypedDict",
-    "ListResponseInsightToolOutput",
-    "ListResponseInsightToolOutputTypedDict",
+    "ListResponseInsightToolResponse",
+    "ListResponseInsightToolResponseTypedDict",
     "ListResponseInsightWorkflowExecutionOutput",
     "ListResponseInsightWorkflowExecutionOutputTypedDict",
     "ListResponseInsightWorkflowOutput",
@@ -2093,10 +2096,10 @@ __all__ = [
     "PromptCreateRequestTypedDict",
     "PromptGetSupportedLlmsRequest",
     "PromptGetSupportedLlmsRequestTypedDict",
-    "PromptHistory",
     "PromptHistoryLinkedTool",
     "PromptHistoryLinkedToolTypedDict",
-    "PromptHistoryTypedDict",
+    "PromptHistoryResponse",
+    "PromptHistoryResponseTypedDict",
     "PromptLlmConfig",
     "PromptLlmConfigTypedDict",
     "PromptLlmProvider",
@@ -2957,8 +2960,8 @@ _dynamic_imports: dict[str, str] = {
     "ListResponseInsightsOutputTypedDict": ".listresponse_insightsoutput_",
     "ListResponseInsightsUploadFile": ".listresponse_insightsuploadfile_",
     "ListResponseInsightsUploadFileTypedDict": ".listresponse_insightsuploadfile_",
-    "ListResponseInsightToolOutput": ".listresponse_insighttooloutput_",
-    "ListResponseInsightToolOutputTypedDict": ".listresponse_insighttooloutput_",
+    "ListResponseInsightToolResponse": ".listresponse_insighttoolresponse_",
+    "ListResponseInsightToolResponseTypedDict": ".listresponse_insighttoolresponse_",
     "ListResponseInsightWorkflowExecutionOutput": ".listresponse_insightworkflowexecutionoutput_",
     "ListResponseInsightWorkflowExecutionOutputTypedDict": ".listresponse_insightworkflowexecutionoutput_",
     "ListResponseInsightWorkflowOutput": ".listresponse_insightworkflowoutput_",
@@ -3069,10 +3072,10 @@ _dynamic_imports: dict[str, str] = {
     "PromptGetSupportedLlmsRequestTypedDict": ".prompt_get_supported_llmsop",
     "PromptCreateRequest": ".promptcreaterequest",
     "PromptCreateRequestTypedDict": ".promptcreaterequest",
-    "PromptHistory": ".prompthistory",
-    "PromptHistoryTypedDict": ".prompthistory",
     "PromptHistoryLinkedTool": ".prompthistorylinkedtool",
     "PromptHistoryLinkedToolTypedDict": ".prompthistorylinkedtool",
+    "PromptHistoryResponse": ".prompthistoryresponse",
+    "PromptHistoryResponseTypedDict": ".prompthistoryresponse",
     "PromptLlmConfig": ".promptllmconfig",
     "PromptLlmConfigTypedDict": ".promptllmconfig",
     "PromptLlmProvider": ".promptllmprovider",

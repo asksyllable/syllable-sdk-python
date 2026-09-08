@@ -33,3 +33,4 @@ value = AgentProperties.ID
 | `TOOL_HEADERS`         | tool_headers           |
 | `UPDATED_AT`           | updated_at             |
 | `LAST_UPDATED_BY`      | last_updated_by        |
+| `LIFECYCLE_STATUS`     | lifecycle_status       |
