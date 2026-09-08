@@ -28,7 +28,7 @@ class InsightsTools(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ListResponseInsightToolOutput:
+    ) -> models.ListResponseInsightToolResponse:
         r"""List Insight Tool Configurations
 
         List the existing insight_tools
@@ -120,7 +120,7 @@ class InsightsTools(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.ListResponseInsightToolOutput, http_res
+                models.ListResponseInsightToolResponse, http_res
             )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
@@ -152,7 +152,7 @@ class InsightsTools(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ListResponseInsightToolOutput:
+    ) -> models.ListResponseInsightToolResponse:
         r"""List Insight Tool Configurations
 
         List the existing insight_tools
@@ -244,7 +244,7 @@ class InsightsTools(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.ListResponseInsightToolOutput, http_res
+                models.ListResponseInsightToolResponse, http_res
             )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
@@ -458,7 +458,7 @@ class InsightsTools(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.InsightToolOutput:
+    ) -> models.InsightToolResponse:
         r"""Get Insight Tool Config By Id
 
         Get a InsightTool by Name.
@@ -527,7 +527,7 @@ class InsightsTools(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.InsightToolOutput, http_res)
+            return unmarshal_json_response(models.InsightToolResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
@@ -550,7 +550,7 @@ class InsightsTools(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.InsightToolOutput:
+    ) -> models.InsightToolResponse:
         r"""Get Insight Tool Config By Id
 
         Get a InsightTool by Name.
@@ -619,7 +619,7 @@ class InsightsTools(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.InsightToolOutput, http_res)
+            return unmarshal_json_response(models.InsightToolResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res

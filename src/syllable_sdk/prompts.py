@@ -1018,7 +1018,7 @@ class Prompts(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.PromptHistory]:
+    ) -> List[models.PromptHistoryResponse]:
         r"""Get Prompt History
 
         Get a list of historical versions of a prompt by its ID
@@ -1087,7 +1087,7 @@ class Prompts(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(List[models.PromptHistory], http_res)
+            return unmarshal_json_response(List[models.PromptHistoryResponse], http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
@@ -1110,7 +1110,7 @@ class Prompts(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.PromptHistory]:
+    ) -> List[models.PromptHistoryResponse]:
         r"""Get Prompt History
 
         Get a list of historical versions of a prompt by its ID
@@ -1179,7 +1179,7 @@ class Prompts(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(List[models.PromptHistory], http_res)
+            return unmarshal_json_response(List[models.PromptHistoryResponse], http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
