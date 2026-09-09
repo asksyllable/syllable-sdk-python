@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 5512c296c10b6259f81a281df6025921
+  docChecksum: 81b4fbe79080014d4c98f79e86f6e678
   docVersion: 0.0.3
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.49.28
-  configChecksum: 58bb69d255c7a6bcb439eba7207219c4
+  releaseVersion: 0.49.29
+  configChecksum: fa0a339d49097411255e92c2862a1636
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: 4e8c9907-90c8-49b9-91cb-73844060bab5
-  pristine_commit_hash: d13b3f6850829d1fe4c7d1c6f659f153a7c80a42
-  pristine_tree_hash: 6061eee80556fc915e31e7c581b3419e1ad5de08
+  generation_id: 75612e50-ba04-43ff-acb8-5b1456bdb132
+  pristine_commit_hash: cbf4aec618c42fa34379d0a76f2fc6b88b330a10
+  pristine_tree_hash: 78c80f2fb1403d97fa8a88814021025581932720
 features:
   python:
     additionalDependencies: 1.1.0
@@ -2427,8 +2427,8 @@ trackedFiles:
     pristine_git_object: 6a3b01908092d3349be5058c4d36fe09f3f97a8a
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:864ff7f0e985d97c84ce25b31a13cbc74c3623b4
-    pristine_git_object: 41d849fe292ee91e9ea2da2a2fc18d95fa1915a2
+    last_write_checksum: sha1:01cfe47e470ead301e4358c46c9daf07ef3a488e
+    pristine_git_object: 2f1632be66cf1e29a4db593f85af9405a3fcdfac
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2455,8 +2455,8 @@ trackedFiles:
     pristine_git_object: 132885676dc1885890d1c8a13bd01fcfcb8e3fbc
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:dee763d63559daf5efd9886801acdef937470aad
-    pristine_git_object: 009b0299dc48565b86c6e09626c1e05743126ebd
+    last_write_checksum: sha1:131b5320e49e8202a52c1ae3343811bf223a9e52
+    pristine_git_object: c2438804a4b4071a1b129d3fabb88fff107e6bc6
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:da383e27f2dd7cc52af74f38f829d02891fc92d2
@@ -6482,15 +6482,6 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Python SDK Changes:
-  * `syllable_sdk.insights.workflows.insights_workflow_files()`: **Added**
-  * `syllable_sdk.insights.workflows.list()`:  `response.items[].last_folder_upload_at` **Added**
-  * `syllable_sdk.insights.workflows.create()`:  `response.last_folder_upload_at` **Added**
-  * `syllable_sdk.insights.workflows.get_by_id()`:  `response.last_folder_upload_at` **Added**
-  * `syllable_sdk.insights.workflows.update()`:  `response.last_folder_upload_at` **Added**
-  * `syllable_sdk.insights.workflows.inactivate()`:  `response.last_folder_upload_at` **Added**
-  * `syllable_sdk.insights.workflows.activate()`:  `response.last_folder_upload_at` **Added**
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
