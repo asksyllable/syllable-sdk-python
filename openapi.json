@@ -33808,6 +33808,7 @@
           },
           "agent_id": {
             "type": "string",
+            "pattern": "^[1-9][0-9]*$",
             "title": "Agent Id",
             "description": "ID of the agent with which the chat is taking place"
           },
