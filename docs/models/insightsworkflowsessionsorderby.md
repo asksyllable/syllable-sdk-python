@@ -1,13 +1,13 @@
-# OrderBy
+# InsightsWorkflowSessionsOrderBy
 
 The field whose value should be used to order the results
 
 ## Example Usage
 
 ```python
-from syllable_sdk.models import OrderBy
+from syllable_sdk.models import InsightsWorkflowSessionsOrderBy
 
-value = OrderBy.SESSION_ID
+value = InsightsWorkflowSessionsOrderBy.SESSION_ID
 ```
 
 

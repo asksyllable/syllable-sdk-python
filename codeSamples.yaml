@@ -2131,6 +2131,28 @@ actions:
 
                 # Handle response
                 print(res)
+  - target: $["paths"]["/api/v1/insights/workflows/{workflow_id}/files"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK, models
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.insights.workflows.insights_workflow_files(workflow_id=769070, page=0, limit=25, search_fields=[
+                    "status",
+                ], search_field_values=[
+                    "Some Object Name",
+                ], order_by=models.InsightsWorkflowFilesOrderBy.UPLOAD_FILE_ID, start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
   - target: $["paths"]["/api/v1/insights/workflows/{workflow_id}/inactivate"]["put"]
     update:
       x-codeSamples:
@@ -2167,7 +2189,7 @@ actions:
                     models.SearchField.SESSION_ID,
                 ], search_field_values=[
                     "Some Object Name",
-                ], order_by=models.OrderBy.SESSION_ID, start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+                ], order_by=models.InsightsWorkflowSessionsOrderBy.SESSION_ID, start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
 
                 # Handle response
                 print(res)
