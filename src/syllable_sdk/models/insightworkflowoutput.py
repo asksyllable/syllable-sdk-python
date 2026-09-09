@@ -58,6 +58,8 @@ class InsightWorkflowOutputTypedDict(TypedDict):
     r"""Timestamp at which the insight workflow was created"""
     updated_at: NotRequired[datetime]
     r"""Timestamp of most recent update to the insight workflow"""
+    last_folder_upload_at: NotRequired[Nullable[datetime]]
+    r"""Timestamp of the most recent file upload to any folder associated with this workflow (null for non-upload workflows or until a file has been uploaded)"""
 
 
 class InsightWorkflowOutput(BaseModel):
@@ -111,6 +113,9 @@ class InsightWorkflowOutput(BaseModel):
     updated_at: Optional[datetime] = None
     r"""Timestamp of most recent update to the insight workflow"""
 
+    last_folder_upload_at: OptionalNullable[datetime] = UNSET
+    r"""Timestamp of the most recent file upload to any folder associated with this workflow (null for non-upload workflows or until a file has been uploaded)"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -121,10 +126,17 @@ class InsightWorkflowOutput(BaseModel):
                 "failed_count",
                 "created_at",
                 "updated_at",
+                "last_folder_upload_at",
             ]
         )
         nullable_fields = set(
-            ["start_datetime", "end_datetime", "queue_count", "failed_count"]
+            [
+                "start_datetime",
+                "end_datetime",
+                "queue_count",
+                "failed_count",
+                "last_folder_upload_at",
+            ]
         )
         serialized = handler(self)
         m = {}

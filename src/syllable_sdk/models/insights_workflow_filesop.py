@@ -16,31 +16,26 @@ from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class SearchField(str, Enum):
-    SESSION_ID = "session_id"
-    STATUS = "status"
-
-
-class InsightsWorkflowSessionsOrderBy(str, Enum):
+class InsightsWorkflowFilesOrderBy(str, Enum):
     r"""The field whose value should be used to order the results"""
 
-    SESSION_ID = "session_id"
+    UPLOAD_FILE_ID = "upload_file_id"
     STATUS = "status"
     STARTED_AT = "started_at"
     CREATED_AT = "created_at"
 
 
-class InsightsWorkflowSessionsRequestTypedDict(TypedDict):
+class InsightsWorkflowFilesRequestTypedDict(TypedDict):
     workflow_id: int
     page: NotRequired[Nullable[int]]
     r"""The page number from which to start (0-based)"""
     limit: NotRequired[int]
     r"""The maximum number of items to return"""
-    search_fields: NotRequired[List[SearchField]]
+    search_fields: NotRequired[List[str]]
     r"""String names of fields to search. Correspond by index to search field values"""
     search_field_values: NotRequired[List[str]]
     r"""Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"""
-    order_by: NotRequired[Nullable[InsightsWorkflowSessionsOrderBy]]
+    order_by: NotRequired[Nullable[InsightsWorkflowFilesOrderBy]]
     r"""The field whose value should be used to order the results"""
     order_by_direction: NotRequired[Nullable[OrderByDirection]]
     r"""The direction in which to order the results"""
@@ -50,7 +45,7 @@ class InsightsWorkflowSessionsRequestTypedDict(TypedDict):
     r"""The end datetime for filtering results"""
 
 
-class InsightsWorkflowSessionsRequest(BaseModel):
+class InsightsWorkflowFilesRequest(BaseModel):
     workflow_id: Annotated[
         int, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
@@ -68,7 +63,7 @@ class InsightsWorkflowSessionsRequest(BaseModel):
     r"""The maximum number of items to return"""
 
     search_fields: Annotated[
-        Optional[List[SearchField]],
+        Optional[List[str]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
     r"""String names of fields to search. Correspond by index to search field values"""
@@ -80,7 +75,7 @@ class InsightsWorkflowSessionsRequest(BaseModel):
     r"""Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"""
 
     order_by: Annotated[
-        OptionalNullable[InsightsWorkflowSessionsOrderBy],
+        OptionalNullable[InsightsWorkflowFilesOrderBy],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
     r"""The field whose value should be used to order the results"""

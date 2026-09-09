@@ -620,6 +620,11 @@ if TYPE_CHECKING:
         InsightsWorkflowExecutionsRequest,
         InsightsWorkflowExecutionsRequestTypedDict,
     )
+    from .insights_workflow_filesop import (
+        InsightsWorkflowFilesOrderBy,
+        InsightsWorkflowFilesRequest,
+        InsightsWorkflowFilesRequestTypedDict,
+    )
     from .insights_workflow_get_by_idop import (
         InsightsWorkflowGetByIDRequest,
         InsightsWorkflowGetByIDRequestTypedDict,
@@ -633,9 +638,9 @@ if TYPE_CHECKING:
         InsightsWorkflowListRequestTypedDict,
     )
     from .insights_workflow_sessionsop import (
+        InsightsWorkflowSessionsOrderBy,
         InsightsWorkflowSessionsRequest,
         InsightsWorkflowSessionsRequestTypedDict,
-        OrderBy,
         SearchField,
     )
     from .insights_workflow_updateop import (
@@ -881,6 +886,10 @@ if TYPE_CHECKING:
     from .listresponse_voicegroupresponse_ import (
         ListResponseVoiceGroupResponse,
         ListResponseVoiceGroupResponseTypedDict,
+    )
+    from .listresponse_workflowfilerow_ import (
+        ListResponseWorkflowFileRow,
+        ListResponseWorkflowFileRowTypedDict,
     )
     from .listresponse_workflowsessionrow_ import (
         ListResponseWorkflowSessionRow,
@@ -1394,6 +1403,7 @@ if TYPE_CHECKING:
         VoiceSampleCreateRequest,
         VoiceSampleCreateRequestTypedDict,
     )
+    from .workflowfilerow import WorkflowFileRow, WorkflowFileRowTypedDict
     from .workflowsessionrow import (
         WorkflowSessionRow,
         WorkflowSessionRowTypedDict,
@@ -1881,6 +1891,9 @@ __all__ = [
     "InsightsWorkflowExecutionsRequestTypedDict",
     "InsightsWorkflowExecutionsSummaryRequest",
     "InsightsWorkflowExecutionsSummaryRequestTypedDict",
+    "InsightsWorkflowFilesOrderBy",
+    "InsightsWorkflowFilesRequest",
+    "InsightsWorkflowFilesRequestTypedDict",
     "InsightsWorkflowGetByIDRequest",
     "InsightsWorkflowGetByIDRequestTypedDict",
     "InsightsWorkflowInactivateRequest",
@@ -1889,6 +1902,7 @@ __all__ = [
     "InsightsWorkflowListRequestTypedDict",
     "InsightsWorkflowQueueSession",
     "InsightsWorkflowQueueSessionTypedDict",
+    "InsightsWorkflowSessionsOrderBy",
     "InsightsWorkflowSessionsRequest",
     "InsightsWorkflowSessionsRequestTypedDict",
     "InsightsWorkflowUpdateRequest",
@@ -1994,6 +2008,8 @@ __all__ = [
     "ListResponseUserResponseTypedDict",
     "ListResponseVoiceGroupResponse",
     "ListResponseVoiceGroupResponseTypedDict",
+    "ListResponseWorkflowFileRow",
+    "ListResponseWorkflowFileRowTypedDict",
     "ListResponseWorkflowSessionRow",
     "ListResponseWorkflowSessionRowTypedDict",
     "LoadToolFromFileTask",
@@ -2025,7 +2041,6 @@ __all__ = [
     "NextStepTypedDict",
     "NextTypedDict",
     "OnUnknown",
-    "OrderBy",
     "OrderByDirection",
     "OrganizationChannelConfig",
     "OrganizationChannelConfigTypedDict",
@@ -2398,6 +2413,8 @@ __all__ = [
     "VoiceSampleCreateRequestTypedDict",
     "VoicemailDetectionConfig",
     "VoicemailDetectionConfigTypedDict",
+    "WorkflowFileRow",
+    "WorkflowFileRowTypedDict",
     "WorkflowSessionRow",
     "WorkflowSessionRowTypedDict",
 ]
@@ -2829,15 +2846,18 @@ _dynamic_imports: dict[str, str] = {
     "InsightsWorkflowExecutionsSummaryRequestTypedDict": ".insights_workflow_executions_summaryop",
     "InsightsWorkflowExecutionsRequest": ".insights_workflow_executionsop",
     "InsightsWorkflowExecutionsRequestTypedDict": ".insights_workflow_executionsop",
+    "InsightsWorkflowFilesOrderBy": ".insights_workflow_filesop",
+    "InsightsWorkflowFilesRequest": ".insights_workflow_filesop",
+    "InsightsWorkflowFilesRequestTypedDict": ".insights_workflow_filesop",
     "InsightsWorkflowGetByIDRequest": ".insights_workflow_get_by_idop",
     "InsightsWorkflowGetByIDRequestTypedDict": ".insights_workflow_get_by_idop",
     "InsightsWorkflowInactivateRequest": ".insights_workflow_inactivateop",
     "InsightsWorkflowInactivateRequestTypedDict": ".insights_workflow_inactivateop",
     "InsightsWorkflowListRequest": ".insights_workflow_listop",
     "InsightsWorkflowListRequestTypedDict": ".insights_workflow_listop",
+    "InsightsWorkflowSessionsOrderBy": ".insights_workflow_sessionsop",
     "InsightsWorkflowSessionsRequest": ".insights_workflow_sessionsop",
     "InsightsWorkflowSessionsRequestTypedDict": ".insights_workflow_sessionsop",
-    "OrderBy": ".insights_workflow_sessionsop",
     "SearchField": ".insights_workflow_sessionsop",
     "InsightsWorkflowUpdateRequest": ".insights_workflow_updateop",
     "InsightsWorkflowUpdateRequestTypedDict": ".insights_workflow_updateop",
@@ -2988,6 +3008,8 @@ _dynamic_imports: dict[str, str] = {
     "ListResponseUserResponseTypedDict": ".listresponse_userresponse_",
     "ListResponseVoiceGroupResponse": ".listresponse_voicegroupresponse_",
     "ListResponseVoiceGroupResponseTypedDict": ".listresponse_voicegroupresponse_",
+    "ListResponseWorkflowFileRow": ".listresponse_workflowfilerow_",
+    "ListResponseWorkflowFileRowTypedDict": ".listresponse_workflowfilerow_",
     "ListResponseWorkflowSessionRow": ".listresponse_workflowsessionrow_",
     "ListResponseWorkflowSessionRowTypedDict": ".listresponse_workflowsessionrow_",
     "File": ".loadtoolfromfiletask",
@@ -3380,6 +3402,8 @@ _dynamic_imports: dict[str, str] = {
     "VoicemailDetectionConfigTypedDict": ".voicemaildetectionconfig",
     "VoiceSampleCreateRequest": ".voicesamplecreaterequest",
     "VoiceSampleCreateRequestTypedDict": ".voicesamplecreaterequest",
+    "WorkflowFileRow": ".workflowfilerow",
+    "WorkflowFileRowTypedDict": ".workflowfilerow",
     "WorkflowSessionRow": ".workflowsessionrow",
     "WorkflowSessionRowTypedDict": ".workflowsessionrow",
 }
