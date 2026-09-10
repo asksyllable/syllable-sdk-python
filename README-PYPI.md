@@ -332,6 +332,16 @@ with SyllableSDK(
 
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/events/README.md#list) - Events List
 
+### [Experiments](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/experiments/README.md)
+
+* [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/experiments/README.md#list) - Experiments List
+* [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/experiments/README.md#create) - Create Experiment
+* [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/experiments/README.md#get_by_id) - Get Experiment By Id
+* [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/experiments/README.md#update) - Update Experiment
+* [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/experiments/README.md#delete) - Delete Experiment
+* [experiments_start](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/experiments/README.md#experiments_start) - Start Experiment
+* [experiments_stop](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/experiments/README.md#experiments_stop) - Stop Experiment
+
 ### [Incidents](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/incidents/README.md)
 
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/incidents/README.md#list) - List Incidents

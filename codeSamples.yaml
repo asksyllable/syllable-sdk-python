@@ -1417,6 +1417,155 @@ actions:
 
                 # Handle response
                 print(res)
+  - target: $["paths"]["/api/v1/experiments/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK, models
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.experiments.list(page=0, limit=25, search_fields=[
+                    models.ExperimentProperties.NAME,
+                ], search_field_values=[
+                    "Some Object Name",
+                ], start_datetime="2023-01-01T00:00:00Z", end_datetime="2024-01-01T00:00:00Z")
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/experiments/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.experiments.create(request={
+                    "name": "Shorter greeting",
+                    "variants": [
+                        {
+                            "name": "b",
+                            "weight": 10,
+                            "agent_id": 1,
+                        },
+                    ],
+                    "target_id": 1,
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/experiments/{experiment_id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.experiments.delete(experiment_id=487333)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/experiments/{experiment_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.experiments.get_by_id(experiment_id=34744)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/experiments/{experiment_id}"]["put"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.experiments.update(experiment_id=571406, experiment_update_request={
+                    "name": "Shorter greeting",
+                    "variants": [
+                        {
+                            "name": "b",
+                            "weight": 10,
+                            "agent_id": 1,
+                        },
+                    ],
+                })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/experiments/{experiment_id}/start"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.experiments.experiments_start(experiment_id=381743)
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/experiments/{experiment_id}/stop"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.experiments.experiments_stop(experiment_id=891925)
+
+                # Handle response
+                print(res)
   - target: $["paths"]["/api/v1/incidents/"]["get"]
     update:
       x-codeSamples:

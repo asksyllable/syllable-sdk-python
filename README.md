@@ -332,6 +332,16 @@ with SyllableSDK(
 
 * [list](docs/sdks/events/README.md#list) - Events List
 
+### [Experiments](docs/sdks/experiments/README.md)
+
+* [list](docs/sdks/experiments/README.md#list) - Experiments List
+* [create](docs/sdks/experiments/README.md#create) - Create Experiment
+* [get_by_id](docs/sdks/experiments/README.md#get_by_id) - Get Experiment By Id
+* [update](docs/sdks/experiments/README.md#update) - Update Experiment
+* [delete](docs/sdks/experiments/README.md#delete) - Delete Experiment
+* [experiments_start](docs/sdks/experiments/README.md#experiments_start) - Start Experiment
+* [experiments_stop](docs/sdks/experiments/README.md#experiments_stop) - Stop Experiment
+
 ### [Incidents](docs/sdks/incidents/README.md)
 
 * [list](docs/sdks/incidents/README.md#list) - List Incidents

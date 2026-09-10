@@ -301,6 +301,18 @@ if TYPE_CHECKING:
         CustomMessageUpdateRequest,
         CustomMessageUpdateRequestTypedDict,
     )
+    from .daoexperimenttargetsummary import (
+        DaoExperimentTargetSummary,
+        DaoExperimentTargetSummaryTypedDict,
+    )
+    from .daoexperimentvariantdetail import (
+        DaoExperimentVariantDetail,
+        DaoExperimentVariantDetailTypedDict,
+    )
+    from .daoexperimentvariantwrite import (
+        DaoExperimentVariantWrite,
+        DaoExperimentVariantWriteTypedDict,
+    )
     from .daotoolresponse import DaoToolResponse, DaoToolResponseTypedDict
     from .daoutm import DaoUtm, DaoUtmTypedDict
     from .dashboard import Dashboard, DashboardTypedDict
@@ -469,6 +481,45 @@ if TYPE_CHECKING:
         EventTaskEventsStart,
         EventTaskEventsStartTypedDict,
         EventTaskEventsTypedDict,
+    )
+    from .experimentcreaterequest import (
+        ExperimentCreateRequest,
+        ExperimentCreateRequestTypedDict,
+    )
+    from .experimentproperties import ExperimentProperties
+    from .experimentresponse import ExperimentResponse, ExperimentResponseTypedDict
+    from .experiments_deleteop import (
+        ExperimentsDeleteRequest,
+        ExperimentsDeleteRequestTypedDict,
+    )
+    from .experiments_get_by_idop import (
+        ExperimentsGetByIDRequest,
+        ExperimentsGetByIDRequestTypedDict,
+    )
+    from .experiments_listop import (
+        ExperimentsListRequest,
+        ExperimentsListRequestTypedDict,
+    )
+    from .experiments_startop import (
+        ExperimentsStartRequest,
+        ExperimentsStartRequestTypedDict,
+    )
+    from .experiments_stopop import (
+        ExperimentsStopRequest,
+        ExperimentsStopRequestTypedDict,
+    )
+    from .experiments_updateop import (
+        ExperimentsUpdateRequest,
+        ExperimentsUpdateRequestTypedDict,
+    )
+    from .experimentstartresponse import (
+        ExperimentStartResponse,
+        ExperimentStartResponseTypedDict,
+    )
+    from .experimentstatus import ExperimentStatus
+    from .experimentupdaterequest import (
+        ExperimentUpdateRequest,
+        ExperimentUpdateRequestTypedDict,
     )
     from .expressiontask import (
         Expression1,
@@ -818,6 +869,10 @@ if TYPE_CHECKING:
         ListResponseDirectoryMemberHistoryResponseTypedDict,
     )
     from .listresponse_event_ import ListResponseEvent, ListResponseEventTypedDict
+    from .listresponse_experimentresponse_ import (
+        ListResponseExperimentResponse,
+        ListResponseExperimentResponseTypedDict,
+    )
     from .listresponse_incidentresponse_ import (
         ListResponseIncidentResponse,
         ListResponseIncidentResponseTypedDict,
@@ -1641,6 +1696,12 @@ __all__ = [
     "CustomMessagesDeleteRequestTypedDict",
     "CustomMessagesListRequest",
     "CustomMessagesListRequestTypedDict",
+    "DaoExperimentTargetSummary",
+    "DaoExperimentTargetSummaryTypedDict",
+    "DaoExperimentVariantDetail",
+    "DaoExperimentVariantDetailTypedDict",
+    "DaoExperimentVariantWrite",
+    "DaoExperimentVariantWriteTypedDict",
     "DaoToolResponse",
     "DaoToolResponseTypedDict",
     "DaoUtm",
@@ -1758,6 +1819,28 @@ __all__ = [
     "EventTypedDict",
     "EventsListRequest",
     "EventsListRequestTypedDict",
+    "ExperimentCreateRequest",
+    "ExperimentCreateRequestTypedDict",
+    "ExperimentProperties",
+    "ExperimentResponse",
+    "ExperimentResponseTypedDict",
+    "ExperimentStartResponse",
+    "ExperimentStartResponseTypedDict",
+    "ExperimentStatus",
+    "ExperimentUpdateRequest",
+    "ExperimentUpdateRequestTypedDict",
+    "ExperimentsDeleteRequest",
+    "ExperimentsDeleteRequestTypedDict",
+    "ExperimentsGetByIDRequest",
+    "ExperimentsGetByIDRequestTypedDict",
+    "ExperimentsListRequest",
+    "ExperimentsListRequestTypedDict",
+    "ExperimentsStartRequest",
+    "ExperimentsStartRequestTypedDict",
+    "ExperimentsStopRequest",
+    "ExperimentsStopRequestTypedDict",
+    "ExperimentsUpdateRequest",
+    "ExperimentsUpdateRequestTypedDict",
     "Expression1",
     "Expression1TypedDict",
     "Expression2",
@@ -1981,6 +2064,8 @@ __all__ = [
     "ListResponseDirectoryMemberTypedDict",
     "ListResponseEvent",
     "ListResponseEventTypedDict",
+    "ListResponseExperimentResponse",
+    "ListResponseExperimentResponseTypedDict",
     "ListResponseIncidentResponse",
     "ListResponseIncidentResponseTypedDict",
     "ListResponseInsightToolResponse",
@@ -2635,6 +2720,12 @@ _dynamic_imports: dict[str, str] = {
     "CustomMessageType": ".custommessagetype",
     "CustomMessageUpdateRequest": ".custommessageupdaterequest",
     "CustomMessageUpdateRequestTypedDict": ".custommessageupdaterequest",
+    "DaoExperimentTargetSummary": ".daoexperimenttargetsummary",
+    "DaoExperimentTargetSummaryTypedDict": ".daoexperimenttargetsummary",
+    "DaoExperimentVariantDetail": ".daoexperimentvariantdetail",
+    "DaoExperimentVariantDetailTypedDict": ".daoexperimentvariantdetail",
+    "DaoExperimentVariantWrite": ".daoexperimentvariantwrite",
+    "DaoExperimentVariantWriteTypedDict": ".daoexperimentvariantwrite",
     "DaoToolResponse": ".daotoolresponse",
     "DaoToolResponseTypedDict": ".daotoolresponse",
     "DaoUtm": ".daoutm",
@@ -2766,6 +2857,28 @@ _dynamic_imports: dict[str, str] = {
     "EventTaskEventsStart": ".eventtaskevents",
     "EventTaskEventsStartTypedDict": ".eventtaskevents",
     "EventTaskEventsTypedDict": ".eventtaskevents",
+    "ExperimentCreateRequest": ".experimentcreaterequest",
+    "ExperimentCreateRequestTypedDict": ".experimentcreaterequest",
+    "ExperimentProperties": ".experimentproperties",
+    "ExperimentResponse": ".experimentresponse",
+    "ExperimentResponseTypedDict": ".experimentresponse",
+    "ExperimentsDeleteRequest": ".experiments_deleteop",
+    "ExperimentsDeleteRequestTypedDict": ".experiments_deleteop",
+    "ExperimentsGetByIDRequest": ".experiments_get_by_idop",
+    "ExperimentsGetByIDRequestTypedDict": ".experiments_get_by_idop",
+    "ExperimentsListRequest": ".experiments_listop",
+    "ExperimentsListRequestTypedDict": ".experiments_listop",
+    "ExperimentsStartRequest": ".experiments_startop",
+    "ExperimentsStartRequestTypedDict": ".experiments_startop",
+    "ExperimentsStopRequest": ".experiments_stopop",
+    "ExperimentsStopRequestTypedDict": ".experiments_stopop",
+    "ExperimentsUpdateRequest": ".experiments_updateop",
+    "ExperimentsUpdateRequestTypedDict": ".experiments_updateop",
+    "ExperimentStartResponse": ".experimentstartresponse",
+    "ExperimentStartResponseTypedDict": ".experimentstartresponse",
+    "ExperimentStatus": ".experimentstatus",
+    "ExperimentUpdateRequest": ".experimentupdaterequest",
+    "ExperimentUpdateRequestTypedDict": ".experimentupdaterequest",
     "Expression1": ".expressiontask",
     "Expression1TypedDict": ".expressiontask",
     "Expression2": ".expressiontask",
@@ -2986,6 +3099,8 @@ _dynamic_imports: dict[str, str] = {
     "ListResponseDirectoryMemberHistoryResponseTypedDict": ".listresponse_directorymemberhistoryresponse_",
     "ListResponseEvent": ".listresponse_event_",
     "ListResponseEventTypedDict": ".listresponse_event_",
+    "ListResponseExperimentResponse": ".listresponse_experimentresponse_",
+    "ListResponseExperimentResponseTypedDict": ".listresponse_experimentresponse_",
     "ListResponseIncidentResponse": ".listresponse_incidentresponse_",
     "ListResponseIncidentResponseTypedDict": ".listresponse_incidentresponse_",
     "ListResponseInsightsFolder": ".listresponse_insightsfolder_",
