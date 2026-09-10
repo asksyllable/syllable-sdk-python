@@ -20379,6 +20379,11 @@ components:
             - type: "null"
           title: "Text"
           description: "Content of the message"
+        stt_confidence:
+          anyOf:
+            - $ref: "#/components/schemas/TranscriptConfidence"
+            - type: "null"
+          description: "The STT provider's confidence for a user utterance. Absent on agent turns, and on user turns whose backend reported nothing -- absence means \"not captured\", never \"the provider was certain this was wrong\". NOT one comparable quantity: read `provider` and `utterance_source` before interpreting a value, and do not aggregate across providers. Deepgram reports a genuine acoustic confidence and a per-word breakdown; Google reports an utterance score its own documentation disclaims and no words; on Deepgram Flux the utterance score is the weakest word, computed by us rather than reported."
       type: "object"
       required:
         - "timestamp"
@@ -22269,6 +22274,71 @@ components:
         - "id"
       title: "ToolUpdateRequest"
       description: "Request model to update an existing tool."
+    TranscriptConfidence:
+      properties:
+        provider:
+          type: "string"
+          title: "Provider"
+        model:
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Model"
+        utterance:
+          anyOf:
+            - type: "number"
+            - type: "null"
+          title: "Utterance"
+        utterance_source:
+          anyOf:
+            - type: "string"
+              enum:
+                - "provider"
+                - "derived_min"
+            - type: "null"
+          title: "Utterance Source"
+        words:
+          anyOf:
+            - items:
+                $ref: "#/components/schemas/TranscriptWordConfidence"
+              type: "array"
+            - type: "null"
+          title: "Words"
+        words_truncated:
+          anyOf:
+            - type: "boolean"
+            - type: "null"
+          title: "Words Truncated"
+      type: "object"
+      required:
+        - "provider"
+      title: "TranscriptConfidence"
+      description: "The STT provider's confidence for one user utterance.\n\nProvenance travels with the score because confidence is NOT comparable across providers:\nDeepgram publishes a genuine acoustic confidence, while Google's proto disclaims the field and\nChirp 2's documentation states the value \"isn't truly a confidence score\". A bare float read\nwithout knowing which backend produced it cannot be interpreted.\n\n`utterance_source` distinguishes a number the provider reported for exactly this text from one\nwe computed -- the weakest word, or the weakest across a merged turn. Absent entirely when the\nbackend reports nothing, so the transcript flow is unaffected. See ZOO-8595."
+    TranscriptWordConfidence:
+      properties:
+        word:
+          type: "string"
+          title: "Word"
+        confidence:
+          anyOf:
+            - type: "number"
+            - type: "null"
+          title: "Confidence"
+        start:
+          anyOf:
+            - type: "number"
+            - type: "null"
+          title: "Start"
+        end:
+          anyOf:
+            - type: "number"
+            - type: "null"
+          title: "End"
+      type: "object"
+      required:
+        - "word"
+      title: "TranscriptWordConfidence"
+      description: "Per-word STT confidence. `word` prefers the provider's punctuated form so the stored words\nread the same way as the transcript they came from."
     TtsProvider:
       type: "string"
       enum:

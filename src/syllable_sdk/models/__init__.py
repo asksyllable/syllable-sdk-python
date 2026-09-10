@@ -1298,6 +1298,15 @@ if TYPE_CHECKING:
     from .toolresponse import ToolResponse, ToolResponseTypedDict
     from .toolresultdata import ToolResultData, ToolResultDataTypedDict
     from .toolupdaterequest import ToolUpdateRequest, ToolUpdateRequestTypedDict
+    from .transcriptconfidence import (
+        TranscriptConfidence,
+        TranscriptConfidenceTypedDict,
+        UtteranceSource,
+    )
+    from .transcriptwordconfidence import (
+        TranscriptWordConfidence,
+        TranscriptWordConfidenceTypedDict,
+    )
     from .ttsprovider import TtsProvider
     from .twiliochannelconfigcreate import (
         TwilioChannelConfigCreate,
@@ -2344,6 +2353,10 @@ __all__ = [
     "ToolResultDataTypedDict",
     "ToolUpdateRequest",
     "ToolUpdateRequestTypedDict",
+    "TranscriptConfidence",
+    "TranscriptConfidenceTypedDict",
+    "TranscriptWordConfidence",
+    "TranscriptWordConfidenceTypedDict",
     "TtsProvider",
     "TwilioChannelConfigCreate",
     "TwilioChannelConfigCreateTypedDict",
@@ -2383,6 +2396,7 @@ __all__ = [
     "UsersListRequestTypedDict",
     "UsersSendEmailRequest",
     "UsersSendEmailRequestTypedDict",
+    "UtteranceSource",
     "ValidationError",
     "ValidationErrorTypedDict",
     "ValidationIssue",
@@ -3329,6 +3343,11 @@ _dynamic_imports: dict[str, str] = {
     "ToolResultDataTypedDict": ".toolresultdata",
     "ToolUpdateRequest": ".toolupdaterequest",
     "ToolUpdateRequestTypedDict": ".toolupdaterequest",
+    "TranscriptConfidence": ".transcriptconfidence",
+    "TranscriptConfidenceTypedDict": ".transcriptconfidence",
+    "UtteranceSource": ".transcriptconfidence",
+    "TranscriptWordConfidence": ".transcriptwordconfidence",
+    "TranscriptWordConfidenceTypedDict": ".transcriptwordconfidence",
     "TtsProvider": ".ttsprovider",
     "TwilioChannelConfigCreate": ".twiliochannelconfigcreate",
     "TwilioChannelConfigCreateTypedDict": ".twiliochannelconfigcreate",

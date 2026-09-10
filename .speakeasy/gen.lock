@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 308fc28ef0fe6e0b340dfd9e2bab5fcf
+  docChecksum: 7ac4cd518c88f6ad7550b1afb731d32b
   docVersion: 0.0.3
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.49.30
-  configChecksum: ba12c1d49147f5c1e5430b598bc32ebe
+  releaseVersion: 0.49.31
+  configChecksum: f9e2c3b4a25514f0ae0cd6fa75671bd6
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: 7a5e81d5-7916-4dfe-bc75-df97f7d20c69
-  pristine_commit_hash: ca30fafefa66e5a2f4c98437bf4547a2595b3b52
-  pristine_tree_hash: 719b42e6e325c3c286157803135fc4be149fd5a7
+  generation_id: 1477ad10-025d-4dde-9083-f9b7b6a1d2e2
+  pristine_commit_hash: 2c6242a62098b223e7832a59318d87e8961f5b3a
+  pristine_tree_hash: 99478e5b8f6d77be41dcdb9041ecc08333d2afe5
 features:
   python:
     additionalDependencies: 1.1.0
@@ -1819,8 +1819,8 @@ trackedFiles:
     pristine_git_object: b40a1f028bd535eaf70e656cbf2af5cb7c2cd832
   docs/models/sessiontext.md:
     id: 9f96b850ed5d
-    last_write_checksum: sha1:7a36b867d3da10bdad1b26d3b0460af60f11cc36
-    pristine_git_object: f28c4c6edec329c345826851ab6ac37b4ad7d121
+    last_write_checksum: sha1:93fad64a9d643847d71136bd6fa6af7cba5ab5e1
+    pristine_git_object: e46a6a506c523bcda544d429e1a52599c4da05e8
   docs/models/sessiontimelinegetbyidrequest.md:
     id: e648ece12f3a
     last_write_checksum: sha1:150b49db8d864f271e30b5841a1739451364ec70
@@ -2089,6 +2089,14 @@ trackedFiles:
     id: 9c78c507b92d
     last_write_checksum: sha1:3c6e83894aa9b73a48966579d8f67596cfc9b2b1
     pristine_git_object: fefb337e7a8df4814c51fdf123e53aeb557f7e84
+  docs/models/transcriptconfidence.md:
+    id: 8eedf794162d
+    last_write_checksum: sha1:b420404264b90d4c01884a23a67aade7355796e4
+    pristine_git_object: 7ef6615685fe7b54d5a20ee86e6962f1677f551d
+  docs/models/transcriptwordconfidence.md:
+    id: 85d5addc0885
+    last_write_checksum: sha1:b7d0a3c60aa22515012a292b20cf1100a1a11244
+    pristine_git_object: 1a295ee8245450debd6b36220d7fafe094b06688
   docs/models/ttsprovider.md:
     id: 16d498ca944b
     last_write_checksum: sha1:b528d855dddbb2150d0ee091b1d5e74d6a28a22d
@@ -2177,6 +2185,10 @@ trackedFiles:
     id: 4343ac43161c
     last_write_checksum: sha1:562c0f21e308ad10c27f85f75704c15592c6929d
     pristine_git_object: 69dd549ec7f5f885101d08dd502e25748183aebf
+  docs/models/utterancesource.md:
+    id: 58c2e315a122
+    last_write_checksum: sha1:616a02350058b1af1ac3002ab2b0915353b9a0a7
+    pristine_git_object: 3af8e778d90f5d8e513765143f60ea9d07c8c716
   docs/models/validationerror.md:
     id: 304bdf06ef8b
     last_write_checksum: sha1:1889f608099577e6a116c14b211a6811d6b22786
@@ -2427,8 +2439,8 @@ trackedFiles:
     pristine_git_object: 6a3b01908092d3349be5058c4d36fe09f3f97a8a
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:b641bcccc02bb98ba69e48de2d20705536b10624
-    pristine_git_object: bfa8a85135ae14363261fa72debb839dbb1217d7
+    last_write_checksum: sha1:b0aa29e65d9c341734637d9010c7610b79062780
+    pristine_git_object: 3930860595c13d2450992077635345d4739c3454
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2455,8 +2467,8 @@ trackedFiles:
     pristine_git_object: 132885676dc1885890d1c8a13bd01fcfcb8e3fbc
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:c5dcde3bf06288f6b730727d65ebe43795784e5d
-    pristine_git_object: aec11840c17838a46a62990fc69e8fdf7ecd248c
+    last_write_checksum: sha1:6026d16e82f7efbaf00cfdc620c064524664629e
+    pristine_git_object: 8bc7847fe155c9bd7c5f8ec7a3eddfd778316469
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:da383e27f2dd7cc52af74f38f829d02891fc92d2
@@ -2567,8 +2579,8 @@ trackedFiles:
     pristine_git_object: 59142dc80d14c0481b722c0087c1abcbb426e597
   src/syllable_sdk/models/__init__.py:
     id: 984744253da7
-    last_write_checksum: sha1:b1a9d6057004677aa3dbb8cb9faeb93affda2538
-    pristine_git_object: 6aecbf251fa6d85133665fe5fbbe04d8f803aa38
+    last_write_checksum: sha1:7aaf4802e12bf2ae8761c0215b0dc98c2c14dd37
+    pristine_git_object: 670ef0bf0d518aec8eb49d6d7dbea6f305002358
   src/syllable_sdk/models/a2pmessagingpathcheckrequest.py:
     id: 2cb7c3c6f6e9
     last_write_checksum: sha1:3dcf884ac8fa211d36338dda9ad3e90f3979a28d
@@ -4011,8 +4023,8 @@ trackedFiles:
     pristine_git_object: eb1dec3ade92fca8ac0fffb7d3d8bb56a2e5ddca
   src/syllable_sdk/models/sessiontext.py:
     id: ac61ef6ceeeb
-    last_write_checksum: sha1:e5f6f226205b0c48c84b7c462d30e3ac8ea40a4b
-    pristine_git_object: 9a028fb73de80bf7a5883c1c04e06b5025b3ed2c
+    last_write_checksum: sha1:88c5fe5bc63d604d0e728f07889a8a170953eeb4
+    pristine_git_object: 6735e54e96053740e364af0e93120eb748ad40ca
   src/syllable_sdk/models/sessiontimelineresponse.py:
     id: 869f2be61ea9
     last_write_checksum: sha1:55ed02e86d55224181afb966f9e0eb6fb0d0c3f8
@@ -4221,6 +4233,14 @@ trackedFiles:
     id: 79af5b3874af
     last_write_checksum: sha1:0e362ed81a3b3ce8bd0a679340ca4dc053335304
     pristine_git_object: c875a750ed81ce7a697bf42c9277e42693d2b404
+  src/syllable_sdk/models/transcriptconfidence.py:
+    id: 5ebe07ed736d
+    last_write_checksum: sha1:5ed79ba971a86de4f7b1c7e32f14918b563dc2e7
+    pristine_git_object: 445dfd677a1b33f74c6d821c5a9798b41de6325d
+  src/syllable_sdk/models/transcriptwordconfidence.py:
+    id: 1537d766de7d
+    last_write_checksum: sha1:582b66fb6de8862dd0dfb6a76d4e3deb5f47c794
+    pristine_git_object: 58a5cba46817b55b68b39ce29eda14cf892de57e
   src/syllable_sdk/models/ttsprovider.py:
     id: 415cdf79a6ae
     last_write_checksum: sha1:37cc908fa014303c95645863fdbf3199e6cec808
@@ -6482,6 +6502,9 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Python SDK Changes:
+  * `syllable_sdk.sessions.transcript.get_by_id()`:  `response.transcription[].stt_confidence` **Added**
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
