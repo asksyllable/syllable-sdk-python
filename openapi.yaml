@@ -1681,6 +1681,341 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HTTPValidationError"
+  /api/v1/experiments/:
+    get:
+      tags:
+        - "experiments"
+      summary: "Experiments List"
+      description: "List the existing experiments"
+      operationId: "experiments_list"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "page"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - type: "integer"
+                minimum: 0
+              - type: "null"
+            description: "The page number from which to start (0-based)"
+            examples:
+              - 0
+            default: 0
+            title: "Page"
+          description: "The page number from which to start (0-based)"
+        - name: "limit"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            minimum: 0
+            description: "The maximum number of items to return"
+            examples:
+              - 25
+            default: 25
+            title: "Limit"
+          description: "The maximum number of items to return"
+        - name: "search_fields"
+          in: "query"
+          required: false
+          schema:
+            type: "array"
+            items:
+              $ref: "#/components/schemas/ExperimentProperties"
+            description: "String names of fields to search. Correspond by index to search field values"
+            examples:
+              - "name"
+            default: []
+            title: "Search Fields"
+          description: "String names of fields to search. Correspond by index to search field values"
+        - name: "search_field_values"
+          in: "query"
+          required: false
+          schema:
+            type: "array"
+            items:
+              type: "string"
+            description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+            examples:
+              - "Some Object Name"
+            default: []
+            title: "Search Field Values"
+          description: "Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"
+        - name: "order_by"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - $ref: "#/components/schemas/ExperimentProperties"
+              - type: "null"
+            description: "The field whose value should be used to order the results"
+            examples:
+              - "name"
+            title: "Order By"
+          description: "The field whose value should be used to order the results"
+        - name: "order_by_direction"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - $ref: "#/components/schemas/OrderByDirection"
+              - type: "null"
+            description: "The direction in which to order the results"
+            title: "Order By Direction"
+          description: "The direction in which to order the results"
+        - name: "fields"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - type: "array"
+                items:
+                  $ref: "#/components/schemas/ExperimentProperties"
+              - type: "null"
+            description: "The fields to include in the response"
+            default: []
+            title: "Fields"
+          description: "The fields to include in the response"
+        - name: "start_datetime"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - type: "string"
+              - type: "null"
+            description: "The start datetime for filtering results"
+            examples:
+              - "2023-01-01T00:00:00Z"
+            title: "Start Datetime"
+          description: "The start datetime for filtering results"
+        - name: "end_datetime"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - type: "string"
+              - type: "null"
+            description: "The end datetime for filtering results"
+            examples:
+              - "2024-01-01T00:00:00Z"
+            title: "End Datetime"
+          description: "The end datetime for filtering results"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListResponse_ExperimentResponse_"
+        "400":
+          description: "Bad Request"
+        "422":
+          description: "Validation Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+    post:
+      tags:
+        - "experiments"
+      summary: "Create Experiment"
+      description: "Create a new experiment."
+      operationId: "experiments_create"
+      security:
+        - APIKeyHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExperimentCreateRequest"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExperimentResponse"
+        "400":
+          description: "Bad Request"
+        "422":
+          description: "Validation Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+  /api/v1/experiments/{experiment_id}:
+    get:
+      tags:
+        - "experiments"
+      summary: "Get Experiment By Id"
+      description: "Get an experiment by its ID"
+      operationId: "experiments_get_by_id"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "experiment_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Experiment Id"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExperimentResponse"
+        "404":
+          description: "Not Found"
+        "422":
+          description: "Validation Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+    put:
+      tags:
+        - "experiments"
+      summary: "Update Experiment"
+      description: "Update an experiment. Only an experiment in 'draft' status can be updated."
+      operationId: "experiments_update"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "experiment_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Experiment Id"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExperimentUpdateRequest"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExperimentResponse"
+        "400":
+          description: "Bad Request"
+        "404":
+          description: "Not Found"
+        "422":
+          description: "Validation Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+    delete:
+      tags:
+        - "experiments"
+      summary: "Delete Experiment"
+      description: "Delete a (non-running) experiment."
+      operationId: "experiments_delete"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "experiment_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Experiment Id"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            application/json:
+              schema: {}
+        "400":
+          description: "Bad Request"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+        "422":
+          description: "Validation Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+  /api/v1/experiments/{experiment_id}/start:
+    post:
+      tags:
+        - "experiments"
+      summary: "Start Experiment"
+      description: "Start an experiment. (Only an experiment in 'draft' status can be started.)"
+      operationId: "experiments_start"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "experiment_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Experiment Id"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExperimentStartResponse"
+        "400":
+          description: "Bad Request"
+        "404":
+          description: "Not Found"
+        "409":
+          description: "Conflict"
+        "422":
+          description: "Validation Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+  /api/v1/experiments/{experiment_id}/stop:
+    post:
+      tags:
+        - "experiments"
+      summary: "Stop Experiment"
+      description: "Stop a running experiment."
+      operationId: "experiments_stop"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "experiment_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Experiment Id"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExperimentResponse"
+        "400":
+          description: "Bad Request"
+        "404":
+          description: "Not Found"
+        "422":
+          description: "Validation Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1/incidents/:
     get:
       tags:
@@ -12300,6 +12635,122 @@ components:
         - "id"
       title: "CustomMessageUpdateRequest"
       description: "Request model to update an existing custom message."
+    DaoExperimentTargetSummary:
+      properties:
+        id:
+          type: "integer"
+          title: "Id"
+          description: "The internal ID of the channel target"
+          examples:
+            - 1
+        target:
+          type: "string"
+          title: "Target"
+          description: "The target itself, such as a phone number"
+          examples:
+            - "+19995551234"
+        target_mode:
+          $ref: "#/components/schemas/TargetModes"
+          description: "The mode of the channel target"
+        channel_id:
+          type: "integer"
+          title: "Channel Id"
+          description: "The channel the target belongs to"
+          examples:
+            - 1
+        channel_name:
+          type: "string"
+          title: "Channel Name"
+          description: "The name of that channel"
+          examples:
+            - "Main line"
+      type: "object"
+      required:
+        - "id"
+        - "target"
+        - "target_mode"
+        - "channel_id"
+        - "channel_name"
+      title: "DaoExperimentTargetSummary"
+      description: "The channel target an experiment splits, resolved for display.\n\nEnough to name the target on the experiment card without a second read: the Console shows the\ntarget itself and the channel it belongs to, and links to neither by ID."
+    DaoExperimentVariantDetail:
+      properties:
+        id:
+          type: "integer"
+          title: "Id"
+          description: "The internal ID of the variant"
+          examples:
+            - 1
+        name:
+          type: "string"
+          title: "Name"
+          description: "The name of the variant, which is the grouping key in reports"
+          examples:
+            - "b"
+        weight:
+          type: "integer"
+          title: "Weight"
+          description: "The relative weight of the variant, not a percentage. (E.g., if two variants both have a weight of 10, they are equally likely to be selected.)"
+          examples:
+            - 10
+        is_control:
+          type: "boolean"
+          title: "Is Control"
+          description: "Whether this is the reference variant the others are measured against"
+        agent_id:
+          type: "integer"
+          title: "Agent Id"
+          description: "The agent this variant runs"
+          examples:
+            - 1
+        agent_name:
+          type: "string"
+          title: "Agent Name"
+          description: "The name of that agent"
+          examples:
+            - "Front desk"
+      type: "object"
+      required:
+        - "id"
+        - "name"
+        - "weight"
+        - "is_control"
+        - "agent_id"
+        - "agent_name"
+      title: "DaoExperimentVariantDetail"
+      description: "A variant, with the name of the agent it runs resolved for display."
+    DaoExperimentVariantWrite:
+      properties:
+        name:
+          type: "string"
+          title: "Name"
+          description: "The name of the variant, unique within the experiment"
+          examples:
+            - "b"
+        weight:
+          type: "integer"
+          title: "Weight"
+          description: "The relative weight of the variant, not a percentage. (E.g., if two variants both have a weight of 10, they are equally likely to be selected.)"
+          examples:
+            - 10
+        is_control:
+          type: "boolean"
+          title: "Is Control"
+          description: "Whether this is the reference variant the others are measured against"
+          default: false
+        agent_id:
+          type: "integer"
+          title: "Agent Id"
+          description: "The agent this variant runs"
+          examples:
+            - 1
+      type: "object"
+      required:
+        - "name"
+        - "weight"
+        - "agent_id"
+      title: "DaoExperimentVariantWrite"
+      description: "One variant of an experiment as it is written.\n\nVariants are always written as a complete set, because a weight only means anything next to the\nother weights, so there is no model for writing one on its own. The fields are checked by\n`ExperimentsDao._validate_variants` and not by the model, so that every rule about a variant\nreads in one place."
     DaoToolResponse:
       properties:
         name:
@@ -13789,6 +14240,184 @@ components:
           description: "Actions to execute on the first input from the user."
       type: "object"
       title: "EventTaskEvents"
+    ExperimentCreateRequest:
+      properties:
+        name:
+          type: "string"
+          title: "Name"
+          description: "The name of the experiment"
+          examples:
+            - "Shorter greeting"
+        description:
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Description"
+          description: "The hypothesis under test"
+        variants:
+          items:
+            $ref: "#/components/schemas/DaoExperimentVariantWrite"
+          type: "array"
+          title: "Variants"
+          description: "The variants of the experiment, as a complete set. Two or more, each on a different agent, exactly one of them the control."
+        target_id:
+          type: "integer"
+          title: "Target Id"
+          description: "The channel target being split"
+          examples:
+            - 1
+      type: "object"
+      required:
+        - "name"
+        - "target_id"
+      title: "ExperimentCreateRequest"
+      description: "Request model to create an experiment."
+    ExperimentProperties:
+      type: "string"
+      enum:
+        - "id"
+        - "name"
+        - "name_exact"
+        - "description"
+        - "status"
+        - "target_id"
+        - "agent_id"
+        - "created_at"
+        - "updated_at"
+        - "started_at"
+        - "stopped_at"
+      title: "ExperimentProperties"
+    ExperimentResponse:
+      properties:
+        id:
+          type: "integer"
+          title: "Id"
+          description: "The internal ID of the experiment"
+          examples:
+            - 1
+        name:
+          type: "string"
+          title: "Name"
+          description: "The name of the experiment"
+          examples:
+            - "Shorter greeting"
+        target_id:
+          anyOf:
+            - type: "integer"
+            - type: "null"
+          title: "Target Id"
+          description: "The channel target being split, or null if that target has since been deleted. A running experiment always has one."
+          examples:
+            - 1
+        variants:
+          items:
+            $ref: "#/components/schemas/DaoExperimentVariantDetail"
+          type: "array"
+          title: "Variants"
+          description: "The variants of the experiment, in a stable order"
+        description:
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Description"
+          description: "The hypothesis under test"
+        status:
+          $ref: "#/components/schemas/ExperimentStatus"
+          description: "draft, running, or stopped"
+        started_at:
+          anyOf:
+            - type: "string"
+              format: "date-time"
+            - type: "null"
+          title: "Started At"
+          description: "When the experiment started"
+        stopped_at:
+          anyOf:
+            - type: "string"
+              format: "date-time"
+            - type: "null"
+          title: "Stopped At"
+          description: "When the experiment stopped"
+        created_at:
+          type: "string"
+          format: "date-time"
+          title: "Created At"
+          description: "When the experiment was created"
+        updated_at:
+          type: "string"
+          format: "date-time"
+          title: "Updated At"
+          description: "When the experiment was last written"
+        last_updated_by:
+          type: "string"
+          title: "Last Updated By"
+          description: "Who last wrote it"
+        target:
+          anyOf:
+            - $ref: "#/components/schemas/DaoExperimentTargetSummary"
+            - type: "null"
+          description: "The channel target being split, resolved for display. Null when the target has since been deleted, and when the read did not load it."
+      type: "object"
+      required:
+        - "id"
+        - "name"
+        - "target_id"
+        - "variants"
+        - "status"
+        - "created_at"
+        - "updated_at"
+        - "last_updated_by"
+      title: "ExperimentResponse"
+      description: "Response model for experiment operations.\n\nAn experiment splits the traffic of one channel target between two or more agents, so that the\nagents can be compared on the same population. One variant is the control the others are\nmeasured against. Each variant is a weighted pointer to the agent that variant runs; the weights\nare relative and not percentages."
+    ExperimentStartResponse:
+      properties:
+        experiment:
+          $ref: "#/components/schemas/ExperimentResponse"
+          description: "The experiment, now running"
+        warnings:
+          items:
+            type: "string"
+          type: "array"
+          title: "Warnings"
+          description: "Things that weaken the result without invalidating it, such as a variant whose agent does not pin a prompt version, so that the prompt can be edited while the experiment runs"
+      type: "object"
+      required:
+        - "experiment"
+      title: "ExperimentStartResponse"
+      description: "A started experiment."
+    ExperimentStatus:
+      type: "string"
+      enum:
+        - "draft"
+        - "running"
+        - "stopped"
+      title: "ExperimentStatus"
+      description: "Status of an experiment.\n\nThe column is a varchar and not a database enum, so a new value here does not need a migration."
+    ExperimentUpdateRequest:
+      properties:
+        name:
+          type: "string"
+          title: "Name"
+          description: "The name of the experiment"
+          examples:
+            - "Shorter greeting"
+        description:
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Description"
+          description: "The hypothesis under test"
+        variants:
+          items:
+            $ref: "#/components/schemas/DaoExperimentVariantWrite"
+          type: "array"
+          title: "Variants"
+          description: "The variants of the experiment, as a complete set. Two or more, each on a different agent, exactly one of them the control."
+      type: "object"
+      required:
+        - "name"
+      title: "ExperimentUpdateRequest"
+      description: "Request model to update an experiment."
     ExpressionTask:
       properties:
         id:
@@ -16694,6 +17323,49 @@ components:
         - "page"
         - "page_size"
       title: "ListResponse[Event]"
+    ListResponse_ExperimentResponse_:
+      properties:
+        items:
+          items:
+            $ref: "#/components/schemas/ExperimentResponse"
+          type: "array"
+          title: "Items"
+          description: "List of items returned from the query"
+          examples: []
+        page:
+          type: "integer"
+          title: "Page"
+          description: "The page number of the results (0-based)"
+          examples:
+            - 0
+        page_size:
+          type: "integer"
+          title: "Page Size"
+          description: "The number of items returned per page"
+          examples:
+            - 25
+        total_pages:
+          anyOf:
+            - type: "integer"
+            - type: "null"
+          title: "Total Pages"
+          description: "The total number of pages of results given the indicated page size"
+          examples:
+            - 4
+        total_count:
+          anyOf:
+            - type: "integer"
+            - type: "null"
+          title: "Total Count"
+          description: "The total number of items returned from the query"
+          examples:
+            - 100
+      type: "object"
+      required:
+        - "items"
+        - "page"
+        - "page_size"
+      title: "ListResponse[ExperimentResponse]"
     ListResponse_IncidentResponse_:
       properties:
         items:
