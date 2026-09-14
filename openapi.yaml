@@ -5714,6 +5714,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/SessionTranscriptionResponse"
+        "404":
+          description: "No such session in this organization"
         "422":
           description: "Validation Error"
           content:
@@ -5799,6 +5801,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/SessionTimelineResponse"
+        "404":
+          description: "No such session in this organization"
         "422":
           description: "Validation Error"
           content:
