@@ -504,7 +504,7 @@ actions:
                         },
                         "telephony": {
                             "pre_input_timeout": 1.2,
-                            "overall_input_timeout": 20,
+                            "overall_input_timeout": 20.0,
                             "interruptibility": "dtmf_only",
                             "passive_speech_input_enabled": True,
                             "passive_input_start": 0.5,
@@ -546,7 +546,7 @@ actions:
                         },
                         "telephony": {
                             "pre_input_timeout": 1.2,
-                            "overall_input_timeout": 20,
+                            "overall_input_timeout": 20.0,
                             "interruptibility": "dtmf_only",
                             "passive_speech_input_enabled": True,
                             "passive_input_start": 0.5,
@@ -2228,11 +2228,11 @@ actions:
                     "is_acknowledged": True,
                     "estimate": {
                         "backfill_count": 100,
-                        "backfill_duration": 1000,
+                        "backfill_duration": 1000.0,
                         "estimated_daily_count": 10,
                         "estimated_daily_duration": 3674.11,
                         "estimated_daily_cost": 45.25,
-                        "estimated_backfill_cost": 4561,
+                        "estimated_backfill_cost": 4561.0,
                     },
                 })
 
@@ -2782,7 +2782,7 @@ actions:
                         },
                     ),
                     voicemail_detection=models.VoicemailDetectionConfig(
-                        voicemail_detection_overall_timeout=30,
+                        voicemail_detection_overall_timeout=30.0,
                         voicemail_detection_pre_speech_timeout=3.5,
                         voicemail_detection_post_speech_timeout=1.75,
                     ),
@@ -2922,7 +2922,7 @@ actions:
                         },
                     ),
                     voicemail_detection=models.VoicemailDetectionConfig(
-                        voicemail_detection_overall_timeout=30,
+                        voicemail_detection_overall_timeout=30.0,
                         voicemail_detection_pre_speech_timeout=3.5,
                         voicemail_detection_post_speech_timeout=1.75,
                     ),
@@ -3026,7 +3026,7 @@ actions:
                     "tools": [],
                     "llm_config": {
                         "api_version": "2024-06-01",
-                        "temperature": 1,
+                        "temperature": 1.0,
                         "seed": 123,
                     },
                     "session_end_tool_id": 1,
@@ -3057,7 +3057,7 @@ actions:
                     "tools": [],
                     "llm_config": {
                         "api_version": "2024-06-01",
-                        "temperature": 1,
+                        "temperature": 1.0,
                         "seed": 123,
                     },
                     "session_end_tool_id": 1,
@@ -3832,7 +3832,7 @@ actions:
                             url="https://api.example.com",
                             method=models.ToolHTTPMethod.POST,
                             argument_location=models.ToolArgumentLocation.QUERY,
-                            timeout=45,
+                            timeout=45.0,
                         ),
                         context=models.Context(
                             task=[],
@@ -3895,7 +3895,7 @@ actions:
                             url="https://api.example.com",
                             method=models.ToolHTTPMethod.GET,
                             argument_location=models.ToolArgumentLocation.FORM,
-                            timeout=45,
+                            timeout=45.0,
                         ),
                         context=models.Context(
                             task=models.LoadToolFromFileTask(
@@ -4357,8 +4357,8 @@ actions:
                     "language_code": models.LanguageCode.FA_IR,
                     "voice_provider": models.TtsProvider.GOOGLE,
                     "voice_display_name": models.AgentVoiceDisplayName.VINDEMIATRIX_ENGLISH_,
-                    "voice_speed": 1,
-                    "voice_pitch": 0,
+                    "voice_speed": 1.0,
+                    "voice_pitch": 0.0,
                 })
 
                 # Handle response

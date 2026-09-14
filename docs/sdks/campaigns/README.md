@@ -129,7 +129,7 @@ with SyllableSDK(
             },
         ),
         voicemail_detection=models.VoicemailDetectionConfig(
-            voicemail_detection_overall_timeout=30,
+            voicemail_detection_overall_timeout=30.0,
             voicemail_detection_pre_speech_timeout=3.5,
             voicemail_detection_post_speech_timeout=1.75,
         ),
@@ -297,7 +297,7 @@ with SyllableSDK(
             },
         ),
         voicemail_detection=models.VoicemailDetectionConfig(
-            voicemail_detection_overall_timeout=30,
+            voicemail_detection_overall_timeout=30.0,
             voicemail_detection_pre_speech_timeout=3.5,
             voicemail_detection_post_speech_timeout=1.75,
         ),
