@@ -9354,6 +9354,9 @@
               }
             }
           },
+          "404": {
+            "description": "No such session in this organization"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -9495,6 +9498,9 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "No such session in this organization"
           },
           "422": {
             "description": "Validation Error",
