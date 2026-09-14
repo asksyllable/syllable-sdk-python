@@ -99,7 +99,7 @@ with SyllableSDK(
                 url="https://api.example.com",
                 method=models.ToolHTTPMethod.POST,
                 argument_location=models.ToolArgumentLocation.QUERY,
-                timeout=45,
+                timeout=45.0,
             ),
             context=models.Context(
                 task=[],
@@ -185,7 +185,7 @@ with SyllableSDK(
                 url="https://api.example.com",
                 method=models.ToolHTTPMethod.GET,
                 argument_location=models.ToolArgumentLocation.FORM,
-                timeout=45,
+                timeout=45.0,
             ),
             context=models.Context(
                 task=models.LoadToolFromFileTask(

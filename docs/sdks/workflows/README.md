@@ -577,11 +577,11 @@ with SyllableSDK(
         "is_acknowledged": True,
         "estimate": {
             "backfill_count": 100,
-            "backfill_duration": 1000,
+            "backfill_duration": 1000.0,
             "estimated_daily_count": 10,
             "estimated_daily_duration": 3674.11,
             "estimated_daily_cost": 45.25,
-            "estimated_backfill_cost": 4561,
+            "estimated_backfill_cost": 4561.0,
         },
     })
 

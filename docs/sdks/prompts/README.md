@@ -91,7 +91,7 @@ with SyllableSDK(
         "tools": [],
         "llm_config": {
             "api_version": "2024-06-01",
-            "temperature": 1,
+            "temperature": 1.0,
             "seed": 123,
         },
         "session_end_tool_id": 1,
@@ -145,7 +145,7 @@ with SyllableSDK(
         "tools": [],
         "llm_config": {
             "api_version": "2024-06-01",
-            "temperature": 1,
+            "temperature": 1.0,
             "seed": 123,
         },
         "session_end_tool_id": 1,

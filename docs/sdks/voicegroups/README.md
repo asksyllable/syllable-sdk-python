@@ -287,8 +287,8 @@ with SyllableSDK(
         "language_code": models.LanguageCode.FA_IR,
         "voice_provider": models.TtsProvider.GOOGLE,
         "voice_display_name": models.AgentVoiceDisplayName.VINDEMIATRIX_ENGLISH_,
-        "voice_speed": 1,
-        "voice_pitch": 0,
+        "voice_speed": 1.0,
+        "voice_pitch": 0.0,
     })
 
     # Handle response
