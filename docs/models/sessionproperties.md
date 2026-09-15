@@ -26,6 +26,8 @@ value = SessionProperties.TIMESTAMP
 | `AGENT_NAME`              | agent_name                |
 | `PROMPT_ID`               | prompt_id                 |
 | `PROMPT_NAME`             | prompt_name               |
+| `EXPERIMENT_ID`           | experiment_id             |
+| `EXPERIMENT_VARIANT_ID`   | experiment_variant_id     |
 | `SOURCE`                  | source                    |
 | `TARGET`                  | target                    |
 | `DURATION`                | duration                  |
