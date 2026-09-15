@@ -44,6 +44,14 @@ class SessionTypedDict(TypedDict):
     r"""Legacy prompt version timestamp used by the agent with which the session occurred"""
     prompt_version_number: NotRequired[Nullable[int]]
     r"""Prompt version number used by the agent with which the session occurred (new system)"""
+    experiment_id: NotRequired[Nullable[str]]
+    r"""ID of the agent experiment that was running on the channel target when the session started. Null when no experiment was running, which is the usual case."""
+    experiment_variant_id: NotRequired[Nullable[str]]
+    r"""ID of the experiment variant that answered the session"""
+    experiment_variant: NotRequired[Nullable[str]]
+    r"""Name of the experiment variant that answered the session."""
+    experiment_variant_is_control: NotRequired[Nullable[bool]]
+    r"""Whether the experiment variant that answered the session is the control"""
     duration: NotRequired[Nullable[float]]
     r"""Duration of the session in seconds"""
     session_label_id: NotRequired[Nullable[str]]
@@ -111,6 +119,18 @@ class Session(BaseModel):
     prompt_version_number: OptionalNullable[int] = UNSET
     r"""Prompt version number used by the agent with which the session occurred (new system)"""
 
+    experiment_id: OptionalNullable[str] = UNSET
+    r"""ID of the agent experiment that was running on the channel target when the session started. Null when no experiment was running, which is the usual case."""
+
+    experiment_variant_id: OptionalNullable[str] = UNSET
+    r"""ID of the experiment variant that answered the session"""
+
+    experiment_variant: OptionalNullable[str] = UNSET
+    r"""Name of the experiment variant that answered the session."""
+
+    experiment_variant_is_control: OptionalNullable[bool] = UNSET
+    r"""Whether the experiment variant that answered the session is the control"""
+
     duration: OptionalNullable[float] = UNSET
     r"""Duration of the session in seconds"""
 
@@ -158,6 +178,10 @@ class Session(BaseModel):
                 "prompt_name",
                 "prompt_version",
                 "prompt_version_number",
+                "experiment_id",
+                "experiment_variant_id",
+                "experiment_variant",
+                "experiment_variant_is_control",
                 "duration",
                 "session_label_id",
                 "source",
@@ -185,6 +209,10 @@ class Session(BaseModel):
                 "prompt_name",
                 "prompt_version",
                 "prompt_version_number",
+                "experiment_id",
+                "experiment_variant_id",
+                "experiment_variant",
+                "experiment_variant_is_control",
                 "duration",
                 "session_label_id",
                 "source",
