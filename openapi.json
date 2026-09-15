@@ -9360,6 +9360,9 @@
               }
             }
           },
+          "404": {
+            "description": "No such session in this organization"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -9501,6 +9504,9 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "No such session in this organization"
           },
           "422": {
             "description": "Validation Error",
@@ -37926,6 +37932,21 @@
             "description": "Upload file ID",
             "examples": [
               88
+            ]
+          },
+          "filename": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filename",
+            "description": "Name of the uploaded file; null only when the file is entirely deleted",
+            "examples": [
+              "customer-complaints.wav"
             ]
           },
           "analyzed_at": {
