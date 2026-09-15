@@ -5718,6 +5718,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/SessionTranscriptionResponse"
+        "404":
+          description: "No such session in this organization"
         "422":
           description: "Validation Error"
           content:
@@ -5803,6 +5805,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/SessionTimelineResponse"
+        "404":
+          description: "No such session in this organization"
         "422":
           description: "Validation Error"
           content:
@@ -23922,6 +23926,14 @@ components:
           description: "Upload file ID"
           examples:
             - 88
+        filename:
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Filename"
+          description: "Name of the uploaded file; null only when the file is entirely deleted"
+          examples:
+            - "customer-complaints.wav"
         analyzed_at:
           anyOf:
             - type: "string"

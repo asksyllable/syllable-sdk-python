@@ -29,6 +29,8 @@ class WorkflowFileRowTypedDict(TypedDict):
     r"""When the file was queued for this workflow"""
     status: str
     r"""Execution status of this file under the workflow"""
+    filename: NotRequired[Nullable[str]]
+    r"""Name of the uploaded file; null only when the file is entirely deleted"""
     analyzed_at: NotRequired[Nullable[datetime]]
     r"""When the workflow execution started processing this file; null while the row is still PENDING"""
     error_message: NotRequired[Nullable[str]]
@@ -55,6 +57,9 @@ class WorkflowFileRow(BaseModel):
     status: str
     r"""Execution status of this file under the workflow"""
 
+    filename: OptionalNullable[str] = UNSET
+    r"""Name of the uploaded file; null only when the file is entirely deleted"""
+
     analyzed_at: OptionalNullable[datetime] = UNSET
     r"""When the workflow execution started processing this file; null while the row is still PENDING"""
 
@@ -66,8 +71,8 @@ class WorkflowFileRow(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["analyzed_at", "error_message", "results"])
-        nullable_fields = set(["analyzed_at", "error_message"])
+        optional_fields = set(["filename", "analyzed_at", "error_message", "results"])
+        nullable_fields = set(["filename", "analyzed_at", "error_message"])
         serialized = handler(self)
         m = {}
 
