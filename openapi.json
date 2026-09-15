@@ -32772,6 +32772,54 @@
             "title": "Prompt Version Number",
             "description": "Prompt version number used by the agent with which the session occurred (new system)"
           },
+          "experiment_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Experiment Id",
+            "description": "ID of the agent experiment that was running on the channel target when the session started. Null when no experiment was running, which is the usual case."
+          },
+          "experiment_variant_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Experiment Variant Id",
+            "description": "ID of the experiment variant that answered the session"
+          },
+          "experiment_variant": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Experiment Variant",
+            "description": "Name of the experiment variant that answered the session."
+          },
+          "experiment_variant_is_control": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Experiment Variant Is Control",
+            "description": "Whether the experiment variant that answered the session is the control"
+          },
           "duration": {
             "anyOf": [
               {
@@ -33288,6 +33336,8 @@
           "agent_name",
           "prompt_id",
           "prompt_name",
+          "experiment_id",
+          "experiment_variant_id",
           "source",
           "target",
           "duration",
