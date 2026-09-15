@@ -668,6 +668,8 @@ if TYPE_CHECKING:
         InsightsWorkflowExecutionsSummaryRequestTypedDict,
     )
     from .insights_workflow_executionsop import (
+        FieldT,
+        InsightsWorkflowExecutionsOrderBy,
         InsightsWorkflowExecutionsRequest,
         InsightsWorkflowExecutionsRequestTypedDict,
     )
@@ -675,6 +677,7 @@ if TYPE_CHECKING:
         InsightsWorkflowFilesOrderBy,
         InsightsWorkflowFilesRequest,
         InsightsWorkflowFilesRequestTypedDict,
+        InsightsWorkflowFilesSearchField,
     )
     from .insights_workflow_get_by_idop import (
         InsightsWorkflowGetByIDRequest,
@@ -692,7 +695,7 @@ if TYPE_CHECKING:
         InsightsWorkflowSessionsOrderBy,
         InsightsWorkflowSessionsRequest,
         InsightsWorkflowSessionsRequestTypedDict,
-        SearchField,
+        InsightsWorkflowSessionsSearchField,
     )
     from .insights_workflow_updateop import (
         InsightsWorkflowUpdateRequest,
@@ -755,7 +758,6 @@ if TYPE_CHECKING:
         InsightWorkflowExecutionOutput,
         InsightWorkflowExecutionOutputTypedDict,
     )
-    from .insightworkflowexecutionproperties import InsightWorkflowExecutionProperties
     from .insightworkflowexecutionsummary import (
         InsightWorkflowExecutionSummary,
         InsightWorkflowExecutionSummaryTypedDict,
@@ -1853,6 +1855,7 @@ __all__ = [
     "ExpressionTaskEventsSubmitTypedDict",
     "ExpressionTaskEventsTypedDict",
     "ExpressionTaskTypedDict",
+    "FieldT",
     "File",
     "FileTypedDict",
     "FilterOp",
@@ -1932,7 +1935,6 @@ __all__ = [
     "InsightWorkflowEstimateTypedDict",
     "InsightWorkflowExecutionOutput",
     "InsightWorkflowExecutionOutputTypedDict",
-    "InsightWorkflowExecutionProperties",
     "InsightWorkflowExecutionSummary",
     "InsightWorkflowExecutionSummaryTypedDict",
     "InsightWorkflowInput",
@@ -1979,6 +1981,7 @@ __all__ = [
     "InsightsWorkflowActivateRequestTypedDict",
     "InsightsWorkflowDeleteRequest",
     "InsightsWorkflowDeleteRequestTypedDict",
+    "InsightsWorkflowExecutionsOrderBy",
     "InsightsWorkflowExecutionsRequest",
     "InsightsWorkflowExecutionsRequestTypedDict",
     "InsightsWorkflowExecutionsSummaryRequest",
@@ -1986,6 +1989,7 @@ __all__ = [
     "InsightsWorkflowFilesOrderBy",
     "InsightsWorkflowFilesRequest",
     "InsightsWorkflowFilesRequestTypedDict",
+    "InsightsWorkflowFilesSearchField",
     "InsightsWorkflowGetByIDRequest",
     "InsightsWorkflowGetByIDRequestTypedDict",
     "InsightsWorkflowInactivateRequest",
@@ -1997,6 +2001,7 @@ __all__ = [
     "InsightsWorkflowSessionsOrderBy",
     "InsightsWorkflowSessionsRequest",
     "InsightsWorkflowSessionsRequestTypedDict",
+    "InsightsWorkflowSessionsSearchField",
     "InsightsWorkflowUpdateRequest",
     "InsightsWorkflowUpdateRequestTypedDict",
     "InspectLatencyResponse",
@@ -2268,7 +2273,6 @@ __all__ = [
     "ScheduleOverrideTypedDict",
     "SchemasCortexV1BridgePhrasesBridgePhraseMessages",
     "SchemasCortexV1BridgePhrasesBridgePhraseMessagesTypedDict",
-    "SearchField",
     "Security",
     "SecurityTypedDict",
     "ServiceCreateRequest",
@@ -2971,11 +2975,14 @@ _dynamic_imports: dict[str, str] = {
     "InsightsWorkflowDeleteRequestTypedDict": ".insights_workflow_deleteop",
     "InsightsWorkflowExecutionsSummaryRequest": ".insights_workflow_executions_summaryop",
     "InsightsWorkflowExecutionsSummaryRequestTypedDict": ".insights_workflow_executions_summaryop",
+    "FieldT": ".insights_workflow_executionsop",
+    "InsightsWorkflowExecutionsOrderBy": ".insights_workflow_executionsop",
     "InsightsWorkflowExecutionsRequest": ".insights_workflow_executionsop",
     "InsightsWorkflowExecutionsRequestTypedDict": ".insights_workflow_executionsop",
     "InsightsWorkflowFilesOrderBy": ".insights_workflow_filesop",
     "InsightsWorkflowFilesRequest": ".insights_workflow_filesop",
     "InsightsWorkflowFilesRequestTypedDict": ".insights_workflow_filesop",
+    "InsightsWorkflowFilesSearchField": ".insights_workflow_filesop",
     "InsightsWorkflowGetByIDRequest": ".insights_workflow_get_by_idop",
     "InsightsWorkflowGetByIDRequestTypedDict": ".insights_workflow_get_by_idop",
     "InsightsWorkflowInactivateRequest": ".insights_workflow_inactivateop",
@@ -2985,7 +2992,7 @@ _dynamic_imports: dict[str, str] = {
     "InsightsWorkflowSessionsOrderBy": ".insights_workflow_sessionsop",
     "InsightsWorkflowSessionsRequest": ".insights_workflow_sessionsop",
     "InsightsWorkflowSessionsRequestTypedDict": ".insights_workflow_sessionsop",
-    "SearchField": ".insights_workflow_sessionsop",
+    "InsightsWorkflowSessionsSearchField": ".insights_workflow_sessionsop",
     "InsightsWorkflowUpdateRequest": ".insights_workflow_updateop",
     "InsightsWorkflowUpdateRequestTypedDict": ".insights_workflow_updateop",
     "InsightsFolder": ".insightsfolder",
@@ -3030,7 +3037,6 @@ _dynamic_imports: dict[str, str] = {
     "InsightWorkflowEstimateTypedDict": ".insightworkflowestimate",
     "InsightWorkflowExecutionOutput": ".insightworkflowexecutionoutput",
     "InsightWorkflowExecutionOutputTypedDict": ".insightworkflowexecutionoutput",
-    "InsightWorkflowExecutionProperties": ".insightworkflowexecutionproperties",
     "InsightWorkflowExecutionSummary": ".insightworkflowexecutionsummary",
     "InsightWorkflowExecutionSummaryTypedDict": ".insightworkflowexecutionsummary",
     "InsightWorkflowInput": ".insightworkflowinput",
