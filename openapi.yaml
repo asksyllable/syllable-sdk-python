@@ -3290,11 +3290,20 @@ paths:
           required: false
           schema:
             anyOf:
-              - $ref: "#/components/schemas/InsightWorkflowExecutionProperties"
+              - enum:
+                  - "id"
+                  - "status"
+                  - "created_at"
+                  - "started_at"
+                  - "priority"
+                  - "session_id"
+                  - "upload_file_id"
+                  - "event_type"
+                type: "string"
               - type: "null"
             description: "The field whose value should be used to order the results"
             examples:
-              - "name"
+              - "created_at"
             title: "Order By"
           description: "The field whose value should be used to order the results"
         - name: "order_by_direction"
@@ -3314,7 +3323,16 @@ paths:
             anyOf:
               - type: "array"
                 items:
-                  $ref: "#/components/schemas/InsightWorkflowExecutionProperties"
+                  enum:
+                    - "id"
+                    - "status"
+                    - "created_at"
+                    - "started_at"
+                    - "priority"
+                    - "session_id"
+                    - "upload_file_id"
+                    - "event_type"
+                  type: "string"
               - type: "null"
             description: "The fields to include in the response"
             default: []
@@ -3540,11 +3558,13 @@ paths:
           schema:
             type: "array"
             items:
-              const: "status"
+              enum:
+                - "status"
+                - "filename"
               type: "string"
             description: "String names of fields to search. Correspond by index to search field values"
             examples:
-              - "status"
+              - "filename"
             default: []
             title: "Search Fields"
           description: "String names of fields to search. Correspond by index to search field values"
@@ -15641,6 +15661,7 @@ components:
         - "session_id"
         - "upload_file_id"
         - "event_type"
+        - "filename"
       title: "InsightWorkflowExecutionProperties"
     InsightWorkflowExecutionSummary:
       properties:

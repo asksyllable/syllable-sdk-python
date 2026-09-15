@@ -1,11 +1,11 @@
-# SearchField
+# InsightsWorkflowSessionsSearchField
 
 ## Example Usage
 
 ```python
-from syllable_sdk.models import SearchField
+from syllable_sdk.models import InsightsWorkflowSessionsSearchField
 
-value = SearchField.SESSION_ID
+value = InsightsWorkflowSessionsSearchField.SESSION_ID
 ```
 
 

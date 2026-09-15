@@ -16,7 +16,7 @@ from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class SearchField(str, Enum):
+class InsightsWorkflowSessionsSearchField(str, Enum):
     SESSION_ID = "session_id"
     STATUS = "status"
 
@@ -36,7 +36,7 @@ class InsightsWorkflowSessionsRequestTypedDict(TypedDict):
     r"""The page number from which to start (0-based)"""
     limit: NotRequired[int]
     r"""The maximum number of items to return"""
-    search_fields: NotRequired[List[SearchField]]
+    search_fields: NotRequired[List[InsightsWorkflowSessionsSearchField]]
     r"""String names of fields to search. Correspond by index to search field values"""
     search_field_values: NotRequired[List[str]]
     r"""Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list"""
@@ -68,7 +68,7 @@ class InsightsWorkflowSessionsRequest(BaseModel):
     r"""The maximum number of items to return"""
 
     search_fields: Annotated[
-        Optional[List[SearchField]],
+        Optional[List[InsightsWorkflowSessionsSearchField]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
     r"""String names of fields to search. Correspond by index to search field values"""

@@ -1,11 +1,11 @@
-# InsightWorkflowExecutionProperties
+# FieldT
 
 ## Example Usage
 
 ```python
-from syllable_sdk.models import InsightWorkflowExecutionProperties
+from syllable_sdk.models import FieldT
 
-value = InsightWorkflowExecutionProperties.ID
+value = FieldT.ID
 ```
 
 

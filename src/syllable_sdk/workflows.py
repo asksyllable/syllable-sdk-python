@@ -1042,11 +1042,9 @@ class Workflows(BaseSDK):
         limit: Optional[int] = 25,
         search_fields: Optional[Iterable[str]] = None,
         search_field_values: Optional[Iterable[str]] = None,
-        order_by: OptionalNullable[models.InsightWorkflowExecutionProperties] = UNSET,
+        order_by: OptionalNullable[models.InsightsWorkflowExecutionsOrderBy] = UNSET,
         order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
-        fields: OptionalNullable[
-            Iterable[models.InsightWorkflowExecutionProperties]
-        ] = UNSET,
+        fields: OptionalNullable[Iterable[models.FieldT]] = UNSET,
         start_datetime: OptionalNullable[str] = UNSET,
         end_datetime: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -1093,10 +1091,7 @@ class Workflows(BaseSDK):
             ),
             order_by=order_by,
             order_by_direction=order_by_direction,
-            fields=utils.unmarshal(
-                fields,
-                OptionalNullable[List[models.InsightWorkflowExecutionProperties]],
-            ),
+            fields=utils.unmarshal(fields, OptionalNullable[List[models.FieldT]]),
             start_datetime=start_datetime,
             end_datetime=end_datetime,
         )
@@ -1170,11 +1165,9 @@ class Workflows(BaseSDK):
         limit: Optional[int] = 25,
         search_fields: Optional[Iterable[str]] = None,
         search_field_values: Optional[Iterable[str]] = None,
-        order_by: OptionalNullable[models.InsightWorkflowExecutionProperties] = UNSET,
+        order_by: OptionalNullable[models.InsightsWorkflowExecutionsOrderBy] = UNSET,
         order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
-        fields: OptionalNullable[
-            Iterable[models.InsightWorkflowExecutionProperties]
-        ] = UNSET,
+        fields: OptionalNullable[Iterable[models.FieldT]] = UNSET,
         start_datetime: OptionalNullable[str] = UNSET,
         end_datetime: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -1221,10 +1214,7 @@ class Workflows(BaseSDK):
             ),
             order_by=order_by,
             order_by_direction=order_by_direction,
-            fields=utils.unmarshal(
-                fields,
-                OptionalNullable[List[models.InsightWorkflowExecutionProperties]],
-            ),
+            fields=utils.unmarshal(fields, OptionalNullable[List[models.FieldT]]),
             start_datetime=start_datetime,
             end_datetime=end_datetime,
         )
@@ -1296,7 +1286,9 @@ class Workflows(BaseSDK):
         workflow_id: int,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
-        search_fields: Optional[Iterable[models.SearchField]] = None,
+        search_fields: Optional[
+            Iterable[models.InsightsWorkflowSessionsSearchField]
+        ] = None,
         search_field_values: Optional[Iterable[str]] = None,
         order_by: OptionalNullable[models.InsightsWorkflowSessionsOrderBy] = UNSET,
         order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
@@ -1346,7 +1338,8 @@ class Workflows(BaseSDK):
             page=page,
             limit=limit,
             search_fields=utils.unmarshal(
-                search_fields, Optional[List[models.SearchField]]
+                search_fields,
+                Optional[List[models.InsightsWorkflowSessionsSearchField]],
             ),
             search_field_values=utils.unmarshal(
                 search_field_values, Optional[List[str]]
@@ -1424,7 +1417,9 @@ class Workflows(BaseSDK):
         workflow_id: int,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
-        search_fields: Optional[Iterable[models.SearchField]] = None,
+        search_fields: Optional[
+            Iterable[models.InsightsWorkflowSessionsSearchField]
+        ] = None,
         search_field_values: Optional[Iterable[str]] = None,
         order_by: OptionalNullable[models.InsightsWorkflowSessionsOrderBy] = UNSET,
         order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
@@ -1474,7 +1469,8 @@ class Workflows(BaseSDK):
             page=page,
             limit=limit,
             search_fields=utils.unmarshal(
-                search_fields, Optional[List[models.SearchField]]
+                search_fields,
+                Optional[List[models.InsightsWorkflowSessionsSearchField]],
             ),
             search_field_values=utils.unmarshal(
                 search_field_values, Optional[List[str]]
@@ -1552,7 +1548,9 @@ class Workflows(BaseSDK):
         workflow_id: int,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
-        search_fields: Optional[Iterable[str]] = None,
+        search_fields: Optional[
+            Iterable[models.InsightsWorkflowFilesSearchField]
+        ] = None,
         search_field_values: Optional[Iterable[str]] = None,
         order_by: OptionalNullable[models.InsightsWorkflowFilesOrderBy] = UNSET,
         order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
@@ -1601,7 +1599,9 @@ class Workflows(BaseSDK):
             workflow_id=workflow_id,
             page=page,
             limit=limit,
-            search_fields=utils.unmarshal(search_fields, Optional[List[str]]),
+            search_fields=utils.unmarshal(
+                search_fields, Optional[List[models.InsightsWorkflowFilesSearchField]]
+            ),
             search_field_values=utils.unmarshal(
                 search_field_values, Optional[List[str]]
             ),
@@ -1676,7 +1676,9 @@ class Workflows(BaseSDK):
         workflow_id: int,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
-        search_fields: Optional[Iterable[str]] = None,
+        search_fields: Optional[
+            Iterable[models.InsightsWorkflowFilesSearchField]
+        ] = None,
         search_field_values: Optional[Iterable[str]] = None,
         order_by: OptionalNullable[models.InsightsWorkflowFilesOrderBy] = UNSET,
         order_by_direction: OptionalNullable[models.OrderByDirection] = UNSET,
@@ -1725,7 +1727,9 @@ class Workflows(BaseSDK):
             workflow_id=workflow_id,
             page=page,
             limit=limit,
-            search_fields=utils.unmarshal(search_fields, Optional[List[str]]),
+            search_fields=utils.unmarshal(
+                search_fields, Optional[List[models.InsightsWorkflowFilesSearchField]]
+            ),
             search_field_values=utils.unmarshal(
                 search_field_values, Optional[List[str]]
             ),
