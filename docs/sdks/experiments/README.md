@@ -9,6 +9,7 @@
 * [get_by_id](#get_by_id) - Get Experiment By Id
 * [update](#update) - Update Experiment
 * [delete](#delete) - Delete Experiment
+* [results](#results) - Get Experiment Results
 * [experiments_start](#experiments_start) - Start Experiment
 * [experiments_stop](#experiments_stop) - Stop Experiment
 
@@ -241,6 +242,47 @@ with SyllableSDK(
 ### Response
 
 **[Any](../../models/.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## results
+
+Get the number of sessions each variant of an experiment has handled.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="experiments_results" method="get" path="/api/v1/experiments/{experiment_id}/results" -->
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.experiments.results(experiment_id=151833)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `experiment_id`                                                     | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ExperimentResultsResponse](../../models/experimentresultsresponse.md)**
 
 ### Errors
 

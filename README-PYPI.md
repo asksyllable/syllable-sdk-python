@@ -339,6 +339,7 @@ with SyllableSDK(
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/experiments/README.md#get_by_id) - Get Experiment By Id
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/experiments/README.md#update) - Update Experiment
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/experiments/README.md#delete) - Delete Experiment
+* [results](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/experiments/README.md#results) - Get Experiment Results
 * [experiments_start](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/experiments/README.md#experiments_start) - Start Experiment
 * [experiments_stop](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/experiments/README.md#experiments_stop) - Stop Experiment
 

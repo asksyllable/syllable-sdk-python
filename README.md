@@ -339,6 +339,7 @@ with SyllableSDK(
 * [get_by_id](docs/sdks/experiments/README.md#get_by_id) - Get Experiment By Id
 * [update](docs/sdks/experiments/README.md#update) - Update Experiment
 * [delete](docs/sdks/experiments/README.md#delete) - Delete Experiment
+* [results](docs/sdks/experiments/README.md#results) - Get Experiment Results
 * [experiments_start](docs/sdks/experiments/README.md#experiments_start) - Start Experiment
 * [experiments_stop](docs/sdks/experiments/README.md#experiments_stop) - Stop Experiment
 
