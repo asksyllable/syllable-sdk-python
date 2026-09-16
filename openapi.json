@@ -3207,6 +3207,60 @@
         }
       }
     },
+    "/api/v1/experiments/{experiment_id}/results": {
+      "get": {
+        "tags": [
+          "experiments"
+        ],
+        "summary": "Get Experiment Results",
+        "description": "Get the number of sessions each variant of an experiment has handled.",
+        "operationId": "experiments_results",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "experiment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Experiment Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExperimentResultsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/experiments/{experiment_id}/start": {
       "post": {
         "tags": [
@@ -23041,6 +23095,33 @@
         "title": "ExperimentResponse",
         "description": "Response model for experiment operations.\n\nAn experiment splits the traffic of one channel target between two or more agents, so that the\nagents can be compared on the same population. One variant is the control the others are\nmeasured against. Each variant is a weighted pointer to the agent that variant runs; the weights\nare relative and not percentages."
       },
+      "ExperimentResultsResponse": {
+        "properties": {
+          "experiment_id": {
+            "type": "integer",
+            "title": "Experiment Id",
+            "description": "The internal ID of the experiment",
+            "examples": [
+              1
+            ]
+          },
+          "variants": {
+            "items": {
+              "$ref": "#/components/schemas/ExperimentVariantResult"
+            },
+            "type": "array",
+            "title": "Variants",
+            "description": "The variants of the experiment, in the same order as the experiment lists them"
+          }
+        },
+        "type": "object",
+        "required": [
+          "experiment_id",
+          "variants"
+        ],
+        "title": "ExperimentResultsResponse",
+        "description": "What an experiment has collected so far."
+      },
       "ExperimentStartResponse": {
         "properties": {
           "experiment": {
@@ -23110,6 +23191,33 @@
         ],
         "title": "ExperimentUpdateRequest",
         "description": "Request model to update an experiment."
+      },
+      "ExperimentVariantResult": {
+        "properties": {
+          "variant_id": {
+            "type": "integer",
+            "title": "Variant Id",
+            "description": "The internal ID of the variant",
+            "examples": [
+              1
+            ]
+          },
+          "session_count": {
+            "type": "integer",
+            "title": "Session Count",
+            "description": "How many sessions this variant answered",
+            "examples": [
+              1050
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "variant_id",
+          "session_count"
+        ],
+        "title": "ExperimentVariantResult",
+        "description": "How much traffic one variant of an experiment handled."
       },
       "ExpressionTask": {
         "properties": {
