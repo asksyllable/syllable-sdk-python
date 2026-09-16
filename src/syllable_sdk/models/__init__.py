@@ -488,6 +488,10 @@ if TYPE_CHECKING:
     )
     from .experimentproperties import ExperimentProperties
     from .experimentresponse import ExperimentResponse, ExperimentResponseTypedDict
+    from .experimentresultsresponse import (
+        ExperimentResultsResponse,
+        ExperimentResultsResponseTypedDict,
+    )
     from .experiments_deleteop import (
         ExperimentsDeleteRequest,
         ExperimentsDeleteRequestTypedDict,
@@ -499,6 +503,10 @@ if TYPE_CHECKING:
     from .experiments_listop import (
         ExperimentsListRequest,
         ExperimentsListRequestTypedDict,
+    )
+    from .experiments_resultsop import (
+        ExperimentsResultsRequest,
+        ExperimentsResultsRequestTypedDict,
     )
     from .experiments_startop import (
         ExperimentsStartRequest,
@@ -520,6 +528,10 @@ if TYPE_CHECKING:
     from .experimentupdaterequest import (
         ExperimentUpdateRequest,
         ExperimentUpdateRequestTypedDict,
+    )
+    from .experimentvariantresult import (
+        ExperimentVariantResult,
+        ExperimentVariantResultTypedDict,
     )
     from .expressiontask import (
         Expression1,
@@ -1826,17 +1838,23 @@ __all__ = [
     "ExperimentProperties",
     "ExperimentResponse",
     "ExperimentResponseTypedDict",
+    "ExperimentResultsResponse",
+    "ExperimentResultsResponseTypedDict",
     "ExperimentStartResponse",
     "ExperimentStartResponseTypedDict",
     "ExperimentStatus",
     "ExperimentUpdateRequest",
     "ExperimentUpdateRequestTypedDict",
+    "ExperimentVariantResult",
+    "ExperimentVariantResultTypedDict",
     "ExperimentsDeleteRequest",
     "ExperimentsDeleteRequestTypedDict",
     "ExperimentsGetByIDRequest",
     "ExperimentsGetByIDRequestTypedDict",
     "ExperimentsListRequest",
     "ExperimentsListRequestTypedDict",
+    "ExperimentsResultsRequest",
+    "ExperimentsResultsRequestTypedDict",
     "ExperimentsStartRequest",
     "ExperimentsStartRequestTypedDict",
     "ExperimentsStopRequest",
@@ -2866,12 +2884,16 @@ _dynamic_imports: dict[str, str] = {
     "ExperimentProperties": ".experimentproperties",
     "ExperimentResponse": ".experimentresponse",
     "ExperimentResponseTypedDict": ".experimentresponse",
+    "ExperimentResultsResponse": ".experimentresultsresponse",
+    "ExperimentResultsResponseTypedDict": ".experimentresultsresponse",
     "ExperimentsDeleteRequest": ".experiments_deleteop",
     "ExperimentsDeleteRequestTypedDict": ".experiments_deleteop",
     "ExperimentsGetByIDRequest": ".experiments_get_by_idop",
     "ExperimentsGetByIDRequestTypedDict": ".experiments_get_by_idop",
     "ExperimentsListRequest": ".experiments_listop",
     "ExperimentsListRequestTypedDict": ".experiments_listop",
+    "ExperimentsResultsRequest": ".experiments_resultsop",
+    "ExperimentsResultsRequestTypedDict": ".experiments_resultsop",
     "ExperimentsStartRequest": ".experiments_startop",
     "ExperimentsStartRequestTypedDict": ".experiments_startop",
     "ExperimentsStopRequest": ".experiments_stopop",
@@ -2883,6 +2905,8 @@ _dynamic_imports: dict[str, str] = {
     "ExperimentStatus": ".experimentstatus",
     "ExperimentUpdateRequest": ".experimentupdaterequest",
     "ExperimentUpdateRequestTypedDict": ".experimentupdaterequest",
+    "ExperimentVariantResult": ".experimentvariantresult",
+    "ExperimentVariantResultTypedDict": ".experimentvariantresult",
     "Expression1": ".expressiontask",
     "Expression1TypedDict": ".expressiontask",
     "Expression2": ".expressiontask",
