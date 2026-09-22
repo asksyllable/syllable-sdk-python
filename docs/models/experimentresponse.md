@@ -4,8 +4,8 @@ Response model for experiment operations.
 
 An experiment splits the traffic of one channel target between two or more agents, so that the
 agents can be compared on the same population. One variant is the control the others are
-measured against. Each variant is a weighted pointer to the agent that variant runs; the weights
-are relative and not percentages.
+measured against. Each variant points at the agent that variant runs and carries the
+percentage of traffic it answers; the weights of an experiment add up to 100.
 
 
 ## Fields

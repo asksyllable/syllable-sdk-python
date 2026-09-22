@@ -16,8 +16,8 @@ class ExperimentStartResponseTypedDict(TypedDict):
 
     An experiment splits the traffic of one channel target between two or more agents, so that the
     agents can be compared on the same population. One variant is the control the others are
-    measured against. Each variant is a weighted pointer to the agent that variant runs; the weights
-    are relative and not percentages.
+    measured against. Each variant points at the agent that variant runs and carries the
+    percentage of traffic it answers; the weights of an experiment add up to 100.
     """
     warnings: NotRequired[List[str]]
     r"""Things that weaken the result without invalidating it, such as a variant whose agent does not pin a prompt version, so that the prompt can be edited while the experiment runs"""
@@ -31,8 +31,8 @@ class ExperimentStartResponse(BaseModel):
 
     An experiment splits the traffic of one channel target between two or more agents, so that the
     agents can be compared on the same population. One variant is the control the others are
-    measured against. Each variant is a weighted pointer to the agent that variant runs; the weights
-    are relative and not percentages.
+    measured against. Each variant points at the agent that variant runs and carries the
+    percentage of traffic it answers; the weights of an experiment add up to 100.
     """
 
     warnings: Optional[List[str]] = None
