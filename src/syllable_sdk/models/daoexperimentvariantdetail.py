@@ -13,7 +13,7 @@ class DaoExperimentVariantDetailTypedDict(TypedDict):
     name: str
     r"""The name of the variant, which is the grouping key in reports"""
     weight: int
-    r"""The relative weight of the variant, not a percentage. (E.g., if two variants both have a weight of 10, they are equally likely to be selected.)"""
+    r"""The percentage of the channel target's traffic this variant answers. The weights of an experiment's variants must add up to 100. (E.g., two variants with a weight of 50 each split the traffic evenly.)"""
     is_control: bool
     r"""Whether this is the reference variant the others are measured against"""
     agent_id: int
@@ -32,7 +32,7 @@ class DaoExperimentVariantDetail(BaseModel):
     r"""The name of the variant, which is the grouping key in reports"""
 
     weight: int
-    r"""The relative weight of the variant, not a percentage. (E.g., if two variants both have a weight of 10, they are equally likely to be selected.)"""
+    r"""The percentage of the channel target's traffic this variant answers. The weights of an experiment's variants must add up to 100. (E.g., two variants with a weight of 50 each split the traffic evenly.)"""
 
     is_control: bool
     r"""Whether this is the reference variant the others are measured against"""
