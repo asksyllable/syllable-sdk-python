@@ -33,7 +33,10 @@ class Directory(BaseSDK):
     ) -> models.ListResponseDirectoryMember:
         r"""Directory Member List
 
-        List the directory_members
+        List directory members.
+
+        Filter by contact tags with `tags.<key>=<value>`. Repeat a key to match any of its
+        values; filters for different keys must all match. Unknown keys return no matches.
 
         :param include_deleted: If true, include soft-deleted members in the list. Default excludes them.
         :param response_format: Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.
@@ -161,7 +164,10 @@ class Directory(BaseSDK):
     ) -> models.ListResponseDirectoryMember:
         r"""Directory Member List
 
-        List the directory_members
+        List directory members.
+
+        Filter by contact tags with `tags.<key>=<value>`. Repeat a key to match any of its
+        values; filters for different keys must all match. Unknown keys return no matches.
 
         :param include_deleted: If true, include soft-deleted members in the list. Default excludes them.
         :param response_format: Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.

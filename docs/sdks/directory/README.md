@@ -19,7 +19,10 @@ Operations related to directory
 
 ## list
 
-List the directory_members
+List directory members.
+
+Filter by contact tags with `tags.<key>=<value>`. Repeat a key to match any of its
+values; filters for different keys must all match. Unknown keys return no matches.
 
 ### Example Usage
 
