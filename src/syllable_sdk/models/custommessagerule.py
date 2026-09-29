@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from .dayofweek import DayOfWeek
+from .holiday import Holiday
 import pydantic
 from pydantic import model_serializer
 from syllable_sdk.types import (
@@ -32,6 +33,8 @@ class CustomMessageRuleTypedDict(TypedDict):
     r"""The end of the time range for the rule in 24-hour format hh:mm (should be null for \"all day\" cases)"""
     date_: NotRequired[Nullable[str]]
     r"""The date for the rule in YYYY-MM-DD format"""
+    holidays: NotRequired[Nullable[List[Holiday]]]
+    r"""Named holidays for the rule. Matches if the current date is any of them, resolved in the assigned agent timezone, so no per-year rule is needed. Accepts the same names the @hours rule engine accepts and stores them canonically."""
     days_of_week: NotRequired[Nullable[List[DayOfWeek]]]
     r"""The days of the week for the rule"""
 
@@ -59,16 +62,19 @@ class CustomMessageRule(BaseModel):
     date_: Annotated[OptionalNullable[str], pydantic.Field(alias="date")] = UNSET
     r"""The date for the rule in YYYY-MM-DD format"""
 
+    holidays: OptionalNullable[List[Holiday]] = UNSET
+    r"""Named holidays for the rule. Matches if the current date is any of them, resolved in the assigned agent timezone, so no per-year rule is needed. Accepts the same names the @hours rule engine accepts and stores them canonically."""
+
     days_of_week: OptionalNullable[List[DayOfWeek]] = UNSET
     r"""The days of the week for the rule"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            ["time_range_start", "time_range_end", "date", "days_of_week"]
+            ["time_range_start", "time_range_end", "date", "holidays", "days_of_week"]
         )
         nullable_fields = set(
-            ["time_range_start", "time_range_end", "date", "days_of_week"]
+            ["time_range_start", "time_range_end", "date", "holidays", "days_of_week"]
         )
         serialized = handler(self)
         m = {}
