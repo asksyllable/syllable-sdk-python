@@ -10964,7 +10964,7 @@ components:
             - true
       type: "object"
       title: "BridgePhrasesConfigPayload"
-      description: "The `config` JSONB payload stored on a bridge_phrases row.\n\nHolds the default phrases plus an inline list of per-tool overrides, each with\noptional per-language (`localized`) overrides. Mirrors the shape documented in\ndocs/bridge-phrases-table-migration.md §5.2."
+      description: "The `config` JSONB payload stored on a bridge_phrases row.\n\nHolds the default phrases plus an inline list of per-tool overrides, each with\noptional per-language (`localized`) overrides. Mirrors the shape documented in\ndocs/lib/database/bridge-phrases-table-migration.md §5.2."
     BridgePhrasesCreateRequest:
       properties:
         name:
@@ -21793,6 +21793,14 @@ components:
             - type: "null"
           title: "Fallback"
           description: "Model substituted at runtime for critical features once this one is retired."
+          examples:
+            - null
+        replacement:
+          anyOf:
+            - type: "string"
+            - type: "null"
+          title: "Replacement"
+          description: "Provider-recommended replacement for this model version; no automatic substitution."
           examples:
             - null
         status:

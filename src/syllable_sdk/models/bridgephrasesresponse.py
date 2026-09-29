@@ -46,7 +46,7 @@ class BridgePhrasesResponseTypedDict(TypedDict):
 
     Holds the default phrases plus an inline list of per-tool overrides, each with
     optional per-language (`localized`) overrides. Mirrors the shape documented in
-    docs/bridge-phrases-table-migration.md §5.2.
+    docs/lib/database/bridge-phrases-table-migration.md §5.2.
     """
     is_default: NotRequired[bool]
     r"""Whether this config is currently marked as the default for its suborg."""
@@ -85,7 +85,7 @@ class BridgePhrasesResponse(BaseModel):
 
     Holds the default phrases plus an inline list of per-tool overrides, each with
     optional per-language (`localized`) overrides. Mirrors the shape documented in
-    docs/bridge-phrases-table-migration.md §5.2.
+    docs/lib/database/bridge-phrases-table-migration.md §5.2.
     """
 
     is_default: Optional[bool] = False

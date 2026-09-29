@@ -4,7 +4,7 @@ The `config` JSONB payload stored on a bridge_phrases row.
 
 Holds the default phrases plus an inline list of per-tool overrides, each with
 optional per-language (`localized`) overrides. Mirrors the shape documented in
-docs/bridge-phrases-table-migration.md §5.2.
+docs/lib/database/bridge-phrases-table-migration.md §5.2.
 
 
 ## Fields

@@ -38,6 +38,8 @@ class SupportedLlmTypedDict(TypedDict):
     r"""Whether the model is force-retired regardless of sunset_date."""
     fallback: NotRequired[Nullable[str]]
     r"""Model substituted at runtime for critical features once this one is retired."""
+    replacement: NotRequired[Nullable[str]]
+    r"""Provider-recommended replacement for this model version; no automatic substitution."""
     status: NotRequired[Nullable[LifecycleStatus]]
     r"""Effective lifecycle status, resolved server-side against the current date. Populated on API responses; unset in the static catalog."""
 
@@ -77,6 +79,9 @@ class SupportedLlm(BaseModel):
     fallback: OptionalNullable[str] = UNSET
     r"""Model substituted at runtime for critical features once this one is retired."""
 
+    replacement: OptionalNullable[str] = UNSET
+    r"""Provider-recommended replacement for this model version; no automatic substitution."""
+
     status: OptionalNullable[LifecycleStatus] = UNSET
     r"""Effective lifecycle status, resolved server-side against the current date. Populated on API responses; unset in the static catalog."""
 
@@ -91,11 +96,19 @@ class SupportedLlm(BaseModel):
                 "sunset_date",
                 "removed",
                 "fallback",
+                "replacement",
                 "status",
             ]
         )
         nullable_fields = set(
-            ["version", "api_version", "sunset_date", "fallback", "status"]
+            [
+                "version",
+                "api_version",
+                "sunset_date",
+                "fallback",
+                "replacement",
+                "status",
+            ]
         )
         serialized = handler(self)
         m = {}
