@@ -34618,6 +34618,21 @@
               null
             ]
           },
+          "replacement": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Replacement",
+            "description": "Provider-recommended replacement for this model version; no automatic substitution.",
+            "examples": [
+              null
+            ]
+          },
           "status": {
             "anyOf": [
               {
