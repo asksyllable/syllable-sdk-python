@@ -589,6 +589,7 @@ if TYPE_CHECKING:
         GetValueActionValuefrom2,
         GetValueActionValuefrom2TypedDict,
     )
+    from .holiday import Holiday
     from .incident_deleteop import IncidentDeleteRequest, IncidentDeleteRequestTypedDict
     from .incident_get_by_idop import (
         IncidentGetByIDRequest,
@@ -1906,6 +1907,7 @@ __all__ = [
     "GetValueActionValuefrom1TypedDict",
     "GetValueActionValuefrom2",
     "GetValueActionValuefrom2TypedDict",
+    "Holiday",
     "IncidentCreateRequest",
     "IncidentCreateRequestTypedDict",
     "IncidentDeleteRequest",
@@ -2945,6 +2947,7 @@ _dynamic_imports: dict[str, str] = {
     "GetValueActionValuefrom1TypedDict": ".getvalueaction",
     "GetValueActionValuefrom2": ".getvalueaction",
     "GetValueActionValuefrom2TypedDict": ".getvalueaction",
+    "Holiday": ".holiday",
     "IncidentDeleteRequest": ".incident_deleteop",
     "IncidentDeleteRequestTypedDict": ".incident_deleteop",
     "IncidentGetByIDRequest": ".incident_get_by_idop",
