@@ -29,7 +29,7 @@ class BridgePhrasesCreateRequestTypedDict(TypedDict):
 
     Holds the default phrases plus an inline list of per-tool overrides, each with
     optional per-language (`localized`) overrides. Mirrors the shape documented in
-    docs/bridge-phrases-table-migration.md §5.2.
+    docs/lib/database/bridge-phrases-table-migration.md §5.2.
     """
     is_default: NotRequired[bool]
     r"""Whether this config should be marked as the default for its suborg. At most one non-deleted config per suborg may be the default; the API returns a 400 if a second default is requested while another is already set."""
@@ -49,7 +49,7 @@ class BridgePhrasesCreateRequest(BaseModel):
 
     Holds the default phrases plus an inline list of per-tool overrides, each with
     optional per-language (`localized`) overrides. Mirrors the shape documented in
-    docs/bridge-phrases-table-migration.md §5.2.
+    docs/lib/database/bridge-phrases-table-migration.md §5.2.
     """
 
     is_default: Optional[bool] = False
