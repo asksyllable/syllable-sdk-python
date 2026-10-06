@@ -63,7 +63,7 @@ with SyllableSDK(
 
 ### Response
 
-**[models.ListResponseInsightWorkflowOutput](../../models/listresponseinsightworkflowoutput.md)**
+**[models.ListResponseInsightWorkflowResponse](../../models/listresponseinsightworkflowresponse.md)**
 
 ### Errors
 
@@ -175,7 +175,7 @@ with SyllableSDK(
 
 ### Response
 
-**[models.InsightWorkflowOutput](../../models/insightworkflowoutput.md)**
+**[models.InsightWorkflowResponse](../../models/insightworkflowresponse.md)**
 
 ### Errors
 
