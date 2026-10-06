@@ -12,3 +12,4 @@ class InsightToolProperties(str, Enum):
     TOOL_ARGUMENTS = "tool_arguments"
     INSIGHT_TOOL_DEFINITION_ID = "insight_tool_definition_id"
     UPDATED_AT = "updated_at"
+    LIFECYCLE_STATUS = "lifecycle_status"

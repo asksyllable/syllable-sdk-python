@@ -28,7 +28,7 @@ class Workflows(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ListResponseInsightWorkflowOutput:
+    ) -> models.ListResponseInsightWorkflowResponse:
         r"""Insight Workflow List
 
         List the existing insight_workflows
@@ -120,7 +120,7 @@ class Workflows(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.ListResponseInsightWorkflowOutput, http_res
+                models.ListResponseInsightWorkflowResponse, http_res
             )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
@@ -152,7 +152,7 @@ class Workflows(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ListResponseInsightWorkflowOutput:
+    ) -> models.ListResponseInsightWorkflowResponse:
         r"""Insight Workflow List
 
         List the existing insight_workflows
@@ -244,7 +244,7 @@ class Workflows(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.ListResponseInsightWorkflowOutput, http_res
+                models.ListResponseInsightWorkflowResponse, http_res
             )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
@@ -462,7 +462,7 @@ class Workflows(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.InsightWorkflowOutput:
+    ) -> models.InsightWorkflowResponse:
         r"""Get Insight Workflow By Id
 
         Get a InsightWorkflow by ID.
@@ -531,7 +531,7 @@ class Workflows(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.InsightWorkflowOutput, http_res)
+            return unmarshal_json_response(models.InsightWorkflowResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
@@ -554,7 +554,7 @@ class Workflows(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.InsightWorkflowOutput:
+    ) -> models.InsightWorkflowResponse:
         r"""Get Insight Workflow By Id
 
         Get a InsightWorkflow by ID.
@@ -623,7 +623,7 @@ class Workflows(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.InsightWorkflowOutput, http_res)
+            return unmarshal_json_response(models.InsightWorkflowResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res

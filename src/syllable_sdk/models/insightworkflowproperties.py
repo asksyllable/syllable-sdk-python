@@ -13,3 +13,4 @@ class InsightWorkflowProperties(str, Enum):
     CONDITIONS = "conditions"
     INSIGHT_TOOL_IDS = "insight_tool_ids"
     UPDATED_AT = "updated_at"
+    LIFECYCLE_STATUS = "lifecycle_status"

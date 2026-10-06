@@ -784,6 +784,10 @@ if TYPE_CHECKING:
         InsightWorkflowOutputTypedDict,
     )
     from .insightworkflowproperties import InsightWorkflowProperties
+    from .insightworkflowresponse import (
+        InsightWorkflowResponse,
+        InsightWorkflowResponseTypedDict,
+    )
     from .inspectlatencyresponse import (
         InspectLatencyResponse,
         InspectLatencyResponseTypedDict,
@@ -912,9 +916,9 @@ if TYPE_CHECKING:
         ListResponseInsightWorkflowExecutionOutput,
         ListResponseInsightWorkflowExecutionOutputTypedDict,
     )
-    from .listresponse_insightworkflowoutput_ import (
-        ListResponseInsightWorkflowOutput,
-        ListResponseInsightWorkflowOutputTypedDict,
+    from .listresponse_insightworkflowresponse_ import (
+        ListResponseInsightWorkflowResponse,
+        ListResponseInsightWorkflowResponseTypedDict,
     )
     from .listresponse_languagegroupresponse_ import (
         ListResponseLanguageGroupResponse,
@@ -1962,6 +1966,8 @@ __all__ = [
     "InsightWorkflowOutput",
     "InsightWorkflowOutputTypedDict",
     "InsightWorkflowProperties",
+    "InsightWorkflowResponse",
+    "InsightWorkflowResponseTypedDict",
     "Insights",
     "InsightsFolder",
     "InsightsFolderDeleteRequest",
@@ -2097,8 +2103,8 @@ __all__ = [
     "ListResponseInsightToolResponseTypedDict",
     "ListResponseInsightWorkflowExecutionOutput",
     "ListResponseInsightWorkflowExecutionOutputTypedDict",
-    "ListResponseInsightWorkflowOutput",
-    "ListResponseInsightWorkflowOutputTypedDict",
+    "ListResponseInsightWorkflowResponse",
+    "ListResponseInsightWorkflowResponseTypedDict",
     "ListResponseInsightsFolder",
     "ListResponseInsightsFolderTypedDict",
     "ListResponseInsightsOutput",
@@ -3071,6 +3077,8 @@ _dynamic_imports: dict[str, str] = {
     "InsightWorkflowOutput": ".insightworkflowoutput",
     "InsightWorkflowOutputTypedDict": ".insightworkflowoutput",
     "InsightWorkflowProperties": ".insightworkflowproperties",
+    "InsightWorkflowResponse": ".insightworkflowresponse",
+    "InsightWorkflowResponseTypedDict": ".insightworkflowresponse",
     "InspectLatencyResponse": ".inspectlatencyresponse",
     "InspectLatencyResponseTypedDict": ".inspectlatencyresponse",
     "InternalTool": ".internaltool",
@@ -3146,8 +3154,8 @@ _dynamic_imports: dict[str, str] = {
     "ListResponseInsightToolResponseTypedDict": ".listresponse_insighttoolresponse_",
     "ListResponseInsightWorkflowExecutionOutput": ".listresponse_insightworkflowexecutionoutput_",
     "ListResponseInsightWorkflowExecutionOutputTypedDict": ".listresponse_insightworkflowexecutionoutput_",
-    "ListResponseInsightWorkflowOutput": ".listresponse_insightworkflowoutput_",
-    "ListResponseInsightWorkflowOutputTypedDict": ".listresponse_insightworkflowoutput_",
+    "ListResponseInsightWorkflowResponse": ".listresponse_insightworkflowresponse_",
+    "ListResponseInsightWorkflowResponseTypedDict": ".listresponse_insightworkflowresponse_",
     "ListResponseLanguageGroupResponse": ".listresponse_languagegroupresponse_",
     "ListResponseLanguageGroupResponseTypedDict": ".listresponse_languagegroupresponse_",
     "ListResponseOutboundCampaign": ".listresponse_outboundcampaign_",
