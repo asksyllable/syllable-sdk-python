@@ -3,6 +3,7 @@
 from __future__ import annotations
 from .displayactionmapping import DisplayActionMapping, DisplayActionMappingTypedDict
 from .displayctamapping import DisplayCtaMapping, DisplayCtaMappingTypedDict
+from .displayphrasemapping import DisplayPhraseMapping, DisplayPhraseMappingTypedDict
 from .displayvaluesource import DisplayValueSource, DisplayValueSourceTypedDict
 import pydantic
 from pydantic import model_serializer
@@ -13,7 +14,7 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import List, Optional, Union
+from typing import Dict, List, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
@@ -131,6 +132,8 @@ class DisplayCardMappingTypedDict(TypedDict):
     ]
     actions: NotRequired[List[DisplayActionMappingTypedDict]]
     cta: NotRequired[Nullable[DisplayCtaMappingTypedDict]]
+    i18n: NotRequired[Dict[str, DisplayPhraseMappingTypedDict]]
+    r"""Localized phrase metadata keyed by output card field path."""
 
 
 class DisplayCardMapping(BaseModel):
@@ -181,6 +184,9 @@ class DisplayCardMapping(BaseModel):
 
     cta: OptionalNullable[DisplayCtaMapping] = UNSET
 
+    i18n: Optional[Dict[str, DisplayPhraseMapping]] = None
+    r"""Localized phrase metadata keyed by output card field path."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -196,6 +202,7 @@ class DisplayCardMapping(BaseModel):
                 "content.contentAlwaysLeft",
                 "actions",
                 "cta",
+                "i18n",
             ]
         )
         nullable_fields = set(

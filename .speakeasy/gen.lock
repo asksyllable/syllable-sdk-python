@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 8c512f4c35a50d464bdfd56dd0866efe
+  docChecksum: db14803d446078986c85796e129c68f2
   docVersion: 0.0.3
   speakeasyVersion: 1.800.1
   generationVersion: 2.943.0
-  releaseVersion: 0.49.61
-  configChecksum: bc45ab403f3a634907b82bf85ac1602e
+  releaseVersion: 0.49.62
+  configChecksum: bd317248159fdd21c9334950e063a483
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: d854cb18-9be0-464a-b3e2-483732346c67
-  pristine_commit_hash: a938f559633dd356a50ab6095ccb5b25629ecee2
-  pristine_tree_hash: 079c92062bcfb94454177a60f9b451c5e881d07c
+  generation_id: d8659bdb-b810-45a8-937c-5d6e19c15b3f
+  pristine_commit_hash: 858996336b2554aec08be08d5c1ca94b3c4b6b14
+  pristine_tree_hash: c5e800af75179e3b9bf15d36fed1c0dbdc020854
 features:
   python:
     additionalDependencies: 1.1.0
@@ -775,8 +775,8 @@ trackedFiles:
     pristine_git_object: 6bbd88bea02943e465bcfa9c4cf9d1fe4ef68821
   docs/models/displaycardmapping.md:
     id: c2d2dc53893f
-    last_write_checksum: sha1:f5a3bfb2fbc82a5d7af77826e4380dbc856f1c54
-    pristine_git_object: c03aa0796b67923672514b782b72ba6570d1c407
+    last_write_checksum: sha1:528f1512d794f0b682b596f48c127f4e5729a41d
+    pristine_git_object: 877cdbaa64bdba21982b0fc0f205101a6c6775a0
   docs/models/displayctamapping.md:
     id: 47017b4de4be
     last_write_checksum: sha1:a83cc2dcb98944497d07582eb6a3ae644dadce3c
@@ -801,6 +801,14 @@ trackedFiles:
     id: 1b536a7877e8
     last_write_checksum: sha1:96842ab402e63d69b0bd3b6851e51d865537b064
     pristine_git_object: 5bbda381edd34d42339fa65679a15ec21565de7d
+  docs/models/displaydatemapping.md:
+    id: 7aa641750d54
+    last_write_checksum: sha1:82999cd6e176ead8b78f3db68c3249063774fb8d
+    pristine_git_object: 588b88475d9ad887cf96835fb678ad3209b07f7a
+  docs/models/displayphrasemapping.md:
+    id: 0d7d680fcaf3
+    last_write_checksum: sha1:bb96c3deba9d2ad0c8ba8e2c6d91e1ea7c79bb05
+    pristine_git_object: cbfaabffbfff819399e1c3f4320d60e1c25353bf
   docs/models/displayvaluesource.md:
     id: e7ed0b165b27
     last_write_checksum: sha1:8e546f927add739c440408b89dfe2d7f7942f87a
@@ -1285,6 +1293,10 @@ trackedFiles:
     id: d804fe140855
     last_write_checksum: sha1:04dcf9d2a8236445cbd20ff3222fcd2be919736b
     pristine_git_object: 9f9258c7963bb7c0fc45ea18e15114eabd0ce139
+  docs/models/kind.md:
+    id: a1293dccee77
+    last_write_checksum: sha1:14cf8b54b7468156eb3d42d7e79f251441d9e4d1
+    pristine_git_object: 574274e1d728562b1b08fda45251a16a29ebccf9
   docs/models/languagecode.md:
     id: 12fa2a2aafed
     last_write_checksum: sha1:4506f6cd6074accaa0a76cb57a933b52b846a173
@@ -1669,6 +1681,10 @@ trackedFiles:
     id: 824b89123f06
     last_write_checksum: sha1:686791dd66b07c0bb95b6f11e794ab04f6bb0f39
     pristine_git_object: 4b8bfc7259ea62f50ef82e574b72a1613b356f07
+  docs/models/params.md:
+    id: 9c85a55b7b80
+    last_write_checksum: sha1:46dbbd745eee898b1ec4f8c00669a0d127542969
+    pristine_git_object: 1019a9b285512e90326d0326403fd0d8cc56fb8d
   docs/models/permissiongroupresponse.md:
     id: ee8a3336bf24
     last_write_checksum: sha1:263de061117b7e02044183c439fbc0651358b3f7
@@ -1757,6 +1773,10 @@ trackedFiles:
     id: a6aece6bd7f7
     last_write_checksum: sha1:30cab53015283baf4b617a910349c8acb69da3e5
     pristine_git_object: cb342ee8740e193bdc60a0d81b32c147a8957f83
+  docs/models/prose.md:
+    id: d0c9b24ad844
+    last_write_checksum: sha1:8a5970c7f1e9895fd7f62ffb5e59b2c17dbfe8da
+    pristine_git_object: 20119d19a5c17798baeedad350bb14e0c8c42002
   docs/models/requeststatus.md:
     id: 580c869308d3
     last_write_checksum: sha1:3ca5ad58325b54406578908b232aacf97b728809
@@ -2033,6 +2053,10 @@ trackedFiles:
     id: aa1ecd0c978d
     last_write_checksum: sha1:7e3f30a8bd45f2a7974e8afa31b2d77d22b14f32
     pristine_git_object: 544a639cea2e15997fe2e2fa95a2186aaeec6f0c
+  docs/models/style.md:
+    id: 62de21b0c5a7
+    last_write_checksum: sha1:1a7f083169c5db1af619880fda37637eab1e0387
+    pristine_git_object: be998fd5111ede2417f26c5a707c65d242e5c9e7
   docs/models/summaryentry.md:
     id: 5b2fde7eef62
     last_write_checksum: sha1:25ec97709220ca4fe84dba37da26d3a58f1d874f
@@ -2317,6 +2341,10 @@ trackedFiles:
     id: 1aa9700c2140
     last_write_checksum: sha1:2573fefb7ca432e847282b5731272ea10ce303a5
     pristine_git_object: 9ee66625e07810483ae5516edc414576cd2f0f7e
+  docs/models/value.md:
+    id: 1d69c8103b96
+    last_write_checksum: sha1:702f1a629af0bb1097c5494edac305a36871079b
+    pristine_git_object: b9294c052fd7cce2d90379a487d2234572139f1a
   docs/models/variable.md:
     id: bd4d6cc4e053
     last_write_checksum: sha1:bbbfa9a3ba9603ae200885c2818837ba22a25b55
@@ -2563,8 +2591,8 @@ trackedFiles:
     pristine_git_object: 6a3b01908092d3349be5058c4d36fe09f3f97a8a
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:decc31bdf12d7f7823801ae221706638a57c4027
-    pristine_git_object: fe02ad50bc0e08bb2d8016da7551b6878b8e4bc3
+    last_write_checksum: sha1:8a123b7cc13bb7ffb561d80eb53e2b4a7f8acee6
+    pristine_git_object: 6036417286e1fb3a34ab5999cc296ffa33d2589b
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2591,8 +2619,8 @@ trackedFiles:
     pristine_git_object: 132885676dc1885890d1c8a13bd01fcfcb8e3fbc
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:c5b0b66e99aec97877435cb3437d24411665716c
-    pristine_git_object: e3f6c496a6dcc32cdb75322b377801387211d6fb
+    last_write_checksum: sha1:9144645c74997a2838047e5cdcbe67e1a6f82222
+    pristine_git_object: d00501371da1db5c867c6ce33148c66e731f3218
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:da383e27f2dd7cc52af74f38f829d02891fc92d2
@@ -2723,8 +2751,8 @@ trackedFiles:
     pristine_git_object: 59142dc80d14c0481b722c0087c1abcbb426e597
   src/syllable_sdk/models/__init__.py:
     id: 984744253da7
-    last_write_checksum: sha1:7a93975a57b61ae3d8278382930fed8eaf2ae63d
-    pristine_git_object: 876ba9038542481e699fd5e9f6d00e02250780f0
+    last_write_checksum: sha1:74f582442090769349a8daebfc2dc79bdf8e8221
+    pristine_git_object: 097454c8f7fbd031af50f4e1b1846c8bdcba66fc
   src/syllable_sdk/models/a2pmessagingpathcheckrequest.py:
     id: 2cb7c3c6f6e9
     last_write_checksum: sha1:3dcf884ac8fa211d36338dda9ad3e90f3979a28d
@@ -3287,12 +3315,20 @@ trackedFiles:
     pristine_git_object: cfea607fad08f77462de4304bd6e60d87790a602
   src/syllable_sdk/models/displaycardmapping.py:
     id: e296a34e3c8f
-    last_write_checksum: sha1:c77d436283c915597498b74952ab43115d13c418
-    pristine_git_object: e610f9475c4018e771f5dd6b7a4d311359813a74
+    last_write_checksum: sha1:244ba38447a27a2399b396ad282ccb377354bb39
+    pristine_git_object: 7654b221fafe3dfb4217a82f16fa21e0e9ca6262
   src/syllable_sdk/models/displayctamapping.py:
     id: 91c4cc78e29d
     last_write_checksum: sha1:b3970d07572cfdc30e340e123f578367ed1d8436
     pristine_git_object: cc2ebe236913544341cff1fd570ee19840940276
+  src/syllable_sdk/models/displaydatemapping.py:
+    id: 487b3eb4233e
+    last_write_checksum: sha1:201fade469b7edb99c6e4495a352a1adb7c41e40
+    pristine_git_object: 41b140982a13388c8829a831015aa58061aa9c99
+  src/syllable_sdk/models/displayphrasemapping.py:
+    id: 9ee3e392452b
+    last_write_checksum: sha1:23bb11d14fd4edc4538e6a83df68404ac1804b29
+    pristine_git_object: 0cfebb16a88e21310784d2052b9ef8ede9252e0d
   src/syllable_sdk/models/displayvaluesource.py:
     id: f014285f705b
     last_write_checksum: sha1:620e6e8440deeb3f1a7ae0ff665f161308ab6b96
@@ -6820,7 +6856,7 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.insights.workflows.list()`: \n  *  `request` **Changed**\n  *  `response.items[].insight_tools[].validation_issues` **Added**\n* `syllable_sdk.insights.workflows.get_by_id()`:  `response.insight_tools[].validation_issues` **Added**\n* `syllable_sdk.insights.tools.list()`:  `request` **Changed**\n"
+releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.agents.list()`:  `response.items[].prompt.session_end_tool.definition.response_display.mapping.i18n` **Added**\n* `syllable_sdk.agents.create()`:  `response.prompt.session_end_tool.definition.response_display.mapping.i18n` **Added**\n* `syllable_sdk.agents.update()`:  `response.prompt.session_end_tool.definition.response_display.mapping.i18n` **Added**\n* `syllable_sdk.agents.get_by_id()`:  `response.prompt.session_end_tool.definition.response_display.mapping.i18n` **Added**\n* `syllable_sdk.channels.targets.list()`:  `response.items[].agent.prompt.session_end_tool.definition.response_display.mapping.i18n` **Added**\n* `syllable_sdk.channels.targets.create()`:  `response.agent.prompt.session_end_tool.definition.response_display.mapping.i18n` **Added**\n* `syllable_sdk.channels.targets.get_by_id()`:  `response.agent.prompt.session_end_tool.definition.response_display.mapping.i18n` **Added**\n* `syllable_sdk.channels.targets.update()`:  `response.agent.prompt.session_end_tool.definition.response_display.mapping.i18n` **Added**\n* `syllable_sdk.prompts.list()`:  `response.items[].session_end_tool.definition.response_display.mapping.i18n` **Added**\n* `syllable_sdk.prompts.create()`:  `response.session_end_tool.definition.response_display.mapping.i18n` **Added**\n* `syllable_sdk.prompts.update()`:  `response.session_end_tool.definition.response_display.mapping.i18n` **Added**\n* `syllable_sdk.prompts.get_by_id()`:  `response.session_end_tool.definition.response_display.mapping.i18n` **Added**\n* `syllable_sdk.tools.list()`:  `response.items[].definition.response_display.mapping.i18n` **Added**\n* `syllable_sdk.tools.create()`: \n  *  `request.definition.response_display.mapping.i18n` **Added**\n  *  `response.definition.response_display.mapping.i18n` **Added**\n* `syllable_sdk.tools.update()`: \n  *  `request.definition.response_display.mapping.i18n` **Added**\n  *  `response.definition.response_display.mapping.i18n` **Added**\n* `syllable_sdk.tools.tool_history()`:  `response.items[].definition.response_display.mapping.i18n` **Added**\n* `syllable_sdk.tools.get_by_name()`:  `response.definition.response_display.mapping.i18n` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
