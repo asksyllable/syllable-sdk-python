@@ -9030,6 +9030,28 @@
               }
             }
           },
+          "400": {
+            "description": "Bad request, including malformed datetime query parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "detail"
+                  ],
+                  "properties": {
+                    "detail": {
+                      "type": "string",
+                      "description": "A message describing the invalid request"
+                    }
+                  }
+                },
+                "example": {
+                  "detail": "start_datetime: Input should be a valid ISO 8601 datetime"
+                }
+              }
+            }
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -9242,6 +9264,62 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ListResponse_Session_"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request, including malformed datetime query parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "detail"
+                  ],
+                  "properties": {
+                    "detail": {
+                      "description": "An invalid request message or a legacy transcript link redirect",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "code",
+                            "session_id",
+                            "redirect_to",
+                            "message"
+                          ],
+                          "properties": {
+                            "code": {
+                              "type": "string",
+                              "enum": [
+                                "legacy_session_link"
+                              ],
+                              "description": "Identifies a legacy session link"
+                            },
+                            "session_id": {
+                              "type": "string",
+                              "description": "The requested transcript ID"
+                            },
+                            "redirect_to": {
+                              "type": "string",
+                              "description": "The transcript path to open"
+                            },
+                            "message": {
+                              "type": "string",
+                              "description": "Why this request was rejected"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "detail": "start_datetime: Input should be a valid ISO 8601 datetime"
                 }
               }
             }
@@ -11120,6 +11198,28 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ListResponse_DirectoryMember_"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request, including malformed datetime query parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "detail"
+                  ],
+                  "properties": {
+                    "detail": {
+                      "type": "string",
+                      "description": "A message describing the invalid request"
+                    }
+                  }
+                },
+                "example": {
+                  "detail": "start_datetime: Input should be a valid ISO 8601 datetime"
                 }
               }
             }
@@ -13190,6 +13290,28 @@
                     }
                   ],
                   "title": "Response Outbound Campaign List"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request, including malformed datetime query parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "detail"
+                  ],
+                  "properties": {
+                    "detail": {
+                      "type": "string",
+                      "description": "A message describing the invalid request"
+                    }
+                  }
+                },
+                "example": {
+                  "detail": "start_datetime: Input should be a valid ISO 8601 datetime"
                 }
               }
             }
@@ -16889,7 +17011,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20261003.9"
+              "20261006.9"
             ]
           },
           "campaign_id": {
@@ -16913,7 +17035,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-10-04T00:00:00Z"
+              "2026-10-07T00:00:00Z"
             ]
           },
           "paused": {
@@ -17023,7 +17145,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -17039,7 +17161,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -17070,7 +17192,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -18605,7 +18727,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20261003.9"
+              "20261006.9"
             ]
           },
           "campaign_id": {
@@ -18629,7 +18751,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-10-04T00:00:00Z"
+              "2026-10-07T00:00:00Z"
             ]
           },
           "paused": {
@@ -18739,7 +18861,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -18755,7 +18877,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -18786,7 +18908,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -18829,7 +18951,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20261003.9"
+              "20261006.9"
             ]
           },
           "campaign_id": {
@@ -18853,7 +18975,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-10-04T00:00:00Z"
+              "2026-10-07T00:00:00Z"
             ]
           },
           "paused": {
@@ -19062,7 +19184,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2026-10-02T00:00:00Z"
+              "2026-10-05T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -19078,7 +19200,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -23536,7 +23658,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-10-02T00:00:00Z"
+              "2026-10-05T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -23545,7 +23667,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -24577,7 +24699,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2026-10-02T00:00:00Z"
+              "2026-10-05T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -24586,7 +24708,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -24692,7 +24814,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2026-10-02T00:00:00Z"
+              "2026-10-05T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -24701,7 +24823,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -25127,7 +25249,7 @@
             "title": "Started At",
             "description": "Timestamp at which the most recent processing attempt started",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "created_at": {
@@ -25136,7 +25258,7 @@
             "title": "Created At",
             "description": "Timestamp at which the execution row was created (i.e. when the work was queued)",
             "examples": [
-              "2026-10-02T00:00:00Z"
+              "2026-10-05T00:00:00Z"
             ]
           },
           "event_type": {
@@ -25294,7 +25416,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-10-02T00:00:00Z"
+              "2026-10-05T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -25310,7 +25432,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           }
         },
@@ -25385,7 +25507,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-10-02T00:00:00Z"
+              "2026-10-05T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -25401,7 +25523,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "id": {
@@ -25469,7 +25591,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2026-10-02T00:00:00Z"
+              "2026-10-05T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -25478,7 +25600,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -25502,7 +25624,7 @@
             "title": "Last Folder Upload At",
             "description": "Timestamp of the most recent file upload to any folder associated with this workflow (null for non-upload workflows or until a file has been uploaded)",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           }
         },
@@ -25590,7 +25712,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-10-02T00:00:00Z"
+              "2026-10-05T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -25599,7 +25721,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -25849,7 +25971,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2026-10-02T00:00:00Z"
+              "2026-10-05T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -25858,7 +25980,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "upload_file_metadata": {
@@ -26003,7 +26125,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2026-10-02T00:00:00Z"
+              "2026-10-05T00:00:00Z"
             ]
           },
           "end_time": {
@@ -26019,7 +26141,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "error_message": {
@@ -26074,7 +26196,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2026-10-02T00:00:00Z"
+              "2026-10-05T00:00:00Z"
             ]
           }
         },
@@ -30327,7 +30449,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -30336,7 +30458,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -38210,7 +38332,7 @@
             "title": "Analyzed At",
             "description": "When the workflow execution started processing this file; null while the row is still PENDING",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "queued_at": {
@@ -38219,7 +38341,7 @@
             "title": "Queued At",
             "description": "When the file was queued for this workflow",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "status": {
@@ -38308,7 +38430,7 @@
             "title": "Analyzed At",
             "description": "When the workflow execution started processing this session; null while the row is still PENDING",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "queued_at": {
@@ -38317,7 +38439,7 @@
             "title": "Queued At",
             "description": "When the session was queued for this workflow",
             "examples": [
-              "2026-10-03T00:00:00Z"
+              "2026-10-06T00:00:00Z"
             ]
           },
           "status": {
