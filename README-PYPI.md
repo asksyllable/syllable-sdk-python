@@ -688,7 +688,7 @@ with SyllableSDK(
 * [`SyllableSDKError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/syllablesdkerror.py): The base class for HTTP error responses.
   * [`HTTPValidationError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/httpvalidationerror.py): Validation Error. Status code `422`. *
 
-<details><summary>Less common errors (5)</summary>
+<details><summary>Less common errors (9)</summary>
 
 <br />
 
@@ -699,6 +699,10 @@ with SyllableSDK(
 
 
 **Inherit from [`SyllableSDKError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/syllablesdkerror.py)**:
+* [`SessionLabelsListBadRequestError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/sessionlabelslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 197 methods.*
+* [`SessionsListBadRequestError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/sessionslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 197 methods.*
+* [`DirectoryMemberListBadRequestError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/directorymemberlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 197 methods.*
+* [`OutboundCampaignListBadRequestError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/outboundcampaignlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 197 methods.*
 * [`ResponseValidationError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>
