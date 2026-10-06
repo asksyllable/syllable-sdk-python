@@ -14144,6 +14144,12 @@ components:
           anyOf:
             - $ref: "#/components/schemas/DisplayCtaMapping"
             - type: "null"
+        i18n:
+          additionalProperties:
+            $ref: "#/components/schemas/DisplayPhraseMapping"
+          type: "object"
+          title: "I18N"
+          description: "Localized phrase metadata keyed by output card field path."
       additionalProperties: false
       type: "object"
       title: "DisplayCardMapping"
@@ -14199,6 +14205,84 @@ components:
       additionalProperties: false
       type: "object"
       title: "DisplayCtaMapping"
+    DisplayDateMapping:
+      properties:
+        value:
+          anyOf:
+            - type: "string"
+            - type: "integer"
+            - type: "number"
+            - type: "boolean"
+            - $ref: "#/components/schemas/DisplayValueSource"
+          title: "Value"
+        skeleton:
+          anyOf:
+            - type: "string"
+              minLength: 1
+            - type: "null"
+          title: "Skeleton"
+        kind:
+          anyOf:
+            - type: "string"
+              enum:
+                - "date"
+                - "time"
+                - "datetime"
+            - type: "null"
+          title: "Kind"
+        style:
+          anyOf:
+            - type: "string"
+              enum:
+                - "short"
+                - "medium"
+                - "long"
+                - "full"
+            - type: "null"
+          title: "Style"
+      additionalProperties: false
+      type: "object"
+      required:
+        - "value"
+      title: "DisplayDateMapping"
+      description: "A date value resolved from one result item before localization."
+    DisplayPhraseMapping:
+      properties:
+        template:
+          type: "string"
+          minLength: 1
+          title: "Template"
+        params:
+          additionalProperties:
+            anyOf:
+              - type: "string"
+              - type: "integer"
+              - type: "number"
+              - type: "boolean"
+              - $ref: "#/components/schemas/DisplayValueSource"
+          type: "object"
+          title: "Params"
+        prose:
+          additionalProperties:
+            anyOf:
+              - type: "string"
+              - type: "integer"
+              - type: "number"
+              - type: "boolean"
+              - $ref: "#/components/schemas/DisplayValueSource"
+          type: "object"
+          title: "Prose"
+        dates:
+          additionalProperties:
+            $ref: "#/components/schemas/DisplayDateMapping"
+          type: "object"
+          title: "Dates"
+      additionalProperties: false
+      type: "object"
+      required:
+        - "template"
+      title: "DisplayPhraseMapping"
+      description: "A producer-owned localized phrase with per-item dynamic values."
     DisplayValueSource:
       properties:
         path:
