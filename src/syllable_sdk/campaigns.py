@@ -120,6 +120,11 @@ class Campaigns(BaseSDK):
             return unmarshal_json_response(
                 models.ListResponseOutboundCampaign, http_res
             )
+        if utils.match_response(http_res, "400", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.OutboundCampaignListBadRequestErrorData, http_res
+            )
+            raise errors.OutboundCampaignListBadRequestError(response_data, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
@@ -242,6 +247,11 @@ class Campaigns(BaseSDK):
             return unmarshal_json_response(
                 models.ListResponseOutboundCampaign, http_res
             )
+        if utils.match_response(http_res, "400", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.OutboundCampaignListBadRequestErrorData, http_res
+            )
+            raise errors.OutboundCampaignListBadRequestError(response_data, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res

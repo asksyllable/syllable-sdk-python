@@ -7,25 +7,69 @@ from syllable_sdk.utils.dynamic_imports import lazy_getattr, lazy_dir
 
 if TYPE_CHECKING:
     from .apierror import APIError
+    from .directory_member_listop import (
+        DirectoryMemberListBadRequestError,
+        DirectoryMemberListBadRequestErrorData,
+    )
     from .httpvalidationerror import HTTPValidationError, HTTPValidationErrorData
     from .no_response_error import NoResponseError
+    from .outbound_campaign_listop import (
+        OutboundCampaignListBadRequestError,
+        OutboundCampaignListBadRequestErrorData,
+    )
     from .responsevalidationerror import ResponseValidationError
+    from .session_labels_listop import (
+        SessionLabelsListBadRequestError,
+        SessionLabelsListBadRequestErrorData,
+    )
+    from .sessions_listop import (
+        Code,
+        Detail,
+        DetailLegacySessionLink,
+        DetailLegacySessionLinkTypedDict,
+        SessionsListBadRequestError,
+        SessionsListBadRequestErrorData,
+    )
 
 __all__ = [
     "APIError",
+    "Code",
+    "Detail",
+    "DetailLegacySessionLink",
+    "DetailLegacySessionLinkTypedDict",
+    "DirectoryMemberListBadRequestError",
+    "DirectoryMemberListBadRequestErrorData",
     "HTTPValidationError",
     "HTTPValidationErrorData",
     "NoResponseError",
+    "OutboundCampaignListBadRequestError",
+    "OutboundCampaignListBadRequestErrorData",
     "ResponseValidationError",
+    "SessionLabelsListBadRequestError",
+    "SessionLabelsListBadRequestErrorData",
+    "SessionsListBadRequestError",
+    "SessionsListBadRequestErrorData",
     "SyllableSDKError",
 ]
 
 _dynamic_imports: dict[str, str] = {
     "APIError": ".apierror",
+    "DirectoryMemberListBadRequestError": ".directory_member_listop",
+    "DirectoryMemberListBadRequestErrorData": ".directory_member_listop",
     "HTTPValidationError": ".httpvalidationerror",
     "HTTPValidationErrorData": ".httpvalidationerror",
     "NoResponseError": ".no_response_error",
+    "OutboundCampaignListBadRequestError": ".outbound_campaign_listop",
+    "OutboundCampaignListBadRequestErrorData": ".outbound_campaign_listop",
     "ResponseValidationError": ".responsevalidationerror",
+    "SessionLabelsListBadRequestError": ".session_labels_listop",
+    "SessionLabelsListBadRequestErrorData": ".session_labels_listop",
+    "Code": ".sessions_listop",
+    "Detail": ".sessions_listop",
+    "DetailLegacySessionLink": ".sessions_listop",
+    "DetailLegacySessionLinkTypedDict": ".sessions_listop",
+    "SessionsListBadRequestError": ".sessions_listop",
+    "SessionsListBadRequestErrorData": ".sessions_listop",
 }
 
 
