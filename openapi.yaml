@@ -6745,10 +6745,20 @@ paths:
           required: false
           schema:
             type: "boolean"
-            description: "If true, include soft-deleted members in the list. Default excludes them."
+            description: "If true, include soft-deleted members in the list. Default excludes them. Ignored when status is explicitly supplied."
             default: false
             title: "Include Deleted"
-          description: "If true, include soft-deleted members in the list. Default excludes them."
+          description: "If true, include soft-deleted members in the list. Default excludes them. Ignored when status is explicitly supplied."
+        - name: "status"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - $ref: "#/components/schemas/DirectoryMemberStatus"
+              - type: "null"
+            description: "Filter contacts by deletion status: all includes active and deleted contacts; active excludes deleted contacts; deleted includes only deleted contacts. When supplied, overrides include_deleted. When omitted, include_deleted controls inclusion."
+            title: "Status"
+          description: "Filter contacts by deletion status: all includes active and deleted contacts; active excludes deleted contacts; deleted includes only deleted contacts. When supplied, overrides include_deleted. When omitted, include_deleted controls inclusion."
         - name: "response_format"
           in: "query"
           required: false
@@ -13898,6 +13908,13 @@ components:
       type: "object"
       title: "DirectoryMemberRestore"
       description: "Request model to restore directory member."
+    DirectoryMemberStatus:
+      type: "string"
+      enum:
+        - "all"
+        - "active"
+        - "deleted"
+      title: "DirectoryMemberStatus"
     DirectoryMemberTestResponse:
       properties:
         extension:

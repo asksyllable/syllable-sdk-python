@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from .directorymemberproperties import DirectoryMemberProperties
+from .directorymemberstatus import DirectoryMemberStatus
 from .directoryresponseformat import DirectoryResponseFormat
 from .orderbydirection import OrderByDirection
 from pydantic import model_serializer
@@ -19,7 +20,9 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class DirectoryMemberListRequestTypedDict(TypedDict):
     include_deleted: NotRequired[bool]
-    r"""If true, include soft-deleted members in the list. Default excludes them."""
+    r"""If true, include soft-deleted members in the list. Default excludes them. Ignored when status is explicitly supplied."""
+    status: NotRequired[Nullable[DirectoryMemberStatus]]
+    r"""Filter contacts by deletion status: all includes active and deleted contacts; active excludes deleted contacts; deleted includes only deleted contacts. When supplied, overrides include_deleted. When omitted, include_deleted controls inclusion."""
     response_format: NotRequired[DirectoryResponseFormat]
     r"""Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values."""
     page: NotRequired[Nullable[int]]
@@ -47,7 +50,13 @@ class DirectoryMemberListRequest(BaseModel):
         Optional[bool],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = False
-    r"""If true, include soft-deleted members in the list. Default excludes them."""
+    r"""If true, include soft-deleted members in the list. Default excludes them. Ignored when status is explicitly supplied."""
+
+    status: Annotated[
+        OptionalNullable[DirectoryMemberStatus],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Filter contacts by deletion status: all includes active and deleted contacts; active excludes deleted contacts; deleted includes only deleted contacts. When supplied, overrides include_deleted. When omitted, include_deleted controls inclusion."""
 
     response_format: Annotated[
         Optional[DirectoryResponseFormat],
@@ -114,6 +123,7 @@ class DirectoryMemberListRequest(BaseModel):
         optional_fields = set(
             [
                 "include_deleted",
+                "status",
                 "response_format",
                 "page",
                 "limit",
@@ -128,6 +138,7 @@ class DirectoryMemberListRequest(BaseModel):
         )
         nullable_fields = set(
             [
+                "status",
                 "page",
                 "order_by",
                 "order_by_direction",

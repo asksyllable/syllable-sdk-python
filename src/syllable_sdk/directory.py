@@ -16,6 +16,7 @@ class Directory(BaseSDK):
         self,
         *,
         include_deleted: Optional[bool] = False,
+        status: OptionalNullable[models.DirectoryMemberStatus] = UNSET,
         response_format: Optional[models.DirectoryResponseFormat] = None,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
@@ -38,7 +39,8 @@ class Directory(BaseSDK):
         Filter by contact tags with `tags.<key>=<value>`. Repeat a key to match any of its
         values; filters for different keys must all match. Unknown keys return no matches.
 
-        :param include_deleted: If true, include soft-deleted members in the list. Default excludes them.
+        :param include_deleted: If true, include soft-deleted members in the list. Default excludes them. Ignored when status is explicitly supplied.
+        :param status: Filter contacts by deletion status: all includes active and deleted contacts; active excludes deleted contacts; deleted includes only deleted contacts. When supplied, overrides include_deleted. When omitted, include_deleted controls inclusion.
         :param response_format: Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.
         :param page: Page number (0-based)
         :param limit: Items per page
@@ -66,6 +68,7 @@ class Directory(BaseSDK):
 
         request = models.DirectoryMemberListRequest(
             include_deleted=include_deleted,
+            status=status,
             response_format=response_format,
             page=page,
             limit=limit,
@@ -152,6 +155,7 @@ class Directory(BaseSDK):
         self,
         *,
         include_deleted: Optional[bool] = False,
+        status: OptionalNullable[models.DirectoryMemberStatus] = UNSET,
         response_format: Optional[models.DirectoryResponseFormat] = None,
         page: OptionalNullable[int] = UNSET,
         limit: Optional[int] = 25,
@@ -174,7 +178,8 @@ class Directory(BaseSDK):
         Filter by contact tags with `tags.<key>=<value>`. Repeat a key to match any of its
         values; filters for different keys must all match. Unknown keys return no matches.
 
-        :param include_deleted: If true, include soft-deleted members in the list. Default excludes them.
+        :param include_deleted: If true, include soft-deleted members in the list. Default excludes them. Ignored when status is explicitly supplied.
+        :param status: Filter contacts by deletion status: all includes active and deleted contacts; active excludes deleted contacts; deleted includes only deleted contacts. When supplied, overrides include_deleted. When omitted, include_deleted controls inclusion.
         :param response_format: Directory response format: normalized (default) strips @hours and formats times; raw returns stored @hours values.
         :param page: Page number (0-based)
         :param limit: Items per page
@@ -202,6 +207,7 @@ class Directory(BaseSDK):
 
         request = models.DirectoryMemberListRequest(
             include_deleted=include_deleted,
+            status=status,
             response_format=response_format,
             page=page,
             limit=limit,
