@@ -412,6 +412,7 @@ if TYPE_CHECKING:
         DirectoryMemberRestore,
         DirectoryMemberRestoreTypedDict,
     )
+    from .directorymemberstatus import DirectoryMemberStatus
     from .directorymembertestresponse import (
         DirectoryMemberTestResponse,
         DirectoryMemberTestResponseTypedDict,
@@ -1800,6 +1801,7 @@ __all__ = [
     "DirectoryMemberRestoreRequest",
     "DirectoryMemberRestoreRequestTypedDict",
     "DirectoryMemberRestoreTypedDict",
+    "DirectoryMemberStatus",
     "DirectoryMemberTestExtensionRequest",
     "DirectoryMemberTestExtensionRequestTypedDict",
     "DirectoryMemberTestResponse",
@@ -2850,6 +2852,7 @@ _dynamic_imports: dict[str, str] = {
     "DirectoryMemberProperties": ".directorymemberproperties",
     "DirectoryMemberRestore": ".directorymemberrestore",
     "DirectoryMemberRestoreTypedDict": ".directorymemberrestore",
+    "DirectoryMemberStatus": ".directorymemberstatus",
     "DirectoryMemberTestResponse": ".directorymembertestresponse",
     "DirectoryMemberTestResponseTypedDict": ".directorymembertestresponse",
     "DirectoryMemberUpdate": ".directorymemberupdate",
