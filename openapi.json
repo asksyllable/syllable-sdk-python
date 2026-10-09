@@ -11002,7 +11002,7 @@
           "directory"
         ],
         "summary": "Directory Member List",
-        "description": "List directory members.\n\nFilter by contact tags with `tags.<key>=<value>`. Values use case-insensitive literal\nsubstring matching within the selected key. Repeat a key to match any supplied value;\nfilters for different keys must all match. Unknown keys and empty values return no matches.",
+        "description": "List directory members.\n\nFilter by contact tags with `tags.<key>=<value>`. Repeat a key to match any of its\nvalues; filters for different keys must all match. Unknown keys return no matches.",
         "operationId": "directory_member_list",
         "security": [
           {
