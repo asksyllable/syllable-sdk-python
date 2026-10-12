@@ -45,7 +45,7 @@ class InsightWorkflowConditionTypedDict(TypedDict):
     folder_list: NotRequired[Nullable[List[int]]]
     r"""List of folder IDs"""
     sheet_info: NotRequired[Nullable[Dict[str, str]]]
-    r"""Information about the sheet to be used for the workflow"""
+    r"""Legacy sheet metadata, retained for viewing retired workflows"""
 
 
 class InsightWorkflowCondition(BaseModel):
@@ -70,7 +70,7 @@ class InsightWorkflowCondition(BaseModel):
     r"""List of folder IDs"""
 
     sheet_info: OptionalNullable[Dict[str, str]] = UNSET
-    r"""Information about the sheet to be used for the workflow"""
+    r"""Legacy sheet metadata, retained for viewing retired workflows"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
