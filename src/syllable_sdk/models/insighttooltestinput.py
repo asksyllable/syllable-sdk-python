@@ -9,7 +9,24 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing_extensions import NotRequired, TypedDict
+from typing import Union
+from typing_extensions import NotRequired, TypeAliasType, TypedDict
+
+
+SessionIDTypedDict = TypeAliasType("SessionIDTypedDict", Union[int, str])
+r"""The session ID of the session against which to run the tool"""
+
+
+SessionID = TypeAliasType("SessionID", Union[int, str])
+r"""The session ID of the session against which to run the tool"""
+
+
+UploadFileIDTypedDict = TypeAliasType("UploadFileIDTypedDict", Union[int, str])
+r"""The file ID of the uploaded file against which to run the tool"""
+
+
+UploadFileID = TypeAliasType("UploadFileID", Union[int, str])
+r"""The file ID of the uploaded file against which to run the tool"""
 
 
 class InsightToolTestInputTypedDict(TypedDict):
@@ -17,9 +34,9 @@ class InsightToolTestInputTypedDict(TypedDict):
 
     tool_name: str
     r"""Human readable name of insight tool configuration"""
-    session_id: NotRequired[Nullable[int]]
+    session_id: NotRequired[Nullable[SessionIDTypedDict]]
     r"""The session ID of the session against which to run the tool"""
-    upload_file_id: NotRequired[Nullable[int]]
+    upload_file_id: NotRequired[Nullable[UploadFileIDTypedDict]]
     r"""The file ID of the uploaded file against which to run the tool"""
 
 
@@ -29,10 +46,10 @@ class InsightToolTestInput(BaseModel):
     tool_name: str
     r"""Human readable name of insight tool configuration"""
 
-    session_id: OptionalNullable[int] = UNSET
+    session_id: OptionalNullable[SessionID] = UNSET
     r"""The session ID of the session against which to run the tool"""
 
-    upload_file_id: OptionalNullable[int] = UNSET
+    upload_file_id: OptionalNullable[UploadFileID] = UNSET
     r"""The file ID of the uploaded file against which to run the tool"""
 
     @model_serializer(mode="wrap")

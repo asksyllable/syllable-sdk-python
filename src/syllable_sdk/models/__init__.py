@@ -673,6 +673,10 @@ if TYPE_CHECKING:
         InsightsToolDeleteRequest,
         InsightsToolDeleteRequestTypedDict,
     )
+    from .insights_tool_testop import (
+        ResponseInsightsToolTest,
+        ResponseInsightsToolTestTypedDict,
+    )
     from .insights_tool_updateop import (
         InsightsToolUpdateRequest,
         InsightsToolUpdateRequestTypedDict,
@@ -767,6 +771,10 @@ if TYPE_CHECKING:
     from .insighttooltestinput import (
         InsightToolTestInput,
         InsightToolTestInputTypedDict,
+        SessionID,
+        SessionIDTypedDict,
+        UploadFileID,
+        UploadFileIDTypedDict,
     )
     from .insightworkflowactivate import (
         InsightWorkflowActivate,
@@ -2294,6 +2302,8 @@ __all__ = [
     "RequestStatusBreakdownTypedDict",
     "ResponseDisplayConfig",
     "ResponseDisplayConfigTypedDict",
+    "ResponseInsightsToolTest",
+    "ResponseInsightsToolTestTypedDict",
     "Role",
     "RoleCreateRequest",
     "RoleCreateRequestTypedDict",
@@ -2350,6 +2360,8 @@ __all__ = [
     "SessionFullSummaryGetByIDRequestTypedDict",
     "SessionGetByIDRequest",
     "SessionGetByIDRequestTypedDict",
+    "SessionID",
+    "SessionIDTypedDict",
     "SessionLabel",
     "SessionLabelCreate",
     "SessionLabelCreateTypedDict",
@@ -2523,6 +2535,8 @@ __all__ = [
     "TwilioPhoneNumberTypedDict",
     "UpdateBridgePhrasesConfigRequest",
     "UpdateBridgePhrasesConfigRequestTypedDict",
+    "UploadFileID",
+    "UploadFileIDTypedDict",
     "UserActivityStatus",
     "UserCreateRequest",
     "UserCreateRequestTypedDict",
@@ -3039,6 +3053,8 @@ _dynamic_imports: dict[str, str] = {
     "InsightsListRequestTypedDict": ".insights_listop",
     "InsightsToolDeleteRequest": ".insights_tool_deleteop",
     "InsightsToolDeleteRequestTypedDict": ".insights_tool_deleteop",
+    "ResponseInsightsToolTest": ".insights_tool_testop",
+    "ResponseInsightsToolTestTypedDict": ".insights_tool_testop",
     "InsightsToolUpdateRequest": ".insights_tool_updateop",
     "InsightsToolUpdateRequestTypedDict": ".insights_tool_updateop",
     "InsightsUploadListFilesRequest": ".insights_upload_list_filesop",
@@ -3101,6 +3117,10 @@ _dynamic_imports: dict[str, str] = {
     "InsightToolResponseTypedDict": ".insighttoolresponse",
     "InsightToolTestInput": ".insighttooltestinput",
     "InsightToolTestInputTypedDict": ".insighttooltestinput",
+    "SessionID": ".insighttooltestinput",
+    "SessionIDTypedDict": ".insighttooltestinput",
+    "UploadFileID": ".insighttooltestinput",
+    "UploadFileIDTypedDict": ".insighttooltestinput",
     "InsightWorkflowActivate": ".insightworkflowactivate",
     "InsightWorkflowActivateTypedDict": ".insightworkflowactivate",
     "AgentList": ".insightworkflowcondition",

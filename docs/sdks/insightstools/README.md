@@ -250,7 +250,7 @@ with SyllableSDK(
 
 ## insights_tool_test
 
-Manually run the given insight tool against a session and return the response.
+Run the saved tool against one session or uploaded file without persisting insights.
 
 ### Example Usage
 
@@ -266,6 +266,8 @@ with SyllableSDK(
 
     res = ss_client.insights.tools.insights_tool_test(request={
         "tool_name": "summary-tool",
+        "session_id": 283467,
+        "upload_file_id": 283467,
     })
 
     # Handle response
@@ -282,7 +284,7 @@ with SyllableSDK(
 
 ### Response
 
-**[Any](../../models/.md)**
+**[models.ResponseInsightsToolTest](../../models/responseinsightstooltest.md)**
 
 ### Errors
 
