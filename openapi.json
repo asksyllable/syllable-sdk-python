@@ -6719,7 +6719,7 @@
           "insights.tools"
         ],
         "summary": "Test Insights Tool",
-        "description": "Manually run the given insight tool against a session and return the response.",
+        "description": "Run the saved tool against one session or uploaded file without persisting insights.",
         "operationId": "insights_tool_test",
         "requestBody": {
           "content": {
@@ -6736,7 +6736,10 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "title": "Response Insights Tool Test"
+                }
               }
             }
           },
@@ -6748,6 +6751,12 @@
           },
           "500": {
             "description": "Internal Server Error"
+          },
+          "502": {
+            "description": "Tool execution service unavailable"
+          },
+          "504": {
+            "description": "Tool test timed out"
           },
           "422": {
             "description": "Validation Error",
@@ -25048,6 +25057,8 @@
         "properties": {
           "tool_name": {
             "type": "string",
+            "minLength": 1,
+            "pattern": "\\S",
             "title": "Tool Name",
             "description": "Human readable name of insight tool configuration",
             "examples": [
@@ -25060,13 +25071,16 @@
                 "type": "integer"
               },
               {
+                "type": "string"
+              },
+              {
                 "type": "null"
               }
             ],
             "title": "Session Id",
             "description": "The session ID of the session against which to run the tool",
             "examples": [
-              "283467"
+              283467
             ]
           },
           "upload_file_id": {
@@ -25075,13 +25089,16 @@
                 "type": "integer"
               },
               {
+                "type": "string"
+              },
+              {
                 "type": "null"
               }
             ],
             "title": "Upload File Id",
             "description": "The file ID of the uploaded file against which to run the tool",
             "examples": [
-              "283467"
+              283467
             ]
           }
         },
