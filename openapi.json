@@ -17038,7 +17038,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20261014.9"
+              "20261015.9"
             ]
           },
           "campaign_id": {
@@ -17062,7 +17062,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "paused": {
@@ -17172,7 +17172,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -17188,7 +17188,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -17219,7 +17219,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -18754,7 +18754,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20261014.9"
+              "20261015.9"
             ]
           },
           "campaign_id": {
@@ -18778,7 +18778,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "paused": {
@@ -18888,7 +18888,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -18904,7 +18904,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -18935,7 +18935,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -18978,7 +18978,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20261014.9"
+              "20261015.9"
             ]
           },
           "campaign_id": {
@@ -19002,7 +19002,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "paused": {
@@ -19211,7 +19211,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2026-10-13T00:00:00Z"
+              "2026-10-14T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -19227,7 +19227,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -20571,6 +20571,7 @@
           },
           "weight": {
             "type": "integer",
+            "minimum": 1.0,
             "title": "Weight",
             "description": "The percentage of the channel target's traffic this variant answers. The weights of an experiment's variants must add up to 100. (E.g., two variants with a weight of 50 each split the traffic evenly.)",
             "examples": [
@@ -20599,7 +20600,7 @@
           "agent_id"
         ],
         "title": "DaoExperimentVariantWrite",
-        "description": "One variant of an experiment as it is written.\n\nVariants are always written as a complete set, because a weight only means anything next to the\nother weights, so there is no model for writing one on its own. The fields are checked by\n`ExperimentsDao._validate_variants` and not by the model, so that every rule about a variant\nreads in one place."
+        "description": "One variant of an experiment as it is written.\n\nVariants are always written as a complete set, because a weight only means anything next to the\nother weights, so there is no model for writing one on its own."
       },
       "DaoToolResponse": {
         "properties": {
@@ -23265,8 +23266,9 @@
               "$ref": "#/components/schemas/DaoExperimentVariantWrite"
             },
             "type": "array",
+            "minItems": 2,
             "title": "Variants",
-            "description": "The variants of the experiment, as a complete set. Two or more, each on a different agent, exactly one of them the control."
+            "description": "The complete set of variants for this experiment. Include at least 2 variants that use distinct agents, mark exactly one variant as the control, and assign positive whole number weights that total 100."
           },
           "target_id": {
             "type": "integer",
@@ -23280,10 +23282,32 @@
         "type": "object",
         "required": [
           "name",
+          "variants",
           "target_id"
         ],
         "title": "ExperimentCreateRequest",
-        "description": "Request model to create an experiment."
+        "description": "Create an experiment with at least two distinct agents and one control variant.\n\nVariant weights are positive whole-number percentages that must total 100.",
+        "examples": [
+          {
+            "description": "Test whether a shorter greeting reduces call duration.",
+            "name": "Shorter greeting",
+            "target_id": 7,
+            "variants": [
+              {
+                "agent_id": 10,
+                "is_control": true,
+                "name": "control",
+                "weight": 50
+              },
+              {
+                "agent_id": 11,
+                "is_control": false,
+                "name": "short greeting",
+                "weight": 50
+              }
+            ]
+          }
+        ]
       },
       "ExperimentProperties": {
         "type": "string",
@@ -23514,16 +23538,38 @@
               "$ref": "#/components/schemas/DaoExperimentVariantWrite"
             },
             "type": "array",
+            "minItems": 2,
             "title": "Variants",
-            "description": "The variants of the experiment, as a complete set. Two or more, each on a different agent, exactly one of them the control."
+            "description": "The complete set of variants for this experiment. Include at least 2 variants that use distinct agents, mark exactly one variant as the control, and assign positive whole number weights that total 100."
           }
         },
         "type": "object",
         "required": [
-          "name"
+          "name",
+          "variants"
         ],
         "title": "ExperimentUpdateRequest",
-        "description": "Request model to update an experiment."
+        "description": "Replace an experiment's name, hypothesis, and complete variant set.\n\nInclude at least two variants that use distinct agents. Mark exactly one as the control and use\npositive whole-number weights that total 100.",
+        "examples": [
+          {
+            "description": "Test whether a shorter greeting reduces call duration.",
+            "name": "Shorter greeting",
+            "variants": [
+              {
+                "agent_id": 10,
+                "is_control": true,
+                "name": "control",
+                "weight": 50
+              },
+              {
+                "agent_id": 11,
+                "is_control": false,
+                "name": "short greeting",
+                "weight": 50
+              }
+            ]
+          }
+        ]
       },
       "ExperimentVariantResult": {
         "properties": {
@@ -23847,7 +23893,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-10-13T00:00:00Z"
+              "2026-10-14T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -23856,7 +23902,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -24888,7 +24934,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2026-10-13T00:00:00Z"
+              "2026-10-14T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -24897,7 +24943,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -25004,7 +25050,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2026-10-13T00:00:00Z"
+              "2026-10-14T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -25013,7 +25059,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -25447,7 +25493,7 @@
             "title": "Started At",
             "description": "Timestamp at which the most recent processing attempt started",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "created_at": {
@@ -25456,7 +25502,7 @@
             "title": "Created At",
             "description": "Timestamp at which the execution row was created (i.e. when the work was queued)",
             "examples": [
-              "2026-10-13T00:00:00Z"
+              "2026-10-14T00:00:00Z"
             ]
           },
           "event_type": {
@@ -25613,7 +25659,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-10-13T00:00:00Z"
+              "2026-10-14T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -25629,7 +25675,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           }
         },
@@ -25703,7 +25749,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-10-13T00:00:00Z"
+              "2026-10-14T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -25719,7 +25765,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "id": {
@@ -25787,7 +25833,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2026-10-13T00:00:00Z"
+              "2026-10-14T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -25796,7 +25842,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -25820,7 +25866,7 @@
             "title": "Last Folder Upload At",
             "description": "Timestamp of the most recent file upload to any folder associated with this workflow (null for non-upload workflows or until a file has been uploaded)",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           }
         },
@@ -25914,7 +25960,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-10-13T00:00:00Z"
+              "2026-10-14T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -25930,7 +25976,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "id": {
@@ -25998,7 +26044,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2026-10-13T00:00:00Z"
+              "2026-10-14T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -26007,7 +26053,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -26031,7 +26077,7 @@
             "title": "Last Folder Upload At",
             "description": "Timestamp of the most recent file upload to any folder associated with this workflow (null for non-upload workflows or until a file has been uploaded)",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           }
         },
@@ -26105,7 +26151,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-10-13T00:00:00Z"
+              "2026-10-14T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -26114,7 +26160,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -26364,7 +26410,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2026-10-13T00:00:00Z"
+              "2026-10-14T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -26373,7 +26419,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "upload_file_metadata": {
@@ -26518,7 +26564,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2026-10-13T00:00:00Z"
+              "2026-10-14T00:00:00Z"
             ]
           },
           "end_time": {
@@ -26534,7 +26580,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "error_message": {
@@ -26589,7 +26635,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2026-10-13T00:00:00Z"
+              "2026-10-14T00:00:00Z"
             ]
           }
         },
@@ -30842,7 +30888,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -30851,7 +30897,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -38725,7 +38771,7 @@
             "title": "Analyzed At",
             "description": "When the workflow execution started processing this file; null while the row is still PENDING",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "queued_at": {
@@ -38734,7 +38780,7 @@
             "title": "Queued At",
             "description": "When the file was queued for this workflow",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "status": {
@@ -38823,7 +38869,7 @@
             "title": "Analyzed At",
             "description": "When the workflow execution started processing this session; null while the row is still PENDING",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "queued_at": {
@@ -38832,7 +38878,7 @@
             "title": "Queued At",
             "description": "When the session was queued for this workflow",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "status": {
