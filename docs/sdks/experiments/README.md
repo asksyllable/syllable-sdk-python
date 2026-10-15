@@ -84,14 +84,21 @@ with SyllableSDK(
 
     res = ss_client.experiments.create(request={
         "name": "Shorter greeting",
+        "description": "Test whether a shorter greeting reduces call duration.",
         "variants": [
             {
-                "name": "b",
-                "weight": 10,
-                "agent_id": 1,
+                "name": "control",
+                "weight": 50,
+                "is_control": True,
+                "agent_id": 10,
+            },
+            {
+                "name": "short greeting",
+                "weight": 50,
+                "agent_id": 11,
             },
         ],
-        "target_id": 1,
+        "target_id": 7,
     })
 
     # Handle response
@@ -176,11 +183,18 @@ with SyllableSDK(
 
     res = ss_client.experiments.update(experiment_id=571406, experiment_update_request={
         "name": "Shorter greeting",
+        "description": "Test whether a shorter greeting reduces call duration.",
         "variants": [
             {
-                "name": "b",
-                "weight": 10,
-                "agent_id": 1,
+                "name": "control",
+                "weight": 50,
+                "is_control": True,
+                "agent_id": 10,
+            },
+            {
+                "name": "short greeting",
+                "weight": 50,
+                "agent_id": 11,
             },
         ],
     })
@@ -192,11 +206,11 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `experiment_id`                                                           | *int*                                                                     | :heavy_check_mark:                                                        | N/A                                                                       |
-| `experiment_update_request`                                               | [models.ExperimentUpdateRequest](../../models/experimentupdaterequest.md) | :heavy_check_mark:                                                        | N/A                                                                       |
-| `retries`                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)          | :heavy_minus_sign:                                                        | Configuration to override the default retry behavior of the client.       |
+| Parameter                                                                                                                                                                                                                                                                         | Type                                                                                                                                                                                                                                                                              | Required                                                                                                                                                                                                                                                                          | Description                                                                                                                                                                                                                                                                       | Example                                                                                                                                                                                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `experiment_id`                                                                                                                                                                                                                                                                   | *int*                                                                                                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                                                                                                | N/A                                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                                                                   |
+| `experiment_update_request`                                                                                                                                                                                                                                                       | [models.ExperimentUpdateRequest](../../models/experimentupdaterequest.md)                                                                                                                                                                                                         | :heavy_check_mark:                                                                                                                                                                                                                                                                | N/A                                                                                                                                                                                                                                                                               | {<br/>"description": "Test whether a shorter greeting reduces call duration.",<br/>"name": "Shorter greeting",<br/>"variants": [<br/>{<br/>"agent_id": 10,<br/>"is_control": true,<br/>"name": "control",<br/>"weight": 50<br/>},<br/>{<br/>"agent_id": 11,<br/>"is_control": false,<br/>"name": "short greeting",<br/>"weight": 50<br/>}<br/>]<br/>} |
+| `retries`                                                                                                                                                                                                                                                                         | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                                                                                                                                | Configuration to override the default retry behavior of the client.                                                                                                                                                                                                               |                                                                                                                                                                                                                                                                                   |
 
 ### Response
 
