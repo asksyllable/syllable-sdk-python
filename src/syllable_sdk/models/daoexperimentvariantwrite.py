@@ -11,9 +11,7 @@ class DaoExperimentVariantWriteTypedDict(TypedDict):
     r"""One variant of an experiment as it is written.
 
     Variants are always written as a complete set, because a weight only means anything next to the
-    other weights, so there is no model for writing one on its own. The fields are checked by
-    `ExperimentsDao._validate_variants` and not by the model, so that every rule about a variant
-    reads in one place.
+    other weights, so there is no model for writing one on its own.
     """
 
     name: str
@@ -30,9 +28,7 @@ class DaoExperimentVariantWrite(BaseModel):
     r"""One variant of an experiment as it is written.
 
     Variants are always written as a complete set, because a weight only means anything next to the
-    other weights, so there is no model for writing one on its own. The fields are checked by
-    `ExperimentsDao._validate_variants` and not by the model, so that every rule about a variant
-    reads in one place.
+    other weights, so there is no model for writing one on its own.
     """
 
     name: str

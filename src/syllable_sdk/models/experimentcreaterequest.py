@@ -13,28 +13,37 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import List, Optional
+from typing import List
 from typing_extensions import NotRequired, TypedDict
 
 
 class ExperimentCreateRequestTypedDict(TypedDict):
-    r"""Request model to create an experiment."""
+    r"""Create an experiment with at least two distinct agents and one control variant.
+
+    Variant weights are positive whole-number percentages that must total 100.
+    """
 
     name: str
     r"""The name of the experiment"""
+    variants: List[DaoExperimentVariantWriteTypedDict]
+    r"""The complete set of variants for this experiment. Include at least 2 variants that use distinct agents, mark exactly one variant as the control, and assign positive whole number weights that total 100."""
     target_id: int
     r"""The channel target being split"""
     description: NotRequired[Nullable[str]]
     r"""The hypothesis under test"""
-    variants: NotRequired[List[DaoExperimentVariantWriteTypedDict]]
-    r"""The variants of the experiment, as a complete set. Two or more, each on a different agent, exactly one of them the control."""
 
 
 class ExperimentCreateRequest(BaseModel):
-    r"""Request model to create an experiment."""
+    r"""Create an experiment with at least two distinct agents and one control variant.
+
+    Variant weights are positive whole-number percentages that must total 100.
+    """
 
     name: str
     r"""The name of the experiment"""
+
+    variants: List[DaoExperimentVariantWrite]
+    r"""The complete set of variants for this experiment. Include at least 2 variants that use distinct agents, mark exactly one variant as the control, and assign positive whole number weights that total 100."""
 
     target_id: int
     r"""The channel target being split"""
@@ -42,12 +51,9 @@ class ExperimentCreateRequest(BaseModel):
     description: OptionalNullable[str] = UNSET
     r"""The hypothesis under test"""
 
-    variants: Optional[List[DaoExperimentVariantWrite]] = None
-    r"""The variants of the experiment, as a complete set. Two or more, each on a different agent, exactly one of them the control."""
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["description", "variants"])
+        optional_fields = set(["description"])
         nullable_fields = set(["description"])
         serialized = handler(self)
         m = {}

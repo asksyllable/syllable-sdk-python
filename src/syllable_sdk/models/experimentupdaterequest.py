@@ -13,36 +13,44 @@ from syllable_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import List, Optional
+from typing import List
 from typing_extensions import NotRequired, TypedDict
 
 
 class ExperimentUpdateRequestTypedDict(TypedDict):
-    r"""Request model to update an experiment."""
+    r"""Replace an experiment's name, hypothesis, and complete variant set.
+
+    Include at least two variants that use distinct agents. Mark exactly one as the control and use
+    positive whole-number weights that total 100.
+    """
 
     name: str
     r"""The name of the experiment"""
+    variants: List[DaoExperimentVariantWriteTypedDict]
+    r"""The complete set of variants for this experiment. Include at least 2 variants that use distinct agents, mark exactly one variant as the control, and assign positive whole number weights that total 100."""
     description: NotRequired[Nullable[str]]
     r"""The hypothesis under test"""
-    variants: NotRequired[List[DaoExperimentVariantWriteTypedDict]]
-    r"""The variants of the experiment, as a complete set. Two or more, each on a different agent, exactly one of them the control."""
 
 
 class ExperimentUpdateRequest(BaseModel):
-    r"""Request model to update an experiment."""
+    r"""Replace an experiment's name, hypothesis, and complete variant set.
+
+    Include at least two variants that use distinct agents. Mark exactly one as the control and use
+    positive whole-number weights that total 100.
+    """
 
     name: str
     r"""The name of the experiment"""
+
+    variants: List[DaoExperimentVariantWrite]
+    r"""The complete set of variants for this experiment. Include at least 2 variants that use distinct agents, mark exactly one variant as the control, and assign positive whole number weights that total 100."""
 
     description: OptionalNullable[str] = UNSET
     r"""The hypothesis under test"""
 
-    variants: Optional[List[DaoExperimentVariantWrite]] = None
-    r"""The variants of the experiment, as a complete set. Two or more, each on a different agent, exactly one of them the control."""
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["description", "variants"])
+        optional_fields = set(["description"])
         nullable_fields = set(["description"])
         serialized = handler(self)
         m = {}
