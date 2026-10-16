@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "SyllableSDK",
-    "description": "\n# Syllable Platform SDK\n\nSyllable SDK gives you the power of awesome AI agentry. 🚀\n\n## Overview\n\nThe Syllable SDK provides a comprehensive set of tools and APIs to integrate powerful AI\ncapabilities into your communication applications. Whether you're building phone agents, chatbots,\nvirtual assistants, or any other AI-driven solutions, Syllable SDK has got you covered.\n\n## Features\n\n- **Agent Configuration**: Create and manage agents that can interact with users across various \nchannels.\n- **Channel Management**: Configure channels like SMS, web chat, and more to connect agents with \nusers.\n- **Custom Messages**: Set up custom messages that agents can deliver as greetings or responses.\n- **Conversations**: Track and manage conversations between users and agents, including session \nmanagement.\n- **Tools and Workflows**: Leverage tools and workflows to enhance agent capabilities, such as data \nprocessing and API calls.\n- **Data Sources**: Integrate data sources to provide agents with additional context and \ninformation.\n- **Insights and Analytics**: Analyze conversations and sessions to gain insights into user \ninteractions.\n- **Permissions and Security**: Manage permissions to control access to various features and \nfunctionalities.\n- **Language Support**: Define language groups to enable multilingual support for agents.\n- **Outbound Campaigns**: Create and manage outbound communication campaigns to reach users \neffectively.\n- **Session Labels**: Label sessions with evaluations of quality and descriptions of issues \nencountered.\n- **Incident Management**: Track and manage incidents related to agent interactions.\n",
+    "description": "\n# Syllable Platform SDK\n\nSyllable SDK gives you the power of awesome AI agentry. 🚀\n\n## Overview\n\nThe Syllable SDK provides a comprehensive set of tools and APIs to integrate powerful AI\ncapabilities into your communication applications. Whether you're building phone agents, chatbots,\nvirtual assistants, or any other AI-driven solutions, Syllable SDK has got you covered.\n\n## Features\n\n- **Agent Configuration**: Create and manage agents that can interact with users across various \nchannels.\n- **Channel Management**: Configure channels like SMS, web chat, and more to connect agents with \nusers.\n- **Custom Messages**: Set up custom messages that agents can deliver as greetings or responses.\n- **Conversations**: Track and manage conversations between users and agents, including session \nmanagement.\n- **Tools and Workflows**: Leverage tools and workflows to enhance agent capabilities, such as data \nprocessing and API calls.\n- **Data Sources**: Integrate data sources to provide agents with additional context and \ninformation.\n- **Insights and Analytics**: Analyze conversations and sessions to gain insights into user \ninteractions.\n- **Permissions and Security**: Manage permissions to control access to various features and \nfunctionalities.\n- **Language Support**: Define language groups to enable multilingual support for agents.\n- **Outbound Campaigns**: Create and manage outbound communication campaigns to reach users \neffectively.\n- **Session Labels**: Label sessions with evaluations of quality and descriptions of issues \nencountered.\n- **Incident Management**: Track and manage incidents related to agent interactions.\n\n## Seed deprecation\n\nSeed is deprecated by Syllable. Leave it unset for new Prompt and Insight Tool configurations.\nConfigured values, including zero, remain stored and produce a nonblocking `llm-seed-deprecated`\nwarning in `validation_issues` on successful saves and configuration reads, including Prompt\nhistory. Unset/null values do not produce this warning. Match the issue identifier and field\npath, rather than the human-readable message. Existing support restrictions still apply;\n`llm-seed-unsupported` reports known Anthropic sampling restrictions separately.\n\nOpenAI and Azure OpenAI Chat Completions offer best-effort seed support where the model supports\nit; Responses does not support seed. Anthropic does not support seed as a sampling parameter.\nGoogle support depends on the model and API. Saved configuration and current warnings do not\nestablish the endpoint or seed handling of a past request. Sending seed does not prove it was\nhonored, and no sampling setting guarantees identical responses.\n\nFor more consistent outputs, pin a model snapshot where available and keep inputs, tools and\nsupported settings constant. Use temperature zero only where supported. Model and backend\nchanges can still affect output; reuse a saved response when identical text is required.\n",
     "version": "0.0.3"
   },
   "servers": [
@@ -17038,7 +17038,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20261015.9"
+              "20261016.9"
             ]
           },
           "campaign_id": {
@@ -17062,7 +17062,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-10-16T00:00:00Z"
+              "2026-10-17T00:00:00Z"
             ]
           },
           "paused": {
@@ -17172,7 +17172,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -17188,7 +17188,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -17219,7 +17219,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -18754,7 +18754,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20261015.9"
+              "20261016.9"
             ]
           },
           "campaign_id": {
@@ -18778,7 +18778,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-10-16T00:00:00Z"
+              "2026-10-17T00:00:00Z"
             ]
           },
           "paused": {
@@ -18888,7 +18888,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -18904,7 +18904,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -18935,7 +18935,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -18978,7 +18978,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20261015.9"
+              "20261016.9"
             ]
           },
           "campaign_id": {
@@ -19002,7 +19002,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-10-16T00:00:00Z"
+              "2026-10-17T00:00:00Z"
             ]
           },
           "paused": {
@@ -19211,7 +19211,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -19227,7 +19227,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -19820,7 +19820,7 @@
               }
             ],
             "title": "Llm Seed",
-            "description": "Seed for the LLM used in the conversation (see PromptResponse.llm_config.seed)."
+            "description": "Configured seed recorded for the conversation (see PromptResponse.llm_config.seed). Deprecated by Syllable. This saved value does not establish the actual provider endpoint, whether seed was sent or omitted on any attempt, or whether a provider honored it."
           },
           "is_legacy": {
             "anyOf": [
@@ -23893,7 +23893,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -23902,7 +23902,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -24839,7 +24839,7 @@
           },
           "tool_arguments": {
             "title": "Tool Arguments",
-            "description": "Arguments for calling the insight tool",
+            "description": "Arguments for calling the insight tool. LLM tools carry their configuration in llm_config. Its optional integer seed is deprecated by Syllable and should be left unset for new configurations. Seed does not guarantee identical responses; support depends on provider, model and endpoint. OpenAI/Azure Responses and Anthropic sampling do not support seed. Configured values (including zero) produce nonblocking llm-seed-deprecated findings at $.tool_arguments.llm_config.seed in configuration responses. Unset/null values do not. Saved values do not establish past request handling.",
             "examples": [
               {
                 "prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"
@@ -24894,7 +24894,7 @@
           },
           "tool_arguments": {
             "title": "Tool Arguments",
-            "description": "Arguments for calling the insight tool",
+            "description": "Arguments for calling the insight tool. LLM tools carry their configuration in llm_config. Its optional integer seed is deprecated by Syllable and should be left unset for new configurations. Seed does not guarantee identical responses; support depends on provider, model and endpoint. OpenAI/Azure Responses and Anthropic sampling do not support seed. Configured values (including zero) produce nonblocking llm-seed-deprecated findings at $.tool_arguments.llm_config.seed in configuration responses. Unset/null values do not. Saved values do not establish past request handling.",
             "examples": [
               {
                 "prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"
@@ -24934,7 +24934,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -24943,7 +24943,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -25010,7 +25010,7 @@
           },
           "tool_arguments": {
             "title": "Tool Arguments",
-            "description": "Arguments for calling the insight tool",
+            "description": "Arguments for calling the insight tool. LLM tools carry their configuration in llm_config. Its optional integer seed is deprecated by Syllable and should be left unset for new configurations. Seed does not guarantee identical responses; support depends on provider, model and endpoint. OpenAI/Azure Responses and Anthropic sampling do not support seed. Configured values (including zero) produce nonblocking llm-seed-deprecated findings at $.tool_arguments.llm_config.seed in configuration responses. Unset/null values do not. Saved values do not establish past request handling.",
             "examples": [
               {
                 "prompt": "Provide a concise, accurate summary of the conversation's key points, focusing on the user's goal and how the agent responded"
@@ -25050,7 +25050,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -25059,7 +25059,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -25083,7 +25083,7 @@
               }
             ],
             "title": "Validation Issues",
-            "description": "Non-blocking findings for the saved insight tool (e.g. a deprecated model warning). Warnings and infos are informational; errors block the save."
+            "description": "Current findings for the saved insight tool. Configured seed (including zero) returns llm-seed-deprecated at $.tool_arguments.llm_config.seed; unset/null seed does not. Known Anthropic seed restrictions are reported separately as llm-seed-unsupported. Seed warnings do not block saves or establish past request handling. Model lifecycle findings are also included; retired models block saves but can appear on reads. Explicitly projected lists can omit findings; their absence does not establish that seed is unset or supported."
           }
         },
         "type": "object",
@@ -25493,7 +25493,7 @@
             "title": "Started At",
             "description": "Timestamp at which the most recent processing attempt started",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "created_at": {
@@ -25502,7 +25502,7 @@
             "title": "Created At",
             "description": "Timestamp at which the execution row was created (i.e. when the work was queued)",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "event_type": {
@@ -25659,7 +25659,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -25675,7 +25675,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           }
         },
@@ -25749,7 +25749,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -25765,7 +25765,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "id": {
@@ -25833,7 +25833,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -25842,7 +25842,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -25866,7 +25866,7 @@
             "title": "Last Folder Upload At",
             "description": "Timestamp of the most recent file upload to any folder associated with this workflow (null for non-upload workflows or until a file has been uploaded)",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           }
         },
@@ -25960,7 +25960,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -25976,7 +25976,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "id": {
@@ -26044,7 +26044,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -26053,7 +26053,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -26077,7 +26077,7 @@
             "title": "Last Folder Upload At",
             "description": "Timestamp of the most recent file upload to any folder associated with this workflow (null for non-upload workflows or until a file has been uploaded)",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           }
         },
@@ -26151,7 +26151,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -26160,7 +26160,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -26410,7 +26410,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -26419,7 +26419,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "upload_file_metadata": {
@@ -26564,7 +26564,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           },
           "end_time": {
@@ -26580,7 +26580,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "error_message": {
@@ -26635,7 +26635,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2026-10-14T00:00:00Z"
+              "2026-10-15T00:00:00Z"
             ]
           }
         },
@@ -30888,7 +30888,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -30897,7 +30897,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -31830,7 +31830,7 @@
                 "type": "null"
               }
             ],
-            "description": "String representation of LLM config for the prompt at this version"
+            "description": "Saved LLM configuration for the prompt at this version"
           },
           "comments": {
             "anyOf": [
@@ -31896,7 +31896,7 @@
               }
             ],
             "title": "Validation Issues",
-            "description": "Lifecycle findings for the model this version was saved on."
+            "description": "Current model lifecycle and seed policy findings for this historical version. llm-seed-deprecated points to $.llm_config.seed when configured, including zero; unset/null seed does not produce a warning. Saved Anthropic seed values also return llm-seed-unsupported. These findings do not establish the endpoint or seed handling of historical requests."
           }
         },
         "type": "object",
@@ -31990,7 +31990,8 @@
               }
             ],
             "title": "Seed",
-            "description": "Controls the reproducibility of the job. The LLM will give the same or similar responses given the same inputs in multiple conversations with the same seed.",
+            "description": "Deprecated by Syllable; leave unset for new configurations. Retained for backward compatibility where supported, without a guarantee of identical responses. OpenAI and Azure OpenAI Chat Completions offer best-effort seed support on supported models; Responses does not support seed. Anthropic does not support seed as a sampling parameter. Google support depends on the model and API. A saved value does not establish the endpoint or seed handling of a past request, and sending seed does not prove that a provider honored it.",
+            "deprecated": true,
             "examples": [
               123
             ]
@@ -32252,7 +32253,7 @@
               }
             ],
             "title": "Validation Issues",
-            "description": "Non-blocking findings for the saved prompt (e.g. a deprecated model warning). Warnings and infos are informational; errors block the save."
+            "description": "Current findings for the saved prompt. Configured seed (including zero) returns llm-seed-deprecated at $.llm_config.seed; unset/null seed does not. Seed warnings do not block saves or establish past request handling. Saved Anthropic seed values also return llm-seed-unsupported; existing save restrictions still apply. Model lifecycle findings are also included; retired models block saves but can appear on reads. Findings are populated by standalone Prompt saves and full list/detail reads. Explicitly projected lists and prompts embedded in Agent or Channel responses can omit findings; their absence does not establish that seed is unset or supported."
           }
         },
         "type": "object",
@@ -38771,7 +38772,7 @@
             "title": "Analyzed At",
             "description": "When the workflow execution started processing this file; null while the row is still PENDING",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "queued_at": {
@@ -38780,7 +38781,7 @@
             "title": "Queued At",
             "description": "When the file was queued for this workflow",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "status": {
@@ -38869,7 +38870,7 @@
             "title": "Analyzed At",
             "description": "When the workflow execution started processing this session; null while the row is still PENDING",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "queued_at": {
@@ -38878,7 +38879,7 @@
             "title": "Queued At",
             "description": "When the session was queued for this workflow",
             "examples": [
-              "2026-10-15T00:00:00Z"
+              "2026-10-16T00:00:00Z"
             ]
           },
           "status": {
