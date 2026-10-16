@@ -36,6 +36,25 @@ effectively.
 - **Session Labels**: Label sessions with evaluations of quality and descriptions of issues 
 encountered.
 - **Incident Management**: Track and manage incidents related to agent interactions.
+
+## Seed deprecation
+
+Seed is deprecated by Syllable. Leave it unset for new Prompt and Insight Tool configurations.
+Configured values, including zero, remain stored and produce a nonblocking `llm-seed-deprecated`
+warning in `validation_issues` on successful saves and configuration reads, including Prompt
+history. Unset/null values do not produce this warning. Match the issue identifier and field
+path, rather than the human-readable message. Existing support restrictions still apply;
+`llm-seed-unsupported` reports known Anthropic sampling restrictions separately.
+
+OpenAI and Azure OpenAI Chat Completions offer best-effort seed support where the model supports
+it; Responses does not support seed. Anthropic does not support seed as a sampling parameter.
+Google support depends on the model and API. Saved configuration and current warnings do not
+establish the endpoint or seed handling of a past request. Sending seed does not prove it was
+honored, and no sampling setting guarantees identical responses.
+
+For more consistent outputs, pin a model snapshot where available and keep inputs, tools and
+supported settings constant. Use temperature zero only where supported. Model and backend
+changes can still affect output; reuse a saved response when identical text is required.
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -45,6 +64,7 @@ encountered.
 * [Syllable Platform SDK](#syllable-platform-sdk)
   * [Overview](#overview)
   * [Features](#features)
+  * [Seed deprecation](#seed-deprecation)
   * [SDK Installation](#sdk-installation)
   * [IDE Support](#ide-support)
   * [SDK Example Usage](#sdk-example-usage)

@@ -44,7 +44,7 @@ class PromptHistoryResponseTypedDict(TypedDict):
     prompt_description: NotRequired[Nullable[str]]
     r"""Description of the prompt at this version"""
     llm_config: NotRequired[Nullable[PromptLlmConfigTypedDict]]
-    r"""String representation of LLM config for the prompt at this version"""
+    r"""Saved LLM configuration for the prompt at this version"""
     comments: NotRequired[Nullable[str]]
     r"""Comments describing the change that resulted in this version"""
     linked_tools: NotRequired[List[PromptHistoryLinkedToolTypedDict]]
@@ -52,7 +52,7 @@ class PromptHistoryResponseTypedDict(TypedDict):
     session_end_tool: NotRequired[Nullable[PromptHistoryLinkedToolTypedDict]]
     r"""Session end tool that was configured on this version of the prompt, if any"""
     validation_issues: NotRequired[Nullable[List[ValidationIssueTypedDict]]]
-    r"""Lifecycle findings for the model this version was saved on."""
+    r"""Current model lifecycle and seed policy findings for this historical version. llm-seed-deprecated points to $.llm_config.seed when configured, including zero; unset/null seed does not produce a warning. Saved Anthropic seed values also return llm-seed-unsupported. These findings do not establish the endpoint or seed handling of historical requests."""
 
 
 class PromptHistoryResponse(BaseModel):
@@ -87,7 +87,7 @@ class PromptHistoryResponse(BaseModel):
     r"""Description of the prompt at this version"""
 
     llm_config: OptionalNullable[PromptLlmConfig] = UNSET
-    r"""String representation of LLM config for the prompt at this version"""
+    r"""Saved LLM configuration for the prompt at this version"""
 
     comments: OptionalNullable[str] = UNSET
     r"""Comments describing the change that resulted in this version"""
@@ -99,7 +99,7 @@ class PromptHistoryResponse(BaseModel):
     r"""Session end tool that was configured on this version of the prompt, if any"""
 
     validation_issues: OptionalNullable[List[ValidationIssue]] = UNSET
-    r"""Lifecycle findings for the model this version was saved on."""
+    r"""Current model lifecycle and seed policy findings for this historical version. llm-seed-deprecated points to $.llm_config.seed when configured, including zero; unset/null seed does not produce a warning. Saved Anthropic seed values also return llm-seed-unsupported. These findings do not establish the endpoint or seed handling of historical requests."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
