@@ -16,7 +16,7 @@ class InsightToolInputTypedDict(TypedDict):
     version: int
     r"""Version number of insight tool configuration"""
     tool_arguments: Any
-    r"""Arguments for calling the insight tool"""
+    r"""Arguments for calling the insight tool. LLM tools carry their configuration in llm_config. Its optional integer seed is deprecated by Syllable and should be left unset for new configurations. Seed does not guarantee identical responses; support depends on provider, model and endpoint. OpenAI/Azure Responses and Anthropic sampling do not support seed. Configured values (including zero) produce nonblocking llm-seed-deprecated findings at $.tool_arguments.llm_config.seed in configuration responses. Unset/null values do not. Saved values do not establish past request handling."""
     insight_tool_definition_id: int
     r"""Internal ID for the definition used by the insight tool configuration"""
 
@@ -34,7 +34,7 @@ class InsightToolInput(BaseModel):
     r"""Version number of insight tool configuration"""
 
     tool_arguments: Any
-    r"""Arguments for calling the insight tool"""
+    r"""Arguments for calling the insight tool. LLM tools carry their configuration in llm_config. Its optional integer seed is deprecated by Syllable and should be left unset for new configurations. Seed does not guarantee identical responses; support depends on provider, model and endpoint. OpenAI/Azure Responses and Anthropic sampling do not support seed. Configured values (including zero) produce nonblocking llm-seed-deprecated findings at $.tool_arguments.llm_config.seed in configuration responses. Unset/null values do not. Saved values do not establish past request handling."""
 
     insight_tool_definition_id: int
     r"""Internal ID for the definition used by the insight tool configuration"""

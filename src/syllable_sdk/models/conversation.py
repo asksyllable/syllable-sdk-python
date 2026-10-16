@@ -43,7 +43,7 @@ class ConversationTypedDict(TypedDict):
     llm_temperature: NotRequired[Nullable[float]]
     r"""Temperature for the LLM used in the conversation (see PromptResponse.llm_config.temperature)"""
     llm_seed: NotRequired[Nullable[int]]
-    r"""Seed for the LLM used in the conversation (see PromptResponse.llm_config.seed)."""
+    r"""Configured seed recorded for the conversation (see PromptResponse.llm_config.seed). Deprecated by Syllable. This saved value does not establish the actual provider endpoint, whether seed was sent or omitted on any attempt, or whether a provider honored it."""
     is_legacy: NotRequired[Nullable[bool]]
     r"""Whether the conversation occurred on the legacy Syllable system"""
 
@@ -90,7 +90,7 @@ class Conversation(BaseModel):
     r"""Temperature for the LLM used in the conversation (see PromptResponse.llm_config.temperature)"""
 
     llm_seed: OptionalNullable[int] = UNSET
-    r"""Seed for the LLM used in the conversation (see PromptResponse.llm_config.seed)."""
+    r"""Configured seed recorded for the conversation (see PromptResponse.llm_config.seed). Deprecated by Syllable. This saved value does not establish the actual provider endpoint, whether seed was sent or omitted on any attempt, or whether a provider honored it."""
 
     is_legacy: OptionalNullable[bool] = UNSET
     r"""Whether the conversation occurred on the legacy Syllable system"""

@@ -29,7 +29,7 @@ class PromptLlmConfigTypedDict(TypedDict):
     temperature: NotRequired[Nullable[float]]
     r"""Temperature parameter for the model. Determines randomness of responses - higher is more random, lower is more focused. Must be between 0.0 and 2.0, inclusive."""
     seed: NotRequired[Nullable[int]]
-    r"""Controls the reproducibility of the job. The LLM will give the same or similar responses given the same inputs in multiple conversations with the same seed."""
+    r"""Deprecated by Syllable; leave unset for new configurations. Retained for backward compatibility where supported, without a guarantee of identical responses. OpenAI and Azure OpenAI Chat Completions offer best-effort seed support on supported models; Responses does not support seed. Anthropic does not support seed as a sampling parameter. Google support depends on the model and API. A saved value does not establish the endpoint or seed handling of a past request, and sending seed does not prove that a provider honored it."""
 
 
 class PromptLlmConfig(BaseModel):
@@ -55,8 +55,13 @@ class PromptLlmConfig(BaseModel):
     temperature: OptionalNullable[float] = UNSET
     r"""Temperature parameter for the model. Determines randomness of responses - higher is more random, lower is more focused. Must be between 0.0 and 2.0, inclusive."""
 
-    seed: OptionalNullable[int] = UNSET
-    r"""Controls the reproducibility of the job. The LLM will give the same or similar responses given the same inputs in multiple conversations with the same seed."""
+    seed: Annotated[
+        OptionalNullable[int],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
+        ),
+    ] = UNSET
+    r"""Deprecated by Syllable; leave unset for new configurations. Retained for backward compatibility where supported, without a guarantee of identical responses. OpenAI and Azure OpenAI Chat Completions offer best-effort seed support on supported models; Responses does not support seed. Anthropic does not support seed as a sampling parameter. Google support depends on the model and API. A saved value does not establish the endpoint or seed handling of a past request, and sending seed does not prove that a provider honored it."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
