@@ -20,6 +20,7 @@ value = PromptProperties.ID
 | `NAME_EXACT`          | name_exact            |
 | `DESCRIPTION`         | description           |
 | `NAME_DESCRIPTION`    | name_description      |
+| `LABELS`              | labels                |
 | `CONTEXT`             | context               |
 | `TOOLS`               | tools                 |
 | `LLM_CONFIG`          | llm_config            |

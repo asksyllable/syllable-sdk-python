@@ -464,6 +464,7 @@ with SyllableSDK(
 * [list](docs/sdks/prompts/README.md#list) - Prompt List
 * [create](docs/sdks/prompts/README.md#create) - Create Prompt
 * [update](docs/sdks/prompts/README.md#update) - Update Prompt
+* [prompts_list_active_labels](docs/sdks/prompts/README.md#prompts_list_active_labels) - List Active Prompt Labels
 * [get_by_id](docs/sdks/prompts/README.md#get_by_id) - Get Prompt By Id
 * [delete](docs/sdks/prompts/README.md#delete) - Delete Prompt
 * [prompts_history](docs/sdks/prompts/README.md#prompts_history) - Get Prompt History
@@ -719,10 +720,10 @@ with SyllableSDK(
 
 
 **Inherit from [`SyllableSDKError`](./src/syllable_sdk/errors/syllablesdkerror.py)**:
-* [`SessionLabelsListBadRequestError`](./src/syllable_sdk/errors/sessionlabelslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 197 methods.*
-* [`SessionsListBadRequestError`](./src/syllable_sdk/errors/sessionslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 197 methods.*
-* [`DirectoryMemberListBadRequestError`](./src/syllable_sdk/errors/directorymemberlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 197 methods.*
-* [`OutboundCampaignListBadRequestError`](./src/syllable_sdk/errors/outboundcampaignlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 197 methods.*
+* [`SessionLabelsListBadRequestError`](./src/syllable_sdk/errors/sessionlabelslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 198 methods.*
+* [`SessionsListBadRequestError`](./src/syllable_sdk/errors/sessionslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 198 methods.*
+* [`DirectoryMemberListBadRequestError`](./src/syllable_sdk/errors/directorymemberlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 198 methods.*
+* [`OutboundCampaignListBadRequestError`](./src/syllable_sdk/errors/outboundcampaignlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 198 methods.*
 * [`ResponseValidationError`](./src/syllable_sdk/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>
