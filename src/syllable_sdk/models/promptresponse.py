@@ -38,6 +38,8 @@ class PromptResponseTypedDict(TypedDict):
     r"""The last updated date of the prompt"""
     description: NotRequired[Nullable[str]]
     r"""The description of the prompt"""
+    labels: NotRequired[Nullable[List[str]]]
+    r"""The prompt labels"""
     context: NotRequired[Nullable[str]]
     r"""The prompt text that will be sent to the LLM at the beginning of the conversation"""
     tools: NotRequired[List[str]]
@@ -88,6 +90,9 @@ class PromptResponse(BaseModel):
     description: OptionalNullable[str] = UNSET
     r"""The description of the prompt"""
 
+    labels: OptionalNullable[List[str]] = UNSET
+    r"""The prompt labels"""
+
     context: OptionalNullable[str] = UNSET
     r"""The prompt text that will be sent to the LLM at the beginning of the conversation"""
 
@@ -131,6 +136,7 @@ class PromptResponse(BaseModel):
         optional_fields = set(
             [
                 "description",
+                "labels",
                 "context",
                 "tools",
                 "session_end_enabled",
@@ -147,6 +153,7 @@ class PromptResponse(BaseModel):
         nullable_fields = set(
             [
                 "description",
+                "labels",
                 "context",
                 "session_end_tool_id",
                 "edit_comments",

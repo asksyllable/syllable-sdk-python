@@ -4622,6 +4622,25 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HTTPValidationError"
+  /api/v1/prompts/labels:
+    get:
+      tags:
+        - "prompts"
+      summary: "List Active Prompt Labels"
+      description: "List all distinct labels in use across active prompts."
+      operationId: "prompts_list_active_labels"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            application/json:
+              schema:
+                items:
+                  type: "string"
+                type: "array"
+                title: "Response Prompts List Active Labels"
+      security:
+        - APIKeyHeader: []
   /api/v1/prompts/{prompt_id}:
     get:
       tags:
@@ -19909,6 +19928,17 @@ components:
           description: "The description of the prompt"
           examples:
             - "Prompt for a weather agent."
+        labels:
+          anyOf:
+            - items:
+                type: "string"
+              type: "array"
+            - type: "null"
+          title: "Labels"
+          description: "The prompt labels"
+          examples:
+            - - "Outbound"
+              - "Hospital"
         type:
           type: "string"
           title: "Type"
@@ -20045,6 +20075,17 @@ components:
           description: "Description of the prompt at this version"
           examples:
             - "Prompt for a weather agent."
+        labels:
+          anyOf:
+            - items:
+                type: "string"
+              type: "array"
+            - type: "null"
+          title: "Labels"
+          description: "Labels of the prompt at this version"
+          examples:
+            - - "Outbound"
+              - "Hospital"
         prompt_name:
           type: "string"
           title: "Prompt Name"
@@ -20179,6 +20220,7 @@ components:
         - "name_exact"
         - "description"
         - "name_description"
+        - "labels"
         - "context"
         - "tools"
         - "llm_config"
@@ -20205,6 +20247,17 @@ components:
           description: "The description of the prompt"
           examples:
             - "Prompt for a weather agent."
+        labels:
+          anyOf:
+            - items:
+                type: "string"
+              type: "array"
+            - type: "null"
+          title: "Labels"
+          description: "The prompt labels"
+          examples:
+            - - "Outbound"
+              - "Hospital"
         type:
           type: "string"
           title: "Type"
@@ -20346,6 +20399,17 @@ components:
           description: "The description of the prompt"
           examples:
             - "Prompt for a weather agent."
+        labels:
+          anyOf:
+            - items:
+                type: "string"
+              type: "array"
+            - type: "null"
+          title: "Labels"
+          description: "The prompt labels. Omit this field to keep the existing labels; send an empty list or null to remove them."
+          examples:
+            - - "Outbound"
+              - "Hospital"
         type:
           type: "string"
           title: "Type"

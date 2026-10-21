@@ -43,6 +43,8 @@ class PromptHistoryResponseTypedDict(TypedDict):
     r"""Whether this version of the prompt was created before history of tool-prompt linking was tracked"""
     prompt_description: NotRequired[Nullable[str]]
     r"""Description of the prompt at this version"""
+    labels: NotRequired[Nullable[List[str]]]
+    r"""Labels of the prompt at this version"""
     llm_config: NotRequired[Nullable[PromptLlmConfigTypedDict]]
     r"""Saved LLM configuration for the prompt at this version"""
     comments: NotRequired[Nullable[str]]
@@ -86,6 +88,9 @@ class PromptHistoryResponse(BaseModel):
     prompt_description: OptionalNullable[str] = UNSET
     r"""Description of the prompt at this version"""
 
+    labels: OptionalNullable[List[str]] = UNSET
+    r"""Labels of the prompt at this version"""
+
     llm_config: OptionalNullable[PromptLlmConfig] = UNSET
     r"""Saved LLM configuration for the prompt at this version"""
 
@@ -106,6 +111,7 @@ class PromptHistoryResponse(BaseModel):
         optional_fields = set(
             [
                 "prompt_description",
+                "labels",
                 "llm_config",
                 "comments",
                 "linked_tools",
@@ -116,6 +122,7 @@ class PromptHistoryResponse(BaseModel):
         nullable_fields = set(
             [
                 "prompt_description",
+                "labels",
                 "llm_config",
                 "comments",
                 "session_end_tool",

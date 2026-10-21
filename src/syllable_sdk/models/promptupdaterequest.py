@@ -27,6 +27,8 @@ class PromptUpdateRequestTypedDict(TypedDict):
     r"""The internal ID of the prompt"""
     description: NotRequired[Nullable[str]]
     r"""The description of the prompt"""
+    labels: NotRequired[Nullable[List[str]]]
+    r"""The prompt labels. Omit this field to keep the existing labels; send an empty list or null to remove them."""
     context: NotRequired[Nullable[str]]
     r"""The prompt text that will be sent to the LLM at the beginning of the conversation"""
     tools: NotRequired[List[str]]
@@ -59,6 +61,9 @@ class PromptUpdateRequest(BaseModel):
     description: OptionalNullable[str] = UNSET
     r"""The description of the prompt"""
 
+    labels: OptionalNullable[List[str]] = UNSET
+    r"""The prompt labels. Omit this field to keep the existing labels; send an empty list or null to remove them."""
+
     context: OptionalNullable[str] = UNSET
     r"""The prompt text that will be sent to the LLM at the beginning of the conversation"""
 
@@ -82,6 +87,7 @@ class PromptUpdateRequest(BaseModel):
         optional_fields = set(
             [
                 "description",
+                "labels",
                 "context",
                 "tools",
                 "session_end_enabled",
@@ -91,7 +97,7 @@ class PromptUpdateRequest(BaseModel):
             ]
         )
         nullable_fields = set(
-            ["description", "context", "session_end_tool_id", "edit_comments"]
+            ["description", "labels", "context", "session_end_tool_id", "edit_comments"]
         )
         serialized = handler(self)
         m = {}
