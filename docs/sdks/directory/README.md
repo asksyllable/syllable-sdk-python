@@ -6,6 +6,7 @@ Operations related to directory
 
 ### Available Operations
 
+* [directory_tag_key_exists](#directory_tag_key_exists) - Directory Tag Key Exists
 * [list](#list) - Directory Member List
 * [create](#create) - Create Directory Member
 * [directory_member_history](#directory_member_history) - Get Directory Member History
@@ -17,12 +18,54 @@ Operations related to directory
 * [directory_member_bulk_load](#directory_member_bulk_load) - Bulk Load Directory Members
 * [directory_member_download](#directory_member_download) - Download Directory Members
 
+## directory_tag_key_exists
+
+Check active contacts in the current sub-organization, independent of list filters.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="directory_tag_key_exists" method="get" path="/api/v1/directory_members/tag-key-exists" -->
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.directory.directory_tag_key_exists(key="<key>")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `key`                                                               | *str*                                                               | :heavy_check_mark:                                                  | Exact, case-sensitive contact tag key.                              |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[Dict[str, bool]](../../models/.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
 ## list
 
 List directory members.
 
-Filter by contact tags with `tags.<key>=<value>`. Repeat a key to match any of its
-values; filters for different keys must all match. Unknown keys return no matches.
+Filter by contact tags with `tags.<key>=<value>`. Values use case-insensitive literal
+substring matching within the selected key. Repeat a key to match any supplied value;
+filters for different keys must all match. Unknown keys and empty values return no matches.
 
 ### Example Usage
 

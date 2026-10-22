@@ -415,6 +415,10 @@ if TYPE_CHECKING:
         DirectoryMemberUpdateRequest,
         DirectoryMemberUpdateRequestTypedDict,
     )
+    from .directory_tag_key_existsop import (
+        DirectoryTagKeyExistsRequest,
+        DirectoryTagKeyExistsRequestTypedDict,
+    )
     from .directoryextension import DirectoryExtension, DirectoryExtensionTypedDict
     from .directoryextensionnumber import (
         DirectoryExtensionNumber,
@@ -1858,6 +1862,8 @@ __all__ = [
     "DirectoryMemberUpdateRequestTypedDict",
     "DirectoryMemberUpdateTypedDict",
     "DirectoryResponseFormat",
+    "DirectoryTagKeyExistsRequest",
+    "DirectoryTagKeyExistsRequestTypedDict",
     "DisplayActionMapping",
     "DisplayActionMappingActionid",
     "DisplayActionMappingActionidTypedDict",
@@ -2909,6 +2915,8 @@ _dynamic_imports: dict[str, str] = {
     "DirectoryMemberTestExtensionRequestTypedDict": ".directory_member_test_extensionop",
     "DirectoryMemberUpdateRequest": ".directory_member_updateop",
     "DirectoryMemberUpdateRequestTypedDict": ".directory_member_updateop",
+    "DirectoryTagKeyExistsRequest": ".directory_tag_key_existsop",
+    "DirectoryTagKeyExistsRequestTypedDict": ".directory_tag_key_existsop",
     "DirectoryExtension": ".directoryextension",
     "DirectoryExtensionTypedDict": ".directoryextension",
     "DirectoryExtensionNumber": ".directoryextensionnumber",
