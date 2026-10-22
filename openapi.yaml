@@ -22923,13 +22923,12 @@ components:
           examples:
             - "user@email.com"
         text:
-          anyOf:
-            - type: "string"
-            - type: "null"
+          type: "string"
           title: "Text"
-          description: "The text of the message"
+          description: "The text of the message; use an empty string to start a session without text"
           examples:
             - "Hello"
+            - ""
         test_id:
           type: "string"
           title: "Test Id"
@@ -22961,6 +22960,7 @@ components:
       required:
         - "service_name"
         - "source"
+        - "text"
         - "test_id"
         - "agent_id"
       title: "TestMessage"
