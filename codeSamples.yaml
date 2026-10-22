@@ -1272,6 +1272,24 @@ actions:
 
                 # Handle response
                 print(res)
+  - target: $["paths"]["/api/v1/directory_members/tag-key-exists"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+            ) as ss_client:
+
+                res = ss_client.directory.directory_tag_key_exists(key="<key>")
+
+                # Handle response
+                print(res)
   - target: $["paths"]["/api/v1/directory_members/upload/"]["put"]
     update:
       x-codeSamples:
