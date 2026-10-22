@@ -699,10 +699,6 @@ if TYPE_CHECKING:
         InsightsToolDeleteRequest,
         InsightsToolDeleteRequestTypedDict,
     )
-    from .insights_tool_testop import (
-        ResponseInsightsToolTest,
-        ResponseInsightsToolTestTypedDict,
-    )
     from .insights_tool_updateop import (
         InsightsToolUpdateRequest,
         InsightsToolUpdateRequestTypedDict,
@@ -2348,8 +2344,6 @@ __all__ = [
     "RequestStatusBreakdownTypedDict",
     "ResponseDisplayConfig",
     "ResponseDisplayConfigTypedDict",
-    "ResponseInsightsToolTest",
-    "ResponseInsightsToolTestTypedDict",
     "Role",
     "RoleCreateRequest",
     "RoleCreateRequestTypedDict",
@@ -3117,8 +3111,6 @@ _dynamic_imports: dict[str, str] = {
     "InsightsListRequestTypedDict": ".insights_listop",
     "InsightsToolDeleteRequest": ".insights_tool_deleteop",
     "InsightsToolDeleteRequestTypedDict": ".insights_tool_deleteop",
-    "ResponseInsightsToolTest": ".insights_tool_testop",
-    "ResponseInsightsToolTestTypedDict": ".insights_tool_testop",
     "InsightsToolUpdateRequest": ".insights_tool_updateop",
     "InsightsToolUpdateRequestTypedDict": ".insights_tool_updateop",
     "InsightsUploadListFilesRequest": ".insights_upload_list_filesop",

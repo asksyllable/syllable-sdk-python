@@ -1040,7 +1040,7 @@ class InsightsTools(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ResponseInsightsToolTest:
+    ) -> Any:
         r"""Test Insights Tool
 
         Run the saved tool against one session or uploaded file without persisting insights.
@@ -1112,7 +1112,7 @@ class InsightsTools(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.ResponseInsightsToolTest, http_res)
+            return unmarshal_json_response(Any, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
@@ -1137,7 +1137,7 @@ class InsightsTools(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ResponseInsightsToolTest:
+    ) -> Any:
         r"""Test Insights Tool
 
         Run the saved tool against one session or uploaded file without persisting insights.
@@ -1209,7 +1209,7 @@ class InsightsTools(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.ResponseInsightsToolTest, http_res)
+            return unmarshal_json_response(Any, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
