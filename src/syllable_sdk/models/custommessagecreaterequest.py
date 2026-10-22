@@ -22,6 +22,8 @@ class CustomMessageCreateRequestTypedDict(TypedDict):
     r"""The name of the custom message"""
     text: str
     r"""The default message that the agent will deliver if no rules are set or no rules match the current timestamp. For email_template, this is the body."""
+    edit_comments: NotRequired[Nullable[str]]
+    r"""Optional comment for this saved version"""
     type: NotRequired[CustomMessageType]
     r"""Type of custom message. Greeting is for voice; email_template is for email (subject + body)."""
     preamble: NotRequired[Nullable[str]]
@@ -45,6 +47,9 @@ class CustomMessageCreateRequest(BaseModel):
     text: str
     r"""The default message that the agent will deliver if no rules are set or no rules match the current timestamp. For email_template, this is the body."""
 
+    edit_comments: OptionalNullable[str] = UNSET
+    r"""Optional comment for this saved version"""
+
     type: Optional[CustomMessageType] = None
     r"""Type of custom message. Greeting is for voice; email_template is for email (subject + body)."""
 
@@ -67,6 +72,7 @@ class CustomMessageCreateRequest(BaseModel):
     def serialize_model(self, handler):
         optional_fields = set(
             [
+                "edit_comments",
                 "type",
                 "preamble",
                 "subject",
@@ -76,7 +82,13 @@ class CustomMessageCreateRequest(BaseModel):
             ]
         )
         nullable_fields = set(
-            ["preamble", "subject", "label", "repeat_after_language_change"]
+            [
+                "edit_comments",
+                "preamble",
+                "subject",
+                "label",
+                "repeat_after_language_change",
+            ]
         )
         serialized = handler(self)
         m = {}

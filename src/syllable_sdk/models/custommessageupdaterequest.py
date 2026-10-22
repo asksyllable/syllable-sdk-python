@@ -24,6 +24,8 @@ class CustomMessageUpdateRequestTypedDict(TypedDict):
     r"""The default message that the agent will deliver if no rules are set or no rules match the current timestamp. For email_template, this is the body."""
     id: int
     r"""The ID of the custom message"""
+    edit_comments: NotRequired[Nullable[str]]
+    r"""Optional comment for this saved version"""
     type: NotRequired[CustomMessageType]
     r"""Type of custom message. Greeting is for voice; email_template is for email (subject + body)."""
     preamble: NotRequired[Nullable[str]]
@@ -36,6 +38,10 @@ class CustomMessageUpdateRequestTypedDict(TypedDict):
     r"""If true, if the caller changes language using the language menu in the custom message, the message will be repeated in the new language (not including the language menu). If omitted or null on create, false is stored. If omitted or null on update, existing value will not be changed."""
     rules: NotRequired[List[CustomMessageRuleTypedDict]]
     r"""Rules for time-specific message variants"""
+    expected_version: NotRequired[Nullable[int]]
+    r"""Latest live version explicitly acknowledged at save confirmation. A stale value returns 409 without saving; after warning and confirmation, resubmit retained edits with the newly acknowledged version."""
+    restored_from_version: NotRequired[Nullable[int]]
+    r"""Historical version used as the source of an editable restore"""
 
 
 class CustomMessageUpdateRequest(BaseModel):
@@ -49,6 +55,9 @@ class CustomMessageUpdateRequest(BaseModel):
 
     id: int
     r"""The ID of the custom message"""
+
+    edit_comments: OptionalNullable[str] = UNSET
+    r"""Optional comment for this saved version"""
 
     type: Optional[CustomMessageType] = None
     r"""Type of custom message. Greeting is for voice; email_template is for email (subject + body)."""
@@ -68,20 +77,37 @@ class CustomMessageUpdateRequest(BaseModel):
     rules: Optional[List[CustomMessageRule]] = None
     r"""Rules for time-specific message variants"""
 
+    expected_version: OptionalNullable[int] = UNSET
+    r"""Latest live version explicitly acknowledged at save confirmation. A stale value returns 409 without saving; after warning and confirmation, resubmit retained edits with the newly acknowledged version."""
+
+    restored_from_version: OptionalNullable[int] = UNSET
+    r"""Historical version used as the source of an editable restore"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
             [
+                "edit_comments",
                 "type",
                 "preamble",
                 "subject",
                 "label",
                 "repeat_after_language_change",
                 "rules",
+                "expected_version",
+                "restored_from_version",
             ]
         )
         nullable_fields = set(
-            ["preamble", "subject", "label", "repeat_after_language_change"]
+            [
+                "edit_comments",
+                "preamble",
+                "subject",
+                "label",
+                "repeat_after_language_change",
+                "expected_version",
+                "restored_from_version",
+            ]
         )
         serialized = handler(self)
         m = {}

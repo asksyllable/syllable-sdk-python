@@ -7,6 +7,10 @@ from syllable_sdk.utils.dynamic_imports import lazy_getattr, lazy_dir
 
 if TYPE_CHECKING:
     from .apierror import APIError
+    from .custommessageerrorresponse import (
+        CustomMessageErrorResponse,
+        CustomMessageErrorResponseData,
+    )
     from .directory_member_listop import (
         DirectoryMemberListBadRequestError,
         DirectoryMemberListBadRequestErrorData,
@@ -34,6 +38,8 @@ if TYPE_CHECKING:
 __all__ = [
     "APIError",
     "Code",
+    "CustomMessageErrorResponse",
+    "CustomMessageErrorResponseData",
     "Detail",
     "DetailLegacySessionLink",
     "DetailLegacySessionLinkTypedDict",
@@ -54,6 +60,8 @@ __all__ = [
 
 _dynamic_imports: dict[str, str] = {
     "APIError": ".apierror",
+    "CustomMessageErrorResponse": ".custommessageerrorresponse",
+    "CustomMessageErrorResponseData": ".custommessageerrorresponse",
     "DirectoryMemberListBadRequestError": ".directory_member_listop",
     "DirectoryMemberListBadRequestErrorData": ".directory_member_listop",
     "HTTPValidationError": ".httpvalidationerror",
