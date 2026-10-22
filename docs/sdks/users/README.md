@@ -272,7 +272,7 @@ with SyllableSDK(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `user_email`                                                        | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `skip_auth`                                                         | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `skip_auth`                                                         | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | Compatibility no-op; accepted but ignored.                          |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
