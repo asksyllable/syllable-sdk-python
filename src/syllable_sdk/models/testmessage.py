@@ -23,12 +23,12 @@ class TestMessageTypedDict(TypedDict):
     r"""Name of the service producing the message"""
     source: str
     r"""Name of the source of the message - identifies the user, like an email or username."""
+    text: str
+    r"""The text of the message; use an empty string to start a session without text"""
     test_id: str
     r"""Channel-manager-side ID of the session (see Session.channel_manager_sid)"""
     agent_id: str
     r"""ID of the agent with which the chat is taking place"""
-    text: NotRequired[Nullable[str]]
-    r"""The text of the message"""
     org_name: NotRequired[Nullable[str]]
     r"""Unused: Name of the organization associated with the agent"""
     override_timestamp: NotRequired[Nullable[str]]
@@ -48,14 +48,14 @@ class TestMessage(BaseModel):
     source: str
     r"""Name of the source of the message - identifies the user, like an email or username."""
 
+    text: str
+    r"""The text of the message; use an empty string to start a session without text"""
+
     test_id: str
     r"""Channel-manager-side ID of the session (see Session.channel_manager_sid)"""
 
     agent_id: str
     r"""ID of the agent with which the chat is taking place"""
-
-    text: OptionalNullable[str] = UNSET
-    r"""The text of the message"""
 
     org_name: Annotated[
         OptionalNullable[str],
@@ -73,10 +73,8 @@ class TestMessage(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(
-            ["text", "org_name", "override_timestamp", "session_start"]
-        )
-        nullable_fields = set(["text", "org_name", "override_timestamp"])
+        optional_fields = set(["org_name", "override_timestamp", "session_start"])
+        nullable_fields = set(["org_name", "override_timestamp"])
         serialized = handler(self)
         m = {}
 
