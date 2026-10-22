@@ -717,7 +717,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
             ) as ss_client:
 
-                res = ss_client.channels.delete(channel_id="<id>", target_id="<id>")
+                res = ss_client.channels.delete(channel_id="<id>", target_id=675883)
 
                 # Handle response
                 print(res)
