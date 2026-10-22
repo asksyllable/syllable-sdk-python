@@ -7056,6 +7056,36 @@
               }
             }
           },
+          "400": {
+            "description": "Message could not be saved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomMessageErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Message write permission required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomMessageErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Message persistence failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomMessageErrorResponse"
+                }
+              }
+            }
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -7097,6 +7127,233 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CustomMessageResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Message could not be saved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomMessageErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Message write permission required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomMessageErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Message or source version not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomMessageErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Expected Message version is stale",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomMessageErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Message persistence failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomMessageErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/custom_messages/{custom_message_id}/history": {
+      "get": {
+        "tags": [
+          "custom_messages"
+        ],
+        "summary": "Custom Message History",
+        "description": "Page saved versions of an active Message in the current sub-organization.",
+        "operationId": "custom_message_history",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "custom_message_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Custom Message Id"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Page"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 25,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "order_by_direction",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/OrderByDirection",
+              "default": "desc"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListResponse_CustomMessageHistoryMetadata_"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Message read permission required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomMessageErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Message not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomMessageErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/custom_messages/{custom_message_id}/history/{version}": {
+      "get": {
+        "tags": [
+          "custom_messages"
+        ],
+        "summary": "Custom Message Version",
+        "description": "Read a complete saved snapshot without applying current create-time validation.",
+        "operationId": "custom_message_version",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "custom_message_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Custom Message Id"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Version"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomMessageHistoryResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Message read permission required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomMessageErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Message or version not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomMessageErrorResponse"
                 }
               }
             }
@@ -17069,7 +17326,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20261021.9"
+              "20261022.9"
             ]
           },
           "campaign_id": {
@@ -17093,7 +17350,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-10-22T00:00:00Z"
+              "2026-10-23T00:00:00Z"
             ]
           },
           "paused": {
@@ -17203,7 +17460,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -17219,7 +17476,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -17250,7 +17507,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -18785,7 +19042,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20261021.9"
+              "20261022.9"
             ]
           },
           "campaign_id": {
@@ -18809,7 +19066,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-10-22T00:00:00Z"
+              "2026-10-23T00:00:00Z"
             ]
           },
           "paused": {
@@ -18919,7 +19176,7 @@
             "title": "Created At",
             "description": "Timestamp of batch creation",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "deleted_at": {
@@ -18935,7 +19192,7 @@
             "title": "Deleted At",
             "description": "Timestamp of batch deletion",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "deleted_reason": {
@@ -18966,7 +19223,7 @@
             "title": "Last Updated At",
             "description": "Timestamp of last change to batch",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -19009,7 +19266,7 @@
             "title": "Batch Id",
             "description": "Unique ID for conversation batch",
             "examples": [
-              "20261021.9"
+              "20261022.9"
             ]
           },
           "campaign_id": {
@@ -19033,7 +19290,7 @@
             "title": "Expires On",
             "description": "Timestamp of batch expiration",
             "examples": [
-              "2026-10-22T00:00:00Z"
+              "2026-10-23T00:00:00Z"
             ]
           },
           "paused": {
@@ -19242,7 +19499,7 @@
             "title": "Created At",
             "description": "Timestamp of request creation",
             "examples": [
-              "2026-10-20T00:00:00Z"
+              "2026-10-21T00:00:00Z"
             ]
           },
           "sent_at": {
@@ -19258,7 +19515,7 @@
             "title": "Sent At",
             "description": "Timestamp at which request was sent",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "attempt_count": {
@@ -19911,8 +20168,22 @@
       },
       "CustomMessageCreateRequest": {
         "properties": {
+          "edit_comments": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 10000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Edit Comments",
+            "description": "Optional comment for this saved version"
+          },
           "name": {
             "type": "string",
+            "maxLength": 255,
             "title": "Name",
             "description": "The name of the custom message",
             "examples": [
@@ -20033,6 +20304,218 @@
         "title": "CustomMessageCreateRequest",
         "description": "Request model to create a custom message."
       },
+      "CustomMessageErrorResponse": {
+        "properties": {
+          "detail": {
+            "type": "string",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "required": [
+          "detail"
+        ],
+        "title": "CustomMessageErrorResponse"
+      },
+      "CustomMessageHistoryMetadata": {
+        "properties": {
+          "custom_message_id": {
+            "type": "integer",
+            "title": "Custom Message Id"
+          },
+          "version_number": {
+            "type": "integer",
+            "title": "Version Number"
+          },
+          "snapshot_schema_version": {
+            "type": "integer",
+            "title": "Snapshot Schema Version"
+          },
+          "operation": {
+            "type": "string",
+            "title": "Operation"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "updated_by": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated By"
+          },
+          "comments": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Comments"
+          },
+          "restored_from_version": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Restored From Version"
+          }
+        },
+        "type": "object",
+        "required": [
+          "custom_message_id",
+          "version_number",
+          "snapshot_schema_version",
+          "operation",
+          "created_at",
+          "updated_by",
+          "comments",
+          "restored_from_version"
+        ],
+        "title": "CustomMessageHistoryMetadata",
+        "description": "Metadata for a saved Message version, without its content."
+      },
+      "CustomMessageHistoryResponse": {
+        "properties": {
+          "custom_message_id": {
+            "type": "integer",
+            "title": "Custom Message Id"
+          },
+          "version_number": {
+            "type": "integer",
+            "title": "Version Number"
+          },
+          "snapshot_schema_version": {
+            "type": "integer",
+            "title": "Snapshot Schema Version"
+          },
+          "operation": {
+            "type": "string",
+            "title": "Operation"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "updated_by": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated By"
+          },
+          "comments": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Comments"
+          },
+          "restored_from_version": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Restored From Version"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "type": {
+            "type": "string",
+            "title": "Type"
+          },
+          "preamble": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Preamble"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Label"
+          },
+          "repeat_after_language_change": {
+            "type": "boolean",
+            "title": "Repeat After Language Change"
+          },
+          "rules": {
+            "items": {
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Rules"
+          },
+          "type_config": {
+            "type": "object",
+            "title": "Type Config"
+          }
+        },
+        "type": "object",
+        "required": [
+          "custom_message_id",
+          "version_number",
+          "snapshot_schema_version",
+          "operation",
+          "created_at",
+          "updated_by",
+          "comments",
+          "restored_from_version",
+          "name",
+          "type",
+          "preamble",
+          "text",
+          "label",
+          "repeat_after_language_change",
+          "rules",
+          "type_config"
+        ],
+        "title": "CustomMessageHistoryResponse",
+        "description": "Complete immutable Message configuration; legacy values remain readable."
+      },
       "CustomMessageProperties": {
         "type": "string",
         "enum": [
@@ -20049,8 +20532,20 @@
       },
       "CustomMessageResponse": {
         "properties": {
+          "edit_comments": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Edit Comments"
+          },
           "name": {
             "type": "string",
+            "maxLength": 255,
             "title": "Name",
             "description": "The name of the custom message",
             "examples": [
@@ -20157,11 +20652,18 @@
           },
           "id": {
             "type": "integer",
-            "title": "Id",
-            "description": "The ID of the custom message",
-            "examples": [
-              1
-            ]
+            "title": "Id"
+          },
+          "version_number": {
+            "type": "integer",
+            "title": "Version Number",
+            "description": "Current saved Message version",
+            "default": 1
+          },
+          "type_config": {
+            "type": "object",
+            "title": "Type Config",
+            "description": "Persisted type-specific configuration"
           },
           "updated_at": {
             "type": "string",
@@ -20349,8 +20851,22 @@
       },
       "CustomMessageUpdateRequest": {
         "properties": {
+          "edit_comments": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 10000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Edit Comments",
+            "description": "Optional comment for this saved version"
+          },
           "name": {
             "type": "string",
+            "maxLength": 255,
             "title": "Name",
             "description": "The name of the custom message",
             "examples": [
@@ -20461,6 +20977,32 @@
                 }
               ]
             ]
+          },
+          "expected_version": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Version",
+            "description": "Latest live version explicitly acknowledged at save confirmation. A stale value returns 409 without saving; after warning and confirmation, resubmit retained edits with the newly acknowledged version."
+          },
+          "restored_from_version": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Restored From Version",
+            "description": "Historical version used as the source of an editable restore"
           },
           "id": {
             "type": "integer",
@@ -23924,7 +24466,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-10-20T00:00:00Z"
+              "2026-10-21T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -23933,7 +24475,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -24965,7 +25507,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2026-10-20T00:00:00Z"
+              "2026-10-21T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -24974,7 +25516,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -25081,7 +25623,7 @@
             "title": "Created At",
             "description": "Timestamp of at which insight tool configuration was created",
             "examples": [
-              "2026-10-20T00:00:00Z"
+              "2026-10-21T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -25090,7 +25632,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool configuration was last updated",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -25524,7 +26066,7 @@
             "title": "Started At",
             "description": "Timestamp at which the most recent processing attempt started",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "created_at": {
@@ -25533,7 +26075,7 @@
             "title": "Created At",
             "description": "Timestamp at which the execution row was created (i.e. when the work was queued)",
             "examples": [
-              "2026-10-20T00:00:00Z"
+              "2026-10-21T00:00:00Z"
             ]
           },
           "event_type": {
@@ -25690,7 +26232,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-10-20T00:00:00Z"
+              "2026-10-21T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -25706,7 +26248,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           }
         },
@@ -25780,7 +26322,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-10-20T00:00:00Z"
+              "2026-10-21T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -25796,7 +26338,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "id": {
@@ -25864,7 +26406,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2026-10-20T00:00:00Z"
+              "2026-10-21T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -25873,7 +26415,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -25897,7 +26439,7 @@
             "title": "Last Folder Upload At",
             "description": "Timestamp of the most recent file upload to any folder associated with this workflow (null for non-upload workflows or until a file has been uploaded)",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           }
         },
@@ -25991,7 +26533,7 @@
             "title": "Start Datetime",
             "description": "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only",
             "examples": [
-              "2026-10-20T00:00:00Z"
+              "2026-10-21T00:00:00Z"
             ]
           },
           "end_datetime": {
@@ -26007,7 +26549,7 @@
             "title": "End Datetime",
             "description": "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "id": {
@@ -26075,7 +26617,7 @@
             "title": "Created At",
             "description": "Timestamp at which the insight workflow was created",
             "examples": [
-              "2026-10-20T00:00:00Z"
+              "2026-10-21T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -26084,7 +26626,7 @@
             "title": "Updated At",
             "description": "Timestamp of most recent update to the insight workflow",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -26108,7 +26650,7 @@
             "title": "Last Folder Upload At",
             "description": "Timestamp of the most recent file upload to any folder associated with this workflow (null for non-upload workflows or until a file has been uploaded)",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           }
         },
@@ -26182,7 +26724,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload folder was created",
             "examples": [
-              "2026-10-20T00:00:00Z"
+              "2026-10-21T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -26191,7 +26733,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight upload folder was last updated",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -26441,7 +26983,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight tool result was created",
             "examples": [
-              "2026-10-20T00:00:00Z"
+              "2026-10-21T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -26450,7 +26992,7 @@
             "title": "Updated At",
             "description": "Timestamp at which insight tool result was last updated",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "upload_file_metadata": {
@@ -26595,7 +27137,7 @@
             "title": "Start Time",
             "description": "Start time of the uploaded file",
             "examples": [
-              "2026-10-20T00:00:00Z"
+              "2026-10-21T00:00:00Z"
             ]
           },
           "end_time": {
@@ -26611,7 +27153,7 @@
             "title": "End Time",
             "description": "End time of the uploaded file",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "error_message": {
@@ -26666,7 +27208,7 @@
             "title": "Created At",
             "description": "Timestamp at which insight upload file was created",
             "examples": [
-              "2026-10-20T00:00:00Z"
+              "2026-10-21T00:00:00Z"
             ]
           }
         },
@@ -27915,6 +28457,72 @@
           "page_size"
         ],
         "title": "ListResponse[Conversation]"
+      },
+      "ListResponse_CustomMessageHistoryMetadata_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/CustomMessageHistoryMetadata"
+            },
+            "type": "array",
+            "title": "Items",
+            "description": "List of items returned from the query",
+            "examples": []
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page",
+            "description": "The page number of the results (0-based)",
+            "examples": [
+              0
+            ]
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size",
+            "description": "The number of items returned per page",
+            "examples": [
+              25
+            ]
+          },
+          "total_pages": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Pages",
+            "description": "The total number of pages of results given the indicated page size",
+            "examples": [
+              4
+            ]
+          },
+          "total_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Count",
+            "description": "The total number of items returned from the query",
+            "examples": [
+              100
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "page",
+          "page_size"
+        ],
+        "title": "ListResponse[CustomMessageHistoryMetadata]"
       },
       "ListResponse_CustomMessageResponse_": {
         "properties": {
@@ -30919,7 +31527,7 @@
             "title": "Created At",
             "description": "Timestamp of campaign creation",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "updated_at": {
@@ -30928,7 +31536,7 @@
             "title": "Updated At",
             "description": "Timestamp of campaign update",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "last_updated_by": {
@@ -38888,7 +39496,7 @@
             "title": "Analyzed At",
             "description": "When the workflow execution started processing this file; null while the row is still PENDING",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "queued_at": {
@@ -38897,7 +39505,7 @@
             "title": "Queued At",
             "description": "When the file was queued for this workflow",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "status": {
@@ -38986,7 +39594,7 @@
             "title": "Analyzed At",
             "description": "When the workflow execution started processing this session; null while the row is still PENDING",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "queued_at": {
@@ -38995,7 +39603,7 @@
             "title": "Queued At",
             "description": "When the session was queued for this workflow",
             "examples": [
-              "2026-10-21T00:00:00Z"
+              "2026-10-22T00:00:00Z"
             ]
           },
           "status": {
