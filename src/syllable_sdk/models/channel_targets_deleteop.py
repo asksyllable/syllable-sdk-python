@@ -8,7 +8,8 @@ from typing_extensions import Annotated, TypedDict
 
 class ChannelTargetsDeleteRequestTypedDict(TypedDict):
     channel_id: str
-    target_id: str
+    target_id: int
+    r"""Target record ID, rather than a phone number"""
 
 
 class ChannelTargetsDeleteRequest(BaseModel):
@@ -17,5 +18,6 @@ class ChannelTargetsDeleteRequest(BaseModel):
     ]
 
     target_id: Annotated[
-        str, FieldMetadata(query=QueryParamMetadata(style="form", explode=True))
+        int, FieldMetadata(query=QueryParamMetadata(style="form", explode=True))
     ]
+    r"""Target record ID, rather than a phone number"""

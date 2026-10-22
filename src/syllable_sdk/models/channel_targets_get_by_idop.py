@@ -9,6 +9,7 @@ from typing_extensions import Annotated, TypedDict
 class ChannelTargetsGetByIDRequestTypedDict(TypedDict):
     channel_id: int
     target_id: int
+    r"""Target record ID, rather than a phone number"""
 
 
 class ChannelTargetsGetByIDRequest(BaseModel):
@@ -19,3 +20,4 @@ class ChannelTargetsGetByIDRequest(BaseModel):
     target_id: Annotated[
         int, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
+    r"""Target record ID, rather than a phone number"""

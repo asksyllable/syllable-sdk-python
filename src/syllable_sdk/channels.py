@@ -659,7 +659,7 @@ class Channels(BaseSDK):
         self,
         *,
         channel_id: str,
-        target_id: str,
+        target_id: int,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -670,7 +670,7 @@ class Channels(BaseSDK):
         Hard-delete a channel target by ID
 
         :param channel_id:
-        :param target_id:
+        :param target_id: Target record ID, rather than a phone number
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -754,7 +754,7 @@ class Channels(BaseSDK):
         self,
         *,
         channel_id: str,
-        target_id: str,
+        target_id: int,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -765,7 +765,7 @@ class Channels(BaseSDK):
         Hard-delete a channel target by ID
 
         :param channel_id:
-        :param target_id:
+        :param target_id: Target record ID, rather than a phone number
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds

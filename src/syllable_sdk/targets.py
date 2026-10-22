@@ -741,7 +741,7 @@ class Targets(BaseSDK):
         r"""Get A Channel Target
 
         :param channel_id:
-        :param target_id:
+        :param target_id: Target record ID, rather than a phone number
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -834,7 +834,7 @@ class Targets(BaseSDK):
         r"""Get A Channel Target
 
         :param channel_id:
-        :param target_id:
+        :param target_id: Target record ID, rather than a phone number
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -933,7 +933,7 @@ class Targets(BaseSDK):
         Update channel target by ID
 
         :param channel_id:
-        :param target_id:
+        :param target_id: Target record ID, rather than a phone number
         :param channel_target_update_request:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1043,7 +1043,7 @@ class Targets(BaseSDK):
         Update channel target by ID
 
         :param channel_id:
-        :param target_id:
+        :param target_id: Target record ID, rather than a phone number
         :param channel_target_update_request:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method

@@ -6825,7 +6825,11 @@ paths:
           required: true
           schema:
             type: "integer"
+            maximum: 2147483647
+            minimum: -2147483648
+            description: "Target record ID, rather than a phone number"
             title: "Target Id"
+          description: "Target record ID, rather than a phone number"
       responses:
         "200":
           description: "Successful Response"
@@ -6859,7 +6863,11 @@ paths:
           required: true
           schema:
             type: "integer"
+            maximum: 2147483647
+            minimum: -2147483648
+            description: "Target record ID, rather than a phone number"
             title: "Target Id"
+          description: "Target record ID, rather than a phone number"
       requestBody:
         required: true
         content:
@@ -6899,8 +6907,12 @@ paths:
           in: "query"
           required: true
           schema:
-            type: "string"
+            type: "integer"
+            maximum: 2147483647
+            minimum: -2147483648
+            description: "Target record ID, rather than a phone number"
             title: "Target Id"
+          description: "Target record ID, rather than a phone number"
       responses:
         "200":
           description: "Successful Response"

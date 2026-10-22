@@ -211,7 +211,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
 ) as ss_client:
 
-    res = ss_client.channels.delete(channel_id="<id>", target_id="<id>")
+    res = ss_client.channels.delete(channel_id="<id>", target_id=675883)
 
     # Handle response
     print(res)
@@ -223,7 +223,7 @@ with SyllableSDK(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `channel_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `target_id`                                                         | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `target_id`                                                         | *int*                                                               | :heavy_check_mark:                                                  | Target record ID, rather than a phone number                        |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
