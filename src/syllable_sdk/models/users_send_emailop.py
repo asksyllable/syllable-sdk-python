@@ -11,6 +11,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class UsersSendEmailRequestTypedDict(TypedDict):
     user_email: str
     skip_auth: NotRequired[bool]
+    r"""Compatibility no-op; accepted but ignored."""
 
 
 class UsersSendEmailRequest(BaseModel):
@@ -22,6 +23,7 @@ class UsersSendEmailRequest(BaseModel):
         Optional[bool],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = False
+    r"""Compatibility no-op; accepted but ignored."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

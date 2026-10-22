@@ -1023,7 +1023,7 @@ class Users(BaseSDK):
         Send a welcome email to a user.
 
         :param user_email:
-        :param skip_auth:
+        :param skip_auth: Compatibility no-op; accepted but ignored.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1118,7 +1118,7 @@ class Users(BaseSDK):
         Send a welcome email to a user.
 
         :param user_email:
-        :param skip_auth:
+        :param skip_auth: Compatibility no-op; accepted but ignored.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds

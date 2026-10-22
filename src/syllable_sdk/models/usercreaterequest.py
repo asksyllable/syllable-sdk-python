@@ -31,7 +31,7 @@ class UserCreateRequestTypedDict(TypedDict):
     login_type: NotRequired[Nullable[LoginType]]
     r"""The type of login to use for the user. If not provided, defaults to google for @gmail.com email addresses, and username and password otherwise."""
     skip_auth: NotRequired[bool]
-    r"""Whether to skip authentication for the user."""
+    r"""Compatibility no-op; accepted but ignored."""
 
 
 class UserCreateRequest(BaseModel):
@@ -56,7 +56,7 @@ class UserCreateRequest(BaseModel):
     r"""The type of login to use for the user. If not provided, defaults to google for @gmail.com email addresses, and username and password otherwise."""
 
     skip_auth: Optional[bool] = False
-    r"""Whether to skip authentication for the user."""
+    r"""Compatibility no-op; accepted but ignored."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
