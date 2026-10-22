@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: b3cf8aa09f388edc427b2d803afdd719
+  docChecksum: d7b912052834b09b2fef5069472675e9
   docVersion: 0.0.3
   speakeasyVersion: 1.803.1
   generationVersion: 2.950.2
-  releaseVersion: 0.49.83
-  configChecksum: 6857041619885df7499312b36ca1d67a
+  releaseVersion: 0.49.84
+  configChecksum: 63d8cdc8acbada0137c5b1e3656fe8a1
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: dc199559-0d25-4c17-bc19-ee54acb3eca1
-  pristine_commit_hash: 934b16791ac47cfbef82682e7b59d06a86599553
-  pristine_tree_hash: 5a7d8ea742cbb538fb9c0c306987be7d32e46660
+  generation_id: 852e7a80-d34a-476c-a73b-a4d58c237f02
+  pristine_commit_hash: ac10be41001b3a98b14e4fe60b26c38673c3212a
+  pristine_tree_hash: aaebee86539d5363550de9c7ded3ba36ed0c0667
 features:
   python:
     additionalDependencies: 1.1.0
@@ -2643,8 +2643,8 @@ trackedFiles:
     pristine_git_object: 6a3b01908092d3349be5058c4d36fe09f3f97a8a
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:a6578ea46657640773a6c1e4ef18a4bbb796f17b
-    pristine_git_object: f860e2fbf6ae88dc48ccca2f15507753be41d0c5
+    last_write_checksum: sha1:2cc254d86eb6042bbc28418f12f6812c4b3e2893
+    pristine_git_object: a2c8cba38b392a91a96497d98e61234f337d7c6e
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2671,8 +2671,8 @@ trackedFiles:
     pristine_git_object: 132885676dc1885890d1c8a13bd01fcfcb8e3fbc
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:bac77587316a7b2c4624fea89c329a3bd92d3799
-    pristine_git_object: 8cba14c433c28108db4938a0609d5f58b6c23ce5
+    last_write_checksum: sha1:141a1a86b3b63910b648ae94f59163190df17925
+    pristine_git_object: f5919ce902440bf0dfe7d29888d90f7a38354c80
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:da383e27f2dd7cc52af74f38f829d02891fc92d2
@@ -6991,9 +6991,6 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Python SDK Changes:
-  * `syllable_sdk.insights.tools.insights_tool_test()`:  `response` **Changed** (Breaking ⚠️)
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

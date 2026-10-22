@@ -9489,6 +9489,7 @@ paths:
           required: true
           schema:
             type: "string"
+            format: "email"
             title: "User Email"
       responses:
         "200":
