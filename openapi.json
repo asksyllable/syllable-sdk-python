@@ -11293,13 +11293,68 @@
         }
       }
     },
+    "/api/v1/directory_members/tag-key-exists": {
+      "get": {
+        "tags": [
+          "directory"
+        ],
+        "summary": "Directory Tag Key Exists",
+        "description": "Check active contacts in the current sub-organization, independent of list filters.",
+        "operationId": "directory_tag_key_exists",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Exact, case-sensitive contact tag key.",
+              "title": "Key"
+            },
+            "description": "Exact, case-sensitive contact tag key."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "boolean"
+                  },
+                  "title": "Response Directory Tag Key Exists"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/directory_members/": {
       "get": {
         "tags": [
           "directory"
         ],
         "summary": "Directory Member List",
-        "description": "List directory members.\n\nFilter by contact tags with `tags.<key>=<value>`. Repeat a key to match any of its\nvalues; filters for different keys must all match. Unknown keys return no matches.",
+        "description": "List directory members.\n\nFilter by contact tags with `tags.<key>=<value>`. Values use case-insensitive literal\nsubstring matching within the selected key. Repeat a key to match any supplied value;\nfilters for different keys must all match. Unknown keys and empty values return no matches.",
         "operationId": "directory_member_list",
         "security": [
           {
