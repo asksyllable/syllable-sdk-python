@@ -284,7 +284,7 @@ with SyllableSDK(
 
 ### Response
 
-**[models.ResponseInsightsToolTest](../../models/responseinsightstooltest.md)**
+**[Any](../../models/.md)**
 
 ### Errors
 
