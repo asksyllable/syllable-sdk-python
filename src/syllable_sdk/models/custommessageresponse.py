@@ -16,6 +16,14 @@ from typing import List, Optional
 from typing_extensions import NotRequired, TypedDict
 
 
+class CustomMessageResponseTypeConfigTypedDict(TypedDict):
+    r"""Persisted type-specific configuration"""
+
+
+class CustomMessageResponseTypeConfig(BaseModel):
+    r"""Persisted type-specific configuration"""
+
+
 class CustomMessageResponseTypedDict(TypedDict):
     r"""Response model for custom message operations.
     A custom message is a pre-configured message delivered by an agent (e.g. as a greeting at the
@@ -31,11 +39,11 @@ class CustomMessageResponseTypedDict(TypedDict):
     repeat_after_language_change: bool
     r"""If true, if the caller changes language using the language menu in the custom message, the message will be repeated in the new language (not including the language menu)."""
     id: int
-    r"""The ID of the custom message"""
     updated_at: datetime
     r"""Timestamp of the most recent update to the custom message"""
     last_updated_by: str
     r"""The email address of the user who most recently updated the custom message"""
+    edit_comments: NotRequired[Nullable[str]]
     type: NotRequired[CustomMessageType]
     r"""Type of custom message. Greeting is for voice; email_template is for email (subject + body)."""
     preamble: NotRequired[Nullable[str]]
@@ -46,6 +54,10 @@ class CustomMessageResponseTypedDict(TypedDict):
     r"""The label of the custom message"""
     rules: NotRequired[List[CustomMessageRuleTypedDict]]
     r"""Rules for time-specific message variants"""
+    version_number: NotRequired[int]
+    r"""Current saved Message version"""
+    type_config: NotRequired[CustomMessageResponseTypeConfigTypedDict]
+    r"""Persisted type-specific configuration"""
     agent_count: NotRequired[Nullable[int]]
     r"""The number of agents using the custom message"""
 
@@ -68,13 +80,14 @@ class CustomMessageResponse(BaseModel):
     r"""If true, if the caller changes language using the language menu in the custom message, the message will be repeated in the new language (not including the language menu)."""
 
     id: int
-    r"""The ID of the custom message"""
 
     updated_at: datetime
     r"""Timestamp of the most recent update to the custom message"""
 
     last_updated_by: str
     r"""The email address of the user who most recently updated the custom message"""
+
+    edit_comments: OptionalNullable[str] = UNSET
 
     type: Optional[CustomMessageType] = None
     r"""Type of custom message. Greeting is for voice; email_template is for email (subject + body)."""
@@ -91,15 +104,33 @@ class CustomMessageResponse(BaseModel):
     rules: Optional[List[CustomMessageRule]] = None
     r"""Rules for time-specific message variants"""
 
+    version_number: Optional[int] = 1
+    r"""Current saved Message version"""
+
+    type_config: Optional[CustomMessageResponseTypeConfig] = None
+    r"""Persisted type-specific configuration"""
+
     agent_count: OptionalNullable[int] = UNSET
     r"""The number of agents using the custom message"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            ["type", "preamble", "subject", "label", "rules", "agent_count"]
+            [
+                "edit_comments",
+                "type",
+                "preamble",
+                "subject",
+                "label",
+                "rules",
+                "version_number",
+                "type_config",
+                "agent_count",
+            ]
         )
-        nullable_fields = set(["preamble", "subject", "label", "agent_count"])
+        nullable_fields = set(
+            ["edit_comments", "preamble", "subject", "label", "agent_count"]
+        )
         serialized = handler(self)
         m = {}
 

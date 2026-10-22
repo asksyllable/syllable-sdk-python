@@ -9,6 +9,8 @@ Operations related to custom message configuration.           A custom message i
 * [list](#list) - Custom Messages List
 * [create](#create) - Create Custom Message
 * [update](#update) - Update Custom Message
+* [custom_message_history](#custom_message_history) - Custom Message History
+* [custom_message_version](#custom_message_version) - Custom Message Version
 * [get_by_id](#get_by_id) - Get Custom Message By Id
 * [delete](#delete) - Delete Custom Message
 
@@ -128,10 +130,12 @@ with SyllableSDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.CustomMessageErrorResponse | 400, 403                          | application/json                  |
+| errors.HTTPValidationError        | 422                               | application/json                  |
+| errors.CustomMessageErrorResponse | 500                               | application/json                  |
+| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## update
 
@@ -197,10 +201,100 @@ with SyllableSDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.CustomMessageErrorResponse | 400, 403, 404, 409                | application/json                  |
+| errors.HTTPValidationError        | 422                               | application/json                  |
+| errors.CustomMessageErrorResponse | 500                               | application/json                  |
+| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+
+## custom_message_history
+
+Page saved versions of an active Message in the current sub-organization.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="custom_message_history" method="get" path="/api/v1/custom_messages/{custom_message_id}/history" -->
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.custom_messages.custom_message_history(custom_message_id=783407, page=0, limit=25)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `custom_message_id`                                                           | *int*                                                                         | :heavy_check_mark:                                                            | N/A                                                                           |
+| `page`                                                                        | *Optional[int]*                                                               | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `limit`                                                                       | *Optional[int]*                                                               | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `order_by_direction`                                                          | [Optional[models.OrderByDirection]](../../models/orderbydirection.md)         | :heavy_minus_sign:                                                            | The direction in which to order list results, either ascending or descending. |
+| `retries`                                                                     | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)              | :heavy_minus_sign:                                                            | Configuration to override the default retry behavior of the client.           |
+
+### Response
+
+**[models.ListResponseCustomMessageHistoryMetadata](../../models/listresponsecustommessagehistorymetadata.md)**
+
+### Errors
+
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.CustomMessageErrorResponse | 403, 404                          | application/json                  |
+| errors.HTTPValidationError        | 422                               | application/json                  |
+| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+
+## custom_message_version
+
+Read a complete saved snapshot without applying current create-time validation.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="custom_message_version" method="get" path="/api/v1/custom_messages/{custom_message_id}/history/{version}" -->
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+) as ss_client:
+
+    res = ss_client.custom_messages.custom_message_version(custom_message_id=577632, version=407238)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `custom_message_id`                                                 | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `version`                                                           | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.CustomMessageHistoryResponse](../../models/custommessagehistoryresponse.md)**
+
+### Errors
+
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.CustomMessageErrorResponse | 403, 404                          | application/json                  |
+| errors.HTTPValidationError        | 422                               | application/json                  |
+| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## get_by_id
 

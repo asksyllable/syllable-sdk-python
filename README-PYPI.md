@@ -315,6 +315,8 @@ with SyllableSDK(
 * [list](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/custommessages/README.md#list) - Custom Messages List
 * [create](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/custommessages/README.md#create) - Create Custom Message
 * [update](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/custommessages/README.md#update) - Update Custom Message
+* [custom_message_history](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/custommessages/README.md#custom_message_history) - Custom Message History
+* [custom_message_version](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/custommessages/README.md#custom_message_version) - Custom Message Version
 * [get_by_id](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/custommessages/README.md#get_by_id) - Get Custom Message By Id
 * [delete](https://github.com/asksyllable/syllable-sdk-python/blob/master/docs/sdks/custommessages/README.md#delete) - Delete Custom Message
 
@@ -709,7 +711,7 @@ with SyllableSDK(
 * [`SyllableSDKError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/syllablesdkerror.py): The base class for HTTP error responses.
   * [`HTTPValidationError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/httpvalidationerror.py): Validation Error. Status code `422`. *
 
-<details><summary>Less common errors (9)</summary>
+<details><summary>Less common errors (10)</summary>
 
 <br />
 
@@ -720,10 +722,11 @@ with SyllableSDK(
 
 
 **Inherit from [`SyllableSDKError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/syllablesdkerror.py)**:
-* [`SessionLabelsListBadRequestError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/sessionlabelslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 198 methods.*
-* [`SessionsListBadRequestError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/sessionslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 198 methods.*
-* [`DirectoryMemberListBadRequestError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/directorymemberlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 198 methods.*
-* [`OutboundCampaignListBadRequestError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/outboundcampaignlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 198 methods.*
+* [`CustomMessageErrorResponse`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/custommessageerrorresponse.py): Applicable to 4 of 200 methods.*
+* [`SessionLabelsListBadRequestError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/sessionlabelslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 200 methods.*
+* [`SessionsListBadRequestError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/sessionslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 200 methods.*
+* [`DirectoryMemberListBadRequestError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/directorymemberlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 200 methods.*
+* [`OutboundCampaignListBadRequestError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/outboundcampaignlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 200 methods.*
 * [`ResponseValidationError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>

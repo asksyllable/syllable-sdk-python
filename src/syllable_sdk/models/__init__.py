@@ -278,6 +278,14 @@ if TYPE_CHECKING:
         CustomMessageGetByIDRequest,
         CustomMessageGetByIDRequestTypedDict,
     )
+    from .custom_message_historyop import (
+        CustomMessageHistoryRequest,
+        CustomMessageHistoryRequestTypedDict,
+    )
+    from .custom_message_versionop import (
+        CustomMessageVersionRequest,
+        CustomMessageVersionRequestTypedDict,
+    )
     from .custom_messages_deleteop import (
         CustomMessagesDeleteRequest,
         CustomMessagesDeleteRequestTypedDict,
@@ -290,9 +298,23 @@ if TYPE_CHECKING:
         CustomMessageCreateRequest,
         CustomMessageCreateRequestTypedDict,
     )
+    from .custommessagehistorymetadata import (
+        CustomMessageHistoryMetadata,
+        CustomMessageHistoryMetadataTypedDict,
+    )
+    from .custommessagehistoryresponse import (
+        CustomMessageHistoryResponse,
+        CustomMessageHistoryResponseTypeConfig,
+        CustomMessageHistoryResponseTypeConfigTypedDict,
+        CustomMessageHistoryResponseTypedDict,
+        Rule,
+        RuleTypedDict,
+    )
     from .custommessageproperties import CustomMessageProperties
     from .custommessageresponse import (
         CustomMessageResponse,
+        CustomMessageResponseTypeConfig,
+        CustomMessageResponseTypeConfigTypedDict,
         CustomMessageResponseTypedDict,
     )
     from .custommessagerule import CustomMessageRule, CustomMessageRuleTypedDict
@@ -891,6 +913,10 @@ if TYPE_CHECKING:
     from .listresponse_conversation_ import (
         ListResponseConversation,
         ListResponseConversationTypedDict,
+    )
+    from .listresponse_custommessagehistorymetadata_ import (
+        ListResponseCustomMessageHistoryMetadata,
+        ListResponseCustomMessageHistoryMetadataTypedDict,
     )
     from .listresponse_custommessageresponse_ import (
         ListResponseCustomMessageResponse,
@@ -1728,14 +1754,26 @@ __all__ = [
     "CustomMessageCreateRequestTypedDict",
     "CustomMessageGetByIDRequest",
     "CustomMessageGetByIDRequestTypedDict",
+    "CustomMessageHistoryMetadata",
+    "CustomMessageHistoryMetadataTypedDict",
+    "CustomMessageHistoryRequest",
+    "CustomMessageHistoryRequestTypedDict",
+    "CustomMessageHistoryResponse",
+    "CustomMessageHistoryResponseTypeConfig",
+    "CustomMessageHistoryResponseTypeConfigTypedDict",
+    "CustomMessageHistoryResponseTypedDict",
     "CustomMessageProperties",
     "CustomMessageResponse",
+    "CustomMessageResponseTypeConfig",
+    "CustomMessageResponseTypeConfigTypedDict",
     "CustomMessageResponseTypedDict",
     "CustomMessageRule",
     "CustomMessageRuleTypedDict",
     "CustomMessageType",
     "CustomMessageUpdateRequest",
     "CustomMessageUpdateRequestTypedDict",
+    "CustomMessageVersionRequest",
+    "CustomMessageVersionRequestTypedDict",
     "CustomMessagesDeleteRequest",
     "CustomMessagesDeleteRequestTypedDict",
     "CustomMessagesListRequest",
@@ -2114,6 +2152,8 @@ __all__ = [
     "ListResponseCommunicationBatchTypedDict",
     "ListResponseConversation",
     "ListResponseConversationTypedDict",
+    "ListResponseCustomMessageHistoryMetadata",
+    "ListResponseCustomMessageHistoryMetadataTypedDict",
     "ListResponseCustomMessageResponse",
     "ListResponseCustomMessageResponseTypedDict",
     "ListResponseDashboardResponse",
@@ -2318,6 +2358,8 @@ __all__ = [
     "RolesGetByIDRequestTypedDict",
     "RolesListRequest",
     "RolesListRequestTypedDict",
+    "Rule",
+    "RuleTypedDict",
     "SampleRate",
     "SampleRateTypedDict",
     "SaveAction",
@@ -2780,14 +2822,28 @@ _dynamic_imports: dict[str, str] = {
     "CreateTakeoutResponseTypedDict": ".createtakeoutresponse",
     "CustomMessageGetByIDRequest": ".custom_message_get_by_idop",
     "CustomMessageGetByIDRequestTypedDict": ".custom_message_get_by_idop",
+    "CustomMessageHistoryRequest": ".custom_message_historyop",
+    "CustomMessageHistoryRequestTypedDict": ".custom_message_historyop",
+    "CustomMessageVersionRequest": ".custom_message_versionop",
+    "CustomMessageVersionRequestTypedDict": ".custom_message_versionop",
     "CustomMessagesDeleteRequest": ".custom_messages_deleteop",
     "CustomMessagesDeleteRequestTypedDict": ".custom_messages_deleteop",
     "CustomMessagesListRequest": ".custom_messages_listop",
     "CustomMessagesListRequestTypedDict": ".custom_messages_listop",
     "CustomMessageCreateRequest": ".custommessagecreaterequest",
     "CustomMessageCreateRequestTypedDict": ".custommessagecreaterequest",
+    "CustomMessageHistoryMetadata": ".custommessagehistorymetadata",
+    "CustomMessageHistoryMetadataTypedDict": ".custommessagehistorymetadata",
+    "CustomMessageHistoryResponse": ".custommessagehistoryresponse",
+    "CustomMessageHistoryResponseTypeConfig": ".custommessagehistoryresponse",
+    "CustomMessageHistoryResponseTypeConfigTypedDict": ".custommessagehistoryresponse",
+    "CustomMessageHistoryResponseTypedDict": ".custommessagehistoryresponse",
+    "Rule": ".custommessagehistoryresponse",
+    "RuleTypedDict": ".custommessagehistoryresponse",
     "CustomMessageProperties": ".custommessageproperties",
     "CustomMessageResponse": ".custommessageresponse",
+    "CustomMessageResponseTypeConfig": ".custommessageresponse",
+    "CustomMessageResponseTypeConfigTypedDict": ".custommessageresponse",
     "CustomMessageResponseTypedDict": ".custommessageresponse",
     "CustomMessageRule": ".custommessagerule",
     "CustomMessageRuleTypedDict": ".custommessagerule",
@@ -3191,6 +3247,8 @@ _dynamic_imports: dict[str, str] = {
     "ListResponseCommunicationBatchTypedDict": ".listresponse_communicationbatch_",
     "ListResponseConversation": ".listresponse_conversation_",
     "ListResponseConversationTypedDict": ".listresponse_conversation_",
+    "ListResponseCustomMessageHistoryMetadata": ".listresponse_custommessagehistorymetadata_",
+    "ListResponseCustomMessageHistoryMetadataTypedDict": ".listresponse_custommessagehistorymetadata_",
     "ListResponseCustomMessageResponse": ".listresponse_custommessageresponse_",
     "ListResponseCustomMessageResponseTypedDict": ".listresponse_custommessageresponse_",
     "ListResponseDashboardResponse": ".listresponse_dashboardresponse_",
