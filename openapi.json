@@ -15565,9 +15565,11 @@
             "required": false,
             "schema": {
               "type": "boolean",
+              "description": "Compatibility no-op; accepted but ignored.",
               "default": false,
               "title": "Skip Auth"
-            }
+            },
+            "description": "Compatibility no-op; accepted but ignored."
           }
         ],
         "responses": {
@@ -38481,7 +38483,7 @@
           "skip_auth": {
             "type": "boolean",
             "title": "Skip Auth",
-            "description": "Whether to skip authentication for the user.",
+            "description": "Compatibility no-op; accepted but ignored.",
             "default": false
           }
         },
