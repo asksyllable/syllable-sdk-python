@@ -20,7 +20,7 @@ class InsightsListRequestTypedDict(TypedDict):
     page: NotRequired[Nullable[int]]
     r"""The page number from which to start (0-based)"""
     limit: NotRequired[int]
-    r"""The maximum number of items to return"""
+    r"""The maximum number of insights to return"""
     search_fields: NotRequired[List[InsightsProperties]]
     r"""String names of fields to search. Correspond by index to search field values"""
     search_field_values: NotRequired[List[str]]
@@ -48,7 +48,7 @@ class InsightsListRequest(BaseModel):
         Optional[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = 25
-    r"""The maximum number of items to return"""
+    r"""The maximum number of insights to return"""
 
     search_fields: Annotated[
         Optional[List[InsightsProperties]],
