@@ -7750,14 +7750,22 @@
             }
           },
           "422": {
-            "description": "Validation Error",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/PromptReasoningErrorResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PromptSchemaValidationErrorResponse"
+                    }
+                  ],
+                  "title": "Response 422 Prompts Create"
                 }
               }
-            }
+            },
+            "description": "Unprocessable Entity"
           }
         }
       },
@@ -7795,14 +7803,22 @@
             }
           },
           "422": {
-            "description": "Validation Error",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/PromptReasoningErrorResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PromptSchemaValidationErrorResponse"
+                    }
+                  ],
+                  "title": "Response 422 Prompts Update"
                 }
               }
-            }
+            },
+            "description": "Unprocessable Entity"
           }
         }
       }
@@ -32781,6 +32797,21 @@
               1.0
             ]
           },
+          "reasoning_effort": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReasoningEffort"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Requested reasoning effort. Missing or null on create inherits existing service/model policy. On update, omit to preserve the saved choice or send null to reset. Explicit choices require an enabled consuming Cortex reasoning profile and compatible model capabilities; none is distinct from minimal and from inheritance.",
+            "examples": [
+              null,
+              "low"
+            ]
+          },
           "seed": {
             "anyOf": [
               {
@@ -32833,6 +32864,69 @@
         ],
         "title": "PromptProperties",
         "description": "Names of prompt fields supported for filtering/sorting on list endpoint."
+      },
+      "PromptReasoningErrorResponse": {
+        "properties": {
+          "detail": {
+            "type": "string",
+            "title": "Detail"
+          },
+          "validation_issues": {
+            "items": {
+              "$ref": "#/components/schemas/ReasoningValidationIssue"
+            },
+            "type": "array",
+            "title": "Validation Issues"
+          },
+          "request_errors": {
+            "items": {
+              "$ref": "#/components/schemas/PromptRequestValidationErrorDetail"
+            },
+            "type": "array",
+            "title": "Request Errors",
+            "description": "Schema failures when invalid reasoning input prevents parsing the request."
+          }
+        },
+        "type": "object",
+        "required": [
+          "detail",
+          "validation_issues"
+        ],
+        "title": "PromptReasoningErrorResponse"
+      },
+      "PromptRequestValidationErrorDetail": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Loc"
+          },
+          "type": {
+            "type": "string",
+            "title": "Type"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Msg"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "type",
+          "msg"
+        ],
+        "title": "PromptRequestValidationErrorDetail",
+        "description": "Schema error location/message without echoing request input or validator context."
       },
       "PromptResponse": {
         "properties": {
@@ -33089,6 +33183,22 @@
         ],
         "title": "PromptResponse",
         "description": "Response model for prompt operations.\nA prompt defines the behavior of an agent by delivering instructions to the LLM about how the\nagent should behave. A prompt can be linked to one or more agents. A prompt can also be linked to\ntools to allow an agent using it to use those tools. For more information, see\n[Console docs](https://docs.syllable.ai/Resources/Prompts)."
+      },
+      "PromptSchemaValidationErrorResponse": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/PromptRequestValidationErrorDetail"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "required": [
+          "detail"
+        ],
+        "title": "PromptSchemaValidationErrorResponse"
       },
       "PromptUpdateRequest": {
         "properties": {
@@ -33377,6 +33487,99 @@
         ],
         "title": "PronunciationsCsvUploadResponse",
         "description": "Placeholder response returned after accepting a pronunciations CSV upload."
+      },
+      "ReasoningEffort": {
+        "type": "string",
+        "enum": [
+          "none",
+          "minimal",
+          "low",
+          "medium",
+          "high",
+          "xhigh"
+        ],
+        "title": "ReasoningEffort"
+      },
+      "ReasoningEndpoint": {
+        "type": "string",
+        "enum": [
+          "chat",
+          "responses"
+        ],
+        "title": "ReasoningEndpoint"
+      },
+      "ReasoningToolMode": {
+        "type": "string",
+        "enum": [
+          "none",
+          "function",
+          "forced_function",
+          "parallel_function"
+        ],
+        "title": "ReasoningToolMode",
+        "description": "Function covers automatic/required selection; forced function selects a named tool.\n\nParallel function is retained as shorthand for function with parallel calls enabled."
+      },
+      "ReasoningValidationIssue": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "Stable machine-readable identifier (kebab-case)"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "info",
+              "warning",
+              "error"
+            ],
+            "title": "Severity",
+            "default": "error"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "description": "Human-readable description"
+          },
+          "path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Path",
+            "description": "JSONPath-style location (e.g. $.context.task.steps[2])"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value",
+            "description": "The offending value, when it adds clarity"
+          },
+          "allowed_values": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Allowed Values",
+            "description": "Accepted enum vocabulary for schema failures; confirmed compatible alternatives for domain failures. Empty means no alternatives are confirmed."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "message"
+        ],
+        "title": "ReasoningValidationIssue"
       },
       "RequestStatus": {
         "type": "string",
@@ -36052,6 +36255,29 @@
             "examples": [
               "active"
             ]
+          },
+          "deployment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Deployment",
+            "description": "Concrete provider model or Azure deployment name for this catalog version. Custom deployment names require a reviewed catalog mapping."
+          },
+          "reasoning_capabilities": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SupportedLlmReasoningCapabilities"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Reviewed reasoning capabilities for this provider/model/version/deployment. Null means capabilities are unknown. Metadata does not enable explicit reasoning choices or establish consuming-service rollout readiness."
           }
         },
         "type": "object",
@@ -36061,6 +36287,98 @@
         ],
         "title": "SupportedLlm",
         "description": "LLM config option that can be used on a prompt."
+      },
+      "SupportedLlmReasoningCapabilities": {
+        "properties": {
+          "combinations": {
+            "items": {
+              "$ref": "#/components/schemas/SupportedLlmReasoningCombination"
+            },
+            "type": "array",
+            "title": "Combinations"
+          },
+          "parameters": {
+            "items": {
+              "$ref": "#/components/schemas/SupportedLlmReasoningParameterConstraint"
+            },
+            "type": "array",
+            "title": "Parameters"
+          },
+          "reviewed_on": {
+            "type": "string",
+            "format": "date",
+            "title": "Reviewed On"
+          }
+        },
+        "type": "object",
+        "required": [
+          "combinations",
+          "parameters",
+          "reviewed_on"
+        ],
+        "title": "SupportedLlmReasoningCapabilities",
+        "description": "Provider facts for this concrete model identity, independent of feature activation."
+      },
+      "SupportedLlmReasoningCombination": {
+        "properties": {
+          "endpoint": {
+            "$ref": "#/components/schemas/ReasoningEndpoint"
+          },
+          "tool_mode": {
+            "$ref": "#/components/schemas/ReasoningToolMode"
+          },
+          "allowed_efforts": {
+            "items": {
+              "$ref": "#/components/schemas/ReasoningEffort"
+            },
+            "type": "array",
+            "title": "Allowed Efforts",
+            "description": "Verified provider-supported efforts for this endpoint/tool mode. An empty list with no unverified efforts means reviewed non-support. A missing combination means unknown support. These values do not activate a cohort."
+          },
+          "unverified_efforts": {
+            "items": {
+              "$ref": "#/components/schemas/ReasoningEffort"
+            },
+            "type": "array",
+            "title": "Unverified Efforts",
+            "description": "Candidate efforts that remain unverified for this combination and are excluded from allowed_efforts."
+          }
+        },
+        "type": "object",
+        "required": [
+          "endpoint",
+          "tool_mode",
+          "allowed_efforts"
+        ],
+        "title": "SupportedLlmReasoningCombination",
+        "description": "Reviewed effort restrictions for one endpoint and tool mode."
+      },
+      "SupportedLlmReasoningParameterConstraint": {
+        "properties": {
+          "endpoint": {
+            "$ref": "#/components/schemas/ReasoningEndpoint"
+          },
+          "parameter": {
+            "type": "string",
+            "title": "Parameter"
+          },
+          "allowed_efforts": {
+            "items": {
+              "$ref": "#/components/schemas/ReasoningEffort"
+            },
+            "type": "array",
+            "title": "Allowed Efforts",
+            "description": "Provider-supported efforts compatible with this parameter. An empty list means the parameter is incompatible; a missing parameter rule means unknown compatibility. Endpoint/tool restrictions must also be satisfied."
+          }
+        },
+        "type": "object",
+        "required": [
+          "endpoint",
+          "parameter",
+          "allowed_efforts"
+        ],
+        "title": "SupportedLlmReasoningParameterConstraint",
+        "description": "Efforts compatible with a supplied provider parameter."
       },
       "SupportedSttProvider": {
         "properties": {
