@@ -54,10 +54,13 @@ class InsightsSDK(BaseSDK):
     ) -> models.ListResponseInsightsOutput:
         r"""Insights List
 
-        List the evaluated insights for sessions.
+        List evaluated insights, with at most 1,000 items and an offset (page * limit) up to 100,000.
+
+        Filter by start_datetime (inclusive) and end_datetime (exclusive) on insight creation time
+        to narrow results. Use order_by_direction=desc to read the newest insights first.
 
         :param page: The page number from which to start (0-based)
-        :param limit: The maximum number of items to return
+        :param limit: The maximum number of insights to return
         :param search_fields: String names of fields to search. Correspond by index to search field values
         :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
         :param order_by: The field whose value should be used to order the results
@@ -176,10 +179,13 @@ class InsightsSDK(BaseSDK):
     ) -> models.ListResponseInsightsOutput:
         r"""Insights List
 
-        List the evaluated insights for sessions.
+        List evaluated insights, with at most 1,000 items and an offset (page * limit) up to 100,000.
+
+        Filter by start_datetime (inclusive) and end_datetime (exclusive) on insight creation time
+        to narrow results. Use order_by_direction=desc to read the newest insights first.
 
         :param page: The page number from which to start (0-based)
-        :param limit: The maximum number of items to return
+        :param limit: The maximum number of insights to return
         :param search_fields: String names of fields to search. Correspond by index to search field values
         :param search_field_values: Values of fields to search. Correspond by index to search fields. Unless field name contains \"list\", an individual search field value cannot be a list
         :param order_by: The field whose value should be used to order the results
