@@ -3115,7 +3115,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -3135,6 +3135,7 @@ actions:
                     "llm_config": {
                         "api_version": "2024-06-01",
                         "temperature": 1.0,
+                        "reasoning_effort": models.ReasoningEffort.LOW,
                     },
                     "session_end_tool_id": 1,
                     "edit_comments": "Updated prompt text to include requirement to not answer questions that aren't about weather.",
@@ -3149,7 +3150,7 @@ actions:
           label: Python (SDK)
           source: |-
             import os
-            from syllable_sdk import SyllableSDK
+            from syllable_sdk import SyllableSDK, models
 
 
             with SyllableSDK(
@@ -3169,6 +3170,7 @@ actions:
                     "llm_config": {
                         "api_version": "2024-06-01",
                         "temperature": 1.0,
+                        "reasoning_effort": models.ReasoningEffort.LOW,
                     },
                     "session_end_tool_id": 1,
                     "edit_comments": "Updated prompt text to include requirement to not answer questions that aren't about weather.",

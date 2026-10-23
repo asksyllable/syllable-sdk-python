@@ -21,6 +21,22 @@ if TYPE_CHECKING:
         OutboundCampaignListBadRequestError,
         OutboundCampaignListBadRequestErrorData,
     )
+    from .promptreasoningerrorresponse import (
+        PromptReasoningErrorResponse,
+        PromptReasoningErrorResponseData,
+    )
+    from .prompts_createop import (
+        Response422PromptsCreate,
+        Response422PromptsCreateUnion,
+    )
+    from .prompts_updateop import (
+        Response422PromptsUpdate,
+        Response422PromptsUpdateUnion,
+    )
+    from .promptschemavalidationerrorresponse import (
+        PromptSchemaValidationErrorResponse,
+        PromptSchemaValidationErrorResponseData,
+    )
     from .responsevalidationerror import ResponseValidationError
     from .session_labels_listop import (
         SessionLabelsListBadRequestError,
@@ -50,6 +66,14 @@ __all__ = [
     "NoResponseError",
     "OutboundCampaignListBadRequestError",
     "OutboundCampaignListBadRequestErrorData",
+    "PromptReasoningErrorResponse",
+    "PromptReasoningErrorResponseData",
+    "PromptSchemaValidationErrorResponse",
+    "PromptSchemaValidationErrorResponseData",
+    "Response422PromptsCreate",
+    "Response422PromptsCreateUnion",
+    "Response422PromptsUpdate",
+    "Response422PromptsUpdateUnion",
     "ResponseValidationError",
     "SessionLabelsListBadRequestError",
     "SessionLabelsListBadRequestErrorData",
@@ -69,6 +93,14 @@ _dynamic_imports: dict[str, str] = {
     "NoResponseError": ".no_response_error",
     "OutboundCampaignListBadRequestError": ".outbound_campaign_listop",
     "OutboundCampaignListBadRequestErrorData": ".outbound_campaign_listop",
+    "PromptReasoningErrorResponse": ".promptreasoningerrorresponse",
+    "PromptReasoningErrorResponseData": ".promptreasoningerrorresponse",
+    "Response422PromptsCreate": ".prompts_createop",
+    "Response422PromptsCreateUnion": ".prompts_createop",
+    "Response422PromptsUpdate": ".prompts_updateop",
+    "Response422PromptsUpdateUnion": ".prompts_updateop",
+    "PromptSchemaValidationErrorResponse": ".promptschemavalidationerrorresponse",
+    "PromptSchemaValidationErrorResponseData": ".promptschemavalidationerrorresponse",
     "ResponseValidationError": ".responsevalidationerror",
     "SessionLabelsListBadRequestError": ".session_labels_listop",
     "SessionLabelsListBadRequestErrorData": ".session_labels_listop",

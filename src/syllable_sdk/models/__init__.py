@@ -1176,6 +1176,12 @@ if TYPE_CHECKING:
     from .promptllmconfig import PromptLlmConfig, PromptLlmConfigTypedDict
     from .promptllmprovider import PromptLlmProvider
     from .promptproperties import PromptProperties
+    from .promptrequestvalidationerrordetail import (
+        PromptRequestValidationErrorDetail,
+        PromptRequestValidationErrorDetailLoc,
+        PromptRequestValidationErrorDetailLocTypedDict,
+        PromptRequestValidationErrorDetailTypedDict,
+    )
     from .promptresponse import PromptResponse, PromptResponseTypedDict
     from .prompts_deleteop import PromptsDeleteRequest, PromptsDeleteRequestTypedDict
     from .prompts_get_by_idop import (
@@ -1196,6 +1202,14 @@ if TYPE_CHECKING:
     from .pronunciationscsvuploadresponse import (
         PronunciationsCsvUploadResponse,
         PronunciationsCsvUploadResponseTypedDict,
+    )
+    from .reasoningeffort import ReasoningEffort
+    from .reasoningendpoint import ReasoningEndpoint
+    from .reasoningtoolmode import ReasoningToolMode
+    from .reasoningvalidationissue import (
+        ReasoningValidationIssue,
+        ReasoningValidationIssueSeverity,
+        ReasoningValidationIssueTypedDict,
     )
     from .requeststatus import RequestStatus
     from .requeststatusbreakdown import (
@@ -1352,6 +1366,18 @@ if TYPE_CHECKING:
     from .steptools import StepTools, StepToolsTypedDict
     from .summaryentry import SummaryEntry, SummaryEntryTypedDict
     from .supportedllm import SupportedLlm, SupportedLlmTypedDict
+    from .supportedllmreasoningcapabilities import (
+        SupportedLlmReasoningCapabilities,
+        SupportedLlmReasoningCapabilitiesTypedDict,
+    )
+    from .supportedllmreasoningcombination import (
+        SupportedLlmReasoningCombination,
+        SupportedLlmReasoningCombinationTypedDict,
+    )
+    from .supportedllmreasoningparameterconstraint import (
+        SupportedLlmReasoningParameterConstraint,
+        SupportedLlmReasoningParameterConstraintTypedDict,
+    )
     from .supportedsttprovider import (
         SupportedSttProvider,
         SupportedSttProviderTypedDict,
@@ -1490,12 +1516,16 @@ if TYPE_CHECKING:
     )
     from .userupdaterequest import UserUpdateRequest, UserUpdateRequestTypedDict
     from .validationerror import (
-        Loc,
-        LocTypedDict,
         ValidationError,
+        ValidationErrorLoc,
+        ValidationErrorLocTypedDict,
         ValidationErrorTypedDict,
     )
-    from .validationissue import Severity, ValidationIssue, ValidationIssueTypedDict
+    from .validationissue import (
+        ValidationIssue,
+        ValidationIssueSeverity,
+        ValidationIssueTypedDict,
+    )
     from .variable import (
         Variable,
         VariableType,
@@ -2212,8 +2242,6 @@ __all__ = [
     "ListResponseWorkflowSessionRowTypedDict",
     "LoadToolFromFileTask",
     "LoadToolFromFileTaskTypedDict",
-    "Loc",
-    "LocTypedDict",
     "LocalizedBridgePhrases",
     "LocalizedBridgePhrasesTypedDict",
     "LoginType",
@@ -2319,6 +2347,10 @@ __all__ = [
     "PromptLlmConfigTypedDict",
     "PromptLlmProvider",
     "PromptProperties",
+    "PromptRequestValidationErrorDetail",
+    "PromptRequestValidationErrorDetailLoc",
+    "PromptRequestValidationErrorDetailLocTypedDict",
+    "PromptRequestValidationErrorDetailTypedDict",
     "PromptResponse",
     "PromptResponseTypedDict",
     "PromptUpdateRequest",
@@ -2339,6 +2371,12 @@ __all__ = [
     "PronunciationsCsvUploadResponseTypedDict",
     "Prose",
     "ProseTypedDict",
+    "ReasoningEffort",
+    "ReasoningEndpoint",
+    "ReasoningToolMode",
+    "ReasoningValidationIssue",
+    "ReasoningValidationIssueSeverity",
+    "ReasoningValidationIssueTypedDict",
     "RequestStatus",
     "RequestStatusBreakdown",
     "RequestStatusBreakdownTypedDict",
@@ -2447,7 +2485,6 @@ __all__ = [
     "SetValueActionValuefrom1TypedDict",
     "SetValueActionValuefrom2",
     "SetValueActionValuefrom2TypedDict",
-    "Severity",
     "SipConfiguration",
     "SipConfigurationTypedDict",
     "SipEndpoint",
@@ -2474,6 +2511,12 @@ __all__ = [
     "SummaryEntry",
     "SummaryEntryTypedDict",
     "SupportedLlm",
+    "SupportedLlmReasoningCapabilities",
+    "SupportedLlmReasoningCapabilitiesTypedDict",
+    "SupportedLlmReasoningCombination",
+    "SupportedLlmReasoningCombinationTypedDict",
+    "SupportedLlmReasoningParameterConstraint",
+    "SupportedLlmReasoningParameterConstraintTypedDict",
     "SupportedLlmTypedDict",
     "SupportedSttProvider",
     "SupportedSttProviderTypedDict",
@@ -2597,8 +2640,11 @@ __all__ = [
     "UsersSendEmailRequestTypedDict",
     "UtteranceSource",
     "ValidationError",
+    "ValidationErrorLoc",
+    "ValidationErrorLocTypedDict",
     "ValidationErrorTypedDict",
     "ValidationIssue",
+    "ValidationIssueSeverity",
     "ValidationIssueTypedDict",
     "Value",
     "ValueTypedDict",
@@ -3393,6 +3439,10 @@ _dynamic_imports: dict[str, str] = {
     "PromptLlmConfigTypedDict": ".promptllmconfig",
     "PromptLlmProvider": ".promptllmprovider",
     "PromptProperties": ".promptproperties",
+    "PromptRequestValidationErrorDetail": ".promptrequestvalidationerrordetail",
+    "PromptRequestValidationErrorDetailLoc": ".promptrequestvalidationerrordetail",
+    "PromptRequestValidationErrorDetailLocTypedDict": ".promptrequestvalidationerrordetail",
+    "PromptRequestValidationErrorDetailTypedDict": ".promptrequestvalidationerrordetail",
     "PromptResponse": ".promptresponse",
     "PromptResponseTypedDict": ".promptresponse",
     "PromptsDeleteRequest": ".prompts_deleteop",
@@ -3411,6 +3461,12 @@ _dynamic_imports: dict[str, str] = {
     "PronunciationOverridesDictionaryTypedDict": ".pronunciationoverridesdictionary",
     "PronunciationsCsvUploadResponse": ".pronunciationscsvuploadresponse",
     "PronunciationsCsvUploadResponseTypedDict": ".pronunciationscsvuploadresponse",
+    "ReasoningEffort": ".reasoningeffort",
+    "ReasoningEndpoint": ".reasoningendpoint",
+    "ReasoningToolMode": ".reasoningtoolmode",
+    "ReasoningValidationIssue": ".reasoningvalidationissue",
+    "ReasoningValidationIssueSeverity": ".reasoningvalidationissue",
+    "ReasoningValidationIssueTypedDict": ".reasoningvalidationissue",
     "RequestStatus": ".requeststatus",
     "RequestStatusBreakdown": ".requeststatusbreakdown",
     "RequestStatusBreakdownTypedDict": ".requeststatusbreakdown",
@@ -3547,6 +3603,12 @@ _dynamic_imports: dict[str, str] = {
     "SummaryEntryTypedDict": ".summaryentry",
     "SupportedLlm": ".supportedllm",
     "SupportedLlmTypedDict": ".supportedllm",
+    "SupportedLlmReasoningCapabilities": ".supportedllmreasoningcapabilities",
+    "SupportedLlmReasoningCapabilitiesTypedDict": ".supportedllmreasoningcapabilities",
+    "SupportedLlmReasoningCombination": ".supportedllmreasoningcombination",
+    "SupportedLlmReasoningCombinationTypedDict": ".supportedllmreasoningcombination",
+    "SupportedLlmReasoningParameterConstraint": ".supportedllmreasoningparameterconstraint",
+    "SupportedLlmReasoningParameterConstraintTypedDict": ".supportedllmreasoningparameterconstraint",
     "SupportedSttProvider": ".supportedsttprovider",
     "SupportedSttProviderTypedDict": ".supportedsttprovider",
     "TakeoutRequestStatus": ".takeoutrequeststatus",
@@ -3664,12 +3726,12 @@ _dynamic_imports: dict[str, str] = {
     "UsersSendEmailRequestTypedDict": ".users_send_emailop",
     "UserUpdateRequest": ".userupdaterequest",
     "UserUpdateRequestTypedDict": ".userupdaterequest",
-    "Loc": ".validationerror",
-    "LocTypedDict": ".validationerror",
     "ValidationError": ".validationerror",
+    "ValidationErrorLoc": ".validationerror",
+    "ValidationErrorLocTypedDict": ".validationerror",
     "ValidationErrorTypedDict": ".validationerror",
-    "Severity": ".validationissue",
     "ValidationIssue": ".validationissue",
+    "ValidationIssueSeverity": ".validationissue",
     "ValidationIssueTypedDict": ".validationissue",
     "Variable": ".variable",
     "VariableType": ".variable",

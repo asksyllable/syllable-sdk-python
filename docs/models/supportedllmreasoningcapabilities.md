@@ -1,0 +1,12 @@
+# SupportedLlmReasoningCapabilities
+
+Provider facts for this concrete model identity, independent of feature activation.
+
+
+## Fields
+
+| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `combinations`                                                                                                 | List[[models.SupportedLlmReasoningCombination](../models/supportedllmreasoningcombination.md)]                 | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
+| `parameters`                                                                                                   | List[[models.SupportedLlmReasoningParameterConstraint](../models/supportedllmreasoningparameterconstraint.md)] | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
+| `reviewed_on`                                                                                                  | [datetime](https://docs.python.org/3/library/datetime.html#datetime-objects)                                   | :heavy_check_mark:                                                                                             | N/A                                                                                                            |

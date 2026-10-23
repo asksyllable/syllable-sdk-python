@@ -1,0 +1,10 @@
+# PromptReasoningErrorResponse
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `detail`                                                                                           | *str*                                                                                              | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `validation_issues`                                                                                | List[[models.ReasoningValidationIssue](../models/reasoningvalidationissue.md)]                     | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `request_errors`                                                                                   | List[[models.PromptRequestValidationErrorDetail](../models/promptrequestvalidationerrordetail.md)] | :heavy_minus_sign:                                                                                 | Schema failures when invalid reasoning input prevents parsing the request.                         |

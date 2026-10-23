@@ -77,7 +77,7 @@ Create a new prompt
 <!-- UsageSnippet language="python" operationID="prompts_create" method="post" path="/api/v1/prompts/" -->
 ```python
 import os
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -97,6 +97,7 @@ with SyllableSDK(
         "llm_config": {
             "api_version": "2024-06-01",
             "temperature": 1.0,
+            "reasoning_effort": models.ReasoningEffort.LOW,
         },
         "session_end_tool_id": 1,
         "edit_comments": "Updated prompt text to include requirement to not answer questions that aren't about weather.",
@@ -120,10 +121,11 @@ with SyllableSDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                                 | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| errors.PromptReasoningErrorResponse        | 422                                        | application/json                           |
+| errors.PromptSchemaValidationErrorResponse | 422                                        | application/json                           |
+| errors.APIError                            | 4XX, 5XX                                   | \*/\*                                      |
 
 ## update
 
@@ -134,7 +136,7 @@ Update an existing prompt
 <!-- UsageSnippet language="python" operationID="prompts_update" method="put" path="/api/v1/prompts/" -->
 ```python
 import os
-from syllable_sdk import SyllableSDK
+from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
@@ -154,6 +156,7 @@ with SyllableSDK(
         "llm_config": {
             "api_version": "2024-06-01",
             "temperature": 1.0,
+            "reasoning_effort": models.ReasoningEffort.LOW,
         },
         "session_end_tool_id": 1,
         "edit_comments": "Updated prompt text to include requirement to not answer questions that aren't about weather.",
@@ -178,10 +181,11 @@ with SyllableSDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                                 | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| errors.PromptReasoningErrorResponse        | 422                                        | application/json                           |
+| errors.PromptSchemaValidationErrorResponse | 422                                        | application/json                           |
+| errors.APIError                            | 4XX, 5XX                                   | \*/\*                                      |
 
 ## prompts_list_active_labels
 

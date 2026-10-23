@@ -1,11 +1,11 @@
-# Severity
+# ReasoningValidationIssueSeverity
 
 ## Example Usage
 
 ```python
-from syllable_sdk.models import Severity
+from syllable_sdk.models import ReasoningValidationIssueSeverity
 
-value = Severity.INFO
+value = ReasoningValidationIssueSeverity.INFO
 ```
 
 

@@ -1,0 +1,12 @@
+# PromptRequestValidationErrorDetail
+
+Schema error location/message without echoing request input or validator context.
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `loc`                                                                                                    | List[[models.PromptRequestValidationErrorDetailLoc](../models/promptrequestvalidationerrordetailloc.md)] | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| `type`                                                                                                   | *str*                                                                                                    | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| `msg`                                                                                                    | *str*                                                                                                    | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
