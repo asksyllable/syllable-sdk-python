@@ -19009,6 +19009,17 @@
             ],
             "title": "A2P Verified",
             "description": "Twilio US A2P messaging-path configuration snapshot from the last explicit verify; null if never checked."
+          },
+          "sip_configuration": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SipConfiguration"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "SIP configuration applied when transferring calls"
           }
         },
         "type": "object",
