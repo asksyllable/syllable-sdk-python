@@ -3,6 +3,10 @@
 from __future__ import annotations
 from .lifecyclestatus import LifecycleStatus
 from .promptllmprovider import PromptLlmProvider
+from .supportedllmreasoningcapabilities import (
+    SupportedLlmReasoningCapabilities,
+    SupportedLlmReasoningCapabilitiesTypedDict,
+)
 from datetime import date
 import pydantic
 from pydantic import model_serializer
@@ -42,6 +46,12 @@ class SupportedLlmTypedDict(TypedDict):
     r"""Provider-recommended replacement for this model version; no automatic substitution."""
     status: NotRequired[Nullable[LifecycleStatus]]
     r"""Effective lifecycle status, resolved server-side against the current date. Populated on API responses; unset in the static catalog."""
+    deployment: NotRequired[Nullable[str]]
+    r"""Concrete provider model or Azure deployment name for this catalog version. Custom deployment names require a reviewed catalog mapping."""
+    reasoning_capabilities: NotRequired[
+        Nullable[SupportedLlmReasoningCapabilitiesTypedDict]
+    ]
+    r"""Reviewed reasoning capabilities for this provider/model/version/deployment. Null means capabilities are unknown. Metadata does not enable explicit reasoning choices or establish consuming-service rollout readiness."""
 
 
 class SupportedLlm(BaseModel):
@@ -85,6 +95,12 @@ class SupportedLlm(BaseModel):
     status: OptionalNullable[LifecycleStatus] = UNSET
     r"""Effective lifecycle status, resolved server-side against the current date. Populated on API responses; unset in the static catalog."""
 
+    deployment: OptionalNullable[str] = UNSET
+    r"""Concrete provider model or Azure deployment name for this catalog version. Custom deployment names require a reviewed catalog mapping."""
+
+    reasoning_capabilities: OptionalNullable[SupportedLlmReasoningCapabilities] = UNSET
+    r"""Reviewed reasoning capabilities for this provider/model/version/deployment. Null means capabilities are unknown. Metadata does not enable explicit reasoning choices or establish consuming-service rollout readiness."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -98,6 +114,8 @@ class SupportedLlm(BaseModel):
                 "fallback",
                 "replacement",
                 "status",
+                "deployment",
+                "reasoning_capabilities",
             ]
         )
         nullable_fields = set(
@@ -108,6 +126,8 @@ class SupportedLlm(BaseModel):
                 "fallback",
                 "replacement",
                 "status",
+                "deployment",
+                "reasoning_capabilities",
             ]
         )
         serialized = handler(self)

@@ -712,7 +712,7 @@ with SyllableSDK(
 * [`SyllableSDKError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/syllablesdkerror.py): The base class for HTTP error responses.
   * [`HTTPValidationError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/httpvalidationerror.py): Validation Error. Status code `422`. *
 
-<details><summary>Less common errors (10)</summary>
+<details><summary>Less common errors (12)</summary>
 
 <br />
 
@@ -724,6 +724,8 @@ with SyllableSDK(
 
 **Inherit from [`SyllableSDKError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/syllablesdkerror.py)**:
 * [`CustomMessageErrorResponse`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/custommessageerrorresponse.py): Applicable to 4 of 201 methods.*
+* [`PromptReasoningErrorResponse`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/promptreasoningerrorresponse.py): Unprocessable Entity. Status code `422`. Applicable to 2 of 201 methods.*
+* [`PromptSchemaValidationErrorResponse`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/promptschemavalidationerrorresponse.py): Unprocessable Entity. Status code `422`. Applicable to 2 of 201 methods.*
 * [`SessionLabelsListBadRequestError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/sessionlabelslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 201 methods.*
 * [`SessionsListBadRequestError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/sessionslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 201 methods.*
 * [`DirectoryMemberListBadRequestError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/directorymemberlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 201 methods.*

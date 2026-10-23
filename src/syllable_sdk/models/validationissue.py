@@ -14,7 +14,7 @@ from typing import Optional
 from typing_extensions import NotRequired, TypedDict
 
 
-class Severity(str, Enum):
+class ValidationIssueSeverity(str, Enum):
     INFO = "info"
     WARNING = "warning"
     ERROR = "error"
@@ -27,7 +27,7 @@ class ValidationIssueTypedDict(TypedDict):
     r"""Stable machine-readable identifier (kebab-case)"""
     message: str
     r"""Human-readable description"""
-    severity: NotRequired[Severity]
+    severity: NotRequired[ValidationIssueSeverity]
     path: NotRequired[Nullable[str]]
     r"""JSONPath-style location (e.g. $.context.task.steps[2])"""
     value: NotRequired[Nullable[str]]
@@ -43,7 +43,7 @@ class ValidationIssue(BaseModel):
     message: str
     r"""Human-readable description"""
 
-    severity: Optional[Severity] = Severity.ERROR
+    severity: Optional[ValidationIssueSeverity] = ValidationIssueSeverity.ERROR
 
     path: OptionalNullable[str] = UNSET
     r"""JSONPath-style location (e.g. $.context.task.steps[2])"""

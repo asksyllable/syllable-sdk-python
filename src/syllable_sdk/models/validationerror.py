@@ -6,20 +6,22 @@ from typing import List, Union
 from typing_extensions import TypeAliasType, TypedDict
 
 
-LocTypedDict = TypeAliasType("LocTypedDict", Union[str, int])
+ValidationErrorLocTypedDict = TypeAliasType(
+    "ValidationErrorLocTypedDict", Union[str, int]
+)
 
 
-Loc = TypeAliasType("Loc", Union[str, int])
+ValidationErrorLoc = TypeAliasType("ValidationErrorLoc", Union[str, int])
 
 
 class ValidationErrorTypedDict(TypedDict):
-    loc: List[LocTypedDict]
+    loc: List[ValidationErrorLocTypedDict]
     msg: str
     type: str
 
 
 class ValidationError(BaseModel):
-    loc: List[Loc]
+    loc: List[ValidationErrorLoc]
 
     msg: str
 
