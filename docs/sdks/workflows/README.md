@@ -107,6 +107,14 @@ with SyllableSDK(
             "prompt_list": [
                 "123324",
             ],
+            "agent_labels": [
+                "Outbound",
+                "Hospital",
+            ],
+            "prompt_labels": [
+                "Practice",
+                "Hospital",
+            ],
             "folder_list": [
                 16754,
                 67535,
@@ -218,6 +226,14 @@ with SyllableSDK(
             ],
             "prompt_list": [
                 "123324",
+            ],
+            "agent_labels": [
+                "Outbound",
+                "Hospital",
+            ],
+            "prompt_labels": [
+                "Practice",
+                "Hospital",
             ],
             "folder_list": [
                 16754,
