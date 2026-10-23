@@ -42,6 +42,10 @@ class InsightWorkflowConditionTypedDict(TypedDict):
     r"""List of agents"""
     prompt_list: NotRequired[Nullable[List[str]]]
     r"""List of prompts"""
+    agent_labels: NotRequired[Nullable[List[str]]]
+    r"""Match any of these labels on the session agent in its current state. Combined with other conditions using AND; an empty list applies no filter."""
+    prompt_labels: NotRequired[Nullable[List[str]]]
+    r"""Match any of these labels on the prompt version used by the session. Combined with other conditions using AND; an empty list applies no filter."""
     folder_list: NotRequired[Nullable[List[int]]]
     r"""List of folder IDs"""
     sheet_info: NotRequired[Nullable[Dict[str, str]]]
@@ -66,6 +70,12 @@ class InsightWorkflowCondition(BaseModel):
     prompt_list: OptionalNullable[List[str]] = UNSET
     r"""List of prompts"""
 
+    agent_labels: OptionalNullable[List[str]] = UNSET
+    r"""Match any of these labels on the session agent in its current state. Combined with other conditions using AND; an empty list applies no filter."""
+
+    prompt_labels: OptionalNullable[List[str]] = UNSET
+    r"""Match any of these labels on the prompt version used by the session. Combined with other conditions using AND; an empty list applies no filter."""
+
     folder_list: OptionalNullable[List[int]] = UNSET
     r"""List of folder IDs"""
 
@@ -81,6 +91,8 @@ class InsightWorkflowCondition(BaseModel):
                 "sample_rate",
                 "agent_list",
                 "prompt_list",
+                "agent_labels",
+                "prompt_labels",
                 "folder_list",
                 "sheet_info",
             ]
@@ -92,6 +104,8 @@ class InsightWorkflowCondition(BaseModel):
                 "sample_rate",
                 "agent_list",
                 "prompt_list",
+                "agent_labels",
+                "prompt_labels",
                 "folder_list",
                 "sheet_info",
             ]

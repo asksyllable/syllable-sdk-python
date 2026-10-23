@@ -16226,6 +16226,28 @@ components:
           description: "List of prompts"
           examples:
             - - "123324"
+        agent_labels:
+          anyOf:
+            - items:
+                type: "string"
+              type: "array"
+            - type: "null"
+          title: "Agent Labels"
+          description: "Match any of these labels on the session agent in its current state. Combined with other conditions using AND; an empty list applies no filter."
+          examples:
+            - - "Outbound"
+              - "Hospital"
+        prompt_labels:
+          anyOf:
+            - items:
+                type: "string"
+              type: "array"
+            - type: "null"
+          title: "Prompt Labels"
+          description: "Match any of these labels on the prompt version used by the session. Combined with other conditions using AND; an empty list applies no filter."
+          examples:
+            - - "Practice"
+              - "Hospital"
         folder_list:
           anyOf:
             - items:
