@@ -24,7 +24,7 @@ from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.voice_groups.list(page=0, limit=25, search_fields=[
@@ -77,7 +77,7 @@ from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.voice_groups.create(request={
@@ -136,7 +136,7 @@ from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.voice_groups.update(request={
@@ -197,7 +197,7 @@ from syllable_sdk import SyllableSDK
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.voice_groups.get_by_id(voice_group_id=431245)
@@ -238,7 +238,7 @@ from syllable_sdk import SyllableSDK
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.voice_groups.delete(voice_group_id=225046, reason="<value>")
@@ -280,7 +280,7 @@ from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.voice_groups.voice_groups_create_voice_sample(request={

@@ -23,7 +23,7 @@ from syllable_sdk import SyllableSDK
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.session_labels.get_by_id(session_label_id=491550)
@@ -64,7 +64,7 @@ from syllable_sdk import SyllableSDK
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.session_labels.create(request={
@@ -113,7 +113,7 @@ from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.session_labels.list(page=0, limit=25, search_fields=[

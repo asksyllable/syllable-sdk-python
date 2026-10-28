@@ -29,7 +29,7 @@ from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.dashboards.post_list_dashboard(page=0, limit=25, search_fields=[
@@ -85,7 +85,7 @@ from syllable_sdk import SyllableSDK
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.dashboards.post_get_dashboard(dashboard_name="<value>")
@@ -132,7 +132,7 @@ from syllable_sdk import SyllableSDK
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.dashboards.post_session_events_dashboard()
@@ -177,7 +177,7 @@ from syllable_sdk import SyllableSDK
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.dashboards.post_session_summary_dashboard()
@@ -222,7 +222,7 @@ from syllable_sdk import SyllableSDK
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.dashboards.post_session_transfers_dashboard()
@@ -267,7 +267,7 @@ from syllable_sdk import SyllableSDK
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.dashboards.post_sessions_dashboard()

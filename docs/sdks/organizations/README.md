@@ -24,7 +24,7 @@ from syllable_sdk import SyllableSDK
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.organizations.organizations_get()
@@ -63,7 +63,7 @@ from syllable_sdk import SyllableSDK
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.organizations.update(request={
@@ -110,7 +110,7 @@ from syllable_sdk import SyllableSDK
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.organizations.create(request={
@@ -160,7 +160,7 @@ from syllable_sdk import SyllableSDK
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.organizations.delete(request={

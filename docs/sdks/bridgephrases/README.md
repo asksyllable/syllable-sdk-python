@@ -23,7 +23,7 @@ from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.bridge_phrases.list(page=0, limit=25, search_fields=[
@@ -76,7 +76,7 @@ from syllable_sdk import SyllableSDK
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.bridge_phrases.create(request={
@@ -164,7 +164,7 @@ from syllable_sdk import SyllableSDK
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.bridge_phrases.update(request={
@@ -255,7 +255,7 @@ from syllable_sdk import SyllableSDK
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.bridge_phrases.get_by_id(bridge_phrases_id=627472)
@@ -296,7 +296,7 @@ from syllable_sdk import SyllableSDK
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.bridge_phrases.delete(bridge_phrases_id=722051, reason="<value>")
