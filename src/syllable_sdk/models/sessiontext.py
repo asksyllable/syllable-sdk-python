@@ -10,6 +10,8 @@ from syllable_sdk.types import (
     OptionalNullable,
     UNSET,
     UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
 )
 from typing_extensions import NotRequired, TypedDict
 
@@ -48,14 +50,20 @@ class SessionText(BaseModel):
     r"""The STT provider's confidence for a user utterance. Absent on agent turns, and on user turns whose backend reported nothing -- absence means \"not captured\", never \"the provider was certain this was wrong\". NOT one comparable quantity: read `provider` and `utterance_source` before interpreting a value, and do not aggregate across providers. Deepgram reports a genuine acoustic confidence and a per-word breakdown; Google reports an utterance score its own documentation disclaims and no words; on Deepgram Flux the utterance score is the weakest word, computed by us rather than reported."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["lang", "source", "text", "stt_confidence"])
         nullable_fields = set(["lang", "source", "text", "stt_confidence"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields

@@ -5,7 +5,12 @@ from .displaycardmapping import DisplayCardMapping, DisplayCardMappingTypedDict
 import pydantic
 from pydantic import model_serializer
 from pydantic.functional_validators import AfterValidator
-from syllable_sdk.types import BaseModel, UNSET_SENTINEL
+from syllable_sdk.types import (
+    BaseModel,
+    UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
+)
 from syllable_sdk.utils import validate_const
 from typing import Literal, Optional
 from typing_extensions import Annotated, TypedDict
@@ -40,13 +45,19 @@ class ResponseDisplayConfig(BaseModel):
     ] = "card-list"
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["version"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:

@@ -11,6 +11,8 @@ from syllable_sdk.types import (
     OptionalNullable,
     UNSET,
     UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
 )
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -70,6 +72,9 @@ class PromptLlmConfig(BaseModel):
     r"""Deprecated by Syllable; leave unset for new configurations. Retained for backward compatibility where supported, without a guarantee of identical responses. OpenAI and Azure OpenAI Chat Completions offer best-effort seed support on supported models; Responses does not support seed. Anthropic does not support seed as a sampling parameter. Google support depends on the model and API. A saved value does not establish the endpoint or seed handling of a past request, and sending seed does not prove that a provider honored it."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -85,11 +90,14 @@ class PromptLlmConfig(BaseModel):
         nullable_fields = set(
             ["version", "api_version", "temperature", "reasoning_effort", "seed"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields

@@ -6,7 +6,7 @@ from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.agents.list(page=0, limit=25, search_fields=[
@@ -32,7 +32,7 @@ from syllable_sdk import SyllableSDK, models
 async def main():
 
     async with SyllableSDK(
-        api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+        api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
     ) as ss_client:
 
         res = await ss_client.agents.list_async(page=0, limit=25, search_fields=[

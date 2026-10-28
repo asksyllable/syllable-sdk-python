@@ -14,7 +14,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.agents.list(page=0, limit=25, search_fields=[
@@ -36,7 +36,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.agents.create(request={
@@ -87,7 +87,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.agents.update(request={
@@ -139,7 +139,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.agents.agent_list_active_labels()
@@ -157,7 +157,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.agents.agent_get_available_stt_providers()
@@ -175,7 +175,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.agents.test.send_test_message(request={
@@ -199,7 +199,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.agents.post_card_click_event(test_id="<id>", card_click_request={
@@ -220,7 +220,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.agents.agent_get_available_voices()
@@ -238,7 +238,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.agents.delete(agent_id=78115, reason="<value>")
@@ -256,7 +256,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.agents.get_by_id(agent_id=910445)
@@ -274,7 +274,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.bridge_phrases.list(page=0, limit=25, search_fields=[
@@ -296,7 +296,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.bridge_phrases.create(request={
@@ -361,7 +361,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.bridge_phrases.update(request={
@@ -429,7 +429,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.bridge_phrases.delete(bridge_phrases_id=722051, reason="<value>")
@@ -447,7 +447,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.bridge_phrases.get_by_id(bridge_phrases_id=627472)
@@ -465,7 +465,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.channels.list(page=0, limit=25, search_fields=[
@@ -487,7 +487,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.channels.create(request={
@@ -529,7 +529,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.channels.update(request={
@@ -572,7 +572,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.channels.targets.available_targets(page=0, limit=25, search_fields=[
@@ -594,7 +594,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.channels.targets.list(page=0, limit=25, search_fields=[
@@ -616,7 +616,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.channels.twilio.get_by_id(channel_id=627671)
@@ -634,7 +634,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.channels.twilio.numbers.list(channel_id=739627)
@@ -652,7 +652,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.channels.twilio.numbers.add(channel_id=314558, twilio_number_add_request={
@@ -673,7 +673,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.channels.twilio.numbers.update(channel_id=815949, twilio_number_update_request={
@@ -694,7 +694,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.channels.twilio.numbers.channels_twilio_numbers_a2p_compliance_check(channel_id=661482, a2p_messaging_path_check_request={
@@ -714,7 +714,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.channels.delete(channel_id="<id>", target_id=675883)
@@ -732,7 +732,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.channels.targets.create(channel_id=824809, channel_target_create_request={
@@ -757,7 +757,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.channels.targets.get_by_id(channel_id=184507, target_id=235358)
@@ -775,7 +775,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.channels.targets.update(channel_id=508167, target_id=880236, channel_target_update_request={
@@ -801,7 +801,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.conversation_config.get_bridge_phrases_config()
@@ -819,7 +819,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.conversation_config.update_bridge_phrases_config(bridge_phrases_config={})
@@ -837,7 +837,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.conversations.list(page=0, limit=25, search_fields=[
@@ -859,7 +859,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.custom_messages.list(page=0, limit=25, search_fields=[
@@ -881,7 +881,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.custom_messages.create(request={
@@ -926,7 +926,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.custom_messages.update(request={
@@ -972,7 +972,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.custom_messages.delete(custom_message_id=729986, reason="<value>")
@@ -990,7 +990,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.custom_messages.get_by_id(custom_message_id=909433)
@@ -1008,7 +1008,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.custom_messages.custom_message_history(custom_message_id=783407, page=0, limit=25)
@@ -1026,7 +1026,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.custom_messages.custom_message_version(custom_message_id=577632, version=407238)
@@ -1044,7 +1044,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.dashboards.post_get_dashboard(dashboard_name="<value>")
@@ -1062,7 +1062,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.dashboards.post_list_dashboard(page=0, limit=25, search_fields=[
@@ -1084,7 +1084,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.data_sources.list(page=0, limit=25, search_fields=[
@@ -1106,7 +1106,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.data_sources.create(request={
@@ -1133,7 +1133,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.data_sources.update(request={
@@ -1162,7 +1162,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.data_sources.delete(data_source_id=509584, reason="<value>")
@@ -1180,7 +1180,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.data_sources.get_by_id(data_source_id=87219)
@@ -1198,7 +1198,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.directory.list(include_deleted=False, page=0, limit=25, search_fields=[
@@ -1220,7 +1220,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.directory.create(directory_member_create={
@@ -1265,7 +1265,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.directory.directory_member_download()
@@ -1283,7 +1283,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.directory.directory_tag_key_exists(key="<key>")
@@ -1301,7 +1301,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.directory.directory_member_bulk_load(request={
@@ -1324,7 +1324,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.directory.delete(member_id=569311, comment="The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design")
@@ -1342,7 +1342,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.directory.get_by_id(member_id=562571)
@@ -1360,7 +1360,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.directory.update(member_id=941217, directory_member_update={
@@ -1406,7 +1406,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.directory.directory_member_history(member_id=371893, page=0, limit=25)
@@ -1424,7 +1424,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.directory.directory_member_restore(member_id=507482, directory_member_restore={})
@@ -1442,7 +1442,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.directory.directory_member_test_extension(member_id=922412, timestamp="2024-07-02T14:32:47.235Z")
@@ -1460,7 +1460,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.events.list(page=0, limit=25, search_fields=[
@@ -1482,7 +1482,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.experiments.list(page=0, limit=25, search_fields=[
@@ -1504,7 +1504,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.experiments.create(request={
@@ -1539,7 +1539,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.experiments.delete(experiment_id=487333)
@@ -1557,7 +1557,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.experiments.get_by_id(experiment_id=34744)
@@ -1575,7 +1575,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.experiments.update(experiment_id=571406, experiment_update_request={
@@ -1609,7 +1609,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.experiments.results(experiment_id=151833)
@@ -1627,7 +1627,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.experiments.experiments_start(experiment_id=381743)
@@ -1645,7 +1645,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.experiments.experiments_stop(experiment_id=891925)
@@ -1663,7 +1663,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.incidents.list(page=0, limit=25, search_fields=[
@@ -1686,7 +1686,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.incidents.create(request={
@@ -1714,7 +1714,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.incidents.update(request={
@@ -1742,7 +1742,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.incidents.incident_get_organizations()
@@ -1760,7 +1760,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.incidents.delete(incident_id=400877, reason="<value>")
@@ -1778,7 +1778,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.incidents.get_by_id(incident_id=835824)
@@ -1796,7 +1796,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.list(page=0, limit=25, search_fields=[
@@ -1818,7 +1818,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.folders.list(page=0, limit=25, search_fields=[
@@ -1840,7 +1840,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.folders.create(request={
@@ -1862,7 +1862,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.folders.delete(folder_id=410792)
@@ -1880,7 +1880,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.folders.get_by_id(folder_id=982079)
@@ -1898,7 +1898,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.folders.update(folder_id=567518, insights_folder_input={
@@ -1920,7 +1920,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.folders.list_files(folder_id=55293, page=0, limit=25, search_fields=[
@@ -1942,7 +1942,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.folders.move_files(folder_id=815114, insights_folder_file_move={
@@ -1967,7 +1967,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.folders.upload_file(folder_id=444923, call_id="<id>")
@@ -1985,7 +1985,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.tools.list(page=0, limit=25, search_fields=[
@@ -2007,7 +2007,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.tools.create(request={
@@ -2033,7 +2033,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.tools.delete(tool_id=770449)
@@ -2051,7 +2051,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.tools.get_by_id(tool_id="<id>")
@@ -2069,7 +2069,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.tools.update(tool_id=368362, insight_tool_input={
@@ -2095,7 +2095,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.tools.insight_tool_get_definitions()
@@ -2113,7 +2113,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.tools.insights_tool_test(request={
@@ -2135,7 +2135,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.workflows.list(page=0, limit=25, search_fields=[
@@ -2158,7 +2158,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.workflows.create(request={
@@ -2213,7 +2213,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.workflows.queue_work(request={
@@ -2233,7 +2233,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.workflows.delete(workflow_id=609419)
@@ -2251,7 +2251,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.workflows.get_by_id(workflow_id=788857)
@@ -2270,7 +2270,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.workflows.update(workflow_id=766381, insight_workflow_input={
@@ -2325,7 +2325,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.workflows.activate(workflow_id=303095, insight_workflow_activate={
@@ -2353,7 +2353,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.workflows.list_executions(workflow_id=304703, page=0, limit=25, search_fields=[
@@ -2377,7 +2377,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.workflows.executions_summary(workflow_id=163523, start_datetime="2026-08-27T13:57:00.123456+00:00", end_datetime="2026-08-28T00:00:00Z")
@@ -2395,7 +2395,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.workflows.insights_workflow_files(workflow_id=769070, page=0, limit=25, search_fields=[
@@ -2417,7 +2417,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.workflows.inactivate(workflow_id=248768)
@@ -2435,7 +2435,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.insights.workflows.list_sessions(workflow_id=939810, page=0, limit=25, search_fields=[
@@ -2457,7 +2457,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.organizations.delete(request={
@@ -2477,7 +2477,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.organizations.organizations_get()
@@ -2495,7 +2495,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.organizations.create(request={
@@ -2522,7 +2522,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.organizations.update(request={
@@ -2546,7 +2546,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.organizations.sip_ip_ranges.list()
@@ -2564,7 +2564,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.organizations.sip_ip_ranges.create(request={
@@ -2585,7 +2585,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 ss_client.organizations.sip_ip_ranges.delete(sip_ip_range_id=394521)
@@ -2602,7 +2602,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.organizations.sip_ip_ranges.update(sip_ip_range_id=165372, organization_sip_ip_range_update={
@@ -2622,7 +2622,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.outbound.batches.list(page=0, limit=25, search_fields=[
@@ -2645,7 +2645,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.outbound.batches.create(request={
@@ -2670,7 +2670,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.outbound.batches.delete(batch_id="<id>", body_outbound_batch_delete={
@@ -2690,7 +2690,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.outbound.batches.get_by_id(batch_id="<id>")
@@ -2709,7 +2709,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.outbound.batches.update(batch_id="<id>", communication_batch_update={
@@ -2732,7 +2732,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.outbound.batches.remove(batch_id="<id>", request_body=[
@@ -2753,7 +2753,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.outbound.batches.add(batch_id="<id>", communication_request={
@@ -2777,7 +2777,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.outbound.batches.results(batch_id="<id>")
@@ -2795,7 +2795,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.outbound.batches.upload(batch_id="<id>")
@@ -2813,7 +2813,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.outbound.campaigns.list(page=0, limit=25, search_fields=[
@@ -2835,7 +2835,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.outbound.campaigns.create(request=models.OutboundCampaignInput(
@@ -2939,7 +2939,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.outbound.campaigns.delete(campaign_id=439537)
@@ -2957,7 +2957,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.outbound.campaigns.get_by_id(campaign_id=11227)
@@ -2975,7 +2975,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.outbound.campaigns.update(campaign_id=187717, outbound_campaign_input=models.OutboundCampaignInput(
@@ -3079,7 +3079,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.permissions.list()
@@ -3097,7 +3097,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.prompts.list(page=0, limit=25, search_fields=[
@@ -3119,7 +3119,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.prompts.create(request={
@@ -3154,7 +3154,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.prompts.update(request={
@@ -3190,7 +3190,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.prompts.prompts_list_active_labels()
@@ -3208,7 +3208,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.prompts.prompt_get_supported_llms()
@@ -3226,7 +3226,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.prompts.delete(prompt_id=982839, reason="<value>")
@@ -3244,7 +3244,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.prompts.get_by_id(prompt_id=417330)
@@ -3262,7 +3262,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.prompts.prompts_history(prompt_id=922849)
@@ -3280,7 +3280,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.pronunciations.pronunciations_get()
@@ -3298,7 +3298,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 ss_client.pronunciations.pronunciations_delete_csv()
@@ -3315,7 +3315,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.pronunciations.pronunciations_download_csv()
@@ -3333,7 +3333,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.pronunciations.pronunciations_upload_csv(request={
@@ -3356,7 +3356,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.pronunciations.pronunciations_get_metadata()
@@ -3374,7 +3374,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.roles.list(page=0, limit=25, search_fields=[
@@ -3396,7 +3396,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.roles.create(request={
@@ -3422,7 +3422,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.roles.update(request={
@@ -3450,7 +3450,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.roles.delete(role_id=458987, reason="<value>")
@@ -3468,7 +3468,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.roles.get_by_id(role_id=324660)
@@ -3486,7 +3486,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.services.list(page=0, limit=25, search_fields=[
@@ -3508,7 +3508,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.services.create(request={
@@ -3534,7 +3534,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.services.update(request={
@@ -3562,7 +3562,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.services.delete(service_id=754999, reason="<value>")
@@ -3580,7 +3580,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.services.get_by_id(service_id=902529)
@@ -3598,7 +3598,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.session_debug.get_session_data_by_session_id(session_id=303182)
@@ -3616,7 +3616,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.session_debug.get_session_data_by_sid(channel_manager_service="<value>", channel_manager_sid="<id>")
@@ -3634,7 +3634,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.session_debug.get_session_tool_call_result_by_id(session_id=832133, tool_call_id="<id>")
@@ -3652,7 +3652,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.session_labels.list(page=0, limit=25, search_fields=[
@@ -3674,7 +3674,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.session_labels.create(request={
@@ -3700,7 +3700,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.session_labels.get_by_id(session_label_id=491550)
@@ -3718,7 +3718,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.sessions.list(page=0, limit=25, search_fields=[
@@ -3740,7 +3740,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.sessions.full_summary.get_by_id(session_id="<id>")
@@ -3758,7 +3758,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.sessions.latency.get_by_id(session_id="<id>")
@@ -3776,7 +3776,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.sessions.session_recording_stream(token="<value>")
@@ -3794,7 +3794,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.sessions.generate_session_recording_urls(session_id="<id>")
@@ -3812,7 +3812,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.sessions.timeline.get_by_id(session_id="<id>")
@@ -3830,7 +3830,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.sessions.transcript.get_by_id(session_id="<id>")
@@ -3848,7 +3848,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.sessions.get_by_id(session_id="<id>")
@@ -3866,7 +3866,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.takeouts.create()
@@ -3884,7 +3884,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.takeouts.takeouts_get_by_job_id(job_id="<id>")
@@ -3902,7 +3902,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.takeouts.takeouts_get_file(job_id="<id>", file_name="example.file")
@@ -3920,7 +3920,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.tools.list(page=0, limit=25, search_fields=[
@@ -3942,7 +3942,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.tools.create(request=models.ToolCreateRequest(
@@ -4005,7 +4005,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.tools.update(request=models.ToolUpdateRequest(
@@ -4061,7 +4061,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.tools.tool_history(tool_id=217978, page=0, limit=25)
@@ -4079,7 +4079,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.tools.delete(tool_name="<value>", reason="<value>")
@@ -4097,7 +4097,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.tools.get_by_name(tool_name="<value>")
@@ -4115,7 +4115,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.users.delete(request={
@@ -4133,7 +4133,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.v1.delete(request={
@@ -4154,7 +4154,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.users.list(page=0, limit=25, search_fields=[
@@ -4173,7 +4173,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.v1.list(page=0, limit=25, search_fields=[
@@ -4195,7 +4195,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.users.create(request={
@@ -4216,7 +4216,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.v1.create(request={
@@ -4240,7 +4240,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.users.update(request={
@@ -4261,7 +4261,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.v1.update(request={
@@ -4285,7 +4285,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.users.users_delete_account()
@@ -4300,7 +4300,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.v1.users_delete_account()
@@ -4318,7 +4318,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.users.users_get_by_email(user_email="<value>")
@@ -4333,7 +4333,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.v1.users_get_by_email(user_email="<value>")
@@ -4351,7 +4351,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.users.users_send_email(user_email="<value>", skip_auth=False)
@@ -4366,7 +4366,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.v1.users_send_email(user_email="<value>", skip_auth=False)
@@ -4384,7 +4384,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.voice_groups.list(page=0, limit=25, search_fields=[
@@ -4406,7 +4406,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.voice_groups.create(request={
@@ -4442,7 +4442,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.voice_groups.update(request={
@@ -4480,7 +4480,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.voice_groups.voice_groups_create_voice_sample(request={
@@ -4504,7 +4504,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.voice_groups.delete(voice_group_id=225046, reason="<value>")
@@ -4522,7 +4522,7 @@ actions:
 
 
             with SyllableSDK(
-                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
                 res = ss_client.voice_groups.get_by_id(voice_group_id=431245)

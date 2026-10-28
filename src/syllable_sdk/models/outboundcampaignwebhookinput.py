@@ -9,6 +9,8 @@ from syllable_sdk.types import (
     OptionalNullable,
     UNSET,
     UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
 )
 from typing import Dict, List
 from typing_extensions import NotRequired, TypedDict
@@ -44,14 +46,20 @@ class OutboundCampaignWebhookInput(BaseModel):
     r"""Optional dict of auth values. Currently, only the key \"hmac_secret\" is allowed; value must be standard Base64 (RFC 4648) decoding to 32–512 bytes of key material. On update, leave a value for a given key null and the stored value for that key is kept. (If a key is omitted entirely, any existing value for that key is removed.)"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["id", "auth_values"])
         nullable_fields = set(["id", "auth_values"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields

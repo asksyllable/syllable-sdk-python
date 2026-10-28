@@ -9,6 +9,8 @@ from syllable_sdk.types import (
     OptionalNullable,
     UNSET,
     UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
 )
 from typing import Optional
 from typing_extensions import NotRequired, TypedDict
@@ -53,14 +55,20 @@ class ChannelTargetCreateRequest(BaseModel):
     r"""Whether the channel target is intended for testing. If true, any sessions created through this target will be labeled as a test session (i.e., will not be included in dashboard data and can easily be filtered out in the Sessions screen in the SyllableConsole)."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["fallback_target", "is_test"])
         nullable_fields = set(["fallback_target"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields

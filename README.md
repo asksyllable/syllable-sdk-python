@@ -168,7 +168,7 @@ from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.agents.list(page=0, limit=25, search_fields=[
@@ -194,7 +194,7 @@ from syllable_sdk import SyllableSDK, models
 async def main():
 
     async with SyllableSDK(
-        api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+        api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
     ) as ss_client:
 
         res = await ss_client.agents.list_async(page=0, limit=25, search_fields=[
@@ -228,7 +228,7 @@ from syllable_sdk import SyllableSDK, models
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.agents.list(page=0, limit=25, search_fields=[
@@ -595,7 +595,7 @@ from syllable_sdk import SyllableSDK
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.insights.folders.upload_file(folder_id=444923, call_id="<id>")
@@ -619,7 +619,7 @@ from syllable_sdk.utils import BackoffStrategy, RetryConfig
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.agents.list(page=0, limit=25, search_fields=[
@@ -643,7 +643,7 @@ from syllable_sdk.utils import BackoffStrategy, RetryConfig
 
 with SyllableSDK(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.agents.list(page=0, limit=25, search_fields=[
@@ -679,7 +679,7 @@ from syllable_sdk import SyllableSDK, errors, models
 
 
 with SyllableSDK(
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
     res = None
     try:
@@ -750,7 +750,7 @@ from syllable_sdk import SyllableSDK, models
 
 with SyllableSDK(
     server_url="https://api.syllable.cloud",
-    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
     res = ss_client.agents.list(page=0, limit=25, search_fields=[
@@ -873,18 +873,20 @@ from syllable_sdk import SyllableSDK
 def main():
 
     with SyllableSDK(
-        api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+        api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
     ) as ss_client:
         # Rest of application here...
+        pass
 
 
 # Or when using async:
 async def amain():
 
     async with SyllableSDK(
-        api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER", ""),
+        api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
     ) as ss_client:
         # Rest of application here...
+        pass
 ```
 <!-- End Resource Management [resource-management] -->
 
