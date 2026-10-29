@@ -1883,7 +1883,7 @@ paths:
       tags:
         - "experiments"
       summary: "Update Experiment"
-      description: "Update an experiment. Only an experiment in 'draft' status can be updated."
+      description: "Update a draft experiment, or change only variant weights on a running experiment.\n\nSend the complete variant set and experiment details. While running, only weights may change;\nthe name, hypothesis, variant names, agents, and control flags must remain unchanged. Weights\nmust be positive whole-number percentages totaling 100. New sessions use the updated weights;\nsessions already in progress keep their assigned variant. Stopped experiments cannot be edited."
       operationId: "experiments_update"
       security:
         - APIKeyHeader: []
@@ -15129,7 +15129,7 @@ components:
         - "name"
         - "variants"
       title: "ExperimentUpdateRequest"
-      description: "Replace an experiment's name, hypothesis, and complete variant set.\n\nInclude at least two variants that use distinct agents. Mark exactly one as the control and use\npositive whole-number weights that total 100."
+      description: "Replace an experiment's name, hypothesis, and complete variant set.\n\nInclude at least two variants that use distinct agents. Mark exactly one as the control and use\npositive whole-number weights that total 100.\n\nFor a running experiment, only the weights can be changed on an update."
       examples:
         - description: "Test whether a shorter greeting reduces call duration."
           name: "Shorter greeting"
