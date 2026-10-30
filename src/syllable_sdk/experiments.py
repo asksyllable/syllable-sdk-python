@@ -271,7 +271,7 @@ class Experiments(BaseSDK):
     ) -> models.ExperimentResponse:
         r"""Create Experiment
 
-        Create a new experiment.
+        Create a new experiment whose control uses the agent linked to the channel target.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
@@ -368,7 +368,7 @@ class Experiments(BaseSDK):
     ) -> models.ExperimentResponse:
         r"""Create Experiment
 
-        Create a new experiment.
+        Create a new experiment whose control uses the agent linked to the channel target.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
@@ -656,6 +656,7 @@ class Experiments(BaseSDK):
         the name, hypothesis, variant names, agents, and control flags must remain unchanged. Weights
         must be positive whole-number percentages totaling 100. New sessions use the updated weights;
         sessions already in progress keep their assigned variant. Stopped experiments cannot be edited.
+        The control must use the agent linked to the channel target.
 
         :param experiment_id:
         :param experiment_update_request:
@@ -767,6 +768,7 @@ class Experiments(BaseSDK):
         the name, hypothesis, variant names, agents, and control flags must remain unchanged. Weights
         must be positive whole-number percentages totaling 100. New sessions use the updated weights;
         sessions already in progress keep their assigned variant. Stopped experiments cannot be edited.
+        The control must use the agent linked to the channel target.
 
         :param experiment_id:
         :param experiment_update_request:
@@ -1239,6 +1241,8 @@ class Experiments(BaseSDK):
 
         Start an experiment. (Only an experiment in 'draft' status can be started.)
 
+        The control must use the agent currently linked to the channel target.
+
         :param experiment_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1330,6 +1334,8 @@ class Experiments(BaseSDK):
         r"""Start Experiment
 
         Start an experiment. (Only an experiment in 'draft' status can be started.)
+
+        The control must use the agent currently linked to the channel target.
 
         :param experiment_id:
         :param retries: Override the default retry configuration for this method

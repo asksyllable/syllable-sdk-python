@@ -22,8 +22,8 @@ from typing_extensions import NotRequired, TypedDict
 class ExperimentUpdateRequestTypedDict(TypedDict):
     r"""Replace an experiment's name, hypothesis, and complete variant set.
 
-    Include at least two variants that use distinct agents. Mark exactly one as the control and use
-    positive whole-number weights that total 100.
+    Include at least two variants that use distinct agents. Mark exactly one as the control, using
+    the agent linked to the channel target, and use positive whole-number weights that total 100.
 
     For a running experiment, only the weights can be changed on an update.
     """
@@ -31,7 +31,7 @@ class ExperimentUpdateRequestTypedDict(TypedDict):
     name: str
     r"""The name of the experiment"""
     variants: List[DaoExperimentVariantWriteTypedDict]
-    r"""The complete set of variants for this experiment. Include at least 2 variants that use distinct agents, mark exactly one variant as the control, and assign positive whole number weights that total 100."""
+    r"""The complete set of variants for this experiment. Include at least 2 variants that use distinct agents, mark exactly one variant as the control using the channel target's linked agent, and assign positive whole number weights that total 100."""
     description: NotRequired[Nullable[str]]
     r"""The hypothesis under test"""
 
@@ -39,8 +39,8 @@ class ExperimentUpdateRequestTypedDict(TypedDict):
 class ExperimentUpdateRequest(BaseModel):
     r"""Replace an experiment's name, hypothesis, and complete variant set.
 
-    Include at least two variants that use distinct agents. Mark exactly one as the control and use
-    positive whole-number weights that total 100.
+    Include at least two variants that use distinct agents. Mark exactly one as the control, using
+    the agent linked to the channel target, and use positive whole-number weights that total 100.
 
     For a running experiment, only the weights can be changed on an update.
     """
@@ -49,7 +49,7 @@ class ExperimentUpdateRequest(BaseModel):
     r"""The name of the experiment"""
 
     variants: List[DaoExperimentVariantWrite]
-    r"""The complete set of variants for this experiment. Include at least 2 variants that use distinct agents, mark exactly one variant as the control, and assign positive whole number weights that total 100."""
+    r"""The complete set of variants for this experiment. Include at least 2 variants that use distinct agents, mark exactly one variant as the control using the channel target's linked agent, and assign positive whole number weights that total 100."""
 
     description: OptionalNullable[str] = UNSET
     r"""The hypothesis under test"""

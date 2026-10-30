@@ -218,7 +218,9 @@ with SyllableSDK(
 
 ## update
 
-Update channel target by ID
+Update channel target by ID.
+
+Stop running experiments and delete drafts on the target before changing its linked agent.
 
 ### Example Usage
 
