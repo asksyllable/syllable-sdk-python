@@ -68,7 +68,7 @@ with SyllableSDK(
 
 ## create
 
-Create a new experiment.
+Create a new experiment whose control uses the agent linked to the channel target.
 
 ### Example Usage
 
@@ -173,6 +173,7 @@ Send the complete variant set and experiment details. While running, only weight
 the name, hypothesis, variant names, agents, and control flags must remain unchanged. Weights
 must be positive whole-number percentages totaling 100. New sessions use the updated weights;
 sessions already in progress keep their assigned variant. Stopped experiments cannot be edited.
+The control must use the agent linked to the channel target.
 
 ### Example Usage
 
@@ -313,6 +314,8 @@ with SyllableSDK(
 ## experiments_start
 
 Start an experiment. (Only an experiment in 'draft' status can be started.)
+
+The control must use the agent currently linked to the channel target.
 
 ### Example Usage
 

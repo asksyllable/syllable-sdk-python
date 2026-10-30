@@ -930,7 +930,9 @@ class Targets(BaseSDK):
     ) -> models.ChannelTargetResponse:
         r"""Edit Channel Target
 
-        Update channel target by ID
+        Update channel target by ID.
+
+        Stop running experiments and delete drafts on the target before changing its linked agent.
 
         :param channel_id:
         :param target_id: Target record ID, rather than a phone number
@@ -1040,7 +1042,9 @@ class Targets(BaseSDK):
     ) -> models.ChannelTargetResponse:
         r"""Edit Channel Target
 
-        Update channel target by ID
+        Update channel target by ID.
+
+        Stop running experiments and delete drafts on the target before changing its linked agent.
 
         :param channel_id:
         :param target_id: Target record ID, rather than a phone number
