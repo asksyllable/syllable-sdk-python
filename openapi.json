@@ -2991,7 +2991,7 @@
           "experiments"
         ],
         "summary": "Create Experiment",
-        "description": "Create a new experiment.",
+        "description": "Create a new experiment whose control uses the agent linked to the channel target.",
         "operationId": "experiments_create",
         "security": [
           {
@@ -3093,7 +3093,7 @@
           "experiments"
         ],
         "summary": "Update Experiment",
-        "description": "Update a draft experiment, or change only variant weights on a running experiment.\n\nSend the complete variant set and experiment details. While running, only weights may change;\nthe name, hypothesis, variant names, agents, and control flags must remain unchanged. Weights\nmust be positive whole-number percentages totaling 100. New sessions use the updated weights;\nsessions already in progress keep their assigned variant. Stopped experiments cannot be edited.",
+        "description": "Update a draft experiment, or change only variant weights on a running experiment.\n\nSend the complete variant set and experiment details. While running, only weights may change;\nthe name, hypothesis, variant names, agents, and control flags must remain unchanged. Weights\nmust be positive whole-number percentages totaling 100. New sessions use the updated weights;\nsessions already in progress keep their assigned variant. Stopped experiments cannot be edited.\nThe control must use the agent linked to the channel target.",
         "operationId": "experiments_update",
         "security": [
           {
@@ -3267,7 +3267,7 @@
           "experiments"
         ],
         "summary": "Start Experiment",
-        "description": "Start an experiment. (Only an experiment in 'draft' status can be started.)",
+        "description": "Start an experiment. (Only an experiment in 'draft' status can be started.)\n\nThe control must use the agent currently linked to the channel target.",
         "operationId": "experiments_start",
         "security": [
           {
@@ -11194,7 +11194,7 @@
           "channels.targets"
         ],
         "summary": "Edit Channel Target",
-        "description": "Update channel target by ID",
+        "description": "Update channel target by ID.\n\nStop running experiments and delete drafts on the target before changing its linked agent.",
         "operationId": "channel_targets_update",
         "security": [
           {
@@ -23935,7 +23935,7 @@
             "type": "array",
             "minItems": 2,
             "title": "Variants",
-            "description": "The complete set of variants for this experiment. Include at least 2 variants that use distinct agents, mark exactly one variant as the control, and assign positive whole number weights that total 100."
+            "description": "The complete set of variants for this experiment. Include at least 2 variants that use distinct agents, mark exactly one variant as the control using the channel target's linked agent, and assign positive whole number weights that total 100."
           },
           "target_id": {
             "type": "integer",
@@ -23953,7 +23953,7 @@
           "target_id"
         ],
         "title": "ExperimentCreateRequest",
-        "description": "Create an experiment with at least two distinct agents and one control variant.\n\nVariant weights are positive whole-number percentages that must total 100.",
+        "description": "Create an experiment with at least two distinct agents and one control variant.\n\nThe control must use the agent linked to the channel target.\nVariant weights are positive whole-number percentages that must total 100.",
         "examples": [
           {
             "description": "Test whether a shorter greeting reduces call duration.",
@@ -24207,7 +24207,7 @@
             "type": "array",
             "minItems": 2,
             "title": "Variants",
-            "description": "The complete set of variants for this experiment. Include at least 2 variants that use distinct agents, mark exactly one variant as the control, and assign positive whole number weights that total 100."
+            "description": "The complete set of variants for this experiment. Include at least 2 variants that use distinct agents, mark exactly one variant as the control using the channel target's linked agent, and assign positive whole number weights that total 100."
           }
         },
         "type": "object",
@@ -24216,7 +24216,7 @@
           "variants"
         ],
         "title": "ExperimentUpdateRequest",
-        "description": "Replace an experiment's name, hypothesis, and complete variant set.\n\nInclude at least two variants that use distinct agents. Mark exactly one as the control and use\npositive whole-number weights that total 100.\n\nFor a running experiment, only the weights can be changed on an update.",
+        "description": "Replace an experiment's name, hypothesis, and complete variant set.\n\nInclude at least two variants that use distinct agents. Mark exactly one as the control, using\nthe agent linked to the channel target, and use positive whole-number weights that total 100.\n\nFor a running experiment, only the weights can be changed on an update.",
         "examples": [
           {
             "description": "Test whether a shorter greeting reduces call duration.",
