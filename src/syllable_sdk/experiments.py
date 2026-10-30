@@ -650,12 +650,13 @@ class Experiments(BaseSDK):
     ) -> models.ExperimentResponse:
         r"""Update Experiment
 
-        Update a draft experiment, or change only variant weights on a running experiment.
+        Update a draft or paused experiment, or change only variant weights on a running experiment.
 
         Send the complete variant set and experiment details. While running, only weights may change;
         the name, hypothesis, variant names, agents, and control flags must remain unchanged. Weights
         must be positive whole-number percentages totaling 100. New sessions use the updated weights;
         sessions already in progress keep their assigned variant. Stopped experiments cannot be edited.
+        Editing a paused experiment keeps it paused and preserves its original start time.
         The control must use the agent linked to the channel target.
 
         :param experiment_id:
@@ -762,12 +763,13 @@ class Experiments(BaseSDK):
     ) -> models.ExperimentResponse:
         r"""Update Experiment
 
-        Update a draft experiment, or change only variant weights on a running experiment.
+        Update a draft or paused experiment, or change only variant weights on a running experiment.
 
         Send the complete variant set and experiment details. While running, only weights may change;
         the name, hypothesis, variant names, agents, and control flags must remain unchanged. Weights
         must be positive whole-number percentages totaling 100. New sessions use the updated weights;
         sessions already in progress keep their assigned variant. Stopped experiments cannot be edited.
+        Editing a paused experiment keeps it paused and preserves its original start time.
         The control must use the agent linked to the channel target.
 
         :param experiment_id:
@@ -871,7 +873,7 @@ class Experiments(BaseSDK):
     ) -> Any:
         r"""Delete Experiment
 
-        Delete a (non-running) experiment.
+        Delete a draft or stopped experiment.
 
         :param experiment_id:
         :param retries: Override the default retry configuration for this method
@@ -963,7 +965,7 @@ class Experiments(BaseSDK):
     ) -> Any:
         r"""Delete Experiment
 
-        Delete a (non-running) experiment.
+        Delete a draft or stopped experiment.
 
         :param experiment_id:
         :param retries: Override the default retry configuration for this method
@@ -1239,8 +1241,9 @@ class Experiments(BaseSDK):
     ) -> models.ExperimentStartResponse:
         r"""Start Experiment
 
-        Start an experiment. (Only an experiment in 'draft' status can be started.)
+        Start a draft experiment or resume a paused experiment.
 
+        Resuming preserves the experiment's original start time and accumulated results.
         The control must use the agent currently linked to the channel target.
 
         :param experiment_id:
@@ -1333,8 +1336,9 @@ class Experiments(BaseSDK):
     ) -> models.ExperimentStartResponse:
         r"""Start Experiment
 
-        Start an experiment. (Only an experiment in 'draft' status can be started.)
+        Start a draft experiment or resume a paused experiment.
 
+        Resuming preserves the experiment's original start time and accumulated results.
         The control must use the agent currently linked to the channel target.
 
         :param experiment_id:
@@ -1416,6 +1420,190 @@ class Experiments(BaseSDK):
 
         raise errors.APIError("Unexpected response received", http_res)
 
+    def experiments_pause(
+        self,
+        *,
+        experiment_id: int,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ExperimentResponse:
+        r"""Pause Experiment
+
+        Pause a running experiment. New sessions use the channel target's directly linked agent.
+
+        :param experiment_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ExperimentsPauseRequest(
+            experiment_id=experiment_id,
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/api/v1/experiments/{experiment_id}/pause",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="experiments_pause",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["experiments"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(models.ExperimentResponse, http_res)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, ["400", "404", "4XX"], "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
+    async def experiments_pause_async(
+        self,
+        *,
+        experiment_id: int,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ExperimentResponse:
+        r"""Pause Experiment
+
+        Pause a running experiment. New sessions use the channel target's directly linked agent.
+
+        :param experiment_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ExperimentsPauseRequest(
+            experiment_id=experiment_id,
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/api/v1/experiments/{experiment_id}/pause",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="experiments_pause",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["experiments"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(models.ExperimentResponse, http_res)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, ["400", "404", "4XX"], "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
     def experiments_stop(
         self,
         *,
@@ -1427,7 +1615,7 @@ class Experiments(BaseSDK):
     ) -> models.ExperimentResponse:
         r"""Stop Experiment
 
-        Stop a running experiment.
+        Stop a running or paused experiment.
 
         :param experiment_id:
         :param retries: Override the default retry configuration for this method
@@ -1519,7 +1707,7 @@ class Experiments(BaseSDK):
     ) -> models.ExperimentResponse:
         r"""Stop Experiment
 
-        Stop a running experiment.
+        Stop a running or paused experiment.
 
         :param experiment_id:
         :param retries: Override the default retry configuration for this method

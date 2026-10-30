@@ -1883,7 +1883,7 @@ paths:
       tags:
         - "experiments"
       summary: "Update Experiment"
-      description: "Update a draft experiment, or change only variant weights on a running experiment.\n\nSend the complete variant set and experiment details. While running, only weights may change;\nthe name, hypothesis, variant names, agents, and control flags must remain unchanged. Weights\nmust be positive whole-number percentages totaling 100. New sessions use the updated weights;\nsessions already in progress keep their assigned variant. Stopped experiments cannot be edited.\nThe control must use the agent linked to the channel target."
+      description: "Update a draft or paused experiment, or change only variant weights on a running experiment.\n\nSend the complete variant set and experiment details. While running, only weights may change;\nthe name, hypothesis, variant names, agents, and control flags must remain unchanged. Weights\nmust be positive whole-number percentages totaling 100. New sessions use the updated weights;\nsessions already in progress keep their assigned variant. Stopped experiments cannot be edited.\nEditing a paused experiment keeps it paused and preserves its original start time.\nThe control must use the agent linked to the channel target."
       operationId: "experiments_update"
       security:
         - APIKeyHeader: []
@@ -1923,7 +1923,7 @@ paths:
       tags:
         - "experiments"
       summary: "Delete Experiment"
-      description: "Delete a (non-running) experiment."
+      description: "Delete a draft or stopped experiment."
       operationId: "experiments_delete"
       security:
         - APIKeyHeader: []
@@ -1990,7 +1990,7 @@ paths:
       tags:
         - "experiments"
       summary: "Start Experiment"
-      description: "Start an experiment. (Only an experiment in 'draft' status can be started.)\n\nThe control must use the agent currently linked to the channel target."
+      description: "Start a draft experiment or resume a paused experiment.\n\nResuming preserves the experiment's original start time and accumulated results.\nThe control must use the agent currently linked to the channel target."
       operationId: "experiments_start"
       security:
         - APIKeyHeader: []
@@ -2020,12 +2020,45 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HTTPValidationError"
+  /api/v1/experiments/{experiment_id}/pause:
+    post:
+      tags:
+        - "experiments"
+      summary: "Pause Experiment"
+      description: "Pause a running experiment. New sessions use the channel target's directly linked agent."
+      operationId: "experiments_pause"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "experiment_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            title: "Experiment Id"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExperimentResponse"
+        "400":
+          description: "Bad Request"
+        "404":
+          description: "Not Found"
+        "422":
+          description: "Validation Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1/experiments/{experiment_id}/stop:
     post:
       tags:
         - "experiments"
       summary: "Stop Experiment"
-      description: "Stop a running experiment."
+      description: "Stop a running or paused experiment."
       operationId: "experiments_stop"
       security:
         - APIKeyHeader: []
@@ -15013,7 +15046,7 @@ components:
           description: "The hypothesis under test"
         status:
           $ref: "#/components/schemas/ExperimentStatus"
-          description: "draft, running, or stopped"
+          description: "draft, running, paused, or stopped"
         started_at:
           anyOf:
             - type: "string"
@@ -15072,7 +15105,7 @@ components:
             $ref: "#/components/schemas/ExperimentVariantResult"
           type: "array"
           title: "Variants"
-          description: "The variants of the experiment, in the same order as the experiment lists them"
+          description: "Current variants in the same order as the experiment lists them, including variants with no sessions, followed by historical variants with recorded sessions sorted by variant ID"
       type: "object"
       required:
         - "experiment_id"
@@ -15094,12 +15127,13 @@ components:
       required:
         - "experiment"
       title: "ExperimentStartResponse"
-      description: "A started experiment."
+      description: "A started or resumed experiment."
     ExperimentStatus:
       type: "string"
       enum:
         - "draft"
         - "running"
+        - "paused"
         - "stopped"
       title: "ExperimentStatus"
       description: "Status of an experiment.\n\nThe column is a varchar and not a database enum, so a new value here does not need a migration."
@@ -15129,7 +15163,7 @@ components:
         - "name"
         - "variants"
       title: "ExperimentUpdateRequest"
-      description: "Replace an experiment's name, hypothesis, and complete variant set.\n\nInclude at least two variants that use distinct agents. Mark exactly one as the control, using\nthe agent linked to the channel target, and use positive whole-number weights that total 100.\n\nFor a running experiment, only the weights can be changed on an update."
+      description: "Replace a draft or paused experiment's name, hypothesis, and complete variant set.\n\nInclude at least two variants that use distinct agents. Mark exactly one as the control, using\nthe agent linked to the channel target, and use positive whole-number weights that total 100.\n\nFor a running experiment, only the weights can be changed on an update.\nStopped experiments cannot be edited."
       examples:
         - description: "Test whether a shorter greeting reduces call duration."
           name: "Shorter greeting"

@@ -12,4 +12,5 @@ class ExperimentStatus(str, Enum):
 
     DRAFT = "draft"
     RUNNING = "running"
+    PAUSED = "paused"
     STOPPED = "stopped"
