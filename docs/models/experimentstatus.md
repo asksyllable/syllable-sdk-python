@@ -19,4 +19,5 @@ value = ExperimentStatus.DRAFT
 | --------- | --------- |
 | `DRAFT`   | draft     |
 | `RUNNING` | running   |
+| `PAUSED`  | paused    |
 | `STOPPED` | stopped   |

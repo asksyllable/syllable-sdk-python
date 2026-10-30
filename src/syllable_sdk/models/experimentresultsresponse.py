@@ -16,7 +16,7 @@ class ExperimentResultsResponseTypedDict(TypedDict):
     experiment_id: int
     r"""The internal ID of the experiment"""
     variants: List[ExperimentVariantResultTypedDict]
-    r"""The variants of the experiment, in the same order as the experiment lists them"""
+    r"""Current variants in the same order as the experiment lists them, including variants with no sessions, followed by historical variants with recorded sessions sorted by variant ID"""
 
 
 class ExperimentResultsResponse(BaseModel):
@@ -26,4 +26,4 @@ class ExperimentResultsResponse(BaseModel):
     r"""The internal ID of the experiment"""
 
     variants: List[ExperimentVariantResult]
-    r"""The variants of the experiment, in the same order as the experiment lists them"""
+    r"""Current variants in the same order as the experiment lists them, including variants with no sessions, followed by historical variants with recorded sessions sorted by variant ID"""

@@ -547,6 +547,10 @@ if TYPE_CHECKING:
         ExperimentsListRequest,
         ExperimentsListRequestTypedDict,
     )
+    from .experiments_pauseop import (
+        ExperimentsPauseRequest,
+        ExperimentsPauseRequestTypedDict,
+    )
     from .experiments_resultsop import (
         ExperimentsResultsRequest,
         ExperimentsResultsRequestTypedDict,
@@ -1958,6 +1962,8 @@ __all__ = [
     "ExperimentsGetByIDRequestTypedDict",
     "ExperimentsListRequest",
     "ExperimentsListRequestTypedDict",
+    "ExperimentsPauseRequest",
+    "ExperimentsPauseRequestTypedDict",
     "ExperimentsResultsRequest",
     "ExperimentsResultsRequestTypedDict",
     "ExperimentsStartRequest",
@@ -3061,6 +3067,8 @@ _dynamic_imports: dict[str, str] = {
     "ExperimentsGetByIDRequestTypedDict": ".experiments_get_by_idop",
     "ExperimentsListRequest": ".experiments_listop",
     "ExperimentsListRequestTypedDict": ".experiments_listop",
+    "ExperimentsPauseRequest": ".experiments_pauseop",
+    "ExperimentsPauseRequestTypedDict": ".experiments_pauseop",
     "ExperimentsResultsRequest": ".experiments_resultsop",
     "ExperimentsResultsRequestTypedDict": ".experiments_resultsop",
     "ExperimentsStartRequest": ".experiments_startop",

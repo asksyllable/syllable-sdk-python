@@ -11,6 +11,7 @@
 * [delete](#delete) - Delete Experiment
 * [results](#results) - Get Experiment Results
 * [experiments_start](#experiments_start) - Start Experiment
+* [experiments_pause](#experiments_pause) - Pause Experiment
 * [experiments_stop](#experiments_stop) - Stop Experiment
 
 ## list
@@ -167,12 +168,13 @@ with SyllableSDK(
 
 ## update
 
-Update a draft experiment, or change only variant weights on a running experiment.
+Update a draft or paused experiment, or change only variant weights on a running experiment.
 
 Send the complete variant set and experiment details. While running, only weights may change;
 the name, hypothesis, variant names, agents, and control flags must remain unchanged. Weights
 must be positive whole-number percentages totaling 100. New sessions use the updated weights;
 sessions already in progress keep their assigned variant. Stopped experiments cannot be edited.
+Editing a paused experiment keeps it paused and preserves its original start time.
 The control must use the agent linked to the channel target.
 
 ### Example Usage
@@ -231,7 +233,7 @@ with SyllableSDK(
 
 ## delete
 
-Delete a (non-running) experiment.
+Delete a draft or stopped experiment.
 
 ### Example Usage
 
@@ -313,8 +315,9 @@ with SyllableSDK(
 
 ## experiments_start
 
-Start an experiment. (Only an experiment in 'draft' status can be started.)
+Start a draft experiment or resume a paused experiment.
 
+Resuming preserves the experiment's original start time and accumulated results.
 The control must use the agent currently linked to the channel target.
 
 ### Example Usage
@@ -354,9 +357,50 @@ with SyllableSDK(
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
+## experiments_pause
+
+Pause a running experiment. New sessions use the channel target's directly linked agent.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="experiments_pause" method="post" path="/api/v1/experiments/{experiment_id}/pause" -->
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
+) as ss_client:
+
+    res = ss_client.experiments.experiments_pause(experiment_id=604926)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `experiment_id`                                                     | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ExperimentResponse](../../models/experimentresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
 ## experiments_stop
 
-Stop a running experiment.
+Stop a running or paused experiment.
 
 ### Example Usage
 

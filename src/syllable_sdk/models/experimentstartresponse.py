@@ -14,7 +14,7 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class ExperimentStartResponseTypedDict(TypedDict):
-    r"""A started experiment."""
+    r"""A started or resumed experiment."""
 
     experiment: ExperimentResponseTypedDict
     r"""Response model for experiment operations.
@@ -29,7 +29,7 @@ class ExperimentStartResponseTypedDict(TypedDict):
 
 
 class ExperimentStartResponse(BaseModel):
-    r"""A started experiment."""
+    r"""A started or resumed experiment."""
 
     experiment: ExperimentResponse
     r"""Response model for experiment operations.

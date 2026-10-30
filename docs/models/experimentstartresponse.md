@@ -1,6 +1,6 @@
 # ExperimentStartResponse
 
-A started experiment.
+A started or resumed experiment.
 
 
 ## Fields
