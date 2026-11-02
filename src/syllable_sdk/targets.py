@@ -284,6 +284,10 @@ class Targets(BaseSDK):
         `target_mode_list` are supplied, the two filters are combined with AND. `target_mode_list` is
         filter-only and cannot be used as `order_by`.
 
+        `experiment_status` filters on the highest-priority non-deleted experiment status for each
+        target: `running`, `paused`, `draft`, then `stopped`. Use `none` to match
+        targets with no experiments. It is filter-only and cannot be used as `order_by`.
+
         :param page: The page number from which to start (0-based)
         :param limit: The maximum number of items to return
         :param search_fields: String names of fields to search. Correspond by index to search field values
@@ -414,6 +418,10 @@ class Targets(BaseSDK):
         around tokens is tolerated and empty tokens are ignored. If both `target_mode` and
         `target_mode_list` are supplied, the two filters are combined with AND. `target_mode_list` is
         filter-only and cannot be used as `order_by`.
+
+        `experiment_status` filters on the highest-priority non-deleted experiment status for each
+        target: `running`, `paused`, `draft`, then `stopped`. Use `none` to match
+        targets with no experiments. It is filter-only and cannot be used as `order_by`.
 
         :param page: The page number from which to start (0-based)
         :param limit: The maximum number of items to return

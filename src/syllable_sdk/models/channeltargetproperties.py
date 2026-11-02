@@ -21,3 +21,4 @@ class ChannelTargetProperties(str, Enum):
     IS_TEST = "is_test"
     UPDATED_AT = "updated_at"
     A2P_VERIFIED = "a2p_verified"
+    EXPERIMENT_STATUS = "experiment_status"
