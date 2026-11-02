@@ -10916,7 +10916,7 @@
           "channels.targets"
         ],
         "summary": "Get Channel Targets",
-        "description": "List channel targets for the current suborg.\n\nSupports the standard `ListManager` filters via `search_fields`/`search_field_values`. In\naddition to `target_mode` (single value), `target_mode_list` accepts a comma-separated list of\nmodes (e.g. `voice,sms`) and matches targets whose mode is any of the listed values. Whitespace\naround tokens is tolerated and empty tokens are ignored. If both `target_mode` and\n`target_mode_list` are supplied, the two filters are combined with AND. `target_mode_list` is\nfilter-only and cannot be used as `order_by`.",
+        "description": "List channel targets for the current suborg.\n\nSupports the standard `ListManager` filters via `search_fields`/`search_field_values`. In\naddition to `target_mode` (single value), `target_mode_list` accepts a comma-separated list of\nmodes (e.g. `voice,sms`) and matches targets whose mode is any of the listed values. Whitespace\naround tokens is tolerated and empty tokens are ignored. If both `target_mode` and\n`target_mode_list` are supplied, the two filters are combined with AND. `target_mode_list` is\nfilter-only and cannot be used as `order_by`.\n\n`experiment_status` filters on the highest-priority non-deleted experiment status for each\ntarget: `running`, `paused`, `draft`, then `stopped`. Use `none` to match\ntargets with no experiments. It is filter-only and cannot be used as `order_by`.",
         "operationId": "channel_targets_list",
         "security": [
           {
@@ -18961,7 +18961,8 @@
           "fallback_target",
           "is_test",
           "updated_at",
-          "a2p_verified"
+          "a2p_verified",
+          "experiment_status"
         ],
         "title": "ChannelTargetProperties",
         "description": "Names of channel target fields supported for filtering on the full channel targets list\nendpoint. Superset of [[ChannelTargetOrderProperties]] — includes filter-only fields like\n``target_mode_list`` that are not valid as ``order_by``."
@@ -19090,6 +19091,21 @@
               }
             ],
             "description": "SIP configuration applied when transferring calls"
+          },
+          "experiment_status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ExperimentStatus"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Highest-priority status among the target's non-deleted experiments: running, paused, draft, then stopped. Calculated only for target list responses; null when there are no experiments or when not calculated.",
+            "examples": [
+              "running",
+              null
+            ]
           }
         },
         "type": "object",
