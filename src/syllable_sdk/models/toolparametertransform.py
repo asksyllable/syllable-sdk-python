@@ -17,6 +17,7 @@ from syllable_sdk.types import (
     current_exclude_none,
     serialize_with_info,
 )
+from syllable_sdk.types.basemodel import current_filtered_dump
 from typing import Any, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -77,12 +78,13 @@ class ToolParameterTransform(BaseModel):
         optional_fields = set(["action", "when", "value", "format"])
         nullable_fields = set(["when", "value", "format"])
         exclude_none = current_exclude_none()
+        skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias if f.alias is not None else n
-            if k not in serialized and n not in serialized and exclude_none is False:
+            if k not in serialized and n not in serialized and skip_filtered:
                 continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (

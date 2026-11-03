@@ -11971,7 +11971,7 @@ components:
           anyOf:
             - $ref: "#/components/schemas/ExperimentStatus"
             - type: "null"
-          description: "Highest-priority status among the target's non-deleted experiments: running, paused, draft, then stopped. Calculated only for target list responses; null when there are no experiments or when not calculated."
+          description: "Highest-priority status among the target's non-deleted experiments: running, paused, draft, then stopped. Null when there are no experiments or when not calculated."
           examples:
             - "running"
             - null

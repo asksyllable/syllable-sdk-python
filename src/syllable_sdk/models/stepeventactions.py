@@ -17,6 +17,7 @@ from syllable_sdk.types import (
     current_exclude_none,
     serialize_with_info,
 )
+from syllable_sdk.types.basemodel import current_filtered_dump
 from syllable_sdk.utils import get_discriminator
 from typing import List, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
@@ -152,12 +153,13 @@ class StepEventActions(BaseModel):
         optional_fields = set(["start", "enter", "presubmit", "submit"])
         nullable_fields = set(["start", "enter", "presubmit", "submit"])
         exclude_none = current_exclude_none()
+        skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias if f.alias is not None else n
-            if k not in serialized and n not in serialized and exclude_none is False:
+            if k not in serialized and n not in serialized and skip_filtered:
                 continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
