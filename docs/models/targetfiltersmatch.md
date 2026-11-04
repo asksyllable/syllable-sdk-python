@@ -1,13 +1,13 @@
-# Match
+# TargetFiltersMatch
 
 How to combine rules: 'all' (AND) or 'any' (OR).
 
 ## Example Usage
 
 ```python
-from syllable_sdk.models import Match
+from syllable_sdk.models import TargetFiltersMatch
 
-value = Match.ALL
+value = TargetFiltersMatch.ALL
 ```
 
 

@@ -243,6 +243,8 @@ if TYPE_CHECKING:
         EnrichmentTypedDict,
         Insights,
         InsightsTypedDict,
+        WorkflowResult,
+        WorkflowResultTypedDict,
     )
     from .conditionaltext import (
         ConditionalText,
@@ -678,6 +680,35 @@ if TYPE_CHECKING:
         InsightToolListRequest,
         InsightToolListRequestTypedDict,
     )
+    from .insightconditionrule import (
+        InsightConditionRule,
+        InsightConditionRuleTypedDict,
+        Operator,
+        Source,
+        SourceTypedDict,
+    )
+    from .insightconditionsource import (
+        InsightConditionSource,
+        InsightConditionSourceTypedDict,
+    )
+    from .insightfiletesttranscript import (
+        InsightFileTestTranscript,
+        InsightFileTestTranscriptTypedDict,
+        Transcription,
+        TranscriptionTypedDict,
+        UnavailableReason,
+    )
+    from .insightresultformat import InsightResultFormat
+    from .insights_current_workflow_resultsop import (
+        InsightsCurrentWorkflowResultsRequest,
+        InsightsCurrentWorkflowResultsRequestTypedDict,
+        InsightsCurrentWorkflowResultsResponse,
+        InsightsCurrentWorkflowResultsResponseTypedDict,
+    )
+    from .insights_file_test_transcriptop import (
+        InsightsFileTestTranscriptRequest,
+        InsightsFileTestTranscriptRequestTypedDict,
+    )
     from .insights_folder_deleteop import (
         InsightsFolderDeleteRequest,
         InsightsFolderDeleteRequestTypedDict,
@@ -718,6 +749,10 @@ if TYPE_CHECKING:
     from .insights_workflow_activateop import (
         InsightsWorkflowActivateRequest,
         InsightsWorkflowActivateRequestTypedDict,
+    )
+    from .insights_workflow_condition_catalogop import (
+        ResponseInsightsWorkflowConditionCatalog,
+        ResponseInsightsWorkflowConditionCatalogTypedDict,
     )
     from .insights_workflow_deleteop import (
         InsightsWorkflowDeleteRequest,
@@ -786,6 +821,11 @@ if TYPE_CHECKING:
         InsightsWorkflowQueueSession,
         InsightsWorkflowQueueSessionTypedDict,
     )
+    from .insighttoolconditiongroup import (
+        InsightToolConditionGroup,
+        InsightToolConditionGroupMatch,
+        InsightToolConditionGroupTypedDict,
+    )
     from .insighttooldefinition import (
         InsightToolDefinition,
         InsightToolDefinitionTypedDict,
@@ -820,6 +860,9 @@ if TYPE_CHECKING:
     )
     from .insightworkflowexecutionoutput import (
         InsightWorkflowExecutionOutput,
+        InsightWorkflowExecutionOutputFormatVersion,
+        InsightWorkflowExecutionOutputStepOutcome,
+        InsightWorkflowExecutionOutputStepOutcomeTypedDict,
         InsightWorkflowExecutionOutputTypedDict,
     )
     from .insightworkflowexecutionsummary import (
@@ -828,17 +871,21 @@ if TYPE_CHECKING:
     )
     from .insightworkflowinput import (
         InsightWorkflowInput,
+        InsightWorkflowInputFormatVersion,
         InsightWorkflowInputTypedDict,
     )
     from .insightworkflowoutput import (
         InsightWorkflowOutput,
+        InsightWorkflowOutputFormatVersion,
         InsightWorkflowOutputTypedDict,
     )
     from .insightworkflowproperties import InsightWorkflowProperties
     from .insightworkflowresponse import (
         InsightWorkflowResponse,
+        InsightWorkflowResponseFormatVersion,
         InsightWorkflowResponseTypedDict,
     )
+    from .insightworkflowstep import InsightWorkflowStep, InsightWorkflowStepTypedDict
     from .inspectlatencyresponse import (
         InspectLatencyResponse,
         InspectLatencyResponseTypedDict,
@@ -1304,6 +1351,10 @@ if TYPE_CHECKING:
         SessionTranscriptGetByIDRequestTypedDict,
     )
     from .sessionaction import SessionAction, SessionActionTypedDict
+    from .sessionconditionsource import (
+        SessionConditionSource,
+        SessionConditionSourceTypedDict,
+    )
     from .sessiondata import SessionData, SessionDataTypedDict
     from .sessionlabel import SessionLabel, SessionLabelTypedDict
     from .sessionlabelcreate import SessionLabelCreate, SessionLabelCreateTypedDict
@@ -1400,7 +1451,12 @@ if TYPE_CHECKING:
         TakeoutStatusResponseTypedDict,
     )
     from .targetfilterrule import TargetFilterRule, TargetFilterRuleTypedDict
-    from .targetfilters import Match, OnUnknown, TargetFilters, TargetFiltersTypedDict
+    from .targetfilters import (
+        OnUnknown,
+        TargetFilters,
+        TargetFiltersMatch,
+        TargetFiltersTypedDict,
+    )
     from .targetmodes import TargetModes
     from .telephonyconfigurations import (
         TelephonyConfigurations,
@@ -1421,6 +1477,7 @@ if TYPE_CHECKING:
         ToolBridgePhraseConfig,
         ToolBridgePhraseConfigTypedDict,
     )
+    from .toolconditionsource import ToolConditionSource, ToolConditionSourceTypedDict
     from .toolcreaterequest import ToolCreateRequest, ToolCreateRequestTypedDict
     from .tooldefinition import (
         Defaults,
@@ -1453,6 +1510,10 @@ if TYPE_CHECKING:
     from .toolresponse import ToolResponse, ToolResponseTypedDict
     from .toolresultdata import ToolResultData, ToolResultDataTypedDict
     from .toolupdaterequest import ToolUpdateRequest, ToolUpdateRequestTypedDict
+    from .transcriptconditionsource import (
+        TranscriptConditionSource,
+        TranscriptConditionSourceTypedDict,
+    )
     from .transcriptconfidence import (
         TranscriptConfidence,
         TranscriptConfidenceTypedDict,
@@ -1571,9 +1632,18 @@ if TYPE_CHECKING:
         VoiceSampleCreateRequest,
         VoiceSampleCreateRequestTypedDict,
     )
-    from .workflowfilerow import WorkflowFileRow, WorkflowFileRowTypedDict
+    from .workflowfilerow import (
+        WorkflowFileRow,
+        WorkflowFileRowFormatVersion,
+        WorkflowFileRowStepOutcome,
+        WorkflowFileRowStepOutcomeTypedDict,
+        WorkflowFileRowTypedDict,
+    )
     from .workflowsessionrow import (
         WorkflowSessionRow,
+        WorkflowSessionRowFormatVersion,
+        WorkflowSessionRowStepOutcome,
+        WorkflowSessionRowStepOutcomeTypedDict,
         WorkflowSessionRowTypedDict,
     )  # Pydantic models with forward references
 AgentResponse.model_rebuild()
@@ -2042,6 +2112,16 @@ __all__ = [
     "InputParameter",
     "InputParameterType",
     "InputParameterTypedDict",
+    "InsightConditionRule",
+    "InsightConditionRuleTypedDict",
+    "InsightConditionSource",
+    "InsightConditionSourceTypedDict",
+    "InsightFileTestTranscript",
+    "InsightFileTestTranscriptTypedDict",
+    "InsightResultFormat",
+    "InsightToolConditionGroup",
+    "InsightToolConditionGroupMatch",
+    "InsightToolConditionGroupTypedDict",
     "InsightToolDefinition",
     "InsightToolDefinitionTypedDict",
     "InsightToolGetByIDRequest",
@@ -2064,17 +2144,31 @@ __all__ = [
     "InsightWorkflowEstimate",
     "InsightWorkflowEstimateTypedDict",
     "InsightWorkflowExecutionOutput",
+    "InsightWorkflowExecutionOutputFormatVersion",
+    "InsightWorkflowExecutionOutputStepOutcome",
+    "InsightWorkflowExecutionOutputStepOutcomeTypedDict",
     "InsightWorkflowExecutionOutputTypedDict",
     "InsightWorkflowExecutionSummary",
     "InsightWorkflowExecutionSummaryTypedDict",
     "InsightWorkflowInput",
+    "InsightWorkflowInputFormatVersion",
     "InsightWorkflowInputTypedDict",
     "InsightWorkflowOutput",
+    "InsightWorkflowOutputFormatVersion",
     "InsightWorkflowOutputTypedDict",
     "InsightWorkflowProperties",
     "InsightWorkflowResponse",
+    "InsightWorkflowResponseFormatVersion",
     "InsightWorkflowResponseTypedDict",
+    "InsightWorkflowStep",
+    "InsightWorkflowStepTypedDict",
     "Insights",
+    "InsightsCurrentWorkflowResultsRequest",
+    "InsightsCurrentWorkflowResultsRequestTypedDict",
+    "InsightsCurrentWorkflowResultsResponse",
+    "InsightsCurrentWorkflowResultsResponseTypedDict",
+    "InsightsFileTestTranscriptRequest",
+    "InsightsFileTestTranscriptRequestTypedDict",
     "InsightsFolder",
     "InsightsFolderDeleteRequest",
     "InsightsFolderDeleteRequestTypedDict",
@@ -2251,7 +2345,6 @@ __all__ = [
     "LocalizedBridgePhrases",
     "LocalizedBridgePhrasesTypedDict",
     "LoginType",
-    "Match",
     "MatchType",
     "MediaImageurl",
     "MediaImageurlTypedDict",
@@ -2273,6 +2366,7 @@ __all__ = [
     "NextStepTypedDict",
     "NextTypedDict",
     "OnUnknown",
+    "Operator",
     "OrderByDirection",
     "OrganizationChannelConfig",
     "OrganizationChannelConfigTypedDict",
@@ -2388,6 +2482,8 @@ __all__ = [
     "RequestStatusBreakdownTypedDict",
     "ResponseDisplayConfig",
     "ResponseDisplayConfigTypedDict",
+    "ResponseInsightsWorkflowConditionCatalog",
+    "ResponseInsightsWorkflowConditionCatalogTypedDict",
     "Role",
     "RoleCreateRequest",
     "RoleCreateRequestTypedDict",
@@ -2440,6 +2536,8 @@ __all__ = [
     "Session",
     "SessionAction",
     "SessionActionTypedDict",
+    "SessionConditionSource",
+    "SessionConditionSourceTypedDict",
     "SessionData",
     "SessionDataTypedDict",
     "SessionFullSummaryGetByIDRequest",
@@ -2497,6 +2595,8 @@ __all__ = [
     "SipEndpointTypedDict",
     "SipTransferMode",
     "SipTransport",
+    "Source",
+    "SourceTypedDict",
     "StartEnum",
     "StaticToolParameter",
     "StaticToolParameterType",
@@ -2536,6 +2636,7 @@ __all__ = [
     "TargetFilterRule",
     "TargetFilterRuleTypedDict",
     "TargetFilters",
+    "TargetFiltersMatch",
     "TargetFiltersTypedDict",
     "TargetModes",
     "Task1",
@@ -2559,6 +2660,8 @@ __all__ = [
     "ToolAuthType",
     "ToolBridgePhraseConfig",
     "ToolBridgePhraseConfigTypedDict",
+    "ToolConditionSource",
+    "ToolConditionSourceTypedDict",
     "ToolCreateRequest",
     "ToolCreateRequestTypedDict",
     "ToolDefinition",
@@ -2599,10 +2702,14 @@ __all__ = [
     "ToolResultDataTypedDict",
     "ToolUpdateRequest",
     "ToolUpdateRequestTypedDict",
+    "TranscriptConditionSource",
+    "TranscriptConditionSourceTypedDict",
     "TranscriptConfidence",
     "TranscriptConfidenceTypedDict",
     "TranscriptWordConfidence",
     "TranscriptWordConfidenceTypedDict",
+    "Transcription",
+    "TranscriptionTypedDict",
     "TtsProvider",
     "TwilioChannelConfigCreate",
     "TwilioChannelConfigCreateTypedDict",
@@ -2624,6 +2731,7 @@ __all__ = [
     "TwilioNumberUpdateResponseTypedDict",
     "TwilioPhoneNumber",
     "TwilioPhoneNumberTypedDict",
+    "UnavailableReason",
     "UpdateBridgePhrasesConfigRequest",
     "UpdateBridgePhrasesConfigRequestTypedDict",
     "UploadFileID",
@@ -2681,8 +2789,16 @@ __all__ = [
     "VoicemailDetectionConfig",
     "VoicemailDetectionConfigTypedDict",
     "WorkflowFileRow",
+    "WorkflowFileRowFormatVersion",
+    "WorkflowFileRowStepOutcome",
+    "WorkflowFileRowStepOutcomeTypedDict",
     "WorkflowFileRowTypedDict",
+    "WorkflowResult",
+    "WorkflowResultTypedDict",
     "WorkflowSessionRow",
+    "WorkflowSessionRowFormatVersion",
+    "WorkflowSessionRowStepOutcome",
+    "WorkflowSessionRowStepOutcomeTypedDict",
     "WorkflowSessionRowTypedDict",
 ]
 
@@ -2847,6 +2963,8 @@ _dynamic_imports: dict[str, str] = {
     "EnrichmentTypedDict": ".communicationrequestresult",
     "Insights": ".communicationrequestresult",
     "InsightsTypedDict": ".communicationrequestresult",
+    "WorkflowResult": ".communicationrequestresult",
+    "WorkflowResultTypedDict": ".communicationrequestresult",
     "ConditionalText": ".conditionaltext",
     "ConditionalTextIf1": ".conditionaltext",
     "ConditionalTextIf1TypedDict": ".conditionaltext",
@@ -3151,6 +3269,25 @@ _dynamic_imports: dict[str, str] = {
     "InsightToolGetByIDRequestTypedDict": ".insight_tool_get_by_idop",
     "InsightToolListRequest": ".insight_tool_listop",
     "InsightToolListRequestTypedDict": ".insight_tool_listop",
+    "InsightConditionRule": ".insightconditionrule",
+    "InsightConditionRuleTypedDict": ".insightconditionrule",
+    "Operator": ".insightconditionrule",
+    "Source": ".insightconditionrule",
+    "SourceTypedDict": ".insightconditionrule",
+    "InsightConditionSource": ".insightconditionsource",
+    "InsightConditionSourceTypedDict": ".insightconditionsource",
+    "InsightFileTestTranscript": ".insightfiletesttranscript",
+    "InsightFileTestTranscriptTypedDict": ".insightfiletesttranscript",
+    "Transcription": ".insightfiletesttranscript",
+    "TranscriptionTypedDict": ".insightfiletesttranscript",
+    "UnavailableReason": ".insightfiletesttranscript",
+    "InsightResultFormat": ".insightresultformat",
+    "InsightsCurrentWorkflowResultsRequest": ".insights_current_workflow_resultsop",
+    "InsightsCurrentWorkflowResultsRequestTypedDict": ".insights_current_workflow_resultsop",
+    "InsightsCurrentWorkflowResultsResponse": ".insights_current_workflow_resultsop",
+    "InsightsCurrentWorkflowResultsResponseTypedDict": ".insights_current_workflow_resultsop",
+    "InsightsFileTestTranscriptRequest": ".insights_file_test_transcriptop",
+    "InsightsFileTestTranscriptRequestTypedDict": ".insights_file_test_transcriptop",
     "InsightsFolderDeleteRequest": ".insights_folder_deleteop",
     "InsightsFolderDeleteRequestTypedDict": ".insights_folder_deleteop",
     "InsightsFolderGetByIDRequest": ".insights_folder_get_by_idop",
@@ -3173,6 +3310,8 @@ _dynamic_imports: dict[str, str] = {
     "InsightsUploadMoveFilesRequestTypedDict": ".insights_upload_move_filesop",
     "InsightsWorkflowActivateRequest": ".insights_workflow_activateop",
     "InsightsWorkflowActivateRequestTypedDict": ".insights_workflow_activateop",
+    "ResponseInsightsWorkflowConditionCatalog": ".insights_workflow_condition_catalogop",
+    "ResponseInsightsWorkflowConditionCatalogTypedDict": ".insights_workflow_condition_catalogop",
     "InsightsWorkflowDeleteRequest": ".insights_workflow_deleteop",
     "InsightsWorkflowDeleteRequestTypedDict": ".insights_workflow_deleteop",
     "InsightsWorkflowExecutionsSummaryRequest": ".insights_workflow_executions_summaryop",
@@ -3216,6 +3355,9 @@ _dynamic_imports: dict[str, str] = {
     "InsightsUploadFileProperties": ".insightsuploadfileproperties",
     "InsightsWorkflowQueueSession": ".insightsworkflowqueuesession",
     "InsightsWorkflowQueueSessionTypedDict": ".insightsworkflowqueuesession",
+    "InsightToolConditionGroup": ".insighttoolconditiongroup",
+    "InsightToolConditionGroupMatch": ".insighttoolconditiongroup",
+    "InsightToolConditionGroupTypedDict": ".insighttoolconditiongroup",
     "InsightToolDefinition": ".insighttooldefinition",
     "InsightToolDefinitionTypedDict": ".insighttooldefinition",
     "InsightToolInput": ".insighttoolinput",
@@ -3242,16 +3384,24 @@ _dynamic_imports: dict[str, str] = {
     "InsightWorkflowEstimate": ".insightworkflowestimate",
     "InsightWorkflowEstimateTypedDict": ".insightworkflowestimate",
     "InsightWorkflowExecutionOutput": ".insightworkflowexecutionoutput",
+    "InsightWorkflowExecutionOutputFormatVersion": ".insightworkflowexecutionoutput",
+    "InsightWorkflowExecutionOutputStepOutcome": ".insightworkflowexecutionoutput",
+    "InsightWorkflowExecutionOutputStepOutcomeTypedDict": ".insightworkflowexecutionoutput",
     "InsightWorkflowExecutionOutputTypedDict": ".insightworkflowexecutionoutput",
     "InsightWorkflowExecutionSummary": ".insightworkflowexecutionsummary",
     "InsightWorkflowExecutionSummaryTypedDict": ".insightworkflowexecutionsummary",
     "InsightWorkflowInput": ".insightworkflowinput",
+    "InsightWorkflowInputFormatVersion": ".insightworkflowinput",
     "InsightWorkflowInputTypedDict": ".insightworkflowinput",
     "InsightWorkflowOutput": ".insightworkflowoutput",
+    "InsightWorkflowOutputFormatVersion": ".insightworkflowoutput",
     "InsightWorkflowOutputTypedDict": ".insightworkflowoutput",
     "InsightWorkflowProperties": ".insightworkflowproperties",
     "InsightWorkflowResponse": ".insightworkflowresponse",
+    "InsightWorkflowResponseFormatVersion": ".insightworkflowresponse",
     "InsightWorkflowResponseTypedDict": ".insightworkflowresponse",
+    "InsightWorkflowStep": ".insightworkflowstep",
+    "InsightWorkflowStepTypedDict": ".insightworkflowstep",
     "InspectLatencyResponse": ".inspectlatencyresponse",
     "InspectLatencyResponseTypedDict": ".inspectlatencyresponse",
     "InternalTool": ".internaltool",
@@ -3545,6 +3695,8 @@ _dynamic_imports: dict[str, str] = {
     "SessionTranscriptGetByIDRequestTypedDict": ".session_transcript_get_by_idop",
     "SessionAction": ".sessionaction",
     "SessionActionTypedDict": ".sessionaction",
+    "SessionConditionSource": ".sessionconditionsource",
+    "SessionConditionSourceTypedDict": ".sessionconditionsource",
     "SessionData": ".sessiondata",
     "SessionDataTypedDict": ".sessiondata",
     "SessionLabel": ".sessionlabel",
@@ -3628,9 +3780,9 @@ _dynamic_imports: dict[str, str] = {
     "TakeoutStatusResponseTypedDict": ".takeoutstatusresponse",
     "TargetFilterRule": ".targetfilterrule",
     "TargetFilterRuleTypedDict": ".targetfilterrule",
-    "Match": ".targetfilters",
     "OnUnknown": ".targetfilters",
     "TargetFilters": ".targetfilters",
+    "TargetFiltersMatch": ".targetfilters",
     "TargetFiltersTypedDict": ".targetfilters",
     "TargetModes": ".targetmodes",
     "TelephonyConfigurations": ".telephonyconfigurations",
@@ -3656,6 +3808,8 @@ _dynamic_imports: dict[str, str] = {
     "ToolAuthType": ".toolauthtype",
     "ToolBridgePhraseConfig": ".toolbridgephraseconfig",
     "ToolBridgePhraseConfigTypedDict": ".toolbridgephraseconfig",
+    "ToolConditionSource": ".toolconditionsource",
+    "ToolConditionSourceTypedDict": ".toolconditionsource",
     "ToolCreateRequest": ".toolcreaterequest",
     "ToolCreateRequestTypedDict": ".toolcreaterequest",
     "Defaults": ".tooldefinition",
@@ -3690,6 +3844,8 @@ _dynamic_imports: dict[str, str] = {
     "ToolResultDataTypedDict": ".toolresultdata",
     "ToolUpdateRequest": ".toolupdaterequest",
     "ToolUpdateRequestTypedDict": ".toolupdaterequest",
+    "TranscriptConditionSource": ".transcriptconditionsource",
+    "TranscriptConditionSourceTypedDict": ".transcriptconditionsource",
     "TranscriptConfidence": ".transcriptconfidence",
     "TranscriptConfidenceTypedDict": ".transcriptconfidence",
     "UtteranceSource": ".transcriptconfidence",
@@ -3769,8 +3925,14 @@ _dynamic_imports: dict[str, str] = {
     "VoiceSampleCreateRequest": ".voicesamplecreaterequest",
     "VoiceSampleCreateRequestTypedDict": ".voicesamplecreaterequest",
     "WorkflowFileRow": ".workflowfilerow",
+    "WorkflowFileRowFormatVersion": ".workflowfilerow",
+    "WorkflowFileRowStepOutcome": ".workflowfilerow",
+    "WorkflowFileRowStepOutcomeTypedDict": ".workflowfilerow",
     "WorkflowFileRowTypedDict": ".workflowfilerow",
     "WorkflowSessionRow": ".workflowsessionrow",
+    "WorkflowSessionRowFormatVersion": ".workflowsessionrow",
+    "WorkflowSessionRowStepOutcome": ".workflowsessionrow",
+    "WorkflowSessionRowStepOutcomeTypedDict": ".workflowsessionrow",
     "WorkflowSessionRowTypedDict": ".workflowsessionrow",
 }
 

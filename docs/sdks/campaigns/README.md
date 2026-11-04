@@ -139,7 +139,7 @@ with SyllableSDK(
             models.LineTypeBucket.VOIP,
         ],
         target_filters=models.TargetFilters(
-            match=models.Match.ANY,
+            match=models.TargetFiltersMatch.ANY,
             rules=[
                 models.TargetFilterRule(
                     field="line_type",
@@ -307,7 +307,7 @@ with SyllableSDK(
             models.LineTypeBucket.VOIP,
         ],
         target_filters=models.TargetFilters(
-            match=models.Match.ANY,
+            match=models.TargetFiltersMatch.ANY,
             rules=[
                 models.TargetFilterRule(
                     field="line_type",

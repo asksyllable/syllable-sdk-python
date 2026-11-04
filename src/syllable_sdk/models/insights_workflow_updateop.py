@@ -2,14 +2,28 @@
 
 from __future__ import annotations
 from .insightworkflowinput import InsightWorkflowInput, InsightWorkflowInputTypedDict
-from syllable_sdk.types import BaseModel
-from syllable_sdk.utils import FieldMetadata, PathParamMetadata, RequestMetadata
-from typing_extensions import Annotated, TypedDict
+from pydantic import model_serializer
+from syllable_sdk.types import (
+    BaseModel,
+    UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
+)
+from syllable_sdk.types.basemodel import current_filtered_dump
+from syllable_sdk.utils import (
+    FieldMetadata,
+    PathParamMetadata,
+    QueryParamMetadata,
+    RequestMetadata,
+)
+from typing import Optional
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class InsightsWorkflowUpdateRequestTypedDict(TypedDict):
     workflow_id: int
     insight_workflow_input: InsightWorkflowInputTypedDict
+    deactivate: NotRequired[bool]
 
 
 class InsightsWorkflowUpdateRequest(BaseModel):
@@ -21,3 +35,31 @@ class InsightsWorkflowUpdateRequest(BaseModel):
         InsightWorkflowInput,
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
+
+    deactivate: Annotated[
+        Optional[bool],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = False
+
+    @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
+    def serialize_model(self, handler):
+        optional_fields = set(["deactivate"])
+        exclude_none = current_exclude_none()
+        skip_filtered = exclude_none is False or current_filtered_dump()
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and skip_filtered:
+                continue
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

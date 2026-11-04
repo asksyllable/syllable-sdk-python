@@ -26,6 +26,8 @@ class InsightWorkflowExecutionSummaryTypedDict(TypedDict):
     r"""Rows in COMPLETED status"""
     failed: NotRequired[int]
     r"""Rows in FAILED status"""
+    conditions_not_met: NotRequired[int]
+    r"""Accepted steps skipped because conditions were not met; each step counts once"""
     total: NotRequired[int]
     r"""Total rows across all statuses"""
 
@@ -47,6 +49,9 @@ class InsightWorkflowExecutionSummary(BaseModel):
     failed: Optional[int] = 0
     r"""Rows in FAILED status"""
 
+    conditions_not_met: Optional[int] = 0
+    r"""Accepted steps skipped because conditions were not met; each step counts once"""
+
     total: Optional[int] = 0
     r"""Total rows across all statuses"""
 
@@ -55,7 +60,16 @@ class InsightWorkflowExecutionSummary(BaseModel):
         return serialize_with_info(self.serialize_model, handler, info)
 
     def serialize_model(self, handler):
-        optional_fields = set(["pending", "processing", "completed", "failed", "total"])
+        optional_fields = set(
+            [
+                "pending",
+                "processing",
+                "completed",
+                "failed",
+                "conditions_not_met",
+                "total",
+            ]
+        )
         exclude_none = current_exclude_none()
         skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)

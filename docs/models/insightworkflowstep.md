@@ -1,0 +1,11 @@
+# InsightWorkflowStep
+
+
+## Fields
+
+| Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `step_id`                                                                                    | *str*                                                                                        | :heavy_check_mark:                                                                           | N/A                                                                                          |
+| `insight_tool_id`                                                                            | *int*                                                                                        | :heavy_check_mark:                                                                           | N/A                                                                                          |
+| `conditions`                                                                                 | [OptionalNullable[models.InsightToolConditionGroup]](../models/insighttoolconditiongroup.md) | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `transcript_source_step_id`                                                                  | *OptionalNullable[str]*                                                                      | :heavy_minus_sign:                                                                           | N/A                                                                                          |

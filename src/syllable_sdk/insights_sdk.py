@@ -35,6 +35,414 @@ class InsightsSDK(BaseSDK):
         self.workflows = Workflows(self.sdk_configuration, parent_ref=self.parent_ref)
         self.tools = InsightsTools(self.sdk_configuration, parent_ref=self.parent_ref)
 
+    def insights_file_test_transcript(
+        self,
+        *,
+        file_id: int,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.InsightFileTestTranscript:
+        r"""Uploaded File Tester Transcript
+
+        Read the stored transcript currently selected for an uploaded-file LLM test.
+
+        This does not execute a tool or return a historical test-input snapshot. Reads
+        remain available when conditional workflow admission is disabled.
+
+        :param file_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.InsightsFileTestTranscriptRequest(
+            file_id=file_id,
+        )
+
+        req = self._build_request(
+            method="GET",
+            path="/api/v1/insights/files/{file_id}/test-transcript",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="insights_file_test_transcript",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["insights"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(models.InsightFileTestTranscript, http_res)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, ["404", "4XX"], "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
+    async def insights_file_test_transcript_async(
+        self,
+        *,
+        file_id: int,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.InsightFileTestTranscript:
+        r"""Uploaded File Tester Transcript
+
+        Read the stored transcript currently selected for an uploaded-file LLM test.
+
+        This does not execute a tool or return a historical test-input snapshot. Reads
+        remain available when conditional workflow admission is disabled.
+
+        :param file_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.InsightsFileTestTranscriptRequest(
+            file_id=file_id,
+        )
+
+        req = self._build_request_async(
+            method="GET",
+            path="/api/v1/insights/files/{file_id}/test-transcript",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="insights_file_test_transcript",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["insights"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(models.InsightFileTestTranscript, http_res)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, ["404", "4XX"], "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
+    def results(
+        self,
+        *,
+        session_id: OptionalNullable[int] = UNSET,
+        upload_file_id: OptionalNullable[int] = UNSET,
+        workflow_id: OptionalNullable[int] = UNSET,
+        limit: Optional[int] = 100,
+        offset: Optional[int] = 0,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> List[models.InsightsCurrentWorkflowResultsResponse]:
+        r"""Current Insight Workflow Results
+
+        Latest execution per workflow/input, with typed step outcomes and explicit absence.
+
+        Use this contract for conditional workflows; legacy /insights flattened values
+        cannot represent skipped steps, repeated tools or multiple workflow scopes.
+
+        :param session_id:
+        :param upload_file_id:
+        :param workflow_id:
+        :param limit:
+        :param offset:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.InsightsCurrentWorkflowResultsRequest(
+            session_id=session_id,
+            upload_file_id=upload_file_id,
+            workflow_id=workflow_id,
+            limit=limit,
+            offset=offset,
+        )
+
+        req = self._build_request(
+            method="GET",
+            path="/api/v1/insights/workflow-results",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="insights_current_workflow_results",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["insights"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                List[models.InsightsCurrentWorkflowResultsResponse], http_res
+            )
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
+    async def results_async(
+        self,
+        *,
+        session_id: OptionalNullable[int] = UNSET,
+        upload_file_id: OptionalNullable[int] = UNSET,
+        workflow_id: OptionalNullable[int] = UNSET,
+        limit: Optional[int] = 100,
+        offset: Optional[int] = 0,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> List[models.InsightsCurrentWorkflowResultsResponse]:
+        r"""Current Insight Workflow Results
+
+        Latest execution per workflow/input, with typed step outcomes and explicit absence.
+
+        Use this contract for conditional workflows; legacy /insights flattened values
+        cannot represent skipped steps, repeated tools or multiple workflow scopes.
+
+        :param session_id:
+        :param upload_file_id:
+        :param workflow_id:
+        :param limit:
+        :param offset:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.InsightsCurrentWorkflowResultsRequest(
+            session_id=session_id,
+            upload_file_id=upload_file_id,
+            workflow_id=workflow_id,
+            limit=limit,
+            offset=offset,
+        )
+
+        req = self._build_request_async(
+            method="GET",
+            path="/api/v1/insights/workflow-results",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="insights_current_workflow_results",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["insights"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                List[models.InsightsCurrentWorkflowResultsResponse], http_res
+            )
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
     def list(
         self,
         *,
@@ -54,10 +462,14 @@ class InsightsSDK(BaseSDK):
     ) -> models.ListResponseInsightsOutput:
         r"""Insights List
 
-        List evaluated insights, with at most 1,000 items and an offset (page * limit) up to 100,000.
+        List stored legacy insight values, with at most 1,000 items and an offset up to 100,000.
 
         Filter by start_datetime (inclusive) and end_datetime (exclusive) on insight creation time
-        to narrow results. Use order_by_direction=desc to read the newest insights first.
+        to narrow results. Use order_by_direction=desc to read the newest stored values first.
+        These are shared legacy cache values, not current conditional workflow outcomes. Conditional
+        runs do not replace them. An explicit version 2 workflow filter returns 409; use
+        /insights/workflow-results with a workflow, session, or file selector for execution-scoped
+        results.
 
         :param page: The page number from which to start (0-based)
         :param limit: The maximum number of insights to return
@@ -179,10 +591,14 @@ class InsightsSDK(BaseSDK):
     ) -> models.ListResponseInsightsOutput:
         r"""Insights List
 
-        List evaluated insights, with at most 1,000 items and an offset (page * limit) up to 100,000.
+        List stored legacy insight values, with at most 1,000 items and an offset up to 100,000.
 
         Filter by start_datetime (inclusive) and end_datetime (exclusive) on insight creation time
-        to narrow results. Use order_by_direction=desc to read the newest insights first.
+        to narrow results. Use order_by_direction=desc to read the newest stored values first.
+        These are shared legacy cache values, not current conditional workflow outcomes. Conditional
+        runs do not replace them. An explicit version 2 workflow filter returns 409; use
+        /insights/workflow-results with a workflow, session, or file selector for execution-scoped
+        results.
 
         :param page: The page number from which to start (0-based)
         :param limit: The maximum number of insights to return
