@@ -5,6 +5,7 @@ from .daoexperimentvariantwrite import (
     DaoExperimentVariantWrite,
     DaoExperimentVariantWriteTypedDict,
 )
+from datetime import datetime
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -26,7 +27,13 @@ class ExperimentUpdateRequestTypedDict(TypedDict):
     Include at least two variants that use distinct agents. Mark exactly one as the control, using
     the agent linked to the channel target, and use positive whole-number weights that total 100.
 
-    For a running experiment, only the weights can be changed on an update.
+    For a running experiment, only the weights and scheduled end can be changed on an update.
+    The scheduled start of a draft must be in the future on every update. A draft that could not
+    start at its scheduled start loses both schedule times, so it must get a new scheduled start.
+    After the experiment first starts, its scheduled start cannot change. An experiment started
+    manually may add a scheduled end without a scheduled start. A changed scheduled end must be
+    in the future and after the scheduled or actual start. Omitted schedule fields keep their
+    current values; explicit null clears a schedule field where editing it is allowed.
     Stopped experiments cannot be edited.
     """
 
@@ -36,6 +43,10 @@ class ExperimentUpdateRequestTypedDict(TypedDict):
     r"""The complete set of variants for this experiment. Include at least 2 variants that use distinct agents, mark exactly one variant as the control using the channel target's linked agent, and assign positive whole number weights that total 100."""
     description: NotRequired[Nullable[str]]
     r"""The hypothesis under test"""
+    scheduled_start_time: NotRequired[Nullable[datetime]]
+    r"""When to start the experiment automatically. Include a timezone. Cannot be changed after the experiment has started."""
+    scheduled_end_time: NotRequired[Nullable[datetime]]
+    r"""When to stop the experiment automatically. Include a timezone. A draft needs a scheduled start before an end can be set. The end can be changed after the experiment starts."""
 
 
 class ExperimentUpdateRequest(BaseModel):
@@ -44,7 +55,13 @@ class ExperimentUpdateRequest(BaseModel):
     Include at least two variants that use distinct agents. Mark exactly one as the control, using
     the agent linked to the channel target, and use positive whole-number weights that total 100.
 
-    For a running experiment, only the weights can be changed on an update.
+    For a running experiment, only the weights and scheduled end can be changed on an update.
+    The scheduled start of a draft must be in the future on every update. A draft that could not
+    start at its scheduled start loses both schedule times, so it must get a new scheduled start.
+    After the experiment first starts, its scheduled start cannot change. An experiment started
+    manually may add a scheduled end without a scheduled start. A changed scheduled end must be
+    in the future and after the scheduled or actual start. Omitted schedule fields keep their
+    current values; explicit null clears a schedule field where editing it is allowed.
     Stopped experiments cannot be edited.
     """
 
@@ -57,13 +74,23 @@ class ExperimentUpdateRequest(BaseModel):
     description: OptionalNullable[str] = UNSET
     r"""The hypothesis under test"""
 
+    scheduled_start_time: OptionalNullable[datetime] = UNSET
+    r"""When to start the experiment automatically. Include a timezone. Cannot be changed after the experiment has started."""
+
+    scheduled_end_time: OptionalNullable[datetime] = UNSET
+    r"""When to stop the experiment automatically. Include a timezone. A draft needs a scheduled start before an end can be set. The end can be changed after the experiment starts."""
+
     @model_serializer(mode="wrap")
     def _serialize_model_with_info(self, handler, info):
         return serialize_with_info(self.serialize_model, handler, info)
 
     def serialize_model(self, handler):
-        optional_fields = set(["description"])
-        nullable_fields = set(["description"])
+        optional_fields = set(
+            ["description", "scheduled_start_time", "scheduled_end_time"]
+        )
+        nullable_fields = set(
+            ["description", "scheduled_start_time", "scheduled_end_time"]
+        )
         exclude_none = current_exclude_none()
         skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)

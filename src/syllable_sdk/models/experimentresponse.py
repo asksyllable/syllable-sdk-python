@@ -44,10 +44,7 @@ class ExperimentResponseTypedDict(TypedDict):
     variants: List[DaoExperimentVariantDetailTypedDict]
     r"""The variants of the experiment, in a stable order"""
     status: ExperimentStatus
-    r"""Status of an experiment.
-
-    The column is a varchar and not a database enum, so a new value here does not need a migration.
-    """
+    r"""Status of an experiment."""
     created_at: datetime
     r"""When the experiment was created"""
     updated_at: datetime
@@ -60,6 +57,10 @@ class ExperimentResponseTypedDict(TypedDict):
     r"""When the experiment started"""
     stopped_at: NotRequired[Nullable[datetime]]
     r"""When the experiment stopped"""
+    scheduled_start_time: NotRequired[Nullable[datetime]]
+    r"""The planned automatic start"""
+    scheduled_end_time: NotRequired[Nullable[datetime]]
+    r"""The planned automatic stop"""
     target: NotRequired[Nullable[DaoExperimentTargetSummaryTypedDict]]
     r"""The channel target being split, resolved for display. Null when the target has since been deleted, and when the read did not load it."""
 
@@ -86,10 +87,7 @@ class ExperimentResponse(BaseModel):
     r"""The variants of the experiment, in a stable order"""
 
     status: ExperimentStatus
-    r"""Status of an experiment.
-
-    The column is a varchar and not a database enum, so a new value here does not need a migration.
-    """
+    r"""Status of an experiment."""
 
     created_at: datetime
     r"""When the experiment was created"""
@@ -109,6 +107,12 @@ class ExperimentResponse(BaseModel):
     stopped_at: OptionalNullable[datetime] = UNSET
     r"""When the experiment stopped"""
 
+    scheduled_start_time: OptionalNullable[datetime] = UNSET
+    r"""The planned automatic start"""
+
+    scheduled_end_time: OptionalNullable[datetime] = UNSET
+    r"""The planned automatic stop"""
+
     target: OptionalNullable[DaoExperimentTargetSummary] = UNSET
     r"""The channel target being split, resolved for display. Null when the target has since been deleted, and when the read did not load it."""
 
@@ -117,9 +121,26 @@ class ExperimentResponse(BaseModel):
         return serialize_with_info(self.serialize_model, handler, info)
 
     def serialize_model(self, handler):
-        optional_fields = set(["description", "started_at", "stopped_at", "target"])
+        optional_fields = set(
+            [
+                "description",
+                "started_at",
+                "stopped_at",
+                "scheduled_start_time",
+                "scheduled_end_time",
+                "target",
+            ]
+        )
         nullable_fields = set(
-            ["target_id", "description", "started_at", "stopped_at", "target"]
+            [
+                "target_id",
+                "description",
+                "started_at",
+                "stopped_at",
+                "scheduled_start_time",
+                "scheduled_end_time",
+                "target",
+            ]
         )
         exclude_none = current_exclude_none()
         skip_filtered = exclude_none is False or current_filtered_dump()

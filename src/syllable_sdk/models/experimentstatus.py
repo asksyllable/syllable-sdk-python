@@ -5,10 +5,7 @@ from enum import Enum
 
 
 class ExperimentStatus(str, Enum):
-    r"""Status of an experiment.
-
-    The column is a varchar and not a database enum, so a new value here does not need a migration.
-    """
+    r"""Status of an experiment."""
 
     DRAFT = "draft"
     RUNNING = "running"
