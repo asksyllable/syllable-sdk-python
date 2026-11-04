@@ -1825,6 +1825,24 @@ actions:
 
                 # Handle response
                 print(res)
+  - target: $["paths"]["/api/v1/insights/files/{file_id}/test-transcript"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
+            ) as ss_client:
+
+                res = ss_client.insights.insights_file_test_transcript(file_id=922317)
+
+                # Handle response
+                print(res)
   - target: $["paths"]["/api/v1/insights/folders/"]["get"]
     update:
       x-codeSamples:
@@ -2142,6 +2160,24 @@ actions:
 
                 # Handle response
                 print(res)
+  - target: $["paths"]["/api/v1/insights/workflow-results"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
+            ) as ss_client:
+
+                res = ss_client.insights.results(limit=100, offset=0)
+
+                # Handle response
+                print(res)
   - target: $["paths"]["/api/v1/insights/workflows/"]["get"]
     update:
       x-codeSamples:
@@ -2217,6 +2253,24 @@ actions:
                     "start_datetime": parse_datetime("2026-02-03T00:00:00Z"),
                     "end_datetime": parse_datetime("2026-02-04T00:00:00Z"),
                 })
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/insights/workflows/condition-catalog"]["get"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
+            ) as ss_client:
+
+                res = ss_client.insights.workflows.insights_workflow_condition_catalog()
 
                 # Handle response
                 print(res)
@@ -2328,7 +2382,7 @@ actions:
                     },
                     "start_datetime": parse_datetime("2026-02-03T00:00:00Z"),
                     "end_datetime": parse_datetime("2026-02-04T00:00:00Z"),
-                })
+                }, deactivate=False)
 
                 # Handle response
                 print(res)
@@ -2438,7 +2492,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
-                res = ss_client.insights.workflows.inactivate(workflow_id=248768)
+                res = ss_client.insights.workflows.inactivate(workflow_id=248768, x_insight_workflow_format_version=1)
 
                 # Handle response
                 print(res)
@@ -2913,7 +2967,7 @@ actions:
                         models.LineTypeBucket.VOIP,
                     ],
                     target_filters=models.TargetFilters(
-                        match=models.Match.ANY,
+                        match=models.TargetFiltersMatch.ANY,
                         rules=[
                             models.TargetFilterRule(
                                 field="line_type",
@@ -3053,7 +3107,7 @@ actions:
                         models.LineTypeBucket.VOIP,
                     ],
                     target_filters=models.TargetFilters(
-                        match=models.Match.ANY,
+                        match=models.TargetFiltersMatch.ANY,
                         rules=[
                             models.TargetFilterRule(
                                 field="line_type",

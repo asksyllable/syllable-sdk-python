@@ -3,6 +3,7 @@
 from __future__ import annotations
 from .orderbydirection import OrderByDirection
 from enum import Enum
+import pydantic
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -14,7 +15,12 @@ from syllable_sdk.types import (
     serialize_with_info,
 )
 from syllable_sdk.types.basemodel import current_filtered_dump
-from syllable_sdk.utils import FieldMetadata, PathParamMetadata, QueryParamMetadata
+from syllable_sdk.utils import (
+    FieldMetadata,
+    HeaderMetadata,
+    PathParamMetadata,
+    QueryParamMetadata,
+)
 from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -51,6 +57,7 @@ class InsightsWorkflowFilesRequestTypedDict(TypedDict):
     r"""The start datetime for filtering results"""
     end_datetime: NotRequired[Nullable[str]]
     r"""The end datetime for filtering results"""
+    x_insight_workflow_format_version: NotRequired[Nullable[int]]
 
 
 class InsightsWorkflowFilesRequest(BaseModel):
@@ -106,6 +113,12 @@ class InsightsWorkflowFilesRequest(BaseModel):
     ] = UNSET
     r"""The end datetime for filtering results"""
 
+    x_insight_workflow_format_version: Annotated[
+        OptionalNullable[int],
+        pydantic.Field(alias="X-Insight-Workflow-Format-Version"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = UNSET
+
     @model_serializer(mode="wrap")
     def _serialize_model_with_info(self, handler, info):
         return serialize_with_info(self.serialize_model, handler, info)
@@ -121,10 +134,18 @@ class InsightsWorkflowFilesRequest(BaseModel):
                 "order_by_direction",
                 "start_datetime",
                 "end_datetime",
+                "X-Insight-Workflow-Format-Version",
             ]
         )
         nullable_fields = set(
-            ["page", "order_by", "order_by_direction", "start_datetime", "end_datetime"]
+            [
+                "page",
+                "order_by",
+                "order_by_direction",
+                "start_datetime",
+                "end_datetime",
+                "X-Insight-Workflow-Format-Version",
+            ]
         )
         exclude_none = current_exclude_none()
         skip_filtered = exclude_none is False or current_filtered_dump()

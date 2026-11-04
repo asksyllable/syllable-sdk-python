@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from datetime import datetime
+from enum import Enum
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -15,6 +16,19 @@ from syllable_sdk.types import (
 from syllable_sdk.types.basemodel import current_filtered_dump
 from typing import Any, Dict, List, Optional
 from typing_extensions import NotRequired, TypedDict
+
+
+class WorkflowFileRowFormatVersion(int, Enum):
+    ONE = 1
+    TWO = 2
+
+
+class WorkflowFileRowStepOutcomeTypedDict(TypedDict):
+    pass
+
+
+class WorkflowFileRowStepOutcome(BaseModel):
+    pass
 
 
 class WorkflowFileRowTypedDict(TypedDict):
@@ -32,6 +46,11 @@ class WorkflowFileRowTypedDict(TypedDict):
     r"""When the file was queued for this workflow"""
     status: str
     r"""Execution status of this file under the workflow"""
+    execution_id: NotRequired[Nullable[int]]
+    r"""Workflow execution ID"""
+    format_version: NotRequired[WorkflowFileRowFormatVersion]
+    step_outcomes: NotRequired[List[WorkflowFileRowStepOutcomeTypedDict]]
+    r"""Execution outcomes in stable workflow step order"""
     filename: NotRequired[Nullable[str]]
     r"""Name of the uploaded file; null only when the file is entirely deleted"""
     analyzed_at: NotRequired[Nullable[datetime]]
@@ -60,6 +79,16 @@ class WorkflowFileRow(BaseModel):
     status: str
     r"""Execution status of this file under the workflow"""
 
+    execution_id: OptionalNullable[int] = UNSET
+    r"""Workflow execution ID"""
+
+    format_version: Optional[WorkflowFileRowFormatVersion] = (
+        WorkflowFileRowFormatVersion.ONE
+    )
+
+    step_outcomes: Optional[List[WorkflowFileRowStepOutcome]] = None
+    r"""Execution outcomes in stable workflow step order"""
+
     filename: OptionalNullable[str] = UNSET
     r"""Name of the uploaded file; null only when the file is entirely deleted"""
 
@@ -77,8 +106,20 @@ class WorkflowFileRow(BaseModel):
         return serialize_with_info(self.serialize_model, handler, info)
 
     def serialize_model(self, handler):
-        optional_fields = set(["filename", "analyzed_at", "error_message", "results"])
-        nullable_fields = set(["filename", "analyzed_at", "error_message"])
+        optional_fields = set(
+            [
+                "execution_id",
+                "format_version",
+                "step_outcomes",
+                "filename",
+                "analyzed_at",
+                "error_message",
+                "results",
+            ]
+        )
+        nullable_fields = set(
+            ["execution_id", "filename", "analyzed_at", "error_message"]
+        )
         exclude_none = current_exclude_none()
         skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)

@@ -8,6 +8,7 @@ Operations related to insights workflows. An workflow is series of tool         
 
 * [list](#list) - Insight Workflow List
 * [create](#create) - Create Insight Workflow
+* [insights_workflow_condition_catalog](#insights_workflow_condition_catalog) - Insight Workflow Condition Catalog
 * [get_by_id](#get_by_id) - Get Insight Workflow By Id
 * [update](#update) - Update Insights Workflow
 * [delete](#delete) - Delete Insights Workflow
@@ -151,6 +152,45 @@ with SyllableSDK(
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
+## insights_workflow_condition_catalog
+
+Insight Workflow Condition Catalog
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="insights_workflow_condition_catalog" method="get" path="/api/v1/insights/workflows/condition-catalog" -->
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
+) as ss_client:
+
+    res = ss_client.insights.workflows.insights_workflow_condition_catalog()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ResponseInsightsWorkflowConditionCatalog](../../models/responseinsightsworkflowconditioncatalog.md)**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
 ## get_by_id
 
 Get a InsightWorkflow by ID.
@@ -246,7 +286,7 @@ with SyllableSDK(
         },
         "start_datetime": parse_datetime("2026-02-03T00:00:00Z"),
         "end_datetime": parse_datetime("2026-02-04T00:00:00Z"),
-    })
+    }, deactivate=False)
 
     # Handle response
     print(res)
@@ -259,6 +299,7 @@ with SyllableSDK(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `workflow_id`                                                       | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `insight_workflow_input`                                            | [models.InsightWorkflowInput](../../models/insightworkflowinput.md) | :heavy_check_mark:                                                  | N/A                                                                 |
+| `deactivate`                                                        | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -415,6 +456,7 @@ with SyllableSDK(
 | `order_by_direction`                                                                                                                                   | [OptionalNullable[models.OrderByDirection]](../../models/orderbydirection.md)                                                                          | :heavy_minus_sign:                                                                                                                                     | The direction in which to order the results                                                                                                            |                                                                                                                                                        |
 | `start_datetime`                                                                                                                                       | *OptionalNullable[str]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The start datetime for filtering results                                                                                                               | 2023-01-01T00:00:00Z                                                                                                                                   |
 | `end_datetime`                                                                                                                                         | *OptionalNullable[str]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The end datetime for filtering results                                                                                                                 | 2024-01-01T00:00:00Z                                                                                                                                   |
+| `x_insight_workflow_format_version`                                                                                                                    | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | N/A                                                                                                                                                    |                                                                                                                                                        |
 | `retries`                                                                                                                                              | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                       | :heavy_minus_sign:                                                                                                                                     | Configuration to override the default retry behavior of the client.                                                                                    |                                                                                                                                                        |
 
 ### Response
@@ -474,6 +516,7 @@ with SyllableSDK(
 | `order_by_direction`                                                                                                                                   | [OptionalNullable[models.OrderByDirection]](../../models/orderbydirection.md)                                                                          | :heavy_minus_sign:                                                                                                                                     | The direction in which to order the results                                                                                                            |                                                                                                                                                        |
 | `start_datetime`                                                                                                                                       | *OptionalNullable[str]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The start datetime for filtering results                                                                                                               | 2023-01-01T00:00:00Z                                                                                                                                   |
 | `end_datetime`                                                                                                                                         | *OptionalNullable[str]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | The end datetime for filtering results                                                                                                                 | 2024-01-01T00:00:00Z                                                                                                                                   |
+| `x_insight_workflow_format_version`                                                                                                                    | *OptionalNullable[int]*                                                                                                                                | :heavy_minus_sign:                                                                                                                                     | N/A                                                                                                                                                    |                                                                                                                                                        |
 | `retries`                                                                                                                                              | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                       | :heavy_minus_sign:                                                                                                                                     | Configuration to override the default retry behavior of the client.                                                                                    |                                                                                                                                                        |
 
 ### Response
@@ -519,6 +562,7 @@ with SyllableSDK(
 | `workflow_id`                                                       | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |                                                                     |
 | `start_datetime`                                                    | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | ISO 8601 start datetime (inclusive) for created_at filtering        | 2026-08-27T13:57:00.123456+00:00                                    |
 | `end_datetime`                                                      | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | ISO 8601 end datetime (exclusive) for created_at filtering          | 2026-08-28T00:00:00Z                                                |
+| `x_insight_workflow_format_version`                                 | *OptionalNullable[int]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response
@@ -548,7 +592,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
-    res = ss_client.insights.workflows.inactivate(workflow_id=248768)
+    res = ss_client.insights.workflows.inactivate(workflow_id=248768, x_insight_workflow_format_version=1)
 
     # Handle response
     print(res)
@@ -560,6 +604,7 @@ with SyllableSDK(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `workflow_id`                                                       | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `x_insight_workflow_format_version`                                 | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response

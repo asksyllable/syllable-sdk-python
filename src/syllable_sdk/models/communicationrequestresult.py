@@ -14,7 +14,7 @@ from syllable_sdk.types import (
     serialize_with_info,
 )
 from syllable_sdk.types.basemodel import current_filtered_dump
-from typing import Dict, Optional, Union
+from typing import Dict, List, Optional, Union
 from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
@@ -22,6 +22,14 @@ InsightsTypedDict = TypeAliasType("InsightsTypedDict", Union[str, int, float])
 
 
 Insights = TypeAliasType("Insights", Union[str, int, float])
+
+
+class WorkflowResultTypedDict(TypedDict):
+    pass
+
+
+class WorkflowResult(BaseModel):
+    pass
 
 
 class EnrichmentTypedDict(TypedDict):
@@ -56,9 +64,11 @@ class CommunicationRequestResultTypedDict(TypedDict):
     channel_manager_status: NotRequired[Nullable[str]]
     r"""Status of request in channel manager (see ChannelManagerStatus)"""
     insights_status: NotRequired[Nullable[str]]
-    r"""Status of session in insight workflow"""
+    r"""In legacy result format, status is derived only from legacy executions. In workflow result format, conditional sessions aggregate the latest execution of each workflow with precedence PROCESSING, PENDING, FAILED, COMPLETED. Executions whose conditions skipped all steps remain COMPLETED."""
     insights: NotRequired[Nullable[Dict[str, InsightsTypedDict]]]
-    r"""Insights from call"""
+    r"""Legacy flat stored insights from the call; these may remain after a workflow upgrade and do not represent current version 2 execution outcomes. In workflow result format, empty for sessions with conditional execution history; use workflow_results for scoped step outcomes and typed values."""
+    workflow_results: NotRequired[List[WorkflowResultTypedDict]]
+    r"""Populated only in workflow result format for sessions with conditional execution history. Latest execution of each workflow for this session, including workflow_id, execution_id, format_version, status, and ordered step_outcomes. Version 2 step outcomes preserve succeeded, skipped, failed, pending, and not_reached states; only succeeded steps contain results. Legacy executions may have no step_outcomes."""
     line_type: NotRequired[Nullable[str]]
     r"""Raw Twilio Lookup v2 line type of the target number (e.g. 'mobile', 'landline', 'fixedVoip', 'tollFree'); resolved at ingestion. 'unknown' means Twilio answered but could not determine the line type; None means no lookup data at all. See ALL_LINE_TYPES in lib/twilio/line_type_lookup.py for the full vocabulary."""
     enrichment: NotRequired[Nullable[EnrichmentTypedDict]]
@@ -100,10 +110,13 @@ class CommunicationRequestResult(BaseModel):
     r"""Status of request in channel manager (see ChannelManagerStatus)"""
 
     insights_status: OptionalNullable[str] = UNSET
-    r"""Status of session in insight workflow"""
+    r"""In legacy result format, status is derived only from legacy executions. In workflow result format, conditional sessions aggregate the latest execution of each workflow with precedence PROCESSING, PENDING, FAILED, COMPLETED. Executions whose conditions skipped all steps remain COMPLETED."""
 
     insights: OptionalNullable[Dict[str, Insights]] = UNSET
-    r"""Insights from call"""
+    r"""Legacy flat stored insights from the call; these may remain after a workflow upgrade and do not represent current version 2 execution outcomes. In workflow result format, empty for sessions with conditional execution history; use workflow_results for scoped step outcomes and typed values."""
+
+    workflow_results: Optional[List[WorkflowResult]] = None
+    r"""Populated only in workflow result format for sessions with conditional execution history. Latest execution of each workflow for this session, including workflow_id, execution_id, format_version, status, and ordered step_outcomes. Version 2 step outcomes preserve succeeded, skipped, failed, pending, and not_reached states; only succeeded steps contain results. Legacy executions may have no step_outcomes."""
 
     line_type: OptionalNullable[str] = UNSET
     r"""Raw Twilio Lookup v2 line type of the target number (e.g. 'mobile', 'landline', 'fixedVoip', 'tollFree'); resolved at ingestion. 'unknown' means Twilio answered but could not determine the line type; None means no lookup data at all. See ALL_LINE_TYPES in lib/twilio/line_type_lookup.py for the full vocabulary."""
@@ -128,6 +141,7 @@ class CommunicationRequestResult(BaseModel):
                 "channel_manager_status",
                 "insights_status",
                 "insights",
+                "workflow_results",
                 "line_type",
                 "enrichment",
             ]

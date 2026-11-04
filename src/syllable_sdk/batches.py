@@ -1261,6 +1261,7 @@ class Batches(BaseSDK):
         reference_id: OptionalNullable[str] = UNSET,
         status: OptionalNullable[str] = UNSET,
         insights_status: OptionalNullable[str] = UNSET,
+        result_format: Optional[models.InsightResultFormat] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1272,6 +1273,7 @@ class Batches(BaseSDK):
         :param reference_id:
         :param status:
         :param insights_status:
+        :param result_format: Legacy preserves flat stored insights and legacy execution statuses. Choose workflow for current conditional outcomes in workflow_results; legacy cached values are never substituted for conditional steps.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1292,6 +1294,7 @@ class Batches(BaseSDK):
             reference_id=reference_id,
             status=status,
             insights_status=insights_status,
+            result_format=result_format,
         )
 
         req = self._build_request(
@@ -1362,6 +1365,7 @@ class Batches(BaseSDK):
         reference_id: OptionalNullable[str] = UNSET,
         status: OptionalNullable[str] = UNSET,
         insights_status: OptionalNullable[str] = UNSET,
+        result_format: Optional[models.InsightResultFormat] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1373,6 +1377,7 @@ class Batches(BaseSDK):
         :param reference_id:
         :param status:
         :param insights_status:
+        :param result_format: Legacy preserves flat stored insights and legacy execution statuses. Choose workflow for current conditional outcomes in workflow_results; legacy cached values are never substituted for conditional steps.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1393,6 +1398,7 @@ class Batches(BaseSDK):
             reference_id=reference_id,
             status=status,
             insights_status=insights_status,
+            result_format=result_format,
         )
 
         req = self._build_request_async(

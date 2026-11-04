@@ -6,14 +6,112 @@ Operations related to insights results. An insight is a tool that processes     
 
 ### Available Operations
 
+* [insights_file_test_transcript](#insights_file_test_transcript) - Uploaded File Tester Transcript
+* [results](#results) - Current Insight Workflow Results
 * [list](#list) - Insights List
+
+## insights_file_test_transcript
+
+Read the stored transcript currently selected for an uploaded-file LLM test.
+
+This does not execute a tool or return a historical test-input snapshot. Reads
+remain available when conditional workflow admission is disabled.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="insights_file_test_transcript" method="get" path="/api/v1/insights/files/{file_id}/test-transcript" -->
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
+) as ss_client:
+
+    res = ss_client.insights.insights_file_test_transcript(file_id=922317)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `file_id`                                                           | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.InsightFileTestTranscript](../../models/insightfiletesttranscript.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## results
+
+Latest execution per workflow/input, with typed step outcomes and explicit absence.
+
+Use this contract for conditional workflows; legacy /insights flattened values
+cannot represent skipped steps, repeated tools or multiple workflow scopes.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="insights_current_workflow_results" method="get" path="/api/v1/insights/workflow-results" -->
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
+) as ss_client:
+
+    res = ss_client.insights.results(limit=100, offset=0)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `session_id`                                                        | *OptionalNullable[int]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `upload_file_id`                                                    | *OptionalNullable[int]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `workflow_id`                                                       | *OptionalNullable[int]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `offset`                                                            | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[List[models.InsightsCurrentWorkflowResultsResponse]](../../models/.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## list
 
-List evaluated insights, with at most 1,000 items and an offset (page * limit) up to 100,000.
+List stored legacy insight values, with at most 1,000 items and an offset up to 100,000.
 
 Filter by start_datetime (inclusive) and end_datetime (exclusive) on insight creation time
-to narrow results. Use order_by_direction=desc to read the newest insights first.
+to narrow results. Use order_by_direction=desc to read the newest stored values first.
+These are shared legacy cache values, not current conditional workflow outcomes. Conditional
+runs do not replace them. An explicit version 2 workflow filter returns 409; use
+/insights/workflow-results with a workflow, session, or file selector for execution-scoped
+results.
 
 ### Example Usage
 

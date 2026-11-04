@@ -378,6 +378,8 @@ with SyllableSDK(
 
 ### [Insights](docs/sdks/insightssdk/README.md)
 
+* [insights_file_test_transcript](docs/sdks/insightssdk/README.md#insights_file_test_transcript) - Uploaded File Tester Transcript
+* [results](docs/sdks/insightssdk/README.md#results) - Current Insight Workflow Results
 * [list](docs/sdks/insightssdk/README.md#list) - Insights List
 
 #### [Insights.Folders](docs/sdks/folders/README.md)
@@ -405,6 +407,7 @@ with SyllableSDK(
 
 * [list](docs/sdks/workflows/README.md#list) - Insight Workflow List
 * [create](docs/sdks/workflows/README.md#create) - Create Insight Workflow
+* [insights_workflow_condition_catalog](docs/sdks/workflows/README.md#insights_workflow_condition_catalog) - Insight Workflow Condition Catalog
 * [get_by_id](docs/sdks/workflows/README.md#get_by_id) - Get Insight Workflow By Id
 * [update](docs/sdks/workflows/README.md#update) - Update Insights Workflow
 * [delete](docs/sdks/workflows/README.md#delete) - Delete Insights Workflow
@@ -724,13 +727,13 @@ with SyllableSDK(
 
 
 **Inherit from [`SyllableSDKError`](./src/syllable_sdk/errors/syllablesdkerror.py)**:
-* [`CustomMessageErrorResponse`](./src/syllable_sdk/errors/custommessageerrorresponse.py): Applicable to 4 of 202 methods.*
-* [`PromptReasoningErrorResponse`](./src/syllable_sdk/errors/promptreasoningerrorresponse.py): Unprocessable Entity. Status code `422`. Applicable to 2 of 202 methods.*
-* [`PromptSchemaValidationErrorResponse`](./src/syllable_sdk/errors/promptschemavalidationerrorresponse.py): Unprocessable Entity. Status code `422`. Applicable to 2 of 202 methods.*
-* [`SessionLabelsListBadRequestError`](./src/syllable_sdk/errors/sessionlabelslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 202 methods.*
-* [`SessionsListBadRequestError`](./src/syllable_sdk/errors/sessionslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 202 methods.*
-* [`DirectoryMemberListBadRequestError`](./src/syllable_sdk/errors/directorymemberlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 202 methods.*
-* [`OutboundCampaignListBadRequestError`](./src/syllable_sdk/errors/outboundcampaignlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 202 methods.*
+* [`CustomMessageErrorResponse`](./src/syllable_sdk/errors/custommessageerrorresponse.py): Applicable to 4 of 205 methods.*
+* [`PromptReasoningErrorResponse`](./src/syllable_sdk/errors/promptreasoningerrorresponse.py): Unprocessable Entity. Status code `422`. Applicable to 2 of 205 methods.*
+* [`PromptSchemaValidationErrorResponse`](./src/syllable_sdk/errors/promptschemavalidationerrorresponse.py): Unprocessable Entity. Status code `422`. Applicable to 2 of 205 methods.*
+* [`SessionLabelsListBadRequestError`](./src/syllable_sdk/errors/sessionlabelslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 205 methods.*
+* [`SessionsListBadRequestError`](./src/syllable_sdk/errors/sessionslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 205 methods.*
+* [`DirectoryMemberListBadRequestError`](./src/syllable_sdk/errors/directorymemberlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 205 methods.*
+* [`OutboundCampaignListBadRequestError`](./src/syllable_sdk/errors/outboundcampaignlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 205 methods.*
 * [`ResponseValidationError`](./src/syllable_sdk/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>

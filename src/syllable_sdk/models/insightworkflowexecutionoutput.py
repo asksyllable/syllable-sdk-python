@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from datetime import datetime
+from enum import Enum
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -13,7 +14,21 @@ from syllable_sdk.types import (
     serialize_with_info,
 )
 from syllable_sdk.types.basemodel import current_filtered_dump
+from typing import List, Optional
 from typing_extensions import NotRequired, TypedDict
+
+
+class InsightWorkflowExecutionOutputFormatVersion(int, Enum):
+    ONE = 1
+    TWO = 2
+
+
+class InsightWorkflowExecutionOutputStepOutcomeTypedDict(TypedDict):
+    pass
+
+
+class InsightWorkflowExecutionOutputStepOutcome(BaseModel):
+    pass
 
 
 class InsightWorkflowExecutionOutputTypedDict(TypedDict):
@@ -31,6 +46,9 @@ class InsightWorkflowExecutionOutputTypedDict(TypedDict):
     r"""Number of times this execution has been retried"""
     created_at: datetime
     r"""Timestamp at which the execution row was created (i.e. when the work was queued)"""
+    format_version: NotRequired[InsightWorkflowExecutionOutputFormatVersion]
+    step_outcomes: NotRequired[List[InsightWorkflowExecutionOutputStepOutcomeTypedDict]]
+    r"""Execution outcomes in stable workflow step order"""
     session_id: NotRequired[Nullable[int]]
     r"""Session ID processed by this execution, if applicable"""
     upload_file_id: NotRequired[Nullable[int]]
@@ -64,6 +82,13 @@ class InsightWorkflowExecutionOutput(BaseModel):
     created_at: datetime
     r"""Timestamp at which the execution row was created (i.e. when the work was queued)"""
 
+    format_version: Optional[InsightWorkflowExecutionOutputFormatVersion] = (
+        InsightWorkflowExecutionOutputFormatVersion.ONE
+    )
+
+    step_outcomes: Optional[List[InsightWorkflowExecutionOutputStepOutcome]] = None
+    r"""Execution outcomes in stable workflow step order"""
+
     session_id: OptionalNullable[int] = UNSET
     r"""Session ID processed by this execution, if applicable"""
 
@@ -86,6 +111,8 @@ class InsightWorkflowExecutionOutput(BaseModel):
     def serialize_model(self, handler):
         optional_fields = set(
             [
+                "format_version",
+                "step_outcomes",
                 "session_id",
                 "upload_file_id",
                 "error_message",

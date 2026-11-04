@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from datetime import datetime
+from enum import Enum
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -15,6 +16,19 @@ from syllable_sdk.types import (
 from syllable_sdk.types.basemodel import current_filtered_dump
 from typing import Any, Dict, List, Optional
 from typing_extensions import NotRequired, TypedDict
+
+
+class WorkflowSessionRowFormatVersion(int, Enum):
+    ONE = 1
+    TWO = 2
+
+
+class WorkflowSessionRowStepOutcomeTypedDict(TypedDict):
+    pass
+
+
+class WorkflowSessionRowStepOutcome(BaseModel):
+    pass
 
 
 class WorkflowSessionRowTypedDict(TypedDict):
@@ -31,6 +45,11 @@ class WorkflowSessionRowTypedDict(TypedDict):
     r"""When the session was queued for this workflow"""
     status: str
     r"""Execution status of this session under the workflow"""
+    execution_id: NotRequired[Nullable[int]]
+    r"""Workflow execution ID"""
+    format_version: NotRequired[WorkflowSessionRowFormatVersion]
+    step_outcomes: NotRequired[List[WorkflowSessionRowStepOutcomeTypedDict]]
+    r"""Execution outcomes in stable workflow step order"""
     analyzed_at: NotRequired[Nullable[datetime]]
     r"""When the workflow execution started processing this session; null while the row is still PENDING"""
     error_message: NotRequired[Nullable[str]]
@@ -56,6 +75,16 @@ class WorkflowSessionRow(BaseModel):
     status: str
     r"""Execution status of this session under the workflow"""
 
+    execution_id: OptionalNullable[int] = UNSET
+    r"""Workflow execution ID"""
+
+    format_version: Optional[WorkflowSessionRowFormatVersion] = (
+        WorkflowSessionRowFormatVersion.ONE
+    )
+
+    step_outcomes: Optional[List[WorkflowSessionRowStepOutcome]] = None
+    r"""Execution outcomes in stable workflow step order"""
+
     analyzed_at: OptionalNullable[datetime] = UNSET
     r"""When the workflow execution started processing this session; null while the row is still PENDING"""
 
@@ -70,8 +99,17 @@ class WorkflowSessionRow(BaseModel):
         return serialize_with_info(self.serialize_model, handler, info)
 
     def serialize_model(self, handler):
-        optional_fields = set(["analyzed_at", "error_message", "results"])
-        nullable_fields = set(["analyzed_at", "error_message"])
+        optional_fields = set(
+            [
+                "execution_id",
+                "format_version",
+                "step_outcomes",
+                "analyzed_at",
+                "error_message",
+                "results",
+            ]
+        )
+        nullable_fields = set(["execution_id", "analyzed_at", "error_message"])
         exclude_none = current_exclude_none()
         skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)

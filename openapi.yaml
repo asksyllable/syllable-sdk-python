@@ -2355,12 +2355,111 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HTTPValidationError"
+  /api/v1/insights/files/{file_id}/test-transcript:
+    get:
+      tags:
+        - "insights"
+      summary: "Uploaded File Tester Transcript"
+      description: "Read the stored transcript currently selected for an uploaded-file LLM test.\n\nThis does not execute a tool or return a historical test-input snapshot. Reads\nremain available when conditional workflow admission is disabled."
+      operationId: "insights_file_test_transcript"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "file_id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            exclusiveMinimum: 0
+            title: "File Id"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InsightFileTestTranscript"
+        "404":
+          description: "Upload file not found"
+        "422":
+          description: "Validation Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+  /api/v1/insights/workflow-results:
+    get:
+      tags:
+        - "insights"
+      summary: "Current Insight Workflow Results"
+      description: "Latest execution per workflow/input, with typed step outcomes and explicit absence.\n\nUse this contract for conditional workflows; legacy /insights flattened values\ncannot represent skipped steps, repeated tools or multiple workflow scopes."
+      operationId: "insights_current_workflow_results"
+      security:
+        - APIKeyHeader: []
+      parameters:
+        - name: "session_id"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - type: "integer"
+              - type: "null"
+            title: "Session Id"
+        - name: "upload_file_id"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - type: "integer"
+              - type: "null"
+            title: "Upload File Id"
+        - name: "workflow_id"
+          in: "query"
+          required: false
+          schema:
+            anyOf:
+              - type: "integer"
+              - type: "null"
+            title: "Workflow Id"
+        - name: "limit"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            maximum: 1000
+            minimum: 1
+            default: 100
+            title: "Limit"
+        - name: "offset"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            minimum: 0
+            default: 0
+            title: "Offset"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  type: "object"
+                title: "Response Insights Current Workflow Results"
+        "422":
+          description: "Validation Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1/insights/:
     get:
       tags:
         - "insights"
       summary: "Insights List"
-      description: "List evaluated insights, with at most 1,000 items and an offset (page * limit) up to 100,000.\n\nFilter by start_datetime (inclusive) and end_datetime (exclusive) on insight creation time\nto narrow results. Use order_by_direction=desc to read the newest insights first."
+      description: "List stored legacy insight values, with at most 1,000 items and an offset up to 100,000.\n\nFilter by start_datetime (inclusive) and end_datetime (exclusive) on insight creation time\nto narrow results. Use order_by_direction=desc to read the newest stored values first.\nThese are shared legacy cache values, not current conditional workflow outcomes. Conditional\nruns do not replace them. An explicit version 2 workflow filter returns 409; use\n/insights/workflow-results with a workflow, session, or file selector for execution-scoped\nresults."
       operationId: "insights_list"
       security:
         - APIKeyHeader: []
@@ -3177,6 +3276,22 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HTTPValidationError"
+  /api/v1/insights/workflows/condition-catalog:
+    get:
+      tags:
+        - "insights.workflows"
+      summary: "Insight Workflow Condition Catalog"
+      operationId: "insights_workflow_condition_catalog"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                title: "Response Insights Workflow Condition Catalog"
+      security:
+        - APIKeyHeader: []
   /api/v1/insights/workflows/{workflow_id}:
     get:
       tags:
@@ -3221,6 +3336,13 @@ paths:
           schema:
             type: "integer"
             title: "Workflow Id"
+        - name: "deactivate"
+          in: "query"
+          required: false
+          schema:
+            type: "boolean"
+            default: false
+            title: "Deactivate"
       requestBody:
         required: true
         content:
@@ -3562,6 +3684,14 @@ paths:
               - "2024-01-01T00:00:00Z"
             title: "End Datetime"
           description: "The end datetime for filtering results"
+        - name: "X-Insight-Workflow-Format-Version"
+          in: "header"
+          required: false
+          schema:
+            anyOf:
+              - type: "integer"
+              - type: "null"
+            title: "X-Insight-Workflow-Format-Version"
       responses:
         "200":
           description: "Successful Response"
@@ -3697,6 +3827,14 @@ paths:
               - "2024-01-01T00:00:00Z"
             title: "End Datetime"
           description: "The end datetime for filtering results"
+        - name: "X-Insight-Workflow-Format-Version"
+          in: "header"
+          required: false
+          schema:
+            anyOf:
+              - type: "integer"
+              - type: "null"
+            title: "X-Insight-Workflow-Format-Version"
       responses:
         "200":
           description: "Successful Response"
@@ -3750,6 +3888,14 @@ paths:
               - "2026-08-28T00:00:00Z"
             title: "End Datetime"
           description: "ISO 8601 end datetime (exclusive) for created_at filtering"
+        - name: "X-Insight-Workflow-Format-Version"
+          in: "header"
+          required: false
+          schema:
+            anyOf:
+              - type: "integer"
+              - type: "null"
+            title: "X-Insight-Workflow-Format-Version"
       responses:
         "200":
           description: "Successful Response"
@@ -3779,6 +3925,13 @@ paths:
           schema:
             type: "integer"
             title: "Workflow Id"
+        - name: "X-Insight-Workflow-Format-Version"
+          in: "header"
+          required: false
+          schema:
+            type: "integer"
+            default: 1
+            title: "X-Insight-Workflow-Format-Version"
       responses:
         "200":
           description: "Successful Response"
@@ -8204,6 +8357,14 @@ paths:
               - type: "string"
               - type: "null"
             title: "Insights Status"
+        - name: "result_format"
+          in: "query"
+          required: false
+          schema:
+            $ref: "#/components/schemas/InsightResultFormat"
+            description: "Legacy preserves flat stored insights and legacy execution statuses. Choose workflow for current conditional outcomes in workflow_results; legacy cached values are never substituted for conditional steps."
+            default: "legacy"
+          description: "Legacy preserves flat stored insights and legacy execution statuses. Choose workflow for current conditional outcomes in workflow_results; legacy cached values are never substituted for conditional steps."
       responses:
         "200":
           description: "Successful Response"
@@ -12402,7 +12563,7 @@ components:
             - type: "string"
             - type: "null"
           title: "Insights Status"
-          description: "Status of session in insight workflow"
+          description: "In legacy result format, status is derived only from legacy executions. In workflow result format, conditional sessions aggregate the latest execution of each workflow with precedence PROCESSING, PENDING, FAILED, COMPLETED. Executions whose conditions skipped all steps remain COMPLETED."
           examples:
             - "PENDING"
             - "PROCESSING"
@@ -12418,10 +12579,16 @@ components:
               type: "object"
             - type: "null"
           title: "Insights"
-          description: "Insights from call"
+          description: "Legacy flat stored insights from the call; these may remain after a workflow upgrade and do not represent current version 2 execution outcomes. In workflow result format, empty for sessions with conditional execution history; use workflow_results for scoped step outcomes and typed values."
           examples:
             - rating: "Good"
               summary: "The customer service agent successfully assisted the caller with their inquiry and the call ended positively."
+        workflow_results:
+          items:
+            type: "object"
+          type: "array"
+          title: "Workflow Results"
+          description: "Populated only in workflow result format for sessions with conditional execution history. Latest execution of each workflow for this session, including workflow_id, execution_id, format_version, status, and ordered step_outcomes. Version 2 step outcomes preserve succeeded, skipped, failed, pending, and not_reached states; only succeeded steps contain results. Legacy executions may have no step_outcomes."
         line_type:
           anyOf:
             - type: "string"
@@ -15921,6 +16088,125 @@ components:
       required:
         - "name"
       title: "InputParameter"
+    InsightConditionRule:
+      properties:
+        rule_id:
+          type: "string"
+          maxLength: 128
+          minLength: 1
+          pattern: "^[A-Za-z0-9_-]+$"
+          title: "Rule Id"
+        source:
+          oneOf:
+            - $ref: "#/components/schemas/SessionConditionSource"
+            - $ref: "#/components/schemas/TranscriptConditionSource"
+            - $ref: "#/components/schemas/ToolConditionSource"
+            - $ref: "#/components/schemas/InsightConditionSource"
+          title: "Source"
+          discriminator:
+            propertyName: "kind"
+            mapping:
+              insight: "#/components/schemas/InsightConditionSource"
+              session: "#/components/schemas/SessionConditionSource"
+              tool: "#/components/schemas/ToolConditionSource"
+              transcript: "#/components/schemas/TranscriptConditionSource"
+        field:
+          anyOf:
+            - type: "string"
+              maxLength: 64
+            - type: "null"
+          title: "Field"
+        operator:
+          anyOf:
+            - type: "string"
+              enum:
+                - "eq"
+                - "neq"
+                - "in"
+                - "not_in"
+                - "gte"
+                - "lte"
+                - "between"
+                - "contains"
+                - "not_contains"
+                - "is_empty"
+                - "is_not_empty"
+            - type: "null"
+          title: "Operator"
+        value:
+          title: "Value"
+      additionalProperties: false
+      type: "object"
+      required:
+        - "rule_id"
+        - "source"
+      title: "InsightConditionRule"
+    InsightConditionSource:
+      properties:
+        kind:
+          type: "string"
+          const: "insight"
+          title: "Kind"
+        step_id:
+          type: "string"
+          maxLength: 128
+          minLength: 1
+          pattern: "^[A-Za-z0-9_-]+$"
+          title: "Step Id"
+        key:
+          type: "string"
+          maxLength: 512
+          minLength: 1
+          title: "Key"
+      additionalProperties: false
+      type: "object"
+      required:
+        - "kind"
+        - "step_id"
+        - "key"
+      title: "InsightConditionSource"
+    InsightFileTestTranscript:
+      properties:
+        transcription:
+          items:
+            type: "object"
+          type: "array"
+          title: "Transcription"
+        unavailable_reason:
+          anyOf:
+            - type: "string"
+              enum:
+                - "conditional_transcript_unavailable"
+                - "no_stored_transcript"
+            - type: "null"
+          title: "Unavailable Reason"
+      type: "object"
+      title: "InsightFileTestTranscript"
+      description: "Current stored transcript selected for uploaded-file LLM testing and preview."
+    InsightResultFormat:
+      type: "string"
+      enum:
+        - "legacy"
+        - "workflow"
+      title: "InsightResultFormat"
+    InsightToolConditionGroup:
+      properties:
+        match:
+          type: "string"
+          enum:
+            - "all"
+            - "any"
+          title: "Match"
+          default: "all"
+        rules:
+          items:
+            $ref: "#/components/schemas/InsightConditionRule"
+          type: "array"
+          maxItems: 50
+          title: "Rules"
+      additionalProperties: false
+      type: "object"
+      title: "InsightToolConditionGroup"
     InsightToolDefinition:
       properties:
         id:
@@ -16372,6 +16658,19 @@ components:
       description: "Response model for an insight workflow."
     InsightWorkflowExecutionOutput:
       properties:
+        format_version:
+          type: "integer"
+          enum:
+            - 1
+            - 2
+          title: "Format Version"
+          default: 1
+        step_outcomes:
+          items:
+            type: "object"
+          type: "array"
+          title: "Step Outcomes"
+          description: "Execution outcomes in stable workflow step order"
         id:
           type: "integer"
           title: "Id"
@@ -16506,6 +16805,11 @@ components:
           default: 0
           examples:
             - 3
+        conditions_not_met:
+          type: "integer"
+          title: "Conditions Not Met"
+          description: "Accepted steps skipped because conditions were not met; each step counts once"
+          default: 0
         total:
           type: "integer"
           title: "Total"
@@ -16518,6 +16822,30 @@ components:
       description: "How many of a workflow's executions are in each status, optionally within a\ncreated_at date range. Counts cover all matching rows, not just one page."
     InsightWorkflowInput:
       properties:
+        format_version:
+          type: "integer"
+          enum:
+            - 1
+            - 2
+          title: "Format Version"
+          description: "Workflow configuration format version"
+          default: 1
+        revision:
+          anyOf:
+            - type: "integer"
+              exclusiveMinimum: 0.0
+            - type: "null"
+          title: "Revision"
+          description: "Expected saved revision when updating a workflow"
+        steps:
+          anyOf:
+            - items:
+                $ref: "#/components/schemas/InsightWorkflowStep"
+              type: "array"
+              maxItems: 100
+            - type: "null"
+          title: "Steps"
+          description: "Ordered steps with stable identities for version 2 workflows"
         name:
           type: "string"
           title: "Name"
@@ -16579,6 +16907,30 @@ components:
       description: "Request model to create/update an insight workflow."
     InsightWorkflowOutput:
       properties:
+        format_version:
+          type: "integer"
+          enum:
+            - 1
+            - 2
+          title: "Format Version"
+          description: "Workflow configuration format version"
+          default: 1
+        revision:
+          anyOf:
+            - type: "integer"
+              exclusiveMinimum: 0.0
+            - type: "null"
+          title: "Revision"
+          description: "Expected saved revision when updating a workflow"
+        steps:
+          anyOf:
+            - items:
+                $ref: "#/components/schemas/InsightWorkflowStep"
+              type: "array"
+              maxItems: 100
+            - type: "null"
+          title: "Steps"
+          description: "Ordered steps with stable identities for version 2 workflows"
         name:
           type: "string"
           title: "Name"
@@ -16725,6 +17077,30 @@ components:
       title: "InsightWorkflowProperties"
     InsightWorkflowResponse:
       properties:
+        format_version:
+          type: "integer"
+          enum:
+            - 1
+            - 2
+          title: "Format Version"
+          description: "Workflow configuration format version"
+          default: 1
+        revision:
+          anyOf:
+            - type: "integer"
+              exclusiveMinimum: 0.0
+            - type: "null"
+          title: "Revision"
+          description: "Expected saved revision when updating a workflow"
+        steps:
+          anyOf:
+            - items:
+                $ref: "#/components/schemas/InsightWorkflowStep"
+              type: "array"
+              maxItems: 100
+            - type: "null"
+          title: "Steps"
+          description: "Ordered steps with stable identities for version 2 workflows"
         name:
           type: "string"
           title: "Name"
@@ -16856,6 +17232,36 @@ components:
         - "last_updated_by"
       title: "InsightWorkflowResponse"
       description: "Workflow read response with lifecycle findings on every configured tool."
+    InsightWorkflowStep:
+      properties:
+        step_id:
+          type: "string"
+          maxLength: 128
+          minLength: 1
+          pattern: "^[A-Za-z0-9_-]+$"
+          title: "Step Id"
+        insight_tool_id:
+          type: "integer"
+          exclusiveMinimum: 0.0
+          title: "Insight Tool Id"
+        conditions:
+          anyOf:
+            - $ref: "#/components/schemas/InsightToolConditionGroup"
+            - type: "null"
+        transcript_source_step_id:
+          anyOf:
+            - type: "string"
+              maxLength: 128
+              minLength: 1
+              pattern: "^[A-Za-z0-9_-]+$"
+            - type: "null"
+          title: "Transcript Source Step Id"
+      additionalProperties: false
+      type: "object"
+      required:
+        - "step_id"
+        - "insight_tool_id"
+      title: "InsightWorkflowStep"
     InsightsFolder:
       properties:
         name:
@@ -21960,6 +22366,17 @@ components:
         - "timestamp"
       title: "SessionAction"
       description: "Information about a given tool invocation as part of a session."
+    SessionConditionSource:
+      properties:
+        kind:
+          type: "string"
+          const: "session"
+          title: "Kind"
+      additionalProperties: false
+      type: "object"
+      required:
+        - "kind"
+      title: "SessionConditionSource"
     SessionData:
       properties:
         session_id:
@@ -23451,6 +23868,24 @@ components:
         - "phrases"
       title: "ToolBridgePhraseConfig"
       description: "Per-tool bridge phrase override entry."
+    ToolConditionSource:
+      properties:
+        kind:
+          type: "string"
+          const: "tool"
+          title: "Kind"
+        tool_name:
+          type: "string"
+          maxLength: 255
+          minLength: 1
+          pattern: "\\S"
+          title: "Tool Name"
+      additionalProperties: false
+      type: "object"
+      required:
+        - "kind"
+        - "tool_name"
+      title: "ToolConditionSource"
     ToolCreateRequest:
       properties:
         name:
@@ -24250,6 +24685,25 @@ components:
         - "id"
       title: "ToolUpdateRequest"
       description: "Request model to update an existing tool."
+    TranscriptConditionSource:
+      properties:
+        kind:
+          type: "string"
+          const: "transcript"
+          title: "Kind"
+        step_id:
+          anyOf:
+            - type: "string"
+              maxLength: 128
+              minLength: 1
+              pattern: "^[A-Za-z0-9_-]+$"
+            - type: "null"
+          title: "Step Id"
+      additionalProperties: false
+      type: "object"
+      required:
+        - "kind"
+      title: "TranscriptConditionSource"
     TranscriptConfidence:
       properties:
         provider:
@@ -25216,6 +25670,25 @@ components:
       description: "Voicemail detection config stored on outbound_campaign.voicemail_detection.\n\n`mode` selects the (mutually-exclusive) strategy; the remaining fields are detection timeouts.\nUnknown keys are preserved (`extra='allow'`) so the schema stays backwards compatible with blobs\nwritten before fields were added. See ZOO-7818."
     WorkflowFileRow:
       properties:
+        execution_id:
+          anyOf:
+            - type: "integer"
+            - type: "null"
+          title: "Execution Id"
+          description: "Workflow execution ID"
+        format_version:
+          type: "integer"
+          enum:
+            - 1
+            - 2
+          title: "Format Version"
+          default: 1
+        step_outcomes:
+          items:
+            type: "object"
+          type: "array"
+          title: "Step Outcomes"
+          description: "Execution outcomes in stable workflow step order"
         upload_file_id:
           type: "integer"
           title: "Upload File Id"
@@ -25289,6 +25762,25 @@ components:
       description: "One uploaded file under a workflow: its execution status plus the insight\nresults, grouped by tool name and then by ``insight_key`` in the ``results``\ndict.\n\nA file that is still pending, processing, or failed has an empty ``results``\ndict; ``status`` and ``error_message`` say why."
     WorkflowSessionRow:
       properties:
+        execution_id:
+          anyOf:
+            - type: "integer"
+            - type: "null"
+          title: "Execution Id"
+          description: "Workflow execution ID"
+        format_version:
+          type: "integer"
+          enum:
+            - 1
+            - 2
+          title: "Format Version"
+          default: 1
+        step_outcomes:
+          items:
+            type: "object"
+          type: "array"
+          title: "Step Outcomes"
+          description: "Execution outcomes in stable workflow step order"
         session_id:
           type: "integer"
           title: "Session Id"

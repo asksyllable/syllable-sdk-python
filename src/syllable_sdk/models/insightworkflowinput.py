@@ -5,7 +5,9 @@ from .insightworkflowcondition import (
     InsightWorkflowCondition,
     InsightWorkflowConditionTypedDict,
 )
+from .insightworkflowstep import InsightWorkflowStep, InsightWorkflowStepTypedDict
 from datetime import datetime
+from enum import Enum
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -17,8 +19,15 @@ from syllable_sdk.types import (
     serialize_with_info,
 )
 from syllable_sdk.types.basemodel import current_filtered_dump
-from typing import List
+from typing import List, Optional
 from typing_extensions import NotRequired, TypedDict
+
+
+class InsightWorkflowInputFormatVersion(int, Enum):
+    r"""Workflow configuration format version"""
+
+    ONE = 1
+    TWO = 2
 
 
 class InsightWorkflowInputTypedDict(TypedDict):
@@ -34,6 +43,12 @@ class InsightWorkflowInputTypedDict(TypedDict):
     r"""Ordered list of IDs of tool configurations to be executed in the workflow"""
     conditions: InsightWorkflowConditionTypedDict
     r"""Model for the conditions that trigger an insight workflow."""
+    format_version: NotRequired[InsightWorkflowInputFormatVersion]
+    r"""Workflow configuration format version"""
+    revision: NotRequired[Nullable[int]]
+    r"""Expected saved revision when updating a workflow"""
+    steps: NotRequired[Nullable[List[InsightWorkflowStepTypedDict]]]
+    r"""Ordered steps with stable identities for version 2 workflows"""
     start_datetime: NotRequired[Nullable[datetime]]
     r"""Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only"""
     end_datetime: NotRequired[Nullable[datetime]]
@@ -58,6 +73,17 @@ class InsightWorkflowInput(BaseModel):
     conditions: InsightWorkflowCondition
     r"""Model for the conditions that trigger an insight workflow."""
 
+    format_version: Optional[InsightWorkflowInputFormatVersion] = (
+        InsightWorkflowInputFormatVersion.ONE
+    )
+    r"""Workflow configuration format version"""
+
+    revision: OptionalNullable[int] = UNSET
+    r"""Expected saved revision when updating a workflow"""
+
+    steps: OptionalNullable[List[InsightWorkflowStep]] = UNSET
+    r"""Ordered steps with stable identities for version 2 workflows"""
+
     start_datetime: OptionalNullable[datetime] = UNSET
     r"""Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only"""
 
@@ -69,8 +95,10 @@ class InsightWorkflowInput(BaseModel):
         return serialize_with_info(self.serialize_model, handler, info)
 
     def serialize_model(self, handler):
-        optional_fields = set(["start_datetime", "end_datetime"])
-        nullable_fields = set(["start_datetime", "end_datetime"])
+        optional_fields = set(
+            ["format_version", "revision", "steps", "start_datetime", "end_datetime"]
+        )
+        nullable_fields = set(["revision", "steps", "start_datetime", "end_datetime"])
         exclude_none = current_exclude_none()
         skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)
