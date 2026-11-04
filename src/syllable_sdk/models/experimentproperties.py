@@ -16,3 +16,5 @@ class ExperimentProperties(str, Enum):
     UPDATED_AT = "updated_at"
     STARTED_AT = "started_at"
     STOPPED_AT = "stopped_at"
+    SCHEDULED_START_TIME = "scheduled_start_time"
+    SCHEDULED_END_TIME = "scheduled_end_time"

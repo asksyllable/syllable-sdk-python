@@ -1853,7 +1853,7 @@ paths:
       tags:
         - "experiments"
       summary: "Get Experiment By Id"
-      description: "Get an experiment by its ID"
+      description: "Get an experiment by its ID."
       operationId: "experiments_get_by_id"
       security:
         - APIKeyHeader: []
@@ -1883,7 +1883,7 @@ paths:
       tags:
         - "experiments"
       summary: "Update Experiment"
-      description: "Update a draft or paused experiment, or change only variant weights on a running experiment.\n\nSend the complete variant set and experiment details. While running, only weights may change;\nthe name, hypothesis, variant names, agents, and control flags must remain unchanged. Weights\nmust be positive whole-number percentages totaling 100. New sessions use the updated weights;\nsessions already in progress keep their assigned variant. Stopped experiments cannot be edited.\nEditing a paused experiment keeps it paused and preserves its original start time.\nThe control must use the agent linked to the channel target."
+      description: "Update a draft or paused experiment, or change variant weights and scheduled end while running.\n\nSend the complete variant set and experiment details. While running, only weights and the\nscheduled end may change; the name, hypothesis, variant names, agents, and control flags must\nremain unchanged. Weights must be positive whole-number percentages totaling 100.\nNew sessions use the updated weights;\nsessions already in progress keep their assigned variant. Stopped experiments cannot be edited.\nEditing a paused experiment keeps it paused and preserves its original start time.\nThe control must use the agent linked to the channel target.\n\nA draft cannot have a scheduled end without a scheduled start. After the experiment first\nstarts, only its scheduled end can change; manually started experiments may add one without\na scheduled start. A draft's scheduled start must be in the future, also when it is unchanged.\nA changed end must be in the future, and the end must follow the scheduled or actual start.\nOmit schedule fields to preserve them, or send null to clear an editable one."
       operationId: "experiments_update"
       security:
         - APIKeyHeader: []
@@ -15138,6 +15138,20 @@ components:
             - type: "null"
           title: "Description"
           description: "The hypothesis under test"
+        scheduled_start_time:
+          anyOf:
+            - type: "string"
+              format: "date-time"
+            - type: "null"
+          title: "Scheduled Start Time"
+          description: "When to start the experiment automatically. Include a timezone. Cannot be changed after the experiment has started."
+        scheduled_end_time:
+          anyOf:
+            - type: "string"
+              format: "date-time"
+            - type: "null"
+          title: "Scheduled End Time"
+          description: "When to stop the experiment automatically. Include a timezone. A draft needs a scheduled start before an end can be set. The end can be changed after the experiment starts."
         variants:
           items:
             $ref: "#/components/schemas/DaoExperimentVariantWrite"
@@ -15157,10 +15171,12 @@ components:
         - "variants"
         - "target_id"
       title: "ExperimentCreateRequest"
-      description: "Create an experiment with at least two distinct agents and one control variant.\n\nThe control must use the agent linked to the channel target.\nVariant weights are positive whole-number percentages that must total 100."
+      description: "Create an experiment with at least two distinct agents and one control variant.\n\nThe control must use the agent linked to the channel target.\nVariant weights are positive whole-number percentages that must total 100.\nAn optional scheduled start must be in the future. A scheduled end requires a scheduled start\nand must follow it. Include a timezone in both timestamps."
       examples:
         - description: "Test whether a shorter greeting reduces call duration."
           name: "Shorter greeting"
+          scheduled_end_time: "2027-01-17T09:00:00Z"
+          scheduled_start_time: "2027-01-10T09:00:00Z"
           target_id: 7
           variants:
             - agent_id: 10
@@ -15185,6 +15201,8 @@ components:
         - "updated_at"
         - "started_at"
         - "stopped_at"
+        - "scheduled_start_time"
+        - "scheduled_end_time"
       title: "ExperimentProperties"
     ExperimentResponse:
       properties:
@@ -15237,6 +15255,20 @@ components:
             - type: "null"
           title: "Stopped At"
           description: "When the experiment stopped"
+        scheduled_start_time:
+          anyOf:
+            - type: "string"
+              format: "date-time"
+            - type: "null"
+          title: "Scheduled Start Time"
+          description: "The planned automatic start"
+        scheduled_end_time:
+          anyOf:
+            - type: "string"
+              format: "date-time"
+            - type: "null"
+          title: "Scheduled End Time"
+          description: "The planned automatic stop"
         created_at:
           type: "string"
           format: "date-time"
@@ -15312,7 +15344,7 @@ components:
         - "paused"
         - "stopped"
       title: "ExperimentStatus"
-      description: "Status of an experiment.\n\nThe column is a varchar and not a database enum, so a new value here does not need a migration."
+      description: "Status of an experiment."
     ExperimentUpdateRequest:
       properties:
         name:
@@ -15327,6 +15359,20 @@ components:
             - type: "null"
           title: "Description"
           description: "The hypothesis under test"
+        scheduled_start_time:
+          anyOf:
+            - type: "string"
+              format: "date-time"
+            - type: "null"
+          title: "Scheduled Start Time"
+          description: "When to start the experiment automatically. Include a timezone. Cannot be changed after the experiment has started."
+        scheduled_end_time:
+          anyOf:
+            - type: "string"
+              format: "date-time"
+            - type: "null"
+          title: "Scheduled End Time"
+          description: "When to stop the experiment automatically. Include a timezone. A draft needs a scheduled start before an end can be set. The end can be changed after the experiment starts."
         variants:
           items:
             $ref: "#/components/schemas/DaoExperimentVariantWrite"
@@ -15339,7 +15385,7 @@ components:
         - "name"
         - "variants"
       title: "ExperimentUpdateRequest"
-      description: "Replace a draft or paused experiment's name, hypothesis, and complete variant set.\n\nInclude at least two variants that use distinct agents. Mark exactly one as the control, using\nthe agent linked to the channel target, and use positive whole-number weights that total 100.\n\nFor a running experiment, only the weights can be changed on an update.\nStopped experiments cannot be edited."
+      description: "Replace a draft or paused experiment's name, hypothesis, and complete variant set.\n\nInclude at least two variants that use distinct agents. Mark exactly one as the control, using\nthe agent linked to the channel target, and use positive whole-number weights that total 100.\n\nFor a running experiment, only the weights and scheduled end can be changed on an update.\nThe scheduled start of a draft must be in the future on every update. A draft that could not\nstart at its scheduled start loses both schedule times, so it must get a new scheduled start.\nAfter the experiment first starts, its scheduled start cannot change. An experiment started\nmanually may add a scheduled end without a scheduled start. A changed scheduled end must be\nin the future and after the scheduled or actual start. Omitted schedule fields keep their\ncurrent values; explicit null clears a schedule field where editing it is allowed.\nStopped experiments cannot be edited."
       examples:
         - description: "Test whether a shorter greeting reduces call duration."
           name: "Shorter greeting"

@@ -5,6 +5,7 @@ from .daoexperimentvariantwrite import (
     DaoExperimentVariantWrite,
     DaoExperimentVariantWriteTypedDict,
 )
+from datetime import datetime
 from pydantic import model_serializer
 from syllable_sdk.types import (
     BaseModel,
@@ -25,6 +26,8 @@ class ExperimentCreateRequestTypedDict(TypedDict):
 
     The control must use the agent linked to the channel target.
     Variant weights are positive whole-number percentages that must total 100.
+    An optional scheduled start must be in the future. A scheduled end requires a scheduled start
+    and must follow it. Include a timezone in both timestamps.
     """
 
     name: str
@@ -35,6 +38,10 @@ class ExperimentCreateRequestTypedDict(TypedDict):
     r"""The channel target being split"""
     description: NotRequired[Nullable[str]]
     r"""The hypothesis under test"""
+    scheduled_start_time: NotRequired[Nullable[datetime]]
+    r"""When to start the experiment automatically. Include a timezone. Cannot be changed after the experiment has started."""
+    scheduled_end_time: NotRequired[Nullable[datetime]]
+    r"""When to stop the experiment automatically. Include a timezone. A draft needs a scheduled start before an end can be set. The end can be changed after the experiment starts."""
 
 
 class ExperimentCreateRequest(BaseModel):
@@ -42,6 +49,8 @@ class ExperimentCreateRequest(BaseModel):
 
     The control must use the agent linked to the channel target.
     Variant weights are positive whole-number percentages that must total 100.
+    An optional scheduled start must be in the future. A scheduled end requires a scheduled start
+    and must follow it. Include a timezone in both timestamps.
     """
 
     name: str
@@ -56,13 +65,23 @@ class ExperimentCreateRequest(BaseModel):
     description: OptionalNullable[str] = UNSET
     r"""The hypothesis under test"""
 
+    scheduled_start_time: OptionalNullable[datetime] = UNSET
+    r"""When to start the experiment automatically. Include a timezone. Cannot be changed after the experiment has started."""
+
+    scheduled_end_time: OptionalNullable[datetime] = UNSET
+    r"""When to stop the experiment automatically. Include a timezone. A draft needs a scheduled start before an end can be set. The end can be changed after the experiment starts."""
+
     @model_serializer(mode="wrap")
     def _serialize_model_with_info(self, handler, info):
         return serialize_with_info(self.serialize_model, handler, info)
 
     def serialize_model(self, handler):
-        optional_fields = set(["description"])
-        nullable_fields = set(["description"])
+        optional_fields = set(
+            ["description", "scheduled_start_time", "scheduled_end_time"]
+        )
+        nullable_fields = set(
+            ["description", "scheduled_start_time", "scheduled_end_time"]
+        )
         exclude_none = current_exclude_none()
         skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)

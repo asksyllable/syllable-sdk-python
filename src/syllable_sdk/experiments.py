@@ -463,7 +463,7 @@ class Experiments(BaseSDK):
     ) -> models.ExperimentResponse:
         r"""Get Experiment By Id
 
-        Get an experiment by its ID
+        Get an experiment by its ID.
 
         :param experiment_id:
         :param retries: Override the default retry configuration for this method
@@ -555,7 +555,7 @@ class Experiments(BaseSDK):
     ) -> models.ExperimentResponse:
         r"""Get Experiment By Id
 
-        Get an experiment by its ID
+        Get an experiment by its ID.
 
         :param experiment_id:
         :param retries: Override the default retry configuration for this method
@@ -650,14 +650,21 @@ class Experiments(BaseSDK):
     ) -> models.ExperimentResponse:
         r"""Update Experiment
 
-        Update a draft or paused experiment, or change only variant weights on a running experiment.
+        Update a draft or paused experiment, or change variant weights and scheduled end while running.
 
-        Send the complete variant set and experiment details. While running, only weights may change;
-        the name, hypothesis, variant names, agents, and control flags must remain unchanged. Weights
-        must be positive whole-number percentages totaling 100. New sessions use the updated weights;
+        Send the complete variant set and experiment details. While running, only weights and the
+        scheduled end may change; the name, hypothesis, variant names, agents, and control flags must
+        remain unchanged. Weights must be positive whole-number percentages totaling 100.
+        New sessions use the updated weights;
         sessions already in progress keep their assigned variant. Stopped experiments cannot be edited.
         Editing a paused experiment keeps it paused and preserves its original start time.
         The control must use the agent linked to the channel target.
+
+        A draft cannot have a scheduled end without a scheduled start. After the experiment first
+        starts, only its scheduled end can change; manually started experiments may add one without
+        a scheduled start. A draft's scheduled start must be in the future, also when it is unchanged.
+        A changed end must be in the future, and the end must follow the scheduled or actual start.
+        Omit schedule fields to preserve them, or send null to clear an editable one.
 
         :param experiment_id:
         :param experiment_update_request:
@@ -763,14 +770,21 @@ class Experiments(BaseSDK):
     ) -> models.ExperimentResponse:
         r"""Update Experiment
 
-        Update a draft or paused experiment, or change only variant weights on a running experiment.
+        Update a draft or paused experiment, or change variant weights and scheduled end while running.
 
-        Send the complete variant set and experiment details. While running, only weights may change;
-        the name, hypothesis, variant names, agents, and control flags must remain unchanged. Weights
-        must be positive whole-number percentages totaling 100. New sessions use the updated weights;
+        Send the complete variant set and experiment details. While running, only weights and the
+        scheduled end may change; the name, hypothesis, variant names, agents, and control flags must
+        remain unchanged. Weights must be positive whole-number percentages totaling 100.
+        New sessions use the updated weights;
         sessions already in progress keep their assigned variant. Stopped experiments cannot be edited.
         Editing a paused experiment keeps it paused and preserves its original start time.
         The control must use the agent linked to the channel target.
+
+        A draft cannot have a scheduled end without a scheduled start. After the experiment first
+        starts, only its scheduled end can change; manually started experiments may add one without
+        a scheduled start. A draft's scheduled start must be in the future, also when it is unchanged.
+        A changed end must be in the future, and the end must follow the scheduled or actual start.
+        Omit schedule fields to preserve them, or send null to clear an editable one.
 
         :param experiment_id:
         :param experiment_update_request:
