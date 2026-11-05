@@ -41,6 +41,10 @@ if TYPE_CHECKING:
     from .agent_listop import AgentListRequest, AgentListRequestTypedDict
     from .agentcreate import AgentCreate, AgentCreateTypedDict
     from .agentlanguage import AgentLanguage, AgentLanguageTypedDict
+    from .agentlifecyclesummary import (
+        AgentLifecycleSummary,
+        AgentLifecycleSummaryTypedDict,
+    )
     from .agentproperties import AgentProperties
     from .agentsttprovider import AgentSttProvider
     from .agenttooldefaults import AgentToolDefaults, AgentToolDefaultsTypedDict
@@ -1670,6 +1674,8 @@ __all__ = [
     "AgentGetByIDRequestTypedDict",
     "AgentLanguage",
     "AgentLanguageTypedDict",
+    "AgentLifecycleSummary",
+    "AgentLifecycleSummaryTypedDict",
     "AgentList",
     "AgentListRequest",
     "AgentListRequestTypedDict",
@@ -2821,6 +2827,8 @@ _dynamic_imports: dict[str, str] = {
     "AgentCreateTypedDict": ".agentcreate",
     "AgentLanguage": ".agentlanguage",
     "AgentLanguageTypedDict": ".agentlanguage",
+    "AgentLifecycleSummary": ".agentlifecyclesummary",
+    "AgentLifecycleSummaryTypedDict": ".agentlifecyclesummary",
     "AgentProperties": ".agentproperties",
     "AgentSttProvider": ".agentsttprovider",
     "AgentToolDefaults": ".agenttooldefaults",

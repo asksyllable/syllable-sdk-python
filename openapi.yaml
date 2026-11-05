@@ -205,6 +205,22 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HTTPValidationError"
+  /api/v1/agents/lifecycle-summary:
+    get:
+      tags:
+        - "agents"
+      summary: "Agent Lifecycle Summary"
+      description: "Summarize model findings across active agents, independently of table filters and pages."
+      operationId: "agent_lifecycle_summary"
+      responses:
+        "200":
+          description: "Successful Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AgentLifecycleSummary"
+      security:
+        - APIKeyHeader: []
   /api/v1/agents/labels:
     get:
       tags:
@@ -9985,6 +10001,23 @@ components:
         - "code"
       title: "AgentLanguage"
       description: "Language option for an agent."
+    AgentLifecycleSummary:
+      properties:
+        flagged_count:
+          type: "integer"
+          title: "Flagged Count"
+        has_deprecated:
+          type: "boolean"
+          title: "Has Deprecated"
+        has_retired:
+          type: "boolean"
+          title: "Has Retired"
+      type: "object"
+      required:
+        - "flagged_count"
+        - "has_deprecated"
+        - "has_retired"
+      title: "AgentLifecycleSummary"
     AgentProperties:
       type: "string"
       enum:
