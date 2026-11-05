@@ -38,8 +38,22 @@ if TYPE_CHECKING:
         AgentGetAvailableVoicesRequestTypedDict,
     )
     from .agent_get_by_idop import AgentGetByIDRequest, AgentGetByIDRequestTypedDict
+    from .agent_historyop import (
+        AgentHistoryOrderByDirection,
+        AgentHistoryRequest,
+        AgentHistoryRequestTypedDict,
+    )
     from .agent_listop import AgentListRequest, AgentListRequestTypedDict
+    from .agent_versionop import AgentVersionRequest, AgentVersionRequestTypedDict
     from .agentcreate import AgentCreate, AgentCreateTypedDict
+    from .agenthistorymetadata import (
+        AgentHistoryMetadata,
+        AgentHistoryMetadataTypedDict,
+    )
+    from .agenthistoryresponse import (
+        AgentHistoryResponse,
+        AgentHistoryResponseTypedDict,
+    )
     from .agentlanguage import AgentLanguage, AgentLanguageTypedDict
     from .agentlifecyclesummary import (
         AgentLifecycleSummary,
@@ -944,6 +958,10 @@ if TYPE_CHECKING:
     )
     from .lifecyclestatus import LifecycleStatus
     from .linetypebucket import LineTypeBucket
+    from .listresponse_agenthistorymetadata_ import (
+        ListResponseAgentHistoryMetadata,
+        ListResponseAgentHistoryMetadataTypedDict,
+    )
     from .listresponse_agentresponse_ import (
         ListResponseAgentResponse,
         ListResponseAgentResponseTypedDict,
@@ -1672,6 +1690,13 @@ __all__ = [
     "AgentGetAvailableVoicesRequestTypedDict",
     "AgentGetByIDRequest",
     "AgentGetByIDRequestTypedDict",
+    "AgentHistoryMetadata",
+    "AgentHistoryMetadataTypedDict",
+    "AgentHistoryOrderByDirection",
+    "AgentHistoryRequest",
+    "AgentHistoryRequestTypedDict",
+    "AgentHistoryResponse",
+    "AgentHistoryResponseTypedDict",
     "AgentLanguage",
     "AgentLanguageTypedDict",
     "AgentLifecycleSummary",
@@ -1690,6 +1715,8 @@ __all__ = [
     "AgentToolFieldDefaultTypedDict",
     "AgentUpdate",
     "AgentUpdateTypedDict",
+    "AgentVersionRequest",
+    "AgentVersionRequestTypedDict",
     "AgentVoice",
     "AgentVoiceDisplayName",
     "AgentVoiceGender",
@@ -2276,6 +2303,8 @@ __all__ = [
     "LibDatabaseDaoOrganizationBridgePhrasesDaoBridgePhraseMessagesTypedDict",
     "LifecycleStatus",
     "LineTypeBucket",
+    "ListResponseAgentHistoryMetadata",
+    "ListResponseAgentHistoryMetadataTypedDict",
     "ListResponseAgentResponse",
     "ListResponseAgentResponseTypedDict",
     "ListResponseAvailableTarget",
@@ -2821,10 +2850,19 @@ _dynamic_imports: dict[str, str] = {
     "AgentGetAvailableVoicesRequestTypedDict": ".agent_get_available_voicesop",
     "AgentGetByIDRequest": ".agent_get_by_idop",
     "AgentGetByIDRequestTypedDict": ".agent_get_by_idop",
+    "AgentHistoryOrderByDirection": ".agent_historyop",
+    "AgentHistoryRequest": ".agent_historyop",
+    "AgentHistoryRequestTypedDict": ".agent_historyop",
     "AgentListRequest": ".agent_listop",
     "AgentListRequestTypedDict": ".agent_listop",
+    "AgentVersionRequest": ".agent_versionop",
+    "AgentVersionRequestTypedDict": ".agent_versionop",
     "AgentCreate": ".agentcreate",
     "AgentCreateTypedDict": ".agentcreate",
+    "AgentHistoryMetadata": ".agenthistorymetadata",
+    "AgentHistoryMetadataTypedDict": ".agenthistorymetadata",
+    "AgentHistoryResponse": ".agenthistoryresponse",
+    "AgentHistoryResponseTypedDict": ".agenthistoryresponse",
     "AgentLanguage": ".agentlanguage",
     "AgentLanguageTypedDict": ".agentlanguage",
     "AgentLifecycleSummary": ".agentlifecyclesummary",
@@ -3445,6 +3483,8 @@ _dynamic_imports: dict[str, str] = {
     "LibDatabaseDaoOrganizationBridgePhrasesDaoBridgePhraseMessagesTypedDict": ".lib_database_dao_organization_bridge_phrases_dao_bridgephrasemessages",
     "LifecycleStatus": ".lifecyclestatus",
     "LineTypeBucket": ".linetypebucket",
+    "ListResponseAgentHistoryMetadata": ".listresponse_agenthistorymetadata_",
+    "ListResponseAgentHistoryMetadataTypedDict": ".listresponse_agenthistorymetadata_",
     "ListResponseAgentResponse": ".listresponse_agentresponse_",
     "ListResponseAgentResponseTypedDict": ".listresponse_agentresponse_",
     "ListResponseAvailableTarget": ".listresponse_availabletarget_",

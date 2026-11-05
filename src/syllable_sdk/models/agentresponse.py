@@ -82,6 +82,8 @@ class AgentResponseTypedDict(TypedDict):
     r"""Sound to play while waiting for a response from the LLM."""
     enable_verbal_language_change: NotRequired[bool]
     r"""Enables Dynamic Language Switching - when true and a voice group is configured, callers may switch among group languages by speaking at any point in the conversation (in addition to DTMF in response to the language menu)."""
+    version_number: NotRequired[int]
+    r"""Current Agent configuration version"""
     prompt: NotRequired[Nullable[PromptResponseTypedDict]]
     r"""The prompt associated with the agent."""
     custom_message: NotRequired[Nullable[CustomMessageResponseTypedDict]]
@@ -180,6 +182,9 @@ class AgentResponse(BaseModel):
     enable_verbal_language_change: Optional[bool] = False
     r"""Enables Dynamic Language Switching - when true and a voice group is configured, callers may switch among group languages by speaking at any point in the conversation (in addition to DTMF in response to the language menu)."""
 
+    version_number: Optional[int] = 1
+    r"""Current Agent configuration version"""
+
     prompt: OptionalNullable[PromptResponse] = UNSET
     r"""The prompt associated with the agent."""
 
@@ -218,6 +223,7 @@ class AgentResponse(BaseModel):
                 "stt_provider",
                 "wait_sound",
                 "enable_verbal_language_change",
+                "version_number",
                 "prompt",
                 "custom_message",
                 "channel_targets",

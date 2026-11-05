@@ -6,6 +6,7 @@ from typing import Any, TYPE_CHECKING
 from syllable_sdk.utils.dynamic_imports import lazy_getattr, lazy_dir
 
 if TYPE_CHECKING:
+    from .agenterrorresponse import AgentErrorResponse, AgentErrorResponseData
     from .apierror import APIError
     from .custommessageerrorresponse import (
         CustomMessageErrorResponse,
@@ -53,6 +54,8 @@ if TYPE_CHECKING:
 
 __all__ = [
     "APIError",
+    "AgentErrorResponse",
+    "AgentErrorResponseData",
     "Code",
     "CustomMessageErrorResponse",
     "CustomMessageErrorResponseData",
@@ -83,6 +86,8 @@ __all__ = [
 ]
 
 _dynamic_imports: dict[str, str] = {
+    "AgentErrorResponse": ".agenterrorresponse",
+    "AgentErrorResponseData": ".agenterrorresponse",
     "APIError": ".apierror",
     "CustomMessageErrorResponse": ".custommessageerrorresponse",
     "CustomMessageErrorResponseData": ".custommessageerrorresponse",

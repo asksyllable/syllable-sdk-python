@@ -256,6 +256,8 @@ with SyllableSDK(
 * [update](docs/sdks/agents/README.md#update) - Update Agent
 * [agent_lifecycle_summary](docs/sdks/agents/README.md#agent_lifecycle_summary) - Agent Lifecycle Summary
 * [agent_list_active_labels](docs/sdks/agents/README.md#agent_list_active_labels) - List Active Agent Labels
+* [agent_history](docs/sdks/agents/README.md#agent_history) - Agent History
+* [agent_version](docs/sdks/agents/README.md#agent_version) - Agent Version
 * [get_by_id](docs/sdks/agents/README.md#get_by_id) - Get Agent By Id
 * [delete](docs/sdks/agents/README.md#delete) - Delete Agent
 * [agent_get_available_voices](docs/sdks/agents/README.md#agent_get_available_voices) - Get Available Agent Voices
@@ -717,7 +719,7 @@ with SyllableSDK(
 * [`SyllableSDKError`](./src/syllable_sdk/errors/syllablesdkerror.py): The base class for HTTP error responses.
   * [`HTTPValidationError`](./src/syllable_sdk/errors/httpvalidationerror.py): Validation Error. Status code `422`. *
 
-<details><summary>Less common errors (12)</summary>
+<details><summary>Less common errors (13)</summary>
 
 <br />
 
@@ -728,13 +730,14 @@ with SyllableSDK(
 
 
 **Inherit from [`SyllableSDKError`](./src/syllable_sdk/errors/syllablesdkerror.py)**:
-* [`CustomMessageErrorResponse`](./src/syllable_sdk/errors/custommessageerrorresponse.py): Applicable to 4 of 206 methods.*
-* [`PromptReasoningErrorResponse`](./src/syllable_sdk/errors/promptreasoningerrorresponse.py): Unprocessable Entity. Status code `422`. Applicable to 2 of 206 methods.*
-* [`PromptSchemaValidationErrorResponse`](./src/syllable_sdk/errors/promptschemavalidationerrorresponse.py): Unprocessable Entity. Status code `422`. Applicable to 2 of 206 methods.*
-* [`SessionLabelsListBadRequestError`](./src/syllable_sdk/errors/sessionlabelslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 206 methods.*
-* [`SessionsListBadRequestError`](./src/syllable_sdk/errors/sessionslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 206 methods.*
-* [`DirectoryMemberListBadRequestError`](./src/syllable_sdk/errors/directorymemberlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 206 methods.*
-* [`OutboundCampaignListBadRequestError`](./src/syllable_sdk/errors/outboundcampaignlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 206 methods.*
+* [`AgentErrorResponse`](./src/syllable_sdk/errors/agenterrorresponse.py): Applicable to 4 of 208 methods.*
+* [`CustomMessageErrorResponse`](./src/syllable_sdk/errors/custommessageerrorresponse.py): Applicable to 4 of 208 methods.*
+* [`PromptReasoningErrorResponse`](./src/syllable_sdk/errors/promptreasoningerrorresponse.py): Unprocessable Entity. Status code `422`. Applicable to 2 of 208 methods.*
+* [`PromptSchemaValidationErrorResponse`](./src/syllable_sdk/errors/promptschemavalidationerrorresponse.py): Unprocessable Entity. Status code `422`. Applicable to 2 of 208 methods.*
+* [`SessionLabelsListBadRequestError`](./src/syllable_sdk/errors/sessionlabelslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 208 methods.*
+* [`SessionsListBadRequestError`](./src/syllable_sdk/errors/sessionslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 208 methods.*
+* [`DirectoryMemberListBadRequestError`](./src/syllable_sdk/errors/directorymemberlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 208 methods.*
+* [`OutboundCampaignListBadRequestError`](./src/syllable_sdk/errors/outboundcampaignlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 208 methods.*
 * [`ResponseValidationError`](./src/syllable_sdk/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>
