@@ -10496,6 +10496,15 @@ components:
           title: "Channel Targets"
           description: "Channel targets associated with the agent"
           examples: []
+        variant_channel_targets:
+          anyOf:
+            - items:
+                $ref: "#/components/schemas/ChannelTargetResponse"
+              type: "array"
+            - type: "null"
+          title: "Variant Channel Targets"
+          description: "Channel targets of other agents with a draft, running, or paused experiment that uses this agent as a non-control variant. The experiment of each target is the one with the highest-priority status among those experiments, and its weight is the share of this agent. Only set when getting a single agent."
+          examples: []
         tools:
           anyOf:
             - items:
@@ -12302,6 +12311,67 @@ components:
         - "target_mode"
       title: "ChannelTargetCreateRequest"
       description: "Request model to create a channel target."
+    ChannelTargetExperimentSummary:
+      properties:
+        id:
+          type: "integer"
+          title: "Id"
+          description: "The ID of the experiment"
+          examples:
+            - 1
+        name:
+          type: "string"
+          title: "Name"
+          description: "The name of the experiment"
+          examples:
+            - "Shorter greeting"
+        status:
+          $ref: "#/components/schemas/ExperimentStatus"
+          description: "The status of the experiment"
+          examples:
+            - "running"
+        weight:
+          anyOf:
+            - type: "integer"
+            - type: "null"
+          title: "Weight"
+          description: "Percentage of the target's traffic that the experiment sends to one agent. For a channel target, and for the channel targets of an agent, that is the agent linked to the target now. For the variant channel targets of an agent, that is the agent whose details are shown. Null when that agent has no live variant in the experiment, for example when a stopped experiment ran before the target was linked to its current agent."
+          examples:
+            - 50
+        started_at:
+          anyOf:
+            - type: "string"
+              format: "date-time"
+            - type: "null"
+          title: "Started At"
+          description: "When the experiment first started. Null when it has not started."
+          examples:
+            - "2026-10-28T16:00:00Z"
+        scheduled_start_time:
+          anyOf:
+            - type: "string"
+              format: "date-time"
+            - type: "null"
+          title: "Scheduled Start Time"
+          description: "When the experiment starts automatically. Null when no start is scheduled."
+          examples:
+            - "2026-11-14T17:00:00Z"
+        scheduled_end_time:
+          anyOf:
+            - type: "string"
+              format: "date-time"
+            - type: "null"
+          title: "Scheduled End Time"
+          description: "When the experiment stops automatically. Null when no end is scheduled."
+          examples:
+            - "2026-11-29T01:00:00Z"
+      type: "object"
+      required:
+        - "id"
+        - "name"
+        - "status"
+      title: "ChannelTargetExperimentSummary"
+      description: "The experiment shown next to a channel target."
     ChannelTargetOrderProperties:
       type: "string"
       enum:
@@ -12416,11 +12486,17 @@ components:
             - $ref: "#/components/schemas/SipConfiguration"
             - type: "null"
           description: "SIP configuration applied when transferring calls"
+        experiment:
+          anyOf:
+            - $ref: "#/components/schemas/ChannelTargetExperimentSummary"
+            - type: "null"
+          description: "The target's non-deleted experiment with the highest-priority status: running, paused, draft, then stopped. Null when there are no experiments or when not calculated."
         experiment_status:
           anyOf:
             - $ref: "#/components/schemas/ExperimentStatus"
             - type: "null"
-          description: "Highest-priority status among the target's non-deleted experiments: running, paused, draft, then stopped. Null when there are no experiments or when not calculated."
+          description: "(DEPRECATED - use the status in the experiment object instead.) The status of that experiment. Null when there are no experiments or when not calculated."
+          deprecated: true
           examples:
             - "running"
             - null

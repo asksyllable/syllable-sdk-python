@@ -90,6 +90,10 @@ class AgentResponseTypedDict(TypedDict):
     r"""The message associated with the agent. Will be delivered as a greeting at the beginning of a conversation."""
     channel_targets: NotRequired[Nullable[List["ChannelTargetResponseTypedDict"]]]
     r"""Channel targets associated with the agent"""
+    variant_channel_targets: NotRequired[
+        Nullable[List["ChannelTargetResponseTypedDict"]]
+    ]
+    r"""Channel targets of other agents with a draft, running, or paused experiment that uses this agent as a non-control variant. The experiment of each target is the one with the highest-priority status among those experiments, and its weight is the share of this agent. Only set when getting a single agent."""
     tools: NotRequired[Nullable[List[ToolResponseTypedDict]]]
     r"""Tools associated with the agent"""
     language_group: NotRequired[Nullable[LanguageGroupResponseTypedDict]]
@@ -194,6 +198,9 @@ class AgentResponse(BaseModel):
     channel_targets: OptionalNullable[List["ChannelTargetResponse"]] = UNSET
     r"""Channel targets associated with the agent"""
 
+    variant_channel_targets: OptionalNullable[List["ChannelTargetResponse"]] = UNSET
+    r"""Channel targets of other agents with a draft, running, or paused experiment that uses this agent as a non-control variant. The experiment of each target is the one with the highest-priority status among those experiments, and its weight is the share of this agent. Only set when getting a single agent."""
+
     tools: OptionalNullable[List[ToolResponse]] = UNSET
     r"""Tools associated with the agent"""
 
@@ -227,6 +234,7 @@ class AgentResponse(BaseModel):
                 "prompt",
                 "custom_message",
                 "channel_targets",
+                "variant_channel_targets",
                 "tools",
                 "language_group",
                 "validation_issues",
@@ -248,6 +256,7 @@ class AgentResponse(BaseModel):
                 "prompt",
                 "custom_message",
                 "channel_targets",
+                "variant_channel_targets",
                 "tools",
                 "language_group",
                 "validation_issues",
