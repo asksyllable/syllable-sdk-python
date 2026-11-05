@@ -11048,7 +11048,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20261104.9"
+            - "20261105.9"
         campaign_id:
           type: "integer"
           title: "Campaign Id"
@@ -11063,7 +11063,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2026-11-05T00:00:00Z"
+            - "2026-11-06T00:00:00Z"
         paused:
           anyOf:
             - type: "boolean"
@@ -11132,7 +11132,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         deleted_at:
           anyOf:
             - type: "string"
@@ -11141,7 +11141,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         deleted_reason:
           anyOf:
             - type: "string"
@@ -11158,7 +11158,7 @@ components:
           title: "Last Updated At"
           description: "Timestamp of last change to batch"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         last_updated_by:
           type: "string"
           title: "Last Updated By"
@@ -12210,7 +12210,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20261104.9"
+            - "20261105.9"
         campaign_id:
           type: "integer"
           title: "Campaign Id"
@@ -12225,7 +12225,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2026-11-05T00:00:00Z"
+            - "2026-11-06T00:00:00Z"
         paused:
           anyOf:
             - type: "boolean"
@@ -12294,7 +12294,7 @@ components:
           title: "Created At"
           description: "Timestamp of batch creation"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         deleted_at:
           anyOf:
             - type: "string"
@@ -12303,7 +12303,7 @@ components:
           title: "Deleted At"
           description: "Timestamp of batch deletion"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         deleted_reason:
           anyOf:
             - type: "string"
@@ -12320,7 +12320,7 @@ components:
           title: "Last Updated At"
           description: "Timestamp of last change to batch"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         last_updated_by:
           type: "string"
           title: "Last Updated By"
@@ -12349,7 +12349,7 @@ components:
           title: "Batch Id"
           description: "Unique ID for conversation batch"
           examples:
-            - "20261104.9"
+            - "20261105.9"
         campaign_id:
           type: "integer"
           title: "Campaign Id"
@@ -12364,7 +12364,7 @@ components:
           title: "Expires On"
           description: "Timestamp of batch expiration"
           examples:
-            - "2026-11-05T00:00:00Z"
+            - "2026-11-06T00:00:00Z"
         paused:
           anyOf:
             - type: "boolean"
@@ -12500,7 +12500,7 @@ components:
           title: "Created At"
           description: "Timestamp of request creation"
           examples:
-            - "2026-11-03T00:00:00Z"
+            - "2026-11-04T00:00:00Z"
         sent_at:
           anyOf:
             - type: "string"
@@ -12509,7 +12509,7 @@ components:
           title: "Sent At"
           description: "Timestamp at which request was sent"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         attempt_count:
           type: "integer"
           title: "Attempt Count"
@@ -15586,14 +15586,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload folder was created"
           examples:
-            - "2026-11-03T00:00:00Z"
+            - "2026-11-04T00:00:00Z"
         updated_at:
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight upload folder was last updated"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         last_updated_by:
           type: "string"
           title: "Last Updated By"
@@ -16385,14 +16385,14 @@ components:
           title: "Created At"
           description: "Timestamp of at which insight tool configuration was created"
           examples:
-            - "2026-11-03T00:00:00Z"
+            - "2026-11-04T00:00:00Z"
         updated_at:
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool configuration was last updated"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         last_updated_by:
           type: "string"
           title: "Last Updated By"
@@ -16470,14 +16470,14 @@ components:
           title: "Created At"
           description: "Timestamp of at which insight tool configuration was created"
           examples:
-            - "2026-11-03T00:00:00Z"
+            - "2026-11-04T00:00:00Z"
         updated_at:
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool configuration was last updated"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         last_updated_by:
           type: "string"
           title: "Last Updated By"
@@ -16782,14 +16782,14 @@ components:
           title: "Started At"
           description: "Timestamp at which the most recent processing attempt started"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         created_at:
           type: "string"
           format: "date-time"
           title: "Created At"
           description: "Timestamp at which the execution row was created (i.e. when the work was queued)"
           examples:
-            - "2026-11-03T00:00:00Z"
+            - "2026-11-04T00:00:00Z"
         event_type:
           anyOf:
             - type: "string"
@@ -16932,7 +16932,7 @@ components:
           title: "Start Datetime"
           description: "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only"
           examples:
-            - "2026-11-03T00:00:00Z"
+            - "2026-11-04T00:00:00Z"
         end_datetime:
           anyOf:
             - type: "string"
@@ -16941,7 +16941,7 @@ components:
           title: "End Datetime"
           description: "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
       type: "object"
       required:
         - "name"
@@ -17017,7 +17017,7 @@ components:
           title: "Start Datetime"
           description: "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only"
           examples:
-            - "2026-11-03T00:00:00Z"
+            - "2026-11-04T00:00:00Z"
         end_datetime:
           anyOf:
             - type: "string"
@@ -17026,7 +17026,7 @@ components:
           title: "End Datetime"
           description: "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         id:
           type: "integer"
           title: "Id"
@@ -17071,14 +17071,14 @@ components:
           title: "Created At"
           description: "Timestamp at which the insight workflow was created"
           examples:
-            - "2026-11-03T00:00:00Z"
+            - "2026-11-04T00:00:00Z"
         updated_at:
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of most recent update to the insight workflow"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         last_updated_by:
           type: "string"
           title: "Last Updated By"
@@ -17093,7 +17093,7 @@ components:
           title: "Last Folder Upload At"
           description: "Timestamp of the most recent file upload to any folder associated with this workflow (null for non-upload workflows or until a file has been uploaded)"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
       type: "object"
       required:
         - "name"
@@ -17187,7 +17187,7 @@ components:
           title: "Start Datetime"
           description: "Target session timestamp the workflow (backfill) should start. An empty value indicates start on activation - live sessions only"
           examples:
-            - "2026-11-03T00:00:00Z"
+            - "2026-11-04T00:00:00Z"
         end_datetime:
           anyOf:
             - type: "string"
@@ -17196,7 +17196,7 @@ components:
           title: "End Datetime"
           description: "Target session timestamp the workflow (backfill) should end. An empty value indicates no end, i.e., include live sessions until deactivation"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         id:
           type: "integer"
           title: "Id"
@@ -17241,14 +17241,14 @@ components:
           title: "Created At"
           description: "Timestamp at which the insight workflow was created"
           examples:
-            - "2026-11-03T00:00:00Z"
+            - "2026-11-04T00:00:00Z"
         updated_at:
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of most recent update to the insight workflow"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         last_updated_by:
           type: "string"
           title: "Last Updated By"
@@ -17263,7 +17263,7 @@ components:
           title: "Last Folder Upload At"
           description: "Timestamp of the most recent file upload to any folder associated with this workflow (null for non-upload workflows or until a file has been uploaded)"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
       type: "object"
       required:
         - "name"
@@ -17344,14 +17344,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload folder was created"
           examples:
-            - "2026-11-03T00:00:00Z"
+            - "2026-11-04T00:00:00Z"
         updated_at:
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight upload folder was last updated"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         last_updated_by:
           type: "string"
           title: "Last Updated By"
@@ -17510,14 +17510,14 @@ components:
           title: "Created At"
           description: "Timestamp at which insight tool result was created"
           examples:
-            - "2026-11-03T00:00:00Z"
+            - "2026-11-04T00:00:00Z"
         updated_at:
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp at which insight tool result was last updated"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         upload_file_metadata:
           title: "Upload File Metadata"
           description: "Metadata associated with the uploaded file"
@@ -17610,7 +17610,7 @@ components:
           title: "Start Time"
           description: "Start time of the uploaded file"
           examples:
-            - "2026-11-03T00:00:00Z"
+            - "2026-11-04T00:00:00Z"
         end_time:
           anyOf:
             - type: "string"
@@ -17619,7 +17619,7 @@ components:
           title: "End Time"
           description: "End time of the uploaded file"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         error_message:
           anyOf:
             - type: "string"
@@ -17648,7 +17648,7 @@ components:
           title: "Created At"
           description: "Timestamp at which insight upload file was created"
           examples:
-            - "2026-11-03T00:00:00Z"
+            - "2026-11-04T00:00:00Z"
       type: "object"
       required:
         - "id"
@@ -20436,14 +20436,14 @@ components:
           title: "Created At"
           description: "Timestamp of campaign creation"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         updated_at:
           type: "string"
           format: "date-time"
           title: "Updated At"
           description: "Timestamp of campaign update"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         last_updated_by:
           type: "string"
           title: "Last Updated By"
@@ -25757,14 +25757,14 @@ components:
           title: "Analyzed At"
           description: "When the workflow execution started processing this file; null while the row is still PENDING"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         queued_at:
           type: "string"
           format: "date-time"
           title: "Queued At"
           description: "When the file was queued for this workflow"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         status:
           type: "string"
           title: "Status"
@@ -25841,14 +25841,14 @@ components:
           title: "Analyzed At"
           description: "When the workflow execution started processing this session; null while the row is still PENDING"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         queued_at:
           type: "string"
           format: "date-time"
           title: "Queued At"
           description: "When the session was queued for this workflow"
           examples:
-            - "2026-11-04T00:00:00Z"
+            - "2026-11-05T00:00:00Z"
         status:
           type: "string"
           title: "Status"
