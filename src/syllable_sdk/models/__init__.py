@@ -235,6 +235,10 @@ if TYPE_CHECKING:
         ChannelTargetCreateRequest,
         ChannelTargetCreateRequestTypedDict,
     )
+    from .channeltargetexperimentsummary import (
+        ChannelTargetExperimentSummary,
+        ChannelTargetExperimentSummaryTypedDict,
+    )
     from .channeltargetorderproperties import ChannelTargetOrderProperties
     from .channeltargetproperties import ChannelTargetProperties
     from .channeltargetupdaterequest import (
@@ -1809,6 +1813,8 @@ __all__ = [
     "ChannelServices",
     "ChannelTargetCreateRequest",
     "ChannelTargetCreateRequestTypedDict",
+    "ChannelTargetExperimentSummary",
+    "ChannelTargetExperimentSummaryTypedDict",
     "ChannelTargetOrderProperties",
     "ChannelTargetProperties",
     "ChannelTargetResponse",
@@ -2991,6 +2997,8 @@ _dynamic_imports: dict[str, str] = {
     "ChannelServices": ".channelservices",
     "ChannelTargetCreateRequest": ".channeltargetcreaterequest",
     "ChannelTargetCreateRequestTypedDict": ".channeltargetcreaterequest",
+    "ChannelTargetExperimentSummary": ".channeltargetexperimentsummary",
+    "ChannelTargetExperimentSummaryTypedDict": ".channeltargetexperimentsummary",
     "ChannelTargetOrderProperties": ".channeltargetorderproperties",
     "ChannelTargetProperties": ".channeltargetproperties",
     "ChannelTargetUpdateRequest": ".channeltargetupdaterequest",
