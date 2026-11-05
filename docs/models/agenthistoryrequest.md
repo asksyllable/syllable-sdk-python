@@ -1,0 +1,11 @@
+# AgentHistoryRequest
+
+
+## Fields
+
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `agent_id`                                                                                 | *int*                                                                                      | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `page`                                                                                     | *Optional[int]*                                                                            | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `limit`                                                                                    | *Optional[int]*                                                                            | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `order_by_direction`                                                                       | [Optional[models.AgentHistoryOrderByDirection]](../models/agenthistoryorderbydirection.md) | :heavy_minus_sign:                                                                         | N/A                                                                                        |

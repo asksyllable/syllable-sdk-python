@@ -63,6 +63,8 @@ class AgentUpdateTypedDict(TypedDict):
     r"""Sound to play while waiting for a response from the LLM."""
     enable_verbal_language_change: NotRequired[bool]
     r"""Enables Dynamic Language Switching - when true and a voice group is configured, callers may switch among group languages by speaking at any point in the conversation (in addition to DTMF in response to the language menu)."""
+    edit_comments: NotRequired[Nullable[str]]
+    r"""Optional comment on this configuration save"""
 
 
 class AgentUpdate(BaseModel):
@@ -138,6 +140,9 @@ class AgentUpdate(BaseModel):
     enable_verbal_language_change: Optional[bool] = False
     r"""Enables Dynamic Language Switching - when true and a voice group is configured, callers may switch among group languages by speaking at any point in the conversation (in addition to DTMF in response to the language menu)."""
 
+    edit_comments: OptionalNullable[str] = UNSET
+    r"""Optional comment on this configuration save"""
+
     @model_serializer(mode="wrap")
     def _serialize_model_with_info(self, handler, info):
         return serialize_with_info(self.serialize_model, handler, info)
@@ -158,6 +163,7 @@ class AgentUpdate(BaseModel):
                 "stt_provider",
                 "wait_sound",
                 "enable_verbal_language_change",
+                "edit_comments",
             ]
         )
         nullable_fields = set(
@@ -172,6 +178,7 @@ class AgentUpdate(BaseModel):
                 "tool_headers",
                 "stt_provider",
                 "wait_sound",
+                "edit_comments",
             ]
         )
         exclude_none = current_exclude_none()

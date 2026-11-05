@@ -11,6 +11,8 @@ Operations related to agent configuration. When a user interacts with the       
 * [update](#update) - Update Agent
 * [agent_lifecycle_summary](#agent_lifecycle_summary) - Agent Lifecycle Summary
 * [agent_list_active_labels](#agent_list_active_labels) - List Active Agent Labels
+* [agent_history](#agent_history) - Agent History
+* [agent_version](#agent_version) - Agent Version
 * [get_by_id](#get_by_id) - Get Agent By Id
 * [delete](#delete) - Delete Agent
 * [agent_get_available_voices](#agent_get_available_voices) - Get Available Agent Voices
@@ -141,7 +143,9 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
+| errors.AgentErrorResponse  | 400, 403, 404, 409         | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
+| errors.AgentErrorResponse  | 500                        | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## update
@@ -216,7 +220,9 @@ with SyllableSDK(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
+| errors.AgentErrorResponse  | 400, 403, 404, 409         | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
+| errors.AgentErrorResponse  | 500                        | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## agent_lifecycle_summary
@@ -296,6 +302,94 @@ with SyllableSDK(
 | Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## agent_history
+
+Agent History
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="agent_history" method="get" path="/api/v1/agents/{agent_id}/history" -->
+```python
+import os
+from syllable_sdk import SyllableSDK, models
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
+) as ss_client:
+
+    res = ss_client.agents.agent_history(agent_id=35429, page=0, limit=25, order_by_direction=models.AgentHistoryOrderByDirection.DESC)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `agent_id`                                                                                    | *int*                                                                                         | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `page`                                                                                        | *Optional[int]*                                                                               | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `limit`                                                                                       | *Optional[int]*                                                                               | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `order_by_direction`                                                                          | [Optional[models.AgentHistoryOrderByDirection]](../../models/agenthistoryorderbydirection.md) | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `retries`                                                                                     | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                              | :heavy_minus_sign:                                                                            | Configuration to override the default retry behavior of the client.                           |
+
+### Response
+
+**[models.ListResponseAgentHistoryMetadata](../../models/listresponseagenthistorymetadata.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.AgentErrorResponse  | 403, 404                   | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## agent_version
+
+Agent Version
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="agent_version" method="get" path="/api/v1/agents/{agent_id}/history/{version}" -->
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
+) as ss_client:
+
+    res = ss_client.agents.agent_version(agent_id=885699, version=114838)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `agent_id`                                                          | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `version`                                                           | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.AgentHistoryResponse](../../models/agenthistoryresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.AgentErrorResponse  | 403, 404                   | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## get_by_id
 
