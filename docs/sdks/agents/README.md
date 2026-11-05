@@ -9,6 +9,7 @@ Operations related to agent configuration. When a user interacts with the       
 * [list](#list) - Agent List
 * [create](#create) - Create Agent
 * [update](#update) - Update Agent
+* [agent_lifecycle_summary](#agent_lifecycle_summary) - Agent Lifecycle Summary
 * [agent_list_active_labels](#agent_list_active_labels) - List Active Agent Labels
 * [get_by_id](#get_by_id) - Get Agent By Id
 * [delete](#delete) - Delete Agent
@@ -217,6 +218,45 @@ with SyllableSDK(
 | -------------------------- | -------------------------- | -------------------------- |
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## agent_lifecycle_summary
+
+Summarize model findings across active agents, independently of table filters and pages.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="agent_lifecycle_summary" method="get" path="/api/v1/agents/lifecycle-summary" -->
+```python
+import os
+from syllable_sdk import SyllableSDK
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
+) as ss_client:
+
+    res = ss_client.agents.agent_lifecycle_summary()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.AgentLifecycleSummary](../../models/agentlifecyclesummary.md)**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
 ## agent_list_active_labels
 
