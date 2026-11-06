@@ -51,6 +51,10 @@ if TYPE_CHECKING:
         SessionsListBadRequestError,
         SessionsListBadRequestErrorData,
     )
+    from .sessionsummaryerrorresponse import (
+        SessionSummaryErrorResponse,
+        SessionSummaryErrorResponseData,
+    )
 
 __all__ = [
     "APIError",
@@ -80,6 +84,8 @@ __all__ = [
     "ResponseValidationError",
     "SessionLabelsListBadRequestError",
     "SessionLabelsListBadRequestErrorData",
+    "SessionSummaryErrorResponse",
+    "SessionSummaryErrorResponseData",
     "SessionsListBadRequestError",
     "SessionsListBadRequestErrorData",
     "SyllableSDKError",
@@ -115,6 +121,8 @@ _dynamic_imports: dict[str, str] = {
     "DetailLegacySessionLinkTypedDict": ".sessions_listop",
     "SessionsListBadRequestError": ".sessions_listop",
     "SessionsListBadRequestErrorData": ".sessions_listop",
+    "SessionSummaryErrorResponse": ".sessionsummaryerrorresponse",
+    "SessionSummaryErrorResponseData": ".sessionsummaryerrorresponse",
 }
 
 

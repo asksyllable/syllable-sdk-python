@@ -719,7 +719,7 @@ with SyllableSDK(
 * [`SyllableSDKError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/syllablesdkerror.py): The base class for HTTP error responses.
   * [`HTTPValidationError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/httpvalidationerror.py): Validation Error. Status code `422`. *
 
-<details><summary>Less common errors (13)</summary>
+<details><summary>Less common errors (14)</summary>
 
 <br />
 
@@ -738,6 +738,7 @@ with SyllableSDK(
 * [`SessionsListBadRequestError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/sessionslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 208 methods.*
 * [`DirectoryMemberListBadRequestError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/directorymemberlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 208 methods.*
 * [`OutboundCampaignListBadRequestError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/outboundcampaignlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 208 methods.*
+* [`SessionSummaryErrorResponse`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/sessionsummaryerrorresponse.py): Summary service unavailable or returned an invalid response. Applicable to 1 of 208 methods.*
 * [`ResponseValidationError`](https://github.com/asksyllable/syllable-sdk-python/blob/master/./src/syllable_sdk/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>
