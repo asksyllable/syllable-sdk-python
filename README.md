@@ -719,7 +719,7 @@ with SyllableSDK(
 * [`SyllableSDKError`](./src/syllable_sdk/errors/syllablesdkerror.py): The base class for HTTP error responses.
   * [`HTTPValidationError`](./src/syllable_sdk/errors/httpvalidationerror.py): Validation Error. Status code `422`. *
 
-<details><summary>Less common errors (14)</summary>
+<details><summary>Less common errors (15)</summary>
 
 <br />
 
@@ -739,6 +739,7 @@ with SyllableSDK(
 * [`DirectoryMemberListBadRequestError`](./src/syllable_sdk/errors/directorymemberlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 208 methods.*
 * [`OutboundCampaignListBadRequestError`](./src/syllable_sdk/errors/outboundcampaignlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 208 methods.*
 * [`SessionSummaryErrorResponse`](./src/syllable_sdk/errors/sessionsummaryerrorresponse.py): Summary service unavailable or returned an invalid response. Applicable to 1 of 208 methods.*
+* [`GatewayTimeoutError`](./src/syllable_sdk/errors/gatewaytimeouterror.py): The request timed out. Status code `504`. Applicable to 1 of 208 methods.*
 * [`ResponseValidationError`](./src/syllable_sdk/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>
@@ -913,7 +914,7 @@ logging.basicConfig(level=logging.DEBUG)
 s = SyllableSDK(debug_logger=logging.getLogger("syllable_sdk"))
 ```
 
-You can also enable a default debug logger by setting an environment variable `SYLLABLESDK_DEBUG` to true.
+You can also enable a default debug logger by setting an environment variable `SYLLABLESDK_DEBUG` to `true`, `1`, `yes` or `on` (case-insensitive). Any other value leaves it off.
 <!-- End Debugging [debug] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->

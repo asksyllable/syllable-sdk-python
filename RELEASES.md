@@ -6027,3 +6027,13 @@ Based on:
 - [python v0.50.20] .
 ### Releases
 - [PyPI v0.50.20] https://pypi.org/project/syllable-sdk/0.50.20 - .
+
+## 2026-11-10 18:58:09
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.808.1 (2.960.8) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.50.21] .
+### Releases
+- [PyPI v0.50.21] https://pypi.org/project/syllable-sdk/0.50.21 - .

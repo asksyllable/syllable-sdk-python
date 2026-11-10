@@ -11,3 +11,4 @@ class TtsProvider(str, Enum):
     ELEVEN_LABS = "ElevenLabs"
     GOOGLE = "Google"
     CARTESIA = "Cartesia"
+    DEEPGRAM = "Deepgram"

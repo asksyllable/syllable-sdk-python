@@ -63,6 +63,7 @@ with SyllableSDK(
 | ---------------------------------- | ---------------------------------- | ---------------------------------- |
 | errors.SessionsListBadRequestError | 400                                | application/json                   |
 | errors.HTTPValidationError         | 422                                | application/json                   |
+| errors.GatewayTimeoutError         | 504                                | application/json                   |
 | errors.APIError                    | 4XX, 5XX                           | \*/\*                              |
 
 ## get_by_id
