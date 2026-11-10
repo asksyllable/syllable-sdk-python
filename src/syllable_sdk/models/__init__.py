@@ -1343,12 +1343,7 @@ if TYPE_CHECKING:
         ServiceUpdateRequest,
         ServiceUpdateRequestTypedDict,
     )
-    from .session import (
-        CallStartVariables,
-        CallStartVariablesTypedDict,
-        Session,
-        SessionTypedDict,
-    )
+    from .session import Session, SessionTypedDict
     from .session_full_summary_get_by_idop import (
         SessionFullSummaryGetByIDRequest,
         SessionFullSummaryGetByIDRequestTypedDict,
@@ -1801,8 +1796,6 @@ __all__ = [
     "CallResultSaveMapping",
     "CallResultSaveMappingTypedDict",
     "CallResultTypedDict",
-    "CallStartVariables",
-    "CallStartVariablesTypedDict",
     "CampaignProperties",
     "CardClickRequest",
     "CardClickRequestTypedDict",
@@ -3738,8 +3731,6 @@ _dynamic_imports: dict[str, str] = {
     "ServicesGetByIDRequestTypedDict": ".services_get_by_idop",
     "ServiceUpdateRequest": ".serviceupdaterequest",
     "ServiceUpdateRequestTypedDict": ".serviceupdaterequest",
-    "CallStartVariables": ".session",
-    "CallStartVariablesTypedDict": ".session",
     "Session": ".session",
     "SessionTypedDict": ".session",
     "SessionFullSummaryGetByIDRequest": ".session_full_summary_get_by_idop",
