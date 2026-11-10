@@ -36373,24 +36373,6 @@
             ],
             "title": "Override Timestamp",
             "description": "ISO 8601 datetime used to override the session's current time. Set only for test sessions that supplied a datetime override; otherwise null."
-          },
-          "call_start_variables": {
-            "anyOf": [
-              {
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Call Start Variables",
-            "description": "Variables supplied when the call was created, keyed by the name the agent sees them under: for an outbound call, the campaign variables and the variables of its outbound request or batch row (a request variable wins over a campaign variable of the same name). These are the inputs the session started with, not the current runtime variables, so later changes to the campaign, the agent or the conversation do not change them. For outbound sessions created before this field was added, the values come from the outbound request instead: the campaign variables are the current ones, and an earlier attempt of a retried request returns an empty object. An empty object when no variables were supplied. Returned only by the get-session-by-ID endpoint, and only to callers with the outbound_read permission; null otherwise and in session lists.",
-            "examples": [
-              {
-                "vars.facility_name": "Main Street Clinic",
-                "vars.patient_first_name": "Jordan"
-              }
-            ]
           }
         },
         "type": "object",
