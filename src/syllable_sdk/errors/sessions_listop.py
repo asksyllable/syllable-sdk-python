@@ -10,6 +10,27 @@ from typing import Optional, Union
 from typing_extensions import TypeAliasType, TypedDict
 
 
+class GatewayTimeoutErrorData(BaseModel):
+    error: str
+
+
+@dataclass(unsafe_hash=True)
+class GatewayTimeoutError(SyllableSDKError):
+    r"""The request timed out"""
+
+    data: GatewayTimeoutErrorData = field(hash=False)
+
+    def __init__(
+        self,
+        data: GatewayTimeoutErrorData,
+        raw_response: httpx.Response,
+        body: Optional[str] = None,
+    ):
+        message = body or raw_response.text
+        super().__init__(message, raw_response, body)
+        object.__setattr__(self, "data", data)
+
+
 class Code(str, Enum):
     r"""Identifies a legacy session link"""
 

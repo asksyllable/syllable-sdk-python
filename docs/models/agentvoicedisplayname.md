@@ -211,3 +211,81 @@ value = AgentVoiceDisplayName.ACHERNAR_ENGLISH_
 | `LIU_CN_`                  | Liu (CN)                   |
 | `XIA_VN_`                  | Xia (VN)                   |
 | `SUDA_TH_`                 | Suda (TH)                  |
+| `AGATHE`                   | Agathe                     |
+| `AGUSTINA`                 | Agustina                   |
+| `ALVARO`                   | Alvaro                     |
+| `AMA`                      | Ama                        |
+| `AMALTHEA`                 | Amalthea                   |
+| `ANDROMEDA`                | Andromeda                  |
+| `ANTONIA`                  | Antonia                    |
+| `APOLLO`                   | Apollo                     |
+| `AQUILA`                   | Aquila                     |
+| `ARCAS`                    | Arcas                      |
+| `ARCAS_AURA_2_`            | Arcas (Aura 2)             |
+| `ARIES`                    | Aries                      |
+| `ASTERIA`                  | Asteria                    |
+| `ASTERIA_AURA_2_`          | Asteria (Aura 2)           |
+| `ATHENA`                   | Athena                     |
+| `ATHENA_AURA_2_`           | Athena (Aura 2)            |
+| `ATLAS`                    | Atlas                      |
+| `AURORA`                   | Aurora                     |
+| `CALLISTA`                 | Callista                   |
+| `CARINA`                   | Carina                     |
+| `CELESTE`                  | Celeste                    |
+| `CORA`                     | Cora                       |
+| `CORDELIA`                 | Cordelia                   |
+| `DELIA`                    | Delia                      |
+| `DIANA`                    | Diana                      |
+| `DRACO`                    | Draco                      |
+| `EBISU`                    | Ebisu                      |
+| `ELECTRA`                  | Electra                    |
+| `ESTRELLA`                 | Estrella                   |
+| `FUJIN`                    | Fujin                      |
+| `GLORIA`                   | Gloria                     |
+| `HARMONIA`                 | Harmonia                   |
+| `HECTOR`                   | Hector                     |
+| `HELENA`                   | Helena                     |
+| `HERA`                     | Hera                       |
+| `HERA_AURA_2_`             | Hera (Aura 2)              |
+| `HERMES`                   | Hermes                     |
+| `HYPERION`                 | Hyperion                   |
+| `IRIS`                     | Iris                       |
+| `IZANAMI`                  | Izanami                    |
+| `JANUS`                    | Janus                      |
+| `JAVIER`                   | Javier                     |
+| `JUNO`                     | Juno                       |
+| `JUPITER`                  | Jupiter                    |
+| `LUCIANO`                  | Luciano                    |
+| `LUNA`                     | Luna                       |
+| `LUNA_AURA_2_`             | Luna (Aura 2)              |
+| `MARS`                     | Mars                       |
+| `MINERVA`                  | Minerva                    |
+| `NEPTUNE`                  | Neptune                    |
+| `NESTOR`                   | Nestor                     |
+| `ODYSSEUS`                 | Odysseus                   |
+| `OLIVIA`                   | Olivia                     |
+| `OPHELIA`                  | Ophelia                    |
+| `ORION`                    | Orion                      |
+| `ORION_AURA_2_`            | Orion (Aura 2)             |
+| `ORPHEUS`                  | Orpheus                    |
+| `ORPHEUS_AURA_2_`          | Orpheus (Aura 2)           |
+| `PANDORA`                  | Pandora                    |
+| `PHOEBE`                   | Phoebe                     |
+| `PLUTO`                    | Pluto                      |
+| `SATURN`                   | Saturn                     |
+| `SELENA`                   | Selena                     |
+| `SELENE`                   | Selene                     |
+| `SILVIA`                   | Silvia                     |
+| `SIRIO`                    | Sirio                      |
+| `THALIA`                   | Thalia                     |
+| `THEIA`                    | Theia                      |
+| `UZUME`                    | Uzume                      |
+| `VALENTINA`                | Valentina                  |
+| `VALERIO`                  | Valerio                    |
+| `VESTA`                    | Vesta                      |
+| `ZEUS`                     | Zeus                       |
+| `ZEUS_AURA_2_`             | Zeus (Aura 2)              |
+| `ANGUS`                    | Angus                      |
+| `HELIOS`                   | Helios                     |
+| `PERSEUS`                  | Perseus                    |
+| `STELLA`                   | Stella                     |
