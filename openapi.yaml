@@ -11652,8 +11652,7 @@ components:
           title: "Error Message"
           description: "Error message if batch upload failed"
           examples:
-            - "Invalid file format"
-            - "Missing required fields"
+            - "The file has no \"target\" column. The first line must have a column named \"target\", in lowercase and with no spaces. Put the phone number or email address of each contact in this column, then upload the file to a new batch."
         status_counts:
           anyOf:
             - additionalProperties:
@@ -12881,8 +12880,7 @@ components:
           title: "Error Message"
           description: "Error message if batch upload failed"
           examples:
-            - "Invalid file format"
-            - "Missing required fields"
+            - "The file has no \"target\" column. The first line must have a column named \"target\", in lowercase and with no spaces. Put the phone number or email address of each contact in this column, then upload the file to a new batch."
       type: "object"
       required:
         - "batch_id"

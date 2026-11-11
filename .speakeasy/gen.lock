@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: 1bf40f7baf43c136adadc4782634f5a5
+  docChecksum: 117bd971fafd496032845894da3b0e02
   docVersion: 0.0.3
   speakeasyVersion: 1.808.1
   generationVersion: 2.960.8
-  releaseVersion: 0.50.24
-  configChecksum: 8328083fe613c9b0f92d5c8bf956cee6
+  releaseVersion: 0.50.25
+  configChecksum: 7badd99cbf2fcded38dcb95e6159bf29
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: 87ecda09-2bf9-45f5-a174-d69845c4cab3
-  pristine_commit_hash: 90b288e85f073712ffcb801503f1ed435e64a36e
-  pristine_tree_hash: 1c98b379c13ebc6ea6dd5dc30c1d2dbdec8d5caa
+  generation_id: 367951cb-d3e1-47a1-aaf0-f5c334f3c7cf
+  pristine_commit_hash: fef569b91749442e49c891a5320808ae1e04d345
+  pristine_tree_hash: 8448e4bbcdb95988373b284c8a0c85e3ae88d2dd
 features:
   python:
     additionalDependencies: 1.1.0
@@ -264,8 +264,8 @@ trackedFiles:
     pristine_git_object: 59f0d7bd5f432e2d4e7d747a7dd5422c980ebee4
   docs/models/batchdetails.md:
     id: da968f95f3ca
-    last_write_checksum: sha1:29df9215e1494abcd644460b03f5af0e82af7460
-    pristine_git_object: 59c81df8a5409c7b0b18457510abc1043bf9f255
+    last_write_checksum: sha1:d53fd13453dc8b8a3d126739c2e24e04724fa01d
+    pristine_git_object: 1db5f6872bc6ef3c3d9e124cb37d92d5199424b1
   docs/models/batchproperties.md:
     id: 44911e315bab
     last_write_checksum: sha1:8d15f6395d1960e10f337095b0acdbacae3b8c1c
@@ -500,8 +500,8 @@ trackedFiles:
     pristine_git_object: 674cd8949336ff48383013752d4cfed3f8ec8d88
   docs/models/communicationbatch.md:
     id: bffc833d4305
-    last_write_checksum: sha1:cfe2349e8bf87b5fdd05459bc11da36eb844159c
-    pristine_git_object: 7c444a1f7120fe128e28499223b382c8048aa251
+    last_write_checksum: sha1:e3b2c421f4684cf44b68c398064ba0bc7ca087b6
+    pristine_git_object: c118c32a73d236ef711106c76fcdb53bca55ce6c
   docs/models/communicationbatchinput.md:
     id: bbfc143c623f
     last_write_checksum: sha1:ec2fa78fd3fba09b1c5780ee9e9f383b1ae96ec8
@@ -2860,8 +2860,8 @@ trackedFiles:
     pristine_git_object: 6a3b01908092d3349be5058c4d36fe09f3f97a8a
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:f7442451df9cc4504e4da94a54dbd11084332aea
-    pristine_git_object: 3577cc46d6e3b98652b51ee35cd6b98d63ab591c
+    last_write_checksum: sha1:8b93358885efe0a6e75adb83fb46506736028160
+    pristine_git_object: 4bba773dbb94a619bfe93e4e1aa424eb6c92a55b
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2888,8 +2888,8 @@ trackedFiles:
     pristine_git_object: 132885676dc1885890d1c8a13bd01fcfcb8e3fbc
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:0ef8b32c0a9b06b2bb81d250e728be925310b809
-    pristine_git_object: 7c91a909caf63482bd3929f89c52864a10a5feae
+    last_write_checksum: sha1:daed5c07ef9f53d37622940ff1647f108e53ed6a
+    pristine_git_object: d089d9a0e892d14abb28849baf48f39fc72ac8aa
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:4dd0abac730991493b90e1e6f618ff77d7ca3d7f
@@ -7430,10 +7430,6 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Python SDK Changes:
-  * `syllable_sdk.sessions.list()`:  `response.items[].call_start_variables` **Added**
-  * `syllable_sdk.sessions.get_by_id()`:  `response.call_start_variables` **Added**
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
