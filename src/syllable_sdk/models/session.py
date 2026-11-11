@@ -13,6 +13,7 @@ from syllable_sdk.types import (
     serialize_with_info,
 )
 from syllable_sdk.types.basemodel import current_filtered_dump
+from typing import Any, Dict
 from typing_extensions import NotRequired, TypedDict
 
 
@@ -75,6 +76,8 @@ class SessionTypedDict(TypedDict):
     r"""Whether a voicemail was detected during the transfer leg of the session"""
     override_timestamp: NotRequired[Nullable[str]]
     r"""ISO 8601 datetime used to override the session's current time. Set only for test sessions that supplied a datetime override; otherwise null."""
+    call_start_variables: NotRequired[Nullable[Dict[str, Any]]]
+    r"""Variables supplied when the call was created, keyed by the name the agent sees them under: for an outbound call, the campaign variables and the variables of its outbound request or batch row (a request variable wins over a campaign variable of the same name). These are the inputs the session started with, not the current runtime variables, so later changes to the campaign, the agent or the conversation do not change them. For outbound sessions created before this field was added, the values come from the outbound request instead: the campaign variables are the current ones, and an earlier attempt of a retried request returns an empty object. An empty object when no variables were supplied. Returned only by the get-session-by-ID endpoint, and only to callers with the outbound_read permission; null otherwise and in session lists."""
 
 
 class Session(BaseModel):
@@ -164,6 +167,9 @@ class Session(BaseModel):
     override_timestamp: OptionalNullable[str] = UNSET
     r"""ISO 8601 datetime used to override the session's current time. Set only for test sessions that supplied a datetime override; otherwise null."""
 
+    call_start_variables: OptionalNullable[Dict[str, Any]] = UNSET
+    r"""Variables supplied when the call was created, keyed by the name the agent sees them under: for an outbound call, the campaign variables and the variables of its outbound request or batch row (a request variable wins over a campaign variable of the same name). These are the inputs the session started with, not the current runtime variables, so later changes to the campaign, the agent or the conversation do not change them. For outbound sessions created before this field was added, the values come from the outbound request instead: the campaign variables are the current ones, and an earlier attempt of a retried request returns an empty object. An empty object when no variables were supplied. Returned only by the get-session-by-ID endpoint, and only to callers with the outbound_read permission; null otherwise and in session lists."""
+
     @model_serializer(mode="wrap")
     def _serialize_model_with_info(self, handler, info):
         return serialize_with_info(self.serialize_model, handler, info)
@@ -198,6 +204,7 @@ class Session(BaseModel):
                 "user_terminated",
                 "transfer_voicemail_detected",
                 "override_timestamp",
+                "call_start_variables",
             ]
         )
         nullable_fields = set(
@@ -229,6 +236,7 @@ class Session(BaseModel):
                 "user_terminated",
                 "transfer_voicemail_detected",
                 "override_timestamp",
+                "call_start_variables",
             ]
         )
         exclude_none = current_exclude_none()
