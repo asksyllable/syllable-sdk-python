@@ -34442,7 +34442,7 @@
                 "type": "null"
               }
             ],
-            "description": "Requested reasoning effort. Missing or null on create inherits existing service/model policy. On update, omit to preserve the saved choice or send null to reset. Explicit choices require an enabled consuming Cortex reasoning profile and compatible model capabilities; none is distinct from minimal and from inheritance.",
+            "description": "Requested reasoning effort. Missing or null on create inherits existing service/model policy. On update, omit to preserve the saved choice or send null to reset. New explicit choices require a supported GPT-6+ OpenAI/Azure model, an enabled consuming Cortex reasoning profile and compatible capabilities. Existing older-model choices may be retained unchanged on the same provider/model. Use reasoning_policy.allowed_efforts from supported-LLMs metadata for new choices; none is distinct from minimal and inheritance.",
             "examples": [
               null,
               "low"
@@ -34529,6 +34529,62 @@
           "validation_issues"
         ],
         "title": "PromptReasoningErrorResponse"
+      },
+      "PromptReasoningPolicy": {
+        "properties": {
+          "eligible": {
+            "type": "boolean",
+            "title": "Eligible",
+            "default": false
+          },
+          "endpoint": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReasoningEndpoint"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "parallel_tool_calls": {
+            "type": "boolean",
+            "title": "Parallel Tool Calls",
+            "default": false
+          },
+          "allowed_efforts": {
+            "items": {
+              "$ref": "#/components/schemas/ReasoningEffort"
+            },
+            "type": "array",
+            "title": "Allowed Efforts",
+            "description": "Selectable new SDK/API and Console efforts for this scope and model. Empty when ineligible. Revalidate against the actual tools and parameters before saving."
+          },
+          "default_effort": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReasoningEffort"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "disabled_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Disabled Reason"
+          }
+        },
+        "type": "object",
+        "title": "PromptReasoningPolicy",
+        "description": "New-choice eligibility, independent of compatibility of an already saved value."
       },
       "PromptRequestValidationErrorDetail": {
         "properties": {
@@ -35207,7 +35263,7 @@
             },
             "type": "array",
             "title": "Allowed Values",
-            "description": "Accepted enum vocabulary for schema failures; confirmed compatible alternatives for domain failures. Empty means no alternatives are confirmed."
+            "description": "Enum vocabulary for eligible model families on schema failures; compatible alternatives for domain failures. Empty means no alternatives are confirmed."
           }
         },
         "type": "object",
@@ -37963,6 +38019,17 @@
               }
             ],
             "description": "Reviewed reasoning capabilities for this provider/model/version/deployment. Null means capabilities are unknown. Metadata does not enable explicit reasoning choices or establish consuming-service rollout readiness."
+          },
+          "reasoning_policy": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PromptReasoningPolicy"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Scope-specific GPT-6+ SDK/API and Console new-choice eligibility, selectable efforts and explicit default from the audited consuming Cortex policy, evaluated without tools or temperature. Intersect with the actual prompt capabilities before use. This does not redefine native model support or invalidate existing saved values. Use reasoning_policy.allowed_efforts for new choices; native reasoning_capabilities also describe legacy saved values. Missing metadata disables new Console choices."
           }
         },
         "type": "object",
