@@ -34,7 +34,7 @@ class ReasoningValidationIssueTypedDict(TypedDict):
     value: NotRequired[Nullable[str]]
     r"""The offending value, when it adds clarity"""
     allowed_values: NotRequired[List[str]]
-    r"""Accepted enum vocabulary for schema failures; confirmed compatible alternatives for domain failures. Empty means no alternatives are confirmed."""
+    r"""Enum vocabulary for eligible model families on schema failures; compatible alternatives for domain failures. Empty means no alternatives are confirmed."""
 
 
 class ReasoningValidationIssue(BaseModel):
@@ -55,7 +55,7 @@ class ReasoningValidationIssue(BaseModel):
     r"""The offending value, when it adds clarity"""
 
     allowed_values: Optional[List[str]] = None
-    r"""Accepted enum vocabulary for schema failures; confirmed compatible alternatives for domain failures. Empty means no alternatives are confirmed."""
+    r"""Enum vocabulary for eligible model families on schema failures; compatible alternatives for domain failures. Empty means no alternatives are confirmed."""
 
     @model_serializer(mode="wrap")
     def _serialize_model_with_info(self, handler, info):

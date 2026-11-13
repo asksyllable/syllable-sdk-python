@@ -33,7 +33,7 @@ class PromptLlmConfigTypedDict(TypedDict):
     temperature: NotRequired[Nullable[float]]
     r"""Temperature parameter for the model. Determines randomness of responses - higher is more random, lower is more focused. Must be between 0.0 and 2.0, inclusive."""
     reasoning_effort: NotRequired[Nullable[ReasoningEffort]]
-    r"""Requested reasoning effort. Missing or null on create inherits existing service/model policy. On update, omit to preserve the saved choice or send null to reset. Explicit choices require an enabled consuming Cortex reasoning profile and compatible model capabilities; none is distinct from minimal and from inheritance."""
+    r"""Requested reasoning effort. Missing or null on create inherits existing service/model policy. On update, omit to preserve the saved choice or send null to reset. New explicit choices require a supported GPT-6+ OpenAI/Azure model, an enabled consuming Cortex reasoning profile and compatible capabilities. Existing older-model choices may be retained unchanged on the same provider/model. Use reasoning_policy.allowed_efforts from supported-LLMs metadata for new choices; none is distinct from minimal and inheritance."""
     seed: NotRequired[Nullable[int]]
     r"""Deprecated by Syllable; leave unset for new configurations. Retained for backward compatibility where supported, without a guarantee of identical responses. OpenAI and Azure OpenAI Chat Completions offer best-effort seed support on supported models; Responses does not support seed. Anthropic does not support seed as a sampling parameter. Google support depends on the model and API. A saved value does not establish the endpoint or seed handling of a past request, and sending seed does not prove that a provider honored it."""
 
@@ -62,7 +62,7 @@ class PromptLlmConfig(BaseModel):
     r"""Temperature parameter for the model. Determines randomness of responses - higher is more random, lower is more focused. Must be between 0.0 and 2.0, inclusive."""
 
     reasoning_effort: OptionalNullable[ReasoningEffort] = UNSET
-    r"""Requested reasoning effort. Missing or null on create inherits existing service/model policy. On update, omit to preserve the saved choice or send null to reset. Explicit choices require an enabled consuming Cortex reasoning profile and compatible model capabilities; none is distinct from minimal and from inheritance."""
+    r"""Requested reasoning effort. Missing or null on create inherits existing service/model policy. On update, omit to preserve the saved choice or send null to reset. New explicit choices require a supported GPT-6+ OpenAI/Azure model, an enabled consuming Cortex reasoning profile and compatible capabilities. Existing older-model choices may be retained unchanged on the same provider/model. Use reasoning_policy.allowed_efforts from supported-LLMs metadata for new choices; none is distinct from minimal and inheritance."""
 
     seed: Annotated[
         OptionalNullable[int],

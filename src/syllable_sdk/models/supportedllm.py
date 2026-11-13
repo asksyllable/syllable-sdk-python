@@ -3,6 +3,7 @@
 from __future__ import annotations
 from .lifecyclestatus import LifecycleStatus
 from .promptllmprovider import PromptLlmProvider
+from .promptreasoningpolicy import PromptReasoningPolicy, PromptReasoningPolicyTypedDict
 from .supportedllmreasoningcapabilities import (
     SupportedLlmReasoningCapabilities,
     SupportedLlmReasoningCapabilitiesTypedDict,
@@ -55,6 +56,8 @@ class SupportedLlmTypedDict(TypedDict):
         Nullable[SupportedLlmReasoningCapabilitiesTypedDict]
     ]
     r"""Reviewed reasoning capabilities for this provider/model/version/deployment. Null means capabilities are unknown. Metadata does not enable explicit reasoning choices or establish consuming-service rollout readiness."""
+    reasoning_policy: NotRequired[Nullable[PromptReasoningPolicyTypedDict]]
+    r"""Scope-specific GPT-6+ SDK/API and Console new-choice eligibility, selectable efforts and explicit default from the audited consuming Cortex policy, evaluated without tools or temperature. Intersect with the actual prompt capabilities before use. This does not redefine native model support or invalidate existing saved values. Use reasoning_policy.allowed_efforts for new choices; native reasoning_capabilities also describe legacy saved values. Missing metadata disables new Console choices."""
 
 
 class SupportedLlm(BaseModel):
@@ -104,6 +107,9 @@ class SupportedLlm(BaseModel):
     reasoning_capabilities: OptionalNullable[SupportedLlmReasoningCapabilities] = UNSET
     r"""Reviewed reasoning capabilities for this provider/model/version/deployment. Null means capabilities are unknown. Metadata does not enable explicit reasoning choices or establish consuming-service rollout readiness."""
 
+    reasoning_policy: OptionalNullable[PromptReasoningPolicy] = UNSET
+    r"""Scope-specific GPT-6+ SDK/API and Console new-choice eligibility, selectable efforts and explicit default from the audited consuming Cortex policy, evaluated without tools or temperature. Intersect with the actual prompt capabilities before use. This does not redefine native model support or invalidate existing saved values. Use reasoning_policy.allowed_efforts for new choices; native reasoning_capabilities also describe legacy saved values. Missing metadata disables new Console choices."""
+
     @model_serializer(mode="wrap")
     def _serialize_model_with_info(self, handler, info):
         return serialize_with_info(self.serialize_model, handler, info)
@@ -122,6 +128,7 @@ class SupportedLlm(BaseModel):
                 "status",
                 "deployment",
                 "reasoning_capabilities",
+                "reasoning_policy",
             ]
         )
         nullable_fields = set(
@@ -134,6 +141,7 @@ class SupportedLlm(BaseModel):
                 "status",
                 "deployment",
                 "reasoning_capabilities",
+                "reasoning_policy",
             ]
         )
         exclude_none = current_exclude_none()
