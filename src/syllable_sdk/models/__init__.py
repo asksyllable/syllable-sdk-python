@@ -1253,6 +1253,10 @@ if TYPE_CHECKING:
     from .promptllmconfig import PromptLlmConfig, PromptLlmConfigTypedDict
     from .promptllmprovider import PromptLlmProvider
     from .promptproperties import PromptProperties
+    from .promptreasoningpolicy import (
+        PromptReasoningPolicy,
+        PromptReasoningPolicyTypedDict,
+    )
     from .promptrequestvalidationerrordetail import (
         PromptRequestValidationErrorDetail,
         PromptRequestValidationErrorDetailLoc,
@@ -2488,6 +2492,8 @@ __all__ = [
     "PromptLlmConfigTypedDict",
     "PromptLlmProvider",
     "PromptProperties",
+    "PromptReasoningPolicy",
+    "PromptReasoningPolicyTypedDict",
     "PromptRequestValidationErrorDetail",
     "PromptRequestValidationErrorDetailLoc",
     "PromptRequestValidationErrorDetailLocTypedDict",
@@ -3653,6 +3659,8 @@ _dynamic_imports: dict[str, str] = {
     "PromptLlmConfigTypedDict": ".promptllmconfig",
     "PromptLlmProvider": ".promptllmprovider",
     "PromptProperties": ".promptproperties",
+    "PromptReasoningPolicy": ".promptreasoningpolicy",
+    "PromptReasoningPolicyTypedDict": ".promptreasoningpolicy",
     "PromptRequestValidationErrorDetail": ".promptrequestvalidationerrordetail",
     "PromptRequestValidationErrorDetailLoc": ".promptrequestvalidationerrordetail",
     "PromptRequestValidationErrorDetailLocTypedDict": ".promptrequestvalidationerrordetail",
