@@ -33164,7 +33164,7 @@
                 "type": "null"
               }
             ],
-            "description": "Weekday- and date-specific outreach windows and daily maximums. The most specific rule wins: date, then weekday, then the campaign defaults above. Omitted or null means the campaign defaults apply to every active day.",
+            "description": "Weekday-, holiday- and date-specific outreach windows and daily maximums. The most specific rule wins: date, then holiday, then weekday, then the campaign defaults above. On create, omitted or null means no rules: the campaign defaults apply to every active day. On update: omitted keeps all stored rules. Null removes the weekday and date rules but keeps the stored holiday rules. An object replaces the weekday and date rules, and replaces the holiday rules only when it includes holidays. To remove all rules, send {\"holidays\": {}}.",
             "examples": [
               {
                 "dates": {
@@ -33182,6 +33182,11 @@
                   },
                   "thu": {
                     "max_daily_calls": 1300
+                  }
+                },
+                "holidays": {
+                  "christmas-day": {
+                    "active": false
                   }
                 }
               }
@@ -33598,7 +33603,7 @@
                 "type": "null"
               }
             ],
-            "description": "Weekday- and date-specific outreach windows and daily maximums. The most specific rule wins: date, then weekday, then the campaign defaults above. Omitted or null means the campaign defaults apply to every active day.",
+            "description": "Weekday-, holiday- and date-specific outreach windows and daily maximums. The most specific rule wins: date, then holiday, then weekday, then the campaign defaults above. On create, omitted or null means no rules: the campaign defaults apply to every active day. On update: omitted keeps all stored rules. Null removes the weekday and date rules but keeps the stored holiday rules. An object replaces the weekday and date rules, and replaces the holiday rules only when it includes holidays. To remove all rules, send {\"holidays\": {}}.",
             "examples": [
               {
                 "dates": {
@@ -33616,6 +33621,11 @@
                   },
                   "thu": {
                     "max_daily_calls": 1300
+                  }
+                },
+                "holidays": {
+                  "christmas-day": {
+                    "active": false
                   }
                 }
               }
@@ -33908,10 +33918,31 @@
             },
             "type": "object",
             "title": "Dates",
-            "description": "Rules by calendar date, keyed YYYY-MM-DD. A date rule wins over the weekday rule for that date.",
+            "description": "Rules by calendar date, keyed YYYY-MM-DD. A date rule wins over the holiday and weekday rules for that date.",
             "examples": [
               {
                 "2026-11-26": {
+                  "active": false
+                }
+              }
+            ]
+          },
+          "holidays": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ScheduleOverride"
+            },
+            "propertyNames": {
+              "$ref": "#/components/schemas/Holiday"
+            },
+            "type": "object",
+            "title": "Holidays",
+            "description": "Rules by named US holiday, including the Observed variants. They apply every year on the date the holiday falls, so no new rule is needed each year. Holiday names and aliases are the same as in message rules (for example christmas, July 4th) and are stored as the canonical name. A holiday rule wins over the weekday rule, and a date rule wins over the holiday rule. When two holidays with rules fall on the same date, the most restrictive value of each field applies. Set active to false or max_daily_calls to 0 to exclude the holiday. On update, the stored holiday rules are kept when this field is omitted, and also when outreach_override_rules is null. Set this field to {} to remove them.",
+            "examples": [
+              {
+                "christmas-eve": {
+                  "daily_end_time": "12:00"
+                },
+                "thanksgiving-day": {
                   "active": false
                 }
               }
@@ -33920,7 +33951,7 @@
         },
         "type": "object",
         "title": "OutreachOverrideRules",
-        "description": "Weekday- and date-specific outreach rules for a campaign.\n\nThe most specific rule wins: a rule for the calendar date, then a rule for the weekday, then the\ncampaign defaults (``daily_start_time`` / ``daily_end_time`` / ``max_daily_calls`` /\n``active_days``). Resolution is per field, so a date rule that only moves the end time still uses\nthe weekday cap. All days, dates and times are in the time zone of the agent the campaign dials\nfrom -- see ``lib.outbound.schedule``."
+        "description": "Weekday-, holiday- and date-specific outreach rules for a campaign.\n\nThe most specific rule wins: a rule for the calendar date, then a rule for a named holiday on\nthat date, then a rule for the weekday, then the campaign defaults (``daily_start_time`` /\n``daily_end_time`` / ``max_daily_calls`` / ``active_days``). Resolution is per field, so a date\nrule that only moves the end time still uses the weekday cap. All days, dates and times are in\nthe time zone of the agent the campaign dials from."
       },
       "PermissionGroupResponse": {
         "properties": {
@@ -35757,7 +35788,7 @@
               }
             ],
             "title": "Active",
-            "description": "Whether the campaign does outreach on this day. Omitted inherits: a weekday rule inherits from active_days, a date rule inherits from the weekday rule. Set it to false to close one date, for example a holiday, without a change to active_days.",
+            "description": "Whether the campaign does outreach on this day. Omitted inherits: a weekday rule inherits from active_days, a holiday rule from the weekday rule, and a date rule from the holiday rule. Set it to false to exclude the day: no outreach goes out, retries included.",
             "examples": [
               false
             ]
@@ -35811,7 +35842,7 @@
         },
         "type": "object",
         "title": "ScheduleOverride",
-        "description": "Outreach window and/or daily cap for one weekday or one calendar date.\n\nEvery field may be omitted, and an omitted field inherits the campaign default: an override that\nonly sets ``max_daily_calls`` keeps the campaign window, and one that only sets the times keeps\nthe campaign cap. ``max_daily_calls: 0`` is not inheritance -- it is an explicit \"no outreach on\nthis day\", which is the shape the Outbound Scheduler daily_limit config already uses. It closes\nthe day for retries as well as for first attempts, the same way ``active: false`` does; a\nnon-zero maximum bounds first attempts only and lets retries run on."
+        "description": "Outreach window and/or daily cap for one weekday, one named holiday or one calendar date.\n\nEvery field may be omitted, and an omitted field inherits the campaign default: an override that\nonly sets ``max_daily_calls`` keeps the campaign window, and one that only sets the times keeps\nthe campaign cap. ``max_daily_calls: 0`` is not inheritance -- it means no outreach on this day.\nIt closes the day for retries as well as for first attempts, the same way ``active: false``\ndoes; a non-zero maximum bounds first attempts only and lets retries run on."
       },
       "ServiceCreateRequest": {
         "properties": {
