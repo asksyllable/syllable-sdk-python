@@ -63,7 +63,7 @@ class OutboundCampaignInputTypedDict(TypedDict):
     retry_interval: NotRequired[Nullable[str]]
     r"""How long to wait before retrying"""
     outreach_override_rules: NotRequired[Nullable[OutreachOverrideRulesTypedDict]]
-    r"""Weekday- and date-specific outreach windows and daily maximums. The most specific rule wins: date, then weekday, then the campaign defaults above. Omitted or null means the campaign defaults apply to every active day."""
+    r"""Weekday-, holiday- and date-specific outreach windows and daily maximums. The most specific rule wins: date, then holiday, then weekday, then the campaign defaults above. On create, omitted or null means no rules: the campaign defaults apply to every active day. On update: omitted keeps all stored rules. Null removes the weekday and date rules but keeps the stored holiday rules. An object replaces the weekday and date rules, and replaces the holiday rules only when it includes holidays. To remove all rules, send {\"holidays\": {}}."""
     voicemail_detection: NotRequired[Nullable[VoicemailDetectionConfigTypedDict]]
     r"""Config for voicemail detection for voice campaigns. Set to None to disable."""
     allowed_line_types: NotRequired[Nullable[List[LineTypeBucket]]]
@@ -131,7 +131,7 @@ class OutboundCampaignInput(BaseModel):
     r"""How long to wait before retrying"""
 
     outreach_override_rules: OptionalNullable[OutreachOverrideRules] = UNSET
-    r"""Weekday- and date-specific outreach windows and daily maximums. The most specific rule wins: date, then weekday, then the campaign defaults above. Omitted or null means the campaign defaults apply to every active day."""
+    r"""Weekday-, holiday- and date-specific outreach windows and daily maximums. The most specific rule wins: date, then holiday, then weekday, then the campaign defaults above. On create, omitted or null means no rules: the campaign defaults apply to every active day. On update: omitted keeps all stored rules. Null removes the weekday and date rules but keeps the stored holiday rules. An object replaces the weekday and date rules, and replaces the holiday rules only when it includes holidays. To remove all rules, send {\"holidays\": {}}."""
 
     voicemail_detection: OptionalNullable[VoicemailDetectionConfig] = UNSET
     r"""Config for voicemail detection for voice campaigns. Set to None to disable."""
