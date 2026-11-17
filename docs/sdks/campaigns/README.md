@@ -128,11 +128,6 @@ with SyllableSDK(
                     active=False,
                 ),
             },
-            holidays={
-                "christmas-day": models.ScheduleOverride(
-                    active=False,
-                ),
-            },
         ),
         voicemail_detection=models.VoicemailDetectionConfig(
             voicemail_detection_overall_timeout=30.0,
@@ -298,11 +293,6 @@ with SyllableSDK(
             },
             dates={
                 "2026-11-26": models.ScheduleOverride(
-                    active=False,
-                ),
-            },
-            holidays={
-                "christmas-day": models.ScheduleOverride(
                     active=False,
                 ),
             },

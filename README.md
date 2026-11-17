@@ -719,7 +719,7 @@ with SyllableSDK(
 * [`SyllableSDKError`](./src/syllable_sdk/errors/syllablesdkerror.py): The base class for HTTP error responses.
   * [`HTTPValidationError`](./src/syllable_sdk/errors/httpvalidationerror.py): Validation Error. Status code `422`. *
 
-<details><summary>Less common errors (16)</summary>
+<details><summary>Less common errors (15)</summary>
 
 <br />
 
@@ -737,7 +737,6 @@ with SyllableSDK(
 * [`SessionLabelsListBadRequestError`](./src/syllable_sdk/errors/sessionlabelslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 208 methods.*
 * [`SessionsListBadRequestError`](./src/syllable_sdk/errors/sessionslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 208 methods.*
 * [`DirectoryMemberListBadRequestError`](./src/syllable_sdk/errors/directorymemberlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 208 methods.*
-* [`BatchFileCheckResultError`](./src/syllable_sdk/errors/batchfilecheckresulterror.py): Results of the check of a batch file. The check runs before any request is created. Status code `400`. Applicable to 1 of 208 methods.*
 * [`OutboundCampaignListBadRequestError`](./src/syllable_sdk/errors/outboundcampaignlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 208 methods.*
 * [`SessionSummaryErrorResponse`](./src/syllable_sdk/errors/sessionsummaryerrorresponse.py): Summary service unavailable or returned an invalid response. Applicable to 1 of 208 methods.*
 * [`GatewayTimeoutError`](./src/syllable_sdk/errors/gatewaytimeouterror.py): The request timed out. Status code `504`. Applicable to 1 of 208 methods.*

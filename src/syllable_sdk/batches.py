@@ -1046,7 +1046,6 @@ class Batches(BaseSDK):
         self,
         *,
         batch_id: str,
-        validate_only: Optional[bool] = False,
         body_outbound_batch_upload: Optional[
             Union[
                 models.BodyOutboundBatchUpload, models.BodyOutboundBatchUploadTypedDict
@@ -1056,20 +1055,10 @@ class Batches(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.BatchFileCheckResult:
+    ) -> Any:
         r"""Upload Outbound Communication Batch
 
-        Check a batch file, then create a request for each row that can be called.
-
-        The check runs before the response, so the response contains the results. A file with a problem
-        that stops the whole file returns 400, and the batch is marked FAILED with the reason. Requests
-        are created in the background after the response.
-
-        In validate-only mode, the response is always 200: the check itself succeeded, and accepted tells
-        whether the file would be accepted.
-
         :param batch_id:
-        :param validate_only: Check the file and return the results with status 200, also when the file is not accepted. The file is not saved and no requests are created.
         :param body_outbound_batch_upload:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1088,7 +1077,6 @@ class Batches(BaseSDK):
 
         request = models.OutboundBatchUploadRequest(
             batch_id=batch_id,
-            validate_only=validate_only,
             body_outbound_batch_upload=utils.get_pydantic_model(
                 body_outbound_batch_upload, Optional[models.BodyOutboundBatchUpload]
             ),
@@ -1145,12 +1133,7 @@ class Batches(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.BatchFileCheckResult, http_res)
-        if utils.match_response(http_res, "400", "application/json"):
-            response_data = unmarshal_json_response(
-                errors.BatchFileCheckResultErrorData, http_res
-            )
-            raise errors.BatchFileCheckResultError(response_data, http_res)
+            return unmarshal_json_response(Any, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
@@ -1169,7 +1152,6 @@ class Batches(BaseSDK):
         self,
         *,
         batch_id: str,
-        validate_only: Optional[bool] = False,
         body_outbound_batch_upload: Optional[
             Union[
                 models.BodyOutboundBatchUpload, models.BodyOutboundBatchUploadTypedDict
@@ -1179,20 +1161,10 @@ class Batches(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.BatchFileCheckResult:
+    ) -> Any:
         r"""Upload Outbound Communication Batch
 
-        Check a batch file, then create a request for each row that can be called.
-
-        The check runs before the response, so the response contains the results. A file with a problem
-        that stops the whole file returns 400, and the batch is marked FAILED with the reason. Requests
-        are created in the background after the response.
-
-        In validate-only mode, the response is always 200: the check itself succeeded, and accepted tells
-        whether the file would be accepted.
-
         :param batch_id:
-        :param validate_only: Check the file and return the results with status 200, also when the file is not accepted. The file is not saved and no requests are created.
         :param body_outbound_batch_upload:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1211,7 +1183,6 @@ class Batches(BaseSDK):
 
         request = models.OutboundBatchUploadRequest(
             batch_id=batch_id,
-            validate_only=validate_only,
             body_outbound_batch_upload=utils.get_pydantic_model(
                 body_outbound_batch_upload, Optional[models.BodyOutboundBatchUpload]
             ),
@@ -1268,12 +1239,7 @@ class Batches(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.BatchFileCheckResult, http_res)
-        if utils.match_response(http_res, "400", "application/json"):
-            response_data = unmarshal_json_response(
-                errors.BatchFileCheckResultErrorData, http_res
-            )
-            raise errors.BatchFileCheckResultError(response_data, http_res)
+            return unmarshal_json_response(Any, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res

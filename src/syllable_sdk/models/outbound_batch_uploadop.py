@@ -13,20 +13,13 @@ from syllable_sdk.types import (
     serialize_with_info,
 )
 from syllable_sdk.types.basemodel import current_filtered_dump
-from syllable_sdk.utils import (
-    FieldMetadata,
-    PathParamMetadata,
-    QueryParamMetadata,
-    RequestMetadata,
-)
+from syllable_sdk.utils import FieldMetadata, PathParamMetadata, RequestMetadata
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class OutboundBatchUploadRequestTypedDict(TypedDict):
     batch_id: str
-    validate_only: NotRequired[bool]
-    r"""Check the file and return the results with status 200, also when the file is not accepted. The file is not saved and no requests are created."""
     body_outbound_batch_upload: NotRequired[BodyOutboundBatchUploadTypedDict]
 
 
@@ -34,12 +27,6 @@ class OutboundBatchUploadRequest(BaseModel):
     batch_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
-
-    validate_only: Annotated[
-        Optional[bool],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = False
-    r"""Check the file and return the results with status 200, also when the file is not accepted. The file is not saved and no requests are created."""
 
     body_outbound_batch_upload: Annotated[
         Optional[BodyOutboundBatchUpload],
@@ -51,7 +38,7 @@ class OutboundBatchUploadRequest(BaseModel):
         return serialize_with_info(self.serialize_model, handler, info)
 
     def serialize_model(self, handler):
-        optional_fields = set(["validate_only", "Body_outbound_batch_upload"])
+        optional_fields = set(["Body_outbound_batch_upload"])
         exclude_none = current_exclude_none()
         skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)
