@@ -2927,7 +2927,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
-                res = ss_client.outbound.batches.upload(batch_id="<id>", validate_only=False)
+                res = ss_client.outbound.batches.upload(batch_id="<id>")
 
                 # Handle response
                 print(res)
@@ -3010,11 +3010,6 @@ actions:
                         },
                         dates={
                             "2026-11-26": models.ScheduleOverride(
-                                active=False,
-                            ),
-                        },
-                        holidays={
-                            "christmas-day": models.ScheduleOverride(
                                 active=False,
                             ),
                         },
@@ -3155,11 +3150,6 @@ actions:
                         },
                         dates={
                             "2026-11-26": models.ScheduleOverride(
-                                active=False,
-                            ),
-                        },
-                        holidays={
-                            "christmas-day": models.ScheduleOverride(
                                 active=False,
                             ),
                         },

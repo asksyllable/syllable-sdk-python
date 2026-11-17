@@ -8,10 +8,6 @@ from syllable_sdk.utils.dynamic_imports import lazy_getattr, lazy_dir
 if TYPE_CHECKING:
     from .agenterrorresponse import AgentErrorResponse, AgentErrorResponseData
     from .apierror import APIError
-    from .batchfilecheckresult_error import (
-        BatchFileCheckResultError,
-        BatchFileCheckResultErrorData,
-    )
     from .custommessageerrorresponse import (
         CustomMessageErrorResponse,
         CustomMessageErrorResponseData,
@@ -66,8 +62,6 @@ __all__ = [
     "APIError",
     "AgentErrorResponse",
     "AgentErrorResponseData",
-    "BatchFileCheckResultError",
-    "BatchFileCheckResultErrorData",
     "Code",
     "CustomMessageErrorResponse",
     "CustomMessageErrorResponseData",
@@ -105,8 +99,6 @@ _dynamic_imports: dict[str, str] = {
     "AgentErrorResponse": ".agenterrorresponse",
     "AgentErrorResponseData": ".agenterrorresponse",
     "APIError": ".apierror",
-    "BatchFileCheckResultError": ".batchfilecheckresult_error",
-    "BatchFileCheckResultErrorData": ".batchfilecheckresult_error",
     "CustomMessageErrorResponse": ".custommessageerrorresponse",
     "CustomMessageErrorResponseData": ".custommessageerrorresponse",
     "DirectoryMemberListBadRequestError": ".directory_member_listop",

@@ -253,14 +253,7 @@ with SyllableSDK(
 
 ## upload
 
-Check a batch file, then create a request for each row that can be called.
-
-The check runs before the response, so the response contains the results. A file with a problem
-that stops the whole file returns 400, and the batch is marked FAILED with the reason. Requests
-are created in the background after the response.
-
-In validate-only mode, the response is always 200: the check itself succeeded, and accepted tells
-whether the file would be accepted.
+Upload Outbound Communication Batch
 
 ### Example Usage
 
@@ -274,7 +267,7 @@ with SyllableSDK(
     api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
 ) as ss_client:
 
-    res = ss_client.outbound.batches.upload(batch_id="<id>", validate_only=False)
+    res = ss_client.outbound.batches.upload(batch_id="<id>")
 
     # Handle response
     print(res)
@@ -283,24 +276,22 @@ with SyllableSDK(
 
 ### Parameters
 
-| Parameter                                                                                                                                     | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `batch_id`                                                                                                                                    | *str*                                                                                                                                         | :heavy_check_mark:                                                                                                                            | N/A                                                                                                                                           |
-| `validate_only`                                                                                                                               | *Optional[bool]*                                                                                                                              | :heavy_minus_sign:                                                                                                                            | Check the file and return the results with status 200, also when the file is not accepted. The file is not saved and no requests are created. |
-| `body_outbound_batch_upload`                                                                                                                  | [Optional[models.BodyOutboundBatchUpload]](../../models/bodyoutboundbatchupload.md)                                                           | :heavy_minus_sign:                                                                                                                            | N/A                                                                                                                                           |
-| `retries`                                                                                                                                     | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                              | :heavy_minus_sign:                                                                                                                            | Configuration to override the default retry behavior of the client.                                                                           |
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `batch_id`                                                                          | *str*                                                                               | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `body_outbound_batch_upload`                                                        | [Optional[models.BodyOutboundBatchUpload]](../../models/bodyoutboundbatchupload.md) | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `retries`                                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                    | :heavy_minus_sign:                                                                  | Configuration to override the default retry behavior of the client.                 |
 
 ### Response
 
-**[models.BatchFileCheckResult](../../models/batchfilecheckresult.md)**
+**[Any](../../models/.md)**
 
 ### Errors
 
-| Error Type                       | Status Code                      | Content Type                     |
-| -------------------------------- | -------------------------------- | -------------------------------- |
-| errors.BatchFileCheckResultError | 400                              | application/json                 |
-| errors.HTTPValidationError       | 422                              | application/json                 |
-| errors.APIError                  | 4XX, 5XX                         | \*/\*                            |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## results
 
