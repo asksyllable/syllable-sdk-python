@@ -13868,6 +13868,7 @@
           "outbound.batches"
         ],
         "summary": "Upload Outbound Communication Batch",
+        "description": "Check a batch file, then create a request for each row that can be called.\n\nThe check runs before the response, so the response contains the results. A file with a problem\nthat stops the whole file returns 400, and the batch is marked FAILED with the reason. Requests\nare created in the background after the response.\n\nIn validate-only mode, the response is always 200: the check itself succeeded, and accepted tells\nwhether the file would be accepted.",
         "operationId": "outbound_batch_upload",
         "security": [
           {
@@ -13883,6 +13884,18 @@
               "type": "string",
               "title": "Batch Id"
             }
+          },
+          {
+            "name": "validate_only",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "Check the file and return the results with status 200, also when the file is not accepted. The file is not saved and no requests are created.",
+              "default": false,
+              "title": "Validate Only"
+            },
+            "description": "Check the file and return the results with status 200, also when the file is not accepted. The file is not saved and no requests are created."
           }
         ],
         "requestBody": {
@@ -13899,7 +13912,19 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/BatchFileCheckResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The file was not accepted. The error message says why, the batch is marked FAILED, and no requests were created. Only a normal upload returns this. With validate_only, a file that is not accepted returns 200 with accepted set to false. A batch that already has a file also returns 400, with only a detail field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchFileCheckResult"
+                }
               }
             }
           },
@@ -14581,6 +14606,53 @@
             }
           }
         }
+      }
+    },
+    "/api/v1/outbound/campaigns/excluded_dates": {
+      "post": {
+        "tags": [
+          "outbound.campaigns"
+        ],
+        "summary": "List Outbound Communication Campaign Excluded Dates",
+        "description": "The dates on which a date or holiday rule stops all outreach, with the names of the matching holidays. The rules and the active days come from the request body, so the dates can be shown for a campaign that is not saved yet. A date on which the campaign does not run anyway is not listed. Nothing is stored. With no range, the next 12 months from today in the given time zone are returned. The range can be at most 5 years.",
+        "operationId": "outbound_campaign_excluded_dates",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CampaignExcludedDatesRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CampaignExcludedDates"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
       }
     },
     "/api/v1/organizations/sip_ip_ranges/": {
@@ -18717,6 +18789,284 @@
         ],
         "title": "BatchDetails"
       },
+      "BatchFileCheckResult": {
+        "properties": {
+          "accepted": {
+            "type": "boolean",
+            "title": "Accepted",
+            "description": "False when a problem with the whole file stops the upload. No requests are created from a file that is not accepted.",
+            "examples": [
+              true
+            ]
+          },
+          "error_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Message",
+            "description": "Why the file is not accepted, and what to do. Empty when the file is accepted.",
+            "examples": [
+              "The file has no \"target\" column. The first line must have a column named \"target\", in lowercase and with no spaces. Put the phone number or email address of each contact in this column, then upload the file to a new batch."
+            ]
+          },
+          "columns": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Columns",
+            "description": "Column names found on the first line of the file",
+            "examples": [
+              [
+                "target",
+                "reference_id",
+                "first_name"
+              ]
+            ]
+          },
+          "reference_id_column": {
+            "type": "boolean",
+            "title": "Reference Id Column",
+            "description": "Whether the file has a reference_id column",
+            "examples": [
+              true
+            ]
+          },
+          "request_variable_columns": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Request Variable Columns",
+            "description": "Columns whose values the agent receives as request variables",
+            "examples": [
+              [
+                "first_name"
+              ]
+            ]
+          },
+          "total_rows": {
+            "type": "integer",
+            "title": "Total Rows",
+            "description": "Number of contact rows in the file",
+            "examples": [
+              100
+            ]
+          },
+          "rows_to_call": {
+            "type": "integer",
+            "title": "Rows To Call",
+            "description": "Number of rows that pass the file check and will be called. Email opt-outs and the campaign target filter can still stop some of these rows when they are loaded.",
+            "examples": [
+              97
+            ]
+          },
+          "problem_counts": {
+            "items": {
+              "$ref": "#/components/schemas/BatchFileProblemCount"
+            },
+            "type": "array",
+            "title": "Problem Counts",
+            "description": "Number of rows with each problem that was found, across the entire file."
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings",
+            "description": "Things to know about the file that do not stop any row from being called",
+            "examples": [
+              [
+                "The file has no \"reference_id\" column. The phone number or email address is used as the reference for each contact."
+              ]
+            ]
+          },
+          "problem_rows": {
+            "items": {
+              "$ref": "#/components/schemas/BatchFileProblemRow"
+            },
+            "type": "array",
+            "title": "Problem Rows",
+            "description": "Each problem found, by row, up to the first 1,000 problems. A row with two problems is listed twice."
+          },
+          "sample_rows": {
+            "items": {
+              "$ref": "#/components/schemas/BatchFileSampleRow"
+            },
+            "type": "array",
+            "title": "Sample Rows",
+            "description": "The first rows that will be called, as the agent receives them"
+          }
+        },
+        "type": "object",
+        "required": [
+          "accepted",
+          "columns",
+          "reference_id_column",
+          "request_variable_columns",
+          "total_rows",
+          "rows_to_call",
+          "problem_counts",
+          "warnings",
+          "problem_rows",
+          "sample_rows"
+        ],
+        "title": "BatchFileCheckResult",
+        "description": "Results of the check of a batch file. The check runs before any request is created."
+      },
+      "BatchFileProblem": {
+        "type": "string",
+        "enum": [
+          "invalid_target",
+          "missing_target",
+          "duplicate_target",
+          "duplicate_reference_id",
+          "missing_op_id"
+        ],
+        "title": "BatchFileProblem",
+        "description": "A problem found in one row of a batch file."
+      },
+      "BatchFileProblemCount": {
+        "properties": {
+          "problem": {
+            "$ref": "#/components/schemas/BatchFileProblem",
+            "description": "The problem",
+            "examples": [
+              "invalid_target"
+            ]
+          },
+          "count": {
+            "type": "integer",
+            "title": "Count",
+            "description": "Number of rows with this problem",
+            "examples": [
+              3
+            ]
+          },
+          "called": {
+            "type": "boolean",
+            "title": "Called",
+            "description": "Whether rows with this problem are called",
+            "examples": [
+              false
+            ]
+          },
+          "outcome": {
+            "type": "string",
+            "title": "Outcome",
+            "description": "What the problem is and what happens to the rows that have it",
+            "examples": [
+              "The phone number is not valid. These rows are marked Invalid and not called."
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "problem",
+          "count",
+          "called",
+          "outcome"
+        ],
+        "title": "BatchFileProblemCount",
+        "description": "How many rows of a batch file have one problem, and what happens to those rows."
+      },
+      "BatchFileProblemRow": {
+        "properties": {
+          "row_number": {
+            "type": "integer",
+            "title": "Row Number",
+            "description": "Row number in the file, as a spreadsheet shows it. The column names are row 1.",
+            "examples": [
+              7
+            ]
+          },
+          "reference_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Id",
+            "description": "The reference_id of the row, if it has one",
+            "examples": [
+              "12345"
+            ]
+          },
+          "problem": {
+            "$ref": "#/components/schemas/BatchFileProblem",
+            "description": "The problem",
+            "examples": [
+              "invalid_target"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason",
+            "description": "What is wrong with the row",
+            "examples": [
+              "The phone number \"555-0100\" is not valid."
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "row_number",
+          "problem",
+          "reason"
+        ],
+        "title": "BatchFileProblemRow",
+        "description": "One problem found in one row of a batch file."
+      },
+      "BatchFileSampleRow": {
+        "properties": {
+          "reference_id": {
+            "type": "string",
+            "title": "Reference Id",
+            "description": "Reference for the contact",
+            "examples": [
+              "12345"
+            ]
+          },
+          "target": {
+            "type": "string",
+            "title": "Target",
+            "description": "Phone number or email address to contact",
+            "examples": [
+              "+12125551234"
+            ]
+          },
+          "request_variables": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Request Variables",
+            "description": "Values from the other columns",
+            "examples": [
+              {
+                "first_name": "Jane"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "reference_id",
+          "target",
+          "request_variables"
+        ],
+        "title": "BatchFileSampleRow",
+        "description": "A row of a batch file as the agent receives it."
+      },
       "BatchProperties": {
         "type": "string",
         "enum": [
@@ -19522,6 +19872,192 @@
         ],
         "title": "CallResultSaveMapping",
         "description": "One field-extraction mapping applied to a call action's tool response.\n\nExample: {\"from\": \"is_valid\", \"to\": \"is_valid\"}\nExample (derived value): {\"from\": \"status == 'valid'\", \"to\": \"is_valid\"}"
+      },
+      "CampaignExcludedDate": {
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date",
+            "title": "Date",
+            "description": "Excluded date, in the time zone of the campaign agent"
+          },
+          "rule": {
+            "type": "string",
+            "enum": [
+              "date",
+              "holiday"
+            ],
+            "title": "Rule",
+            "description": "The kind of rule that excludes this date.",
+            "examples": [
+              "holiday"
+            ]
+          },
+          "holidays": {
+            "items": {
+              "$ref": "#/components/schemas/CampaignExcludedDateHoliday"
+            },
+            "type": "array",
+            "title": "Holidays",
+            "description": "The holiday rules of the campaign that fall on this date. Empty when only a date rule applies."
+          }
+        },
+        "type": "object",
+        "required": [
+          "date",
+          "rule"
+        ],
+        "title": "CampaignExcludedDate"
+      },
+      "CampaignExcludedDateHoliday": {
+        "properties": {
+          "holiday": {
+            "$ref": "#/components/schemas/Holiday",
+            "description": "Canonical holiday name",
+            "examples": [
+              "christmas-day"
+            ]
+          },
+          "label": {
+            "type": "string",
+            "title": "Label",
+            "description": "Human-readable holiday name",
+            "examples": [
+              "Christmas Day"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "holiday",
+          "label"
+        ],
+        "title": "CampaignExcludedDateHoliday"
+      },
+      "CampaignExcludedDates": {
+        "properties": {
+          "timezone": {
+            "type": "string",
+            "title": "Timezone",
+            "description": "Time zone used for today",
+            "examples": [
+              "America/New_York"
+            ]
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "title": "Start Date",
+            "description": "First date of the range, inclusive"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "title": "End Date",
+            "description": "Last date of the range, inclusive"
+          },
+          "dates": {
+            "items": {
+              "$ref": "#/components/schemas/CampaignExcludedDate"
+            },
+            "type": "array",
+            "title": "Dates",
+            "description": "Dates in the range on which a date or holiday rule stops all outreach, in order."
+          }
+        },
+        "type": "object",
+        "required": [
+          "timezone",
+          "start_date",
+          "end_date"
+        ],
+        "title": "CampaignExcludedDates"
+      },
+      "CampaignExcludedDatesRequest": {
+        "properties": {
+          "outreach_override_rules": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OutreachOverrideRules"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The outreach rules of the campaign, in the same shape as the campaign field. Null or omitted means no rules, and so no excluded dates.",
+            "examples": [
+              {
+                "holidays": {
+                  "thanksgiving-day": {
+                    "active": false
+                  }
+                }
+              }
+            ]
+          },
+          "active_days": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/DaysOfWeek"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Days",
+            "description": "Days of the week when the campaign is active, in the same shape as the campaign field. A date on a day the campaign does not run is not listed, also when a date or holiday rule closes it. Null or omitted means every day of the week.",
+            "examples": [
+              [
+                "mon",
+                "tue",
+                "wed",
+                "thu",
+                "fri"
+              ]
+            ]
+          },
+          "start_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Date",
+            "description": "First date of the range, inclusive. Default: today in timezone."
+          },
+          "end_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End Date",
+            "description": "Last date of the range, inclusive. Default: 12 months after start_date. The range can be at most 5 years."
+          },
+          "timezone": {
+            "type": "string",
+            "title": "Timezone",
+            "description": "IANA time zone of the agent the campaign dials from. It sets which date is today for the default start_date. Default: UTC.",
+            "default": "UTC",
+            "examples": [
+              "America/New_York"
+            ]
+          }
+        },
+        "type": "object",
+        "title": "CampaignExcludedDatesRequest",
+        "description": "Outreach rules and a date range to list the excluded dates for.\n\nThe rules come from the request, not from a stored campaign, so a client can show the excluded\ndates of a campaign that is being created or edited before it is saved."
       },
       "CampaignProperties": {
         "type": "string",
@@ -33201,7 +33737,7 @@
                 "type": "null"
               }
             ],
-            "description": "Weekday- and date-specific outreach windows and daily maximums. The most specific rule wins: date, then weekday, then the campaign defaults above. Omitted or null means the campaign defaults apply to every active day.",
+            "description": "Weekday-, holiday- and date-specific outreach windows and daily maximums. The most specific rule wins: date, then holiday, then weekday, then the campaign defaults above. On create, omitted or null means no rules: the campaign defaults apply to every active day. On update: omitted keeps all stored rules. Null removes the weekday and date rules but keeps the stored holiday rules. An object replaces the weekday and date rules, and replaces the holiday rules only when it includes holidays. To remove all rules, send {\"holidays\": {}}.",
             "examples": [
               {
                 "dates": {
@@ -33219,6 +33755,11 @@
                   },
                   "thu": {
                     "max_daily_calls": 1300
+                  }
+                },
+                "holidays": {
+                  "christmas-day": {
+                    "active": false
                   }
                 }
               }
@@ -33635,7 +34176,7 @@
                 "type": "null"
               }
             ],
-            "description": "Weekday- and date-specific outreach windows and daily maximums. The most specific rule wins: date, then weekday, then the campaign defaults above. Omitted or null means the campaign defaults apply to every active day.",
+            "description": "Weekday-, holiday- and date-specific outreach windows and daily maximums. The most specific rule wins: date, then holiday, then weekday, then the campaign defaults above. On create, omitted or null means no rules: the campaign defaults apply to every active day. On update: omitted keeps all stored rules. Null removes the weekday and date rules but keeps the stored holiday rules. An object replaces the weekday and date rules, and replaces the holiday rules only when it includes holidays. To remove all rules, send {\"holidays\": {}}.",
             "examples": [
               {
                 "dates": {
@@ -33653,6 +34194,11 @@
                   },
                   "thu": {
                     "max_daily_calls": 1300
+                  }
+                },
+                "holidays": {
+                  "christmas-day": {
+                    "active": false
                   }
                 }
               }
@@ -33945,10 +34491,31 @@
             },
             "type": "object",
             "title": "Dates",
-            "description": "Rules by calendar date, keyed YYYY-MM-DD. A date rule wins over the weekday rule for that date.",
+            "description": "Rules by calendar date, keyed YYYY-MM-DD. A date rule wins over the holiday and weekday rules for that date.",
             "examples": [
               {
                 "2026-11-26": {
+                  "active": false
+                }
+              }
+            ]
+          },
+          "holidays": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ScheduleOverride"
+            },
+            "propertyNames": {
+              "$ref": "#/components/schemas/Holiday"
+            },
+            "type": "object",
+            "title": "Holidays",
+            "description": "Rules by named US holiday, including the Observed variants. They apply every year on the date the holiday falls, so no new rule is needed each year. Holiday names and aliases are the same as in message rules (for example christmas, July 4th) and are stored as the canonical name. A holiday rule wins over the weekday rule, and a date rule wins over the holiday rule. When two holidays with rules fall on the same date, the most restrictive value of each field applies. Set active to false or max_daily_calls to 0 to exclude the holiday. On update, the stored holiday rules are kept when this field is omitted, and also when outreach_override_rules is null. Set this field to {} to remove them.",
+            "examples": [
+              {
+                "christmas-eve": {
+                  "daily_end_time": "12:00"
+                },
+                "thanksgiving-day": {
                   "active": false
                 }
               }
@@ -33957,7 +34524,7 @@
         },
         "type": "object",
         "title": "OutreachOverrideRules",
-        "description": "Weekday- and date-specific outreach rules for a campaign.\n\nThe most specific rule wins: a rule for the calendar date, then a rule for the weekday, then the\ncampaign defaults (``daily_start_time`` / ``daily_end_time`` / ``max_daily_calls`` /\n``active_days``). Resolution is per field, so a date rule that only moves the end time still uses\nthe weekday cap. All days, dates and times are in the time zone of the agent the campaign dials\nfrom -- see ``lib.outbound.schedule``."
+        "description": "Weekday-, holiday- and date-specific outreach rules for a campaign.\n\nThe most specific rule wins: a rule for the calendar date, then a rule for a named holiday on\nthat date, then a rule for the weekday, then the campaign defaults (``daily_start_time`` /\n``daily_end_time`` / ``max_daily_calls`` / ``active_days``). Resolution is per field, so a date\nrule that only moves the end time still uses the weekday cap. All days, dates and times are in\nthe time zone of the agent the campaign dials from."
       },
       "PermissionGroupResponse": {
         "properties": {
@@ -35794,7 +36361,7 @@
               }
             ],
             "title": "Active",
-            "description": "Whether the campaign does outreach on this day. Omitted inherits: a weekday rule inherits from active_days, a date rule inherits from the weekday rule. Set it to false to close one date, for example a holiday, without a change to active_days.",
+            "description": "Whether the campaign does outreach on this day. Omitted inherits: a weekday rule inherits from active_days, a holiday rule from the weekday rule, and a date rule from the holiday rule. Set it to false to exclude the day: no outreach goes out, retries included.",
             "examples": [
               false
             ]
@@ -35848,7 +36415,7 @@
         },
         "type": "object",
         "title": "ScheduleOverride",
-        "description": "Outreach window and/or daily cap for one weekday or one calendar date.\n\nEvery field may be omitted, and an omitted field inherits the campaign default: an override that\nonly sets ``max_daily_calls`` keeps the campaign window, and one that only sets the times keeps\nthe campaign cap. ``max_daily_calls: 0`` is not inheritance -- it is an explicit \"no outreach on\nthis day\", which is the shape the Outbound Scheduler daily_limit config already uses. It closes\nthe day for retries as well as for first attempts, the same way ``active: false`` does; a\nnon-zero maximum bounds first attempts only and lets retries run on."
+        "description": "Outreach window and/or daily cap for one weekday, one named holiday or one calendar date.\n\nEvery field may be omitted, and an omitted field inherits the campaign default: an override that\nonly sets ``max_daily_calls`` keeps the campaign window, and one that only sets the times keeps\nthe campaign cap. ``max_daily_calls: 0`` is not inheritance -- it means no outreach on this day.\nIt closes the day for retries as well as for first attempts, the same way ``active: false``\ndoes; a non-zero maximum bounds first attempts only and lets retries run on."
       },
       "ServiceCreateRequest": {
         "properties": {
