@@ -17,6 +17,7 @@ value = AgentVoiceModel.CHIRP_3_HD
 | ------------------- | ------------------- |
 | `CHIRP_3_HD`        | Chirp 3 HD          |
 | `ELEVEN_FLASH_V2_5` | eleven_flash_v2_5   |
+| `ELEVEN_TURBO_V2_5` | eleven_turbo_v2_5   |
 | `NEURAL2`           | Neural2             |
 | `STANDARD`          | Standard            |
 | `STUDIO`            | Studio              |

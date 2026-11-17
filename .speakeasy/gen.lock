@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a3e2761c-0979-427e-b940-b6de6c04cc0d
 management:
-  docChecksum: cca15253e85ad0b6e811c14dfafa59ae
+  docChecksum: e4e4f2d2c289a0e53e524d53655b222b
   docVersion: 0.0.3
   speakeasyVersion: 1.809.0
   generationVersion: 2.961.1
-  releaseVersion: 0.50.31
-  configChecksum: ebe48c8918a7b44eb14045b325c440f8
+  releaseVersion: 0.50.32
+  configChecksum: 271de2309d72858c2cd5d8a9488819ed
   repoURL: https://github.com/asksyllable/syllable-sdk-python.git
   installationURL: https://github.com/asksyllable/syllable-sdk-python.git
   published: true
 persistentEdits:
-  generation_id: 7223173e-9268-4b21-976d-d1919c38c372
-  pristine_commit_hash: 972d63e97ade92999246cf8fbfbfe0ceead40b8e
-  pristine_tree_hash: 0cc6bec1283a4cc705a62b2c55bbecd784e37f17
+  generation_id: 40f61978-d198-44f2-bfc2-6c0b5cd44e45
+  pristine_commit_hash: 4a558fa70ea59573237a147512cb270e8ee01aba
+  pristine_tree_hash: 30d1eb08d9038091d95fd9ba0ce9aa854c4b0b5f
 features:
   python:
     additionalDependencies: 1.1.0
@@ -232,20 +232,20 @@ trackedFiles:
     pristine_git_object: e12631cb130dbc8459fcb1f01ea4946a634a6bdd
   docs/models/agentvoicedisplayname.md:
     id: a58d24650c14
-    last_write_checksum: sha1:008aa6d0cddbd76edd10e0cfc0e2c932024fa7ed
-    pristine_git_object: 7bf607007ce375b811067275e2d0a3e7c8f170eb
+    last_write_checksum: sha1:fea0bb2ed0f25c8bbac7b09a28264addc3e43647
+    pristine_git_object: b66379f06e12730e6eef00bde3fdb8333a9d95d0
   docs/models/agentvoicegender.md:
     id: 89c54bd7737d
     last_write_checksum: sha1:5b6fec4b9c61202d929698829fa3af3c5fbcb6d9
     pristine_git_object: 40538f1f0174c66b26a10807fb4d7be62d3ca364
   docs/models/agentvoicemodel.md:
     id: d67c17df1c97
-    last_write_checksum: sha1:4b5d9a64b63f01bae95b514e4e70e3c8ebcc2d83
-    pristine_git_object: d5e423005daf930581bfceb7456ebce9961aba1c
+    last_write_checksum: sha1:73679031e1f4fc34d008711b011de8d9fdd15349
+    pristine_git_object: ffbfeaef155bca3a0ecc34bf088b3f1a7fc91ce9
   docs/models/agentvoicevarname.md:
     id: ca8523fb485a
-    last_write_checksum: sha1:cdf2669dd3c4e6bd120728e762df69a914df375e
-    pristine_git_object: bbd5b055558181a19915579f8a0ea15202cd80b0
+    last_write_checksum: sha1:53cccf8cafb12394d66ffb9a1bddfbd4b8dfb26a
+    pristine_git_object: 91d6f07e082c2d1f63af76c0669f1c992d1b6e94
   docs/models/agentwaitsound.md:
     id: c2d1f308fa5c
     last_write_checksum: sha1:a9fbde6ffcca302a24eb5c94c990fd1983d56fb4
@@ -2888,8 +2888,8 @@ trackedFiles:
     pristine_git_object: 6a3b01908092d3349be5058c4d36fe09f3f97a8a
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:a2bd96501312d6b2728c6e7be6a4c9dafbbb0e64
-    pristine_git_object: 9743c680e9a3336cd2d581b8cacc9912a4ed7e82
+    last_write_checksum: sha1:e098d6bb2fb63d683f8e237ad5f56e955d5e8d19
+    pristine_git_object: 4c0e8b918463b2f7290a0a3857794fc8b1a07287
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:cec8e8c8fba65adb2ad99346339c685c598aa40b
@@ -2916,8 +2916,8 @@ trackedFiles:
     pristine_git_object: 132885676dc1885890d1c8a13bd01fcfcb8e3fbc
   src/syllable_sdk/_version.py:
     id: a33ca20e5830
-    last_write_checksum: sha1:5818b02141c45c139fdb8af61394b887b1a0b0b3
-    pristine_git_object: 32884c943fd0210c4204f3b0846504c798d92570
+    last_write_checksum: sha1:9727252e962431ed0bd9db76e1629712dfcd3725
+    pristine_git_object: 23d706fb0ca7c80009b4b447fa5c1fdca6eb1bc5
   src/syllable_sdk/agents.py:
     id: 7af75e678b89
     last_write_checksum: sha1:4dd0abac730991493b90e1e6f618ff77d7ca3d7f
@@ -3168,20 +3168,20 @@ trackedFiles:
     pristine_git_object: ae84bb26eaee57c43ab8a0a7db5d8119eaa460df
   src/syllable_sdk/models/agentvoicedisplayname.py:
     id: 67f9cb1fa22f
-    last_write_checksum: sha1:91097c964e4f1c845a6fc9005788f0a028cb8399
-    pristine_git_object: 5280a395299f6aa8d54ba9ce38e7816b7e26604e
+    last_write_checksum: sha1:d9678aea9786e2bd6aaca1ac19817fea02bbbc98
+    pristine_git_object: 7cf62514980393d20d37255b413556823e0cc212
   src/syllable_sdk/models/agentvoicegender.py:
     id: cf81df9f4289
     last_write_checksum: sha1:7cf4e66c5528c1f2d9b8888e0747f487b009c2f8
     pristine_git_object: 0f6260097f20b02d05a0ac8115b07d745b20fd05
   src/syllable_sdk/models/agentvoicemodel.py:
     id: 029cd917cf3f
-    last_write_checksum: sha1:23338430675ec29c2a062c8f28baac0bd4671627
-    pristine_git_object: 346272e4de51ba4ca2bd064a1782d24b7b17ffbb
+    last_write_checksum: sha1:40d78393ff5c042c3f8c9f4c9e18bc8d6515f820
+    pristine_git_object: 9039e7af41924cced09966e96ca08c6195ba52a4
   src/syllable_sdk/models/agentvoicevarname.py:
     id: 652a8274bcc3
-    last_write_checksum: sha1:5537c095884563617b0fea9ca7cb2ceff1cf2598
-    pristine_git_object: 7e0ca2308381d7c5bf8d4cfbc3f0b72c12f2f3d1
+    last_write_checksum: sha1:ec4746e8b12c78f6ba432e1be520e686252326e6
+    pristine_git_object: 5bb60efe9df3da61d33812b52eb45005ae6f28c2
   src/syllable_sdk/models/agentwaitsound.py:
     id: c5fb43420990
     last_write_checksum: sha1:6054923fe1a0b4ade9eed5cfe1eed2912d0e08fe
@@ -7490,7 +7490,7 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.outbound.batches.upload()`: \n  *  `request.validate_only` **Added**\n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.status[400]` **Added**\n"
+releaseNotes: "## Python SDK Changes:\n* `syllable_sdk.channels.targets.update()`:  `response.agent.language_group.language_configs[].voice_display_name` **Changed** (Breaking ⚠️)\n* `syllable_sdk.language_groups.create()`: \n  *  `request.language_configs[].voice_display_name` **Changed**\n  *  `response.language_configs[].voice_display_name` **Changed** (Breaking ⚠️)\n* `syllable_sdk.agents.update()`:  `response.language_group.language_configs[].voice_display_name` **Changed** (Breaking ⚠️)\n* `syllable_sdk.language_groups.list()`:  `response.items[].language_configs[].voice_display_name` **Changed** (Breaking ⚠️)\n* `syllable_sdk.agents.agent_get_available_voices()`:  `response.[]` **Changed** (Breaking ⚠️)\n* `syllable_sdk.channels.targets.list()`:  `response.items[].agent.language_group.language_configs[].voice_display_name` **Changed** (Breaking ⚠️)\n* `syllable_sdk.channels.targets.create()`:  `response.agent.language_group.language_configs[].voice_display_name` **Changed** (Breaking ⚠️)\n* `syllable_sdk.channels.targets.get_by_id()`:  `response.agent.language_group.language_configs[].voice_display_name` **Changed** (Breaking ⚠️)\n* `syllable_sdk.agents.create()`:  `response.language_group.language_configs[].voice_display_name` **Changed** (Breaking ⚠️)\n* `syllable_sdk.agents.list()`:  `response.items[].language_group.language_configs[].voice_display_name` **Changed** (Breaking ⚠️)\n* `syllable_sdk.agents.get_by_id()`:  `response.language_group.language_configs[].voice_display_name` **Changed** (Breaking ⚠️)\n* `syllable_sdk.language_groups.update()`: \n  *  `request.language_configs[].voice_display_name` **Changed**\n  *  `response.language_configs[].voice_display_name` **Changed** (Breaking ⚠️)\n* `syllable_sdk.language_groups.get_by_id()`:  `response.language_configs[].voice_display_name` **Changed** (Breaking ⚠️)\n* `syllable_sdk.voice_groups.get_by_id()`:  `response.language_configs[].voice_display_name` **Changed** (Breaking ⚠️)\n* `syllable_sdk.voice_groups.list()`:  `response.items[].language_configs[].voice_display_name` **Changed** (Breaking ⚠️)\n* `syllable_sdk.voice_groups.create()`: \n  *  `request.language_configs[].voice_display_name` **Changed**\n  *  `response.language_configs[].voice_display_name` **Changed** (Breaking ⚠️)\n* `syllable_sdk.voice_groups.update()`: \n  *  `request.language_configs[].voice_display_name` **Changed**\n  *  `response.language_configs[].voice_display_name` **Changed** (Breaking ⚠️)\n* `syllable_sdk.language_groups.language_groups_create_voice_sample()`: \n  *  `request.voice_display_name` **Changed**\n* `syllable_sdk.voice_groups.voice_groups_create_voice_sample()`: \n  *  `request.voice_display_name` **Changed**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
