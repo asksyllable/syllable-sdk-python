@@ -80,6 +80,17 @@ if TYPE_CHECKING:
     from .availabletarget import AvailableTarget, AvailableTargetTypedDict
     from .availabletargetproperties import AvailableTargetProperties
     from .batchdetails import BatchDetails, BatchDetailsTypedDict
+    from .batchfilecheckresult import (
+        BatchFileCheckResult,
+        BatchFileCheckResultTypedDict,
+    )
+    from .batchfileproblem import BatchFileProblem
+    from .batchfileproblemcount import (
+        BatchFileProblemCount,
+        BatchFileProblemCountTypedDict,
+    )
+    from .batchfileproblemrow import BatchFileProblemRow, BatchFileProblemRowTypedDict
+    from .batchfilesamplerow import BatchFileSampleRow, BatchFileSampleRowTypedDict
     from .batchproperties import BatchProperties
     from .batchstatus import BatchStatus
     from .body_directory_member_bulk_load import (
@@ -176,6 +187,23 @@ if TYPE_CHECKING:
         From1TypedDict,
         From2,
         From2TypedDict,
+    )
+    from .campaignexcludeddate import (
+        CampaignExcludedDate,
+        CampaignExcludedDateTypedDict,
+        RuleEnum,
+    )
+    from .campaignexcludeddateholiday import (
+        CampaignExcludedDateHoliday,
+        CampaignExcludedDateHolidayTypedDict,
+    )
+    from .campaignexcludeddates import (
+        CampaignExcludedDates,
+        CampaignExcludedDatesTypedDict,
+    )
+    from .campaignexcludeddatesrequest import (
+        CampaignExcludedDatesRequest,
+        CampaignExcludedDatesRequestTypedDict,
     )
     from .campaignproperties import CampaignProperties
     from .cardclickrequest import (
@@ -328,11 +356,11 @@ if TYPE_CHECKING:
     )
     from .custommessagehistoryresponse import (
         CustomMessageHistoryResponse,
+        CustomMessageHistoryResponseRule,
+        CustomMessageHistoryResponseRuleTypedDict,
         CustomMessageHistoryResponseTypeConfig,
         CustomMessageHistoryResponseTypeConfigTypedDict,
         CustomMessageHistoryResponseTypedDict,
-        Rule,
-        RuleTypedDict,
     )
     from .custommessageproperties import CustomMessageProperties
     from .custommessageresponse import (
@@ -1741,6 +1769,15 @@ __all__ = [
     "AvailableTargetsRequestTypedDict",
     "BatchDetails",
     "BatchDetailsTypedDict",
+    "BatchFileCheckResult",
+    "BatchFileCheckResultTypedDict",
+    "BatchFileProblem",
+    "BatchFileProblemCount",
+    "BatchFileProblemCountTypedDict",
+    "BatchFileProblemRow",
+    "BatchFileProblemRowTypedDict",
+    "BatchFileSampleRow",
+    "BatchFileSampleRowTypedDict",
     "BatchProperties",
     "BatchStatus",
     "BodyDirectoryMemberBulkLoad",
@@ -1800,6 +1837,14 @@ __all__ = [
     "CallResultSaveMapping",
     "CallResultSaveMappingTypedDict",
     "CallResultTypedDict",
+    "CampaignExcludedDate",
+    "CampaignExcludedDateHoliday",
+    "CampaignExcludedDateHolidayTypedDict",
+    "CampaignExcludedDateTypedDict",
+    "CampaignExcludedDates",
+    "CampaignExcludedDatesRequest",
+    "CampaignExcludedDatesRequestTypedDict",
+    "CampaignExcludedDatesTypedDict",
     "CampaignProperties",
     "CardClickRequest",
     "CardClickRequestTypedDict",
@@ -1906,6 +1951,8 @@ __all__ = [
     "CustomMessageHistoryRequest",
     "CustomMessageHistoryRequestTypedDict",
     "CustomMessageHistoryResponse",
+    "CustomMessageHistoryResponseRule",
+    "CustomMessageHistoryResponseRuleTypedDict",
     "CustomMessageHistoryResponseTypeConfig",
     "CustomMessageHistoryResponseTypeConfigTypedDict",
     "CustomMessageHistoryResponseTypedDict",
@@ -2545,8 +2592,7 @@ __all__ = [
     "RolesGetByIDRequestTypedDict",
     "RolesListRequest",
     "RolesListRequestTypedDict",
-    "Rule",
-    "RuleTypedDict",
+    "RuleEnum",
     "SampleRate",
     "SampleRateTypedDict",
     "SaveAction",
@@ -2901,6 +2947,15 @@ _dynamic_imports: dict[str, str] = {
     "AvailableTargetProperties": ".availabletargetproperties",
     "BatchDetails": ".batchdetails",
     "BatchDetailsTypedDict": ".batchdetails",
+    "BatchFileCheckResult": ".batchfilecheckresult",
+    "BatchFileCheckResultTypedDict": ".batchfilecheckresult",
+    "BatchFileProblem": ".batchfileproblem",
+    "BatchFileProblemCount": ".batchfileproblemcount",
+    "BatchFileProblemCountTypedDict": ".batchfileproblemcount",
+    "BatchFileProblemRow": ".batchfileproblemrow",
+    "BatchFileProblemRowTypedDict": ".batchfileproblemrow",
+    "BatchFileSampleRow": ".batchfilesamplerow",
+    "BatchFileSampleRowTypedDict": ".batchfilesamplerow",
     "BatchProperties": ".batchproperties",
     "BatchStatus": ".batchstatus",
     "BodyDirectoryMemberBulkLoad": ".body_directory_member_bulk_load",
@@ -2964,6 +3019,15 @@ _dynamic_imports: dict[str, str] = {
     "From1TypedDict": ".callresultsavemapping",
     "From2": ".callresultsavemapping",
     "From2TypedDict": ".callresultsavemapping",
+    "CampaignExcludedDate": ".campaignexcludeddate",
+    "CampaignExcludedDateTypedDict": ".campaignexcludeddate",
+    "RuleEnum": ".campaignexcludeddate",
+    "CampaignExcludedDateHoliday": ".campaignexcludeddateholiday",
+    "CampaignExcludedDateHolidayTypedDict": ".campaignexcludeddateholiday",
+    "CampaignExcludedDates": ".campaignexcludeddates",
+    "CampaignExcludedDatesTypedDict": ".campaignexcludeddates",
+    "CampaignExcludedDatesRequest": ".campaignexcludeddatesrequest",
+    "CampaignExcludedDatesRequestTypedDict": ".campaignexcludeddatesrequest",
     "CampaignProperties": ".campaignproperties",
     "ActionType": ".cardclickrequest",
     "CardClickRequest": ".cardclickrequest",
@@ -3065,11 +3129,11 @@ _dynamic_imports: dict[str, str] = {
     "CustomMessageHistoryMetadata": ".custommessagehistorymetadata",
     "CustomMessageHistoryMetadataTypedDict": ".custommessagehistorymetadata",
     "CustomMessageHistoryResponse": ".custommessagehistoryresponse",
+    "CustomMessageHistoryResponseRule": ".custommessagehistoryresponse",
+    "CustomMessageHistoryResponseRuleTypedDict": ".custommessagehistoryresponse",
     "CustomMessageHistoryResponseTypeConfig": ".custommessagehistoryresponse",
     "CustomMessageHistoryResponseTypeConfigTypedDict": ".custommessagehistoryresponse",
     "CustomMessageHistoryResponseTypedDict": ".custommessagehistoryresponse",
-    "Rule": ".custommessagehistoryresponse",
-    "RuleTypedDict": ".custommessagehistoryresponse",
     "CustomMessageProperties": ".custommessageproperties",
     "CustomMessageResponse": ".custommessageresponse",
     "CustomMessageResponseTypeConfig": ".custommessageresponse",

@@ -15,11 +15,11 @@ from typing import List
 from typing_extensions import TypedDict
 
 
-class RuleTypedDict(TypedDict):
+class CustomMessageHistoryResponseRuleTypedDict(TypedDict):
     pass
 
 
-class Rule(BaseModel):
+class CustomMessageHistoryResponseRule(BaseModel):
     pass
 
 
@@ -48,7 +48,7 @@ class CustomMessageHistoryResponseTypedDict(TypedDict):
     text: str
     label: Nullable[str]
     repeat_after_language_change: bool
-    rules: List[RuleTypedDict]
+    rules: List[CustomMessageHistoryResponseRuleTypedDict]
     type_config: CustomMessageHistoryResponseTypeConfigTypedDict
 
 
@@ -83,7 +83,7 @@ class CustomMessageHistoryResponse(BaseModel):
 
     repeat_after_language_change: bool
 
-    rules: List[Rule]
+    rules: List[CustomMessageHistoryResponseRule]
 
     type_config: CustomMessageHistoryResponseTypeConfig
 
