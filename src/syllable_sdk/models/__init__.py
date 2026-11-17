@@ -80,6 +80,17 @@ if TYPE_CHECKING:
     from .availabletarget import AvailableTarget, AvailableTargetTypedDict
     from .availabletargetproperties import AvailableTargetProperties
     from .batchdetails import BatchDetails, BatchDetailsTypedDict
+    from .batchfilecheckresult import (
+        BatchFileCheckResult,
+        BatchFileCheckResultTypedDict,
+    )
+    from .batchfileproblem import BatchFileProblem
+    from .batchfileproblemcount import (
+        BatchFileProblemCount,
+        BatchFileProblemCountTypedDict,
+    )
+    from .batchfileproblemrow import BatchFileProblemRow, BatchFileProblemRowTypedDict
+    from .batchfilesamplerow import BatchFileSampleRow, BatchFileSampleRowTypedDict
     from .batchproperties import BatchProperties
     from .batchstatus import BatchStatus
     from .body_directory_member_bulk_load import (
@@ -1741,6 +1752,15 @@ __all__ = [
     "AvailableTargetsRequestTypedDict",
     "BatchDetails",
     "BatchDetailsTypedDict",
+    "BatchFileCheckResult",
+    "BatchFileCheckResultTypedDict",
+    "BatchFileProblem",
+    "BatchFileProblemCount",
+    "BatchFileProblemCountTypedDict",
+    "BatchFileProblemRow",
+    "BatchFileProblemRowTypedDict",
+    "BatchFileSampleRow",
+    "BatchFileSampleRowTypedDict",
     "BatchProperties",
     "BatchStatus",
     "BodyDirectoryMemberBulkLoad",
@@ -2901,6 +2921,15 @@ _dynamic_imports: dict[str, str] = {
     "AvailableTargetProperties": ".availabletargetproperties",
     "BatchDetails": ".batchdetails",
     "BatchDetailsTypedDict": ".batchdetails",
+    "BatchFileCheckResult": ".batchfilecheckresult",
+    "BatchFileCheckResultTypedDict": ".batchfilecheckresult",
+    "BatchFileProblem": ".batchfileproblem",
+    "BatchFileProblemCount": ".batchfileproblemcount",
+    "BatchFileProblemCountTypedDict": ".batchfileproblemcount",
+    "BatchFileProblemRow": ".batchfileproblemrow",
+    "BatchFileProblemRowTypedDict": ".batchfileproblemrow",
+    "BatchFileSampleRow": ".batchfilesamplerow",
+    "BatchFileSampleRowTypedDict": ".batchfilesamplerow",
     "BatchProperties": ".batchproperties",
     "BatchStatus": ".batchstatus",
     "BodyDirectoryMemberBulkLoad": ".body_directory_member_bulk_load",

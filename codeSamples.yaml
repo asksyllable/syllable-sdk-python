@@ -2927,7 +2927,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
-                res = ss_client.outbound.batches.upload(batch_id="<id>")
+                res = ss_client.outbound.batches.upload(batch_id="<id>", validate_only=False)
 
                 # Handle response
                 print(res)
