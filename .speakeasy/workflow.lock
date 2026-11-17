@@ -2,8 +2,8 @@ speakeasyVersion: 1.809.0
 sources:
     SyllableSDK:
         sourceNamespace: syllable-sdk-oas
-        sourceRevisionDigest: sha256:404a906055b287226053de801f19c27a6eee234bd8c734b63d90ac85a21214cc
-        sourceBlobDigest: sha256:84ed523c3de3074c43b4e5354bdc4719f76267b3430f5738be498359bd138ae9
+        sourceRevisionDigest: sha256:4d07f61955336dd73c8e2e85b871197fcafba41eb068fe6fab01566764a531b0
+        sourceBlobDigest: sha256:a8aeacfb1d3c433d11c704860533be4d224151c56b77bf3a0d573d97ef67172e
         tags:
             - latest
             - 0.0.3
@@ -11,10 +11,10 @@ targets:
     syllable-sdk:
         source: SyllableSDK
         sourceNamespace: syllable-sdk-oas
-        sourceRevisionDigest: sha256:404a906055b287226053de801f19c27a6eee234bd8c734b63d90ac85a21214cc
-        sourceBlobDigest: sha256:84ed523c3de3074c43b4e5354bdc4719f76267b3430f5738be498359bd138ae9
+        sourceRevisionDigest: sha256:4d07f61955336dd73c8e2e85b871197fcafba41eb068fe6fab01566764a531b0
+        sourceBlobDigest: sha256:a8aeacfb1d3c433d11c704860533be4d224151c56b77bf3a0d573d97ef67172e
         codeSamplesNamespace: code-samples-python-sdk-syllable-sdk-oas-code-samples
-        codeSamplesRevisionDigest: sha256:56fc37555ae0b64890aaddaf8a59e54297b507536c2f7aa488918f87028108b4
+        codeSamplesRevisionDigest: sha256:09082620de83e26501d28543f3ffd9f04be62bb1c888016626067f4fcda317ea
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
