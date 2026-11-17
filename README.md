@@ -464,6 +464,7 @@ with SyllableSDK(
 * [get_by_id](docs/sdks/campaigns/README.md#get_by_id) - Get Outbound Communication Campaign
 * [update](docs/sdks/campaigns/README.md#update) - Update Outbound Communication Campaign
 * [delete](docs/sdks/campaigns/README.md#delete) - Delete Outbound Communication Campaign
+* [outbound_campaign_excluded_dates](docs/sdks/campaigns/README.md#outbound_campaign_excluded_dates) - List Outbound Communication Campaign Excluded Dates
 
 ### [Permissions](docs/sdks/permissions/README.md)
 
@@ -719,7 +720,7 @@ with SyllableSDK(
 * [`SyllableSDKError`](./src/syllable_sdk/errors/syllablesdkerror.py): The base class for HTTP error responses.
   * [`HTTPValidationError`](./src/syllable_sdk/errors/httpvalidationerror.py): Validation Error. Status code `422`. *
 
-<details><summary>Less common errors (15)</summary>
+<details><summary>Less common errors (16)</summary>
 
 <br />
 
@@ -730,16 +731,17 @@ with SyllableSDK(
 
 
 **Inherit from [`SyllableSDKError`](./src/syllable_sdk/errors/syllablesdkerror.py)**:
-* [`AgentErrorResponse`](./src/syllable_sdk/errors/agenterrorresponse.py): Applicable to 4 of 208 methods.*
-* [`CustomMessageErrorResponse`](./src/syllable_sdk/errors/custommessageerrorresponse.py): Applicable to 4 of 208 methods.*
-* [`PromptReasoningErrorResponse`](./src/syllable_sdk/errors/promptreasoningerrorresponse.py): Unprocessable Entity. Status code `422`. Applicable to 2 of 208 methods.*
-* [`PromptSchemaValidationErrorResponse`](./src/syllable_sdk/errors/promptschemavalidationerrorresponse.py): Unprocessable Entity. Status code `422`. Applicable to 2 of 208 methods.*
-* [`SessionLabelsListBadRequestError`](./src/syllable_sdk/errors/sessionlabelslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 208 methods.*
-* [`SessionsListBadRequestError`](./src/syllable_sdk/errors/sessionslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 208 methods.*
-* [`DirectoryMemberListBadRequestError`](./src/syllable_sdk/errors/directorymemberlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 208 methods.*
-* [`OutboundCampaignListBadRequestError`](./src/syllable_sdk/errors/outboundcampaignlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 208 methods.*
-* [`SessionSummaryErrorResponse`](./src/syllable_sdk/errors/sessionsummaryerrorresponse.py): Summary service unavailable or returned an invalid response. Applicable to 1 of 208 methods.*
-* [`GatewayTimeoutError`](./src/syllable_sdk/errors/gatewaytimeouterror.py): The request timed out. Status code `504`. Applicable to 1 of 208 methods.*
+* [`AgentErrorResponse`](./src/syllable_sdk/errors/agenterrorresponse.py): Applicable to 4 of 209 methods.*
+* [`CustomMessageErrorResponse`](./src/syllable_sdk/errors/custommessageerrorresponse.py): Applicable to 4 of 209 methods.*
+* [`PromptReasoningErrorResponse`](./src/syllable_sdk/errors/promptreasoningerrorresponse.py): Unprocessable Entity. Status code `422`. Applicable to 2 of 209 methods.*
+* [`PromptSchemaValidationErrorResponse`](./src/syllable_sdk/errors/promptschemavalidationerrorresponse.py): Unprocessable Entity. Status code `422`. Applicable to 2 of 209 methods.*
+* [`SessionLabelsListBadRequestError`](./src/syllable_sdk/errors/sessionlabelslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 209 methods.*
+* [`SessionsListBadRequestError`](./src/syllable_sdk/errors/sessionslistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 209 methods.*
+* [`DirectoryMemberListBadRequestError`](./src/syllable_sdk/errors/directorymemberlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 209 methods.*
+* [`BatchFileCheckResultError`](./src/syllable_sdk/errors/batchfilecheckresulterror.py): Results of the check of a batch file. The check runs before any request is created. Status code `400`. Applicable to 1 of 209 methods.*
+* [`OutboundCampaignListBadRequestError`](./src/syllable_sdk/errors/outboundcampaignlistbadrequesterror.py): Bad request, including malformed datetime query parameters. Status code `400`. Applicable to 1 of 209 methods.*
+* [`SessionSummaryErrorResponse`](./src/syllable_sdk/errors/sessionsummaryerrorresponse.py): Summary service unavailable or returned an invalid response. Applicable to 1 of 209 methods.*
+* [`GatewayTimeoutError`](./src/syllable_sdk/errors/gatewaytimeouterror.py): The request timed out. Status code `504`. Applicable to 1 of 209 methods.*
 * [`ResponseValidationError`](./src/syllable_sdk/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>

@@ -2927,7 +2927,7 @@ actions:
                 api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
             ) as ss_client:
 
-                res = ss_client.outbound.batches.upload(batch_id="<id>")
+                res = ss_client.outbound.batches.upload(batch_id="<id>", validate_only=False)
 
                 # Handle response
                 print(res)
@@ -3013,6 +3013,11 @@ actions:
                                 active=False,
                             ),
                         },
+                        holidays={
+                            "christmas-day": models.ScheduleOverride(
+                                active=False,
+                            ),
+                        },
                     ),
                     voicemail_detection=models.VoicemailDetectionConfig(
                         voicemail_detection_overall_timeout=30.0,
@@ -3054,6 +3059,57 @@ actions:
                         ),
                     ],
                 ))
+
+                # Handle response
+                print(res)
+  - target: $["paths"]["/api/v1/outbound/campaigns/excluded_dates"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: Python (SDK)
+          source: |-
+            import os
+            from syllable_sdk import SyllableSDK, models
+
+
+            with SyllableSDK(
+                api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
+            ) as ss_client:
+
+                res = ss_client.outbound.campaigns.outbound_campaign_excluded_dates(request={
+                    "outreach_override_rules": {
+                        "days": {
+                            "fri": {
+                                "daily_end_time": "15:00:00",
+                                "max_daily_calls": 1300,
+                            },
+                            "sat": {
+                                "max_daily_calls": 0,
+                            },
+                            "thu": {
+                                "max_daily_calls": 1300,
+                            },
+                        },
+                        "dates": {
+                            "2026-11-26": {
+                                "active": False,
+                            },
+                        },
+                        "holidays": {
+                            "christmas-day": {
+                                "active": False,
+                            },
+                        },
+                    },
+                    "active_days": [
+                        models.DaysOfWeek.MON,
+                        models.DaysOfWeek.TUE,
+                        models.DaysOfWeek.WED,
+                        models.DaysOfWeek.THU,
+                        models.DaysOfWeek.FRI,
+                    ],
+                    "timezone": "America/New_York",
+                })
 
                 # Handle response
                 print(res)
@@ -3150,6 +3206,11 @@ actions:
                         },
                         dates={
                             "2026-11-26": models.ScheduleOverride(
+                                active=False,
+                            ),
+                        },
+                        holidays={
+                            "christmas-day": models.ScheduleOverride(
                                 active=False,
                             ),
                         },

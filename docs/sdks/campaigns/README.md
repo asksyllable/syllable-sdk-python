@@ -11,6 +11,7 @@ Operations related to outbound message campaigns
 * [get_by_id](#get_by_id) - Get Outbound Communication Campaign
 * [update](#update) - Update Outbound Communication Campaign
 * [delete](#delete) - Delete Outbound Communication Campaign
+* [outbound_campaign_excluded_dates](#outbound_campaign_excluded_dates) - List Outbound Communication Campaign Excluded Dates
 
 ## list
 
@@ -125,6 +126,11 @@ with SyllableSDK(
             },
             dates={
                 "2026-11-26": models.ScheduleOverride(
+                    active=False,
+                ),
+            },
+            holidays={
+                "christmas-day": models.ScheduleOverride(
                     active=False,
                 ),
             },
@@ -296,6 +302,11 @@ with SyllableSDK(
                     active=False,
                 ),
             },
+            holidays={
+                "christmas-day": models.ScheduleOverride(
+                    active=False,
+                ),
+            },
         ),
         voicemail_detection=models.VoicemailDetectionConfig(
             voicemail_detection_overall_timeout=30.0,
@@ -395,6 +406,80 @@ with SyllableSDK(
 ### Response
 
 **[Any](../../models/.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## outbound_campaign_excluded_dates
+
+The dates on which a date or holiday rule stops all outreach, with the names of the matching holidays. The rules and the active days come from the request body, so the dates can be shown for a campaign that is not saved yet. A date on which the campaign does not run anyway is not listed. Nothing is stored. With no range, the next 12 months from today in the given time zone are returned. The range can be at most 5 years.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="outbound_campaign_excluded_dates" method="post" path="/api/v1/outbound/campaigns/excluded_dates" -->
+```python
+import os
+from syllable_sdk import SyllableSDK, models
+
+
+with SyllableSDK(
+    api_key_header=os.getenv("SYLLABLESDK_API_KEY_HEADER"),
+) as ss_client:
+
+    res = ss_client.outbound.campaigns.outbound_campaign_excluded_dates(request={
+        "outreach_override_rules": {
+            "days": {
+                "fri": {
+                    "daily_end_time": "15:00:00",
+                    "max_daily_calls": 1300,
+                },
+                "sat": {
+                    "max_daily_calls": 0,
+                },
+                "thu": {
+                    "max_daily_calls": 1300,
+                },
+            },
+            "dates": {
+                "2026-11-26": {
+                    "active": False,
+                },
+            },
+            "holidays": {
+                "christmas-day": {
+                    "active": False,
+                },
+            },
+        },
+        "active_days": [
+            models.DaysOfWeek.MON,
+            models.DaysOfWeek.TUE,
+            models.DaysOfWeek.WED,
+            models.DaysOfWeek.THU,
+            models.DaysOfWeek.FRI,
+        ],
+        "timezone": "America/New_York",
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `request`                                                                           | [models.CampaignExcludedDatesRequest](../../models/campaignexcludeddatesrequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
+| `retries`                                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                    | :heavy_minus_sign:                                                                  | Configuration to override the default retry behavior of the client.                 |
+
+### Response
+
+**[models.CampaignExcludedDates](../../models/campaignexcludeddates.md)**
 
 ### Errors
 
