@@ -30,6 +30,9 @@ with SyllableSDK(
         "text": "Hello",
         "test_id": "<id>",
         "agent_id": "<id>",
+        "session_variables": {
+            "vars.facility-name": "Northside Clinic",
+        },
     })
 
     # Handle response

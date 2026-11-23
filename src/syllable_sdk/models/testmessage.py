@@ -13,7 +13,7 @@ from syllable_sdk.types import (
     serialize_with_info,
 )
 from syllable_sdk.types.basemodel import current_filtered_dump
-from typing import Optional
+from typing import Dict, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -38,6 +38,8 @@ class TestMessageTypedDict(TypedDict):
     r"""Override for the timestamp of the message"""
     session_start: NotRequired[bool]
     r"""Whether this message is the start of a new session"""
+    session_variables: NotRequired[Nullable[Dict[str, str]]]
+    r"""Custom vars.* values that override saved agent defaults for this test session. Dotted names such as vars.facility-name are supported. Supply up to 64 variables with at most 65,536 UTF-8 bytes across all values. Supply only with session_start=true. Requires agents_write in addition to chat. The vars.session namespace is reserved. Look for session_variables_applied in the response content to confirm that the values were applied."""
 
 
 class TestMessage(BaseModel):
@@ -74,13 +76,18 @@ class TestMessage(BaseModel):
     session_start: Optional[bool] = False
     r"""Whether this message is the start of a new session"""
 
+    session_variables: OptionalNullable[Dict[str, str]] = UNSET
+    r"""Custom vars.* values that override saved agent defaults for this test session. Dotted names such as vars.facility-name are supported. Supply up to 64 variables with at most 65,536 UTF-8 bytes across all values. Supply only with session_start=true. Requires agents_write in addition to chat. The vars.session namespace is reserved. Look for session_variables_applied in the response content to confirm that the values were applied."""
+
     @model_serializer(mode="wrap")
     def _serialize_model_with_info(self, handler, info):
         return serialize_with_info(self.serialize_model, handler, info)
 
     def serialize_model(self, handler):
-        optional_fields = set(["org_name", "override_timestamp", "session_start"])
-        nullable_fields = set(["org_name", "override_timestamp"])
+        optional_fields = set(
+            ["org_name", "override_timestamp", "session_start", "session_variables"]
+        )
+        nullable_fields = set(["org_name", "override_timestamp", "session_variables"])
         exclude_none = current_exclude_none()
         skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)
