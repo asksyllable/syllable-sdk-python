@@ -180,7 +180,7 @@ with SyllableSDK(
 
 ### Response
 
-**[httpx.Response](../../models/bytes.md)**
+**[models.SessionRecordingStreamResponse](../../models/sessionrecordingstreamresponse.md)**
 
 ### Errors
 

@@ -6360,6 +6360,18 @@ paths:
                 type: "string"
                 title: "bytes"
                 format: "binary"
+        "504":
+          description: "Recording storage did not respond before the lookup deadline"
+          headers:
+            Retry-After:
+              description: "Seconds to wait before retrying the recording download"
+              schema:
+                type: "integer"
+                example: 5
+          content:
+            application/json:
+              example:
+                error: "Gateway Timeout"
         "422":
           description: "Validation Error"
           content:
