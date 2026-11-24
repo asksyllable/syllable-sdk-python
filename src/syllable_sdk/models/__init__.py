@@ -1399,6 +1399,8 @@ if TYPE_CHECKING:
     from .session_recording_streamop import (
         SessionRecordingStreamRequest,
         SessionRecordingStreamRequestTypedDict,
+        SessionRecordingStreamResponse,
+        SessionRecordingStreamResponseTypedDict,
     )
     from .session_timeline_get_by_idop import (
         SessionTimelineGetByIDRequest,
@@ -2657,6 +2659,8 @@ __all__ = [
     "SessionRecordingResponseTypedDict",
     "SessionRecordingStreamRequest",
     "SessionRecordingStreamRequestTypedDict",
+    "SessionRecordingStreamResponse",
+    "SessionRecordingStreamResponseTypedDict",
     "SessionSummaryResponse",
     "SessionSummaryResponseTypedDict",
     "SessionText",
@@ -3817,6 +3821,8 @@ _dynamic_imports: dict[str, str] = {
     "SessionLatencyGetByIDRequestTypedDict": ".session_latency_get_by_idop",
     "SessionRecordingStreamRequest": ".session_recording_streamop",
     "SessionRecordingStreamRequestTypedDict": ".session_recording_streamop",
+    "SessionRecordingStreamResponse": ".session_recording_streamop",
+    "SessionRecordingStreamResponseTypedDict": ".session_recording_streamop",
     "SessionTimelineGetByIDRequest": ".session_timeline_get_by_idop",
     "SessionTimelineGetByIDRequestTypedDict": ".session_timeline_get_by_idop",
     "SessionTranscriptGetByIDRequest": ".session_transcript_get_by_idop",
